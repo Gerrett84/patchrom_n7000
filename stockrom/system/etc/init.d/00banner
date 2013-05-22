@@ -1,0 +1,10 @@
+#!/system/bin/sh
+#
+# Print startup info
+#
+L="log -p i -t VengeanceNote"
+
+$L "Welcome to Android `getprop ro.build.version.release` / VengeanceNote TW 2";
+$L " ";
+$L " ";
+$L " ";

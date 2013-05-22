@@ -1,0 +1,11 @@
+10
+::::::::::::::
+/home/builder/jb-build/out/target/product/maguro/pre_install_apk_pkgname.txt
+::::::::::::::
+com.alipay.android.app
+com.xiaomi.gamecenter
+com.sogou.inputmethod.mi
+com.miui.video
+com.miui.userbook
+com.miui.voiceassist
+com.miui.weather2

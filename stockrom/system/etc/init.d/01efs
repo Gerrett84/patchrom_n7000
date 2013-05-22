@@ -1,0 +1,12 @@
+#!/system/bin/sh
+# EFS auto backup script for Samsung Galaxy S II
+# By @paulobrien - http://s2.MoDaCo.com
+
+mount /dev/block/mmcblk0p11 /sdcard
+
+if [ ! -f /sdcard/efs.autobackup.img ];
+then
+	dd if=/dev/block/mmcblk0p1 of=/sdcard/efs.autobackup.img
+fi
+
+umount /sdcard

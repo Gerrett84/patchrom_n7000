@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RomConfig>
+    <RomName>VengeanceNoteTW3</RomName>
+    <RomVersion></RomVersion>
+    <RomCheckUrl>http://roms.gerrett84.de/n7000/miui/updateme/vetw3/update_me_ckeck.xml</RomCheckUrl>
+    <RomElemUrl>http://roms.gerrett84.de/n7000/miui/updateme/gapps/4.1.2/update_me_gapps.xml</RomElemUrl>
+    <RomElemUrl>http://roms.gerrett84.de/n7000/miui/updateme/vetw3/update_me_apps.xml</RomElemUrl>
+    <RomElemUrl>http://roms.gerrett84.de/n7000/miui/updateme/vetw3/update_me_multi.xml</RomElemUrl>
+    <RomElemUrl>http://roms.gerrett84.de/n7000/miui/updateme/vetw3/update_me_kernel.xml</RomElemUrl>
+    <DisableInstalledApps>1</DisableInstalledApps>
+    <DisableScripts>1</DisableScripts>
+    <LightTheme>1</LightTheme>
+    <OtaUid>1155669944772288</OtaUid>
+	<RebootType>1</RebootType><!-- 0 no install,1 install on cwm, 2 install openrecoveryscript -->
+		
+
+
+</RomConfig>
