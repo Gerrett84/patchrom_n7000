@@ -87,10 +87,5 @@ dalvik.vm.dexopt-flags=m=y
 net.bt.name=Android
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
 
-
-#persist.sys.usb.config=mass_storage,adb
-#persist.sys.purgeable_assets=1
-#persist.adb.notify=1
-
 ro.miui.version.code=3
 ro.miui.version.name=V5
