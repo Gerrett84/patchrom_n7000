@@ -5745,19 +5745,45 @@
     .parameter "path"
 
     .prologue
-    .line 1989
-    move-object v13, p1
+    .line 1470
+    const/4 v12, 0x0
 
-    .line 1992
-    .local v13, key:Ljava/lang/String;
+    .line 1472
+    .local v12, c:Landroid/database/Cursor;
+    :try_start_0
+    const-string v0, "_"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "%"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    :cond_0
+    const/4 v13, 0x1
+
+    .line 1474
+    .local v13, hasWildCards:Z
+    :goto_0
+    if-nez v13, :cond_1
+
     iget-boolean v0, p0, Landroid/media/MediaScanner;->mCaseInsensitivePaths:Z
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_5
 
-    .line 1995
-    const-string v3, "_data LIKE ?1 AND lower(_data)=lower(?1)"
+    .line 1479
+    :cond_1
+    const-string v3, "_data=?"
 
-    .line 1996
+    .line 1480
     .local v3, where:Ljava/lang/String;
     const/4 v0, 0x1
 
@@ -5767,14 +5793,9 @@
 
     aput-object p1, v4, v0
 
-    .line 2002
+    .line 1487
     .local v4, selectionArgs:[Ljava/lang/String;
-    :goto_0
-    const/4 v12, 0x0
-
-    .line 2004
-    .local v12, c:Landroid/database/Cursor;
-    :try_start_0
+    :goto_1
     iget-object v0, p0, Landroid/media/MediaScanner;->mMediaProvider:Landroid/content/IContentProvider;
 
     iget-object v1, p0, Landroid/media/MediaScanner;->mFilesUri:Landroid/net/Uri;
@@ -5789,24 +5810,67 @@
 
     move-result-object v12
 
-    .line 2006
-    if-eqz v12, :cond_2
-
-    .line 2007
-    invoke-interface {v12}, Landroid/database/Cursor;->moveToNext()Z
+    .line 1489
+    invoke-interface {v12}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
+    if-nez v0, :cond_2
+
+    if-eqz v13, :cond_2
+
+    iget-boolean v0, p0, Landroid/media/MediaScanner;->mCaseInsensitivePaths:Z
+
     if-eqz v0, :cond_2
 
-    .line 2008
+    .line 1494
+    const-string v3, "_data LIKE ?1 AND lower(_data)=lower(?1)"
+
+    .line 1495
+    const/4 v0, 0x1
+
+    new-array v4, v0, [Ljava/lang/String;
+
+    .end local v4           #selectionArgs:[Ljava/lang/String;
+    const/4 v0, 0x0
+
+    aput-object p1, v4, v0
+
+    .line 1496
+    .restart local v4       #selectionArgs:[Ljava/lang/String;
+    invoke-interface {v12}, Landroid/database/Cursor;->close()V
+
+    .line 1497
+    iget-object v0, p0, Landroid/media/MediaScanner;->mMediaProvider:Landroid/content/IContentProvider;
+
+    iget-object v1, p0, Landroid/media/MediaScanner;->mFilesUri:Landroid/net/Uri;
+
+    sget-object v2, Landroid/media/MediaScanner;->FILES_PRESCAN_PROJECTION:[Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    invoke-interface/range {v0 .. v6}, Landroid/content/IContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
+
+    move-result-object v12
+
+    .line 1502
+    :cond_2
+    invoke-interface {v12}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    .line 1503
     const/4 v0, 0x0
 
     invoke-interface {v12, v0}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v6
 
-    .line 2009
+    .line 1504
     .local v6, rowId:J
     const/4 v0, 0x2
 
@@ -5814,7 +5878,7 @@
 
     move-result v11
 
-    .line 2010
+    .line 1505
     .local v11, format:I
     const/4 v0, 0x3
 
@@ -5822,7 +5886,7 @@
 
     move-result-wide v9
 
-    .line 2011
+    .line 1506
     .local v9, lastModified:J
     new-instance v5, Landroid/media/MediaScanner$FileEntry;
 
@@ -5833,28 +5897,36 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2016
-    if-eqz v12, :cond_0
+    .line 1510
+    if-eqz v12, :cond_3
 
-    .line 2017
+    .line 1511
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    .line 2020
+    .line 1514
+    .end local v3           #where:Ljava/lang/String;
+    .end local v4           #selectionArgs:[Ljava/lang/String;
     .end local v6           #rowId:J
     .end local v9           #lastModified:J
     .end local v11           #format:I
-    :cond_0
-    :goto_1
+    .end local v13           #hasWildCards:Z
+    :cond_3
+    :goto_2
     return-object v5
 
-    .line 1998
-    .end local v3           #where:Ljava/lang/String;
-    .end local v4           #selectionArgs:[Ljava/lang/String;
-    .end local v12           #c:Landroid/database/Cursor;
-    :cond_1
-    const-string v3, "_data=?"
+    .line 1472
+    :cond_4
+    const/4 v13, 0x0
 
-    .line 1999
+    goto :goto_0
+
+    .line 1484
+    .restart local v13       #hasWildCards:Z
+    :cond_5
+    :try_start_1
+    const-string v3, "_data LIKE ?1 AND lower(_data)=lower(?1)"
+
+    .line 1485
     .restart local v3       #where:Ljava/lang/String;
     const/4 v0, 0x1
 
@@ -5863,48 +5935,54 @@
     const/4 v0, 0x0
 
     aput-object p1, v4, v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .restart local v4       #selectionArgs:[Ljava/lang/String;
-    goto :goto_0
-
-    .line 2016
-    .restart local v12       #c:Landroid/database/Cursor;
-    :cond_2
-    if-eqz v12, :cond_3
-
-    .line 2017
-    invoke-interface {v12}, Landroid/database/Cursor;->close()V
-
-    .line 2020
-    :cond_3
-    :goto_2
-    const/4 v5, 0x0
-
     goto :goto_1
 
-    .line 2014
-    :catch_0
-    move-exception v0
-
-    .line 2016
-    if-eqz v12, :cond_3
-
-    .line 2017
-    invoke-interface {v12}, Landroid/database/Cursor;->close()V
-
-    goto :goto_2
-
-    .line 2016
+    .line 1510
+    .end local v3           #where:Ljava/lang/String;
+    .end local v4           #selectionArgs:[Ljava/lang/String;
+    .end local v13           #hasWildCards:Z
     :catchall_0
     move-exception v0
 
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_6
 
-    .line 2017
+    .line 1511
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    :cond_4
+    .line 1510
+    :cond_6
     throw v0
+
+    .line 1508
+    :catch_0
+    move-exception v0
+
+    .line 1510
+    if-eqz v12, :cond_7
+
+    .line 1511
+    :goto_3
+    invoke-interface {v12}, Landroid/database/Cursor;->close()V
+
+    .line 1514
+    :cond_7
+    const/4 v5, 0x0
+
+    goto :goto_2
+
+    .line 1510
+    .restart local v3       #where:Ljava/lang/String;
+    .restart local v4       #selectionArgs:[Ljava/lang/String;
+    .restart local v13       #hasWildCards:Z
+    :cond_8
+    if-eqz v12, :cond_7
+
+    goto :goto_3
 .end method
 
 .method public release()V
