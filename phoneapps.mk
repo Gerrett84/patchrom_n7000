@@ -43,7 +43,6 @@ private-phone-apps := ApplicationsProvider \
 					  PopupuiReceiver \
 					  Preconfig \
 					  PreloadInstaller \
-					  SamsungIME \
 					  SamsungCamera \
 					  SamsungTTS \
 					  SecMediaProvider \
