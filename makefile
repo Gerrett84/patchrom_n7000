@@ -44,6 +44,9 @@ local-pre-zip-misc:
 	cp stockrom/system/app/FFFFFFFF000000000000000000000001.drbin $(ZIP_DIR)/system/app
 	cp -r stockrom/data/app/ $(ZIP_DIR)/data/app
 	cp -r stockrom/system/app/mcRegistry $(ZIP_DIR)/system/app
+	rm -rf $(ZIP_DIR)/system/sipdb
+	rm -rf $(ZIP_DIR)/system/hdic
+	rm -rf $(ZIP_DIR)/system/T9DB
 	rm -rf $(ZIP_DIR)/system/csc
 	rm -rf $(pre_install_data_packages)
 	for apk in $(ZIP_DIR)/data/media/preinstall_apps/*.apk; do\
