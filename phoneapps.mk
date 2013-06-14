@@ -3,11 +3,12 @@ private-services := AllshareService \
 					FlashBarService \
 					SuggestionService \
 					QuickSnote \
-					SnoteT0Provider \
+					Snote_Q1_Provider \
 					ResourceManager \
 					SPenGestuurePad \
 					IdeaVisualizer \
 					QuickSnote \
+					Snote_Q1.apk \
 					SamsungIME \
 
 private-phone-apps := ApplicationsProvider \
