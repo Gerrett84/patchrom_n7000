@@ -8,7 +8,7 @@ private-services := AllshareService \
 					SPenGestuurePad \
 					IdeaVisualizer \
 					QuickSnote \
-					Snote_Q1.apk \
+					Snote_Q1 \
 					SamsungIME \
 
 private-phone-apps := ApplicationsProvider \
