@@ -6,7 +6,6 @@ private-services := AllshareService \
 					Snote_Q1_Provider \
 					ResourceManager \
 					SPenGestuurePad \
-					IdeaVisualizer \
 					QuickSnote \
 					Snote_Q1 \
 					SamsungIME \
