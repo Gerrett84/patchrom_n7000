@@ -7,8 +7,7 @@ private-services := AllshareService \
 					ResourceManager \
 					SPenGestuurePad \
 					QuickSnote \
-					Snote_Q1 \
-					SamsungIME \
+					Snote_Q1 
 
 private-phone-apps := ApplicationsProvider \
 					  BackupRestoreConfirmation \
