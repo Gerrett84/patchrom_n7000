@@ -1,0 +1,6 @@
+/system/app/Books.apk
+/system/app/BooksTablet.apk
+/system/app/Flipboard.apk
+/system/app/MusicHubAUStub_V6.apk
+/system/app/Navigator_Select_Samsung_Pac_v4.6.apk
+/system/app/Videos.apk
