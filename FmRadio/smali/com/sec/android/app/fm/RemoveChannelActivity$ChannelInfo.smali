@@ -29,14 +29,14 @@
     .parameter "channel"
 
     .prologue
-    .line 90
+    .line 110
     iput-object p1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$ChannelInfo;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 91
+    .line 111
     iput-object p2, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$ChannelInfo;->channel:Lcom/sec/android/app/fm/data/Channel;
 
-    .line 92
+    .line 112
     return-void
 .end method

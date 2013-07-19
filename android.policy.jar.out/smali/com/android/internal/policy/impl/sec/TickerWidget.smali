@@ -6,7 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/internal/policy/impl/sec/TickerWidget$15;,
+        Lcom/android/internal/policy/impl/sec/TickerWidget$16;,
         Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
     }
 .end annotation
@@ -25,6 +25,8 @@
 
 
 # instance fields
+.field private final MAX_RETRIAL_CNT_WHEN_NO_DATA:I
+
 .field private final MSG_SHOW_FACEBOOK_REFRESH_FAILED:I
 
 .field private final MSG_SHOW_NEWS_REFRESH_FAILED:I
@@ -102,6 +104,8 @@
 
 .field private mIsNewsRefreshFailed:Z
 
+.field private mIsRefreshingPossible:Z
+
 .field private mIsStockRefreshFailed:Z
 
 .field private mNewsOnClickListener:Landroid/view/View$OnClickListener;
@@ -109,6 +113,10 @@
 .field protected mNewsRefreshing:Z
 
 .field private mOrientation:I
+
+.field private mRetrialCntWhenNoData:I
+
+.field private mSinaweiboOnClickListener:Landroid/view/View$OnClickListener;
 
 .field private mStockOnClickListener:Landroid/view/View$OnClickListener;
 
@@ -122,6 +130,8 @@
 
 .field private mTickerSlidingSpeed:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;
 
+.field private mTickerStatus:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+
 .field private mTickerType:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
 .field private mUnlockWidget:Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
@@ -133,7 +143,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
-    .locals 5
+    .locals 6
     .parameter "context"
     .parameter "configuration"
     .parameter "callback"
@@ -141,96 +151,106 @@
     .parameter "updateMonitor"
 
     .prologue
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    .line 257
+    .line 298
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 85
+    .line 92
+    const/4 v2, 0x3
+
+    iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->MAX_RETRIAL_CNT_WHEN_NO_DATA:I
+
+    .line 93
+    const/4 v2, 0x0
+
+    iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mRetrialCntWhenNoData:I
+
+    .line 95
     const/16 v2, 0x12c0
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->MSG_SHOW_NEWS_REFRESH_FAILED:I
 
-    .line 86
+    .line 96
     const/16 v2, 0x12c1
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->MSG_SHOW_STOCK_REFRESH_FAILED:I
 
-    .line 87
+    .line 97
     const/16 v2, 0x12c2
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->MSG_SHOW_PREVIOUS_NEWS_DATA:I
 
-    .line 88
+    .line 98
     const/16 v2, 0x12c3
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->MSG_SHOW_PREVIOUS_STOCK_DATA:I
 
-    .line 89
+    .line 99
     const/16 v2, 0x12c4
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->MSG_SHOW_FACEBOOK_REFRESH_FAILED:I
 
-    .line 90
+    .line 100
     const/16 v2, 0x12c5
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->MSG_SHOW_PREVIOUS_FACEBOOK_DATA:I
 
-    .line 95
+    .line 105
     new-instance v2, Lcom/android/internal/policy/impl/sec/TickerWidget$1;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$1;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
-    .line 129
+    .line 139
     new-instance v2, Lcom/android/internal/policy/impl/sec/TickerWidget$2;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 258
+    .line 299
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    .line 259
+    .line 300
     iput-object p3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 260
+    .line 301
     iput-object p5, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
-    .line 261
+    .line 302
     if-eqz p4, :cond_0
 
-    .line 262
+    .line 303
     check-cast p4, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
 
     .end local p4
     iput-object p4, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mUnlockWidget:Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
 
-    .line 264
+    .line 305
     :cond_0
-    invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/sec/TickerWidget;->setFocusable(Z)V
+    invoke-virtual {p0, v5}, Lcom/android/internal/policy/impl/sec/TickerWidget;->setFocusable(Z)V
 
-    .line 265
-    invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/sec/TickerWidget;->setFocusableInTouchMode(Z)V
+    .line 306
+    invoke-virtual {p0, v5}, Lcom/android/internal/policy/impl/sec/TickerWidget;->setFocusableInTouchMode(Z)V
 
-    .line 266
+    .line 307
     const/high16 v2, 0x4
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->setDescendantFocusability(I)V
 
-    .line 268
+    .line 309
     iget v2, p2, Landroid/content/res/Configuration;->orientation:I
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mOrientation:I
 
-    .line 270
+    .line 311
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 271
+    .line 312
     .local v0, filter:Landroid/content/IntentFilter;
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isCaMobile()Z
 
@@ -238,61 +258,71 @@
 
     if-nez v2, :cond_1
 
-    .line 272
+    .line 313
     const-string v2, "com.sec.android.daemonapp.stockclock.ACTION_UPDATE_STOCK_DATA_SYNC"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 273
+    .line 314
     :cond_1
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
-    .line 274
+    .line 315
     const-string v2, "com.sec.android.daemonapp.ap.sinanews.intent.action.SNEWS_DATE_SYNC"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 275
+    .line 316
     const-string v2, "com.android.internal.policy.impl.intent.action.ACTION_SINAWEIBO_DATE_UPDATED"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 280
+    .line 321
     :goto_0
     const-string v2, "com.android.internal.policy.impl.intent.action.ACTION_FACEBOOK_DATE_UPDATED"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 281
+    .line 323
+    const-string v2, "android.intent.action.ANY_DATA_STATE"
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 324
+    const-string v2, "android.net.wifi.STATE_CHANGE"
+
+    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 326
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 283
+    .line 328
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v1
 
-    .line 284
+    .line 329
     .local v1, inflater:Landroid/view/LayoutInflater;
     iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mOrientation:I
 
     const/4 v3, 0x2
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_4
 
-    .line 285
-    const v2, 0x1090061
+    .line 330
+    const v2, 0x1090066
 
-    invoke-virtual {v1, v2, p0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v1, v2, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 289
+    .line 334
     :goto_1
-    const v2, 0x102030b
+    const v2, 0x1020318
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->findViewById(I)Landroid/view/View;
 
@@ -302,8 +332,8 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
-    .line 290
-    const v2, 0x1020314
+    .line 335
+    const v2, 0x1020321
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->findViewById(I)Landroid/view/View;
 
@@ -313,8 +343,8 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
-    .line 291
-    const v2, 0x102030c
+    .line 336
+    const v2, 0x1020319
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->findViewById(I)Landroid/view/View;
 
@@ -324,8 +354,8 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
-    .line 293
-    const v2, 0x102030e
+    .line 338
+    const v2, 0x102031b
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->findViewById(I)Landroid/view/View;
 
@@ -335,8 +365,8 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    .line 294
-    const v2, 0x102030f
+    .line 339
+    const v2, 0x102031c
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->findViewById(I)Landroid/view/View;
 
@@ -346,8 +376,8 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleArrowImage:Landroid/widget/ImageView;
 
-    .line 295
-    const v2, 0x1020313
+    .line 340
+    const v2, 0x1020320
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->findViewById(I)Landroid/view/View;
 
@@ -357,12 +387,12 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
-    .line 296
+    .line 341
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040739
+    const v4, 0x1040751
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -370,8 +400,8 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 297
-    const v2, 0x1020312
+    .line 342
+    const v2, 0x102031f
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->findViewById(I)Landroid/view/View;
 
@@ -381,8 +411,8 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
 
-    .line 298
-    const v2, 0x1020310
+    .line 343
+    const v2, 0x102031d
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->findViewById(I)Landroid/view/View;
 
@@ -392,170 +422,184 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleUpdateDate:Landroid/widget/TextView;
 
-    .line 300
+    .line 344
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleUpdateDate:Landroid/widget/TextView;
+
+    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setSelected(Z)V
+
+    .line 346
     new-instance v2, Lcom/android/internal/policy/impl/sec/TickerWidget$3;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$3;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mStockOnClickListener:Landroid/view/View$OnClickListener;
 
-    .line 319
+    .line 370
     new-instance v2, Lcom/android/internal/policy/impl/sec/TickerWidget$4;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$4;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mNewsOnClickListener:Landroid/view/View$OnClickListener;
 
-    .line 338
+    .line 394
     new-instance v2, Lcom/android/internal/policy/impl/sec/TickerWidget$5;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$5;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mFacebookOnClickListener:Landroid/view/View$OnClickListener;
 
-    .line 363
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+    .line 424
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
 
-    new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$6;
+    move-result v2
 
-    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$6;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
+    if-eqz v2, :cond_2
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setOnDrawerScrollListener(Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;)V
+    .line 425
+    new-instance v2, Lcom/android/internal/policy/impl/sec/TickerWidget$6;
 
-    .line 391
+    invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$6;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
+
+    iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mSinaweiboOnClickListener:Landroid/view/View$OnClickListener;
+
+    .line 451
+    :cond_2
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$7;
 
     invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$7;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setOnDrawerOpenListener(Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerOpenListener;)V
+    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setOnDrawerScrollListener(Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;)V
 
-    .line 415
+    .line 482
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$8;
 
     invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$8;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setOnDrawerCloseListener(Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerCloseListener;)V
+    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setOnDrawerOpenListener(Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerOpenListener;)V
 
-    .line 437
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
+    .line 506
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$9;
 
     invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$9;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
-    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setOnDrawerCloseListener(Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerCloseListener;)V
 
-    .line 450
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
+    .line 528
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
     new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$10;
 
     invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$10;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
-    invoke-virtual {v2, v3}, Landroid/widget/ProgressBar;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 457
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+    .line 541
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
 
     new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$11;
 
     invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$11;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/ProgressBar;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 467
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
+    .line 548
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$12;
 
     invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$12;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 475
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
+    .line 558
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$13;
 
     invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$13;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
+    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    .line 566
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
+
+    new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$14;
+
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$14;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
+
     invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 484
-    new-instance v2, Lcom/android/internal/policy/impl/sec/TickerWidget$14;
+    .line 575
+    new-instance v2, Lcom/android/internal/policy/impl/sec/TickerWidget$15;
 
-    invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$14;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
+    invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$15;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
 
-    .line 504
+    .line 595
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
 
     invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setTickerCallback(Lcom/android/internal/policy/impl/sec/TickerCallback;)V
 
-    .line 505
+    .line 596
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
 
     invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setTickerCallback(Lcom/android/internal/policy/impl/sec/TickerCallback;)V
 
-    .line 506
+    .line 597
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
 
     invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setTickerCallback(Lcom/android/internal/policy/impl/sec/TickerCallback;)V
 
-    .line 508
+    .line 599
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->getSettingProperies()V
 
-    .line 510
+    .line 601
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateTickerData()V
 
-    .line 512
+    .line 603
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->setSlidingSpeed()V
 
-    .line 513
+    .line 604
     return-void
 
-    .line 278
+    .line 319
     .end local v1           #inflater:Landroid/view/LayoutInflater;
-    :cond_2
+    :cond_3
     const-string v2, "com.sec.android.daemonapp.ap.yahoonews.intent.action.YNEWS_DATE_SYNC"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 287
+    .line 332
     .restart local v1       #inflater:Landroid/view/LayoutInflater;
-    :cond_3
-    const v2, 0x1090064
+    :cond_4
+    const v2, 0x1090069
 
-    invoke-virtual {v1, v2, p0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v1, v2, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     goto/16 :goto_1
 .end method
 
 .method private UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
-    .locals 14
+    .locals 12
     .parameter "status"
 
     .prologue
-    const v11, 0x104067e
-
-    const/16 v13, 0x8
-
-    const/4 v12, 0x0
-
-    .line 852
+    .line 955
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     const-string v10, "connectivity"
@@ -566,13 +610,13 @@
 
     check-cast v1, Landroid/net/ConnectivityManager;
 
-    .line 853
+    .line 956
     .local v1, connectivityManager:Landroid/net/ConnectivityManager;
     invoke-virtual {v1}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
 
     move-result-object v0
 
-    .line 855
+    .line 958
     .local v0, activeNetworkInfo:Landroid/net/NetworkInfo;
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerType:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
@@ -580,34 +624,39 @@
 
     if-ne v9, v10, :cond_0
 
-    .line 856
+    .line 959
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookInstalled:Z
 
     if-nez v9, :cond_2
 
-    .line 857
-    iput-boolean v12, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
+    .line 960
+    const/4 v9, 0x0
 
-    .line 858
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
+
+    .line 961
     sget-object p1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNoInstalled:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
-    .line 866
+    .line 969
     :cond_0
     :goto_0
     if-nez v0, :cond_3
 
-    .line 867
+    .line 970
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
     if-nez v9, :cond_1
 
-    .line 868
+    .line 971
     sget-object p1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->NetworkUnavailable:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
-    .line 876
+    .line 979
     :cond_1
     :goto_1
-    sget-object v9, Lcom/android/internal/policy/impl/sec/TickerWidget$15;->$SwitchMap$com$android$internal$policy$impl$sec$TickerUtil$TickerStatus:[I
+    iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerStatus:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+
+    .line 981
+    sget-object v9, Lcom/android/internal/policy/impl/sec/TickerWidget$16;->$SwitchMap$com$android$internal$policy$impl$sec$TickerUtil$TickerStatus:[I
 
     invoke-virtual {p1}, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->ordinal()I
 
@@ -617,36 +666,40 @@
 
     packed-switch v9, :pswitch_data_0
 
-    .line 928
+    .line 1043
     :goto_2
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
     if-eqz v9, :cond_6
 
-    .line 929
+    .line 1044
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleUpdateDate:Landroid/widget/TextView;
 
-    invoke-virtual {v9, v12}, Landroid/widget/TextView;->setVisibility(I)V
+    const/4 v10, 0x0
 
-    .line 939
+    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 1054
     :goto_3
     return-void
 
-    .line 860
+    .line 963
     :cond_2
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookLogin:Z
 
     if-nez v9, :cond_0
 
-    .line 861
-    iput-boolean v12, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
+    .line 964
+    const/4 v9, 0x0
 
-    .line 862
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
+
+    .line 965
     sget-object p1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNoLogin:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     goto :goto_0
 
-    .line 870
+    .line 973
     :cond_3
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isAvailable()Z
 
@@ -660,18 +713,18 @@
 
     if-nez v9, :cond_1
 
-    .line 871
+    .line 974
     :cond_4
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
     if-nez v9, :cond_1
 
-    .line 872
+    .line 975
     sget-object p1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->NetworkUnavailable:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     goto :goto_1
 
-    .line 878
+    .line 983
     :pswitch_0
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
@@ -681,7 +734,7 @@
 
     invoke-virtual {v9, v10, v11}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->initNewsData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 879
+    .line 984
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v10, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
@@ -690,12 +743,14 @@
 
     invoke-virtual {v9, v10, v11}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->initNewsData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 880
+    .line 985
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleUpdateDate:Landroid/widget/TextView;
 
-    invoke-virtual {v9, v12}, Landroid/widget/TextView;->setVisibility(I)V
+    const/4 v10, 0x0
 
-    .line 881
+    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 986
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleUpdateDate:Landroid/widget/TextView;
 
     invoke-static {}, Lcom/android/internal/policy/impl/sec/TickerUtil;->getNewsUpdateDate()Ljava/lang/String;
@@ -704,17 +759,24 @@
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 987
+    const/4 v9, 0x1
+
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
     goto :goto_2
 
-    .line 884
+    .line 990
     :pswitch_1
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v9, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    const v10, 0x1040692
+
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 885
+    .line 991
     .local v7, newsNoDataMessage:Ljava/lang/String;
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -722,20 +784,25 @@
 
     invoke-virtual {v9, v10, v7}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setErrorMessageWithoutButton(Landroid/content/Context;Ljava/lang/String;)V
 
+    .line 992
+    const/4 v9, 0x1
+
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
     goto :goto_2
 
-    .line 888
+    .line 995
     .end local v7           #newsNoDataMessage:Ljava/lang/String;
     :pswitch_2
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v10, 0x1040680
+    const v10, 0x1040694
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 889
+    .line 996
     .local v6, newsNoCountry:Ljava/lang/String;
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -745,9 +812,14 @@
 
     invoke-virtual {v9, v10, v6, v11}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setErrorMessageWithButton(Landroid/content/Context;Ljava/lang/String;Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
+    .line 997
+    const/4 v9, 0x0
+
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
     goto :goto_2
 
-    .line 892
+    .line 1000
     .end local v6           #newsNoCountry:Ljava/lang/String;
     :pswitch_3
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
@@ -758,7 +830,7 @@
 
     invoke-virtual {v9, v10, v11}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->initStockData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 893
+    .line 1001
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v10, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
@@ -767,7 +839,7 @@
 
     invoke-virtual {v9, v10, v11}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->initStockData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 894
+    .line 1002
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleUpdateDate:Landroid/widget/TextView;
 
     invoke-static {}, Lcom/android/internal/policy/impl/sec/TickerUtil;->getStockUpdateDate()Ljava/lang/String;
@@ -776,19 +848,24 @@
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 1003
+    const/4 v9, 0x1
+
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
     goto/16 :goto_2
 
-    .line 897
+    .line 1006
     :pswitch_4
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v10, 0x1040681
+    const v10, 0x1040695
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
-    .line 898
+    .line 1007
     .local v8, stockNoItem:Ljava/lang/String;
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -798,9 +875,14 @@
 
     invoke-virtual {v9, v10, v8, v11}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setErrorMessageWithButton(Landroid/content/Context;Ljava/lang/String;Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
+    .line 1008
+    const/4 v9, 0x0
+
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
     goto/16 :goto_2
 
-    .line 901
+    .line 1011
     .end local v8           #stockNoItem:Ljava/lang/String;
     :pswitch_5
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
@@ -811,7 +893,7 @@
 
     invoke-virtual {v9, v10, v11}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->initFacebookData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 902
+    .line 1012
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v10, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
@@ -820,12 +902,14 @@
 
     invoke-virtual {v9, v10, v11}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->initFacebookData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 903
+    .line 1013
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleUpdateDate:Landroid/widget/TextView;
 
-    invoke-virtual {v9, v12}, Landroid/widget/TextView;->setVisibility(I)V
+    const/4 v10, 0x0
 
-    .line 904
+    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 1014
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleUpdateDate:Landroid/widget/TextView;
 
     invoke-static {}, Lcom/android/internal/policy/impl/sec/TickerUtil;->getFacebookUpdateDate()Ljava/lang/String;
@@ -834,17 +918,24 @@
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 1015
+    const/4 v9, 0x1
+
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
     goto/16 :goto_2
 
-    .line 907
+    .line 1018
     :pswitch_6
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v9, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    const v10, 0x1040692
+
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 908
+    .line 1019
     .local v2, facebookNoDataMessage:Ljava/lang/String;
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -852,20 +943,25 @@
 
     invoke-virtual {v9, v10, v2}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setErrorMessageWithoutButton(Landroid/content/Context;Ljava/lang/String;)V
 
+    .line 1020
+    const/4 v9, 0x1
+
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
     goto/16 :goto_2
 
-    .line 911
+    .line 1023
     .end local v2           #facebookNoDataMessage:Ljava/lang/String;
     :pswitch_7
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v10, 0x1040688
+    const v10, 0x104069c
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 912
+    .line 1024
     .local v5, messageLogin:Ljava/lang/String;
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -875,20 +971,25 @@
 
     invoke-virtual {v9, v10, v5, v11}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setErrorMessageWithButton(Landroid/content/Context;Ljava/lang/String;Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
+    .line 1025
+    const/4 v9, 0x0
+
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
     goto/16 :goto_2
 
-    .line 915
+    .line 1028
     .end local v5           #messageLogin:Ljava/lang/String;
     :pswitch_8
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v10, 0x1040689
+    const v10, 0x104069d
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 916
+    .line 1029
     .local v4, messageInstalled:Ljava/lang/String;
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -898,20 +999,25 @@
 
     invoke-virtual {v9, v10, v4, v11}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setErrorMessageWithButton(Landroid/content/Context;Ljava/lang/String;Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
+    .line 1030
+    const/4 v9, 0x0
+
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
     goto/16 :goto_2
 
-    .line 919
+    .line 1033
     .end local v4           #messageInstalled:Ljava/lang/String;
     :pswitch_9
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v10, 0x1040682
+    const v10, 0x1040696
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 920
+    .line 1034
     .local v3, message:Ljava/lang/String;
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerType:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
@@ -919,16 +1025,16 @@
 
     if-ne v9, v10, :cond_5
 
-    .line 921
+    .line 1035
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v10, 0x1040687
+    const v10, 0x104069b
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 923
+    .line 1037
     :cond_5
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -938,9 +1044,14 @@
 
     invoke-virtual {v9, v10, v3, v11}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setErrorMessageWithButton(Landroid/content/Context;Ljava/lang/String;Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
+    .line 1038
+    const/4 v9, 0x0
+
+    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
     goto/16 :goto_2
 
-    .line 931
+    .line 1046
     .end local v3           #message:Ljava/lang/String;
     :cond_6
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleUpdateDate:Landroid/widget/TextView;
@@ -949,34 +1060,42 @@
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 932
+    .line 1047
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
-    invoke-virtual {v9, v13}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setVisibility(I)V
+    const/16 v10, 0x8
 
-    .line 933
+    invoke-virtual {v9, v10}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setVisibility(I)V
+
+    .line 1048
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
-    invoke-virtual {v9, v13}, Landroid/widget/ImageView;->setVisibility(I)V
+    const/16 v10, 0x8
 
-    .line 934
+    invoke-virtual {v9, v10}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    .line 1049
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
 
-    invoke-virtual {v9, v13}, Landroid/widget/ProgressBar;->setVisibility(I)V
+    const/16 v10, 0x8
 
-    .line 935
+    invoke-virtual {v9, v10}, Landroid/widget/ProgressBar;->setVisibility(I)V
+
+    .line 1050
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
-    invoke-virtual {v9, v12}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setBottomOffset(I)V
+    const/4 v10, 0x0
 
-    .line 936
+    invoke-virtual {v9, v10}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setBottomOffset(I)V
+
+    .line 1051
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     invoke-virtual {v9}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate()V
 
     goto/16 :goto_3
 
-    .line 876
+    .line 981
     nop
 
     :pswitch_data_0
@@ -999,7 +1118,7 @@
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->showNewsRefreshFailed()V
 
     return-void
@@ -1010,55 +1129,43 @@
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->showStockRefreshFailed()V
 
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ImageView;
+.method static synthetic access$1000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ImageView;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 65
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
     return-object v0
 .end method
 
-.method static synthetic access$1100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ProgressBar;
+.method static synthetic access$1200(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ProgressBar;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
 
     return-object v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 58
-    iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mStockRefreshing:Z
-
-    return v0
-.end method
-
-.method static synthetic access$1202(Lcom/android/internal/policy/impl/sec/TickerWidget;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 58
-    iput-boolean p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mStockRefreshing:Z
-
-    return p1
 .end method
 
 .method static synthetic access$1300(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
@@ -1066,10 +1173,22 @@
     .parameter "x0"
 
     .prologue
-    .line 58
-    iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsNewsRefreshFailed:Z
+    .line 65
+    iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mStockRefreshing:Z
 
     return v0
+.end method
+
+.method static synthetic access$1302(Lcom/android/internal/policy/impl/sec/TickerWidget;Z)Z
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 65
+    iput-boolean p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mStockRefreshing:Z
+
+    return p1
 .end method
 
 .method static synthetic access$1400(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
@@ -1077,65 +1196,65 @@
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
+    iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsNewsRefreshFailed:Z
+
+    return v0
+.end method
+
+.method static synthetic access$1500(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 65
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookRefreshFailed:Z
 
     return v0
 .end method
 
-.method static synthetic access$1500(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/content/Context;
+.method static synthetic access$1600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/content/Context;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$1600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+.method static synthetic access$1700(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     return-object v0
 .end method
 
-.method static synthetic access$1700(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
+.method static synthetic access$1800(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateFacebookInstalled()V
 
     return-void
 .end method
 
-.method static synthetic access$1800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+.method static synthetic access$1900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookInstalled:Z
 
     return v0
-.end method
-
-.method static synthetic access$1900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerScrollView;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 58
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
-
-    return-object v0
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
@@ -1143,62 +1262,84 @@
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->showPreviousNewsData()V
 
     return-void
 .end method
 
-.method static synthetic access$2000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
+.method static synthetic access$2000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerScrollView;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 65
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     return-object v0
 .end method
 
-.method static synthetic access$2100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+.method static synthetic access$2200(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
     return v0
 .end method
 
-.method static synthetic access$2200(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
+.method static synthetic access$2300(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mUnlockWidget:Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
 
     return-object v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ImageView;
+.method static synthetic access$2400(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ImageView;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleArrowImage:Landroid/widget/ImageView;
 
     return-object v0
 .end method
 
-.method static synthetic access$2400(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
+.method static synthetic access$2500(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 65
+    iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsRefreshingPossible:Z
+
+    return v0
+.end method
+
+.method static synthetic access$2600(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->requestTickerDataToDemon()V
 
     return-void
@@ -1209,7 +1350,7 @@
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->showPreviousStockData()V
 
     return-void
@@ -1220,7 +1361,7 @@
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->showFacebookRefreshFailed()V
 
     return-void
@@ -1231,21 +1372,21 @@
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->showPreviousFacebookData()V
 
     return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+.method static synthetic access$600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
-    iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsStockRefreshFailed:Z
+    .line 65
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerStatus:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
-    return v0
+    return-object v0
 .end method
 
 .method static synthetic access$700(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
@@ -1253,7 +1394,7 @@
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateTickerData()V
 
     return-void
@@ -1264,21 +1405,21 @@
     .parameter "x0"
 
     .prologue
-    .line 58
+    .line 65
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     return-object v0
 .end method
 
-.method static synthetic access$900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+.method static synthetic access$900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 58
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+    .line 65
+    iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsStockRefreshFailed:Z
 
-    return-object v0
+    return v0
 .end method
 
 .method private getSettingProperies()V
@@ -1287,7 +1428,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 943
+    .line 1058
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1300,11 +1441,11 @@
 
     move-result v1
 
-    .line 944
+    .line 1059
     .local v1, tickertype:I
     packed-switch v1, :pswitch_data_0
 
-    .line 959
+    .line 1074
     :goto_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
@@ -1318,15 +1459,15 @@
 
     move-result v0
 
-    .line 960
+    .line 1075
     .local v0, tickerSpeed:I
     packed-switch v0, :pswitch_data_1
 
-    .line 973
+    .line 1088
     :goto_1
     return-void
 
-    .line 946
+    .line 1061
     .end local v0           #tickerSpeed:I
     :pswitch_0
     sget-object v2, Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;->news:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
@@ -1335,7 +1476,7 @@
 
     goto :goto_0
 
-    .line 949
+    .line 1064
     :pswitch_1
     sget-object v2, Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;->stock:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
@@ -1343,7 +1484,7 @@
 
     goto :goto_0
 
-    .line 952
+    .line 1067
     :pswitch_2
     sget-object v2, Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;->facebook:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
@@ -1351,7 +1492,7 @@
 
     goto :goto_0
 
-    .line 962
+    .line 1077
     .restart local v0       #tickerSpeed:I
     :pswitch_3
     sget-object v2, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;->slow:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;
@@ -1360,7 +1501,7 @@
 
     goto :goto_1
 
-    .line 965
+    .line 1080
     :pswitch_4
     sget-object v2, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;->normal:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;
 
@@ -1368,7 +1509,7 @@
 
     goto :goto_1
 
-    .line 968
+    .line 1083
     :pswitch_5
     sget-object v2, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;->fast:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;
 
@@ -1376,7 +1517,7 @@
 
     goto :goto_1
 
-    .line 944
+    .line 1059
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1384,7 +1525,7 @@
         :pswitch_2
     .end packed-switch
 
-    .line 960
+    .line 1075
     :pswitch_data_1
     .packed-switch 0x0
         :pswitch_3
@@ -1397,20 +1538,20 @@
     .locals 2
 
     .prologue
-    .line 1044
+    .line 1159
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.internal.policy.impl.intent.action.ACTION_FACEBOOK_DATE_REQUEST"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1045
+    .line 1160
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1047
+    .line 1162
     return-void
 .end method
 
@@ -1420,14 +1561,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 1058
+    .line 1173
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 1059
+    .line 1174
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1442,18 +1583,18 @@
 
     if-nez v2, :cond_0
 
-    .line 1060
+    .line 1175
     const-string v2, "TickerWidget"
 
     const-string v3, "Service is off"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1084
+    .line 1200
     :goto_0
     return-void
 
-    .line 1062
+    .line 1177
     :cond_0
     new-instance v1, Landroid/content/Intent;
 
@@ -1461,7 +1602,7 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1063
+    .line 1178
     .local v1, intent:Landroid/content/Intent;
     new-instance v0, Landroid/content/ComponentName;
 
@@ -1471,18 +1612,18 @@
 
     invoke-direct {v0, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1064
+    .line 1180
     .local v0, component:Landroid/content/ComponentName;
     invoke-virtual {v1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 1065
+    .line 1181
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     goto :goto_0
 
-    .line 1068
+    .line 1184
     .end local v0           #component:Landroid/content/ComponentName;
     .end local v1           #intent:Landroid/content/Intent;
     :cond_1
@@ -1500,16 +1641,16 @@
 
     if-nez v2, :cond_2
 
-    .line 1069
+    .line 1185
     const-string v2, "TickerWidget"
 
     const-string v3, "Service is off"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 1071
+    .line 1187
     :cond_2
     new-instance v1, Landroid/content/Intent;
 
@@ -1517,7 +1658,7 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1073
+    .line 1189
     .restart local v1       #intent:Landroid/content/Intent;
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
@@ -1525,7 +1666,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 1074
+    .line 1190
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v2, "com.sec.android.daemonapp.ap.yonhapnews"
@@ -1534,19 +1675,19 @@
 
     invoke-direct {v0, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1080
+    .line 1196
     .restart local v0       #component:Landroid/content/ComponentName;
     :goto_1
     invoke-virtual {v1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 1081
+    .line 1197
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     goto :goto_0
 
-    .line 1075
+    .line 1191
     .end local v0           #component:Landroid/content/ComponentName;
     :cond_3
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isCaMobile()Z
@@ -1555,7 +1696,7 @@
 
     if-eqz v2, :cond_4
 
-    .line 1076
+    .line 1192
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v2, "com.sec.android.daemonapp.ap.camobile"
@@ -1567,7 +1708,7 @@
     .restart local v0       #component:Landroid/content/ComponentName;
     goto :goto_1
 
-    .line 1078
+    .line 1194
     .end local v0           #component:Landroid/content/ComponentName;
     :cond_4
     new-instance v0, Landroid/content/ComponentName;
@@ -1586,20 +1727,20 @@
     .locals 2
 
     .prologue
-    .line 1052
+    .line 1167
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.internal.policy.impl.intent.action.ACTION_SINAWEIBO_DATE_REQUEST"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1053
+    .line 1168
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1055
+    .line 1170
     return-void
 .end method
 
@@ -1607,14 +1748,14 @@
     .locals 8
 
     .prologue
-    .line 1087
+    .line 1203
     new-instance v4, Landroid/content/Intent;
 
     const-string v6, "com.sec.android.daemonapp.stockclock.action.CURRENT_STOCK_DATA"
 
     invoke-direct {v4, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1088
+    .line 1204
     .local v4, intent:Landroid/content/Intent;
     iget-object v6, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
@@ -1622,7 +1763,7 @@
 
     move-result-object v5
 
-    .line 1092
+    .line 1208
     .local v5, pm:Landroid/content/pm/PackageManager;
     :try_start_0
     const-string v6, "com.sec.android.daemonapp.ap.yahoostock.stockclock"
@@ -1631,14 +1772,14 @@
 
     invoke-virtual {v5, v6, v7}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
-    .line 1093
+    .line 1209
     const-string v6, "TickerWidget"
 
     const-string v7, "Yahoo daemon  installed !!!!!"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1094
+    .line 1210
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v6, "com.sec.android.daemonapp.ap.yahoostock.stockclock"
@@ -1647,35 +1788,35 @@
 
     invoke-direct {v0, v6, v7}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1096
+    .line 1212
     .local v0, component:Landroid/content/ComponentName;
     invoke-virtual {v4, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 1097
+    .line 1213
     iget-object v6, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6, v4}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1123
+    .line 1239
     .end local v0           #component:Landroid/content/ComponentName;
     :goto_0
     return-void
 
-    .line 1098
+    .line 1214
     :catch_0
     move-exception v1
 
-    .line 1099
+    .line 1215
     .local v1, e1:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v6, "TickerWidget"
 
     const-string v7, "[NameNotFoundException] Yahoo daemon not installed !!!!!"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1102
+    .line 1218
     :try_start_1
     const-string v6, "com.sec.android.daemonapp.stockclock"
 
@@ -1683,14 +1824,14 @@
 
     invoke-virtual {v5, v6, v7}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
-    .line 1103
+    .line 1219
     const-string v6, "TickerWidget"
 
     const-string v7, "Edaily  daemon  installed !!!!!"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1104
+    .line 1220
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v6, "com.sec.android.daemonapp.stockclock"
@@ -1699,11 +1840,11 @@
 
     invoke-direct {v0, v6, v7}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1106
+    .line 1222
     .restart local v0       #component:Landroid/content/ComponentName;
     invoke-virtual {v4, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 1107
+    .line 1223
     iget-object v6, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6, v4}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
@@ -1712,20 +1853,20 @@
 
     goto :goto_0
 
-    .line 1108
+    .line 1224
     .end local v0           #component:Landroid/content/ComponentName;
     :catch_1
     move-exception v2
 
-    .line 1109
+    .line 1225
     .local v2, e2:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v6, "TickerWidget"
 
     const-string v7, "[NameNotFoundException] Edaily  daemon not installed !!!!!"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1112
+    .line 1228
     :try_start_2
     const-string v6, "com.sec.android.daemonapp.ap.sinastock.stockclock"
 
@@ -1733,14 +1874,14 @@
 
     invoke-virtual {v5, v6, v7}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
-    .line 1113
+    .line 1229
     const-string v6, "TickerWidget"
 
     const-string v7, "Sina  daemon  installed !!!!!"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1114
+    .line 1230
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v6, "com.sec.android.daemonapp.ap.sinastock.stockclock"
@@ -1749,11 +1890,11 @@
 
     invoke-direct {v0, v6, v7}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1116
+    .line 1232
     .restart local v0       #component:Landroid/content/ComponentName;
     invoke-virtual {v4, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 1117
+    .line 1233
     iget-object v6, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6, v4}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
@@ -1762,18 +1903,18 @@
 
     goto :goto_0
 
-    .line 1118
+    .line 1234
     .end local v0           #component:Landroid/content/ComponentName;
     :catch_2
     move-exception v3
 
-    .line 1119
+    .line 1235
     .local v3, e3:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v6, "TickerWidget"
 
     const-string v7, "[NameNotFoundException] Sina daemon not installed !!!!!"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -1792,30 +1933,30 @@
 
     const/4 v3, 0x0
 
-    .line 996
+    .line 1111
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerType:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
     sget-object v2, Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;->news:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
     if-ne v1, v2, :cond_2
 
-    .line 998
+    .line 1113
     const-string v1, "TickerWidget"
 
     const-string v2, "Request news data update!"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 999
+    .line 1114
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->requestNewsDataToDemon()V
 
-    .line 1000
+    .line 1115
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mNewsRefreshing:Z
 
-    .line 1001
+    .line 1116
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsNewsRefreshFailed:Z
 
-    .line 1004
+    .line 1119
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v5}, Landroid/os/Handler;->hasMessages(I)Z
@@ -1824,12 +1965,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 1005
+    .line 1120
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v5}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 1006
+    .line 1121
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -1837,7 +1978,7 @@
 
     move-result-object v0
 
-    .line 1007
+    .line 1122
     .local v0, msg:Landroid/os/Message;
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -1845,13 +1986,13 @@
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 1039
+    .line 1154
     .end local v0           #msg:Landroid/os/Message;
     :cond_1
     :goto_0
     return-void
 
-    .line 1009
+    .line 1124
     :cond_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerType:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
@@ -1859,23 +2000,23 @@
 
     if-ne v1, v2, :cond_4
 
-    .line 1011
+    .line 1126
     const-string v1, "TickerWidget"
 
     const-string v2, "Request stock data update!"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1012
+    .line 1127
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->requestStockDataToDemon()V
 
-    .line 1013
+    .line 1128
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mStockRefreshing:Z
 
-    .line 1014
+    .line 1129
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsStockRefreshFailed:Z
 
-    .line 1017
+    .line 1132
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v6}, Landroid/os/Handler;->hasMessages(I)Z
@@ -1884,12 +2025,12 @@
 
     if-eqz v1, :cond_3
 
-    .line 1018
+    .line 1133
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v6}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 1019
+    .line 1134
     :cond_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -1897,7 +2038,7 @@
 
     move-result-object v0
 
-    .line 1020
+    .line 1135
     .restart local v0       #msg:Landroid/os/Message;
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -1907,7 +2048,7 @@
 
     goto :goto_0
 
-    .line 1021
+    .line 1136
     .end local v0           #msg:Landroid/os/Message;
     :cond_4
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerType:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
@@ -1916,31 +2057,31 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 1023
+    .line 1138
     const-string v1, "TickerWidget"
 
     const-string v2, "Request facebook data update!"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1024
+    .line 1139
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
 
     move-result v1
 
     if-eqz v1, :cond_6
 
-    .line 1025
+    .line 1140
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->requestSinaweiboDataToDemon()V
 
-    .line 1029
+    .line 1144
     :goto_1
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mFacebookRefreshing:Z
 
-    .line 1030
+    .line 1145
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookRefreshFailed:Z
 
-    .line 1033
+    .line 1148
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v7}, Landroid/os/Handler;->hasMessages(I)Z
@@ -1949,12 +2090,12 @@
 
     if-eqz v1, :cond_5
 
-    .line 1034
+    .line 1149
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v7}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 1035
+    .line 1150
     :cond_5
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -1962,7 +2103,7 @@
 
     move-result-object v0
 
-    .line 1036
+    .line 1151
     .restart local v0       #msg:Landroid/os/Message;
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -1972,7 +2113,7 @@
 
     goto :goto_0
 
-    .line 1027
+    .line 1142
     .end local v0           #msg:Landroid/os/Message;
     :cond_6
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->requestFacebookDataToDemon()V
@@ -1984,14 +2125,14 @@
     .locals 2
 
     .prologue
-    .line 643
+    .line 734
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingSpeed:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setSlidingSpeed(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;)V
 
-    .line 644
+    .line 735
     return-void
 .end method
 
@@ -2003,38 +2144,38 @@
 
     const/16 v4, 0x12c5
 
-    .line 573
+    .line 664
     const-string v2, "TickerWidget"
 
     const-string v3, "Facebook Update was failed"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 575
+    .line 666
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 576
+    .line 667
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v2, v5}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 578
+    .line 669
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookRefreshFailed:Z
 
-    .line 580
+    .line 671
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v3, 0x104067f
+    const v3, 0x1040693
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 581
+    .line 672
     .local v0, message:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
@@ -2042,14 +2183,14 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setErrorMessage(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 582
+    .line 673
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v3, v0}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setErrorMessageWithoutButton(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 585
+    .line 676
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v4}, Landroid/os/Handler;->hasMessages(I)Z
@@ -2058,12 +2199,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 586
+    .line 677
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v4}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 587
+    .line 678
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -2071,7 +2212,7 @@
 
     move-result-object v1
 
-    .line 588
+    .line 679
     .local v1, msg:Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -2079,7 +2220,7 @@
 
     invoke-virtual {v2, v1, v3, v4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 589
+    .line 680
     return-void
 .end method
 
@@ -2091,38 +2232,38 @@
 
     const/16 v4, 0x12c2
 
-    .line 592
+    .line 683
     const-string v2, "TickerWidget"
 
     const-string v3, "News Update was failed"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 594
+    .line 685
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 595
+    .line 686
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v2, v5}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 597
+    .line 688
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsNewsRefreshFailed:Z
 
-    .line 599
+    .line 690
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v3, 0x104067f
+    const v3, 0x1040693
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 600
+    .line 691
     .local v0, message:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
@@ -2130,14 +2271,14 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setErrorMessage(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 601
+    .line 692
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v3, v0}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setErrorMessageWithoutButton(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 604
+    .line 695
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v4}, Landroid/os/Handler;->hasMessages(I)Z
@@ -2146,12 +2287,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 605
+    .line 696
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v4}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 606
+    .line 697
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -2159,7 +2300,7 @@
 
     move-result-object v1
 
-    .line 607
+    .line 698
     .local v1, msg:Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -2167,7 +2308,7 @@
 
     invoke-virtual {v2, v1, v3, v4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 608
+    .line 699
     return-void
 .end method
 
@@ -2177,12 +2318,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 529
+    .line 620
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mCurrentFacebookData:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    .line 530
+    .line 621
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
@@ -2191,7 +2332,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->initFacebookData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 531
+    .line 622
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
@@ -2200,11 +2341,11 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->initFacebookData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 533
+    .line 624
     :cond_0
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mFacebookRefreshing:Z
 
-    .line 535
+    .line 626
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->isOpened()Z
@@ -2213,12 +2354,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 536
+    .line 627
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 537
+    .line 628
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
 
@@ -2226,7 +2367,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 538
+    .line 629
     return-void
 .end method
 
@@ -2236,12 +2377,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 541
+    .line 632
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mCurrentNewsData:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    .line 542
+    .line 633
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
@@ -2250,7 +2391,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->initNewsData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 543
+    .line 634
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
@@ -2259,11 +2400,11 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->initNewsData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 545
+    .line 636
     :cond_0
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mNewsRefreshing:Z
 
-    .line 547
+    .line 638
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->isOpened()Z
@@ -2272,12 +2413,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 548
+    .line 639
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 549
+    .line 640
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
 
@@ -2285,7 +2426,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 550
+    .line 641
     return-void
 .end method
 
@@ -2295,12 +2436,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 516
+    .line 607
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mCurrentStockData:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    .line 517
+    .line 608
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
@@ -2309,7 +2450,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->initStockData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 518
+    .line 609
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
@@ -2318,11 +2459,11 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->initStockData(Landroid/content/Context;Ljava/util/ArrayList;)V
 
-    .line 520
+    .line 611
     :cond_0
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mStockRefreshing:Z
 
-    .line 522
+    .line 613
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->isOpened()Z
@@ -2331,12 +2472,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 523
+    .line 614
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 524
+    .line 615
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
 
@@ -2344,7 +2485,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 526
+    .line 617
     return-void
 .end method
 
@@ -2356,38 +2497,38 @@
 
     const/16 v4, 0x12c3
 
-    .line 553
+    .line 644
     const-string v2, "TickerWidget"
 
     const-string v3, "Stock Update was failed"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 555
+    .line 646
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 556
+    .line 647
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
 
     invoke-virtual {v2, v5}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 558
+    .line 649
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsStockRefreshFailed:Z
 
-    .line 560
+    .line 651
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v3, 0x104067f
+    const v3, 0x1040693
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 561
+    .line 652
     .local v0, message:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
@@ -2395,14 +2536,14 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setErrorMessage(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 562
+    .line 653
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v3, v0}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->setErrorMessageWithoutButton(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 565
+    .line 656
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v4}, Landroid/os/Handler;->hasMessages(I)Z
@@ -2411,12 +2552,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 566
+    .line 657
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v4}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 567
+    .line 658
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -2424,7 +2565,7 @@
 
     move-result-object v1
 
-    .line 568
+    .line 659
     .local v1, msg:Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
 
@@ -2432,98 +2573,152 @@
 
     invoke-virtual {v2, v1, v3, v4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 570
+    .line 661
     return-void
 .end method
 
 .method private updateFacebookData()V
-    .locals 4
+    .locals 5
 
     .prologue
-    .line 695
-    iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
+    .line 790
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    const v2, 0x1080475
+    const v3, 0x10804a0
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 696
-    iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
+    .line 791
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mFacebookOnClickListener:Landroid/view/View$OnClickListener;
+    iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mFacebookOnClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 697
-    iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
+    .line 792
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040736
+    const v4, 0x104074e
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 700
+    .line 795
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateFacebookInstalled()V
 
-    .line 703
+    .line 798
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateFacebookLoginChecked()V
 
-    .line 706
-    iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
+    .line 800
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/TickerUtil;->getFacebookData(Landroid/content/Context;)Ljava/util/ArrayList;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerUtil;->getFacebookData(Landroid/content/Context;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 708
+    .line 802
     .local v0, facebookArrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/policy/impl/sec/TickerUtil$FacebookData;>;"
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 709
-    const/4 v1, 0x1
+    .line 803
+    const/4 v2, 0x1
 
-    iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
+    iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
-    .line 710
+    .line 804
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mCurrentFacebookData:Ljava/util/ArrayList;
 
-    .line 711
-    sget-object v1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNormal:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+    .line 805
+    sget-object v2, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNormal:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
-    invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
+    invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
-    .line 718
+    .line 823
     :goto_0
     return-void
 
-    .line 713
+    .line 808
     :cond_0
-    const-string v1, "TickerWidget"
+    const-string v2, "TickerWidget"
 
-    const-string v2, "There is no data"
+    const-string v3, "There is no data"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 715
-    const/4 v1, 0x0
+    .line 810
+    iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mRetrialCntWhenNoData:I
 
-    iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
+    const/4 v3, 0x3
 
-    .line 716
-    sget-object v1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNoData:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+    if-ge v2, v3, :cond_1
 
-    invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
+    .line 812
+    const-string v2, "TickerWidget"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Rcnt = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget v4, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mRetrialCntWhenNoData:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 814
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "com.android.internal.policy.impl.intent.action.ACTION_FACEBOOK_DATE_REQUEST"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 815
+    .local v1, intent:Landroid/content/Intent;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 817
+    iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mRetrialCntWhenNoData:I
+
+    add-int/lit8 v2, v2, 0x1
+
+    iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mRetrialCntWhenNoData:I
+
+    .line 820
+    .end local v1           #intent:Landroid/content/Intent;
+    :cond_1
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
+
+    .line 821
+    sget-object v2, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNoData:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+
+    invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
     goto :goto_0
 .end method
@@ -2532,14 +2727,14 @@
     .locals 7
 
     .prologue
-    .line 661
+    .line 752
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
-    .line 663
+    .line 754
     .local v4, packagemanager:Landroid/content/pm/PackageManager;
     const/16 v5, 0x2040
 
@@ -2547,7 +2742,7 @@
 
     move-result-object v0
 
-    .line 667
+    .line 758
     .local v0, allPackageInfos:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -2567,11 +2762,11 @@
 
     check-cast v2, Landroid/content/pm/PackageInfo;
 
-    .line 668
+    .line 759
     .local v2, packageInfo:Landroid/content/pm/PackageInfo;
     iget-object v3, v2, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    .line 669
+    .line 760
     .local v3, packageName:Ljava/lang/String;
     const-string v5, "com.facebook.katana"
 
@@ -2581,36 +2776,36 @@
 
     if-eqz v5, :cond_0
 
-    .line 670
+    .line 761
     const/4 v5, 0x1
 
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookInstalled:Z
 
-    .line 671
+    .line 763
     const-string v5, "TickerWidget"
 
     const-string v6, "isFacebookInstalled() : true"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 677
+    .line 770
     .end local v2           #packageInfo:Landroid/content/pm/PackageInfo;
     .end local v3           #packageName:Ljava/lang/String;
     :goto_0
     return-void
 
-    .line 675
+    .line 767
     :cond_1
     const/4 v5, 0x0
 
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookInstalled:Z
 
-    .line 676
+    .line 769
     const-string v5, "TickerWidget"
 
     const-string v6, "isFacebookInstalled() : false"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -2619,7 +2814,7 @@
     .locals 3
 
     .prologue
-    .line 680
+    .line 773
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
@@ -2632,40 +2827,40 @@
 
     move-result-object v0
 
-    .line 682
+    .line 775
     .local v0, accounts:[Landroid/accounts/Account;
     array-length v1, v0
 
     if-lez v1, :cond_0
 
-    .line 684
+    .line 777
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookLogin:Z
 
-    .line 685
+    .line 779
     const-string v1, "TickerWidget"
 
     const-string v2, "login successful"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 690
+    .line 785
     :goto_0
     return-void
 
-    .line 688
+    .line 782
     :cond_0
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookLogin:Z
 
-    .line 689
+    .line 784
     const-string v1, "TickerWidget"
 
     const-string v2, "updateFacebookLoginChecked() : login failed"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -2676,27 +2871,27 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 788
+    .line 891
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    .line 789
+    .line 892
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    const v2, 0x108046f
+    const v2, 0x108049a
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 801
+    .line 904
     :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040737
+    const v3, 0x104074f
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2704,10 +2899,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 804
+    .line 907
     const/4 v0, 0x0
 
-    .line 805
+    .line 908
     .local v0, newsArrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/policy/impl/sec/TickerUtil$NewsData;>;"
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
@@ -2717,14 +2912,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 806
+    .line 909
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/android/internal/policy/impl/sec/TickerUtil;->getNewsData(Landroid/content/Context;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 808
+    .line 911
     :cond_0
     if-eqz v0, :cond_5
 
@@ -2734,25 +2929,25 @@
 
     if-eqz v1, :cond_5
 
-    .line 809
+    .line 912
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
-    .line 810
+    .line 913
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mCurrentNewsData:Ljava/util/ArrayList;
 
-    .line 811
+    .line 914
     sget-object v1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->NewsNormal:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
-    .line 823
+    .line 926
     :cond_1
     :goto_1
     return-void
 
-    .line 791
+    .line 894
     .end local v0           #newsArrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/policy/impl/sec/TickerUtil$NewsData;>;"
     :cond_2
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
@@ -2761,16 +2956,16 @@
 
     if-eqz v1, :cond_3
 
-    .line 792
+    .line 895
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    const v2, 0x108046d
+    const v2, 0x1080498
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_0
 
-    .line 794
+    .line 897
     :cond_3
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isCaMobile()Z
 
@@ -2778,24 +2973,24 @@
 
     if-eqz v1, :cond_4
 
-    .line 795
+    .line 898
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    const v2, 0x108046b
+    const v2, 0x1080496
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_0
 
-    .line 798
+    .line 901
     :cond_4
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    const v2, 0x108046e
+    const v2, 0x1080499
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 799
+    .line 902
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mNewsOnClickListener:Landroid/view/View$OnClickListener;
@@ -2804,7 +2999,7 @@
 
     goto :goto_0
 
-    .line 812
+    .line 915
     .restart local v0       #newsArrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/policy/impl/sec/TickerUtil$NewsData;>;"
     :cond_5
     if-eqz v0, :cond_6
@@ -2815,31 +3010,31 @@
 
     if-nez v1, :cond_6
 
-    .line 813
+    .line 916
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
-    .line 814
+    .line 917
     sget-object v1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->NewsNoData:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
     goto :goto_1
 
-    .line 815
+    .line 918
     :cond_6
     if-nez v0, :cond_1
 
-    .line 816
+    .line 919
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
-    .line 817
+    .line 920
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 820
+    .line 923
     sget-object v1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->NewsNoCountry:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
@@ -2848,86 +3043,80 @@
 .end method
 
 .method private updateSinaweiboData()V
-    .locals 4
+    .locals 3
 
     .prologue
-    .line 755
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
+    .line 864
+    iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    const v3, 0x1080470
+    const v2, 0x108049b
 
-    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 759
+    .line 865
+    iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mSinaweiboOnClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 868
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateSinaweiboInstalled()V
 
-    .line 762
+    .line 871
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateSinaweiboLoginChecked()V
 
-    .line 765
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
+    .line 873
+    iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerUtil;->getFacebookData(Landroid/content/Context;)Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/TickerUtil;->getFacebookData(Landroid/content/Context;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 767
+    .line 875
     .local v0, facebookArrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/policy/impl/sec/TickerUtil$FacebookData;>;"
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 768
-    const/4 v2, 0x1
+    .line 876
+    const/4 v1, 0x1
 
-    iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
+    iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
-    .line 769
+    .line 877
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mCurrentFacebookData:Ljava/util/ArrayList;
 
-    .line 770
-    sget-object v2, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNormal:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+    .line 878
+    sget-object v1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNormal:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
-    invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
+    invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
-    .line 783
+    .line 886
     :goto_0
     return-void
 
-    .line 772
+    .line 881
     :cond_0
-    const-string v2, "TickerWidget"
+    const-string v1, "TickerWidget"
 
-    const-string v3, "There is no data"
+    const-string v2, "There is no data"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 776
-    new-instance v1, Landroid/content/Intent;
+    .line 883
+    const/4 v1, 0x0
 
-    const-string v2, "com.android.internal.policy.impl.intent.action.ACTION_SINAWEIBO_DATE_REQUEST"
+    iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    .line 884
+    sget-object v1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNoData:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
-    .line 777
-    .local v1, intent:Landroid/content/Intent;
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 780
-    const/4 v2, 0x0
-
-    iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
-
-    .line 781
-    sget-object v2, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNoData:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
-
-    invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
+    invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
     goto :goto_0
 .end method
@@ -2936,14 +3125,14 @@
     .locals 7
 
     .prologue
-    .line 721
+    .line 826
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
 
-    .line 723
+    .line 828
     .local v4, packagemanager:Landroid/content/pm/PackageManager;
     const/16 v5, 0x2040
 
@@ -2951,7 +3140,7 @@
 
     move-result-object v0
 
-    .line 727
+    .line 832
     .local v0, allPackageInfos:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -2971,11 +3160,11 @@
 
     check-cast v2, Landroid/content/pm/PackageInfo;
 
-    .line 728
+    .line 833
     .local v2, packageInfo:Landroid/content/pm/PackageInfo;
     iget-object v3, v2, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    .line 729
+    .line 834
     .local v3, packageName:Ljava/lang/String;
     const-string v5, "com.sina.weibo"
 
@@ -2985,36 +3174,36 @@
 
     if-eqz v5, :cond_0
 
-    .line 730
+    .line 835
     const/4 v5, 0x1
 
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookInstalled:Z
 
-    .line 731
+    .line 837
     const-string v5, "TickerWidget"
 
     const-string v6, "isSinaweiboInstalled() : true"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 737
+    .line 844
     .end local v2           #packageInfo:Landroid/content/pm/PackageInfo;
     .end local v3           #packageName:Ljava/lang/String;
     :goto_0
     return-void
 
-    .line 735
+    .line 841
     :cond_1
     const/4 v5, 0x0
 
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookInstalled:Z
 
-    .line 736
+    .line 843
     const-string v5, "TickerWidget"
 
     const-string v6, "isSinaweiboInstalled() : false"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -3023,7 +3212,7 @@
     .locals 3
 
     .prologue
-    .line 740
+    .line 847
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
@@ -3036,40 +3225,40 @@
 
     move-result-object v0
 
-    .line 742
+    .line 849
     .local v0, accounts:[Landroid/accounts/Account;
     array-length v1, v0
 
     if-lez v1, :cond_0
 
-    .line 744
+    .line 851
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookLogin:Z
 
-    .line 745
+    .line 853
     const-string v1, "TickerWidget"
 
     const-string v2, "login successful"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 750
+    .line 859
     :goto_0
     return-void
 
-    .line 748
+    .line 856
     :cond_0
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookLogin:Z
 
-    .line 749
+    .line 858
     const-string v1, "TickerWidget"
 
     const-string v2, "updateSinaweiboLoginChecked() : login failed"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -3078,27 +3267,27 @@
     .locals 4
 
     .prologue
-    .line 828
+    .line 931
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 829
+    .line 932
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    const v2, 0x1080474
+    const v2, 0x108049f
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 836
+    .line 939
     :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040738
+    const v3, 0x1040750
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3106,14 +3295,14 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 839
+    .line 942
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/android/internal/policy/impl/sec/TickerUtil;->getStockData(Landroid/content/Context;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 840
+    .line 943
     .local v0, stockArrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/policy/impl/sec/TickerUtil$StockItem;>;"
     if-eqz v0, :cond_2
 
@@ -3123,24 +3312,24 @@
 
     if-eqz v1, :cond_2
 
-    .line 841
+    .line 944
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
-    .line 842
+    .line 945
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mCurrentStockData:Ljava/util/ArrayList;
 
-    .line 843
+    .line 946
     sget-object v1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->StockNormal:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
 
-    .line 848
+    .line 951
     :goto_1
     return-void
 
-    .line 830
+    .line 933
     .end local v0           #stockArrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/policy/impl/sec/TickerUtil$StockItem;>;"
     :cond_0
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
@@ -3149,24 +3338,24 @@
 
     if-eqz v1, :cond_1
 
-    .line 831
+    .line 934
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    const v2, 0x1080476
+    const v2, 0x10804a1
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_0
 
-    .line 833
+    .line 936
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
-    const v2, 0x108047a
+    const v2, 0x10804a5
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 834
+    .line 937
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleLogoImage:Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mStockOnClickListener:Landroid/view/View$OnClickListener;
@@ -3175,14 +3364,14 @@
 
     goto :goto_0
 
-    .line 845
+    .line 948
     .restart local v0       #stockArrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/policy/impl/sec/TickerUtil$StockItem;>;"
     :cond_2
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
 
-    .line 846
+    .line 949
     sget-object v1, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->StockNoItem:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerWidget;->UpdateData(Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;)V
@@ -3194,22 +3383,22 @@
     .locals 2
 
     .prologue
-    .line 647
+    .line 738
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerType:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
     sget-object v1, Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;->news:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
     if-ne v0, v1, :cond_1
 
-    .line 648
+    .line 739
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateNewsData()V
 
-    .line 658
+    .line 749
     :cond_0
     :goto_0
     return-void
 
-    .line 649
+    .line 740
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerType:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
@@ -3217,12 +3406,12 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 650
+    .line 741
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateStockData()V
 
     goto :goto_0
 
-    .line 651
+    .line 742
     :cond_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerType:Lcom/android/internal/policy/impl/sec/TickerWidget$TickerType;
 
@@ -3230,19 +3419,19 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 652
+    .line 743
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    .line 653
+    .line 744
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateSinaweiboData()V
 
     goto :goto_0
 
-    .line 655
+    .line 746
     :cond_3
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->updateFacebookData()V
 
@@ -3255,29 +3444,29 @@
     .locals 2
 
     .prologue
-    .line 989
+    .line 1104
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 990
+    .line 1105
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
 
-    .line 991
+    .line 1106
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->cleanUp()V
 
-    .line 992
+    .line 1107
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->cleanUp()V
 
-    .line 993
+    .line 1108
     return-void
 .end method
 
@@ -3286,21 +3475,21 @@
     .parameter "event"
 
     .prologue
-    .line 617
+    .line 708
     const-string v0, "TickerWidget"
 
     const-string v1, "onKeyDown at TickerWidget"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 619
+    .line 710
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 630
+    .line 721
     :cond_0
     :goto_0
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
@@ -3309,7 +3498,7 @@
 
     return v0
 
-    .line 622
+    .line 713
     :pswitch_0
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getRepeatCount()I
 
@@ -3325,14 +3514,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 623
+    .line 714
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->animateClose()V
 
     goto :goto_0
 
-    .line 619
+    .line 710
     nop
 
     :pswitch_data_0
@@ -3346,15 +3535,15 @@
     .locals 1
 
     .prologue
-    .line 1126
+    .line 1242
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     if-nez v0, :cond_0
 
-    .line 1127
+    .line 1243
     const/4 v0, 0x0
 
-    .line 1129
+    .line 1245
     :goto_0
     return v0
 
@@ -3373,7 +3562,7 @@
     .parameter "event"
 
     .prologue
-    .line 611
+    .line 702
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -3385,17 +3574,17 @@
     .locals 1
 
     .prologue
-    .line 982
+    .line 1097
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->onPause()V
 
-    .line 983
+    .line 1098
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->onPause()V
 
-    .line 984
+    .line 1099
     return-void
 .end method
 
@@ -3403,17 +3592,17 @@
     .locals 1
 
     .prologue
-    .line 977
+    .line 1092
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->onResume()V
 
-    .line 978
+    .line 1093
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerScrollView;->onResume()V
 
-    .line 979
+    .line 1094
     return-void
 .end method
 
@@ -3422,7 +3611,7 @@
     .parameter "event"
 
     .prologue
-    .line 635
+    .line 726
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->isOpened()Z
@@ -3439,15 +3628,15 @@
 
     if-nez v0, :cond_0
 
-    .line 636
+    .line 727
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->animateClose()V
 
-    .line 637
+    .line 728
     const/4 v0, 0x1
 
-    .line 639
+    .line 730
     :goto_0
     return v0
 
@@ -3463,12 +3652,12 @@
     .locals 1
 
     .prologue
-    .line 1137
+    .line 1253
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->startAutoScroll()V
 
-    .line 1138
+    .line 1254
     return-void
 .end method
 
@@ -3476,11 +3665,11 @@
     .locals 1
 
     .prologue
-    .line 1133
+    .line 1249
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->stopAutoScroll()V
 
-    .line 1134
+    .line 1250
     return-void
 .end method

@@ -6,6 +6,8 @@
 # instance fields
 .field ackPdu:Ljava/lang/String;
 
+.field errorClass:I
+
 .field errorCode:I
 
 .field messageRef:I
@@ -35,13 +37,40 @@
     return-void
 .end method
 
+.method public constructor <init>(ILjava/lang/String;II)V
+    .locals 0
+    .parameter "messageRef"
+    .parameter "ackPdu"
+    .parameter "errorCode"
+    .parameter "errorClass"
+
+    .prologue
+    .line 42
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+
+    .line 43
+    iput p1, p0, Lcom/android/internal/telephony/SmsResponse;->messageRef:I
+
+    .line 44
+    iput-object p2, p0, Lcom/android/internal/telephony/SmsResponse;->ackPdu:Ljava/lang/String;
+
+    .line 45
+    iput p3, p0, Lcom/android/internal/telephony/SmsResponse;->errorCode:I
+
+    .line 46
+    iput p4, p0, Lcom/android/internal/telephony/SmsResponse;->errorClass:I
+
+    .line 47
+    return-void
+.end method
+
 
 # virtual methods
 .method public toString()Ljava/lang/String;
     .locals 3
 
     .prologue
-    .line 42
+    .line 50
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -92,7 +121,7 @@
 
     move-result-object v0
 
-    .line 46
+    .line 54
     .local v0, ret:Ljava/lang/String;
     return-object v0
 .end method

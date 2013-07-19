@@ -99,6 +99,8 @@
 
 .field public static final IMS_CALLSWAP_ACTIVEUSE_IND:I = 0x124
 
+.field public static final IMS_CALL_5XX_RESPONSE:I = 0x169
+
 .field public static final IMS_CALL_ADDRESS_INCOMPLETE:I = 0x134
 
 .field public static final IMS_CALL_ALERTING:I = 0xcd
@@ -177,7 +179,7 @@
 
 .field public static final IMS_CALL_LOCAL_CAPTURE_SUCCESS:I = 0x12a
 
-.field public static final IMS_CALL_MAX:I = 0x169
+.field public static final IMS_CALL_MAX:I = 0x16b
 
 .field public static final IMS_CALL_METHOD_NOT_ALLOWED:I = 0x130
 
@@ -337,7 +339,7 @@
 
 .field public static final IMS_CALL_TEMP_UNAVAILABLE:I = 0xd8
 
-.field public static final IMS_CALL_TEMP_UNAVAILABLE_415_CAUSE:I = 0x168
+.field public static final IMS_CALL_TEMP_UNAVAILABLE_WITH_CAUSE:I = 0x168
 
 .field public static final IMS_CALL_TIMEOUT:I = 0xdb
 
@@ -356,6 +358,8 @@
 .field public static final IMS_CALL_TYPE_HDVT:I = 0x5
 
 .field public static final IMS_CALL_TYPE_HDVT_LAND:I = 0x6
+
+.field public static final IMS_CALL_TYPE_HDVT_QVGA:I = 0x9
 
 .field public static final IMS_CALL_TYPE_HDVT_QVGA_LAND:I = 0x8
 
@@ -477,6 +481,8 @@
 
 .field public static final IMS_FAILED_TO_GO_READY:I = 0xed
 
+.field public static final IMS_IMMS_FAILURE_RESTART:I = 0x16a
+
 .field public static final IMS_NETWORK_DISCONNECT:I = 0x167
 
 .field public static final IMS_NETWORK_TRANSITION_LTE_TO_3G:I = 0x15f
@@ -536,6 +542,8 @@
 .field public static final IMS_REG_NOT_SUBSCRIBED:I = 0x71
 
 .field public static final IMS_REG_REQ_FAILED:I = 0x67
+
+.field public static final IMS_REG_RETRY_MUL_PCSCFIP_FAILED:I = 0x7b
 
 .field public static final IMS_REG_SERVER_ERROR:I = 0x6f
 

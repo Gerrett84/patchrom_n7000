@@ -46,16 +46,16 @@
     .end annotation
 
     .prologue
-    .line 1505
+    .line 1535
     .local p2, cb:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/lang/Boolean;>;"
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1506
+    .line 1536
     iput-object p1, p0, Landroid/webkit/WebViewCore$SaveViewStateRequest;->mStream:Ljava/io/OutputStream;
 
-    .line 1507
+    .line 1537
     iput-object p2, p0, Landroid/webkit/WebViewCore$SaveViewStateRequest;->mCallback:Landroid/webkit/ValueCallback;
 
-    .line 1508
+    .line 1538
     return-void
 .end method

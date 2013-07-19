@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 690
+    .line 691
     iput-object p1, p0, Landroid/view/SurfaceView$MyWindow$1;->this$0:Landroid/view/SurfaceView$MyWindow;
 
     iput p2, p0, Landroid/view/SurfaceView$MyWindow$1;->val$_w:I
@@ -56,7 +56,7 @@
     .locals 3
 
     .prologue
-    .line 693
+    .line 694
     iget-object v1, p0, Landroid/view/SurfaceView$MyWindow$1;->this$0:Landroid/view/SurfaceView$MyWindow;
 
     #getter for: Landroid/view/SurfaceView$MyWindow;->mSurfaceView:Ljava/lang/ref/WeakReference;
@@ -70,32 +70,32 @@
 
     check-cast v0, Landroid/view/SurfaceView;
 
-    .line 694
+    .line 695
     .local v0, surfaceView:Landroid/view/SurfaceView;
     if-eqz v0, :cond_1
 
-    .line 698
+    .line 699
     iget-object v1, v0, Landroid/view/SurfaceView;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 700
+    .line 701
     :try_start_0
     iget-boolean v1, p0, Landroid/view/SurfaceView$MyWindow$1;->val$_reportDraw:Z
 
     if-eqz v1, :cond_2
 
-    .line 701
+    .line 702
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Landroid/view/SurfaceView;->mUpdateWindowNeeded:Z
 
-    .line 702
+    .line 703
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Landroid/view/SurfaceView;->mReportDrawNeeded:Z
 
-    .line 703
+    .line 704
     iget-object v1, v0, Landroid/view/SurfaceView;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x3
@@ -104,18 +104,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 710
+    .line 711
     :cond_0
     :goto_0
     iget-object v1, v0, Landroid/view/SurfaceView;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 713
+    .line 714
     :cond_1
     return-void
 
-    .line 704
+    .line 705
     :cond_2
     :try_start_1
     iget-object v1, v0, Landroid/view/SurfaceView;->mWinFrame:Landroid/graphics/Rect;
@@ -138,13 +138,13 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 706
+    .line 707
     :cond_3
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Landroid/view/SurfaceView;->mUpdateWindowNeeded:Z
 
-    .line 707
+    .line 708
     iget-object v1, v0, Landroid/view/SurfaceView;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x3
@@ -155,7 +155,7 @@
 
     goto :goto_0
 
-    .line 710
+    .line 711
     :catchall_0
     move-exception v1
 

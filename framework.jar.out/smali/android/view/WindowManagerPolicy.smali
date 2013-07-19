@@ -139,6 +139,8 @@
 
 .field public static final WINDOW_MODE_OPTION_COMMON_FIXED_SIZE:I = 0x20000
 
+.field public static final WINDOW_MODE_OPTION_COMMON_FORCE_TITLE_BAR:I = 0x2000
+
 .field public static final WINDOW_MODE_OPTION_COMMON_FULL_SIZE:I = 0x4000
 
 .field public static final WINDOW_MODE_OPTION_COMMON_HIDDEN:I = 0x80000
@@ -153,9 +155,17 @@
 
 .field public static final WINDOW_MODE_OPTION_COMMON_NO_CONTROLBAR:I = 0x10000
 
+.field public static final WINDOW_MODE_OPTION_COMMON_OPTION_ZONE_NEXT:I = 0x1000
+
+.field public static final WINDOW_MODE_OPTION_COMMON_OPTION_ZONE_SAME:I = 0x800
+
 .field public static final WINDOW_MODE_OPTION_COMMON_PINUP:I = 0x800000
 
 .field public static final WINDOW_MODE_OPTION_COMMON_RESIZE:I = 0x200000
+
+.field public static final WINDOW_MODE_OPTION_COMMON_SKIP_POLICY:I = 0x400
+
+.field public static final WINDOW_MODE_OPTION_COMMON_UNIQUEOP_MASK:I = 0x23e000
 
 .field public static final WINDOW_MODE_OPTION_SPLIT_ZONE_A:I = 0x6
 
@@ -174,6 +184,18 @@
 .field public static final WINDOW_MODE_OPTION_SPLIT_ZONE_MASK:I = 0xff
 
 .field public static final WINDOW_MODE_OPTION_SPLIT_ZONE_UNKNOWN:I = 0x0
+
+.field public static final WINDOW_MODE_OPTION_ZONE_POLICY_DONTCARE:I = 0x0
+
+.field public static final WINDOW_MODE_OPTION_ZONE_POLICY_MASK:I = 0x1800
+
+.field public static final WINDOW_MODE_OPTION_ZONE_POLICY_MASK_SHIFT:I = 0xb
+
+.field public static final WINDOW_MODE_OPTION_ZONE_POLICY_NEXT:I = 0x2
+
+.field public static final WINDOW_MODE_OPTION_ZONE_POLICY_RESERVED:I = 0x3
+
+.field public static final WINDOW_MODE_OPTION_ZONE_POLICY_SAME:I = 0x1
 
 .field public static final WINDOW_MODE_SHIFT:I = 0x18
 
@@ -207,7 +229,7 @@
 .method public abstract allowKeyRepeat()Z
 .end method
 
-.method public abstract animatingWindowLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;)V
+.method public abstract animatingWindowLw(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;I)V
 .end method
 
 .method public abstract beginAnimationLw(II)V
@@ -267,6 +289,9 @@
 .method public abstract getContentInsetHintLw(Landroid/view/WindowManager$LayoutParams;Landroid/graphics/Rect;)V
 .end method
 
+.method public abstract getGlobalSystemUiVisibility()I
+.end method
+
 .method public abstract getMaxWallpaperLayer()I
 .end method
 
@@ -303,6 +328,9 @@
 .method public abstract interceptMotionBeforeQueueingWhenScreenOff(I)I
 .end method
 
+.method public abstract isCoverOpen()Z
+.end method
+
 .method public abstract isKeyguardLocked()Z
 .end method
 
@@ -333,7 +361,10 @@
 .method public abstract lockNow()V
 .end method
 
-.method public abstract mustBeForceHidden(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;Landroid/view/WindowManager$LayoutParams;I)Z
+.method public abstract mustBeForceHidden(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;Landroid/view/WindowManager$LayoutParams;II)Z
+.end method
+
+.method public abstract notifyCoverSwitchChanged(JZ)V
 .end method
 
 .method public abstract notifyLidSwitchChanged(JZ)V
@@ -376,6 +407,9 @@
 .end method
 
 .method public abstract selectAnimationLw(Landroid/view/WindowManagerPolicy$WindowState;I)I
+.end method
+
+.method public abstract setCurrentInputMethodTargetLw(Landroid/view/WindowManagerPolicy$WindowState;)V
 .end method
 
 .method public abstract setCurrentOrientationLw(I)V

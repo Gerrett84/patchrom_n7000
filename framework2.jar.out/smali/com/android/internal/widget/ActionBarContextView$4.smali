@@ -38,28 +38,24 @@
 
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
-    .locals 11
+    .locals 14
     .parameter "v"
 
     .prologue
-    const/4 v10, 0x1
-
-    const/4 v7, 0x0
-
     .line 376
-    const/4 v6, 0x2
+    const/4 v10, 0x2
 
-    new-array v4, v6, [I
+    new-array v6, v10, [I
 
     .line 377
-    .local v4, screenPos:[I
+    .local v6, screenPos:[I
     new-instance v2, Landroid/graphics/Rect;
 
     invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
     .line 378
     .local v2, displayFrame:Landroid/graphics/Rect;
-    invoke-virtual {p1, v4}, Landroid/view/View;->getLocationOnScreen([I)V
+    invoke-virtual {p1, v6}, Landroid/view/View;->getLocationOnScreen([I)V
 
     .line 379
     invoke-virtual {p1, v2}, Landroid/view/View;->getWindowVisibleDisplayFrame(Landroid/graphics/Rect;)V
@@ -73,45 +69,115 @@
     .local v1, context:Landroid/content/Context;
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
-    move-result v5
+    move-result v8
 
     .line 383
-    .local v5, width:I
+    .local v8, width:I
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
     move-result v3
 
-    .line 385
+    .line 386
     .local v3, height:I
+    invoke-virtual {p1}, Landroid/view/View;->getRootView()Landroid/view/View;
+
+    move-result-object v5
+
+    .line 387
+    .local v5, root:Landroid/view/View;
+    invoke-virtual {v5}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v7
+
+    .line 388
+    .local v7, vlp:Landroid/view/ViewGroup$LayoutParams;
+    const/4 v9, 0x0
+
+    .line 390
+    .local v9, wlp:Landroid/view/WindowManager$LayoutParams;
+    instance-of v10, v7, Landroid/view/WindowManager$LayoutParams;
+
+    if-eqz v10, :cond_1
+
+    move-object v9, v7
+
+    .line 391
+    check-cast v9, Landroid/view/WindowManager$LayoutParams;
+
+    .line 392
+    iget v10, v9, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/lit16 v10, v10, 0x200
+
+    if-nez v10, :cond_2
+
+    const/4 v4, 0x0
+
+    .line 393
+    .local v4, isMultiWindowPopup:Z
+    :goto_0
+    if-eqz v4, :cond_1
+
+    iget v10, v2, Landroid/graphics/Rect;->left:I
+
+    if-ltz v10, :cond_0
+
+    iget v10, v2, Landroid/graphics/Rect;->top:I
+
+    if-gez v10, :cond_1
+
+    .line 394
+    :cond_0
+    iget-object v10, p0, Lcom/android/internal/widget/ActionBarContextView$4;->this$0:Lcom/android/internal/widget/ActionBarContextView;
+
+    #calls: Lcom/android/internal/widget/ActionBarContextView;->getVisibleDisplayRect(Landroid/view/View;Landroid/graphics/Rect;)V
+    invoke-static {v10, p1, v2}, Lcom/android/internal/widget/ActionBarContextView;->access$100(Lcom/android/internal/widget/ActionBarContextView;Landroid/view/View;Landroid/graphics/Rect;)V
+
+    .line 399
+    .end local v4           #isMultiWindowPopup:Z
+    :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getContentDescription()Ljava/lang/CharSequence;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-static {v1, v6, v7}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    const/4 v11, 0x0
+
+    invoke-static {v1, v10, v11}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v0
 
-    .line 387
+    .line 401
     .local v0, cheatSheet:Landroid/widget/Toast;
-    const/16 v6, 0x33
+    const/16 v10, 0x33
 
-    aget v7, v4, v7
+    const/4 v11, 0x0
 
-    add-int/2addr v7, v5
+    aget v11, v6, v11
 
-    aget v8, v4, v10
+    const/4 v12, 0x1
 
-    add-int/2addr v8, v3
+    aget v12, v6, v12
 
-    iget v9, v2, Landroid/graphics/Rect;->top:I
+    add-int/2addr v12, v3
 
-    sub-int/2addr v8, v9
+    iget v13, v2, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v0, v6, v7, v8}, Landroid/widget/Toast;->setGravity(III)V
+    sub-int/2addr v12, v13
 
-    .line 390
+    invoke-virtual {v0, v10, v11, v12}, Landroid/widget/Toast;->setGravity(III)V
+
+    .line 404
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 391
+    .line 405
+    const/4 v10, 0x1
+
     return v10
+
+    .line 392
+    .end local v0           #cheatSheet:Landroid/widget/Toast;
+    :cond_2
+    const/4 v4, 0x1
+
+    goto :goto_0
 .end method

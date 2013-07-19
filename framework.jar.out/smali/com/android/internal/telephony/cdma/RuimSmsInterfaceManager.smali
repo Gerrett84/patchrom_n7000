@@ -322,14 +322,14 @@
     .parameter "messageIdentifier"
 
     .prologue
-    .line 250
+    .line 257
     const-string v0, "CDMA"
 
     const-string v1, "Error! Not implemented for CDMA."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 251
+    .line 258
     const/4 v0, 0x0
 
     return v0
@@ -341,14 +341,14 @@
     .parameter "endMessageId"
 
     .prologue
-    .line 262
+    .line 269
     const-string v0, "CDMA"
 
     const-string v1, "Error! Not implemented for CDMA."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 263
+    .line 270
     const/4 v0, 0x0
 
     return v0
@@ -372,14 +372,14 @@
     .parameter "messageIdentifier"
 
     .prologue
-    .line 244
+    .line 251
     const-string v0, "CDMA"
 
     const-string v1, "Error! Not implemented for CDMA."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 245
+    .line 252
     const/4 v0, 0x0
 
     return v0
@@ -391,14 +391,14 @@
     .parameter "endMessageId"
 
     .prologue
-    .line 256
+    .line 263
     const-string v0, "CDMA"
 
     const-string v1, "Error! Not implemented for CDMA."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 257
+    .line 264
     const/4 v0, 0x0
 
     return v0
@@ -553,7 +553,18 @@
     .locals 1
 
     .prologue
-    .line 267
+    .line 274
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public getMessagesFromIccEf(I)[B
+    .locals 1
+    .parameter "index"
+
+    .prologue
+    .line 245
     const/4 v0, 0x0
 
     return-object v0
@@ -564,7 +575,7 @@
     .parameter "msg"
 
     .prologue
-    .line 272
+    .line 279
     const-string v0, "CDMA"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -587,7 +598,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 273
+    .line 280
     return-void
 .end method
 

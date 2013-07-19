@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
+    value = Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Landroid/content/res/Configuration;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 409
+    .line 411
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$5;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "event"
 
     .prologue
-    .line 412
+    .line 414
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$5;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mIsHoveringUIEnabled:Z
@@ -53,14 +53,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 413
+    .line 415
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 425
+    .line 427
     :cond_0
     :goto_0
     :pswitch_0
@@ -68,7 +68,7 @@
 
     return v0
 
-    .line 415
+    .line 417
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$5;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
@@ -83,7 +83,7 @@
 
     goto :goto_0
 
-    .line 418
+    .line 420
     :pswitch_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$5;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
@@ -98,7 +98,7 @@
 
     goto :goto_0
 
-    .line 421
+    .line 423
     :pswitch_3
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$5;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
@@ -113,7 +113,7 @@
 
     goto :goto_0
 
-    .line 413
+    .line 415
     nop
 
     :pswitch_data_0

@@ -100,13 +100,13 @@
     <string name="toast_unavailable_in_tvout_mode">Недоступно в режимі ТВ-виходу</string>
     <string name="mute">Вимк. звук</string>
     <string name="seeking">Пошук…</string>
-    <string name="via_earphone">Через навушники</string>
-    <string name="via_speaker">Через динам.</string>
+    <string name="via_earphone">Відтворення через навушники</string>
+    <string name="via_speaker">Відтвор. через динамік</string>
     <string name="normal_frequency">Звичайна частота</string>
     <string name="tag">Тег</string>
     <string name="stop">Стоп</string>
     <string name="recording">Запис…</string>
-    <string name="memory_full">Записування зупинено. Пам’ять заповнено</string>
+    <string name="memory_full">"Пам'ять заповнено"</string>
     <string name="cancel_recording">Скасувати записування?</string>
     <string name="change_frequency">Змінити частоту</string>
     <string name="enter_frequency">Введіть частоту</string>
@@ -132,11 +132,14 @@
     <string name="tags">Теги</string>
     <string name="tags_now_broadcasting">Наразі здійснюється передача</string>
     <string name="tags_no_information">Немає інформації</string>
+    <string name="tags_music_history">Історія відтворення музичних файлів</string>
     <string name="tags_music_title">Назва</string>
     <string name="tags_music_album">Альбом</string>
     <string name="tags_music_artist">Виконавець</string>
+    <string name="tags_music_band">Музична група</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Домашня сторінка</string>
+    <string name="tags_interact_hotline">Гаряча лінія</string>
     <string name="tags_interact_studio">Студія</string>
     <string name="tags_interact_other">Інші</string>
     <string name="tags_interact_centre">По центру</string>
@@ -182,4 +185,14 @@
     <string name="dialog_one_item_deleted">Цей об’єкт буде видалено</string>
     <string name="dialog_multiple_items_deleted">%d об’єктів буде видалено</string>
     <string name="dialog_all_items_deleted">Усі об’єкти буде видалено</string>
+    <string name="turning_on">Увімкнення…</string>
+    <string name="not_enough_memory_recording_will_stop">Недостатньо пам’яті. Записування буде зупинено через %d секунд</string>
+    <string name="low_batt_msg">Батарея розряджена</string>
+    <string name="no_play_during_call">Неможливо відтворити під час виклику</string>
+    <string name="unable_delete">Неможливо видалити</string>
+    <string name="playing">Відтворити</string>
+    <string name="tts_play_button">Відтворити</string>
+    <string name="tts_previous_button">Попередне</string>
+    <string name="tts_Next_button">Далі</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

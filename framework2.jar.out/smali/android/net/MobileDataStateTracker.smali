@@ -354,7 +354,7 @@
     .parameter "s"
 
     .prologue
-    .line 611
+    .line 613
     const-string v0, "MobileDataStateTracker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -383,7 +383,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 612
+    .line 614
     return-void
 .end method
 
@@ -392,7 +392,7 @@
     .parameter "s"
 
     .prologue
-    .line 615
+    .line 617
     const-string v0, "MobileDataStateTracker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -421,7 +421,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 616
+    .line 618
     return-void
 .end method
 
@@ -433,7 +433,7 @@
     .line 563
     packed-switch p0, :pswitch_data_0
 
-    .line 591
+    .line 593
     :pswitch_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -461,7 +461,7 @@
 
     invoke-static {v0}, Landroid/net/MobileDataStateTracker;->sloge(Ljava/lang/String;)V
 
-    .line 592
+    .line 594
     const/4 v0, 0x0
 
     :goto_0
@@ -539,9 +539,13 @@
 
     goto :goto_0
 
-    .line 563
-    nop
+    .line 591
+    :pswitch_d
+    const-string v0, "bip"
 
+    goto :goto_0
+
+    .line 563
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -561,7 +565,7 @@
         :pswitch_a
         :pswitch_b
         :pswitch_c
-        :pswitch_0
+        :pswitch_d
         :pswitch_9
     .end packed-switch
 .end method
@@ -831,12 +835,12 @@
     .parameter "s"
 
     .prologue
-    .line 619
+    .line 621
     const-string v0, "MobileDataStateTracker"
 
     invoke-static {v0, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 620
+    .line 622
     return-void
 .end method
 
@@ -858,7 +862,7 @@
     .locals 2
 
     .prologue
-    .line 607
+    .line 609
     new-instance v0, Landroid/net/LinkCapabilities;
 
     iget-object v1, p0, Landroid/net/MobileDataStateTracker;->mLinkCapabilities:Landroid/net/LinkCapabilities;
@@ -872,7 +876,7 @@
     .locals 2
 
     .prologue
-    .line 600
+    .line 602
     new-instance v0, Landroid/net/LinkProperties;
 
     iget-object v1, p0, Landroid/net/MobileDataStateTracker;->mLinkProperties:Landroid/net/LinkProperties;

@@ -16,9 +16,20 @@
 
 .field public static final COOKIE_SYNC_MANAGER:Z = false
 
-.field public static ENABLE_SAMSUNG_SELECTION:Z = false
+.field static final DEBUG_MAGNIFIER:I = 0x2
 
-.field public static ENABLE_SCROLL_PERFORMANCE_PATCH:Z = false
+.field static final DEBUG_SELECTION:I = 0x1
+
+#the value of this static final field might be set in the static constructor
+.field static final DEBUG_SETTING:I = 0x0
+
+#the value of this static final field might be set in the static constructor
+.field static final ENABLE_DRAG:I = 0x0
+
+#the value of this static final field might be set in the static constructor
+.field static final ENABLE_SAMSUNG_SELECTION:I = 0x0
+
+.field public static ENABLE_TOUCH_PERFORMANCE_PATCH:Z = false
 
 .field public static final FRAME_LOADER:Z = false
 
@@ -35,6 +46,9 @@
 .field public static final STREAM_LOADER:Z = false
 
 .field public static final URL_UTIL:Z = false
+
+#the value of this static final field might be set in the static constructor
+.field static final USE_BITMAP_MAGNIFIER:Z = false
 
 .field public static final WEBSETTINGS_WEBKIT:Z = true
 
@@ -86,7 +100,7 @@
     .line 58
     const-string v0, "1"
 
-    const-string v3, "debug.browser.samsungselection"
+    const-string v3, "debug.browser.touchperformance"
 
     invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -101,25 +115,45 @@
     move v0, v1
 
     :goto_1
-    sput-boolean v0, Landroid/webkit/DebugFlags;->ENABLE_SAMSUNG_SELECTION:Z
+    sput-boolean v0, Landroid/webkit/DebugFlags;->ENABLE_TOUCH_PERFORMANCE_PATCH:Z
 
-    .line 59
-    const-string v0, "1"
+    .line 63
+    const-string/jumbo v0, "webkit.debug"
 
-    const-string v3, "debug.browser.scrollperformance"
-
-    invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
-    if-nez v0, :cond_2
+    sput v0, Landroid/webkit/DebugFlags;->DEBUG_SETTING:I
 
-    :goto_2
-    sput-boolean v1, Landroid/webkit/DebugFlags;->ENABLE_SCROLL_PERFORMANCE_PATCH:Z
+    .line 65
+    const-string/jumbo v0, "webkit.samsungselection"
+
+    const/4 v3, 0x2
+
+    invoke-static {v0, v3}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput v0, Landroid/webkit/DebugFlags;->ENABLE_SAMSUNG_SELECTION:I
+
+    .line 66
+    const-string/jumbo v0, "webkit.drag"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput v0, Landroid/webkit/DebugFlags;->ENABLE_DRAG:I
+
+    .line 67
+    const-string/jumbo v0, "webkit.magnifier.usebitmap"
+
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    sput-boolean v0, Landroid/webkit/DebugFlags;->USE_BITMAP_MAGNIFIER:Z
 
     return-void
 
@@ -134,12 +168,6 @@
 
     .line 58
     goto :goto_1
-
-    :cond_2
-    move v1, v2
-
-    .line 59
-    goto :goto_2
 .end method
 
 .method constructor <init>()V

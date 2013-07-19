@@ -98,7 +98,7 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string v3, "name"
+    const-string/jumbo v3, "name"
 
     aput-object v3, v0, v2
 
@@ -156,15 +156,15 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string v3, "name_MaxCount"
+    const-string/jumbo v3, "name_MaxCount"
 
     aput-object v3, v0, v2
 
-    const-string v3, "name_UsedCount"
+    const-string/jumbo v3, "name_UsedCount"
 
     aput-object v3, v0, v1
 
-    const-string v3, "name_MaxLength"
+    const-string/jumbo v3, "name_MaxLength"
 
     aput-object v3, v0, v5
 
@@ -207,7 +207,7 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string v3, "maxCount"
+    const-string/jumbo v3, "maxCount"
 
     aput-object v3, v0, v2
 
@@ -219,7 +219,7 @@
 
     aput-object v2, v0, v5
 
-    const-string v2, "name_MaxLength"
+    const-string/jumbo v2, "name_MaxLength"
 
     aput-object v2, v0, v6
 
@@ -270,7 +270,7 @@
 
     const-string v1, "icc"
 
-    const-string v2, "msisdn"
+    const-string/jumbo v2, "msisdn"
 
     invoke-virtual {v0, v1, v2, v7}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
@@ -301,7 +301,7 @@
 
     const-string v1, "icc"
 
-    const-string v2, "msisdn/from_contacts"
+    const-string/jumbo v2, "msisdn/from_contacts"
 
     const/4 v3, 0x7
 
@@ -1389,6 +1389,18 @@
     move-exception v9
 
     goto :goto_0
+.end method
+
+.method static getURL_MATCHER()Landroid/content/UriMatcher;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    sget-object v0, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
+
+    return-object v0
 .end method
 
 .method private getUSIMPBCapa()Ljava/util/ArrayList;
@@ -4526,7 +4538,7 @@
 
     .line 566
     :pswitch_c
-    const-string v2, "msisdn/"
+    const-string/jumbo v2, "msisdn/"
 
     move-object/from16 v0, v19
 
@@ -4535,6 +4547,8 @@
     goto :goto_5
 
     .line 436
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -5735,16 +5749,4 @@
         :pswitch_0
         :pswitch_3
     .end packed-switch
-.end method
-
-.method static getURL_MATCHER()Landroid/content/UriMatcher;
-    .locals 1
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    sget-object v0, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
-
-    return-object v0
 .end method

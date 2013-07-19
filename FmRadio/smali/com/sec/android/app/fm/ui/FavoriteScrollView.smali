@@ -21,16 +21,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 36
+    .line 38
     invoke-direct {p0, p1}, Landroid/widget/HorizontalScrollView;-><init>(Landroid/content/Context;)V
 
-    .line 23
+    .line 24
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->mLightingLeft:Landroid/graphics/drawable/Drawable;
 
-    .line 25
+    .line 26
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->mLightingRight:Landroid/graphics/drawable/Drawable;
 
-    .line 38
+    .line 40
     return-void
 .end method
 
@@ -42,16 +42,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 47
+    .line 49
     invoke-direct {p0, p1, p2}, Landroid/widget/HorizontalScrollView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 23
+    .line 24
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->mLightingLeft:Landroid/graphics/drawable/Drawable;
 
-    .line 25
+    .line 26
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->mLightingRight:Landroid/graphics/drawable/Drawable;
 
-    .line 49
+    .line 51
     return-void
 .end method
 
@@ -64,15 +64,15 @@
     .prologue
     const/16 v2, 0xff
 
-    .line 53
+    .line 55
     invoke-super {p0, p1}, Landroid/widget/HorizontalScrollView;->dispatchDraw(Landroid/graphics/Canvas;)V
 
-    .line 54
+    .line 56
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020057
+    const v1, 0x7f02003e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -80,12 +80,12 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->mLightingLeft:Landroid/graphics/drawable/Drawable;
 
-    .line 55
+    .line 57
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020063
+    const v1, 0x7f02004a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -93,17 +93,17 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->mLightingRight:Landroid/graphics/drawable/Drawable;
 
-    .line 57
+    .line 59
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->mLightingLeft:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 58
+    .line 60
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->mLightingRight:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 71
+    .line 73
     return-void
 .end method
 
@@ -115,13 +115,13 @@
     .parameter "oldt"
 
     .prologue
-    .line 83
+    .line 85
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/HorizontalScrollView;->onScrollChanged(IIII)V
 
-    .line 84
+    .line 86
     iput p1, p0, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->mScrollLeft:I
 
-    .line 85
+    .line 87
     return-void
 .end method
 
@@ -133,10 +133,10 @@
     .parameter "oldh"
 
     .prologue
-    .line 89
+    .line 91
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/HorizontalScrollView;->onSizeChanged(IIII)V
 
-    .line 90
+    .line 92
     int-to-float v0, p1
 
     iget v1, p0, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->mScrollRatio:F
@@ -149,6 +149,6 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/sec/android/app/fm/ui/FavoriteScrollView;->scrollTo(II)V
 
-    .line 91
+    .line 93
     return-void
 .end method

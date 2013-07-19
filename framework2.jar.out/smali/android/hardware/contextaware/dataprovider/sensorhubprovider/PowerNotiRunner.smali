@@ -64,11 +64,6 @@
     .locals 2
 
     .prologue
-    .line 80
-    const-string v0, "================= Power Noti ================="
-
-    invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/CALogger;->debug(Ljava/lang/String;)V
-
     .line 81
     new-instance v0, Ljava/lang/StringBuilder;
 

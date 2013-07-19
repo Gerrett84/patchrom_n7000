@@ -200,7 +200,7 @@
     invoke-static {v0, v1}, Landroid/app/ContextImpl;->registerService(Ljava/lang/String;Landroid/app/ContextImpl$ServiceFetcher;)V
 
     .line 343
-    const-string v0, "media_router"
+    const-string/jumbo v0, "media_router"
 
     new-instance v1, Landroid/app/ContextImpl$8;
 
@@ -558,7 +558,7 @@
     invoke-static {v0, v1}, Landroid/app/ContextImpl;->registerService(Ljava/lang/String;Landroid/app/ContextImpl$ServiceFetcher;)V
 
     .line 617
-    const-string v0, "motion_recognition"
+    const-string/jumbo v0, "motion_recognition"
 
     new-instance v1, Landroid/app/ContextImpl$49;
 
@@ -4055,24 +4055,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 1423
-    const-string v1, "ktuca"
-
-    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 1424
-    invoke-direct {p0}, Landroid/app/ContextImpl;->getKtUcaManager()Landroid/ktuca/KtUcaManager;
-
-    move-result-object v1
-
-    .line 1443
-    :goto_0
-    return-object v1
-
     .line 1442
     :cond_0
     sget-object v1, Landroid/app/ContextImpl;->SYSTEM_SERVICE_MAP:Ljava/util/HashMap;
@@ -4089,7 +4071,8 @@
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    :goto_0
+    return-object v1
 
     :cond_1
     invoke-virtual {v0, p0}, Landroid/app/ContextImpl$ServiceFetcher;->getService(Landroid/app/ContextImpl;)Ljava/lang/Object;
@@ -5525,6 +5508,7 @@
     :cond_0
     return-void
 .end method
+
 .method public setTheme(I)V
     .locals 0
     .parameter "resid"

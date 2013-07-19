@@ -53,12 +53,12 @@
     .parameter
 
     .prologue
-    .line 796
+    .line 800
     iput-object p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
 
-    .line 802
+    .line 806
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -72,10 +72,10 @@
     .locals 7
 
     .prologue
-    .line 900
+    .line 904
     iget-object v3, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->dnsCheckLogStr:Ljava/lang/String;
 
-    .line 901
+    .line 905
     .local v3, logStr:Ljava/lang/String;
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->dnsResponseStrs:[Ljava/lang/String;
 
@@ -91,7 +91,7 @@
 
     aget-object v4, v0, v1
 
-    .line 902
+    .line 906
     .local v4, respStr:Ljava/lang/String;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -121,12 +121,12 @@
 
     move-result-object v3
 
-    .line 901
+    .line 905
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 903
+    .line 907
     .end local v4           #respStr:Ljava/lang/String;
     :cond_0
     return-object v3
@@ -142,7 +142,7 @@
 
     const/4 v7, 0x0
 
-    .line 806
+    .line 810
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
     move-result v4
@@ -174,18 +174,18 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$300(Ljava/lang/String;)V
 
-    .line 807
+    .line 811
     :cond_0
     const/4 v3, 0x0
 
-    .line 808
+    .line 812
     .local v3, requested:Z
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->setPoorConnectNotificationVisible(Z)V
     invoke-static {v4, v7}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3400(Landroid/net/wifi/WifiWatchdogStateMachine;Z)V
 
-    .line 810
+    .line 814
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mDnsPinger:Landroid/net/DnsPinger;
@@ -199,44 +199,44 @@
 
     iput-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->mDnsList:Ljava/util/List;
 
-    .line 811
+    .line 815
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->mDnsList:Ljava/util/List;
 
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v2
 
-    .line 812
+    .line 816
     .local v2, numDnses:I
     new-array v4, v2, [I
 
     iput-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->dnsCheckSuccesses:[I
 
-    .line 813
+    .line 817
     new-array v4, v2, [Ljava/lang/String;
 
     iput-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->dnsResponseStrs:[Ljava/lang/String;
 
-    .line 814
+    .line 818
     const/4 v0, 0x0
 
     .local v0, i:I
     :goto_0
     if-ge v0, v2, :cond_1
 
-    .line 815
+    .line 819
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->dnsResponseStrs:[Ljava/lang/String;
 
     const-string v5, ""
 
     aput-object v5, v4, v0
 
-    .line 814
+    .line 818
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 817
+    .line 821
     :cond_1
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
@@ -244,7 +244,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 818
+    .line 822
     const-string v4, "Pinging %s on ssid [%s]: "
 
     const/4 v5, 0x2
@@ -274,19 +274,19 @@
 
     iput-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->dnsCheckLogStr:Ljava/lang/String;
 
-    .line 820
+    .line 824
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->dnsCheckLogStr:Ljava/lang/String;
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$300(Ljava/lang/String;)V
 
-    .line 823
+    .line 827
     :cond_2
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->idDnsMap:Ljava/util/HashMap;
 
     invoke-virtual {v4}, Ljava/util/HashMap;->clear()V
 
-    .line 824
+    .line 828
     const/4 v0, 0x0
 
     :goto_1
@@ -299,14 +299,14 @@
 
     if-ge v0, v4, :cond_5
 
-    .line 825
+    .line 829
     const/4 v1, 0x0
 
     .local v1, j:I
     :goto_2
     if-ge v1, v2, :cond_4
 
-    .line 826
+    .line 830
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->mDnsList:Ljava/util/List;
 
     invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -321,7 +321,7 @@
 
     if-nez v4, :cond_3
 
-    .line 827
+    .line 831
     iget-object v5, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->idDnsMap:Ljava/util/HashMap;
 
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -364,16 +364,16 @@
 
     invoke-virtual {v5, v4, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 829
+    .line 833
     const/4 v3, 0x1
 
-    .line 825
+    .line 829
     :goto_3
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
-    .line 831
+    .line 835
     :cond_3
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -398,30 +398,30 @@
 
     goto :goto_3
 
-    .line 824
+    .line 828
     :cond_4
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 836
+    .line 840
     .end local v1           #j:I
     :cond_5
     if-nez v3, :cond_6
 
-    .line 837
+    .line 841
     const-string v4, "DNS List is empty, ignore dns checking"
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->loge(Ljava/lang/String;)V
     invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3800(Ljava/lang/String;)V
 
-    .line 838
+    .line 842
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->setPoorConnectNotificationVisible(Z)V
     invoke-static {v4, v9}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3400(Landroid/net/wifi/WifiWatchdogStateMachine;Z)V
 
-    .line 839
+    .line 843
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v5, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -434,7 +434,7 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v4, v5}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3900(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 842
+    .line 846
     :cond_6
     return-void
 .end method
@@ -443,7 +443,7 @@
     .locals 1
 
     .prologue
-    .line 908
+    .line 912
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mDnsPinger:Landroid/net/DnsPinger;
@@ -453,7 +453,7 @@
 
     invoke-virtual {v0}, Landroid/net/DnsPinger;->cancelPings()V
 
-    .line 909
+    .line 913
     return-void
 .end method
 
@@ -464,7 +464,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 846
+    .line 850
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
     move-result v4
@@ -496,7 +496,7 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$300(Ljava/lang/String;)V
 
-    .line 847
+    .line 851
     :cond_0
     iget v4, p1, Landroid/os/Message;->what:I
 
@@ -504,22 +504,22 @@
 
     if-eq v4, v5, :cond_1
 
-    .line 848
+    .line 852
     const/4 v3, 0x0
 
-    .line 896
+    .line 900
     :goto_0
     return v3
 
-    .line 851
+    .line 855
     :cond_1
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    .line 852
+    .line 856
     .local v1, pingID:I
     iget v2, p1, Landroid/os/Message;->arg2:I
 
-    .line 854
+    .line 858
     .local v2, pingResponseTime:I
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->idDnsMap:Ljava/util/HashMap;
 
@@ -533,11 +533,11 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 855
+    .line 859
     .local v0, dnsServerId:Ljava/lang/Integer;
     if-nez v0, :cond_2
 
-    .line 856
+    .line 860
     const-string v4, "Received a Dns response with unknown ID!"
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->loge(Ljava/lang/String;)V
@@ -545,7 +545,7 @@
 
     goto :goto_0
 
-    .line 860
+    .line 864
     :cond_2
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->idDnsMap:Ljava/util/HashMap;
 
@@ -555,10 +555,10 @@
 
     invoke-virtual {v4, v5}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 861
+    .line 865
     if-ltz v2, :cond_3
 
-    .line 862
+    .line 866
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->dnsCheckSuccesses:[I
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -571,7 +571,7 @@
 
     aput v6, v4, v5
 
-    .line 864
+    .line 868
     :cond_3
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
@@ -579,10 +579,10 @@
 
     if-eqz v4, :cond_4
 
-    .line 865
+    .line 869
     if-ltz v2, :cond_6
 
-    .line 866
+    .line 870
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -615,7 +615,7 @@
 
     aput-object v4, v5, v6
 
-    .line 880
+    .line 884
     :cond_4
     :goto_1
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->dnsCheckSuccesses:[I
@@ -635,7 +635,7 @@
 
     if-lt v4, v5, :cond_8
 
-    .line 881
+    .line 885
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
     move-result v4
@@ -667,7 +667,7 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$300(Ljava/lang/String;)V
 
-    .line 883
+    .line 887
     :cond_5
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -678,7 +678,7 @@
 
     if-eqz v4, :cond_7
 
-    .line 884
+    .line 888
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v5, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -693,7 +693,7 @@
 
     goto/16 :goto_0
 
-    .line 868
+    .line 872
     :cond_6
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -725,7 +725,7 @@
 
     goto :goto_1
 
-    .line 886
+    .line 890
     :cond_7
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -741,14 +741,14 @@
 
     goto/16 :goto_0
 
-    .line 888
+    .line 892
     :cond_8
     const-string v4, "DNS Checking FAILURE"
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->loge(Ljava/lang/String;)V
     invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3800(Ljava/lang/String;)V
 
-    .line 889
+    .line 893
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
     move-result v4
@@ -780,14 +780,14 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$300(Ljava/lang/String;)V
 
-    .line 891
+    .line 895
     :cond_9
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->setPoorConnectNotificationVisible(Z)V
     invoke-static {v4, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3400(Landroid/net/wifi/WifiWatchdogStateMachine;Z)V
 
-    .line 893
+    .line 897
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v5, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DnsCheckingState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;

@@ -79,7 +79,7 @@
     .line 947
     const-string v0, "MediaRecorder"
 
-    const-string v1, "mediarecorder went away with unhandled events"
+    const-string/jumbo v1, "mediarecorder went away with unhandled events"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -180,6 +180,8 @@
     goto :goto_0
 
     .line 950
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0

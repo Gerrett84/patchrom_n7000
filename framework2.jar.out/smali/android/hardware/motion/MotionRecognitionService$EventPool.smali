@@ -34,31 +34,31 @@
     .prologue
     const/16 v3, 0xa
 
-    .line 1237
+    .line 1309
     iput-object p1, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1238
+    .line 1310
     new-instance v1, Ljava/lang/Object;
 
     invoke-direct/range {v1 .. v1}, Ljava/lang/Object;-><init>()V
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->mLockEventPool:Ljava/lang/Object;
 
-    .line 1239
+    .line 1311
     new-array v1, v3, [Landroid/hardware/motion/MREvent;
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->events:[Landroid/hardware/motion/MREvent;
 
-    .line 1241
+    .line 1313
     const/4 v0, 0x0
 
     .local v0, i:I
     :goto_0
     if-ge v0, v3, :cond_0
 
-    .line 1242
+    .line 1314
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->events:[Landroid/hardware/motion/MREvent;
 
     new-instance v2, Landroid/hardware/motion/MREvent;
@@ -67,12 +67,12 @@
 
     aput-object v2, v1, v0
 
-    .line 1241
+    .line 1313
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1244
+    .line 1316
     :cond_0
     return-void
 .end method
@@ -83,16 +83,16 @@
     .locals 5
 
     .prologue
-    .line 1247
+    .line 1319
     const/4 v1, 0x0
 
-    .line 1248
+    .line 1320
     .local v1, motionEvent:Landroid/hardware/motion/MREvent;
     iget-object v3, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->mLockEventPool:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 1249
+    .line 1321
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -101,7 +101,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 1250
+    .line 1322
     :try_start_0
     iget-object v2, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->events:[Landroid/hardware/motion/MREvent;
 
@@ -109,45 +109,45 @@
 
     if-eqz v2, :cond_2
 
-    .line 1251
+    .line 1323
     iget-object v2, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->events:[Landroid/hardware/motion/MREvent;
 
     aget-object v1, v2, v0
 
-    .line 1252
+    .line 1324
     iget-object v2, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->events:[Landroid/hardware/motion/MREvent;
 
     const/4 v4, 0x0
 
     aput-object v4, v2, v0
 
-    .line 1256
+    .line 1328
     :cond_0
     monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1257
+    .line 1329
     if-nez v1, :cond_1
 
-    .line 1258
+    .line 1330
     new-instance v1, Landroid/hardware/motion/MREvent;
 
     .end local v1           #motionEvent:Landroid/hardware/motion/MREvent;
     invoke-direct {v1}, Landroid/hardware/motion/MREvent;-><init>()V
 
-    .line 1260
+    .line 1332
     .restart local v1       #motionEvent:Landroid/hardware/motion/MREvent;
     :cond_1
     return-object v1
 
-    .line 1249
+    .line 1321
     :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1256
+    .line 1328
     :catchall_0
     move-exception v2
 
@@ -164,12 +164,12 @@
     .parameter "motionEvent"
 
     .prologue
-    .line 1264
+    .line 1336
     iget-object v2, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->mLockEventPool:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 1265
+    .line 1337
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -178,7 +178,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 1266
+    .line 1338
     :try_start_0
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->events:[Landroid/hardware/motion/MREvent;
 
@@ -186,25 +186,25 @@
 
     if-nez v1, :cond_1
 
-    .line 1267
+    .line 1339
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService$EventPool;->events:[Landroid/hardware/motion/MREvent;
 
     aput-object p1, v1, v0
 
-    .line 1271
+    .line 1343
     :cond_0
     monitor-exit v2
 
-    .line 1272
+    .line 1344
     return-void
 
-    .line 1265
+    .line 1337
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1271
+    .line 1343
     :catchall_0
     move-exception v1
 

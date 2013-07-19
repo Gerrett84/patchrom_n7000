@@ -27,15 +27,15 @@
     .parameter "isSourceCodeAvailable"
 
     .prologue
-    .line 279
+    .line 357
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 280
+    .line 358
     iput-object p1, p0, Landroid/os/DVFSHelper$PackageInfo;->mName:Ljava/lang/String;
 
-    .line 281
+    .line 359
     iput-boolean p2, p0, Landroid/os/DVFSHelper$PackageInfo;->mIsSourceCodeAvailable:Z
 
-    .line 282
+    .line 360
     return-void
 .end method

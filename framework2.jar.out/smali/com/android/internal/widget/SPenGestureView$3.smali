@@ -1,5 +1,5 @@
 .class Lcom/android/internal/widget/SPenGestureView$3;
-.super Landroid/os/Handler;
+.super Landroid/view/GestureDetector$SimpleOnGestureListener;
 .source "SPenGestureView.java"
 
 
@@ -24,72 +24,101 @@
     .parameter
 
     .prologue
-    .line 474
+    .line 486
     iput-object p1, p0, Lcom/android/internal/widget/SPenGestureView$3;->this$0:Lcom/android/internal/widget/SPenGestureView;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0}, Landroid/view/GestureDetector$SimpleOnGestureListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
+.method public onDoubleTap(Landroid/view/MotionEvent;)Z
     .locals 2
-    .parameter "msg"
+    .parameter "e"
 
     .prologue
+    .line 501
+    iget-object v0, p0, Lcom/android/internal/widget/SPenGestureView$3;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    iget-object v0, v0, Lcom/android/internal/widget/SPenGestureView;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/internal/widget/SPenGestureView$3;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    iget-object v1, v1, Lcom/android/internal/widget/SPenGestureView;->mPenDoubleTap:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    .line 502
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public onDown(Landroid/view/MotionEvent;)Z
+    .locals 2
+    .parameter "e"
+
+    .prologue
+    .line 506
+    iget-object v0, p0, Lcom/android/internal/widget/SPenGestureView$3;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
     const/4 v1, 0x0
 
-    .line 476
-    iget v0, p1, Landroid/os/Message;->what:I
+    #setter for: Lcom/android/internal/widget/SPenGestureView;->mOutofVerticalThresholdToUp:Z
+    invoke-static {v0, v1}, Lcom/android/internal/widget/SPenGestureView;->access$402(Lcom/android/internal/widget/SPenGestureView;Z)Z
 
-    packed-switch v0, :pswitch_data_0
+    .line 507
+    const/4 v0, 0x1
 
-    .line 488
-    :goto_0
+    return v0
+.end method
+
+.method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
+    .locals 1
+    .parameter "e1"
+    .parameter "e2"
+    .parameter "velocityX"
+    .parameter "velocityY"
+
+    .prologue
+    .line 540
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public onLongPress(Landroid/view/MotionEvent;)V
+    .locals 2
+    .parameter "e"
+
+    .prologue
+    .line 495
+    iget-object v0, p0, Lcom/android/internal/widget/SPenGestureView$3;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    iget-object v0, v0, Lcom/android/internal/widget/SPenGestureView;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/internal/widget/SPenGestureView$3;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    iget-object v1, v1, Lcom/android/internal/widget/SPenGestureView;->mPenLongPress:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    .line 497
     return-void
+.end method
 
-    .line 478
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/internal/widget/SPenGestureView$3;->this$0:Lcom/android/internal/widget/SPenGestureView;
+.method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
+    .locals 1
+    .parameter "e1"
+    .parameter "e2"
+    .parameter "distanceX"
+    .parameter "distanceY"
 
-    #calls: Lcom/android/internal/widget/SPenGestureView;->startAniForLoadingService()V
-    invoke-static {v0}, Lcom/android/internal/widget/SPenGestureView;->access$300(Lcom/android/internal/widget/SPenGestureView;)V
+    .prologue
+    .line 514
+    const/4 v0, 0x0
 
-    goto :goto_0
-
-    .line 481
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/internal/widget/SPenGestureView$3;->this$0:Lcom/android/internal/widget/SPenGestureView;
-
-    #getter for: Lcom/android/internal/widget/SPenGestureView;->mLoadingAniImgView:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/android/internal/widget/SPenGestureView;->access$400(Lcom/android/internal/widget/SPenGestureView;)Landroid/widget/ImageView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
-
-    .line 482
-    iget-object v0, p0, Lcom/android/internal/widget/SPenGestureView$3;->this$0:Lcom/android/internal/widget/SPenGestureView;
-
-    #setter for: Lcom/android/internal/widget/SPenGestureView;->mIsLiveCropThread:Z
-    invoke-static {v0, v1}, Lcom/android/internal/widget/SPenGestureView;->access$502(Lcom/android/internal/widget/SPenGestureView;Z)Z
-
-    .line 483
-    iget-object v0, p0, Lcom/android/internal/widget/SPenGestureView$3;->this$0:Lcom/android/internal/widget/SPenGestureView;
-
-    #setter for: Lcom/android/internal/widget/SPenGestureView;->mIsClosedCurve:Z
-    invoke-static {v0, v1}, Lcom/android/internal/widget/SPenGestureView;->access$602(Lcom/android/internal/widget/SPenGestureView;Z)Z
-
-    goto :goto_0
-
-    .line 476
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    return v0
 .end method

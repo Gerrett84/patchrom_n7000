@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/fm/MainActivity;->registerPalmReceiver()V
+    value = Lcom/sec/android/app/fm/MainActivity;->registerRestoreReceiver()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 13521
+    .line 7379
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$41;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,77 +35,24 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 1
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 13529
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$41;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    iget-boolean v0, v0, Lcom/sec/android/app/fm/MainActivity;->mIsRecording:Z
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$41;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->mIsOptionsMenuShowing:Z
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$4500(Lcom/sec/android/app/fm/MainActivity;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 13531
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$41;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->recordToast:Landroid/widget/Toast;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$1600(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/Toast;
+    .line 7383
+    invoke-static {}, Lcom/sec/android/app/fm/data/ChannelStore;->getInstance()Lcom/sec/android/app/fm/data/ChannelStore;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    invoke-virtual {v0}, Lcom/sec/android/app/fm/data/ChannelStore;->load()V
 
-    .line 13533
+    .line 7384
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$41;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    iget-object v1, p0, Lcom/sec/android/app/fm/MainActivity$41;->this$0:Lcom/sec/android/app/fm/MainActivity;
+    #calls: Lcom/sec/android/app/fm/MainActivity;->myOnResume()V
+    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$8100(Lcom/sec/android/app/fm/MainActivity;)V
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v1
-
-    #setter for: Lcom/sec/android/app/fm/MainActivity;->recordToast:Landroid/widget/Toast;
-    invoke-static {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->access$1602(Lcom/sec/android/app/fm/MainActivity;Landroid/widget/Toast;)Landroid/widget/Toast;
-
-    .line 13537
-    :cond_0
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$41;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->recordToast:Landroid/widget/Toast;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$1600(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    const v1, 0x7f0a008e
-
-    invoke-virtual {v0, v1}, Landroid/widget/Toast;->setText(I)V
-
-    .line 13539
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$41;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->recordToast:Landroid/widget/Toast;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$1600(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    .line 13543
-    :cond_1
+    .line 7387
     return-void
 .end method

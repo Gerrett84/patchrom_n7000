@@ -8,6 +8,16 @@
 
 .field public static final MIN_VOLUME:I = 0x0
 
+.field public static final TONE_CALL_ALERT_ALARM:I = 0x70
+
+.field public static final TONE_CALL_ALERT_MESSAGE:I = 0x6f
+
+.field public static final TONE_CALL_ALERT_MINUTEMINDER:I = 0x71
+
+.field public static final TONE_CALL_CONNECTION:I = 0x6c
+
+.field public static final TONE_CALL_DISCONNECTION:I = 0x6d
+
 .field public static final TONE_CDMA_ABBR_ALERT:I = 0x61
 
 .field public static final TONE_CDMA_ABBR_INTERCEPT:I = 0x25
@@ -174,6 +184,8 @@
 
 .field public static final TONE_DTMF_S:I = 0xa
 
+.field public static final TONE_LOW_BATTERY:I = 0x6e
+
 .field public static final TONE_PROP_ACK:I = 0x19
 
 .field public static final TONE_PROP_BEEP:I = 0x18
@@ -236,13 +248,13 @@
     .parameter "volume"
 
     .prologue
-    .line 767
+    .line 776
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 768
+    .line 777
     invoke-direct {p0, p1, p2}, Landroid/media/ToneGenerator;->native_setup(II)V
 
-    .line 769
+    .line 778
     return-void
 .end method
 
@@ -258,7 +270,7 @@
     .locals 0
 
     .prologue
-    .line 923
+    .line 932
     invoke-direct {p0}, Landroid/media/ToneGenerator;->native_finalize()V
 
     return-void
@@ -278,7 +290,7 @@
     .parameter "toneType"
 
     .prologue
-    .line 878
+    .line 887
     const/4 v0, -0x1
 
     invoke-virtual {p0, p1, v0}, Landroid/media/ToneGenerator;->startTone(II)Z

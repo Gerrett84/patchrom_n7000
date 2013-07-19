@@ -35,18 +35,18 @@
     .parameter "type"
 
     .prologue
-    .line 2747
+    .line 2772
     iput-object p1, p0, Landroid/server/BluetoothService$Reaper;->this$0:Landroid/server/BluetoothService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2748
+    .line 2773
     iput p2, p0, Landroid/server/BluetoothService$Reaper;->mPid:I
 
-    .line 2749
+    .line 2774
     iput p3, p0, Landroid/server/BluetoothService$Reaper;->mType:I
 
-    .line 2750
+    .line 2775
     return-void
 .end method
 
@@ -58,21 +58,21 @@
     .parameter "type"
 
     .prologue
-    .line 2741
+    .line 2766
     iput-object p1, p0, Landroid/server/BluetoothService$Reaper;->this$0:Landroid/server/BluetoothService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2742
+    .line 2767
     iput p3, p0, Landroid/server/BluetoothService$Reaper;->mPid:I
 
-    .line 2743
+    .line 2768
     iput p2, p0, Landroid/server/BluetoothService$Reaper;->mHandle:I
 
-    .line 2744
+    .line 2769
     iput p4, p0, Landroid/server/BluetoothService$Reaper;->mType:I
 
-    .line 2745
+    .line 2770
     return-void
 .end method
 
@@ -82,14 +82,14 @@
     .locals 4
 
     .prologue
-    .line 2754
+    .line 2779
     iget-object v1, p0, Landroid/server/BluetoothService$Reaper;->this$0:Landroid/server/BluetoothService;
 
     monitor-enter v1
 
-    .line 2755
+    .line 2780
     :try_start_0
-    invoke-static {}, Landroid/server/BluetoothService;->access$700()Z
+    invoke-static {}, Landroid/server/BluetoothService;->access$600()Z
 
     move-result v0
 
@@ -137,7 +137,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2756
+    .line 2781
     :cond_0
     iget v0, p0, Landroid/server/BluetoothService$Reaper;->mType:I
 
@@ -145,7 +145,7 @@
 
     if-ne v0, v2, :cond_2
 
-    .line 2757
+    .line 2782
     iget-object v0, p0, Landroid/server/BluetoothService$Reaper;->this$0:Landroid/server/BluetoothService;
 
     iget v2, p0, Landroid/server/BluetoothService$Reaper;->mHandle:I
@@ -155,15 +155,15 @@
     #calls: Landroid/server/BluetoothService;->checkAndRemoveRecord(II)V
     invoke-static {v0, v2, v3}, Landroid/server/BluetoothService;->access$100(Landroid/server/BluetoothService;II)V
 
-    .line 2761
+    .line 2786
     :cond_1
     :goto_0
     monitor-exit v1
 
-    .line 2762
+    .line 2787
     return-void
 
-    .line 2758
+    .line 2783
     :cond_2
     iget v0, p0, Landroid/server/BluetoothService$Reaper;->mType:I
 
@@ -171,11 +171,11 @@
 
     if-ne v0, v2, :cond_1
 
-    .line 2759
+    .line 2784
     iget-object v0, p0, Landroid/server/BluetoothService$Reaper;->this$0:Landroid/server/BluetoothService;
 
     #getter for: Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
-    invoke-static {v0}, Landroid/server/BluetoothService;->access$800(Landroid/server/BluetoothService;)Ljava/util/Map;
+    invoke-static {v0}, Landroid/server/BluetoothService;->access$700(Landroid/server/BluetoothService;)Ljava/util/Map;
 
     move-result-object v0
 
@@ -189,7 +189,7 @@
 
     goto :goto_0
 
-    .line 2761
+    .line 2786
     :catchall_0
     move-exception v0
 

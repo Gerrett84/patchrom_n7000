@@ -49,13 +49,13 @@
     .parameter
 
     .prologue
-    .line 516
+    .line 554
     iput-object p1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->this$0:Lcom/android/internal/policy/impl/SimPukUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 517
-    const v0, 0x1020441
+    .line 555
+    const v0, 0x1020452
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -65,8 +65,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mZero:Landroid/widget/TextView;
 
-    .line 518
-    const v0, 0x1020438
+    .line 556
+    const v0, 0x1020449
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -76,8 +76,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mOne:Landroid/widget/TextView;
 
-    .line 519
-    const v0, 0x1020439
+    .line 557
+    const v0, 0x102044a
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -87,8 +87,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mTwo:Landroid/widget/TextView;
 
-    .line 520
-    const v0, 0x102043a
+    .line 558
+    const v0, 0x102044b
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -98,8 +98,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mThree:Landroid/widget/TextView;
 
-    .line 521
-    const v0, 0x102043b
+    .line 559
+    const v0, 0x102044c
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -109,8 +109,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mFour:Landroid/widget/TextView;
 
-    .line 522
-    const v0, 0x102043c
+    .line 560
+    const v0, 0x102044d
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -120,8 +120,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mFive:Landroid/widget/TextView;
 
-    .line 523
-    const v0, 0x102043d
+    .line 561
+    const v0, 0x102044e
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -131,8 +131,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mSix:Landroid/widget/TextView;
 
-    .line 524
-    const v0, 0x102043e
+    .line 562
+    const v0, 0x102044f
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -142,8 +142,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mSeven:Landroid/widget/TextView;
 
-    .line 525
-    const v0, 0x102043f
+    .line 563
+    const v0, 0x1020450
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -153,8 +153,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mEight:Landroid/widget/TextView;
 
-    .line 526
-    const v0, 0x1020440
+    .line 564
+    const v0, 0x1020451
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -164,8 +164,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mNine:Landroid/widget/TextView;
 
-    .line 527
-    const v0, 0x1020290
+    .line 565
+    const v0, 0x1020299
 
     invoke-virtual {p1, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -175,132 +175,132 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mCancelButton:Landroid/widget/TextView;
 
-    .line 529
+    .line 567
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mZero:Landroid/widget/TextView;
 
     const-string v1, "0"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 530
+    .line 568
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mOne:Landroid/widget/TextView;
 
     const-string v1, "1"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 531
+    .line 569
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mTwo:Landroid/widget/TextView;
 
     const-string v1, "2"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 532
+    .line 570
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mThree:Landroid/widget/TextView;
 
     const-string v1, "3"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 533
+    .line 571
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mFour:Landroid/widget/TextView;
 
     const-string v1, "4"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 534
+    .line 572
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mFive:Landroid/widget/TextView;
 
     const-string v1, "5"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 535
+    .line 573
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mSix:Landroid/widget/TextView;
 
     const-string v1, "6"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 536
+    .line 574
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mSeven:Landroid/widget/TextView;
 
     const-string v1, "7"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 537
+    .line 575
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mEight:Landroid/widget/TextView;
 
     const-string v1, "8"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 538
+    .line 576
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mNine:Landroid/widget/TextView;
 
     const-string v1, "9"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 540
+    .line 578
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mZero:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 541
+    .line 579
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mOne:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 542
+    .line 580
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mTwo:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 543
+    .line 581
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mThree:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 544
+    .line 582
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mFour:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 545
+    .line 583
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mFive:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 546
+    .line 584
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mSix:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 547
+    .line 585
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mSeven:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 548
+    .line 586
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mEight:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 549
+    .line 587
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mNine:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 550
+    .line 588
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mCancelButton:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 551
+    .line 589
     return-void
 .end method
 
@@ -310,7 +310,7 @@
     .parameter "x1"
 
     .prologue
-    .line 503
+    .line 541
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;-><init>(Lcom/android/internal/policy/impl/SimPukUnlockScreen;)V
 
     return-void
@@ -321,118 +321,118 @@
     .parameter "v"
 
     .prologue
-    .line 574
+    .line 612
     const/4 v0, -0x1
 
-    .line 575
+    .line 613
     .local v0, digit:I
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mZero:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_1
 
-    .line 576
+    .line 614
     const/4 v0, 0x0
 
-    .line 596
+    .line 634
     :cond_0
     :goto_0
     return v0
 
-    .line 577
+    .line 615
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mOne:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_2
 
-    .line 578
+    .line 616
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 579
+    .line 617
     :cond_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mTwo:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_3
 
-    .line 580
+    .line 618
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 581
+    .line 619
     :cond_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mThree:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_4
 
-    .line 582
+    .line 620
     const/4 v0, 0x3
 
     goto :goto_0
 
-    .line 583
+    .line 621
     :cond_4
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mFour:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_5
 
-    .line 584
+    .line 622
     const/4 v0, 0x4
 
     goto :goto_0
 
-    .line 585
+    .line 623
     :cond_5
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mFive:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_6
 
-    .line 586
+    .line 624
     const/4 v0, 0x5
 
     goto :goto_0
 
-    .line 587
+    .line 625
     :cond_6
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mSix:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_7
 
-    .line 588
+    .line 626
     const/4 v0, 0x6
 
     goto :goto_0
 
-    .line 589
+    .line 627
     :cond_7
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mSeven:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_8
 
-    .line 590
+    .line 628
     const/4 v0, 0x7
 
     goto :goto_0
 
-    .line 591
+    .line 629
     :cond_8
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mEight:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_9
 
-    .line 592
+    .line 630
     const/16 v0, 0x8
 
     goto :goto_0
 
-    .line 593
+    .line 631
     :cond_9
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mNine:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_0
 
-    .line 594
+    .line 632
     const/16 v0, 0x9
 
     goto :goto_0
@@ -445,12 +445,12 @@
     .parameter "v"
 
     .prologue
-    .line 555
+    .line 593
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->mCancelButton:Landroid/widget/TextView;
 
     if-ne p1, v1, :cond_1
 
-    .line 557
+    .line 595
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->this$0:Lcom/android/internal/policy/impl/SimPukUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
@@ -462,7 +462,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 558
+    .line 596
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->this$0:Lcom/android/internal/policy/impl/SimPukUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
@@ -474,7 +474,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 559
+    .line 597
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->this$0:Lcom/android/internal/policy/impl/SimPukUnlockScreen;
 
     sget-object v2, Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;->REQUIRE_NEW_PIN:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
@@ -482,7 +482,7 @@
     #setter for: Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mStatus:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
     invoke-static {v1, v2}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->access$1102(Lcom/android/internal/policy/impl/SimPukUnlockScreen;Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;)Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
-    .line 560
+    .line 598
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->this$0:Lcom/android/internal/policy/impl/SimPukUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
@@ -490,11 +490,11 @@
 
     move-result-object v1
 
-    const v2, 0x10403cf
+    const v2, 0x10403d5
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHint(I)V
 
-    .line 561
+    .line 599
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->this$0:Lcom/android/internal/policy/impl/SimPukUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
@@ -502,11 +502,11 @@
 
     move-result-object v1
 
-    const v2, 0x10403cc
+    const v2, 0x10403d2
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 562
+    .line 600
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->this$0:Lcom/android/internal/policy/impl/SimPukUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -516,22 +516,22 @@
 
     invoke-interface {v1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToLockScreen()V
 
-    .line 571
+    .line 609
     :cond_0
     :goto_0
     return-void
 
-    .line 566
+    .line 604
     :cond_1
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->checkDigit(Landroid/view/View;)I
 
     move-result v0
 
-    .line 567
+    .line 605
     .local v0, digit:I
     if-ltz v0, :cond_0
 
-    .line 568
+    .line 606
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->this$0:Lcom/android/internal/policy/impl/SimPukUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -543,7 +543,7 @@
 
     invoke-interface {v1, v2}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock(I)V
 
-    .line 569
+    .line 607
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;->this$0:Lcom/android/internal/policy/impl/SimPukUnlockScreen;
 
     #calls: Lcom/android/internal/policy/impl/SimPukUnlockScreen;->reportDigit(I)V

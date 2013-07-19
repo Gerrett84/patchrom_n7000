@@ -30,20 +30,20 @@
     .parameter "pkgName"
 
     .prologue
-    .line 201
+    .line 202
     iput-object p1, p0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
-    .line 202
+    .line 203
     invoke-direct/range {p0 .. p6}, Landroid/os/CustomFrequencyManager$FrequencyRequest;-><init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
 
-    .line 205
+    .line 206
     new-instance v0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest$1;
 
     invoke-direct {v0, p0}, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest$1;-><init>(Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;)V
 
     iput-object v0, p0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;->mFrameRateReleaser:Ljava/lang/Runnable;
 
-    .line 203
+    .line 204
     return-void
 .end method
 
@@ -53,12 +53,12 @@
     .locals 5
 
     .prologue
-    .line 233
+    .line 234
     iget-object v2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
 
     monitor-enter v2
 
-    .line 235
+    .line 236
     :try_start_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
@@ -68,14 +68,14 @@
 
     invoke-virtual {v1, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 239
+    .line 240
     invoke-static {}, Landroid/os/CustomFrequencyManager;->access$300()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 240
+    .line 241
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
     iget-object v1, v1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -87,20 +87,20 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 245
+    .line 246
     :cond_0
     :goto_0
     :try_start_1
     monitor-exit v2
 
-    .line 246
+    .line 247
     return-void
 
-    .line 242
+    .line 243
     :catch_0
     move-exception v0
 
-    .line 243
+    .line 244
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "CustomFrequencyManager"
 
@@ -126,7 +126,7 @@
 
     goto :goto_0
 
-    .line 245
+    .line 246
     .end local v0           #e:Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
@@ -142,12 +142,12 @@
     .locals 7
 
     .prologue
-    .line 213
+    .line 214
     iget-object v2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
 
     monitor-enter v2
 
-    .line 219
+    .line 220
     :try_start_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
@@ -161,7 +161,7 @@
 
     invoke-interface {v1, v3, v4, v5}, Landroid/os/ICustomFrequencyManager;->requestLCDFrameRate(ILandroid/os/IBinder;Ljava/lang/String;)V
 
-    .line 220
+    .line 221
     iget-wide v3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
 
     const-wide/16 v5, -0x1
@@ -170,7 +170,7 @@
 
     if-nez v1, :cond_0
 
-    .line 221
+    .line 222
     const/4 v1, 0x1
 
     invoke-static {v1}, Landroid/os/CustomFrequencyManager;->access$302(Z)Z
@@ -178,17 +178,17 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 229
+    .line 230
     :goto_0
     :try_start_1
     monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 230
+    .line 231
     return-void
 
-    .line 223
+    .line 224
     :cond_0
     :try_start_2
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;->this$0:Landroid/os/CustomFrequencyManager;
@@ -201,7 +201,7 @@
 
     invoke-virtual {v1, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 224
+    .line 225
     const/4 v1, 0x0
 
     invoke-static {v1}, Landroid/os/CustomFrequencyManager;->access$302(Z)Z
@@ -211,11 +211,11 @@
 
     goto :goto_0
 
-    .line 226
+    .line 227
     :catch_0
     move-exception v0
 
-    .line 227
+    .line 228
     .local v0, e:Landroid/os/RemoteException;
     :try_start_3
     const-string v1, "CustomFrequencyManager"
@@ -242,7 +242,7 @@
 
     goto :goto_0
 
-    .line 229
+    .line 230
     .end local v0           #e:Landroid/os/RemoteException;
     :catchall_0
     move-exception v1

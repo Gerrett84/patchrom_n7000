@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 415
+    .line 481
     iput-object p1, p0, Lcom/sec/android/app/fm/widget/FMRadioProvider$1;->this$0:Lcom/sec/android/app/fm/widget/FMRadioProvider;
 
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMEventListener;-><init>()V
@@ -38,10 +38,10 @@
     .locals 0
 
     .prologue
-    .line 420
+    .line 486
     invoke-super {p0}, Lcom/samsung/media/fmradio/FMEventListener;->earPhoneConnected()V
 
-    .line 421
+    .line 487
     return-void
 .end method
 
@@ -49,10 +49,10 @@
     .locals 0
 
     .prologue
-    .line 426
+    .line 492
     invoke-super {p0}, Lcom/samsung/media/fmradio/FMEventListener;->earPhoneDisconnected()V
 
-    .line 427
+    .line 493
     return-void
 .end method
 
@@ -61,10 +61,10 @@
     .parameter "freq"
 
     .prologue
-    .line 432
+    .line 498
     invoke-super {p0, p1, p2}, Lcom/samsung/media/fmradio/FMEventListener;->onAFReceived(J)V
 
-    .line 433
+    .line 499
     return-void
 .end method
 
@@ -72,10 +72,10 @@
     .locals 0
 
     .prologue
-    .line 438
+    .line 504
     invoke-super {p0}, Lcom/samsung/media/fmradio/FMEventListener;->onAFStarted()V
 
-    .line 439
+    .line 505
     return-void
 .end method
 
@@ -84,10 +84,10 @@
     .parameter "frequency"
 
     .prologue
-    .line 444
+    .line 510
     invoke-super {p0, p1, p2}, Lcom/samsung/media/fmradio/FMEventListener;->onChannelFound(J)V
 
-    .line 445
+    .line 511
     return-void
 .end method
 
@@ -96,15 +96,15 @@
     .parameter "reasonCode"
 
     .prologue
-    .line 450
+    .line 516
     invoke-super {p0, p1}, Lcom/samsung/media/fmradio/FMEventListener;->onOff(I)V
 
-    .line 451
+    .line 517
     iget-object v0, p0, Lcom/sec/android/app/fm/widget/FMRadioProvider$1;->this$0:Lcom/sec/android/app/fm/widget/FMRadioProvider;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/widget/FMRadioProvider;->refreshWidget()V
 
-    .line 452
+    .line 518
     return-void
 .end method
 
@@ -112,10 +112,10 @@
     .locals 6
 
     .prologue
-    .line 456
+    .line 522
     invoke-super {p0}, Lcom/samsung/media/fmradio/FMEventListener;->onOn()V
 
-    .line 459
+    .line 525
     invoke-static {}, Lcom/sec/android/app/fm/widget/FMRadioProvider;->access$000()Landroid/content/Context;
 
     move-result-object v3
@@ -126,7 +126,7 @@
 
     move-result-object v1
 
-    .line 460
+    .line 526
     .local v1, file:Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -134,7 +134,7 @@
 
     if-nez v3, :cond_0
 
-    .line 462
+    .line 528
     :try_start_0
     invoke-static {}, Lcom/sec/android/app/fm/widget/FMRadioProvider;->access$000()Landroid/content/Context;
 
@@ -148,13 +148,13 @@
 
     move-result-object v2
 
-    .line 463
+    .line 529
     .local v2, fos:Ljava/io/FileOutputStream;
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 474
+    .line 540
     .end local v2           #fos:Ljava/io/FileOutputStream;
     :cond_0
     :goto_0
@@ -162,14 +162,14 @@
 
     invoke-virtual {v3}, Lcom/sec/android/app/fm/widget/FMRadioProvider;->refreshWidget()V
 
-    .line 475
+    .line 541
     return-void
 
-    .line 465
+    .line 531
     :catch_0
     move-exception v0
 
-    .line 467
+    .line 533
     .local v0, e:Ljava/lang/Exception;
     :try_start_1
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
@@ -178,7 +178,7 @@
 
     goto :goto_0
 
-    .line 468
+    .line 534
     :catch_1
     move-exception v3
 
@@ -189,10 +189,10 @@
     .locals 0
 
     .prologue
-    .line 480
+    .line 546
     invoke-super {p0}, Lcom/samsung/media/fmradio/FMEventListener;->onRDSDisabled()V
 
-    .line 481
+    .line 547
     return-void
 .end method
 
@@ -200,10 +200,10 @@
     .locals 0
 
     .prologue
-    .line 486
+    .line 552
     invoke-super {p0}, Lcom/samsung/media/fmradio/FMEventListener;->onRDSEnabled()V
 
-    .line 487
+    .line 553
     return-void
 .end method
 
@@ -214,10 +214,10 @@
     .parameter "radioText"
 
     .prologue
-    .line 493
+    .line 558
     invoke-super {p0, p1, p2, p3, p4}, Lcom/samsung/media/fmradio/FMEventListener;->onRDSReceived(JLjava/lang/String;Ljava/lang/String;)V
 
-    .line 494
+    .line 559
     return-void
 .end method
 
@@ -226,10 +226,10 @@
     .parameter "frequency"
 
     .prologue
-    .line 499
+    .line 564
     invoke-super {p0, p1}, Lcom/samsung/media/fmradio/FMEventListener;->onScanFinished([J)V
 
-    .line 500
+    .line 565
     return-void
 .end method
 
@@ -237,10 +237,10 @@
     .locals 0
 
     .prologue
-    .line 505
+    .line 570
     invoke-super {p0}, Lcom/samsung/media/fmradio/FMEventListener;->onScanStarted()V
 
-    .line 506
+    .line 571
     return-void
 .end method
 
@@ -249,10 +249,10 @@
     .parameter "frequency"
 
     .prologue
-    .line 511
+    .line 576
     invoke-super {p0, p1}, Lcom/samsung/media/fmradio/FMEventListener;->onScanStopped([J)V
 
-    .line 512
+    .line 577
     return-void
 .end method
 
@@ -261,14 +261,17 @@
     .parameter "frequency"
 
     .prologue
-    .line 517
+    .line 582
     invoke-super {p0, p1, p2}, Lcom/samsung/media/fmradio/FMEventListener;->onTune(J)V
 
-    .line 518
+    .line 583
+    invoke-static {p1, p2}, Lcom/sec/android/app/fm/widget/FMRadioProvider;->access$102(J)J
+
+    .line 584
     iget-object v0, p0, Lcom/sec/android/app/fm/widget/FMRadioProvider$1;->this$0:Lcom/sec/android/app/fm/widget/FMRadioProvider;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/widget/FMRadioProvider;->refreshWidget()V
 
-    .line 519
+    .line 585
     return-void
 .end method

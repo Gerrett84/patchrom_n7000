@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 90
+    .line 106
     iput-object p1, p0, Landroid/webkit/HTML5VideoFullScreen$1;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .locals 2
     .parameter "msg"
 
     .prologue
-    .line 93
+    .line 109
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 99
+    .line 120
     :cond_0
     :goto_0
     return-void
 
-    .line 95
+    .line 111
     :pswitch_0
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$1;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
@@ -60,7 +60,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 96
+    .line 112
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$1;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
     #getter for: Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
@@ -72,9 +72,37 @@
 
     goto :goto_0
 
-    .line 93
+    .line 116
+    :pswitch_1
+    iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$1;->this$0:Landroid/webkit/HTML5VideoFullScreen;
+
+    #getter for: Landroid/webkit/HTML5VideoFullScreen;->mVideoSurfaceView:Landroid/webkit/HTML5VideoFullScreen$VideoSurfaceView;
+    invoke-static {v0}, Landroid/webkit/HTML5VideoFullScreen;->access$300(Landroid/webkit/HTML5VideoFullScreen;)Landroid/webkit/HTML5VideoFullScreen$VideoSurfaceView;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 117
+    iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$1;->this$0:Landroid/webkit/HTML5VideoFullScreen;
+
+    #getter for: Landroid/webkit/HTML5VideoFullScreen;->mVideoSurfaceView:Landroid/webkit/HTML5VideoFullScreen$VideoSurfaceView;
+    invoke-static {v0}, Landroid/webkit/HTML5VideoFullScreen;->access$300(Landroid/webkit/HTML5VideoFullScreen;)Landroid/webkit/HTML5VideoFullScreen$VideoSurfaceView;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/webkit/HTML5VideoFullScreen$VideoSurfaceView;->setBackgroundColor(I)V
+
+    goto :goto_0
+
+    .line 109
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

@@ -51,10 +51,10 @@
     .locals 1
 
     .prologue
-    .line 1137
+    .line 1161
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1146
+    .line 1170
     const v0, 0x66ff9129
 
     iput v0, p0, Landroid/webkit/WebViewCore$WebKitHitTest;->mTapHighlightColor:I

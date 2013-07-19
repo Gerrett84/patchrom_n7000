@@ -101,13 +101,13 @@
     <string name="toast_unavailable_in_tvout_mode">ТВ өшірілген күйінде</string>
     <string name="mute">Дыбысын өшіру</string>
     <string name="seeking">Іздеуде….</string>
-    <string name="via_earphone">Құлақаспап арқылы</string>
-    <string name="via_speaker">Динамик арқ.</string>
+    <string name="via_earphone">Құлаққап арқылы ойнату</string>
+    <string name="via_speaker">Динамик арқылы ойнату</string>
     <string name="normal_frequency">Қалыпты жиілік</string>
     <string name="tag">Тег</string>
     <string name="stop">Тоқтату</string>
     <string name="recording">Жазу үстінде</string>
-    <string name="memory_full">Жазба тоқтады. Жад толы</string>
+    <string name="memory_full">Жад толып кеткен</string>
     <string name="cancel_recording">Жазбадан бас тарту керек пе?</string>
     <string name="change_frequency">Жиілігін өзгерту</string>
     <string name="enter_frequency">Жиілікті енгізу</string>
@@ -133,11 +133,14 @@
     <string name="tags">Тегтер</string>
     <string name="tags_now_broadcasting">Қазір хабар таратуда</string>
     <string name="tags_no_information">Ақпарат жоқ</string>
+    <string name="tags_music_history">Музыка журналы</string>
     <string name="tags_music_title">Тақырыбы</string>
     <string name="tags_music_album">Альбом</string>
     <string name="tags_music_artist">Орындаушы</string>
+    <string name="tags_music_band">Ауқым</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Бастапқы бет</string>
+    <string name="tags_interact_hotline">Байланыс телефоны</string>
     <string name="tags_interact_studio">Студио</string>
     <string name="tags_interact_other">Басқа</string>
     <string name="tags_interact_centre">Орталық</string>
@@ -183,4 +186,14 @@
     <string name="dialog_one_item_deleted">Бұл элемент жойылады</string>
     <string name="dialog_multiple_items_deleted">%d элемент жойылады</string>
     <string name="dialog_all_items_deleted">Барлық элементтер жойылады</string>
+    <string name="turning_on">Қосылуда…</string>
+    <string name="not_enough_memory_recording_will_stop">Жад жеткілікті емес. Жазу %d секундтан кейін тоқтайды</string>
+    <string name="low_batt_msg">Батареяның заряды аз</string>
+    <string name="no_play_during_call">Сөйлесу барысында ойнатуға мүмкіндік жоқ</string>
+    <string name="unable_delete">Жою мүмкін емес</string>
+    <string name="playing">Ойн-луда…</string>
+    <string name="tts_play_button">Ойнату</string>
+    <string name="tts_previous_button">Алдыңғы</string>
+    <string name="tts_Next_button">Келесі</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

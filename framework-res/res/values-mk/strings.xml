@@ -151,7 +151,7 @@
     <string name="ClirMmi">Идентификација на дојдовниот повикувач</string>
     <string name="ColpMmi">Идентификација на дојдовниот повикувач</string>
     <string name="CfMmi">Препраќање повици</string>
-    <string name="CwMmi">Повик на 2.линија</string>
+    <string name="CwMmi">Повик на 2. линија</string>
     <string name="BaMmi">Забрана на повици</string>
     <string name="PwdMmi">Промена на лозинка</string>
     <string name="PinMmi">Промена на PIN</string>
@@ -269,7 +269,7 @@
     <string name="turn_on_radio">Вклучи безжично</string>
     <string name="turn_off_radio">Исклучи безжично</string>
     <string name="screen_lock">Заклучување на екранот</string>
-    <string name="power_off">Исклучување</string>
+    <string name="power_off">Време за исклучување</string>
     <string name="silent_mode_vibrate">Вибрирачко ѕвонење</string>
     <string name="shutdown_progress">Исклучување…</string>
     <string name="shutdown_confirm">Уредот ќе се исклучи сега</string>
@@ -281,7 +281,7 @@
     <string name="global_action_lock">Заклучување на екранот</string>
     <string name="global_action_power_off">Исклучување</string>
     <string name="global_action_restart">Ресетирај</string>
-    <string name="global_action_sound_mode_mute">Искл.ѕвонење</string>
+    <string name="global_action_sound_mode_mute">Искл.звук</string>
     <string name="global_action_sound_mode_vibrate">Вибрации</string>
     <string name="global_action_sound_mode_sound">Звук</string>
     <string name="global_action_toggle_silent_mode">Тивок режим</string>
@@ -303,7 +303,7 @@
     <string name="data_usage_disable_mobile">Да се исклучи мобилно податочно поврзување?</string>
     <string name="global_action_insert_sim_card">Ставете SIM картичка</string>
     <string name="global_action_insert_sim_card_message">Вметнете SIM-картичка за да пристапите кон мрежните услуги</string>
-    <string name="globalactions_silent_mode_mute">Искл.ѕвонење</string>
+    <string name="globalactions_silent_mode_mute">Искл.звук</string>
     <string name="globalactions_silent_mode_vibrate">Вибрации</string>
     <string name="globalactions_silent_mode_sound">Звук</string>
     <string name="safeMode">Безбеден режим</string>
@@ -315,12 +315,12 @@
     <string name="permdesc_mdmBluetooth">Контрола на разни профили и поставки за Bluetooth</string>
     <string name="permlab_mdmDeviceInventory">Следење на пописот на уредот</string>
     <string name="permdesc_mdmDeviceInventory">Следење и испитување на состојбата и податоците на уредот</string>
-    <string name="permlab_mdmExchangeAccount">Конфигурација на сметка Exchange</string>
-    <string name="permdesc_mdmExchangeAccount">Правење, менување или бришење на сметки Exchange ActiveSync и конфигурирање на сродните поставки за сметката</string>
+    <string name="permlab_mdmExchangeAccount">Конфигурација на Exchange сметка</string>
+    <string name="permdesc_mdmExchangeAccount">Правење, менување или бришење на Exchange ActiveSync сметки и конфигурирање на сродните поставки за сметката</string>
     <string name="permlab_mdmRoaming">Уреди политики за роаминг</string>
     <string name="permdesc_mdmRoaming">Контрола на ограничувањата за поставките за роаминг на уредот</string>
     <string name="permlab_mdmWifi">Уредување на политиките и профилите за Wi-Fi</string>
-    <string name="permdesc_mdmWifi">Правење, менување и бришење профили за Wi-Fi и контрола на поврзувањата со мрежи Wi-Fi</string>
+    <string name="permdesc_mdmWifi">Правење, менување и бришење профили за Wi-Fi и контрола на поврзувањата со Wi-Fi мрежи</string>
     <string name="permlab_mdmSecurity">Одреди политики за безбедност</string>
     <string name="permdesc_mdmSecurity">Инсталирање сертификати, шифрирање на уредот, селективно отстранување податоци од уредот или вршење целосно бришење</string>
     <string name="permlab_mdmHWControl">Одреди ограничувања за хардверот на уредот</string>
@@ -355,6 +355,7 @@
     <string name="permdesc_mdmKioskMode">Контрола на однесувањето на уредот во режимот Киоск</string>
     <string name="tether_usb_restrict">Безбедносната политика го ограничува споделувањето преку USB</string>
     <string name="tether_wifi_restrict">Политиката на безбедност го ограничува споделувањето преку Wi-Fi</string>
+    <string name="data_call_restriction">Политиката на безбедност го ограничува користењето мобилни податоци</string>
     <string name="dpm_wifi_blocked_network">Политиката на безбедност го блокира користењето на оваа мрежа Wi-Fi</string>
     <string name="dpm_wifi_misc_wifi_disabled">Политиката на безбедност го ограничува користењето Wi-Fi</string>
     <string name="dpm_wifi_misc_network_insecure">Политиката на безбедност го ограничува користењето небезбедни мрежи Wi-Fi</string>
@@ -538,6 +539,7 @@
     <string name="permlab_readSocialStream">Читај активности на социјални мрежи</string>
     <string name="permlab_writeSocialStream">Објавувај на социјалното место</string>
     <string name="permlab_readCalendar">Читај календарски настани и доверливи информации</string>
+    <string name="permlab_writeCalendar">Додавање или менување календарски настани и праќање е-пошта на гости без знаење на домаќинот</string>
     <string name="permlab_accessMockLocation">лажни извори на локација за испитување</string>
     <string name="permdesc_accessMockLocation">Дозволува апликациите да создаваат лажни извори на локации за тестирање. Ако се дозволи, злонамерни апликации може да ги премостат локацијата и/или состојбата што ги праќаат вистински извори на локацијата како што се GPS и оператори, или да ја следат и пријавуваат вашата локација на произволни сајтови</string>
     <string name="permlab_accessLocationExtraCommands">пристап кон дополнителни команди за наоѓање локација</string>
@@ -553,7 +555,7 @@
     <string name="permdesc_readFrameBuffer">Дозволува апликациите да го користат читањето на содржината на баферот за рамка</string>
     <string name="permlab_modifyAudioSettings">менувај ги нагодувањата за звук</string>
     <string name="permdesc_modifyAudioSettings">Дозволува апликациите да ги менуваат општите опции за звукот како што се јачината и рутирањето</string>
-    <string name="permlab_recordAudio">Record audio</string>
+    <string name="permlab_recordAudio">Снимање звук</string>
     <string name="permdesc_recordAudio">Дозволува апликациите да пристапуваат кон патеката за снимање звук</string>
     <string name="permlab_camera">Фотографирање и снимање</string>
     <string name="permdesc_camera">Дозволува апликациите да сликаат и снимаат со камерата кога било</string>
@@ -625,6 +627,7 @@
     <string name="permdesc_getAccounts">Дозволува апликациите да пристапуваат до листата сметки познати на телефонот</string>
     <string name="permlab_authenticateAccounts">Биди потврдувач на сметка</string>
     <string name="permdesc_authenticateAccounts">Дозволува апликациите да ја користат функцијата за потврдување сметки на Управувањето со сметките. Во тоа спаѓа и правење сметки и контрола на лозинките</string>
+    <string name="permlab_manageAccounts">Додавање или отстранување сметки</string>
     <string name="permdesc_manageAccounts">Дозволува апликациите да додаваат и бришат сметки и да ви ја избришат лозинката</string>
     <string name="permlab_useCredentials">Користи препораки за потврда на сметка</string>
     <string name="permdesc_useCredentials">Дозволува апликациите да бараат купони за потврда</string>
@@ -644,6 +647,7 @@
     <string name="permlab_changeWifiState">смени состојба на Wi-Fi</string>
     <string name="permdesc_changeWifiState">Дозволува апликациите да се поврзуваат и прекинуваат врска со пристапни точки за Wi-Fi и да вршат измени на конфигурираните мрежи Wi-Fi</string>
     <string name="permlab_changeWifiMulticastState">Дозволи прием на повеќекратно Wi-Fi</string>
+    <string name="permlab_bluetoothAdmin">Опции за Bluetooth</string>
     <string name="permdesc_bluetoothAdmin">Дозволува апликациите да го конфигурираат локалниот телефон со Bluetooth и да откриваат и воспоставуваат врски со оддалечени уреди</string>
     <string name="permlab_accessWimaxState">Види состојба на WiMAX</string>
     <string name="permlab_changeWimaxState">Смени состојба на WiMAX</string>
@@ -725,6 +729,7 @@
     <string name="policydesc_allow_desktopsync">Спречи употреба на синхронизација со компјутер</string>
     <string name="policylab_require_storagecard_encryption">Одреди шифрирање на SD-картичката</string>
     <string name="policydesc_require_storagecard_encryption">Барај апликацијата на SD-картичката да е шифрирана</string>
+    <string name="bluetooth_has_been_disconnected">Прекината е врската со Bluetooth</string>
     <string name="bluetooth_security_mode_disable">Политиката на безбедност го ограничува користењето врска Bluetooth</string>
     <string name="bluetooth_security_mode_handsfree">Политиката на безбедност го ограничува користењето врска Bluetooth само за функциите без раце</string>
     <string name="phoneTypeCustom">Одредено</string>
@@ -796,10 +801,12 @@
     <string name="sipAddressTypeHome">Дома</string>
     <string name="sipAddressTypeWork">Работа</string>
     <string name="sipAddressTypeOther">Друго</string>
+    <string name="keyguard_password_enter_pin_code">Внесете PIN-код</string>
     <string name="keyguard_password_enter_puk_code">Внесете PUK и нов PIN</string>
     <string name="keyguard_password_entry_touch_hint">Допрете за внесување лозинка</string>
     <string name="keyguard_password_enter_password_code">Внесете лозинка за отклучување</string>
     <string name="keyguard_password_enter_pin_password_code">Внесете PIN за да отклучите</string>
+    <string name="keyguard_password_wrong_pin_code">Неточен PIN код</string>
     <string name="keyguard_pin_accepted">Кодот е прифатен</string>
     <string name="keyguard_label_text">За отклучување, притиснете Мени, а потоа 0</string>
     <string name="emergency_call_dialog_number_for_display">SOS број</string>
@@ -826,8 +833,9 @@
     <string name="lockscreen_network_locked_message">Мрежата е заклучена</string>
     <string name="lockscreen_sim_puk_locked_message">SIM-картичката е заклучена со PUK</string>
     <string name="lockscreen_sim_puk_locked_instructions">Видете во Упатството за употреба или јавете се во Центарот за корисници</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM-картичката е заклучена</string>
+    <string name="lockscreen_sim_locked_message">SIM-картичката е заклучена</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">Се отклучува SIM-картичката…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">%1$d пати е нацртана неправилна шара за отклучување. Обидете се повторно за %2$d секунди</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">%1$d пати е внесена неправилна лозинка. Обидете се повторно за %2$d секунди</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 е блокиран. Внесете PUK1 за да го одблокирате PIN1</string>
@@ -866,6 +874,7 @@
     <string name="autofill_this_form">Автоматско полнење</string>
     <string name="autofill_address_type_same_as_re">Исто како</string>
     <string name="autofill_billing_designator_re">Сметка</string>
+    <string name="autofill_shipping_designator_re">Брод</string>
     <string name="autofill_phone_suffix_re">Наставка</string>
     <string name="autofill_name_on_card_contextual_re">Име</string>
     <string name="autofill_province">Подрачје</string>
@@ -879,6 +888,7 @@
     <string name="autofill_prefecture">Префектура</string>
     <string name="autofill_parish">Париз</string>
     <string name="autofill_area">Плоштина</string>
+    <string name="permlab_readHistoryBookmarks">Читање на историјата и ознаките на интернет</string>
     <string name="permdesc_readHistoryBookmarks">Овозможува апликацијата да ги чита сите URL-адреси што ги посетил прегледникот и сите означени страници</string>
     <string name="permdesc_writeHistoryBookmarks">Дозволува апликациите да ги менуваат историјата и ознаките за интернет меморирани во телефонот. Ако се дозволи, злонамерни апликации може да бришат или менуваат такви податоци</string>
     <string name="permlab_setAlarm">Постави аларм</string>
@@ -943,10 +953,12 @@
     <string name="inputMethod">Начин на внесување</string>
     <string name="low_internal_storage_view_title">Меморијата е речиси полна</string>
     <string name="low_internal_storage_view_text">Некои системски функции може да не работат</string>
+    <string name="full_internal_storage_view_text">Може да дојде до грешка бидејќи меморијата на уредот е полна. Избришете некој запис</string>
     <string name="loading">Активирање…</string>
     <string name="capital_on">Вклучено</string>
     <string name="capital_off">Исклучено</string>
     <string name="whichApplication">Заврши го дејството користејќи</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Користи како зададено за ова дејство</string>
     <string name="clearDefaultHintMsg">Избришете ги основните опции на апликацијата одејќи во Опции > Управител со апликации > Сите</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1004,7 +1016,7 @@
     <string name="wifi_notification_no_network_message">Отвори опции за Wi-Fi</string>
     <string name="wifi_notification_not_connected">Достапни се мрежи Wi-Fi</string>
     <string name="wifi_notification_not_connected_message">Отвори ги достапните мрежи Wi-Fi</string>
-    <string name="wifi_notification_connected">Поврзано со %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Допрете за конфигурирање на Wi-Fi</string>
     <string name="wifi_notification_connected_secure">Безбедно</string>
     <string name="wifi_notification_connected_open">Отвори</string>
@@ -1031,9 +1043,9 @@
     <string name="select_character">Вметни знак</string>
     <string name="sms_control_default_app_name">Непозната апликација</string>
     <string name="sms_control_title">Се праќа SMS…</string>
-    <string name="sms_control_message">Се испраќа голем број SMS-пораки. Допрете OK да продолжите или Откажи за да се прекине праќањето</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Откажи</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> праќа голем број SMS-пораки. Да се дозволи апликацијата да продолжи да праќа пораки?</string>
+    <string name="sms_control_yes">Дозволи</string>
+    <string name="sms_control_no">Отфрли</string>
     <string name="sim_removed_title">SIM-картичката е извадена</string>
     <string name="sim_removed_message">Мобилната мрежа ќе биде недостапна додека не рестартирате со вметната важечка SIM-картичка</string>
     <string name="sim_done_button">Готово</string>
@@ -1111,7 +1123,7 @@
     <string name="activity_list_empty">Не се најдени активности што се совпаѓаат</string>
     <string name="permlab_pkgUsageStats">ажурирај ја статистиката за користење на компонентите</string>
     <string name="permdesc_pkgUsageStats">Дозволува менување на собраната статистика за користење на компонентите. Не е за да го користат нормалните апликации</string>
-    <string name="permlab_copyProtectedData">Овозможува основната услуга за меморирање да копира содржини. Не е за да го користат нормалните апликации</string>
+    <string name="permlab_copyProtectedData">Копирај содржина</string>
     <string name="permdesc_copyProtectedData">Овозможува основната услуга за меморирање да копира содржини. Не е за да го користат нормалните апликации</string>
     <string name="permlab_route_media_output">Насочи излез на медиуми</string>
     <string name="permdesc_route_media_output">Дозволува апликацијата да насочи излез на медиумите кон други надворешни уреди</string>
@@ -1242,10 +1254,11 @@
     <string name="action_bar_home_description">Навигација до дома</string>
     <string name="action_bar_up_description">Навигација нагоре</string>
     <string name="action_menu_overflow_description">Повеќе опции</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Префрли на претходна големина</string>
     <string name="storage_internal">Меморија на уредот</string>
     <string name="storage_sd_card">SD-карт.</string>
     <string name="storage_usb">Меморија USB</string>
-    <string name="extract_edit_menu_button">Измени…</string>
+    <string name="extract_edit_menu_button">Измени</string>
     <string name="data_usage_warning_title">Предупредување за користење податоци</string>
     <string name="data_usage_warning_body">Допрете за преглед на користењето и опции</string>
     <string name="data_usage_3g_limit_title">Податоците 2G-3G се оневозможени</string>
@@ -1274,7 +1287,7 @@
     <string name="fingerprints">Отпечатоци на прсти</string>
     <string name="sha256_fingerprint">SHA-256 отпечаток на прст:</string>
     <string name="sha1_fingerprint">SHA-1 отпечаток на прст:</string>
-    <string name="activity_chooser_view_see_all">Види сè</string>
+    <string name="activity_chooser_view_see_all">Види ги сите</string>
     <string name="activity_chooser_view_dialog_title_default">Избери активност</string>
     <string name="share_action_provider_share_with">Дели со</string>
     <string name="status_bar_device_locked">Уредот е блокиран</string>
@@ -1329,6 +1342,8 @@
     <string name="lockscreen_fmapp_name">Радио</string>
     <string name="lockscreen_clock_dualclock_home">Дома</string>
     <string name="lockscreen_clock_dualclock_roaming">Роаминг</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Сеул</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Роаминг</string>
     <string name="lockscreen_clock_dualclock_popup_title">Двоен часовник</string>
     <string name="lockscreen_clock_dualclock_popup_message">Изберете домашен град за да се прикаже двоен часовник на екранот за заклучување. Да се оди во Опции?</string>
     <string name="lockscreen_ticker_no_data_to_display">Нема податоци за прикажување</string>
@@ -1365,7 +1380,7 @@
     <string name="lockscreen_2ndLock_instructions2">Внесете го резервниот PIN за да отклучите</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Неправилно ја нацртавте шарата за отклучување %1$d пати. Обидете се повторно за %2$d секунди</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Нацртана е неправилна шара за отклучување %1$d пати. Имате уште %2$d обиди пред да ви биде побарано да го отклучите уредот со најавата за Google или резервниот PIN. Обидете се повторно за %3$d секунди</string>
     <string name="lockscreen_carrier_noservice">(Нема услуга)</string>
     <string name="rescan_network">Се бара достапна мрежа</string>
     <string name="AutoUpdateOfTimeAndDate">Автоматско ажурирање на времето и датумот</string>
@@ -1376,6 +1391,8 @@
     <string name="capabilitymanager_managed_errortitle">Грешка</string>
     <string name="security_policy_title">Политики за безбедност</string>
     <string name="security_policy_summary">Политики за шифрирање што се примаат од далечински администратор</string>
+    <string name="sdcard_unmount_policy_noti_title">SD-картичката е демонтирана поради политиката за ИТ</string>
+    <string name="sdcard_unmount_policy_noti_content">Допрете за да се монтира SD-картичката</string>
     <string name="sdcard_encrypt_title_notification">Шифрирање на SD-картичката</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">Се шифрира SD-картичката…</string>
     <string name="sdcard_encrypt_notification">SD-картичката е шифрирана</string>
@@ -1399,7 +1416,7 @@
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1441,7 +1458,7 @@
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Внесените вредности се надвор од важечкиот опсег. Проверете ги вредностите и обидете се повторно</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1463,6 +1480,8 @@
     <string name="SS_USB_TETHERING_ENABLED">Овозможено е делење преку USB</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Вклучено е делење Wi-Fi</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Вклучено е делење (Wi-Fi и USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Уредот е блокиран. Достигнат е максималниот број обиди за внесување лозинка. Потребна е лозинка за обновување за да се одблокира уредот. Ако внесете погрешна лозинка за обновување, сите податоци ќе се избришат</string>
+    <string name="recovery_password_required">Потребна е лозинка за обновување за да се одблокира уредот</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Поврзувањето dial-up е вклучено</string>
@@ -1496,12 +1515,21 @@
     <string name="lockscreen_ticker_logo_news_tts">Вести</string>
     <string name="lockscreen_ticker_logo_stock_tts">Акции</string>
     <string name="lockscreen_ticker_refresh_tts">Обнови</string>
+    <string name="SS_ALWAYS_ON_TOP">Секогаш најгоре</string>
+    <string name="SS_MINIMISE">Намали</string>
+    <string name="SS_MAXIMISE">Зголеми</string>
+    <string name="SS_CLOSE_APPLICATION">Затвори апликација</string>
+    <string name="spengesture_media_scanning">Не може да се отсече сликата. Активен е сканерот за медиуми</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN-кодот е блокиран</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Контактирајте со својот оператор да ви ја одблокира SIM-картичката</string>
     <string name="resolver_guide_title">Избриши основни</string>
     <string name="operation_not_allowed">Операцијата не е дозволена</string>
     <string name="exceeded_maxlength">Надмината е максималната големина за пораки</string>
     <string name="dont_show_again_message">Не прикажувај веќе</string>
     <string name="set_bing_as_default">Да се постави Bing како основна страница за пребарување?</string>
-    <string name="ms_domain_site">Сајт на домен Microsoft</string>
+    <string name="ms_domain_site">Страница на Microsoft домен</string>
+    <string name="unsupported_in_popupbrowser">Неподдржана функција во Појавниот прегледник</string>
+    <string name="find_on_page_abb">Најди на стр.</string>
     <string name="tw_clipboard_already_exists">Веќе постои</string>
     <string name="tw_clipboard_no_items_to_paste">Нема записи за пресликување</string>
     <string name="tw_clipboard_save_in_memo">Зачувај како белешка</string>
@@ -1515,9 +1543,12 @@
     <string name="tw_ids_com_body_unlock_in_clipboard">Отклучи од посредната меморија</string>
     <string name="tw_clipboard_clear">Бриши</string>
     <string name="tw_clipboard_delete_all">Избриши сè?</string>
-    <string name="tw_clipboard_edit">Измени</string>
-    <string name="tw_clipboard_done">Извршено</string>
+    <string name="tw_clipboard_edit">Смени</string>
+    <string name="tw_clipboard_done">ГОТОВ</string>
     <string name="tw_clipboard_save">Сочувај</string>
     <string name="tw_clipboard_no_item">Нема записи</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Сите записи, освен заклучените, се избришани од посредната меморија</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Пресликано од посредната меморија</string>
+    <string name="Roaming_Auto_Dialing">PIN-кодот е блокиран</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

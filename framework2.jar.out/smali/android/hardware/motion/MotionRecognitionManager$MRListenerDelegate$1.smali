@@ -28,7 +28,7 @@
     .parameter
 
     .prologue
-    .line 402
+    .line 482
     iput-object p1, p0, Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate$1;->this$1:Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;
 
     iput-object p3, p0, Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate$1;->val$this$0:Landroid/hardware/motion/MotionRecognitionManager;
@@ -45,28 +45,37 @@
     .parameter "msg"
 
     .prologue
-    .line 407
+    .line 487
     :try_start_0
     iget-object v2, p0, Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate$1;->this$1:Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;
 
     #getter for: Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;->mListener:Landroid/hardware/motion/MRListener;
-    invoke-static {v2}, Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;->access$100(Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;)Landroid/hardware/motion/MRListener;
+    invoke-static {v2}, Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;->access$200(Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;)Landroid/hardware/motion/MRListener;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    .line 408
+    .line 488
+    if-eqz p1, :cond_0
+
+    iget v2, p1, Landroid/os/Message;->what:I
+
+    const/16 v3, 0x35
+
+    if-ne v2, v3, :cond_0
+
+    .line 490
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/hardware/motion/MREvent;
 
-    .line 409
+    .line 491
     .local v1, motionEvent:Landroid/hardware/motion/MREvent;
     iget-object v2, p0, Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate$1;->this$1:Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;
 
     #getter for: Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;->mListener:Landroid/hardware/motion/MRListener;
-    invoke-static {v2}, Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;->access$100(Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;)Landroid/hardware/motion/MRListener;
+    invoke-static {v2}, Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;->access$200(Landroid/hardware/motion/MotionRecognitionManager$MRListenerDelegate;)Landroid/hardware/motion/MRListener;
 
     move-result-object v2
 
@@ -74,17 +83,17 @@
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 414
+    .line 497
     .end local v1           #motionEvent:Landroid/hardware/motion/MREvent;
     :cond_0
     :goto_0
     return-void
 
-    .line 411
+    .line 494
     :catch_0
     move-exception v0
 
-    .line 412
+    .line 495
     .local v0, e:Ljava/lang/ClassCastException;
     const-string v2, "MotionRecognitionManager"
 

@@ -25,13 +25,13 @@
     .parameter "handler"
 
     .prologue
-    .line 1788
+    .line 1832
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
-    .line 1789
+    .line 1833
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 1790
+    .line 1834
     return-void
 .end method
 
@@ -41,31 +41,46 @@
     .locals 3
 
     .prologue
-    .line 1793
-    iget-object v1, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
+    const/4 v2, 0x0
 
-    iget-object v1, v1, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
+    .line 1837
+    iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v0, v0, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1794
-    .local v0, resolver:Landroid/content/ContentResolver;
     const-string v1, "motion_pick_up"
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    .line 1839
+    iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
+
+    iget-object v0, v0, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "motion_engine"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 1795
+    .line 1841
     invoke-virtual {p0}, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->update()V
 
-    .line 1796
+    .line 1842
     return-void
 .end method
 
@@ -74,52 +89,149 @@
     .parameter "selfChange"
 
     .prologue
-    .line 1799
+    .line 1846
     invoke-virtual {p0}, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->update()V
 
-    .line 1800
+    .line 1847
     return-void
 .end method
 
 .method public update()V
-    .locals 4
+    .locals 6
 
     .prologue
-    const/4 v0, 0x0
+    const/4 v1, 0x1
 
-    .line 1803
-    const-string v1, "STATUSBAR-NotificationService"
+    const/4 v2, 0x0
 
-    const-string v2, "PickupSettingsObserver - update()"
+    .line 1850
+    const-string v3, "STATUSBAR-NotificationService"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    .line 1804
-    iget-object v1, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, v1, Lcom/android/server/NotificationManagerService;->mPickupPlayer:Lcom/android/server/NotificationManagerService$PickupPlayer;
+    const-string v4, "PickupSettingsObserver - update()   MotionPickUP = "
 
-    iget-object v2, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, v2, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
+    move-result-object v4
 
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
-    move-result-object v2
+    iget-object v0, v0, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
 
-    const-string v3, "motion_pick_up"
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    move-result-object v0
 
-    move-result v2
+    const-string v5, "motion_pick_up"
 
-    if-eqz v2, :cond_0
+    invoke-static {v0, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    const/4 v0, 0x1
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move v0, v1
+
+    :goto_0
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v4, "  MotionEngine = "
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
+
+    iget-object v0, v0, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v5, "motion_engine"
+
+    invoke-static {v0, v5, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move v0, v1
+
+    :goto_1
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v3, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1853
+    iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
+
+    iget-object v0, v0, Lcom/android/server/NotificationManagerService;->mPickupPlayer:Lcom/android/server/NotificationManagerService$PickupPlayer;
+
+    iget-object v3, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
+
+    iget-object v3, v3, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "motion_pick_up"
+
+    invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
+
+    iget-object v3, v3, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "motion_engine"
+
+    invoke-static {v3, v4, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    :goto_2
+    invoke-virtual {v0, v1}, Lcom/android/server/NotificationManagerService$PickupPlayer;->setPickupMotionEnabled(Z)V
+
+    .line 1856
+    return-void
 
     :cond_0
-    invoke-virtual {v1, v0}, Lcom/android/server/NotificationManagerService$PickupPlayer;->setPickupMotionEnabled(Z)V
+    move v0, v2
 
-    .line 1805
-    return-void
+    .line 1850
+    goto :goto_0
+
+    :cond_1
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_2
+    move v1, v2
+
+    .line 1853
+    goto :goto_2
 .end method

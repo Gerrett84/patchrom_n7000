@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
+    value = Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Landroid/content/res/Configuration;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 257
+    .line 259
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -47,14 +47,14 @@
 
     const/4 v2, 0x0
 
-    .line 262
+    .line 264
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 294
+    .line 296
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
@@ -64,12 +64,12 @@
     #setter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mUnlockMode:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$UnlockMode;
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->access$1002(Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$UnlockMode;)Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$UnlockMode;
 
-    .line 295
+    .line 297
     const-string v0, "MissedEvent"
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 297
+    .line 299
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mCircleUnlockView:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;
@@ -86,7 +86,7 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;->setOnCircleUnlockListener(Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleUnlockListener;)V
 
-    .line 298
+    .line 300
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mCircleUnlockView:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;
@@ -100,7 +100,7 @@
 
     return v0
 
-    .line 264
+    .line 266
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
@@ -108,7 +108,7 @@
 
     if-nez v0, :cond_1
 
-    .line 265
+    .line 267
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mWaterlockHelpText:Landroid/widget/TextView;
@@ -118,7 +118,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 268
+    .line 270
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
@@ -127,11 +127,11 @@
 
     move-result-object v0
 
-    const v1, 0x1080407
+    const v1, 0x1080423
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
-    .line 269
+    .line 271
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedCallIcon:Landroid/widget/ImageView;
@@ -139,11 +139,11 @@
 
     move-result-object v0
 
-    const v1, 0x108042a
+    const v1, 0x1080453
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 271
+    .line 273
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedMsgBackground:Landroid/widget/LinearLayout;
@@ -153,7 +153,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 272
+    .line 274
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedMsg:Landroid/widget/LinearLayout;
@@ -163,7 +163,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 273
+    .line 275
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedVvmBackground:Landroid/widget/LinearLayout;
@@ -173,7 +173,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 274
+    .line 276
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedVvm:Landroid/widget/LinearLayout;
@@ -185,7 +185,7 @@
 
     goto :goto_0
 
-    .line 278
+    .line 280
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
@@ -194,11 +194,11 @@
 
     move-result-object v0
 
-    const v1, 0x1080403
+    const v1, 0x108041f
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
-    .line 279
+    .line 281
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedCallIcon:Landroid/widget/ImageView;
@@ -206,11 +206,11 @@
 
     move-result-object v0
 
-    const v1, 0x1080429
+    const v1, 0x1080452
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 281
+    .line 283
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedMsgCount:I
@@ -220,7 +220,7 @@
 
     if-lez v0, :cond_2
 
-    .line 282
+    .line 284
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedMsgBackground:Landroid/widget/LinearLayout;
@@ -230,7 +230,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 283
+    .line 285
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedMsg:Landroid/widget/LinearLayout;
@@ -240,7 +240,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 286
+    .line 288
     :cond_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
@@ -251,7 +251,7 @@
 
     if-lez v0, :cond_0
 
-    .line 287
+    .line 289
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedVvmBackground:Landroid/widget/LinearLayout;
@@ -261,7 +261,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 288
+    .line 290
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mMissedVvm:Landroid/widget/LinearLayout;
@@ -273,7 +273,7 @@
 
     goto/16 :goto_0
 
-    .line 262
+    .line 264
     nop
 
     :pswitch_data_0

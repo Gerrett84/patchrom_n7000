@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 300
+    .line 301
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,10 +43,10 @@
     .parameter "hasFocus"
 
     .prologue
-    .line 303
+    .line 304
     if-eqz p2, :cond_0
 
-    .line 304
+    .line 305
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->ad:Landroid/app/AlertDialog;
@@ -59,7 +59,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setSoftInputMode(I)V
 
-    .line 307
+    .line 308
     :cond_0
     return-void
 .end method

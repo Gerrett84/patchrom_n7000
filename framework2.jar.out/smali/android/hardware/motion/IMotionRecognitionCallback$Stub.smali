@@ -28,6 +28,8 @@
 
 .field static final TRANSACTION_getListenerInfo:I = 0x2
 
+.field static final TRANSACTION_getListenerPackageName:I = 0x3
+
 .field static final TRANSACTION_motionCallback:I = 0x1
 
 
@@ -122,7 +124,7 @@
     .line 38
     sparse-switch p1, :sswitch_data_0
 
-    .line 68
+    .line 76
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
@@ -199,6 +201,27 @@
 
     goto :goto_0
 
+    .line 69
+    .end local v1           #_result:Ljava/lang/String;
+    :sswitch_3
+    const-string v3, "android.hardware.motion.IMotionRecognitionCallback"
+
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 70
+    invoke-virtual {p0}, Landroid/hardware/motion/IMotionRecognitionCallback$Stub;->getListenerPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 71
+    .restart local v1       #_result:Ljava/lang/String;
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 72
+    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    goto :goto_0
+
     .line 38
     nop
 
@@ -206,6 +229,7 @@
     .sparse-switch
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

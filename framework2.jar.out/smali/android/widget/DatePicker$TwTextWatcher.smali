@@ -18,6 +18,8 @@
 
 
 # instance fields
+.field private changedLen:I
+
 .field private isMonth:Z
 
 .field private mCheck:I
@@ -42,28 +44,33 @@
     .parameter "month"
 
     .prologue
-    .line 1105
+    .line 1174
     iput-object p1, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1106
+    .line 1170
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->changedLen:I
+
+    .line 1175
     iput p2, p0, Landroid/widget/DatePicker$TwTextWatcher;->mMaxLen:I
 
-    .line 1107
+    .line 1176
     iput p3, p0, Landroid/widget/DatePicker$TwTextWatcher;->mId:I
 
-    .line 1108
+    .line 1177
     iput-boolean p4, p0, Landroid/widget/DatePicker$TwTextWatcher;->isMonth:Z
 
-    .line 1110
+    .line 1179
     iget v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->mId:I
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->mCheck:I
 
-    .line 1111
+    .line 1180
     iget v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->mCheck:I
 
     if-gez v0, :cond_0
@@ -72,7 +79,7 @@
 
     iput v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->mCheck:I
 
-    .line 1113
+    .line 1182
     :cond_0
     iget v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->mId:I
 
@@ -87,10 +94,10 @@
     :goto_0
     iput v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->mNext:I
 
-    .line 1114
+    .line 1183
     return-void
 
-    .line 1113
+    .line 1182
     :cond_1
     iget v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->mId:I
 
@@ -103,7 +110,7 @@
     .locals 3
 
     .prologue
-    .line 1172
+    .line 1244
     iget-object v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -157,18 +164,18 @@
     move-result-object v1
 
     #calls: Landroid/widget/DatePicker;->twLog(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Landroid/widget/DatePicker;->access$1600(Landroid/widget/DatePicker;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/widget/DatePicker;->access$1700(Landroid/widget/DatePicker;Ljava/lang/String;)V
 
-    .line 1174
+    .line 1246
     iget v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->mNext:I
 
     if-ltz v0, :cond_1
 
-    .line 1175
+    .line 1247
     iget-object v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     #getter for: Landroid/widget/DatePicker;->mPickerTexts:[Landroid/widget/EditText;
-    invoke-static {v0}, Landroid/widget/DatePicker;->access$1800(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
+    invoke-static {v0}, Landroid/widget/DatePicker;->access$1900(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
 
     move-result-object v0
 
@@ -182,11 +189,11 @@
 
     if-nez v0, :cond_0
 
-    .line 1176
+    .line 1248
     iget-object v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     #getter for: Landroid/widget/DatePicker;->mPickerTexts:[Landroid/widget/EditText;
-    invoke-static {v0}, Landroid/widget/DatePicker;->access$1800(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
+    invoke-static {v0}, Landroid/widget/DatePicker;->access$1900(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
 
     move-result-object v0
 
@@ -196,12 +203,12 @@
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 1179
+    .line 1251
     :cond_0
     iget-object v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     #getter for: Landroid/widget/DatePicker;->mPickerTexts:[Landroid/widget/EditText;
-    invoke-static {v0}, Landroid/widget/DatePicker;->access$1800(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
+    invoke-static {v0}, Landroid/widget/DatePicker;->access$1900(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
 
     move-result-object v0
 
@@ -215,11 +222,11 @@
 
     if-eqz v0, :cond_1
 
-    .line 1180
+    .line 1252
     iget-object v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     #getter for: Landroid/widget/DatePicker;->mPickerTexts:[Landroid/widget/EditText;
-    invoke-static {v0}, Landroid/widget/DatePicker;->access$1800(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
+    invoke-static {v0}, Landroid/widget/DatePicker;->access$1900(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
 
     move-result-object v0
 
@@ -229,7 +236,7 @@
 
     invoke-virtual {v0}, Landroid/widget/EditText;->clearFocus()V
 
-    .line 1183
+    .line 1255
     :cond_1
     return-void
 .end method
@@ -241,7 +248,7 @@
     .parameter "view"
 
     .prologue
-    .line 1117
+    .line 1186
     iget-object v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -285,9 +292,9 @@
     move-result-object v1
 
     #calls: Landroid/widget/DatePicker;->twLog(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Landroid/widget/DatePicker;->access$1600(Landroid/widget/DatePicker;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/widget/DatePicker;->access$1700(Landroid/widget/DatePicker;Ljava/lang/String;)V
 
-    .line 1118
+    .line 1187
     return-void
 .end method
 
@@ -299,7 +306,7 @@
     .parameter "after"
 
     .prologue
-    .line 1121
+    .line 1190
     iget-object v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -369,28 +376,33 @@
     move-result-object v1
 
     #calls: Landroid/widget/DatePicker;->twLog(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Landroid/widget/DatePicker;->access$1600(Landroid/widget/DatePicker;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/widget/DatePicker;->access$1700(Landroid/widget/DatePicker;Ljava/lang/String;)V
 
-    .line 1122
+    .line 1191
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/widget/DatePicker$TwTextWatcher;->prevText:Ljava/lang/String;
 
-    .line 1123
+    .line 1192
+    iput p4, p0, Landroid/widget/DatePicker$TwTextWatcher;->changedLen:I
+
+    .line 1193
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 4
+    .locals 5
     .parameter "s"
     .parameter "start"
     .parameter "before"
     .parameter "count"
 
     .prologue
-    .line 1126
+    const/4 v4, 0x1
+
+    .line 1196
     iget-object v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -442,13 +454,13 @@
     move-result-object v2
 
     #calls: Landroid/widget/DatePicker;->twLog(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Landroid/widget/DatePicker;->access$1600(Landroid/widget/DatePicker;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Landroid/widget/DatePicker;->access$1700(Landroid/widget/DatePicker;Ljava/lang/String;)V
 
-    .line 1128
+    .line 1198
     iget-object v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     #getter for: Landroid/widget/DatePicker;->mPickerTexts:[Landroid/widget/EditText;
-    invoke-static {v1}, Landroid/widget/DatePicker;->access$1800(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
+    invoke-static {v1}, Landroid/widget/DatePicker;->access$1900(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -462,11 +474,11 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 1129
+    .line 1199
     .local v0, tag:Ljava/lang/String;
     if-eqz v0, :cond_2
 
-    .line 1130
+    .line 1200
     const-string v1, "onClick"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -483,7 +495,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 1131
+    .line 1201
     :cond_0
     iget-object v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
@@ -524,20 +536,20 @@
     move-result-object v2
 
     #calls: Landroid/widget/DatePicker;->twLog(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Landroid/widget/DatePicker;->access$1600(Landroid/widget/DatePicker;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Landroid/widget/DatePicker;->access$1700(Landroid/widget/DatePicker;Ljava/lang/String;)V
 
-    .line 1168
+    .line 1240
     :cond_1
     :goto_0
     return-void
 
-    .line 1136
+    .line 1206
     :cond_2
     iget-boolean v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->isMonth:Z
 
     if-eqz v1, :cond_5
 
-    .line 1137
+    .line 1207
     iget-object v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     #getter for: Landroid/widget/DatePicker;->isNumMonth:Z
@@ -547,7 +559,7 @@
 
     if-eqz v1, :cond_4
 
-    .line 1138
+    .line 1208
     iget-object v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -583,9 +595,14 @@
     move-result-object v2
 
     #calls: Landroid/widget/DatePicker;->twLog(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Landroid/widget/DatePicker;->access$1600(Landroid/widget/DatePicker;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Landroid/widget/DatePicker;->access$1700(Landroid/widget/DatePicker;Ljava/lang/String;)V
 
-    .line 1140
+    .line 1210
+    iget v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->changedLen:I
+
+    if-ne v1, v4, :cond_1
+
+    .line 1211
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
@@ -594,11 +611,11 @@
 
     if-ne v1, v2, :cond_3
 
-    .line 1141
+    .line 1212
     iget-object v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     #getter for: Landroid/widget/DatePicker;->mPickerTexts:[Landroid/widget/EditText;
-    invoke-static {v1}, Landroid/widget/DatePicker;->access$1800(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
+    invoke-static {v1}, Landroid/widget/DatePicker;->access$1900(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -612,12 +629,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 1142
+    .line 1213
     invoke-direct {p0}, Landroid/widget/DatePicker$TwTextWatcher;->changeFocus()V
 
     goto :goto_0
 
-    .line 1144
+    .line 1215
     :cond_3
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
@@ -625,7 +642,7 @@
 
     if-lez v1, :cond_1
 
-    .line 1145
+    .line 1216
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -650,11 +667,11 @@
 
     if-nez v1, :cond_1
 
-    .line 1146
+    .line 1217
     iget-object v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     #getter for: Landroid/widget/DatePicker;->mPickerTexts:[Landroid/widget/EditText;
-    invoke-static {v1}, Landroid/widget/DatePicker;->access$1800(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
+    invoke-static {v1}, Landroid/widget/DatePicker;->access$1900(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -668,17 +685,17 @@
 
     if-eqz v1, :cond_1
 
-    .line 1147
+    .line 1218
     invoke-direct {p0}, Landroid/widget/DatePicker$TwTextWatcher;->changeFocus()V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 1152
+    .line 1224
     :cond_4
     iget-object v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     #getter for: Landroid/widget/DatePicker;->mPickerTexts:[Landroid/widget/EditText;
-    invoke-static {v1}, Landroid/widget/DatePicker;->access$1800(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
+    invoke-static {v1}, Landroid/widget/DatePicker;->access$1900(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -812,7 +829,7 @@
 
     if-nez v1, :cond_1
 
-    .line 1156
+    .line 1228
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v1
@@ -821,12 +838,12 @@
 
     if-lt v1, v2, :cond_1
 
-    .line 1157
+    .line 1229
     invoke-direct {p0}, Landroid/widget/DatePicker$TwTextWatcher;->changeFocus()V
 
     goto/16 :goto_0
 
-    .line 1162
+    .line 1234
     :cond_5
     iget-object v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->prevText:Ljava/lang/String;
 
@@ -848,11 +865,15 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 1163
+    iget v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->changedLen:I
+
+    if-ne v1, v4, :cond_1
+
+    .line 1235
     iget-object v1, p0, Landroid/widget/DatePicker$TwTextWatcher;->this$0:Landroid/widget/DatePicker;
 
     #getter for: Landroid/widget/DatePicker;->mPickerTexts:[Landroid/widget/EditText;
-    invoke-static {v1}, Landroid/widget/DatePicker;->access$1800(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
+    invoke-static {v1}, Landroid/widget/DatePicker;->access$1900(Landroid/widget/DatePicker;)[Landroid/widget/EditText;
 
     move-result-object v1
 
@@ -866,7 +887,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 1164
+    .line 1236
     invoke-direct {p0}, Landroid/widget/DatePicker$TwTextWatcher;->changeFocus()V
 
     goto/16 :goto_0

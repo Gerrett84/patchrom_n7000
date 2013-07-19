@@ -8,7 +8,7 @@
             <ImageView android:id="@id/imgAniRecord" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/fm_rec_press" android:scaleType="center" android:layout_centerInParent="true" />
         </RelativeLayout>
         <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fm_top_line" />
-        <RelativeLayout android:id="@id/information" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <RelativeLayout android:id="@id/information" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
             <TextView android:textSize="19.0dip" android:typeface="sans" android:textColor="@color/white" android:ellipsize="marquee" android:gravity="center" android:id="@id/seeking" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/seeking" android:singleLine="true" android:includeFontPadding="false" android:marqueeRepeatLimit="marquee_forever" />
             <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/rds_panel" android:layout_width="204.0dip" android:layout_height="fill_parent" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip">
                 <TextView android:textSize="19.0dip" android:textStyle="normal" android:textColor="@color/rds_txt_color" android:ellipsize="marquee" android:gravity="center" android:id="@id/ps_text" android:layout_width="204.0dip" android:layout_height="wrap_content" android:singleLine="true" android:shadowColor="#ff000000" android:shadowDy="1.0" android:marqueeRepeatLimit="marquee_forever" />
@@ -18,7 +18,7 @@
         <ImageView android:layout_width="wrap_content" android:layout_height="47.0dip" android:src="@drawable/fm_top_line" />
         <ImageButton android:id="@id/volume" android:background="@drawable/top_btn_bg" android:focusable="true" android:clickable="true" android:layout_width="58.0dip" android:layout_height="fill_parent" android:scaleType="center" android:contentDescription="@string/desc_volume" />
     </LinearLayout>
-    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
         <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <RelativeLayout android:layout_width="fill_parent" android:layout_height="115.0dip">
                 <View android:background="@drawable/fm_radio_frequency_bg2_off" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerHorizontal="true" />
@@ -35,18 +35,16 @@
                     </LinearLayout>
                 </RelativeLayout>
                 <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerHorizontal="true">
-                    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
-                        <com.sec.android.app.fm.ui.FrequencyDisplayView android:id="@id/frq_dsp_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
-                            <ImageView android:id="@id/firstDigit" android:background="@drawable/fm_radio_num_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-                            <ImageView android:id="@id/secondDigit" android:background="@drawable/fm_radio_num_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-7.5dip" />
-                            <ImageView android:id="@id/thirdDigit" android:background="@drawable/fm_radio_num_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-7.0dip" />
-                            <ImageView android:id="@id/dot" android:background="@drawable/fm_radio_num_dot_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-6.0dip" />
-                            <ImageView android:id="@id/dotFirstDigit" android:background="@drawable/fm_radio_num_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-                            <ImageView android:id="@id/dotSecondDigit" android:background="@drawable/fm_radio_num_dim" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-7.0dip" />
-                            <ImageView android:id="@id/mhz" android:background="@drawable/fm_radio_num_mhz_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="48.0dip" />
-                        </com.sec.android.app.fm.ui.FrequencyDisplayView>
-                        <View android:id="@id/freq_cover" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-                    </RelativeLayout>
+                    <com.sec.android.app.fm.ui.FrequencyDisplayView android:id="@id/frq_dsp_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                        <ImageView android:id="@id/firstDigit" android:background="@drawable/fm_radio_num_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        <ImageView android:id="@id/secondDigit" android:background="@drawable/fm_radio_num_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-7.5dip" />
+                        <ImageView android:id="@id/thirdDigit" android:background="@drawable/fm_radio_num_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-7.0dip" />
+                        <ImageView android:id="@id/dot" android:background="@drawable/fm_radio_num_dot_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-6.0dip" />
+                        <ImageView android:id="@id/dotFirstDigit" android:background="@drawable/fm_radio_num_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        <ImageView android:id="@id/dotSecondDigit" android:background="@drawable/fm_radio_num_dim" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="-7.0dip" />
+                        <ImageView android:id="@id/mhz" android:background="@drawable/fm_radio_num_mhz_dim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="48.0dip" />
+                    </com.sec.android.app.fm.ui.FrequencyDisplayView>
+                    <View android:id="@id/freq_cover" android:layout_width="fill_parent" android:layout_height="fill_parent" />
                 </RelativeLayout>
                 <FrameLayout android:id="@id/menu_layout" android:layout_width="62.0dip" android:layout_height="50.0dip" android:layout_alignParentTop="true" android:layout_alignParentRight="true">
                     <ImageView android:layout_gravity="top|right|center" android:id="@id/menu_button" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:layout_marginRight="13.0dip" android:src="@drawable/menu_btn" />
@@ -71,10 +69,9 @@
                 <com.sec.android.touchwiz.widget.TwSeekBarBubble android:gravity="right" android:id="@id/seekbubble" android:paddingLeft="65.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
                   xmlns:android="http://schemas.android.com/apk/res/android">
                     <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/progressbarParent" android:background="@drawable/tw_volume_popup_bg_holo_dark" android:layout_width="54.0dip" android:layout_height="fill_parent">
-                        <com.sec.android.touchwiz.widget.TwSeekBar android:id="@id/seekbar" android:paddingTop="19.0dip" android:paddingBottom="18.0dip" android:layout_width="54.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" touchwiz:twMax="15" touchwiz:twBackgroundDrawable="@drawable/tw_volume_scrubber_bg_holo" touchwiz:twProgressDrawable="@drawable/tw_volume_bar_holo" touchwiz:twIndicatorThickness="6.0dip" touchwiz:twProgressOrientation="vertical" touchwiz:twSeekBarThumb="@drawable/tw_seek_thumb"
-                          xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz" />	android:paddingLeft="12.5dp"
-							android:paddingRight="12.5dp" />
-<TextView android:textSize="20.0dip" android:textColor="@color/volume_popup_text" android:id="@id/seekbartext" android:paddingBottom="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        <com.sec.android.touchwiz.widget.TwSeekBar android:id="@id/seekbar" android:paddingTop="19.0dip" android:paddingBottom="18.0dip" android:layout_width="54.0dip" android:layout_height="0.0dip" android:layout_weight="1.0" touchwiz:twMax="15" touchwiz:twBackgroundDrawable="@drawable/tw_volume_scrubber_bg_holo" touchwiz:twProgressDrawable="@drawable/tw_volume_bar_holo" touchwiz:twIndicatorThickness="6.0dip" touchwiz:twProgressOrientation="vertical" touchwiz:twSeekBarThumb="@drawable/tw_seek_thumb"
+                          xmlns:touchwiz="http://schemas.android.com/apk/res/touchwiz" />
+                        <TextView android:textSize="20.0dip" android:textColor="@color/volume_popup_text" android:id="@id/seekbartext" android:paddingBottom="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" />
                     </LinearLayout>
                 </com.sec.android.touchwiz.widget.TwSeekBarBubble>
             </RelativeLayout>
@@ -127,13 +124,11 @@
                     <ImageView android:id="@id/rec_s2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fm_radio_rec_num_00" />
                 </LinearLayout>
             </LinearLayout>
-            <RelativeLayout android:background="@drawable/fm_radio_rec_btn_bg" android:layout_width="fill_parent" android:layout_height="70.0dip">
-                <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
-                    <ImageView android:id="@id/rec_btn" android:background="@drawable/stop_btn_bg" android:focusable="true" android:clickable="true" android:layout_width="52.0dip" android:layout_height="52.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="5.0dip" android:src="@drawable/stop_btn_icon" android:scaleType="center" />
-                    <ImageView android:id="@id/pause_resume_btn" android:background="@drawable/pause_btn_bg" android:focusable="true" android:clickable="true" android:layout_width="56.0dip" android:layout_height="56.0dip" android:layout_marginLeft="4.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="6.0dip" android:src="@drawable/pause_btn_icon" android:scaleType="center" />
-                    <ImageView android:id="@id/cancel_btn" android:background="@drawable/cancel_btn_bg" android:focusable="true" android:clickable="true" android:layout_width="52.0dip" android:layout_height="52.0dip" android:layout_marginLeft="4.0dip" android:layout_marginBottom="5.0dip" android:src="@drawable/cancel_btn_icon" android:scaleType="center" />
-                </LinearLayout>
-            </RelativeLayout>
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/fm_radio_rec_btn_bg" android:layout_width="fill_parent" android:layout_height="70.0dip">
+                <ImageView android:id="@id/rec_btn" android:background="@drawable/stop_btn_bg" android:focusable="true" android:clickable="true" android:layout_width="52.0dip" android:layout_height="52.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="5.0dip" android:src="@drawable/stop_btn_icon" android:scaleType="center" />
+                <ImageView android:id="@id/pause_resume_btn" android:background="@drawable/pause_btn_bg" android:focusable="true" android:clickable="true" android:layout_width="56.0dip" android:layout_height="56.0dip" android:layout_marginLeft="4.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="6.0dip" android:src="@drawable/pause_btn_icon" android:scaleType="center" />
+                <ImageView android:id="@id/cancel_btn" android:background="@drawable/cancel_btn_bg" android:focusable="true" android:clickable="true" android:layout_width="52.0dip" android:layout_height="52.0dip" android:layout_marginLeft="4.0dip" android:layout_marginBottom="5.0dip" android:src="@drawable/cancel_btn_icon" android:scaleType="center" />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

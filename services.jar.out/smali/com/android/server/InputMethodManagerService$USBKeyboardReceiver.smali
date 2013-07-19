@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 536
+    .line 542
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$USBKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -46,12 +46,12 @@
 
     const/4 v5, 0x0
 
-    .line 539
+    .line 545
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 540
+    .line 546
     .local v1, intentAction:Ljava/lang/String;
     const-string v2, "InputMethodManagerService"
 
@@ -75,7 +75,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 541
+    .line 547
     const-string v2, "android.intent.action.USBHID_KEYBOARD_EVENT"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -84,7 +84,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 542
+    .line 548
     const-string v2, "android.intent.extra.device_state"
 
     const/4 v3, -0x1
@@ -93,7 +93,7 @@
 
     move-result v0
 
-    .line 543
+    .line 549
     .local v0, extra:I
     const-string v2, "InputMethodManagerService"
 
@@ -117,37 +117,37 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 544
+    .line 550
     if-ne v0, v6, :cond_1
 
-    .line 545
+    .line 551
     invoke-static {v7}, Lcom/android/server/InputMethodManagerService;->access$276(I)I
 
-    .line 547
+    .line 553
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$USBKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->setDefaultIMEForKeyboard()V
 
-    .line 548
+    .line 554
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$USBKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->hideKeyboardDialog()V
 
-    .line 549
+    .line 555
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$USBKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     const/4 v3, 0x0
 
     invoke-virtual {v2, v5, v3}, Lcom/android/server/InputMethodManagerService;->hideCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
 
-    .line 550
+    .line 556
     invoke-static {}, Lcom/android/server/InputMethodManagerService;->access$300()Ljava/lang/String;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    .line 551
+    .line 557
     invoke-static {}, Lcom/android/server/InputMethodManagerService;->access$300()Ljava/lang/String;
 
     move-result-object v2
@@ -162,12 +162,12 @@
 
     if-nez v2, :cond_0
 
-    .line 552
+    .line 558
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$USBKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v2, v7}, Lcom/android/server/InputMethodManagerService;->showKeyboardNotiDailog(I)V
 
-    .line 571
+    .line 577
     .end local v0           #extra:I
     :cond_0
     :goto_0
@@ -197,24 +197,24 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 572
+    .line 578
     return-void
 
-    .line 563
+    .line 569
     .restart local v0       #extra:I
     :cond_1
     const/4 v2, -0x5
 
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$272(I)I
 
-    .line 564
+    .line 570
     invoke-static {}, Lcom/android/server/InputMethodManagerService;->access$400()I
 
     move-result v2
 
     if-ne v2, v6, :cond_2
 
-    .line 565
+    .line 571
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$USBKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iget-object v2, v2, Lcom/android/server/InputMethodManagerService;->mContentResolver:Landroid/content/ContentResolver;
@@ -227,13 +227,13 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 567
+    .line 573
     :cond_2
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$USBKeyboardReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->hideKeyboardDialog()V
 
-    .line 568
+    .line 574
     invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->access$402(I)I
 
     goto :goto_0

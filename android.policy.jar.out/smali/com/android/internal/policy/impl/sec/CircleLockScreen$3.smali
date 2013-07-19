@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 724
+    .line 754
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
     const/4 v1, 0x0
 
-    .line 727
+    .line 757
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mIsHelpTextEnabled:Z
@@ -55,7 +55,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 728
+    .line 758
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
@@ -65,7 +65,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 729
+    .line 759
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mIsMultipleWakeUpOn:Z
@@ -75,7 +75,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 730
+    .line 760
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mVoiceHelpText:Landroid/widget/TextView;
@@ -93,7 +93,7 @@
 
     if-lez v0, :cond_0
 
-    .line 731
+    .line 761
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mVoiceHelpText:Landroid/widget/TextView;
@@ -103,12 +103,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 737
+    .line 767
     :cond_0
     :goto_0
     return-void
 
-    .line 734
+    .line 764
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
@@ -119,7 +119,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 735
+    .line 765
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mVoiceHelpText:Landroid/widget/TextView;

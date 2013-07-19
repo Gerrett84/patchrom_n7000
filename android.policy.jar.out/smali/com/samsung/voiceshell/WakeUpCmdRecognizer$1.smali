@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 133
+    .line 135
     iput-object p1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$1;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "msg"
 
     .prologue
-    .line 136
+    .line 138
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v3
@@ -50,7 +50,7 @@
 
     move-result v2
 
-    .line 137
+    .line 139
     .local v2, job:I
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
@@ -62,7 +62,7 @@
 
     move-result v1
 
-    .line 138
+    .line 140
     .local v1, enroll_cnt:I
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
@@ -74,7 +74,7 @@
 
     move-result v0
 
-    .line 140
+    .line 142
     .local v0, enroll_check_cnt:I
     iget-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$1;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
@@ -85,7 +85,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 142
+    .line 144
     iget-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$1;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     #getter for: Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
@@ -95,7 +95,7 @@
 
     invoke-interface {v3, v2, v1, v0}, Lcom/samsung/voiceshell/VoiceEngineResultListener;->OnEnrollResult(III)V
 
-    .line 144
+    .line 146
     :cond_0
     return-void
 .end method

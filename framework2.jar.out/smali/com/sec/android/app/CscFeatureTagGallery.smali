@@ -24,6 +24,8 @@
 
 .field public static final TAG_CSCFEATURE_GALLERY_ENABLEDOCUMENTCLASSIFIER:Ljava/lang/String; = "CscFeature_Gallery_EnableDocumentClassifier"
 
+.field public static final TAG_CSCFEATURE_GALLERY_ENABLEORANGECLOUDONTOPINSHAREVIA:Ljava/lang/String; = "CscFeature_Gallery_EnableOrangeCloudOnTopInShareVia"
+
 .field public static final TAG_CSCFEATURE_GALLERY_REPLACEMENU_AUTONAVI:Ljava/lang/String; = "CscFeature_Gallery_ReplaceMenu_AutoNavi"
 
 

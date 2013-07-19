@@ -28,12 +28,12 @@
     .locals 1
 
     .prologue
-    .line 25
+    .line 26
     const/4 v0, 0x0
 
     sput-object v0, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
-    .line 27
+    .line 30
     const/4 v0, 0x0
 
     sput v0, Lcom/sec/android/app/fm/WorkerThread;->mType:I
@@ -45,10 +45,10 @@
     .locals 0
 
     .prologue
-    .line 34
+    .line 42
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
-    .line 36
+    .line 44
     return-void
 .end method
 
@@ -57,7 +57,7 @@
     .parameter "x0"
 
     .prologue
-    .line 19
+    .line 18
     iget-object v0, p0, Lcom/sec/android/app/fm/WorkerThread;->mView:Landroid/view/View;
 
     return-object v0
@@ -68,7 +68,7 @@
     .parameter "x0"
 
     .prologue
-    .line 19
+    .line 18
     iget v0, p0, Lcom/sec/android/app/fm/WorkerThread;->mResId:I
 
     return v0
@@ -78,7 +78,7 @@
     .locals 2
 
     .prologue
-    .line 43
+    .line 52
     const-class v1, Lcom/sec/android/app/fm/WorkerThread;
 
     monitor-enter v1
@@ -88,19 +88,19 @@
 
     if-nez v0, :cond_0
 
-    .line 44
+    .line 53
     new-instance v0, Lcom/sec/android/app/fm/WorkerThread;
 
     invoke-direct {v0}, Lcom/sec/android/app/fm/WorkerThread;-><init>()V
 
     sput-object v0, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
-    .line 45
+    .line 54
     sget-object v0, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/WorkerThread;->start()V
 
-    .line 47
+    .line 56
     :cond_0
     sget-object v0, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
     :try_end_0
@@ -110,7 +110,7 @@
 
     return-object v0
 
-    .line 43
+    .line 52
     :catchall_0
     move-exception v0
 
@@ -129,7 +129,7 @@
     .parameter "resId"
 
     .prologue
-    .line 172
+    .line 194
     monitor-enter p0
 
     :try_start_0
@@ -153,39 +153,39 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 173
+    .line 195
     sput p1, Lcom/sec/android/app/fm/WorkerThread;->mType:I
 
-    .line 174
+    .line 196
     iput-wide p2, p0, Lcom/sec/android/app/fm/WorkerThread;->mFreq:J
 
-    .line 175
+    .line 197
     iput-object p4, p0, Lcom/sec/android/app/fm/WorkerThread;->mView:Landroid/view/View;
 
-    .line 176
+    .line 198
     iput p5, p0, Lcom/sec/android/app/fm/WorkerThread;->mResId:I
 
-    .line 178
+    .line 200
     sget-object v0, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
     if-eqz v0, :cond_0
 
-    .line 180
+    .line 202
     sget-object v0, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 183
+    .line 205
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 172
+    .line 194
     :catchall_0
     move-exception v0
 
@@ -198,7 +198,7 @@
     .locals 1
 
     .prologue
-    .line 199
+    .line 221
     iget-boolean v0, p0, Lcom/sec/android/app/fm/WorkerThread;->stop:Z
 
     return v0
@@ -210,31 +210,31 @@
     .prologue
     const/high16 v7, 0x447a
 
-    .line 54
+    .line 64
     :goto_0
     iget-boolean v1, p0, Lcom/sec/android/app/fm/WorkerThread;->stop:Z
 
     if-nez v1, :cond_1
 
-    .line 56
+    .line 66
     sget-object v2, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
     monitor-enter v2
 
-    .line 59
+    .line 69
     :try_start_0
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v1, :cond_0
 
-    .line 60
+    .line 70
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     const-string v3, "[WorkerThread] waiting for Job.."
 
     invoke-virtual {v1, v3}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 63
+    .line 72
     :cond_0
     sget-object v1, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
@@ -243,46 +243,46 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 69
+    .line 80
     :goto_1
     :try_start_1
     monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 70
+    .line 81
     iget-boolean v1, p0, Lcom/sec/android/app/fm/WorkerThread;->stop:Z
 
     if-eqz v1, :cond_3
 
-    .line 157
+    .line 179
     :cond_1
     :goto_2
     const/4 v1, 0x0
 
     sput-object v1, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
-    .line 158
+    .line 180
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v1, :cond_2
 
-    .line 159
+    .line 181
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     const-string v2, "[WorkerThread] terminated.."
 
     invoke-virtual {v1, v2}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 160
+    .line 182
     :cond_2
     return-void
 
-    .line 64
+    .line 73
     :catch_0
     move-exception v0
 
-    .line 66
+    .line 75
     .local v0, e:Ljava/lang/InterruptedException;
     :try_start_2
     invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
@@ -292,13 +292,13 @@
 
     goto :goto_1
 
-    .line 67
+    .line 76
     :catch_1
     move-exception v1
 
     goto :goto_1
 
-    .line 69
+    .line 80
     .end local v0           #e:Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v1
@@ -310,19 +310,19 @@
 
     throw v1
 
-    .line 72
+    .line 83
     :cond_3
     sget-object v2, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
     monitor-enter v2
 
-    .line 73
+    .line 84
     :try_start_4
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v1, :cond_5
 
-    .line 74
+    .line 85
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -363,7 +363,7 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    .line 79
+    .line 91
     :try_start_5
     sget v1, Lcom/sec/android/app/fm/WorkerThread;->mType:I
     :try_end_5
@@ -372,14 +372,14 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 137
+    .line 160
     :goto_3
     :try_start_6
     iget-object v1, p0, Lcom/sec/android/app/fm/WorkerThread;->mView:Landroid/view/View;
 
     if-eqz v1, :cond_4
 
-    .line 138
+    .line 161
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v1, v1, Lcom/sec/android/app/fm/MainActivity;->mHandler:Lcom/sec/android/app/fm/MainActivity$MyHandler;
@@ -390,13 +390,13 @@
 
     invoke-virtual {v1, v3}, Lcom/sec/android/app/fm/MainActivity$MyHandler;->post(Ljava/lang/Runnable;)Z
 
-    .line 152
+    .line 174
     :cond_4
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/sec/android/app/fm/WorkerThread;->mBusy:Z
 
-    .line 154
+    .line 176
     :goto_4
     monitor-exit v2
 
@@ -411,7 +411,7 @@
 
     throw v1
 
-    .line 76
+    .line 88
     :cond_5
     :try_start_7
     monitor-exit v2
@@ -420,21 +420,21 @@
 
     goto :goto_2
 
-    .line 85
+    .line 97
     :pswitch_0
     :try_start_8
     const-string v1, "WORKTHREAD"
 
     const-string v3, "######### OPERATION_TUNE####"
 
-    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 87
+    .line 99
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/sec/android/app/fm/WorkerThread;->mBusy:Z
 
-    .line 89
+    .line 101
     iget-wide v3, p0, Lcom/sec/android/app/fm/WorkerThread;->mFreq:J
 
     const-wide/16 v5, 0x0
@@ -443,7 +443,7 @@
 
     if-nez v1, :cond_8
 
-    .line 90
+    .line 102
     sget v1, Lcom/sec/android/app/fm/MainActivity;->BASE_FREQ:F
 
     mul-float/2addr v1, v7
@@ -454,7 +454,7 @@
 
     iput-wide v3, p0, Lcom/sec/android/app/fm/WorkerThread;->mFreq:J
 
-    .line 95
+    .line 117
     :cond_6
     :goto_5
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -465,7 +465,7 @@
 
     invoke-virtual {v1, v3, v4}, Lcom/samsung/media/fmradio/FMPlayer;->tune(J)Z
 
-    .line 96
+    .line 118
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/sec/android/app/fm/WorkerThread;->mIsTune:Z
@@ -475,11 +475,11 @@
 
     goto :goto_3
 
-    .line 129
+    .line 151
     :catch_2
     move-exception v0
 
-    .line 130
+    .line 152
     .local v0, e:Ljava/lang/Exception;
     :try_start_9
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -494,13 +494,13 @@
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_2
 
-    .line 137
+    .line 160
     :try_start_a
     iget-object v1, p0, Lcom/sec/android/app/fm/WorkerThread;->mView:Landroid/view/View;
 
     if-eqz v1, :cond_7
 
-    .line 138
+    .line 161
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v1, v1, Lcom/sec/android/app/fm/MainActivity;->mHandler:Lcom/sec/android/app/fm/MainActivity$MyHandler;
@@ -511,7 +511,7 @@
 
     invoke-virtual {v1, v3}, Lcom/sec/android/app/fm/MainActivity$MyHandler;->post(Ljava/lang/Runnable;)Z
 
-    .line 152
+    .line 174
     :cond_7
     const/4 v1, 0x0
 
@@ -521,10 +521,15 @@
 
     goto :goto_4
 
-    .line 91
+    .line 104
     .end local v0           #e:Ljava/lang/Exception;
     :cond_8
     :try_start_b
+    sget-boolean v1, Lcom/sec/android/app/fm/MainActivity;->AUTO_SCAN:Z
+
+    if-eqz v1, :cond_b
+
+    .line 105
     iget-wide v3, p0, Lcom/sec/android/app/fm/WorkerThread;->mFreq:J
 
     sget v1, Lcom/sec/android/app/fm/MainActivity;->BASE_FREQ:F
@@ -553,7 +558,7 @@
 
     if-lez v1, :cond_6
 
-    .line 93
+    .line 107
     :cond_9
     sget v1, Lcom/sec/android/app/fm/MainActivity;->BASE_FREQ:F
 
@@ -564,13 +569,18 @@
     int-to-long v3, v1
 
     iput-wide v3, p0, Lcom/sec/android/app/fm/WorkerThread;->mFreq:J
+
+    .line 108
+    const/4 v1, 0x0
+
+    sput-boolean v1, Lcom/sec/android/app/fm/MainActivity;->AUTO_SCAN:Z
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_2
     .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_2
 
     goto :goto_5
 
-    .line 137
+    .line 160
     :catchall_2
     move-exception v1
 
@@ -579,7 +589,7 @@
 
     if-eqz v3, :cond_a
 
-    .line 138
+    .line 161
     sget-object v3, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v3, v3, Lcom/sec/android/app/fm/MainActivity;->mHandler:Lcom/sec/android/app/fm/MainActivity$MyHandler;
@@ -590,7 +600,7 @@
 
     invoke-virtual {v3, v4}, Lcom/sec/android/app/fm/MainActivity$MyHandler;->post(Ljava/lang/Runnable;)Z
 
-    .line 152
+    .line 174
     :cond_a
     const/4 v3, 0x0
 
@@ -600,55 +610,93 @@
     :try_end_c
     .catchall {:try_start_c .. :try_end_c} :catchall_1
 
-    .line 101
-    :pswitch_1
+    .line 111
+    :cond_b
     :try_start_d
+    iget-wide v3, p0, Lcom/sec/android/app/fm/WorkerThread;->mFreq:J
+
+    const-wide/16 v5, 0x222e
+
+    cmp-long v1, v3, v5
+
+    if-ltz v1, :cond_c
+
+    iget-wide v3, p0, Lcom/sec/android/app/fm/WorkerThread;->mFreq:J
+
+    sget v1, Lcom/sec/android/app/fm/MainActivity;->MAX_FREQ:F
+
+    mul-float/2addr v1, v7
+
+    float-to-int v1, v1
+
+    int-to-long v5, v1
+
+    cmp-long v1, v3, v5
+
+    if-lez v1, :cond_6
+
+    .line 113
+    :cond_c
+    sget v1, Lcom/sec/android/app/fm/MainActivity;->BASE_FREQ:F
+
+    mul-float/2addr v1, v7
+
+    float-to-int v1, v1
+
+    int-to-long v3, v1
+
+    iput-wide v3, p0, Lcom/sec/android/app/fm/WorkerThread;->mFreq:J
+
+    goto/16 :goto_5
+
+    .line 123
+    :pswitch_1
     const-string v1, "WORKTHREAD"
 
     const-string v3, "####### NEXT BUTTON SELECTED ####"
 
-    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 102
+    .line 124
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/sec/android/app/fm/WorkerThread;->mBusy:Z
 
-    .line 107
+    .line 129
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v1, v1, Lcom/sec/android/app/fm/MainActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v1}, Lcom/samsung/media/fmradio/FMPlayer;->seekUp()J
 
-    .line 110
+    .line 132
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/sec/android/app/fm/WorkerThread;->mIsTune:Z
 
     goto/16 :goto_3
 
-    .line 114
+    .line 136
     :pswitch_2
     const-string v1, "WORKTHREAD"
 
     const-string v3, "####### PREVIOUS BUTTON SELECTED ####"
 
-    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 115
+    .line 137
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/sec/android/app/fm/WorkerThread;->mBusy:Z
 
-    .line 119
+    .line 141
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v1, v1, Lcom/sec/android/app/fm/MainActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v1}, Lcom/samsung/media/fmradio/FMPlayer;->seekDown()J
 
-    .line 122
+    .line 144
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/sec/android/app/fm/WorkerThread;->mIsTune:Z
@@ -658,7 +706,9 @@
 
     goto/16 :goto_3
 
-    .line 79
+    .line 91
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -671,35 +721,35 @@
     .locals 2
 
     .prologue
-    .line 189
+    .line 211
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/sec/android/app/fm/WorkerThread;->stop:Z
 
-    .line 190
+    .line 212
     sget-object v0, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
     if-eqz v0, :cond_0
 
-    .line 191
+    .line 213
     sget-object v1, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
     monitor-enter v1
 
-    .line 192
+    .line 214
     :try_start_0
     sget-object v0, Lcom/sec/android/app/fm/WorkerThread;->_instance:Lcom/sec/android/app/fm/WorkerThread;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 193
+    .line 215
     monitor-exit v1
 
-    .line 195
+    .line 217
     :cond_0
     return-void
 
-    .line 193
+    .line 215
     :catchall_0
     move-exception v0
 

@@ -26,6 +26,8 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.os.ICustomFrequencyManager"
 
+.field static final TRANSACTION_checkCPUCoreRange:I = 0xd
+
 .field static final TRANSACTION_checkFrameRateRange:I = 0x9
 
 .field static final TRANSACTION_checkGPUFrequencyRange:I = 0x7
@@ -36,9 +38,13 @@
 
 .field static final TRANSACTION_getSupportedSysBusFrequency:I = 0x2
 
+.field static final TRANSACTION_releaseCPUCore:I = 0xf
+
 .field static final TRANSACTION_releaseGPU:I = 0x4
 
 .field static final TRANSACTION_releaseSysBus:I = 0x6
+
+.field static final TRANSACTION_requestCPUCore:I = 0xe
 
 .field static final TRANSACTION_requestGPU:I = 0x3
 
@@ -144,7 +150,7 @@
     .line 39
     sparse-switch p1, :sswitch_data_0
 
-    .line 172
+    .line 206
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v5
@@ -503,6 +509,101 @@
 
     goto/16 :goto_0
 
+    .line 173
+    .end local v0           #_arg0:Ljava/lang/String;
+    :sswitch_d
+    const-string v6, "android.os.ICustomFrequencyManager"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 175
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    .line 176
+    .local v0, _arg0:I
+    invoke-virtual {p0, v0}, Landroid/os/ICustomFrequencyManager$Stub;->checkCPUCoreRange(I)Z
+
+    move-result v3
+
+    .line 177
+    .restart local v3       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 178
+    if-eqz v3, :cond_3
+
+    move v4, v5
+
+    :cond_3
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 183
+    .end local v0           #_arg0:I
+    .end local v3           #_result:Z
+    :sswitch_e
+    const-string v4, "android.os.ICustomFrequencyManager"
+
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 185
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    .line 187
+    .restart local v0       #_arg0:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    .line 189
+    .restart local v1       #_arg1:Landroid/os/IBinder;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 190
+    .restart local v2       #_arg2:Ljava/lang/String;
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/ICustomFrequencyManager$Stub;->requestCPUCore(ILandroid/os/IBinder;Ljava/lang/String;)V
+
+    .line 191
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_0
+
+    .line 196
+    .end local v0           #_arg0:I
+    .end local v1           #_arg1:Landroid/os/IBinder;
+    .end local v2           #_arg2:Ljava/lang/String;
+    :sswitch_f
+    const-string v4, "android.os.ICustomFrequencyManager"
+
+    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 198
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    .line 200
+    .local v0, _arg0:Landroid/os/IBinder;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 201
+    .local v1, _arg1:Ljava/lang/String;
+    invoke-virtual {p0, v0, v1}, Landroid/os/ICustomFrequencyManager$Stub;->releaseCPUCore(Landroid/os/IBinder;Ljava/lang/String;)V
+
+    .line 202
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_0
+
     .line 39
     nop
 
@@ -520,6 +621,9 @@
         0xa -> :sswitch_a
         0xb -> :sswitch_b
         0xc -> :sswitch_c
+        0xd -> :sswitch_d
+        0xe -> :sswitch_e
+        0xf -> :sswitch_f
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -27,19 +27,19 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 116
+    .line 117
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerListView;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
-    .line 117
+    .line 118
     invoke-direct {p0, p2}, Landroid/widget/ListView;-><init>(Landroid/content/Context;)V
 
-    .line 118
+    .line 119
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerListView;->setFocusable(Z)V
 
-    .line 119
+    .line 120
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerListView;->setFocusableInTouchMode(Z)V
 
-    .line 120
+    .line 121
     return-void
 .end method
 
@@ -50,7 +50,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 123
+    .line 124
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerListView;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
@@ -68,7 +68,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 124
+    .line 125
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerListView;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
@@ -78,7 +78,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerCallback;->pokeWakelock()V
 
-    .line 125
+    .line 126
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/ListView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 

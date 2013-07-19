@@ -47,7 +47,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "name "
+    const-string/jumbo v2, "name "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -132,7 +132,7 @@
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "LocationProvider"
 
-    const-string v2, "meetsCriteria: RemoteException"
+    const-string/jumbo v2, "meetsCriteria: RemoteException"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

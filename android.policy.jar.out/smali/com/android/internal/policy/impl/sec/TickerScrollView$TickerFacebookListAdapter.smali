@@ -51,25 +51,25 @@
     .end annotation
 
     .prologue
-    .line 600
+    .line 612
     .local p4, objects:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;>;"
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookListAdapter;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
-    .line 601
+    .line 613
     invoke-direct {p0, p2, p3, p4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
-    .line 598
+    .line 610
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookListAdapter;->mContext:Landroid/content/Context;
 
-    .line 602
+    .line 614
     iput-object p2, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookListAdapter;->mContext:Landroid/content/Context;
 
-    .line 603
+    .line 615
     iput p3, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookListAdapter;->mLayout:I
 
-    .line 604
+    .line 616
     return-void
 .end method
 
@@ -82,20 +82,20 @@
     .parameter "parent"
 
     .prologue
-    const v9, 0x102031a
+    const v9, 0x1020327
 
-    const v8, 0x1020319
+    const v8, 0x1020326
 
     const/4 v7, 0x0
 
-    .line 606
+    .line 618
     const/4 v2, 0x0
 
-    .line 607
+    .line 619
     .local v2, row:Landroid/view/View;
     if-nez p2, :cond_1
 
-    .line 608
+    .line 620
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookListAdapter;->mContext:Landroid/content/Context;
 
     const-string v6, "layout_inflater"
@@ -106,7 +106,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    .line 609
+    .line 621
     .local v0, inflater:Landroid/view/LayoutInflater;
     iget v5, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookListAdapter;->mLayout:I
 
@@ -116,7 +116,7 @@
 
     move-result-object v2
 
-    .line 613
+    .line 625
     .end local v0           #inflater:Landroid/view/LayoutInflater;
     :goto_0
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookListAdapter;->getItem(I)Ljava/lang/Object;
@@ -125,7 +125,7 @@
 
     check-cast v4, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;
 
-    .line 615
+    .line 627
     .local v4, tickerFacebookData:Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
@@ -133,30 +133,30 @@
 
     if-eqz v5, :cond_2
 
-    .line 616
+    .line 628
     invoke-virtual {v2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 617
+    .line 629
     .local v3, textview:Landroid/widget/TextView;
     const v5, 0x7fffffff
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    .line 618
+    .line 630
     invoke-virtual {v3, v7}, Landroid/widget/TextView;->setMinLines(I)V
 
-    .line 619
+    .line 631
     invoke-virtual {v4}, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->getFacebookTitle()Ljava/lang/String;
 
     move-result-object v5
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 623
+    .line 635
     .end local v3           #textview:Landroid/widget/TextView;
     :goto_1
     invoke-virtual {v2, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -165,11 +165,11 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 624
+    .line 636
     .local v1, mAttributionTextView:Landroid/widget/TextView;
     invoke-virtual {v1, v7, v7, v7, v7}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 625
+    .line 637
     invoke-virtual {v2, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
@@ -182,8 +182,8 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 627
-    const v5, 0x102031b
+    .line 639
+    const v5, 0x1020328
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -197,15 +197,15 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 628
+    .line 640
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
     move-result v5
 
     if-eqz v5, :cond_0
 
-    .line 629
-    const v5, 0x1020318
+    .line 641
+    const v5, 0x1020325
 
     invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -217,11 +217,11 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
 
-    .line 631
+    .line 643
     :cond_0
     return-object v2
 
-    .line 611
+    .line 623
     .end local v1           #mAttributionTextView:Landroid/widget/TextView;
     .end local v4           #tickerFacebookData:Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;
     :cond_1
@@ -229,7 +229,7 @@
 
     goto :goto_0
 
-    .line 622
+    .line 634
     .restart local v4       #tickerFacebookData:Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;
     :cond_2
     invoke-virtual {v2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;

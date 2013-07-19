@@ -48,10 +48,10 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 55
+    .line 54
     sput-object v0, Lcom/sec/android/app/fm/ui/FavoriteButton;->cl_normal:Landroid/content/res/ColorStateList;
 
-    .line 56
+    .line 55
     sput-object v0, Lcom/sec/android/app/fm/ui/FavoriteButton;->cl_yellow:Landroid/content/res/ColorStateList;
 
     return-void
@@ -69,10 +69,10 @@
 
     const/4 v3, 0x0
 
-    .line 59
+    .line 58
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 38
+    .line 37
     const-string v1, ""
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mStationText:Ljava/lang/String;
@@ -81,20 +81,20 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mFrequencyText:Ljava/lang/String;
 
-    .line 51
+    .line 50
     iput-boolean v3, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mIsDelState:Z
 
-    .line 60
+    .line 59
     iput-object p1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mContext:Landroid/content/Context;
 
-    .line 61
+    .line 60
     sget-object v1, Lcom/sec/android/app/fm/R$styleable;->FavoriteButton:[I
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 65
+    .line 64
     .local v0, a:Landroid/content/res/TypedArray;
     const/4 v1, 0x3
 
@@ -104,7 +104,7 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mDelImg:Landroid/graphics/drawable/Drawable;
 
-    .line 67
+    .line 66
     const/4 v1, 0x5
 
     const/16 v2, 0x12
@@ -115,7 +115,7 @@
 
     iput v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mChannelFrequencyY:I
 
-    .line 68
+    .line 67
     const/4 v1, 0x6
 
     const/16 v2, 0xf
@@ -126,7 +126,7 @@
 
     iput v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mChannelStationY:I
 
-    .line 70
+    .line 69
     const/16 v1, 0x8
 
     const/high16 v2, 0x4198
@@ -137,7 +137,7 @@
 
     iput v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mFrequencyTextSize:F
 
-    .line 71
+    .line 70
     const/16 v1, 0x9
 
     const/high16 v2, 0x4160
@@ -148,131 +148,131 @@
 
     iput v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mStationTextSize:F
 
-    .line 74
+    .line 73
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 75
+    .line 74
     new-instance v1, Landroid/widget/TextView;
 
     invoke-direct {v1, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mFrequencyTextView:Landroid/widget/TextView;
 
-    .line 76
+    .line 75
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mFrequencyTextView:Landroid/widget/TextView;
 
     iget v2, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mFrequencyTextSize:F
 
     invoke-virtual {v1, v3, v2}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 77
+    .line 76
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mFrequencyTextView:Landroid/widget/TextView;
 
     iget v2, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mChannelFrequencyY:I
 
     invoke-virtual {v1, v3, v3, v3, v2}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 78
+    .line 77
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mFrequencyTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->setSingleLine()V
 
-    .line 79
+    .line 78
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mFrequencyTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, v5, v4}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;I)V
 
-    .line 80
+    .line 79
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mFrequencyTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setFocusable(Z)V
 
-    .line 84
+    .line 83
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mFrequencyTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setDuplicateParentStateEnabled(Z)V
 
-    .line 86
+    .line 85
     new-instance v1, Landroid/widget/TextView;
 
     invoke-direct {v1, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mStationTextView:Landroid/widget/TextView;
 
-    .line 87
+    .line 86
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mStationTextView:Landroid/widget/TextView;
 
     iget v2, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mStationTextSize:F
 
     invoke-virtual {v1, v3, v2}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    .line 88
+    .line 87
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mStationTextView:Landroid/widget/TextView;
 
     iget v2, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mChannelStationY:I
 
     invoke-virtual {v1, v3, v2, v3, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 89
+    .line 88
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mStationTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->setSingleLine()V
 
-    .line 90
+    .line 89
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mStationTextView:Landroid/widget/TextView;
 
     sget-object v2, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 91
+    .line 90
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mStationTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setFocusable(Z)V
 
-    .line 95
+    .line 94
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mStationTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setDuplicateParentStateEnabled(Z)V
 
-    .line 97
+    .line 96
     new-instance v1, Landroid/widget/ImageView;
 
     invoke-direct {v1, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mDelImageView:Landroid/widget/ImageView;
 
-    .line 98
+    .line 97
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mDelImageView:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 99
+    .line 98
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mDelImageView:Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mDelImg:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 100
+    .line 99
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mDelImageView:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setFocusable(Z)V
 
-    .line 102
+    .line 101
     invoke-virtual {p0, v4}, Lcom/sec/android/app/fm/ui/FavoriteButton;->setFocusable(Z)V
 
-    .line 103
+    .line 102
     invoke-virtual {p0, v4}, Lcom/sec/android/app/fm/ui/FavoriteButton;->setClickable(Z)V
 
-    .line 105
+    .line 104
     new-instance v1, Landroid/widget/ImageView;
 
     invoke-direct {v1, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mAddImageView:Landroid/widget/ImageView;
 
-    .line 106
+    .line 105
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -283,16 +283,17 @@
 
     move-result v1
 
-    if-ne v1, v4, :cond_0
+    if-eq v1, v4, :cond_0
 
     .line 107
+    :cond_0
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mAddImageView:Landroid/widget/ImageView;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f020053
+    const v3, 0x7f02003a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -301,7 +302,6 @@
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 112
-    :goto_0
     const v1, 0x7f02001b
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/ui/FavoriteButton;->setBackgroundResource(I)V
@@ -324,25 +324,6 @@
 
     .line 130
     return-void
-
-    .line 109
-    .restart local p1
-    :cond_0
-    iget-object v1, p0, Lcom/sec/android/app/fm/ui/FavoriteButton;->mAddImageView:Landroid/widget/ImageView;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f020051
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
 .end method
 
 .method private changeVisibility()V
@@ -511,7 +492,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02011d
+    const v3, 0x7f0200eb
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
@@ -543,7 +524,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f02011e
+    const v3, 0x7f0200ec
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 

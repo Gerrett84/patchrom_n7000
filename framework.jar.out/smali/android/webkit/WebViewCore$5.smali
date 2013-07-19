@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 555
+    .line 557
     iput-object p1, p0, Landroid/webkit/WebViewCore$5;->this$0:Landroid/webkit/WebViewCore;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,26 +43,26 @@
     .parameter "allow"
 
     .prologue
-    .line 557
+    .line 559
     new-instance v0, Landroid/webkit/WebViewCore$NotificationPermissionsData;
 
     invoke-direct {v0}, Landroid/webkit/WebViewCore$NotificationPermissionsData;-><init>()V
 
-    .line 558
+    .line 560
     .local v0, data:Landroid/webkit/WebViewCore$NotificationPermissionsData;
     iput-object p1, v0, Landroid/webkit/WebViewCore$NotificationPermissionsData;->mOrigin:Ljava/lang/String;
 
-    .line 559
+    .line 561
     iput-boolean p2, v0, Landroid/webkit/WebViewCore$NotificationPermissionsData;->mAllow:Z
 
-    .line 561
+    .line 563
     iget-object v1, p0, Landroid/webkit/WebViewCore$5;->this$0:Landroid/webkit/WebViewCore;
 
     const/16 v2, 0xcb
 
     invoke-virtual {v1, v2, v0}, Landroid/webkit/WebViewCore;->sendMessage(ILjava/lang/Object;)V
 
-    .line 562
+    .line 564
     return-void
 .end method
 
@@ -72,7 +72,7 @@
     .parameter "pointer"
 
     .prologue
-    .line 563
+    .line 565
     return-void
 .end method
 
@@ -82,6 +82,6 @@
     .parameter "counter"
 
     .prologue
-    .line 564
+    .line 566
     return-void
 .end method

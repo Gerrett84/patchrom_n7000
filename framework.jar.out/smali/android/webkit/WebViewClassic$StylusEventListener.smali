@@ -51,46 +51,46 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 12489
+    .line 13540
     iput-object p1, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 12490
+    .line 13541
     iput v1, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartX:F
 
-    .line 12491
+    .line 13542
     iput v1, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartY:F
 
-    .line 12492
+    .line 13543
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mPressed:Z
 
-    .line 12493
+    .line 13544
     iput v1, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mMaxX:F
 
-    .line 12494
+    .line 13545
     const/16 v0, 0x14
 
     iput v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->DELTA:I
 
-    .line 12495
+    .line 13546
     const/16 v0, 0x32
 
     iput v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->VERTICAL_THRESHOLD:I
 
-    .line 12496
+    .line 13547
     const/16 v0, 0xa
 
     iput v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->HORIZONAL_THRESHOLD:I
 
-    .line 12497
+    .line 13548
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mDirLTR:Z
 
-    .line 12500
+    .line 13551
     const-string v0, "/media/audio/ui/TextSelection.ogg"
 
     iput-object v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->soundURIs:Ljava/lang/String;
@@ -104,7 +104,7 @@
     .parameter "x1"
 
     .prologue
-    .line 12489
+    .line 13540
     invoke-direct {p0, p1}, Landroid/webkit/WebViewClassic$StylusEventListener;-><init>(Landroid/webkit/WebViewClassic;)V
 
     return-void
@@ -120,19 +120,19 @@
 
     const/4 v4, 0x1
 
-    .line 12669
+    .line 13720
     iget-object v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mSelectionSound:Landroid/media/SoundPool;
 
     if-nez v0, :cond_0
 
-    .line 12670
+    .line 13721
     new-instance v0, Landroid/media/SoundPool;
 
     invoke-direct {v0, v4, v4, v5}, Landroid/media/SoundPool;-><init>(III)V
 
     iput-object v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mSelectionSound:Landroid/media/SoundPool;
 
-    .line 12672
+    .line 13723
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -156,7 +156,7 @@
 
     move-result-object v7
 
-    .line 12673
+    .line 13724
     .local v7, soundPath:Ljava/lang/String;
     iget-object v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mSelectionSound:Landroid/media/SoundPool;
 
@@ -166,7 +166,7 @@
 
     iput v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mSoundId:I
 
-    .line 12674
+    .line 13725
     iget-object v0, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mSelectionSound:Landroid/media/SoundPool;
 
     iget v1, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mSoundId:I
@@ -177,7 +177,7 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/media/SoundPool;->play(IFFIIF)I
 
-    .line 12675
+    .line 13726
     return-void
 .end method
 
@@ -189,28 +189,28 @@
     .parameter "clipboardId"
 
     .prologue
-    .line 12506
+    .line 13557
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
-    .line 12507
+    .line 13558
     .local v0, action:I
     const/4 v8, 0x0
 
-    .line 12508
+    .line 13559
     .local v8, startCurPositionX:I
     const/4 v9, 0x0
 
-    .line 12509
+    .line 13560
     .local v9, startCurPositionY:I
     const/4 v1, 0x0
 
-    .line 12510
+    .line 13561
     .local v1, endCurPositionX:I
     const/4 v2, 0x0
 
-    .line 12512
+    .line 13563
     .local v2, endCurPositionY:I
     const/4 v11, 0x0
 
@@ -222,12 +222,12 @@
 
     if-eq v11, v12, :cond_1
 
-    .line 12665
+    .line 13716
     :cond_0
     :goto_0
     return-void
 
-    .line 12516
+    .line 13567
     :cond_1
     const-string/jumbo v11, "webview"
 
@@ -235,10 +235,10 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 12518
+    .line 13569
     packed-switch v0, :pswitch_data_0
 
-    .line 12664
+    .line 13715
     :cond_2
     :goto_1
     const-string/jumbo v11, "webview"
@@ -249,13 +249,13 @@
 
     goto :goto_0
 
-    .line 12520
+    .line 13571
     :pswitch_0
     iget-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mPressed:Z
 
     if-eqz v11, :cond_2
 
-    .line 12525
+    .line 13576
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mMaxX:F
 
     const/4 v12, 0x0
@@ -264,7 +264,7 @@
 
     if-nez v11, :cond_6
 
-    .line 12526
+    .line 13577
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartX:F
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -289,19 +289,19 @@
 
     if-gez v11, :cond_5
 
-    .line 12527
+    .line 13578
     const/4 v11, 0x1
 
     iput-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mDirLTR:Z
 
-    .line 12528
+    .line 13579
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v11
 
     iput v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mMaxX:F
 
-    .line 12551
+    .line 13602
     :cond_3
     :goto_2
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
@@ -332,21 +332,21 @@
 
     if-gez v11, :cond_2
 
-    .line 12552
+    .line 13603
     :cond_4
     const/4 v11, 0x0
 
     iput-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mPressed:Z
 
-    .line 12553
+    .line 13604
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     const/4 v12, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mSpenTextSelectionMode:I
-    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$9402(Landroid/webkit/WebViewClassic;I)I
+    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$10002(Landroid/webkit/WebViewClassic;I)I
 
-    .line 12554
+    .line 13605
     const-string/jumbo v11, "webview"
 
     const-string v12, "TextSelection is canceled because of height difference"
@@ -355,7 +355,7 @@
 
     goto :goto_0
 
-    .line 12529
+    .line 13580
     :cond_5
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartX:F
 
@@ -381,12 +381,12 @@
 
     if-lez v11, :cond_3
 
-    .line 12530
+    .line 13581
     const/4 v11, 0x0
 
     iput-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mDirLTR:Z
 
-    .line 12531
+    .line 13582
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v11
@@ -395,13 +395,13 @@
 
     goto :goto_2
 
-    .line 12533
+    .line 13584
     :cond_6
     iget-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mDirLTR:Z
 
     if-eqz v11, :cond_8
 
-    .line 12534
+    .line 13585
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mMaxX:F
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -412,7 +412,7 @@
 
     if-gtz v11, :cond_7
 
-    .line 12535
+    .line 13586
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v11
@@ -421,7 +421,7 @@
 
     goto :goto_2
 
-    .line 12536
+    .line 13587
     :cond_7
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mMaxX:F
 
@@ -437,35 +437,35 @@
 
     if-lez v11, :cond_3
 
-    .line 12537
+    .line 13588
     const-string/jumbo v11, "webview"
 
     const-string v12, "TextSelection is canceled because of wrong X position, DirLTR"
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 12538
+    .line 13589
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     const/4 v12, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mSpenTextSelectionMode:I
-    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$9402(Landroid/webkit/WebViewClassic;I)I
+    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$10002(Landroid/webkit/WebViewClassic;I)I
 
-    .line 12539
+    .line 13590
     const/4 v11, 0x0
 
     iput-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mPressed:Z
 
     goto :goto_2
 
-    .line 12541
+    .line 13592
     :cond_8
     iget-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mDirLTR:Z
 
     if-nez v11, :cond_3
 
-    .line 12542
+    .line 13593
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mMaxX:F
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -476,7 +476,7 @@
 
     if-ltz v11, :cond_9
 
-    .line 12543
+    .line 13594
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v11
@@ -485,7 +485,7 @@
 
     goto/16 :goto_2
 
-    .line 12544
+    .line 13595
     :cond_9
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mMaxX:F
 
@@ -501,29 +501,29 @@
 
     if-gez v11, :cond_3
 
-    .line 12545
+    .line 13596
     const-string/jumbo v11, "webview"
 
     const-string v12, "TextSelection is canceled because of wrong X position, DirRTL"
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 12546
+    .line 13597
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     const/4 v12, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mSpenTextSelectionMode:I
-    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$9402(Landroid/webkit/WebViewClassic;I)I
+    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$10002(Landroid/webkit/WebViewClassic;I)I
 
-    .line 12547
+    .line 13598
     const/4 v11, 0x0
 
     iput-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mPressed:Z
 
     goto/16 :goto_2
 
-    .line 12560
+    .line 13611
     :pswitch_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -531,95 +531,95 @@
 
     iput v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartX:F
 
-    .line 12562
+    .line 13613
     const/4 v11, 0x0
 
     iput v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mMaxX:F
 
-    .line 12563
+    .line 13614
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v11
 
     iput v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartY:F
 
-    .line 12564
+    .line 13615
     const/4 v11, 0x1
 
     iput-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mPressed:Z
 
-    .line 12565
+    .line 13616
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     const/4 v12, 0x1
 
     #setter for: Landroid/webkit/WebViewClassic;->mSpenTextSelectionMode:I
-    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$9402(Landroid/webkit/WebViewClassic;I)I
+    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$10002(Landroid/webkit/WebViewClassic;I)I
 
-    .line 12566
+    .line 13617
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     const/4 v12, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mActionMove:Z
-    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$11902(Landroid/webkit/WebViewClassic;Z)Z
+    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$12002(Landroid/webkit/WebViewClassic;Z)Z
 
-    .line 12567
+    .line 13618
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     iget-object v11, v11, Landroid/webkit/WebViewClassic;->mCopyInfo:Landroid/webkit/WebViewCore$SelectionCopiedData;
 
     if-eqz v11, :cond_a
 
-    .line 12568
+    .line 13619
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v11}, Landroid/webkit/WebViewClassic;->clearSelection()V
 
-    .line 12570
+    .line 13621
     :cond_a
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectingText:Z
-    invoke-static {v11}, Landroid/webkit/WebViewClassic;->access$9700(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v11}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Z
 
     move-result v11
 
     if-eqz v11, :cond_2
 
-    .line 12571
+    .line 13622
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v11}, Landroid/webkit/WebViewClassic;->selectionDone()V
 
     goto/16 :goto_1
 
-    .line 12577
+    .line 13628
     :pswitch_2
     const/4 v3, 0x0
 
-    .line 12578
+    .line 13629
     .local v3, endX:F
     const/4 v4, 0x0
 
-    .line 12580
+    .line 13631
     .local v4, endY:F
     iget-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mPressed:Z
 
     if-eqz v11, :cond_0
 
-    .line 12583
+    .line 13634
     new-instance v6, Landroid/graphics/Rect;
 
     invoke-direct {v6}, Landroid/graphics/Rect;-><init>()V
 
-    .line 12584
+    .line 13635
     .local v6, rect:Landroid/graphics/Rect;
     new-instance v5, Landroid/graphics/Point;
 
     invoke-direct {v5}, Landroid/graphics/Point;-><init>()V
 
-    .line 12585
+    .line 13636
     .local v5, offset:Landroid/graphics/Point;
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
@@ -630,17 +630,17 @@
 
     invoke-virtual {v11, v6, v5}, Landroid/webkit/WebView;->getGlobalVisibleRect(Landroid/graphics/Rect;Landroid/graphics/Point;)Z
 
-    .line 12586
+    .line 13637
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v3
 
-    .line 12587
+    .line 13638
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v4
 
-    .line 12589
+    .line 13640
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartX:F
 
     iget v12, v5, Landroid/graphics/Point;->x:I
@@ -651,7 +651,7 @@
 
     iput v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartX:F
 
-    .line 12590
+    .line 13641
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartY:F
 
     iget v12, v5, Landroid/graphics/Point;->y:I
@@ -662,7 +662,7 @@
 
     iput v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartY:F
 
-    .line 12591
+    .line 13642
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartX:F
 
     const/4 v12, 0x0
@@ -671,12 +671,12 @@
 
     if-gez v11, :cond_b
 
-    .line 12592
+    .line 13643
     const/4 v11, 0x0
 
     iput v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartX:F
 
-    .line 12594
+    .line 13645
     :cond_b
     iget v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartY:F
 
@@ -686,12 +686,12 @@
 
     if-gez v11, :cond_c
 
-    .line 12595
+    .line 13646
     const/4 v11, 0x0
 
     iput v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartY:F
 
-    .line 12597
+    .line 13648
     :cond_c
     iget v11, v5, Landroid/graphics/Point;->x:I
 
@@ -699,24 +699,24 @@
 
     sub-float/2addr v3, v11
 
-    .line 12598
+    .line 13649
     iget v11, v5, Landroid/graphics/Point;->y:I
 
     int-to-float v11, v11
 
     sub-float/2addr v4, v11
 
-    .line 12599
+    .line 13650
     const/4 v11, 0x0
 
     cmpg-float v11, v3, v11
 
     if-gez v11, :cond_d
 
-    .line 12600
+    .line 13651
     const/4 v3, 0x0
 
-    .line 12602
+    .line 13653
     :cond_d
     const/4 v11, 0x0
 
@@ -724,10 +724,10 @@
 
     if-gez v11, :cond_e
 
-    .line 12603
+    .line 13654
     const/4 v4, 0x0
 
-    .line 12609
+    .line 13660
     :cond_e
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
@@ -739,7 +739,7 @@
 
     move-result v8
 
-    .line 12610
+    .line 13661
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     iget v12, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mStartY:F
@@ -750,7 +750,7 @@
 
     move-result v9
 
-    .line 12611
+    .line 13662
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     float-to-int v12, v3
@@ -759,7 +759,7 @@
 
     move-result v1
 
-    .line 12612
+    .line 13663
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     float-to-int v12, v4
@@ -768,7 +768,7 @@
 
     move-result v2
 
-    .line 12615
+    .line 13666
     if-eq v8, v1, :cond_f
 
     sub-int v11, v8, v1
@@ -783,21 +783,21 @@
 
     if-ge v11, v12, :cond_10
 
-    .line 12616
+    .line 13667
     :cond_f
     const/4 v11, 0x0
 
     iput-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mPressed:Z
 
-    .line 12617
+    .line 13668
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     const/4 v12, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mSpenTextSelectionMode:I
-    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$9402(Landroid/webkit/WebViewClassic;I)I
+    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$10002(Landroid/webkit/WebViewClassic;I)I
 
-    .line 12618
+    .line 13669
     const-string/jumbo v11, "webview"
 
     const-string v12, "TextSelection is canceled because the positions are same."
@@ -806,21 +806,21 @@
 
     goto/16 :goto_0
 
-    .line 12621
+    .line 13672
     :cond_10
     if-le v8, v1, :cond_11
 
-    .line 12622
+    .line 13673
     move v10, v1
 
-    .line 12623
+    .line 13674
     .local v10, temp:I
     move v1, v8
 
-    .line 12624
+    .line 13675
     move v8, v10
 
-    .line 12628
+    .line 13679
     .end local v10           #temp:I
     :cond_11
     const-string/jumbo v11, "webview"
@@ -829,7 +829,7 @@
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "mStartX "
+    const-string/jumbo v13, "mStartX "
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -859,7 +859,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 12629
+    .line 13680
     const-string/jumbo v11, "webview"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -892,7 +892,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 12630
+    .line 13681
     const-string/jumbo v11, "webview"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -929,7 +929,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 12631
+    .line 13682
     const-string/jumbo v11, "webview"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -962,7 +962,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 12632
+    .line 13683
     const-string/jumbo v11, "webview"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -995,12 +995,12 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 12646
+    .line 13697
     new-instance v7, Landroid/graphics/Rect;
 
     invoke-direct {v7, v8, v9, v1, v9}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    .line 12647
+    .line 13698
     .local v7, selectRect:Landroid/graphics/Rect;
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
@@ -1024,18 +1024,18 @@
 
     if-ne v11, v12, :cond_12
 
-    .line 12648
+    .line 13699
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     #calls: Landroid/webkit/WebViewClassic;->setUpAdvSelect()Z
-    invoke-static {v11}, Landroid/webkit/WebViewClassic;->access$12000(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v11}, Landroid/webkit/WebViewClassic;->access$12100(Landroid/webkit/WebViewClassic;)Z
 
-    .line 12650
+    .line 13701
     :cond_12
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebViewCore:Landroid/webkit/WebViewCore;
-    invoke-static {v11}, Landroid/webkit/WebViewClassic;->access$700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
+    invoke-static {v11}, Landroid/webkit/WebViewClassic;->access$900(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
 
     move-result-object v11
 
@@ -1043,7 +1043,7 @@
 
     invoke-virtual {v11, v12, v7}, Landroid/webkit/WebViewCore;->sendMessage(ILjava/lang/Object;)V
 
-    .line 12651
+    .line 13702
     const-string/jumbo v11, "webview"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -1059,7 +1059,7 @@
     iget-object v13, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSpenTextSelectionMode:I
-    invoke-static {v13}, Landroid/webkit/WebViewClassic;->access$9400(Landroid/webkit/WebViewClassic;)I
+    invoke-static {v13}, Landroid/webkit/WebViewClassic;->access$10000(Landroid/webkit/WebViewClassic;)I
 
     move-result v13
 
@@ -1073,22 +1073,22 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 12655
+    .line 13706
     iget-object v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->this$0:Landroid/webkit/WebViewClassic;
 
     const/4 v12, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mSpenTextSelectionMode:I
-    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$9402(Landroid/webkit/WebViewClassic;I)I
+    invoke-static {v11, v12}, Landroid/webkit/WebViewClassic;->access$10002(Landroid/webkit/WebViewClassic;I)I
 
-    .line 12656
+    .line 13707
     const/4 v11, 0x0
 
     iput-boolean v11, p0, Landroid/webkit/WebViewClassic$StylusEventListener;->mPressed:Z
 
     goto/16 :goto_1
 
-    .line 12661
+    .line 13712
     .end local v3           #endX:F
     .end local v4           #endY:F
     .end local v5           #offset:Landroid/graphics/Point;
@@ -1101,7 +1101,9 @@
 
     goto/16 :goto_1
 
-    .line 12518
+    .line 13569
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 314
+    .line 326
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$8;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,21 +42,21 @@
     .parameter "v"
 
     .prologue
-    .line 317
+    .line 329
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 318
+    .line 330
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$8;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/TickerScrollView;->mAccountThread:Lcom/android/internal/policy/impl/sec/TickerScrollView$AccountThread;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerScrollView$AccountThread;->start()V
 
-    .line 321
+    .line 333
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$8;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -67,6 +67,6 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerCallback;->goToUnlockScreen()V
 
-    .line 322
+    .line 334
     return-void
 .end method

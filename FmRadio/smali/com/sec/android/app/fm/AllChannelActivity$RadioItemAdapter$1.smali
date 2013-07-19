@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 915
+    .line 961
     iput-object p1, p0, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter$1;->this$1:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     iput p2, p0, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter$1;->val$arg0:I
@@ -47,7 +47,7 @@
     .parameter "view"
 
     .prologue
-    .line 918
+    .line 964
     sget-object v9, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v9, v9, Lcom/sec/android/app/fm/MainActivity;->mChannelList:Ljava/util/ArrayList;
@@ -60,23 +60,23 @@
 
     check-cast v1, Lcom/sec/android/app/fm/data/Channel;
 
-    .line 920
+    .line 966
     .local v1, channel:Lcom/sec/android/app/fm/data/Channel;
     iget-boolean v9, v1, Lcom/sec/android/app/fm/data/Channel;->mIsFavourite:Z
 
     if-eqz v9, :cond_0
 
-    .line 921
+    .line 967
     const/4 v9, -0x1
 
     iput v9, v1, Lcom/sec/android/app/fm/data/Channel;->mPosition:I
 
-    .line 922
+    .line 968
     const/4 v9, 0x0
 
     iput-boolean v9, v1, Lcom/sec/android/app/fm/data/Channel;->mIsFavourite:Z
 
-    .line 960
+    .line 1005
     :goto_0
     invoke-static {}, Lcom/sec/android/app/fm/data/ChannelStore;->getInstance()Lcom/sec/android/app/fm/data/ChannelStore;
 
@@ -84,30 +84,30 @@
 
     invoke-virtual {v9}, Lcom/sec/android/app/fm/data/ChannelStore;->store()V
 
-    .line 961
+    .line 1006
     iget-object v9, p0, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter$1;->this$1:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     invoke-virtual {v9}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 962
+    .line 1007
     :goto_1
     return-void
 
-    .line 925
+    .line 970
     :cond_0
     const/4 v2, 0x0
 
-    .line 926
+    .line 971
     .local v2, favCount:I
     const/4 v7, 0x0
 
-    .line 927
+    .line 972
     .local v7, newPosition:I
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
-    .line 930
+    .line 975
     .local v5, map:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     sget-object v9, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -132,7 +132,7 @@
 
     check-cast v0, Lcom/sec/android/app/fm/data/Channel;
 
-    .line 931
+    .line 976
     .local v0, c:Lcom/sec/android/app/fm/data/Channel;
     iget v9, v0, Lcom/sec/android/app/fm/data/Channel;->mPosition:I
 
@@ -148,26 +148,26 @@
 
     invoke-virtual {v5, v9, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 932
+    .line 977
     iget v9, v0, Lcom/sec/android/app/fm/data/Channel;->mPosition:I
 
     const/4 v10, -0x1
 
     if-eq v9, v10, :cond_1
 
-    .line 933
+    .line 978
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    .line 938
+    .line 983
     .end local v0           #c:Lcom/sec/android/app/fm/data/Channel;
     :cond_2
     const/16 v9, 0xc
 
     if-lt v2, v9, :cond_4
 
-    .line 939
+    .line 984
     iget-object v9, p0, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter$1;->this$1:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     iget-object v9, v9, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
@@ -192,7 +192,7 @@
 
     move-result-object v6
 
-    .line 940
+    .line 985
     .local v6, maxMsg:Ljava/lang/String;
     iget-object v9, p0, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter$1;->this$1:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
@@ -205,7 +205,7 @@
 
     if-nez v9, :cond_3
 
-    .line 941
+    .line 986
     iget-object v9, p0, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter$1;->this$1:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     iget-object v9, v9, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
@@ -225,7 +225,7 @@
     #setter for: Lcom/sec/android/app/fm/AllChannelActivity;->mMaxFavoriteToast:Landroid/widget/Toast;
     invoke-static {v9, v10}, Lcom/sec/android/app/fm/AllChannelActivity;->access$602(Lcom/sec/android/app/fm/AllChannelActivity;Landroid/widget/Toast;)Landroid/widget/Toast;
 
-    .line 944
+    .line 989
     :cond_3
     iget-object v9, p0, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter$1;->this$1:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
@@ -238,7 +238,7 @@
 
     invoke-virtual {v9, v6}, Landroid/widget/Toast;->setText(Ljava/lang/CharSequence;)V
 
-    .line 945
+    .line 990
     iget-object v9, p0, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter$1;->this$1:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     iget-object v9, v9, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
@@ -252,7 +252,7 @@
 
     goto :goto_1
 
-    .line 950
+    .line 995
     .end local v6           #maxMsg:Ljava/lang/String;
     :cond_4
     const/4 v3, 0x0
@@ -263,7 +263,7 @@
 
     if-ge v3, v9, :cond_5
 
-    .line 951
+    .line 996
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v9
@@ -274,26 +274,26 @@
 
     check-cast v8, Ljava/lang/Integer;
 
-    .line 952
+    .line 997
     .local v8, temp:Ljava/lang/Integer;
     if-nez v8, :cond_6
 
-    .line 953
+    .line 998
     move v7, v3
 
-    .line 957
+    .line 1002
     .end local v8           #temp:Ljava/lang/Integer;
     :cond_5
     iput v7, v1, Lcom/sec/android/app/fm/data/Channel;->mPosition:I
 
-    .line 958
+    .line 1003
     const/4 v9, 0x1
 
     iput-boolean v9, v1, Lcom/sec/android/app/fm/data/Channel;->mIsFavourite:Z
 
     goto/16 :goto_0
 
-    .line 950
+    .line 995
     .restart local v8       #temp:Ljava/lang/Integer;
     :cond_6
     add-int/lit8 v3, v3, 0x1

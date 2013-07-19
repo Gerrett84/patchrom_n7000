@@ -29,7 +29,7 @@
     .parameter "x4"
 
     .prologue
-    .line 211
+    .line 222
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     move-object v0, p0
@@ -55,9 +55,11 @@
     .locals 4
 
     .prologue
-    const v3, 0x10401a1
+    const v3, 0x10401a6
 
-    .line 214
+    const/4 v2, 0x0
+
+    .line 226
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #calls: Lcom/android/internal/policy/impl/GlobalActions;->isSimReady()Z
@@ -65,45 +67,52 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    .line 215
+    const-string v0, "ro.config.donot_nosim"
+
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 227
+    :cond_0
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
 
     const-string v1, "CscFeature_Setting_EnablePromptPopupWhenActivatingDataConnection"
 
-    const/4 v2, 0x0
-
     invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    .line 216
+    .line 228
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    const v1, 0x10401a6
+    const v1, 0x10401ab
 
-    const v2, 0x10401a7
+    const v2, 0x10401ac
 
     #calls: Lcom/android/internal/policy/impl/GlobalActions;->comfirmDialog(Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;III)V
     invoke-static {v0, p0, v3, v1, v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$100(Lcom/android/internal/policy/impl/GlobalActions;Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;III)V
 
-    .line 223
-    :cond_0
+    .line 235
+    :cond_1
     :goto_0
     return-void
 
-    .line 219
-    :cond_1
+    .line 231
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    const v1, 0x10401a4
+    const v1, 0x10401a9
 
-    const v2, 0x10401a5
+    const v2, 0x10401aa
 
     #calls: Lcom/android/internal/policy/impl/GlobalActions;->comfirmDialog(Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;III)V
     invoke-static {v0, p0, v3, v1, v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$100(Lcom/android/internal/policy/impl/GlobalActions;Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;III)V
@@ -116,7 +125,7 @@
     .parameter "on"
 
     .prologue
-    .line 227
+    .line 239
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -132,11 +141,11 @@
 
     check-cast v0, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 229
+    .line 241
     .local v0, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     if-eqz v0, :cond_1
 
-    .line 230
+    .line 242
     invoke-virtual {v0}, Landroid/app/enterprise/EnterpriseDeviceManager;->getPhoneRestrictionPolicy()Landroid/app/enterprise/PhoneRestrictionPolicy;
 
     move-result-object v2
@@ -159,12 +168,12 @@
 
     if-nez v2, :cond_1
 
-    .line 240
+    .line 252
     :cond_0
     :goto_0
     return-void
 
-    .line 236
+    .line 248
     :cond_1
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -175,20 +184,20 @@
 
     invoke-virtual {v2, p1}, Landroid/net/ConnectivityManager;->setMobileDataEnabled(Z)V
 
-    .line 237
+    .line 249
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.NETWORK_MODE_CHANGED"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 238
+    .line 250
     .local v1, intent:Landroid/content/Intent;
     const-string v2, "state"
 
     invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 239
+    .line 251
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -205,7 +214,7 @@
     .locals 1
 
     .prologue
-    .line 245
+    .line 259
     const/4 v0, 0x0
 
     return v0
@@ -217,30 +226,30 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 249
+    .line 263
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
     move-result v3
 
     if-eqz v3, :cond_4
 
-    .line 250
+    .line 264
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isDataNetworkModeEnable()Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
-    .line 264
+    .line 279
     :cond_0
     :goto_0
     return v2
 
-    .line 251
+    .line 267
     :cond_1
     const/4 v0, 0x0
 
-    .line 252
+    .line 268
     .local v0, bRetVal:Z
     const-string v3, "ril.currentplmn"
 
@@ -248,7 +257,7 @@
 
     move-result-object v1
 
-    .line 253
+    .line 269
     .local v1, current_plmn:Ljava/lang/String;
     const-string v3, "GlobalActions"
 
@@ -272,7 +281,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 254
+    .line 270
     const-string v3, "domestic"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -295,11 +304,11 @@
 
     if-eqz v3, :cond_3
 
-    .line 255
+    .line 271
     :cond_2
     const/4 v0, 0x1
 
-    .line 257
+    .line 273
     :cond_3
     const-string v3, "GlobalActions"
 
@@ -323,10 +332,10 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 259
+    .line 274
     if-eqz v0, :cond_0
 
-    .line 264
+    .line 279
     .end local v0           #bRetVal:Z
     .end local v1           #current_plmn:Ljava/lang/String;
     :cond_4
@@ -358,7 +367,7 @@
     .locals 1
 
     .prologue
-    .line 242
+    .line 255
     const/4 v0, 0x1
 
     return v0

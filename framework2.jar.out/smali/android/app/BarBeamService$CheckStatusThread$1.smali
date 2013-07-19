@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 133
+    .line 149
     iput-object p1, p0, Landroid/app/BarBeamService$CheckStatusThread$1;->this$1:Landroid/app/BarBeamService$CheckStatusThread;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -41,15 +41,15 @@
     .prologue
     const/16 v4, 0x1e
 
-    .line 136
+    .line 152
     iget v1, p1, Landroid/os/Message;->what:I
 
     if-ne v1, v4, :cond_1
 
-    .line 137
+    .line 153
     const/4 v0, 0x1
 
-    .line 138
+    .line 154
     .local v0, ret_status:Z
     const-string v1, "BarBeamService"
 
@@ -57,7 +57,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 141
+    .line 157
     :cond_0
     const-wide/16 v1, 0x1f4
 
@@ -66,7 +66,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 145
+    .line 161
     :goto_0
     iget-object v1, p0, Landroid/app/BarBeamService$CheckStatusThread$1;->this$1:Landroid/app/BarBeamService$CheckStatusThread;
 
@@ -76,19 +76,19 @@
 
     move-result v0
 
-    .line 147
+    .line 163
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 148
+    .line 164
     const-string v1, "BarBeamService"
 
     const-string v2, "check status --"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 149
+    .line 165
     iget-object v1, p0, Landroid/app/BarBeamService$CheckStatusThread$1;->this$1:Landroid/app/BarBeamService$CheckStatusThread;
 
     iget-object v1, v1, Landroid/app/BarBeamService$CheckStatusThread;->this$0:Landroid/app/BarBeamService;
@@ -98,7 +98,7 @@
     #setter for: Landroid/app/BarBeamService;->isRunning:Z
     invoke-static {v1, v2}, Landroid/app/BarBeamService;->access$002(Landroid/app/BarBeamService;Z)Z
 
-    .line 150
+    .line 166
     iget-object v1, p0, Landroid/app/BarBeamService$CheckStatusThread$1;->this$1:Landroid/app/BarBeamService$CheckStatusThread;
 
     iget-object v1, v1, Landroid/app/BarBeamService$CheckStatusThread;->mMainHandler:Landroid/os/Handler;
@@ -107,12 +107,12 @@
 
     invoke-virtual {v1, v4, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 153
+    .line 169
     .end local v0           #ret_status:Z
     :cond_1
     return-void
 
-    .line 142
+    .line 158
     .restart local v0       #ret_status:Z
     :catch_0
     move-exception v1

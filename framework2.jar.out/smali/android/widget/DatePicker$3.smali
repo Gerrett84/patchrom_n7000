@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 311
+    .line 316
     iput-object p1, p0, Landroid/widget/DatePicker$3;->this$0:Landroid/widget/DatePicker;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,29 +43,29 @@
     .parameter "event"
 
     .prologue
-    .line 313
+    .line 318
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 318
+    .line 323
     :goto_0
     const/4 v0, 0x0
 
     return v0
 
-    .line 315
+    .line 320
     :pswitch_0
     iget-object v0, p0, Landroid/widget/DatePicker$3;->this$0:Landroid/widget/DatePicker;
 
     #calls: Landroid/widget/DatePicker;->updateInputState()V
-    invoke-static {v0}, Landroid/widget/DatePicker;->access$1000(Landroid/widget/DatePicker;)V
+    invoke-static {v0}, Landroid/widget/DatePicker;->access$1100(Landroid/widget/DatePicker;)V
 
     goto :goto_0
 
-    .line 313
+    .line 318
     nop
 
     :pswitch_data_0

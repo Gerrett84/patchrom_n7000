@@ -1,11 +1,14 @@
 .class Lcom/sec/android/app/fm/RenameChannelActivity$4;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "RenameChannelActivity.java"
+
+# interfaces
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/fm/RenameChannelActivity;->registerRestoreReceiver()V
+    value = Lcom/sec/android/app/fm/RenameChannelActivity;->onCreateDialog(I)Landroid/app/Dialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,94 +27,28 @@
     .parameter
 
     .prologue
-    .line 551
+    .line 282
     iput-object p1, p0, Lcom/sec/android/app/fm/RenameChannelActivity$4;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
-    .parameter "context"
-    .parameter "intent"
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 2
+    .parameter "dialog"
 
     .prologue
-    .line 556
+    .line 286
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$4;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
-    #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
-    invoke-static {v0}, Lcom/sec/android/app/fm/RenameChannelActivity;->access$000(Lcom/sec/android/app/fm/RenameChannelActivity;)Landroid/widget/BaseAdapter;
+    const/4 v1, 0x0
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/RenameChannelActivity;->removeDialog(I)V
 
-    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
-
-    .line 557
-    iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$4;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
-
-    #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mRenameDialog:Lcom/sec/android/app/fm/ui/RenameDialog;
-    invoke-static {v0}, Lcom/sec/android/app/fm/RenameChannelActivity;->access$200(Lcom/sec/android/app/fm/RenameChannelActivity;)Lcom/sec/android/app/fm/ui/RenameDialog;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$4;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
-
-    #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mRenameDialog:Lcom/sec/android/app/fm/ui/RenameDialog;
-    invoke-static {v0}, Lcom/sec/android/app/fm/RenameChannelActivity;->access$200(Lcom/sec/android/app/fm/RenameChannelActivity;)Lcom/sec/android/app/fm/ui/RenameDialog;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/sec/android/app/fm/ui/RenameDialog;->isShowing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 558
-    iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$4;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
-
-    #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mRenameDialog:Lcom/sec/android/app/fm/ui/RenameDialog;
-    invoke-static {v0}, Lcom/sec/android/app/fm/RenameChannelActivity;->access$200(Lcom/sec/android/app/fm/RenameChannelActivity;)Lcom/sec/android/app/fm/ui/RenameDialog;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/sec/android/app/fm/ui/RenameDialog;->dismiss()V
-
-    .line 560
-    :cond_0
-    iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$4;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
-
-    #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
-    invoke-static {v0}, Lcom/sec/android/app/fm/RenameChannelActivity;->access$000(Lcom/sec/android/app/fm/RenameChannelActivity;)Landroid/widget/BaseAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->getCount()I
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 561
-    iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$4;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/fm/RenameChannelActivity;->finish()V
-
-    .line 566
-    :goto_0
+    .line 287
     return-void
-
-    .line 564
-    :cond_1
-    iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$4;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/fm/RenameChannelActivity;->invalidateOptionsMenu()V
-
-    goto :goto_0
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 629
+    .line 652
     iput-object p1, p0, Landroid/os/PowerManager$DVFSLock$1;->this$1:Landroid/os/PowerManager$DVFSLock;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,11 +41,11 @@
     .locals 1
 
     .prologue
-    .line 631
+    .line 654
     iget-object v0, p0, Landroid/os/PowerManager$DVFSLock$1;->this$1:Landroid/os/PowerManager$DVFSLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$DVFSLock;->release()V
 
-    .line 632
+    .line 655
     return-void
 .end method

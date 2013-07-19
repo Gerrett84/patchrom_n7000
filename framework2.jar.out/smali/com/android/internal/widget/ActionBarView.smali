@@ -6,10 +6,10 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/internal/widget/ActionBarView$MultiWindowMenuButton;,
         Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;,
         Lcom/android/internal/widget/ActionBarView$HomeView;,
-        Lcom/android/internal/widget/ActionBarView$SavedState;,
-        Lcom/android/internal/widget/ActionBarView$Injector;
+        Lcom/android/internal/widget/ActionBarView$SavedState;
     }
 .end annotation
 
@@ -75,11 +75,7 @@
 
 .field private mMaxHomeSlop:I
 
-.field mMenuPresenterCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-.end field
+.field private mMultiWindowMenuButton:Landroid/view/View;
 
 .field private final mNavItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
@@ -92,6 +88,8 @@
 .field private mProgressStyle:I
 
 .field private mProgressView:Landroid/widget/ProgressBar;
+
+.field private mReserveMultiWindow:Z
 
 .field private mSpinner:Landroid/widget/Spinner;
 
@@ -134,22 +132,22 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 16
+    .locals 17
     .parameter "context"
     .parameter "attrs"
 
     .prologue
-    .line 189
+    .line 211
     invoke-direct/range {p0 .. p2}, Lcom/android/internal/widget/AbsActionBarView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 95
+    .line 112
     const/4 v2, -0x1
 
     move-object/from16 v0, p0
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
 
-    .line 156
+    .line 178
     new-instance v2, Landroid/graphics/Rect;
 
     invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
@@ -158,7 +156,7 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mTempRect:Landroid/graphics/Rect;
 
-    .line 160
+    .line 182
     new-instance v2, Lcom/android/internal/widget/ActionBarView$1;
 
     move-object/from16 v0, p0
@@ -169,7 +167,7 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mNavItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    .line 172
+    .line 194
     new-instance v2, Lcom/android/internal/widget/ActionBarView$2;
 
     move-object/from16 v0, p0
@@ -180,7 +178,7 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionViewUpListener:Landroid/view/View$OnClickListener;
 
-    .line 182
+    .line 204
     new-instance v2, Lcom/android/internal/widget/ActionBarView$3;
 
     move-object/from16 v0, p0
@@ -191,14 +189,44 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mUpClickListener:Landroid/view/View$OnClickListener;
 
-    .line 192
+    .line 214
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/ActionBarView;->setBackgroundResource(I)V
 
-    .line 194
+    .line 217
+    new-instance v15, Landroid/util/TypedValue;
+
+    invoke-direct {v15}, Landroid/util/TypedValue;-><init>()V
+
+    .line 218
+    .local v15, outValue:Landroid/util/TypedValue;
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+
+    move-result-object v2
+
+    const v3, 0x10103fd
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v2, v3, v15, v4}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+
+    .line 219
+    iget v2, v15, Landroid/util/TypedValue;->data:I
+
+    if-eqz v2, :cond_0
+
+    .line 220
+    const/4 v2, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v2, v0, Lcom/android/internal/widget/ActionBarView;->mIsParentThemeDeviceDefault:Z
+
+    .line 224
+    :cond_0
     sget-object v2, Lcom/android/internal/R$styleable;->ActionBar:[I
 
     const v3, 0x10102ce
@@ -213,20 +241,20 @@
 
     move-result-object v9
 
-    .line 197
+    .line 227
     .local v9, a:Landroid/content/res/TypedArray;
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v10
 
-    .line 198
+    .line 228
     .local v10, appInfo:Landroid/content/pm/ApplicationInfo;
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v15
+    move-result-object v16
 
-    .line 199
-    .local v15, pm:Landroid/content/pm/PackageManager;
+    .line 229
+    .local v16, pm:Landroid/content/pm/PackageManager;
     const/4 v2, 0x7
 
     const/4 v3, 0x0
@@ -239,7 +267,7 @@
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mNavigationMode:I
 
-    .line 201
+    .line 231
     const/4 v2, 0x5
 
     invoke-virtual {v9, v2}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
@@ -250,7 +278,7 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mTitle:Ljava/lang/CharSequence;
 
-    .line 202
+    .line 232
     const/16 v2, 0x9
 
     invoke-virtual {v9, v2}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
@@ -261,7 +289,7 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mSubtitle:Ljava/lang/CharSequence;
 
-    .line 204
+    .line 234
     const/4 v2, 0x6
 
     invoke-virtual {v9, v2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -272,21 +300,21 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mLogo:Landroid/graphics/drawable/Drawable;
 
-    .line 205
+    .line 235
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mLogo:Landroid/graphics/drawable/Drawable;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
-    .line 206
+    .line 236
     move-object/from16 v0, p1
 
     instance-of v2, v0, Landroid/app/Activity;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
-    .line 208
+    .line 238
     :try_start_0
     move-object/from16 v0, p1
 
@@ -298,7 +326,9 @@
 
     move-result-object v2
 
-    invoke-virtual {v15, v2}, Landroid/content/pm/PackageManager;->getActivityLogo(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v2}, Landroid/content/pm/PackageManager;->getActivityLogo(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
@@ -308,17 +338,19 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 213
-    :cond_0
+    .line 243
+    :cond_1
     :goto_0
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mLogo:Landroid/graphics/drawable/Drawable;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
-    .line 214
-    invoke-virtual {v10, v15}, Landroid/content/pm/ApplicationInfo;->loadLogo(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    .line 244
+    move-object/from16 v0, v16
+
+    invoke-virtual {v10, v0}, Landroid/content/pm/ApplicationInfo;->loadLogo(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
@@ -326,8 +358,8 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mLogo:Landroid/graphics/drawable/Drawable;
 
-    .line 218
-    :cond_1
+    .line 248
+    :cond_2
     const/4 v2, 0x0
 
     invoke-virtual {v9, v2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -338,21 +370,21 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    .line 219
+    .line 249
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4
 
-    .line 220
+    .line 250
     move-object/from16 v0, p1
 
     instance-of v2, v0, Landroid/app/Activity;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
-    .line 222
+    .line 252
     :try_start_1
     move-object/from16 v0, p1
 
@@ -364,7 +396,9 @@
 
     move-result-object v2
 
-    invoke-virtual {v15, v2}, Landroid/content/pm/PackageManager;->getActivityIcon(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v2}, Landroid/content/pm/PackageManager;->getActivityIcon(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
@@ -374,17 +408,19 @@
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 227
-    :cond_2
+    .line 257
+    :cond_3
     :goto_1
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4
 
-    .line 228
-    invoke-virtual {v10, v15}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    .line 258
+    move-object/from16 v0, v16
+
+    invoke-virtual {v10, v0}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
@@ -392,13 +428,13 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    .line 232
-    :cond_3
+    .line 262
+    :cond_4
     invoke-static/range {p1 .. p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v14
 
-    .line 234
+    .line 264
     .local v14, inflater:Landroid/view/LayoutInflater;
     const/16 v2, 0xf
 
@@ -408,13 +444,13 @@
 
     move-result v13
 
-    .line 239
+    .line 269
     .local v13, homeResId:I
     move-object/from16 v0, p0
 
     iput v13, v0, Lcom/android/internal/widget/ActionBarView;->mHomeLayoutRes:I
 
-    .line 242
+    .line 272
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
@@ -429,7 +465,7 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
-    .line 244
+    .line 274
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
@@ -444,7 +480,7 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
-    .line 245
+    .line 275
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -453,7 +489,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/widget/ActionBarView$HomeView;->setUp(Z)V
 
-    .line 246
+    .line 276
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -464,7 +500,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/widget/ActionBarView$HomeView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 247
+    .line 277
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -473,7 +509,7 @@
 
     move-result-object v3
 
-    const v4, 0x104061b
+    const v4, 0x104062c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -481,7 +517,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/widget/ActionBarView$HomeView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 250
+    .line 280
     const/16 v2, 0xb
 
     const/4 v3, 0x0
@@ -494,7 +530,7 @@
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mTitleStyleRes:I
 
-    .line 251
+    .line 281
     const/16 v2, 0xc
 
     const/4 v3, 0x0
@@ -507,7 +543,7 @@
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mSubtitleStyleRes:I
 
-    .line 252
+    .line 282
     const/4 v2, 0x1
 
     const/4 v3, 0x0
@@ -520,7 +556,7 @@
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mProgressStyle:I
 
-    .line 253
+    .line 283
     const/16 v2, 0xd
 
     const/4 v3, 0x0
@@ -533,7 +569,7 @@
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mIndeterminateProgressStyle:I
 
-    .line 256
+    .line 286
     const/16 v2, 0xe
 
     const/4 v3, 0x0
@@ -546,7 +582,7 @@
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mProgressBarPadding:I
 
-    .line 257
+    .line 287
     const/16 v2, 0x10
 
     const/4 v3, 0x0
@@ -559,12 +595,12 @@
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
 
-    .line 260
+    .line 290
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x1050079
+    const v3, 0x1050085
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -574,7 +610,7 @@
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
 
-    .line 263
+    .line 293
     const/16 v2, 0x8
 
     const/4 v3, 0x0
@@ -587,7 +623,7 @@
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/ActionBarView;->setDisplayOptions(I)V
 
-    .line 265
+    .line 295
     const/16 v2, 0xa
 
     const/4 v3, 0x0
@@ -596,11 +632,11 @@
 
     move-result v11
 
-    .line 266
+    .line 296
     .local v11, customNavId:I
-    if-eqz v11, :cond_4
+    if-eqz v11, :cond_5
 
-    .line 267
+    .line 297
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
@@ -613,14 +649,14 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
-    .line 268
+    .line 298
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mNavigationMode:I
 
-    .line 269
+    .line 299
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
@@ -631,8 +667,8 @@
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/ActionBarView;->setDisplayOptions(I)V
 
-    .line 272
-    :cond_4
+    .line 302
+    :cond_5
     const/4 v2, 0x4
 
     const/4 v3, 0x0
@@ -645,10 +681,10 @@
 
     iput v2, v0, Lcom/android/internal/widget/AbsActionBarView;->mContentHeight:I
 
-    .line 274
+    .line 304
     invoke-virtual {v9}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 276
+    .line 306
     new-instance v2, Lcom/android/internal/view/menu/ActionMenuItem;
 
     const/4 v4, 0x0
@@ -671,7 +707,7 @@
 
     iput-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mLogoNavItem:Lcom/android/internal/view/menu/ActionMenuItem;
 
-    .line 277
+    .line 307
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -682,7 +718,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/widget/ActionBarView$HomeView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 278
+    .line 308
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -691,7 +727,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/widget/ActionBarView$HomeView;->setClickable(Z)V
 
-    .line 279
+    .line 309
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -700,22 +736,22 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/widget/ActionBarView$HomeView;->setFocusable(Z)V
 
-    .line 281
+    .line 311
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getImportantForAccessibility()I
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_6
 
-    .line 282
+    .line 312
     const/4 v2, 0x1
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/ActionBarView;->setImportantForAccessibility(I)V
 
-    .line 285
-    :cond_5
+    .line 315
+    :cond_6
     const/high16 v2, 0x4200
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -740,7 +776,7 @@
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView;->mMaxHomeSlop:I
 
-    .line 288
+    .line 319
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -749,17 +785,20 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/widget/ActionBarView$HomeView;->setFocusable(Z)V
 
-    .line 290
+    .line 322
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->initMultiWindowMode()V
+
+    .line 325
     return-void
 
-    .line 209
+    .line 239
     .end local v11           #customNavId:I
     .end local v13           #homeResId:I
     .end local v14           #inflater:Landroid/view/LayoutInflater;
     :catch_0
     move-exception v12
 
-    .line 210
+    .line 240
     .local v12, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v2, "ActionBarView"
 
@@ -769,12 +808,12 @@
 
     goto/16 :goto_0
 
-    .line 223
+    .line 253
     .end local v12           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :catch_1
     move-exception v12
 
-    .line 224
+    .line 254
     .restart local v12       #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v2, "ActionBarView"
 
@@ -790,7 +829,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mCallback:Landroid/app/ActionBar$OnNavigationListener;
 
     return-object v0
@@ -801,7 +840,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
     return-object v0
@@ -812,7 +851,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
 
     return-object v0
@@ -823,7 +862,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
     return-object v0
@@ -834,7 +873,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget v0, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
 
     return v0
@@ -845,7 +884,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     invoke-direct {p0}, Lcom/android/internal/widget/ActionBarView;->initTitle()V
 
     return-void
@@ -856,8 +895,21 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget v0, p0, Lcom/android/internal/widget/ActionBarView;->mNavigationMode:I
+
+    return v0
+.end method
+
+.method static synthetic access$1500(Lcom/android/internal/widget/ActionBarView;)I
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 91
+    invoke-direct {p0}, Lcom/android/internal/widget/ActionBarView;->getWindowMode()I
+
+    move-result v0
 
     return v0
 .end method
@@ -867,7 +919,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mLogoNavItem:Lcom/android/internal/view/menu/ActionMenuItem;
 
     return-object v0
@@ -878,7 +930,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mIcon:Landroid/graphics/drawable/Drawable;
 
     return-object v0
@@ -889,7 +941,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     return-object v0
@@ -900,7 +952,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     return-object v0
@@ -921,7 +973,7 @@
     .parameter "x0"
 
     .prologue
-    .line 74
+    .line 91
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     return-object v0
@@ -936,24 +988,24 @@
 
     const/4 v2, 0x1
 
-    .line 502
+    .line 542
     if-eqz p1, :cond_0
 
-    .line 503
+    .line 543
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {p1, v0}, Lcom/android/internal/view/menu/MenuBuilder;->addMenuPresenter(Lcom/android/internal/view/menu/MenuPresenter;)V
 
-    .line 504
+    .line 544
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
     invoke-virtual {p1, v0}, Lcom/android/internal/view/menu/MenuBuilder;->addMenuPresenter(Lcom/android/internal/view/menu/MenuPresenter;)V
 
-    .line 511
+    .line 551
     :goto_0
     return-void
 
-    .line 506
+    .line 546
     :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
@@ -961,19 +1013,19 @@
 
     invoke-virtual {v0, v1, v3}, Lcom/android/internal/view/menu/ActionMenuPresenter;->initForMenu(Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;)V
 
-    .line 507
+    .line 547
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, v1, v3}, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->initForMenu(Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;)V
 
-    .line 508
+    .line 548
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0, v2}, Lcom/android/internal/view/menu/ActionMenuPresenter;->updateMenuView(Z)V
 
-    .line 509
+    .line 549
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->updateMenuView(Z)V
@@ -981,15 +1033,149 @@
     goto :goto_0
 .end method
 
+.method private getWindowMode()I
+    .locals 2
+
+    .prologue
+    .line 971
+    iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+
+    instance-of v1, v1, Landroid/app/Activity;
+
+    if-eqz v1, :cond_0
+
+    .line 972
+    iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+
+    check-cast v1, Landroid/app/Activity;
+
+    invoke-virtual {v1}, Landroid/app/Activity;->getWindowMode()I
+
+    move-result v1
+
+    .line 980
+    :goto_0
+    return v1
+
+    .line 974
+    :cond_0
+    iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+
+    instance-of v1, v1, Landroid/content/ContextWrapper;
+
+    if-eqz v1, :cond_1
+
+    .line 975
+    iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+
+    check-cast v1, Landroid/content/ContextWrapper;
+
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    .line 976
+    .local v0, ctx:Landroid/content/Context;
+    if-eqz v0, :cond_1
+
+    instance-of v1, v0, Landroid/app/Activity;
+
+    if-eqz v1, :cond_1
+
+    .line 977
+    check-cast v0, Landroid/app/Activity;
+
+    .end local v0           #ctx:Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/app/Activity;->getWindowMode()I
+
+    move-result v1
+
+    goto :goto_0
+
+    .line 980
+    :cond_1
+    const/high16 v1, 0x100
+
+    goto :goto_0
+.end method
+
+.method private initMultiWindowMode()V
+    .locals 4
+
+    .prologue
+    const/4 v3, 0x1
+
+    .line 1014
+    invoke-direct {p0}, Lcom/android/internal/widget/ActionBarView;->getWindowMode()I
+
+    move-result v0
+
+    .line 1017
+    .local v0, windowMode:I
+    const/high16 v1, 0x20
+
+    and-int/2addr v1, v0
+
+    if-nez v1, :cond_1
+
+    .line 1033
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 1022
+    :cond_1
+    const/high16 v1, 0x1
+
+    and-int/2addr v1, v0
+
+    if-nez v1, :cond_0
+
+    .line 1026
+    iput-boolean v3, p0, Lcom/android/internal/widget/ActionBarView;->mReserveMultiWindow:Z
+
+    .line 1028
+    new-instance v1, Lcom/android/internal/widget/ActionBarView$MultiWindowMenuButton;
+
+    iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, p0, v2}, Lcom/android/internal/widget/ActionBarView$MultiWindowMenuButton;-><init>(Lcom/android/internal/widget/ActionBarView;Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    .line 1029
+    iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    const v2, 0x1020432
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setId(I)V
+
+    .line 1030
+    iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->setHoverPopupType(I)V
+
+    .line 1032
+    iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    invoke-virtual {p0, v1}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
+
+    goto :goto_0
+.end method
+
 .method private initTitle()V
-    .locals 14
+    .locals 13
 
     .prologue
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->miuiInitTitle()Z
 
     move-result v4
 
-    if-eqz v4, :cond_miui_0
+    if-eqz v4, :cond_0
 
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
@@ -997,450 +1183,420 @@
 
     return-void
 
-    :cond_miui_0
-    const/16 v11, 0x8
-
-    const/4 v9, 0x1
-
-    const/4 v10, 0x0
-
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
-
-    if-nez v8, :cond_5
-
-    .line 850
-    invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getContext()Landroid/content/Context;
-
-    move-result-object v8
-
-    invoke-static {v8}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v1
-
-    .line 852
-    .local v1, inflater:Landroid/view/LayoutInflater;
-    new-instance v2, Landroid/util/TypedValue;
-
-    invoke-direct {v2}, Landroid/util/TypedValue;-><init>()V
-
-    .line 853
-    .local v2, outValue:Landroid/util/TypedValue;
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v8}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v8
-
-    const v12, 0x10103fa
-
-    invoke-virtual {v8, v12, v2, v9}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    .line 854
-    iget v8, v2, Landroid/util/TypedValue;->data:I
-
-    if-eqz v8, :cond_8
-
-    .line 855
-    const v8, 0x10900fa
-
-    invoke-virtual {v1, v8, p0, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/view/ViewGroup;
-
-    iput-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
-
-    .line 864
-    :goto_0
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
-
-    const v12, 0x1020260
-
-    invoke-virtual {v8, v12}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/TextView;
-
-    iput-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
-
-    .line 865
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
-
-    const v12, 0x1020261
-
-    invoke-virtual {v8, v12}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/TextView;
-
-    iput-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
-
-    .line 866
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
-
-    const v12, 0x1020255
-
-    invoke-virtual {v8, v12}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    iput-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
-
-    .line 868
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
-
-    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mUpClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v8, v12}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 870
-    iget v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleStyleRes:I
-
-    if-eqz v8, :cond_0
-
-    .line 871
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
-
-    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
-
-    iget v13, p0, Lcom/android/internal/widget/ActionBarView;->mTitleStyleRes:I
-
-    invoke-virtual {v8, v12, v13}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    .line 873
     :cond_0
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitle:Ljava/lang/CharSequence;
+    const/16 v10, 0x8
 
-    if-eqz v8, :cond_1
+    const/4 v8, 0x1
 
-    .line 874
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
+    const/4 v9, 0x0
 
-    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitle:Ljava/lang/CharSequence;
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
-    invoke-virtual {v8, v12}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    if-nez v7, :cond_6
 
-    .line 877
-    :cond_1
-    iget v8, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleStyleRes:I
-
-    if-eqz v8, :cond_2
-
-    .line 878
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
-
-    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
-
-    iget v13, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleStyleRes:I
-
-    invoke-virtual {v8, v12, v13}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    .line 880
-    :cond_2
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitle:Ljava/lang/CharSequence;
-
-    if-eqz v8, :cond_3
-
-    .line 881
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
-
-    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitle:Ljava/lang/CharSequence;
-
-    invoke-virtual {v8, v12}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 882
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
-
-    invoke-virtual {v8, v10}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 885
-    :cond_3
-    iget v8, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
-
-    and-int/lit8 v8, v8, 0x4
-
-    if-eqz v8, :cond_9
-
-    move v0, v9
-
-    .line 886
-    .local v0, homeAsUp:Z
-    :goto_1
-    iget v8, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
-
-    and-int/lit8 v8, v8, 0x2
-
-    if-eqz v8, :cond_a
-
-    move v3, v9
-
-    .line 887
-    .local v3, showHome:Z
-    :goto_2
-    if-nez v3, :cond_b
-
-    move v4, v9
-
-    .line 888
-    .local v4, showTitleUp:Z
-    :goto_3
-    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
-
-    if-eqz v4, :cond_d
-
-    if-eqz v0, :cond_c
-
-    move v8, v10
-
-    :goto_4
-    invoke-virtual {v12, v8}, Landroid/view/View;->setVisibility(I)V
-
-    .line 891
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
-
-    invoke-virtual {v8}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getContext()Landroid/content/Context;
 
     move-result-object v7
 
-    check-cast v7, Landroid/view/ViewGroup$MarginLayoutParams;
+    invoke-static {v7}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    .line 892
-    .local v7, titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
+    move-result-object v1
 
-    invoke-virtual {v8}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    .line 890
+    .local v1, inflater:Landroid/view/LayoutInflater;
+    iget-boolean v7, p0, Lcom/android/internal/widget/ActionBarView;->mIsParentThemeDeviceDefault:Z
+
+    if-eqz v7, :cond_9
+
+    .line 891
+    const v7, 0x1090100
+
+    invoke-virtual {v1, v7, p0, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/view/ViewGroup;
+
+    iput-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+
+    .line 900
+    :goto_0
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+
+    const v11, 0x1020268
+
+    invoke-virtual {v7, v11}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/TextView;
+
+    iput-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
+
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+
+    const v11, 0x1020269
+
+    invoke-virtual {v7, v11}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/TextView;
+
+    iput-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
+
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+
+    const v11, 0x1020255
+
+    invoke-virtual {v7, v11}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    iput-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
+
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+
+    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mUpClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v7, v11}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleStyleRes:I
+
+    if-eqz v7, :cond_1
+
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
+
+    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+
+    iget v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleStyleRes:I
+
+    invoke-virtual {v7, v11, v12}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+
+    .line 909
+    :cond_1
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitle:Ljava/lang/CharSequence;
+
+    if-eqz v7, :cond_2
+
+    .line 910
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
+
+    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mTitle:Ljava/lang/CharSequence;
+
+    invoke-virtual {v7, v11}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 913
+    :cond_2
+    iget v7, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleStyleRes:I
+
+    if-eqz v7, :cond_3
+
+    .line 914
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
+
+    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+
+    iget v12, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleStyleRes:I
+
+    invoke-virtual {v7, v11, v12}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+
+    .line 916
+    :cond_3
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitle:Ljava/lang/CharSequence;
+
+    if-eqz v7, :cond_4
+
+    .line 917
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
+
+    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitle:Ljava/lang/CharSequence;
+
+    invoke-virtual {v7, v11}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 918
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
+
+    invoke-virtual {v7, v9}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 921
+    :cond_4
+    iget v7, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
+
+    and-int/lit8 v7, v7, 0x4
+
+    if-eqz v7, :cond_a
+
+    move v0, v8
+
+    .line 922
+    .local v0, homeAsUp:Z
+    :goto_1
+    iget v7, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
+
+    and-int/lit8 v7, v7, 0x2
+
+    if-eqz v7, :cond_b
+
+    move v2, v8
+
+    .line 923
+    .local v2, showHome:Z
+    :goto_2
+    if-nez v2, :cond_c
+
+    move v3, v8
+
+    .line 924
+    .local v3, showTitleUp:Z
+    :goto_3
+    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
+
+    if-eqz v3, :cond_e
+
+    if-eqz v0, :cond_d
+
+    move v7, v9
+
+    :goto_4
+    invoke-virtual {v11, v7}, Landroid/view/View;->setVisibility(I)V
+
+    .line 927
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
+
+    invoke-virtual {v7}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v6
 
     check-cast v6, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 893
-    .local v6, titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
+    .line 928
+    .local v6, titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
 
-    invoke-virtual {v8}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v7}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v5
 
     check-cast v5, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 894
-    .local v5, subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    iget v8, v2, Landroid/util/TypedValue;->data:I
+    .line 929
+    .local v5, titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
 
-    if-eqz v8, :cond_4
+    invoke-virtual {v7}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    .line 895
-    if-eqz v3, :cond_e
+    move-result-object v4
 
-    .line 896
-    iput v10, v7, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+    check-cast v4, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    iput v10, v7, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    .line 931
+    .local v4, subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    iget-boolean v7, p0, Lcom/android/internal/widget/ActionBarView;->mIsParentThemeDeviceDefault:Z
 
-    .line 897
-    iput v10, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    if-eqz v7, :cond_5
 
-    .line 898
-    iput v10, v5, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    .line 932
+    if-eqz v2, :cond_f
 
-    .line 916
-    :cond_4
+    .line 933
+    iput v9, v6, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+
+    iput v9, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    .line 934
+    iput v9, v5, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    .line 935
+    iput v9, v4, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    .line 953
+    :cond_5
     :goto_5
-    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
-
-    if-eqz v0, :cond_10
-
-    if-eqz v4, :cond_10
-
-    move v8, v9
-
-    :goto_6
-    invoke-virtual {v12, v8}, Landroid/widget/LinearLayout;->setEnabled(Z)V
-
-    .line 917
-    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_11
 
-    if-eqz v4, :cond_11
+    if-eqz v3, :cond_11
 
-    move v8, v9
+    move v7, v8
 
-    :goto_7
-    invoke-virtual {v12, v8}, Landroid/widget/LinearLayout;->setClickable(Z)V
+    :goto_6
+    invoke-virtual {v11, v7}, Landroid/widget/LinearLayout;->setEnabled(Z)V
 
-    .line 919
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_12
 
-    if-nez v3, :cond_12
+    if-eqz v3, :cond_12
+
+    move v7, v8
+
+    :goto_7
+    invoke-virtual {v11, v7}, Landroid/widget/LinearLayout;->setClickable(Z)V
+
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+
+    if-eqz v0, :cond_13
+
+    if-nez v2, :cond_13
 
     :goto_8
-    invoke-virtual {v8, v9}, Landroid/widget/LinearLayout;->setFocusable(Z)V
+    invoke-virtual {v7, v8}, Landroid/widget/LinearLayout;->setFocusable(Z)V
 
-    .line 923
+    .line 960
     .end local v0           #homeAsUp:Z
     .end local v1           #inflater:Landroid/view/LayoutInflater;
-    .end local v2           #outValue:Landroid/util/TypedValue;
-    .end local v3           #showHome:Z
-    .end local v4           #showTitleUp:Z
-    .end local v5           #subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .end local v6           #titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .end local v7           #titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    :cond_5
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
-
-    invoke-virtual {p0, v8}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
-
-    .line 924
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
-
-    if-nez v8, :cond_6
-
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitle:Ljava/lang/CharSequence;
-
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_7
-
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitle:Ljava/lang/CharSequence;
-
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_7
-
-    .line 927
+    .end local v2           #showHome:Z
+    .end local v3           #showTitleUp:Z
+    .end local v4           #subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v5           #titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v6           #titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
     :cond_6
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
-    invoke-virtual {v8, v11}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {p0, v7}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 929
+    .line 961
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
+
+    if-nez v7, :cond_7
+
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitle:Ljava/lang/CharSequence;
+
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_8
+
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitle:Ljava/lang/CharSequence;
+
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_8
+
     :cond_7
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+
+    invoke-virtual {v7, v10}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    :cond_8
     return-void
 
-    .line 859
     .restart local v1       #inflater:Landroid/view/LayoutInflater;
-    .restart local v2       #outValue:Landroid/util/TypedValue;
-    :cond_8
-    const v8, 0x1090019
+    :cond_9
+    const v7, 0x1090019
 
-    invoke-virtual {v1, v8, p0, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {v1, v7, p0, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v8
+    move-result-object v7
 
-    check-cast v8, Landroid/view/ViewGroup;
+    check-cast v7, Landroid/view/ViewGroup;
 
-    iput-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    iput-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
     goto/16 :goto_0
 
-    :cond_9
-    move v0, v10
+    :cond_a
+    move v0, v9
 
-    .line 885
+    .line 921
     goto/16 :goto_1
 
     .restart local v0       #homeAsUp:Z
-    :cond_a
-    move v3, v10
+    :cond_b
+    move v2, v9
 
-    .line 886
+    .line 922
     goto :goto_2
 
-    .restart local v3       #showHome:Z
-    :cond_b
-    move v4, v10
+    .restart local v2       #showHome:Z
+    :cond_c
+    move v3, v9
 
-    .line 887
+    .line 923
     goto :goto_3
 
-    .line 888
-    .restart local v4       #showTitleUp:Z
-    :cond_c
-    const/4 v8, 0x4
-
-    goto :goto_4
-
+    .line 924
+    .restart local v3       #showTitleUp:Z
     :cond_d
-    move v8, v11
+    const/4 v7, 0x4
 
     goto :goto_4
 
-    .line 901
-    .restart local v5       #subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .restart local v6       #titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .restart local v7       #titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
     :cond_e
-    if-eqz v0, :cond_f
+    move v7, v10
 
-    .line 902
-    iget v8, p0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
+    goto :goto_4
 
-    iput v8, v7, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
-
-    iput v8, v7, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
-
-    .line 903
-    iput v10, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
-
-    .line 904
-    iput v10, v5, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
-
-    goto :goto_5
-
-    .line 907
+    .line 938
+    .restart local v4       #subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .restart local v5       #titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .restart local v6       #titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
     :cond_f
-    iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
+    if-eqz v0, :cond_10
 
-    invoke-virtual {v8, v11}, Landroid/view/View;->setVisibility(I)V
+    .line 939
+    iget v7, p0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
 
-    .line 908
-    iput v10, v7, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+    iput v7, v6, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
-    iput v10, v7, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    iput v7, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    .line 909
-    iget v8, p0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
+    .line 940
+    iput v9, v5, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    mul-int/lit8 v8, v8, 0x2
-
-    iput v8, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
-
-    .line 910
-    iget v8, p0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
-
-    mul-int/lit8 v8, v8, 0x2
-
-    iput v8, v5, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    .line 941
+    iput v9, v4, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     goto :goto_5
 
+    .line 944
     :cond_10
-    move v8, v10
+    iget-object v7, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
 
-    .line 916
-    goto :goto_6
+    invoke-virtual {v7, v10}, Landroid/view/View;->setVisibility(I)V
+
+    .line 945
+    iput v9, v6, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+
+    iput v9, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    .line 946
+    iget v7, p0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
+
+    mul-int/lit8 v7, v7, 0x2
+
+    iput v7, v5, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    .line 947
+    iget v7, p0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
+
+    mul-int/lit8 v7, v7, 0x2
+
+    iput v7, v4, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    goto :goto_5
 
     :cond_11
-    move v8, v10
+    move v7, v9
 
-    .line 917
-    goto :goto_7
+    .line 953
+    goto :goto_6
 
     :cond_12
-    move v9, v10
+    move v7, v9
 
-    .line 919
+    .line 954
+    goto :goto_7
+
+    :cond_13
+    move v8, v9
+
+    .line 956
     goto :goto_8
 .end method
 
@@ -1451,20 +1607,20 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 565
+    .line 605
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView;->mTitle:Ljava/lang/CharSequence;
 
-    .line 566
+    .line 606
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
 
     if-eqz v2, :cond_1
 
-    .line 567
+    .line 607
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
 
     invoke-virtual {v2, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 568
+    .line 608
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
 
     if-nez v2, :cond_3
@@ -1494,7 +1650,7 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 571
+    .line 611
     .local v0, visible:Z
     :goto_0
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
@@ -1504,29 +1660,29 @@
     :goto_1
     invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 573
+    .line 613
     .end local v0           #visible:Z
     :cond_1
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mLogoNavItem:Lcom/android/internal/view/menu/ActionMenuItem;
 
     if-eqz v1, :cond_2
 
-    .line 574
+    .line 614
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mLogoNavItem:Lcom/android/internal/view/menu/ActionMenuItem;
 
     invoke-virtual {v1, p1}, Lcom/android/internal/view/menu/ActionMenuItem;->setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    .line 576
+    .line 616
     :cond_2
     return-void
 
     :cond_3
     move v0, v1
 
-    .line 568
+    .line 608
     goto :goto_0
 
-    .line 571
+    .line 611
     .restart local v0       #visible:Z
     :cond_4
     const/16 v1, 0x8
@@ -1540,19 +1696,19 @@
     .prologue
     const/4 v12, 0x0
 
-    .line 934
+    .line 1051
     const/4 v1, 0x0
 
-    .line 935
+    .line 1052
     .local v1, homeResId:I
     iget v8, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayoutRes:I
 
     if-eqz v8, :cond_0
 
-    .line 936
+    .line 1053
     iget v1, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayoutRes:I
 
-    .line 946
+    .line 1063
     :goto_0
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getContext()Landroid/content/Context;
 
@@ -1562,7 +1718,7 @@
 
     move-result-object v2
 
-    .line 948
+    .line 1065
     .local v2, inflater:Landroid/view/LayoutInflater;
     invoke-virtual {v2, v1, p0, v12}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1570,7 +1726,7 @@
 
     check-cast v6, Lcom/android/internal/widget/ActionBarView$HomeView;
 
-    .line 949
+    .line 1066
     .local v6, tempHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
     const v8, 0x102002c
 
@@ -1580,7 +1736,7 @@
 
     check-cast v7, Landroid/widget/ImageView;
 
-    .line 951
+    .line 1068
     .local v7, tempiconView:Landroid/widget/ImageView;
     invoke-virtual {v7}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -1588,7 +1744,7 @@
 
     check-cast v3, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 952
+    .line 1069
     .local v3, lp:Landroid/view/ViewGroup$MarginLayoutParams;
     iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
@@ -1600,7 +1756,7 @@
 
     check-cast v4, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 955
+    .line 1072
     .local v4, oldLp:Landroid/view/ViewGroup$MarginLayoutParams;
     iget-object v8, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
@@ -1612,31 +1768,31 @@
 
     check-cast v5, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 958
+    .line 1075
     .local v5, oldLp_e:Landroid/view/ViewGroup$MarginLayoutParams;
     iget v8, v3, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
     iput v8, v4, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    .line 959
+    .line 1076
     iget v8, v3, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
     iput v8, v4, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
-    .line 962
+    .line 1079
     iget v8, v3, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
     iput v8, v5, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    .line 963
+    .line 1080
     iget v8, v3, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
     iput v8, v5, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
-    .line 965
+    .line 1082
     return-void
 
-    .line 939
+    .line 1056
     .end local v2           #inflater:Landroid/view/LayoutInflater;
     .end local v3           #lp:Landroid/view/ViewGroup$MarginLayoutParams;
     .end local v4           #oldLp:Landroid/view/ViewGroup$MarginLayoutParams;
@@ -1658,7 +1814,7 @@
 
     move-result-object v0
 
-    .line 942
+    .line 1059
     .local v0, a:Landroid/content/res/TypedArray;
     const/16 v8, 0xf
 
@@ -1671,32 +1827,80 @@
     goto :goto_0
 .end method
 
+.method private updateMultiWindow()V
+    .locals 7
+
+    .prologue
+    .line 1036
+    iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    if-eqz v2, :cond_0
+
+    .line 1039
+    iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+
+    const/4 v3, 0x0
+
+    sget-object v4, Lcom/android/internal/R$styleable;->View:[I
+
+    const v5, 0x10103c9
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v2, v3, v4, v5, v6}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    .line 1041
+    .local v0, a:Landroid/content/res/TypedArray;
+    const/16 v2, 0x29
+
+    invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    .line 1042
+    .local v1, contentDescription:Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    .line 1044
+    iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    invoke-virtual {v2, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    .line 1046
+    .end local v0           #a:Landroid/content/res/TypedArray;
+    .end local v1           #contentDescription:Ljava/lang/CharSequence;
+    :cond_0
+    return-void
+.end method
+
 
 # virtual methods
 .method public collapseActionView()V
     .locals 2
 
     .prologue
-    .line 519
+    .line 559
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
     if-nez v1, :cond_1
 
     const/4 v0, 0x0
 
-    .line 521
+    .line 561
     .local v0, item:Lcom/android/internal/view/menu/MenuItemImpl;
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 522
+    .line 562
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuItemImpl;->collapseActionView()Z
 
-    .line 524
+    .line 564
     :cond_0
     return-void
 
-    .line 519
+    .line 559
     .end local v0           #item:Lcom/android/internal/view/menu/MenuItemImpl;
     :cond_1
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
@@ -1710,7 +1914,7 @@
     .locals 2
 
     .prologue
-    .line 828
+    .line 866
     new-instance v0, Landroid/app/ActionBar$LayoutParams;
 
     const/16 v1, 0x13
@@ -1725,7 +1929,7 @@
     .parameter "attrs"
 
     .prologue
-    .line 1334
+    .line 1514
     new-instance v0, Landroid/app/ActionBar$LayoutParams;
 
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getContext()Landroid/content/Context;
@@ -1742,15 +1946,15 @@
     .parameter "lp"
 
     .prologue
-    .line 1339
+    .line 1519
     if-nez p1, :cond_0
 
-    .line 1340
+    .line 1520
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object p1
 
-    .line 1342
+    .line 1522
     :cond_0
     return-object p1
 .end method
@@ -1759,7 +1963,7 @@
     .locals 1
 
     .prologue
-    .line 813
+    .line 851
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
     return-object v0
@@ -1769,7 +1973,7 @@
     .locals 1
 
     .prologue
-    .line 821
+    .line 859
     iget v0, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
 
     return v0
@@ -1779,7 +1983,7 @@
     .locals 1
 
     .prologue
-    .line 801
+    .line 839
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mSpinnerAdapter:Landroid/widget/SpinnerAdapter;
 
     return-object v0
@@ -1789,7 +1993,7 @@
     .locals 1
 
     .prologue
-    .line 809
+    .line 847
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
 
     invoke-virtual {v0}, Landroid/widget/Spinner;->getSelectedItemPosition()I
@@ -1815,7 +2019,7 @@
     .locals 1
 
     .prologue
-    .line 817
+    .line 855
     iget v0, p0, Lcom/android/internal/widget/ActionBarView;->mNavigationMode:I
 
     return v0
@@ -1825,7 +2029,7 @@
     .locals 1
 
     .prologue
-    .line 579
+    .line 619
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitle:Ljava/lang/CharSequence;
 
     return-object v0
@@ -1871,7 +2075,7 @@
     .locals 1
 
     .prologue
-    .line 538
+    .line 578
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mTitle:Ljava/lang/CharSequence;
 
     return-object v0
@@ -1929,7 +2133,7 @@
     .locals 1
 
     .prologue
-    .line 406
+    .line 446
     iget-boolean v0, p0, Lcom/android/internal/widget/ActionBarView;->mIncludeTabs:Z
 
     return v0
@@ -1939,7 +2143,7 @@
     .locals 1
 
     .prologue
-    .line 514
+    .line 554
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
     if-eqz v0, :cond_0
@@ -1965,7 +2169,7 @@
     .locals 5
 
     .prologue
-    .line 353
+    .line 393
     new-instance v0, Landroid/widget/ProgressBar;
 
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
@@ -1980,26 +2184,26 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mIndeterminateProgressView:Landroid/widget/ProgressBar;
 
-    .line 355
+    .line 395
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mIndeterminateProgressView:Landroid/widget/ProgressBar;
 
-    const v1, 0x10203e7
+    const v1, 0x10203f7
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setId(I)V
 
-    .line 356
+    .line 396
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mIndeterminateProgressView:Landroid/widget/ProgressBar;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 357
+    .line 397
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mIndeterminateProgressView:Landroid/widget/ProgressBar;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 358
+    .line 398
     return-void
 .end method
 
@@ -2007,7 +2211,7 @@
     .locals 5
 
     .prologue
-    .line 345
+    .line 385
     new-instance v0, Landroid/widget/ProgressBar;
 
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
@@ -2022,33 +2226,33 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
 
-    .line 346
+    .line 386
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
 
-    const v1, 0x10203e8
+    const v1, 0x10203f8
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setId(I)V
 
-    .line 347
+    .line 387
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
 
     const/16 v1, 0x2710
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setMax(I)V
 
-    .line 348
+    .line 388
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 349
+    .line 389
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 350
+    .line 390
     return-void
 .end method
 
@@ -2056,8 +2260,18 @@
     .locals 1
 
     .prologue
-    .line 977
+    .line 1094
     iget-boolean v0, p0, Lcom/android/internal/widget/ActionBarView;->mIsCollapsed:Z
+
+    return v0
+.end method
+
+.method public isMultiWindowReserved()Z
+    .locals 1
+
+    .prologue
+    .line 984
+    iget-boolean v0, p0, Lcom/android/internal/widget/ActionBarView;->mReserveMultiWindow:Z
 
     return v0
 .end method
@@ -2066,7 +2280,7 @@
     .locals 1
 
     .prologue
-    .line 402
+    .line 442
     iget-boolean v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitActionBar:Z
 
     return v0
@@ -2133,6 +2347,8 @@
     :cond_1
     invoke-direct {p0}, Lcom/android/internal/widget/ActionBarView;->updateHomeImageLayout()V
 
+    invoke-direct {p0}, Lcom/android/internal/widget/ActionBarView;->updateMultiWindow()V
+
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     if-eqz v1, :cond_3
@@ -2141,28 +2357,28 @@
 
     if-eqz v1, :cond_3
 
-    .line 312
+    .line 352
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-virtual {v1}, Lcom/android/internal/widget/ScrollingTabContainerView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
-    .line 313
+    .line 353
     .local v0, lp:Landroid/view/ViewGroup$LayoutParams;
     if-eqz v0, :cond_2
 
-    .line 314
+    .line 354
     const/4 v1, -0x2
 
     iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 315
+    .line 355
     const/4 v1, -0x1
 
     iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 317
+    .line 357
     :cond_2
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
@@ -2170,7 +2386,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/ScrollingTabContainerView;->setAllowCollapse(Z)V
 
-    .line 319
+    .line 359
     .end local v0           #lp:Landroid/view/ViewGroup$LayoutParams;
     :cond_3
     return-void
@@ -2180,30 +2396,30 @@
     .locals 1
 
     .prologue
-    .line 331
+    .line 371
     invoke-super {p0}, Lcom/android/internal/widget/AbsActionBarView;->onDetachedFromWindow()V
 
-    .line 332
+    .line 372
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mTabSelector:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 333
+    .line 373
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 334
+    .line 374
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/ActionMenuPresenter;->hideOverflowMenu()Z
 
-    .line 335
+    .line 375
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/ActionMenuPresenter;->hideSubMenus()Z
 
-    .line 337
+    .line 377
     :cond_0
     return-void
 .end method
@@ -2212,15 +2428,15 @@
     .locals 2
 
     .prologue
-    .line 833
+    .line 871
     invoke-super {p0}, Lcom/android/internal/widget/AbsActionBarView;->onFinishInflate()V
 
-    .line 835
+    .line 873
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 837
+    .line 875
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
     if-eqz v1, :cond_1
@@ -2231,23 +2447,23 @@
 
     if-eqz v1, :cond_1
 
-    .line 838
+    .line 876
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
-    .line 839
+    .line 877
     .local v0, parent:Landroid/view/ViewParent;
     if-eq v0, p0, :cond_1
 
-    .line 840
+    .line 878
     instance-of v1, v0, Landroid/view/ViewGroup;
 
     if-eqz v1, :cond_0
 
-    .line 841
+    .line 879
     check-cast v0, Landroid/view/ViewGroup;
 
     .end local v0           #parent:Landroid/view/ViewParent;
@@ -2255,13 +2471,13 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 843
+    .line 881
     :cond_0
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 846
+    .line 884
     :cond_1
     return-void
 .end method
@@ -2275,18 +2491,18 @@
     .parameter "b"
 
     .prologue
-    .line 1179
+    .line 1336
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingLeft()I
 
     move-result v26
 
-    .line 1180
+    .line 1337
     .local v26, x:I
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingTop()I
 
     move-result v28
 
-    .line 1181
+    .line 1338
     .local v28, y:I
     sub-int v30, p5, p3
 
@@ -2302,15 +2518,15 @@
 
     sub-int v7, v30, v31
 
-    .line 1183
+    .line 1340
     .local v7, contentHeight:I
     if-gtz v7, :cond_0
 
-    .line 1330
+    .line 1510
     :goto_0
     return-void
 
-    .line 1188
+    .line 1345
     :cond_0
     move-object/from16 v0, p0
 
@@ -2318,28 +2534,28 @@
 
     move-object/from16 v30, v0
 
-    if-eqz v30, :cond_c
+    if-eqz v30, :cond_d
 
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
-    .line 1189
+    .line 1346
     .local v13, homeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
     :goto_1
     const/16 v20, 0x0
 
-    .line 1190
+    .line 1347
     .local v20, needsTouchDelegate:Z
     move-object/from16 v0, p0
 
     iget v15, v0, Lcom/android/internal/widget/ActionBarView;->mMaxHomeSlop:I
 
-    .line 1191
+    .line 1348
     .local v15, homeSlop:I
     const/4 v14, 0x0
 
-    .line 1192
+    .line 1349
     .local v14, homeRight:I
     invoke-virtual {v13}, Lcom/android/internal/widget/ActionBarView$HomeView;->getVisibility()I
 
@@ -2353,12 +2569,12 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 1193
+    .line 1350
     invoke-virtual {v13}, Lcom/android/internal/widget/ActionBarView$HomeView;->getLeftOffset()I
 
     move-result v16
 
-    .line 1194
+    .line 1351
     .local v16, leftOffset:I
     add-int v30, v26, v16
 
@@ -2376,7 +2592,7 @@
 
     add-int v26, v26, v30
 
-    .line 1195
+    .line 1352
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -2385,15 +2601,15 @@
 
     move-object/from16 v0, v30
 
-    if-ne v13, v0, :cond_d
+    if-ne v13, v0, :cond_e
 
     const/16 v20, 0x1
 
-    .line 1196
+    .line 1353
     :goto_2
     move/from16 v14, v26
 
-    .line 1199
+    .line 1356
     .end local v16           #leftOffset:I
     :cond_1
     move-object/from16 v0, p0
@@ -2404,14 +2620,14 @@
 
     if-nez v30, :cond_3
 
-    .line 1200
+    .line 1357
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
     move-object/from16 v30, v0
 
-    if-eqz v30, :cond_e
+    if-eqz v30, :cond_f
 
     move-object/from16 v0, p0
 
@@ -2429,7 +2645,7 @@
 
     move/from16 v1, v31
 
-    if-eq v0, v1, :cond_e
+    if-eq v0, v1, :cond_f
 
     move-object/from16 v0, p0
 
@@ -2439,16 +2655,16 @@
 
     and-int/lit8 v30, v30, 0x8
 
-    if-eqz v30, :cond_e
+    if-eqz v30, :cond_f
 
     const/16 v23, 0x1
 
-    .line 1202
+    .line 1359
     .local v23, showTitle:Z
     :goto_3
     if-eqz v23, :cond_2
 
-    .line 1203
+    .line 1360
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
@@ -2469,7 +2685,7 @@
 
     add-int v26, v26, v30
 
-    .line 1206
+    .line 1363
     :cond_2
     move-object/from16 v0, p0
 
@@ -2479,7 +2695,7 @@
 
     packed-switch v30, :pswitch_data_0
 
-    .line 1226
+    .line 1383
     .end local v23           #showTitle:Z
     :cond_3
     :goto_4
@@ -2492,15 +2708,92 @@
 
     sub-int v18, v30, v31
 
-    .line 1227
+    .line 1387
     .local v18, menuLeft:I
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v30, v0
+
+    if-eqz v30, :cond_12
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v30, v0
+
+    invoke-virtual/range {v30 .. v30}, Landroid/view/View;->getVisibility()I
+
+    move-result v30
+
+    const/16 v31, 0x8
+
+    move/from16 v0, v30
+
+    move/from16 v1, v31
+
+    if-eq v0, v1, :cond_12
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getWindowMode()I
+
+    move-result v30
+
+    invoke-static/range {v30 .. v30}, Landroid/sec/multiwindow/impl/MultiWindowManager;->isNormalWindow(I)Z
+
+    move-result v30
+
+    if-eqz v30, :cond_12
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/internal/widget/ActionBarView;->mReserveMultiWindow:Z
+
+    move/from16 v30, v0
+
+    if-eqz v30, :cond_12
+
+    .line 1389
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move/from16 v2, v18
+
+    move/from16 v3, v28
+
+    invoke-virtual {v0, v1, v2, v3, v7}, Lcom/android/internal/widget/ActionBarView;->positionChildInverse(Landroid/view/View;III)I
+
+    .line 1390
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v30, v0
+
+    invoke-virtual/range {v30 .. v30}, Landroid/view/View;->getMeasuredWidth()I
+
+    move-result v30
+
+    sub-int v18, v18, v30
+
+    .line 1398
+    :cond_4
+    :goto_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     move-object/from16 v30, v0
 
-    if-eqz v30, :cond_4
+    if-eqz v30, :cond_5
 
     move-object/from16 v0, p0
 
@@ -2516,9 +2809,9 @@
 
     move-object/from16 v1, p0
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_5
 
-    .line 1228
+    .line 1399
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
@@ -2535,7 +2828,7 @@
 
     invoke-virtual {v0, v1, v2, v3, v7}, Lcom/android/internal/widget/ActionBarView;->positionChildInverse(Landroid/view/View;III)I
 
-    .line 1229
+    .line 1400
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
@@ -2548,15 +2841,15 @@
 
     sub-int v18, v18, v30
 
-    .line 1232
-    :cond_4
+    .line 1403
+    :cond_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mIndeterminateProgressView:Landroid/widget/ProgressBar;
 
     move-object/from16 v30, v0
 
-    if-eqz v30, :cond_5
+    if-eqz v30, :cond_6
 
     move-object/from16 v0, p0
 
@@ -2574,9 +2867,9 @@
 
     move/from16 v1, v31
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_6
 
-    .line 1234
+    .line 1405
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mIndeterminateProgressView:Landroid/widget/ProgressBar;
@@ -2593,7 +2886,7 @@
 
     invoke-virtual {v0, v1, v2, v3, v7}, Lcom/android/internal/widget/ActionBarView;->positionChildInverse(Landroid/view/View;III)I
 
-    .line 1235
+    .line 1406
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mIndeterminateProgressView:Landroid/widget/ProgressBar;
@@ -2606,11 +2899,11 @@
 
     sub-int v18, v18, v30
 
-    .line 1238
-    :cond_5
+    .line 1409
+    :cond_6
     const/4 v8, 0x0
 
-    .line 1239
+    .line 1410
     .local v8, customView:Landroid/view/View;
     move-object/from16 v0, p0
 
@@ -2618,24 +2911,24 @@
 
     move-object/from16 v30, v0
 
-    if-eqz v30, :cond_11
+    if-eqz v30, :cond_13
 
-    .line 1240
+    .line 1411
     move-object/from16 v0, p0
 
     iget-object v8, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
 
-    .line 1245
-    :cond_6
-    :goto_5
-    if-eqz v8, :cond_a
+    .line 1416
+    :cond_7
+    :goto_6
+    if-eqz v8, :cond_b
 
-    .line 1246
+    .line 1417
     invoke-virtual {v8}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v17
 
-    .line 1247
+    .line 1418
     .local v17, lp:Landroid/view/ViewGroup$LayoutParams;
     move-object/from16 v0, v17
 
@@ -2643,74 +2936,74 @@
 
     move/from16 v30, v0
 
-    if-eqz v30, :cond_12
+    if-eqz v30, :cond_14
 
     check-cast v17, Landroid/app/ActionBar$LayoutParams;
 
     .end local v17           #lp:Landroid/view/ViewGroup$LayoutParams;
     move-object/from16 v4, v17
 
-    .line 1250
+    .line 1421
     .local v4, ablp:Landroid/app/ActionBar$LayoutParams;
-    :goto_6
-    if-eqz v4, :cond_13
+    :goto_7
+    if-eqz v4, :cond_15
 
     iget v10, v4, Landroid/app/ActionBar$LayoutParams;->gravity:I
 
-    .line 1251
+    .line 1422
     .local v10, gravity:I
-    :goto_7
+    :goto_8
     invoke-virtual {v8}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v19
 
-    .line 1253
+    .line 1424
     .local v19, navWidth:I
     const/16 v24, 0x0
 
-    .line 1254
+    .line 1425
     .local v24, topMargin:I
     const/4 v5, 0x0
 
-    .line 1255
+    .line 1426
     .local v5, bottomMargin:I
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8
 
-    .line 1256
+    .line 1427
     iget v0, v4, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     move/from16 v30, v0
 
     add-int v26, v26, v30
 
-    .line 1257
+    .line 1428
     iget v0, v4, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
     move/from16 v30, v0
 
     sub-int v18, v18, v30
 
-    .line 1258
+    .line 1429
     iget v0, v4, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
     move/from16 v24, v0
 
-    .line 1259
+    .line 1430
     iget v5, v4, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
-    .line 1262
-    :cond_7
+    .line 1433
+    :cond_8
     and-int/lit8 v12, v10, 0x7
 
-    .line 1264
+    .line 1435
     .local v12, hgravity:I
     const/16 v30, 0x1
 
     move/from16 v0, v30
 
-    if-ne v12, v0, :cond_15
+    if-ne v12, v0, :cond_17
 
-    .line 1265
+    .line 1436
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mRight:I
@@ -2729,56 +3022,56 @@
 
     div-int/lit8 v6, v30, 0x2
 
-    .line 1266
+    .line 1437
     .local v6, centeredLeft:I
     move/from16 v0, v26
 
-    if-ge v6, v0, :cond_14
+    if-ge v6, v0, :cond_16
 
-    .line 1267
+    .line 1438
     const/4 v12, 0x3
 
-    .line 1275
+    .line 1446
     .end local v6           #centeredLeft:I
-    :cond_8
-    :goto_8
+    :cond_9
+    :goto_9
     const/16 v27, 0x0
 
-    .line 1276
+    .line 1447
     .local v27, xpos:I
     packed-switch v12, :pswitch_data_1
 
-    .line 1288
-    :goto_9
+    .line 1459
+    :goto_a
     :pswitch_1
     and-int/lit8 v25, v10, 0x70
 
-    .line 1290
+    .line 1461
     .local v25, vgravity:I
     const/16 v30, -0x1
 
     move/from16 v0, v30
 
-    if-ne v10, v0, :cond_9
+    if-ne v10, v0, :cond_a
 
-    .line 1291
+    .line 1462
     const/16 v25, 0x10
 
-    .line 1294
-    :cond_9
+    .line 1465
+    :cond_a
     const/16 v29, 0x0
 
-    .line 1295
+    .line 1466
     .local v29, ypos:I
     sparse-switch v25, :sswitch_data_0
 
-    .line 1309
-    :goto_a
+    .line 1480
+    :goto_b
     invoke-virtual {v8}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v9
 
-    .line 1310
+    .line 1481
     .local v9, customWidth:I
     add-int v30, v27, v9
 
@@ -2798,7 +3091,7 @@
 
     invoke-virtual {v8, v0, v1, v2, v3}, Landroid/view/View;->layout(IIII)V
 
-    .line 1312
+    .line 1483
     sub-int v30, v27, v14
 
     const/16 v31, 0x0
@@ -2813,10 +3106,10 @@
 
     move-result v15
 
-    .line 1313
+    .line 1484
     add-int v26, v26, v9
 
-    .line 1316
+    .line 1487
     .end local v4           #ablp:Landroid/app/ActionBar$LayoutParams;
     .end local v5           #bottomMargin:I
     .end local v9           #customWidth:I
@@ -2827,16 +3120,16 @@
     .end local v25           #vgravity:I
     .end local v27           #xpos:I
     .end local v29           #ypos:I
-    :cond_a
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
 
     move-object/from16 v30, v0
 
-    if-eqz v30, :cond_b
+    if-eqz v30, :cond_c
 
-    .line 1317
+    .line 1488
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
@@ -2845,7 +3138,7 @@
 
     invoke-virtual/range {v30 .. v30}, Landroid/widget/ProgressBar;->bringToFront()V
 
-    .line 1318
+    .line 1489
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
@@ -2858,8 +3151,516 @@
 
     div-int/lit8 v11, v30, 0x2
 
-    .line 1319
+    .line 1492
     .local v11, halfProgressHeight:I
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/internal/widget/ActionBarView;->mIsParentThemeDeviceDefault:Z
+
+    move/from16 v30, v0
+
+    if-eqz v30, :cond_18
+
+    .line 1493
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mProgressBarPadding:I
+
+    move/from16 v31, v0
+
+    sub-int v32, v7, v11
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mProgressBarPadding:I
+
+    move/from16 v33, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
+
+    move-object/from16 v34, v0
+
+    invoke-virtual/range {v34 .. v34}, Landroid/widget/ProgressBar;->getMeasuredWidth()I
+
+    move-result v34
+
+    add-int v33, v33, v34
+
+    add-int v34, v7, v11
+
+    invoke-virtual/range {v30 .. v34}, Landroid/widget/ProgressBar;->layout(IIII)V
+
+    .line 1503
+    .end local v11           #halfProgressHeight:I
+    :cond_c
+    :goto_c
+    if-eqz v20, :cond_19
+
+    .line 1504
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTempRect:Landroid/graphics/Rect;
+
+    move-object/from16 v30, v0
+
+    invoke-virtual {v13}, Lcom/android/internal/widget/ActionBarView$HomeView;->getLeft()I
+
+    move-result v31
+
+    invoke-virtual {v13}, Lcom/android/internal/widget/ActionBarView$HomeView;->getTop()I
+
+    move-result v32
+
+    invoke-virtual {v13}, Lcom/android/internal/widget/ActionBarView$HomeView;->getRight()I
+
+    move-result v33
+
+    add-int v33, v33, v15
+
+    invoke-virtual {v13}, Lcom/android/internal/widget/ActionBarView$HomeView;->getBottom()I
+
+    move-result v34
+
+    invoke-virtual/range {v30 .. v34}, Landroid/graphics/Rect;->set(IIII)V
+
+    .line 1506
+    new-instance v30, Landroid/view/TouchDelegate;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTempRect:Landroid/graphics/Rect;
+
+    move-object/from16 v31, v0
+
+    move-object/from16 v0, v30
+
+    move-object/from16 v1, v31
+
+    invoke-direct {v0, v1, v13}, Landroid/view/TouchDelegate;-><init>(Landroid/graphics/Rect;Landroid/view/View;)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarView;->setTouchDelegate(Landroid/view/TouchDelegate;)V
+
+    goto/16 :goto_0
+
+    .line 1345
+    .end local v8           #customView:Landroid/view/View;
+    .end local v13           #homeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
+    .end local v14           #homeRight:I
+    .end local v15           #homeSlop:I
+    .end local v18           #menuLeft:I
+    .end local v20           #needsTouchDelegate:Z
+    :cond_d
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
+
+    goto/16 :goto_1
+
+    .line 1352
+    .restart local v13       #homeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
+    .restart local v14       #homeRight:I
+    .restart local v15       #homeSlop:I
+    .restart local v16       #leftOffset:I
+    .restart local v20       #needsTouchDelegate:Z
+    :cond_e
+    const/16 v20, 0x0
+
+    goto/16 :goto_2
+
+    .line 1357
+    .end local v16           #leftOffset:I
+    :cond_f
+    const/16 v23, 0x0
+
+    goto/16 :goto_3
+
+    .line 1367
+    .restart local v23       #showTitle:Z
+    :pswitch_2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
+
+    move-object/from16 v30, v0
+
+    if-eqz v30, :cond_3
+
+    .line 1368
+    if-eqz v23, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
+
+    move/from16 v30, v0
+
+    add-int v26, v26, v30
+
+    .line 1369
+    :cond_10
+    sub-int v30, v26, v14
+
+    const/16 v31, 0x0
+
+    invoke-static/range {v30 .. v31}, Ljava/lang/Math;->max(II)I
+
+    move-result v30
+
+    move/from16 v0, v30
+
+    invoke-static {v15, v0}, Ljava/lang/Math;->min(II)I
+
+    move-result v15
+
+    .line 1370
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move/from16 v2, v26
+
+    move/from16 v3, v28
+
+    invoke-virtual {v0, v1, v2, v3, v7}, Lcom/android/internal/widget/ActionBarView;->positionChild(Landroid/view/View;III)I
+
+    move-result v30
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
+
+    move/from16 v31, v0
+
+    add-int v30, v30, v31
+
+    add-int v26, v26, v30
+
+    goto/16 :goto_4
+
+    .line 1374
+    :pswitch_3
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
+
+    move-object/from16 v30, v0
+
+    if-eqz v30, :cond_3
+
+    .line 1375
+    if-eqz v23, :cond_11
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
+
+    move/from16 v30, v0
+
+    add-int v26, v26, v30
+
+    .line 1376
+    :cond_11
+    sub-int v30, v26, v14
+
+    const/16 v31, 0x0
+
+    invoke-static/range {v30 .. v31}, Ljava/lang/Math;->max(II)I
+
+    move-result v30
+
+    move/from16 v0, v30
+
+    invoke-static {v15, v0}, Ljava/lang/Math;->min(II)I
+
+    move-result v15
+
+    .line 1377
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move/from16 v2, v26
+
+    move/from16 v3, v28
+
+    invoke-virtual {v0, v1, v2, v3, v7}, Lcom/android/internal/widget/ActionBarView;->positionChild(Landroid/view/View;III)I
+
+    move-result v30
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
+
+    move/from16 v31, v0
+
+    add-int v30, v30, v31
+
+    add-int v26, v26, v30
+
+    goto/16 :goto_4
+
+    .line 1392
+    .end local v23           #showTitle:Z
+    .restart local v18       #menuLeft:I
+    :cond_12
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v30, v0
+
+    if-eqz v30, :cond_4
+
+    .line 1393
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v30
+
+    move/from16 v2, v18
+
+    move/from16 v3, v28
+
+    invoke-virtual {v0, v1, v2, v3, v7}, Lcom/android/internal/widget/ActionBarView;->positionChild(Landroid/view/View;III)I
+
+    goto/16 :goto_5
+
+    .line 1412
+    .restart local v8       #customView:Landroid/view/View;
+    :cond_13
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
+
+    move/from16 v30, v0
+
+    and-int/lit8 v30, v30, 0x10
+
+    if-eqz v30, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
+
+    move-object/from16 v30, v0
+
+    if-eqz v30, :cond_7
+
+    .line 1414
+    move-object/from16 v0, p0
+
+    iget-object v8, v0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
+
+    goto/16 :goto_6
+
+    .line 1418
+    .restart local v17       #lp:Landroid/view/ViewGroup$LayoutParams;
+    :cond_14
+    const/4 v4, 0x0
+
+    goto/16 :goto_7
+
+    .line 1421
+    .end local v17           #lp:Landroid/view/ViewGroup$LayoutParams;
+    .restart local v4       #ablp:Landroid/app/ActionBar$LayoutParams;
+    :cond_15
+    const/16 v10, 0x13
+
+    goto/16 :goto_8
+
+    .line 1439
+    .restart local v5       #bottomMargin:I
+    .restart local v6       #centeredLeft:I
+    .restart local v10       #gravity:I
+    .restart local v12       #hgravity:I
+    .restart local v19       #navWidth:I
+    .restart local v24       #topMargin:I
+    :cond_16
+    add-int v30, v6, v19
+
+    move/from16 v0, v30
+
+    move/from16 v1, v18
+
+    if-le v0, v1, :cond_9
+
+    .line 1440
+    const/4 v12, 0x5
+
+    goto/16 :goto_9
+
+    .line 1442
+    .end local v6           #centeredLeft:I
+    :cond_17
+    const/16 v30, -0x1
+
+    move/from16 v0, v30
+
+    if-ne v10, v0, :cond_9
+
+    .line 1443
+    const/4 v12, 0x3
+
+    goto/16 :goto_9
+
+    .line 1449
+    .restart local v27       #xpos:I
+    :pswitch_4
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mRight:I
+
+    move/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mLeft:I
+
+    move/from16 v31, v0
+
+    sub-int v30, v30, v31
+
+    sub-int v30, v30, v19
+
+    div-int/lit8 v27, v30, 0x2
+
+    .line 1450
+    goto/16 :goto_a
+
+    .line 1452
+    :pswitch_5
+    move/from16 v27, v26
+
+    .line 1453
+    goto/16 :goto_a
+
+    .line 1455
+    :pswitch_6
+    sub-int v27, v18, v19
+
+    goto/16 :goto_a
+
+    .line 1468
+    .restart local v25       #vgravity:I
+    .restart local v29       #ypos:I
+    :sswitch_0
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingTop()I
+
+    move-result v22
+
+    .line 1469
+    .local v22, paddedTop:I
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mBottom:I
+
+    move/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mTop:I
+
+    move/from16 v31, v0
+
+    sub-int v30, v30, v31
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingBottom()I
+
+    move-result v31
+
+    sub-int v21, v30, v31
+
+    .line 1470
+    .local v21, paddedBottom:I
+    sub-int v30, v21, v22
+
+    invoke-virtual {v8}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result v31
+
+    sub-int v30, v30, v31
+
+    div-int/lit8 v29, v30, 0x2
+
+    .line 1471
+    goto/16 :goto_b
+
+    .line 1473
+    .end local v21           #paddedBottom:I
+    .end local v22           #paddedTop:I
+    :sswitch_1
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingTop()I
+
+    move-result v30
+
+    add-int v29, v30, v24
+
+    .line 1474
+    goto/16 :goto_b
+
+    .line 1476
+    :sswitch_2
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getHeight()I
+
+    move-result v30
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingBottom()I
+
+    move-result v31
+
+    sub-int v30, v30, v31
+
+    invoke-virtual {v8}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result v31
+
+    sub-int v30, v30, v31
+
+    sub-int v29, v30, v5
+
+    goto/16 :goto_b
+
+    .line 1497
+    .end local v4           #ablp:Landroid/app/ActionBar$LayoutParams;
+    .end local v5           #bottomMargin:I
+    .end local v10           #gravity:I
+    .end local v12           #hgravity:I
+    .end local v19           #navWidth:I
+    .end local v24           #topMargin:I
+    .end local v25           #vgravity:I
+    .end local v27           #xpos:I
+    .end local v29           #ypos:I
+    .restart local v11       #halfProgressHeight:I
+    :cond_18
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
@@ -2904,438 +3705,11 @@
 
     invoke-virtual {v0, v1, v2, v3, v11}, Landroid/widget/ProgressBar;->layout(IIII)V
 
-    .line 1323
+    goto/16 :goto_c
+
+    .line 1508
     .end local v11           #halfProgressHeight:I
-    :cond_b
-    if-eqz v20, :cond_16
-
-    .line 1324
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTempRect:Landroid/graphics/Rect;
-
-    move-object/from16 v30, v0
-
-    invoke-virtual {v13}, Lcom/android/internal/widget/ActionBarView$HomeView;->getLeft()I
-
-    move-result v31
-
-    invoke-virtual {v13}, Lcom/android/internal/widget/ActionBarView$HomeView;->getTop()I
-
-    move-result v32
-
-    invoke-virtual {v13}, Lcom/android/internal/widget/ActionBarView$HomeView;->getRight()I
-
-    move-result v33
-
-    add-int v33, v33, v15
-
-    invoke-virtual {v13}, Lcom/android/internal/widget/ActionBarView$HomeView;->getBottom()I
-
-    move-result v34
-
-    invoke-virtual/range {v30 .. v34}, Landroid/graphics/Rect;->set(IIII)V
-
-    .line 1326
-    new-instance v30, Landroid/view/TouchDelegate;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTempRect:Landroid/graphics/Rect;
-
-    move-object/from16 v31, v0
-
-    move-object/from16 v0, v30
-
-    move-object/from16 v1, v31
-
-    invoke-direct {v0, v1, v13}, Landroid/view/TouchDelegate;-><init>(Landroid/graphics/Rect;Landroid/view/View;)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v30
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarView;->setTouchDelegate(Landroid/view/TouchDelegate;)V
-
-    goto/16 :goto_0
-
-    .line 1188
-    .end local v8           #customView:Landroid/view/View;
-    .end local v13           #homeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
-    .end local v14           #homeRight:I
-    .end local v15           #homeSlop:I
-    .end local v18           #menuLeft:I
-    .end local v20           #needsTouchDelegate:Z
-    :cond_c
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
-
-    goto/16 :goto_1
-
-    .line 1195
-    .restart local v13       #homeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
-    .restart local v14       #homeRight:I
-    .restart local v15       #homeSlop:I
-    .restart local v16       #leftOffset:I
-    .restart local v20       #needsTouchDelegate:Z
-    :cond_d
-    const/16 v20, 0x0
-
-    goto/16 :goto_2
-
-    .line 1200
-    .end local v16           #leftOffset:I
-    :cond_e
-    const/16 v23, 0x0
-
-    goto/16 :goto_3
-
-    .line 1210
-    .restart local v23       #showTitle:Z
-    :pswitch_2
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
-
-    move-object/from16 v30, v0
-
-    if-eqz v30, :cond_3
-
-    .line 1211
-    if-eqz v23, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
-
-    move/from16 v30, v0
-
-    add-int v26, v26, v30
-
-    .line 1212
-    :cond_f
-    sub-int v30, v26, v14
-
-    const/16 v31, 0x0
-
-    invoke-static/range {v30 .. v31}, Ljava/lang/Math;->max(II)I
-
-    move-result v30
-
-    move/from16 v0, v30
-
-    invoke-static {v15, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result v15
-
-    .line 1213
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
-
-    move-object/from16 v30, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v30
-
-    move/from16 v2, v26
-
-    move/from16 v3, v28
-
-    invoke-virtual {v0, v1, v2, v3, v7}, Lcom/android/internal/widget/ActionBarView;->positionChild(Landroid/view/View;III)I
-
-    move-result v30
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
-
-    move/from16 v31, v0
-
-    add-int v30, v30, v31
-
-    add-int v26, v26, v30
-
-    goto/16 :goto_4
-
-    .line 1217
-    :pswitch_3
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
-
-    move-object/from16 v30, v0
-
-    if-eqz v30, :cond_3
-
-    .line 1218
-    if-eqz v23, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
-
-    move/from16 v30, v0
-
-    add-int v26, v26, v30
-
-    .line 1219
-    :cond_10
-    sub-int v30, v26, v14
-
-    const/16 v31, 0x0
-
-    invoke-static/range {v30 .. v31}, Ljava/lang/Math;->max(II)I
-
-    move-result v30
-
-    move/from16 v0, v30
-
-    invoke-static {v15, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result v15
-
-    .line 1220
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
-
-    move-object/from16 v30, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v30
-
-    move/from16 v2, v26
-
-    move/from16 v3, v28
-
-    invoke-virtual {v0, v1, v2, v3, v7}, Lcom/android/internal/widget/ActionBarView;->positionChild(Landroid/view/View;III)I
-
-    move-result v30
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
-
-    move/from16 v31, v0
-
-    add-int v30, v30, v31
-
-    add-int v26, v26, v30
-
-    goto/16 :goto_4
-
-    .line 1241
-    .end local v23           #showTitle:Z
-    .restart local v8       #customView:Landroid/view/View;
-    .restart local v18       #menuLeft:I
-    :cond_11
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
-
-    move/from16 v30, v0
-
-    and-int/lit8 v30, v30, 0x10
-
-    if-eqz v30, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
-
-    move-object/from16 v30, v0
-
-    if-eqz v30, :cond_6
-
-    .line 1243
-    move-object/from16 v0, p0
-
-    iget-object v8, v0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
-
-    goto/16 :goto_5
-
-    .line 1247
-    .restart local v17       #lp:Landroid/view/ViewGroup$LayoutParams;
-    :cond_12
-    const/4 v4, 0x0
-
-    goto/16 :goto_6
-
-    .line 1250
-    .end local v17           #lp:Landroid/view/ViewGroup$LayoutParams;
-    .restart local v4       #ablp:Landroid/app/ActionBar$LayoutParams;
-    :cond_13
-    const/16 v10, 0x13
-
-    goto/16 :goto_7
-
-    .line 1268
-    .restart local v5       #bottomMargin:I
-    .restart local v6       #centeredLeft:I
-    .restart local v10       #gravity:I
-    .restart local v12       #hgravity:I
-    .restart local v19       #navWidth:I
-    .restart local v24       #topMargin:I
-    :cond_14
-    add-int v30, v6, v19
-
-    move/from16 v0, v30
-
-    move/from16 v1, v18
-
-    if-le v0, v1, :cond_8
-
-    .line 1269
-    const/4 v12, 0x5
-
-    goto/16 :goto_8
-
-    .line 1271
-    .end local v6           #centeredLeft:I
-    :cond_15
-    const/16 v30, -0x1
-
-    move/from16 v0, v30
-
-    if-ne v10, v0, :cond_8
-
-    .line 1272
-    const/4 v12, 0x3
-
-    goto/16 :goto_8
-
-    .line 1278
-    .restart local v27       #xpos:I
-    :pswitch_4
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mRight:I
-
-    move/from16 v30, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mLeft:I
-
-    move/from16 v31, v0
-
-    sub-int v30, v30, v31
-
-    sub-int v30, v30, v19
-
-    div-int/lit8 v27, v30, 0x2
-
-    .line 1279
-    goto/16 :goto_9
-
-    .line 1281
-    :pswitch_5
-    move/from16 v27, v26
-
-    .line 1282
-    goto/16 :goto_9
-
-    .line 1284
-    :pswitch_6
-    sub-int v27, v18, v19
-
-    goto/16 :goto_9
-
-    .line 1297
-    .restart local v25       #vgravity:I
-    .restart local v29       #ypos:I
-    :sswitch_0
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingTop()I
-
-    move-result v22
-
-    .line 1298
-    .local v22, paddedTop:I
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mBottom:I
-
-    move/from16 v30, v0
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mTop:I
-
-    move/from16 v31, v0
-
-    sub-int v30, v30, v31
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingBottom()I
-
-    move-result v31
-
-    sub-int v21, v30, v31
-
-    .line 1299
-    .local v21, paddedBottom:I
-    sub-int v30, v21, v22
-
-    invoke-virtual {v8}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v31
-
-    sub-int v30, v30, v31
-
-    div-int/lit8 v29, v30, 0x2
-
-    .line 1300
-    goto/16 :goto_a
-
-    .line 1302
-    .end local v21           #paddedBottom:I
-    .end local v22           #paddedTop:I
-    :sswitch_1
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingTop()I
-
-    move-result v30
-
-    add-int v29, v30, v24
-
-    .line 1303
-    goto/16 :goto_a
-
-    .line 1305
-    :sswitch_2
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getHeight()I
-
-    move-result v30
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingBottom()I
-
-    move-result v31
-
-    sub-int v30, v30, v31
-
-    invoke-virtual {v8}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v31
-
-    sub-int v30, v30, v31
-
-    sub-int v29, v30, v5
-
-    goto/16 :goto_a
-
-    .line 1328
-    .end local v4           #ablp:Landroid/app/ActionBar$LayoutParams;
-    .end local v5           #bottomMargin:I
-    .end local v10           #gravity:I
-    .end local v12           #hgravity:I
-    .end local v19           #navWidth:I
-    .end local v24           #topMargin:I
-    .end local v25           #vgravity:I
-    .end local v27           #xpos:I
-    .end local v29           #ypos:I
-    :cond_16
+    :cond_19
     const/16 v30, 0x0
 
     move-object/from16 v0, p0
@@ -3346,9 +3720,7 @@
 
     goto/16 :goto_0
 
-    .line 1206
-    nop
-
+    .line 1363
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -3356,7 +3728,7 @@
         :pswitch_3
     .end packed-switch
 
-    .line 1276
+    .line 1447
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_4
@@ -3366,7 +3738,7 @@
         :pswitch_6
     .end packed-switch
 
-    .line 1295
+    .line 1466
     :sswitch_data_0
     .sparse-switch
         0x10 -> :sswitch_0
@@ -3381,12 +3753,12 @@
     .parameter "heightMeasureSpec"
 
     .prologue
-    .line 982
+    .line 1125
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getChildCount()I
 
     move-result v7
 
-    .line 983
+    .line 1126
     .local v7, childCount:I
     move-object/from16 v0, p0
 
@@ -3396,10 +3768,10 @@
 
     if-eqz v40, :cond_4
 
-    .line 984
+    .line 1127
     const/16 v38, 0x0
 
-    .line 985
+    .line 1128
     .local v38, visibleChildren:I
     const/16 v22, 0x0
 
@@ -3409,7 +3781,7 @@
 
     if-ge v0, v7, :cond_2
 
-    .line 986
+    .line 1129
     move-object/from16 v0, p0
 
     move/from16 v1, v22
@@ -3418,7 +3790,7 @@
 
     move-result-object v6
 
-    .line 987
+    .line 1130
     .local v6, child:Landroid/view/View;
     invoke-virtual {v6}, Landroid/view/View;->getVisibility()I
 
@@ -3454,22 +3826,22 @@
 
     if-eqz v40, :cond_1
 
-    .line 989
+    .line 1132
     :cond_0
     add-int/lit8 v38, v38, 0x1
 
-    .line 985
+    .line 1128
     :cond_1
     add-int/lit8 v22, v22, 0x1
 
     goto :goto_0
 
-    .line 993
+    .line 1136
     .end local v6           #child:Landroid/view/View;
     :cond_2
     if-nez v38, :cond_4
 
-    .line 995
+    .line 1138
     const/16 v40, 0x0
 
     const/16 v41, 0x0
@@ -3482,7 +3854,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/widget/ActionBarView;->setMeasuredDimension(II)V
 
-    .line 996
+    .line 1139
     const/16 v40, 0x1
 
     move/from16 v0, v40
@@ -3491,14 +3863,14 @@
 
     iput-boolean v0, v1, Lcom/android/internal/widget/ActionBarView;->mIsCollapsed:Z
 
-    .line 1175
+    .line 1332
     .end local v22           #i:I
     .end local v38           #visibleChildren:I
     :cond_3
     :goto_1
     return-void
 
-    .line 1000
+    .line 1143
     :cond_4
     const/16 v40, 0x0
 
@@ -3508,12 +3880,12 @@
 
     iput-boolean v0, v1, Lcom/android/internal/widget/ActionBarView;->mIsCollapsed:Z
 
-    .line 1002
+    .line 1145
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v39
 
-    .line 1003
+    .line 1146
     .local v39, widthMode:I
     const/high16 v40, 0x4000
 
@@ -3523,7 +3895,7 @@
 
     if-eq v0, v1, :cond_5
 
-    .line 1004
+    .line 1147
     new-instance v40, Ljava/lang/IllegalStateException;
 
     new-instance v41, Ljava/lang/StringBuilder;
@@ -3562,13 +3934,13 @@
 
     throw v40
 
-    .line 1008
+    .line 1151
     :cond_5
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v16
 
-    .line 1009
+    .line 1152
     .local v16, heightMode:I
     const/high16 v40, -0x8000
 
@@ -3578,7 +3950,7 @@
 
     if-eq v0, v1, :cond_6
 
-    .line 1010
+    .line 1153
     new-instance v40, Ljava/lang/IllegalStateException;
 
     new-instance v41, Ljava/lang/StringBuilder;
@@ -3617,13 +3989,13 @@
 
     throw v40
 
-    .line 1014
+    .line 1157
     :cond_6
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v9
 
-    .line 1016
+    .line 1159
     .local v9, contentWidth:I
     move-object/from16 v0, p0
 
@@ -3631,7 +4003,7 @@
 
     move/from16 v40, v0
 
-    if-lez v40, :cond_12
+    if-lez v40, :cond_13
 
     move-object/from16 v0, p0
 
@@ -3639,7 +4011,7 @@
 
     move/from16 v27, v0
 
-    .line 1019
+    .line 1162
     .local v27, maxHeight:I
     :goto_2
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingTop()I
@@ -3652,23 +4024,23 @@
 
     add-int v37, v40, v41
 
-    .line 1020
+    .line 1163
     .local v37, verticalPadding:I
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingLeft()I
 
     move-result v30
 
-    .line 1021
+    .line 1164
     .local v30, paddingLeft:I
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getPaddingRight()I
 
     move-result v31
 
-    .line 1022
+    .line 1165
     .local v31, paddingRight:I
     sub-int v15, v27, v37
 
-    .line 1023
+    .line 1166
     .local v15, height:I
     const/high16 v40, -0x8000
 
@@ -3678,21 +4050,21 @@
 
     move-result v8
 
-    .line 1025
+    .line 1168
     .local v8, childSpecHeight:I
     sub-int v40, v9, v30
 
     sub-int v5, v40, v31
 
-    .line 1026
+    .line 1169
     .local v5, availableWidth:I
     div-int/lit8 v24, v5, 0x2
 
-    .line 1027
+    .line 1170
     .local v24, leftOfCenter:I
     move/from16 v32, v24
 
-    .line 1029
+    .line 1172
     .local v32, rightOfCenter:I
     move-object/from16 v0, p0
 
@@ -3700,7 +4072,7 @@
 
     move-object/from16 v40, v0
 
-    if-eqz v40, :cond_13
+    if-eqz v40, :cond_14
 
     move-object/from16 v0, p0
 
@@ -3708,7 +4080,7 @@
 
     move-object/from16 v18, v0
 
-    .line 1031
+    .line 1174
     .local v18, homeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
     :goto_3
     invoke-virtual/range {v18 .. v18}, Lcom/android/internal/widget/ActionBarView$HomeView;->getVisibility()I
@@ -3723,12 +4095,12 @@
 
     if-eq v0, v1, :cond_7
 
-    .line 1032
+    .line 1175
     invoke-virtual/range {v18 .. v18}, Lcom/android/internal/widget/ActionBarView$HomeView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v26
 
-    .line 1034
+    .line 1177
     .local v26, lp:Landroid/view/ViewGroup$LayoutParams;
     move-object/from16 v0, v26
 
@@ -3736,9 +4108,9 @@
 
     move/from16 v40, v0
 
-    if-gez v40, :cond_14
+    if-gez v40, :cond_15
 
-    .line 1035
+    .line 1178
     const/high16 v40, -0x8000
 
     move/from16 v0, v40
@@ -3747,7 +4119,7 @@
 
     move-result v20
 
-    .line 1039
+    .line 1182
     .local v20, homeWidthSpec:I
     :goto_4
     const/high16 v40, 0x4000
@@ -3766,7 +4138,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/widget/ActionBarView$HomeView;->measure(II)V
 
-    .line 1041
+    .line 1184
     invoke-virtual/range {v18 .. v18}, Lcom/android/internal/widget/ActionBarView$HomeView;->getMeasuredWidth()I
 
     move-result v40
@@ -3777,7 +4149,7 @@
 
     add-int v19, v40, v41
 
-    .line 1042
+    .line 1185
     .local v19, homeWidth:I
     const/16 v40, 0x0
 
@@ -3787,7 +4159,7 @@
 
     move-result v5
 
-    .line 1043
+    .line 1186
     const/16 v40, 0x0
 
     sub-int v41, v5, v19
@@ -3796,18 +4168,103 @@
 
     move-result v24
 
-    .line 1046
+    .line 1191
     .end local v19           #homeWidth:I
     .end local v20           #homeWidthSpec:I
     .end local v26           #lp:Landroid/view/ViewGroup$LayoutParams;
     :cond_7
     move-object/from16 v0, p0
 
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v40, v0
+
+    if-eqz v40, :cond_16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v40, v0
+
+    invoke-virtual/range {v40 .. v40}, Landroid/view/View;->getVisibility()I
+
+    move-result v40
+
+    const/16 v41, 0x8
+
+    move/from16 v0, v40
+
+    move/from16 v1, v41
+
+    if-eq v0, v1, :cond_16
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/widget/ActionBarView;->getWindowMode()I
+
+    move-result v40
+
+    invoke-static/range {v40 .. v40}, Landroid/sec/multiwindow/impl/MultiWindowManager;->isNormalWindow(I)Z
+
+    move-result v40
+
+    if-eqz v40, :cond_16
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/internal/widget/ActionBarView;->mReserveMultiWindow:Z
+
+    move/from16 v40, v0
+
+    if-eqz v40, :cond_16
+
+    .line 1193
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v40, v0
+
+    const/16 v41, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v40
+
+    move/from16 v2, v41
+
+    invoke-virtual {v0, v1, v5, v8, v2}, Lcom/android/internal/widget/ActionBarView;->measureChildView(Landroid/view/View;III)I
+
+    move-result v5
+
+    .line 1195
+    const/16 v40, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v41, v0
+
+    invoke-virtual/range {v41 .. v41}, Landroid/view/View;->getMeasuredWidth()I
+
+    move-result v41
+
+    sub-int v41, v32, v41
+
+    invoke-static/range {v40 .. v41}, Ljava/lang/Math;->max(II)I
+
+    move-result v32
+
+    .line 1203
+    :cond_8
+    :goto_5
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     move-object/from16 v40, v0
 
-    if-eqz v40, :cond_8
+    if-eqz v40, :cond_9
 
     move-object/from16 v0, p0
 
@@ -3823,9 +4280,9 @@
 
     move-object/from16 v1, p0
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_9
 
-    .line 1047
+    .line 1204
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
@@ -3844,7 +4301,7 @@
 
     move-result v5
 
-    .line 1049
+    .line 1206
     const/16 v40, 0x0
 
     move-object/from16 v0, p0
@@ -3863,15 +4320,15 @@
 
     move-result v32
 
-    .line 1052
-    :cond_8
+    .line 1209
+    :cond_9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mIndeterminateProgressView:Landroid/widget/ProgressBar;
 
     move-object/from16 v40, v0
 
-    if-eqz v40, :cond_9
+    if-eqz v40, :cond_a
 
     move-object/from16 v0, p0
 
@@ -3889,9 +4346,9 @@
 
     move/from16 v1, v41
 
-    if-eq v0, v1, :cond_9
+    if-eq v0, v1, :cond_a
 
-    .line 1054
+    .line 1211
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mIndeterminateProgressView:Landroid/widget/ProgressBar;
@@ -3910,7 +4367,7 @@
 
     move-result v5
 
-    .line 1056
+    .line 1213
     const/16 v40, 0x0
 
     move-object/from16 v0, p0
@@ -3929,15 +4386,15 @@
 
     move-result v32
 
-    .line 1060
-    :cond_9
+    .line 1217
+    :cond_a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
     move-object/from16 v40, v0
 
-    if-eqz v40, :cond_15
+    if-eqz v40, :cond_17
 
     move-object/from16 v0, p0
 
@@ -3955,7 +4412,7 @@
 
     move/from16 v1, v41
 
-    if-eq v0, v1, :cond_15
+    if-eq v0, v1, :cond_17
 
     move-object/from16 v0, p0
 
@@ -3965,22 +4422,22 @@
 
     and-int/lit8 v40, v40, 0x8
 
-    if-eqz v40, :cond_15
+    if-eqz v40, :cond_17
 
     const/16 v33, 0x1
 
-    .line 1063
+    .line 1220
     .local v33, showTitle:Z
-    :goto_5
+    :goto_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
 
     move-object/from16 v40, v0
 
-    if-nez v40, :cond_a
+    if-nez v40, :cond_b
 
-    .line 1064
+    .line 1221
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mNavigationMode:I
@@ -3989,12 +4446,12 @@
 
     packed-switch v40, :pswitch_data_0
 
-    .line 1094
-    :cond_a
-    :goto_6
+    .line 1251
+    :cond_b
+    :goto_7
     const/4 v14, 0x0
 
-    .line 1095
+    .line 1252
     .local v14, customView:Landroid/view/View;
     move-object/from16 v0, p0
 
@@ -4002,19 +4459,19 @@
 
     move-object/from16 v40, v0
 
-    if-eqz v40, :cond_18
+    if-eqz v40, :cond_1a
 
-    .line 1096
+    .line 1253
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
 
-    .line 1102
-    :cond_b
-    :goto_7
-    if-eqz v14, :cond_f
+    .line 1259
+    :cond_c
+    :goto_8
+    if-eqz v14, :cond_10
 
-    .line 1103
+    .line 1260
     invoke-virtual {v14}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v40
@@ -4027,7 +4484,7 @@
 
     move-result-object v26
 
-    .line 1104
+    .line 1261
     .restart local v26       #lp:Landroid/view/ViewGroup$LayoutParams;
     move-object/from16 v0, v26
 
@@ -4035,7 +4492,7 @@
 
     move/from16 v40, v0
 
-    if-eqz v40, :cond_19
+    if-eqz v40, :cond_1b
 
     move-object/from16 v40, v26
 
@@ -4043,20 +4500,20 @@
 
     move-object/from16 v4, v40
 
-    .line 1107
+    .line 1264
     .local v4, ablp:Landroid/app/ActionBar$LayoutParams;
-    :goto_8
+    :goto_9
     const/16 v21, 0x0
 
-    .line 1108
+    .line 1265
     .local v21, horizontalMargin:I
     const/16 v36, 0x0
 
-    .line 1109
+    .line 1266
     .local v36, verticalMargin:I
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_d
 
-    .line 1110
+    .line 1267
     iget v0, v4, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     move/from16 v40, v0
@@ -4067,7 +4524,7 @@
 
     add-int v21, v40, v41
 
-    .line 1111
+    .line 1268
     iget v0, v4, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
     move/from16 v40, v0
@@ -4078,22 +4535,22 @@
 
     add-int v36, v40, v41
 
-    .line 1117
-    :cond_c
+    .line 1274
+    :cond_d
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/AbsActionBarView;->mContentHeight:I
 
     move/from16 v40, v0
 
-    if-gtz v40, :cond_1a
+    if-gtz v40, :cond_1c
 
-    .line 1118
+    .line 1275
     const/high16 v11, -0x8000
 
-    .line 1123
+    .line 1280
     .local v11, customNavHeightMode:I
-    :goto_9
+    :goto_a
     const/16 v40, 0x0
 
     move-object/from16 v0, v26
@@ -4102,7 +4559,7 @@
 
     move/from16 v41, v0
 
-    if-ltz v41, :cond_d
+    if-ltz v41, :cond_e
 
     move-object/from16 v0, v26
 
@@ -4117,14 +4574,14 @@
     move-result v15
 
     .end local v15           #height:I
-    :cond_d
+    :cond_e
     sub-int v41, v15, v36
 
     invoke-static/range {v40 .. v41}, Ljava/lang/Math;->max(II)I
 
     move-result v10
 
-    .line 1126
+    .line 1283
     .local v10, customNavHeight:I
     move-object/from16 v0, v26
 
@@ -4138,13 +4595,13 @@
 
     move/from16 v1, v41
 
-    if-eq v0, v1, :cond_1c
+    if-eq v0, v1, :cond_1e
 
     const/high16 v13, 0x4000
 
-    .line 1128
+    .line 1285
     .local v13, customNavWidthMode:I
-    :goto_a
+    :goto_b
     const/16 v41, 0x0
 
     move-object/from16 v0, v26
@@ -4153,7 +4610,7 @@
 
     move/from16 v40, v0
 
-    if-ltz v40, :cond_1d
+    if-ltz v40, :cond_1f
 
     move-object/from16 v0, v26
 
@@ -4167,7 +4624,7 @@
 
     move-result v40
 
-    :goto_b
+    :goto_c
     sub-int v40, v40, v21
 
     move/from16 v0, v41
@@ -4178,18 +4635,18 @@
 
     move-result v12
 
-    .line 1131
+    .line 1288
     .local v12, customNavWidth:I
-    if-eqz v4, :cond_1e
+    if-eqz v4, :cond_20
 
     iget v0, v4, Landroid/app/ActionBar$LayoutParams;->gravity:I
 
     move/from16 v40, v0
 
-    :goto_c
+    :goto_d
     and-int/lit8 v17, v40, 0x7
 
-    .line 1136
+    .line 1293
     .local v17, hgrav:I
     const/16 v40, 0x1
 
@@ -4197,7 +4654,7 @@
 
     move/from16 v1, v40
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_f
 
     move-object/from16 v0, v26
 
@@ -4211,9 +4668,9 @@
 
     move/from16 v1, v41
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_f
 
-    .line 1137
+    .line 1294
     move/from16 v0, v24
 
     move/from16 v1, v32
@@ -4224,8 +4681,8 @@
 
     mul-int/lit8 v12, v40, 0x2
 
-    .line 1140
-    :cond_e
+    .line 1297
+    :cond_f
     invoke-static {v12, v13}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v40
@@ -4240,7 +4697,7 @@
 
     invoke-virtual {v14, v0, v1}, Landroid/view/View;->measure(II)V
 
-    .line 1143
+    .line 1300
     invoke-virtual {v14}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v40
@@ -4249,7 +4706,7 @@
 
     sub-int v5, v5, v40
 
-    .line 1146
+    .line 1303
     .end local v4           #ablp:Landroid/app/ActionBar$LayoutParams;
     .end local v10           #customNavHeight:I
     .end local v11           #customNavHeightMode:I
@@ -4259,18 +4716,18 @@
     .end local v21           #horizontalMargin:I
     .end local v26           #lp:Landroid/view/ViewGroup$LayoutParams;
     .end local v36           #verticalMargin:I
-    :cond_f
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
 
     move-object/from16 v40, v0
 
-    if-nez v40, :cond_10
+    if-nez v40, :cond_11
 
-    if-eqz v33, :cond_10
+    if-eqz v33, :cond_11
 
-    .line 1147
+    .line 1304
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
@@ -4303,7 +4760,7 @@
 
     move-result v5
 
-    .line 1149
+    .line 1306
     const/16 v40, 0x0
 
     move-object/from16 v0, p0
@@ -4322,30 +4779,30 @@
 
     move-result v24
 
-    .line 1152
-    :cond_10
+    .line 1309
+    :cond_11
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/AbsActionBarView;->mContentHeight:I
 
     move/from16 v40, v0
 
-    if-gtz v40, :cond_21
+    if-gtz v40, :cond_23
 
-    .line 1153
+    .line 1310
     const/16 v28, 0x0
 
-    .line 1154
+    .line 1311
     .local v28, measuredHeight:I
     const/16 v22, 0x0
 
     .restart local v22       #i:I
-    :goto_d
+    :goto_e
     move/from16 v0, v22
 
-    if-ge v0, v7, :cond_1f
+    if-ge v0, v7, :cond_21
 
-    .line 1155
+    .line 1312
     move-object/from16 v0, p0
 
     move/from16 v1, v22
@@ -4354,7 +4811,7 @@
 
     move-result-object v35
 
-    .line 1156
+    .line 1313
     .local v35, v:Landroid/view/View;
     invoke-virtual/range {v35 .. v35}, Landroid/view/View;->getMeasuredHeight()I
 
@@ -4362,24 +4819,24 @@
 
     add-int v29, v40, v37
 
-    .line 1157
+    .line 1314
     .local v29, paddedViewHeight:I
     move/from16 v0, v29
 
     move/from16 v1, v28
 
-    if-le v0, v1, :cond_11
+    if-le v0, v1, :cond_12
 
-    .line 1158
+    .line 1315
     move/from16 v28, v29
 
-    .line 1154
-    :cond_11
+    .line 1311
+    :cond_12
     add-int/lit8 v22, v22, 0x1
 
-    goto :goto_d
+    goto :goto_e
 
-    .line 1016
+    .line 1159
     .end local v5           #availableWidth:I
     .end local v8           #childSpecHeight:I
     .end local v14           #customView:Landroid/view/View;
@@ -4395,14 +4852,14 @@
     .end local v33           #showTitle:Z
     .end local v35           #v:Landroid/view/View;
     .end local v37           #verticalPadding:I
-    :cond_12
+    :cond_13
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v27
 
     goto/16 :goto_2
 
-    .line 1029
+    .line 1172
     .restart local v5       #availableWidth:I
     .restart local v8       #childSpecHeight:I
     .restart local v15       #height:I
@@ -4412,7 +4869,7 @@
     .restart local v31       #paddingRight:I
     .restart local v32       #rightOfCenter:I
     .restart local v37       #verticalPadding:I
-    :cond_13
+    :cond_14
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -4421,10 +4878,10 @@
 
     goto/16 :goto_3
 
-    .line 1037
+    .line 1180
     .restart local v18       #homeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
     .restart local v26       #lp:Landroid/view/ViewGroup$LayoutParams;
-    :cond_14
+    :cond_15
     move-object/from16 v0, v26
 
     iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
@@ -4440,15 +4897,40 @@
     .restart local v20       #homeWidthSpec:I
     goto/16 :goto_4
 
-    .line 1060
+    .line 1197
     .end local v20           #homeWidthSpec:I
     .end local v26           #lp:Landroid/view/ViewGroup$LayoutParams;
-    :cond_15
-    const/16 v33, 0x0
+    :cond_16
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v40, v0
+
+    if-eqz v40, :cond_8
+
+    .line 1198
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    move-object/from16 v40, v0
+
+    const/16 v41, 0x0
+
+    const/16 v42, 0x0
+
+    invoke-virtual/range {v40 .. v42}, Landroid/view/View;->measure(II)V
 
     goto/16 :goto_5
 
-    .line 1066
+    .line 1217
+    :cond_17
+    const/16 v33, 0x0
+
+    goto/16 :goto_6
+
+    .line 1223
     .restart local v33       #showTitle:Z
     :pswitch_0
     move-object/from16 v0, p0
@@ -4457,10 +4939,10 @@
 
     move-object/from16 v40, v0
 
-    if-eqz v40, :cond_a
+    if-eqz v40, :cond_b
 
-    .line 1067
-    if-eqz v33, :cond_16
+    .line 1224
+    if-eqz v33, :cond_18
 
     move-object/from16 v0, p0
 
@@ -4470,9 +4952,9 @@
 
     mul-int/lit8 v23, v40, 0x2
 
-    .line 1068
+    .line 1225
     .local v23, itemPaddingSize:I
-    :goto_e
+    :goto_f
     const/16 v40, 0x0
 
     sub-int v41, v5, v23
@@ -4481,7 +4963,7 @@
 
     move-result v5
 
-    .line 1069
+    .line 1226
     const/16 v40, 0x0
 
     sub-int v41, v24, v23
@@ -4490,7 +4972,7 @@
 
     move-result v24
 
-    .line 1070
+    .line 1227
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
@@ -4515,7 +4997,7 @@
 
     invoke-virtual/range {v40 .. v42}, Landroid/widget/LinearLayout;->measure(II)V
 
-    .line 1073
+    .line 1230
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
@@ -4526,7 +5008,7 @@
 
     move-result v25
 
-    .line 1074
+    .line 1231
     .local v25, listNavWidth:I
     const/16 v40, 0x0
 
@@ -4536,7 +5018,7 @@
 
     move-result v5
 
-    .line 1075
+    .line 1232
     const/16 v40, 0x0
 
     sub-int v41, v24, v25
@@ -4545,22 +5027,22 @@
 
     move-result v24
 
-    .line 1076
-    goto/16 :goto_6
+    .line 1233
+    goto/16 :goto_7
 
-    .line 1067
+    .line 1224
     .end local v23           #itemPaddingSize:I
     .end local v25           #listNavWidth:I
-    :cond_16
+    :cond_18
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
 
     move/from16 v23, v0
 
-    goto :goto_e
+    goto :goto_f
 
-    .line 1079
+    .line 1236
     :pswitch_1
     move-object/from16 v0, p0
 
@@ -4568,10 +5050,10 @@
 
     move-object/from16 v40, v0
 
-    if-eqz v40, :cond_a
+    if-eqz v40, :cond_b
 
-    .line 1080
-    if-eqz v33, :cond_17
+    .line 1237
+    if-eqz v33, :cond_19
 
     move-object/from16 v0, p0
 
@@ -4581,9 +5063,9 @@
 
     mul-int/lit8 v23, v40, 0x2
 
-    .line 1081
+    .line 1238
     .restart local v23       #itemPaddingSize:I
-    :goto_f
+    :goto_10
     const/16 v40, 0x0
 
     sub-int v41, v5, v23
@@ -4592,7 +5074,7 @@
 
     move-result v5
 
-    .line 1082
+    .line 1239
     const/16 v40, 0x0
 
     sub-int v41, v24, v23
@@ -4601,7 +5083,7 @@
 
     move-result v24
 
-    .line 1083
+    .line 1240
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
@@ -4626,7 +5108,7 @@
 
     invoke-virtual/range {v40 .. v42}, Lcom/android/internal/widget/ScrollingTabContainerView;->measure(II)V
 
-    .line 1086
+    .line 1243
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
@@ -4637,7 +5119,7 @@
 
     move-result v34
 
-    .line 1087
+    .line 1244
     .local v34, tabWidth:I
     const/16 v40, 0x0
 
@@ -4647,7 +5129,7 @@
 
     move-result v5
 
-    .line 1088
+    .line 1245
     const/16 v40, 0x0
 
     sub-int v41, v24, v34
@@ -4656,23 +5138,23 @@
 
     move-result v24
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 
-    .line 1080
+    .line 1237
     .end local v23           #itemPaddingSize:I
     .end local v34           #tabWidth:I
-    :cond_17
+    :cond_19
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mItemPadding:I
 
     move/from16 v23, v0
 
-    goto :goto_f
+    goto :goto_10
 
-    .line 1097
+    .line 1254
     .restart local v14       #customView:Landroid/view/View;
-    :cond_18
+    :cond_1a
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
@@ -4681,7 +5163,7 @@
 
     and-int/lit8 v40, v40, 0x10
 
-    if-eqz v40, :cond_b
+    if-eqz v40, :cond_c
 
     move-object/from16 v0, p0
 
@@ -4689,27 +5171,27 @@
 
     move-object/from16 v40, v0
 
-    if-eqz v40, :cond_b
+    if-eqz v40, :cond_c
 
-    .line 1099
+    .line 1256
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
-    goto/16 :goto_7
-
-    .line 1104
-    .restart local v26       #lp:Landroid/view/ViewGroup$LayoutParams;
-    :cond_19
-    const/4 v4, 0x0
-
     goto/16 :goto_8
 
-    .line 1120
+    .line 1261
+    .restart local v26       #lp:Landroid/view/ViewGroup$LayoutParams;
+    :cond_1b
+    const/4 v4, 0x0
+
+    goto/16 :goto_9
+
+    .line 1277
     .restart local v4       #ablp:Landroid/app/ActionBar$LayoutParams;
     .restart local v21       #horizontalMargin:I
     .restart local v36       #verticalMargin:I
-    :cond_1a
+    :cond_1c
     move-object/from16 v0, v26
 
     iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
@@ -4722,44 +5204,44 @@
 
     move/from16 v1, v41
 
-    if-eq v0, v1, :cond_1b
+    if-eq v0, v1, :cond_1d
 
     const/high16 v11, 0x4000
 
     .restart local v11       #customNavHeightMode:I
-    :goto_10
-    goto/16 :goto_9
+    :goto_11
+    goto/16 :goto_a
 
     .end local v11           #customNavHeightMode:I
-    :cond_1b
+    :cond_1d
     const/high16 v11, -0x8000
 
-    goto :goto_10
+    goto :goto_11
 
-    .line 1126
+    .line 1283
     .end local v15           #height:I
     .restart local v10       #customNavHeight:I
     .restart local v11       #customNavHeightMode:I
-    :cond_1c
+    :cond_1e
     const/high16 v13, -0x8000
 
-    goto/16 :goto_a
-
-    .restart local v13       #customNavWidthMode:I
-    :cond_1d
-    move/from16 v40, v5
-
-    .line 1128
     goto/16 :goto_b
 
-    .line 1131
-    .restart local v12       #customNavWidth:I
-    :cond_1e
-    const/16 v40, 0x13
+    .restart local v13       #customNavWidthMode:I
+    :cond_1f
+    move/from16 v40, v5
 
+    .line 1285
     goto/16 :goto_c
 
-    .line 1161
+    .line 1288
+    .restart local v12       #customNavWidth:I
+    :cond_20
+    const/16 v40, 0x13
+
+    goto/16 :goto_d
+
+    .line 1318
     .end local v4           #ablp:Landroid/app/ActionBar$LayoutParams;
     .end local v10           #customNavHeight:I
     .end local v11           #customNavHeightMode:I
@@ -4770,26 +5252,26 @@
     .end local v36           #verticalMargin:I
     .restart local v22       #i:I
     .restart local v28       #measuredHeight:I
-    :cond_1f
+    :cond_21
     move-object/from16 v0, p0
 
     move/from16 v1, v28
 
     invoke-virtual {v0, v9, v1}, Lcom/android/internal/widget/ActionBarView;->setMeasuredDimension(II)V
 
-    .line 1166
+    .line 1323
     .end local v22           #i:I
     .end local v28           #measuredHeight:I
-    :goto_11
+    :goto_12
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mContextView:Lcom/android/internal/widget/ActionBarContextView;
 
     move-object/from16 v40, v0
 
-    if-eqz v40, :cond_20
+    if-eqz v40, :cond_22
 
-    .line 1167
+    .line 1324
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mContextView:Lcom/android/internal/widget/ActionBarContextView;
@@ -4802,8 +5284,8 @@
 
     invoke-virtual/range {v40 .. v41}, Lcom/android/internal/widget/ActionBarContextView;->setContentHeight(I)V
 
-    .line 1170
-    :cond_20
+    .line 1327
+    :cond_22
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
@@ -4830,7 +5312,7 @@
 
     if-eq v0, v1, :cond_3
 
-    .line 1171
+    .line 1328
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mProgressView:Landroid/widget/ProgressBar;
@@ -4867,19 +5349,17 @@
 
     goto/16 :goto_1
 
-    .line 1163
-    :cond_21
+    .line 1320
+    :cond_23
     move-object/from16 v0, p0
 
     move/from16 v1, v27
 
     invoke-virtual {v0, v9, v1}, Lcom/android/internal/widget/ActionBarView;->setMeasuredDimension(II)V
 
-    goto :goto_11
+    goto :goto_12
 
-    .line 1064
-    nop
-
+    .line 1221
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -4892,12 +5372,12 @@
     .parameter "p"
 
     .prologue
-    .line 1361
+    .line 1541
     move-object v1, p1
 
     check-cast v1, Lcom/android/internal/widget/ActionBarView$SavedState;
 
-    .line 1363
+    .line 1543
     .local v1, state:Lcom/android/internal/widget/ActionBarView$SavedState;
     invoke-virtual {v1}, Lcom/android/internal/widget/ActionBarView$SavedState;->getSuperState()Landroid/os/Parcelable;
 
@@ -4905,7 +5385,7 @@
 
     invoke-super {p0, v2}, Lcom/android/internal/widget/AbsActionBarView;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    .line 1365
+    .line 1545
     iget v2, v1, Lcom/android/internal/widget/ActionBarView$SavedState;->expandedMenuItemId:I
 
     if-eqz v2, :cond_0
@@ -4918,7 +5398,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1367
+    .line 1547
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mOptionsMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     iget v3, v1, Lcom/android/internal/widget/ActionBarView$SavedState;->expandedMenuItemId:I
@@ -4927,24 +5407,24 @@
 
     move-result-object v0
 
-    .line 1368
+    .line 1548
     .local v0, item:Landroid/view/MenuItem;
     if-eqz v0, :cond_0
 
-    .line 1369
+    .line 1549
     invoke-interface {v0}, Landroid/view/MenuItem;->expandActionView()Z
 
-    .line 1373
+    .line 1553
     .end local v0           #item:Landroid/view/MenuItem;
     :cond_0
     iget-boolean v2, v1, Lcom/android/internal/widget/ActionBarView$SavedState;->isOverflowOpen:Z
 
     if-eqz v2, :cond_1
 
-    .line 1374
+    .line 1554
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->postShowOverflowMenu()V
 
-    .line 1376
+    .line 1556
     :cond_1
     return-void
 .end method
@@ -4953,18 +5433,18 @@
     .locals 3
 
     .prologue
-    .line 1347
+    .line 1527
     invoke-super {p0}, Lcom/android/internal/widget/AbsActionBarView;->onSaveInstanceState()Landroid/os/Parcelable;
 
     move-result-object v1
 
-    .line 1348
+    .line 1528
     .local v1, superState:Landroid/os/Parcelable;
     new-instance v0, Lcom/android/internal/widget/ActionBarView$SavedState;
 
     invoke-direct {v0, v1}, Lcom/android/internal/widget/ActionBarView$SavedState;-><init>(Landroid/os/Parcelable;)V
 
-    .line 1350
+    .line 1530
     .local v0, state:Lcom/android/internal/widget/ActionBarView$SavedState;
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
@@ -4976,7 +5456,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1351
+    .line 1531
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
     iget-object v2, v2, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/android/internal/view/menu/MenuItemImpl;
@@ -4987,7 +5467,7 @@
 
     iput v2, v0, Lcom/android/internal/widget/ActionBarView$SavedState;->expandedMenuItemId:I
 
-    .line 1354
+    .line 1534
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->isOverflowMenuShowing()Z
 
@@ -4995,7 +5475,7 @@
 
     iput-boolean v2, v0, Lcom/android/internal/widget/ActionBarView$SavedState;->isOverflowOpen:Z
 
-    .line 1356
+    .line 1536
     return-object v0
 .end method
 
@@ -5050,10 +5530,10 @@
     .parameter "callback"
 
     .prologue
-    .line 425
+    .line 465
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView;->mCallback:Landroid/app/ActionBar$OnNavigationListener;
 
-    .line 426
+    .line 466
     return-void
 .end method
 
@@ -5062,10 +5542,10 @@
     .parameter "collapsable"
 
     .prologue
-    .line 973
+    .line 1090
     iput-boolean p1, p0, Lcom/android/internal/widget/ActionBarView;->mIsCollapsable:Z
 
-    .line 974
+    .line 1091
     return-void
 .end method
 
@@ -5087,10 +5567,10 @@
     .parameter "view"
 
     .prologue
-    .line 969
+    .line 1086
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView;->mContextView:Lcom/android/internal/widget/ActionBarContextView;
 
-    .line 970
+    .line 1087
     return-void
 .end method
 
@@ -5099,7 +5579,7 @@
     .parameter "view"
 
     .prologue
-    .line 527
+    .line 567
     iget v1, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
 
     and-int/lit8 v1, v1, 0x10
@@ -5108,7 +5588,7 @@
 
     const/4 v0, 0x1
 
-    .line 528
+    .line 568
     .local v0, showCustom:Z
     :goto_0
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
@@ -5117,32 +5597,32 @@
 
     if-eqz v0, :cond_0
 
-    .line 529
+    .line 569
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
 
-    .line 531
+    .line 571
     :cond_0
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
-    .line 532
+    .line 572
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
     if-eqz v1, :cond_1
 
     if-eqz v0, :cond_1
 
-    .line 533
+    .line 573
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 535
+    .line 575
     :cond_1
     return-void
 
-    .line 527
+    .line 567
     .end local v0           #showCustom:Z
     :cond_2
     const/4 v0, 0x0
@@ -5151,536 +5631,499 @@
 .end method
 
 .method public setDisplayOptions(I)V
-    .locals 13
+    .locals 14
     .parameter "options"
 
     .prologue
-    .line 610
-    iget v10, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
-
-    const/4 v11, -0x1
-
-    if-ne v10, v11, :cond_6
-
     const/4 v0, -0x1
 
-    .line 611
+    const/16 v10, 0x8
+
+    const/4 v11, 0x1
+
+    const/4 v9, 0x0
+
+    .line 650
+    iget v12, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
+
+    if-ne v12, v0, :cond_7
+
+    .line 651
     .local v0, flagsChanged:I
     :goto_0
     iput p1, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
 
-    .line 627
-    and-int/lit8 v10, v0, 0x1f
-
-    if-eqz v10, :cond_16
-
-    .line 628
-    and-int/lit8 v10, p1, 0x2
-
-    if-eqz v10, :cond_7
-
-    const/4 v5, 0x1
-
-    .line 629
-    .local v5, showHome:Z
-    :goto_1
-    if-eqz v5, :cond_8
-
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
-
-    if-nez v10, :cond_8
-
-    const/4 v9, 0x0
-
-    .line 630
-    .local v9, vis:I
-    :goto_2
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
-
-    invoke-virtual {v10, v9}, Lcom/android/internal/widget/ActionBarView$HomeView;->setVisibility(I)V
-
-    .line 632
-    and-int/lit8 v10, v0, 0x4
-
-    if-eqz v10, :cond_0
-
-    .line 633
-    and-int/lit8 v10, p1, 0x4
-
-    if-eqz v10, :cond_9
-
-    const/4 v4, 0x1
-
-    .line 634
-    .local v4, setUp:Z
-    :goto_3
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
-
-    invoke-virtual {v10, v4}, Lcom/android/internal/widget/ActionBarView$HomeView;->setUp(Z)V
-
-    .line 640
-    if-eqz v4, :cond_0
-
-    .line 641
-    const/4 v10, 0x1
-
-    invoke-virtual {p0, v10}, Lcom/android/internal/widget/ActionBarView;->setHomeButtonEnabled(Z)V
-
-    .line 645
-    .end local v4           #setUp:Z
-    :cond_0
-    and-int/lit8 v10, v0, 0x1
-
-    if-eqz v10, :cond_1
-
-    .line 646
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mLogo:Landroid/graphics/drawable/Drawable;
-
-    if-eqz v10, :cond_a
-
-    and-int/lit8 v10, p1, 0x1
-
-    if-eqz v10, :cond_a
-
-    const/4 v2, 0x1
-
-    .line 647
-    .local v2, logoVis:Z
-    :goto_4
-    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
-
-    if-eqz v2, :cond_b
-
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mLogo:Landroid/graphics/drawable/Drawable;
-
-    :goto_5
-    invoke-virtual {v11, v10}, Lcom/android/internal/widget/ActionBarView$HomeView;->setIcon(Landroid/graphics/drawable/Drawable;)V
-
-    .line 650
-    .end local v2           #logoVis:Z
-    :cond_1
-    and-int/lit8 v10, v0, 0x8
-
-    if-eqz v10, :cond_2
-
-    .line 651
-    and-int/lit8 v10, p1, 0x8
-
-    if-eqz v10, :cond_c
-
-    .line 652
-    invoke-direct {p0}, Lcom/android/internal/widget/ActionBarView;->initTitle()V
-
-    .line 658
-    :cond_2
-    :goto_6
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
-
-    if-eqz v10, :cond_4
-
-    and-int/lit8 v10, v0, 0x6
-
-    if-eqz v10, :cond_4
-
-    .line 660
-    iget v10, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
-
-    and-int/lit8 v10, v10, 0x4
-
-    if-eqz v10, :cond_d
-
-    const/4 v1, 0x1
-
-    .line 661
-    .local v1, homeAsUp:Z
-    :goto_7
-    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
-
-    if-nez v5, :cond_f
-
-    if-eqz v1, :cond_e
-
-    const/4 v10, 0x0
-
-    :goto_8
-    if-eqz v11, :cond_miui_1
-    invoke-virtual {v11, v10}, Landroid/view/View;->setVisibility(I)V
-
-    .line 664
-    :cond_miui_1
-    new-instance v3, Landroid/util/TypedValue;
-
-    invoke-direct {v3}, Landroid/util/TypedValue;-><init>()V
-
-    .line 665
-    .local v3, outValue:Landroid/util/TypedValue;
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v10}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v10
-
-    const v11, 0x10103fa
-
-    const/4 v12, 0x1
-
-    invoke-virtual {v10, v11, v3, v12}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    .line 666
-    iget v10, v3, Landroid/util/TypedValue;->data:I
-
-    if-eqz v10, :cond_3
-
     .line 667
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
+    and-int/lit8 v12, v0, 0x1f
 
-    invoke-virtual {v10}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/view/ViewGroup$MarginLayoutParams;
+    if-eqz v12, :cond_17
 
     .line 668
-    .local v8, titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
+    and-int/lit8 v12, p1, 0x2
 
-    invoke-virtual {v10}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    if-eqz v12, :cond_8
+
+    move v4, v11
+
+    .line 669
+    .local v4, showHome:Z
+    :goto_1
+    if-eqz v4, :cond_9
+
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
+
+    if-nez v12, :cond_9
+
+    move v8, v9
+
+    .line 670
+    .local v8, vis:I
+    :goto_2
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
+
+    invoke-virtual {v12, v8}, Lcom/android/internal/widget/ActionBarView$HomeView;->setVisibility(I)V
+
+    .line 672
+    and-int/lit8 v12, v0, 0x4
+
+    if-eqz v12, :cond_0
+
+    .line 673
+    and-int/lit8 v12, p1, 0x4
+
+    if-eqz v12, :cond_a
+
+    move v3, v11
+
+    .line 674
+    .local v3, setUp:Z
+    :goto_3
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
+
+    invoke-virtual {v12, v3}, Lcom/android/internal/widget/ActionBarView$HomeView;->setUp(Z)V
+
+    .line 680
+    if-eqz v3, :cond_0
+
+    .line 681
+    invoke-virtual {p0, v11}, Lcom/android/internal/widget/ActionBarView;->setHomeButtonEnabled(Z)V
+
+    .line 685
+    .end local v3           #setUp:Z
+    :cond_0
+    and-int/lit8 v12, v0, 0x1
+
+    if-eqz v12, :cond_1
+
+    .line 686
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mLogo:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v12, :cond_b
+
+    and-int/lit8 v12, p1, 0x1
+
+    if-eqz v12, :cond_b
+
+    move v2, v11
+
+    .line 687
+    .local v2, logoVis:Z
+    :goto_4
+    iget-object v13, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
+
+    if-eqz v2, :cond_c
+
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mLogo:Landroid/graphics/drawable/Drawable;
+
+    :goto_5
+    invoke-virtual {v13, v12}, Lcom/android/internal/widget/ActionBarView$HomeView;->setIcon(Landroid/graphics/drawable/Drawable;)V
+
+    .line 690
+    .end local v2           #logoVis:Z
+    :cond_1
+    and-int/lit8 v12, v0, 0x8
+
+    if-eqz v12, :cond_2
+
+    .line 691
+    and-int/lit8 v12, p1, 0x8
+
+    if-eqz v12, :cond_d
+
+    .line 692
+    invoke-direct {p0}, Lcom/android/internal/widget/ActionBarView;->initTitle()V
+
+    .line 698
+    :cond_2
+    :goto_6
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+
+    if-eqz v12, :cond_5
+
+    and-int/lit8 v12, v0, 0x6
+
+    if-eqz v12, :cond_5
+
+    .line 700
+    iget v12, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
+
+    and-int/lit8 v12, v12, 0x4
+
+    if-eqz v12, :cond_e
+
+    move v1, v11
+
+    .line 701
+    .local v1, homeAsUp:Z
+    :goto_7
+    iget-object v13, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
+
+    if-nez v4, :cond_10
+
+    if-eqz v1, :cond_f
+
+    move v12, v9
+
+    :goto_8
+    if-eqz v13, :cond_3
+
+    invoke-virtual {v13, v12}, Landroid/view/View;->setVisibility(I)V
+
+    .line 704
+    :cond_3
+    iget-boolean v12, p0, Lcom/android/internal/widget/ActionBarView;->mIsParentThemeDeviceDefault:Z
+
+    if-eqz v12, :cond_4
+
+    .line 705
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
+
+    invoke-virtual {v12}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v7
 
     check-cast v7, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 669
-    .local v7, titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
+    .line 706
+    .local v7, titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleView:Landroid/widget/TextView;
 
-    invoke-virtual {v10}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v12}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v6
 
     check-cast v6, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 670
-    .local v6, subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    if-eqz v5, :cond_10
+    .line 707
+    .local v6, titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
 
-    .line 671
-    const/4 v10, 0x0
+    invoke-virtual {v12}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    iput v10, v8, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+    move-result-object v5
 
-    iput v10, v8, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    check-cast v5, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    .line 672
-    const/4 v10, 0x0
+    .line 708
+    .local v5, subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    if-eqz v4, :cond_11
 
-    iput v10, v7, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    .line 709
+    iput v9, v7, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
-    .line 673
-    const/4 v10, 0x0
+    iput v9, v7, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    iput v10, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    .line 710
+    iput v9, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    .line 691
-    .end local v6           #subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .end local v7           #titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .end local v8           #titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    :cond_3
+    .line 711
+    iput v9, v5, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    .line 729
+    .end local v5           #subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v6           #titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v7           #titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    :cond_4
     :goto_9
-    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
-    if-nez v5, :cond_12
-
-    if-eqz v1, :cond_12
-
-    const/4 v10, 0x1
-
-    :goto_a
-    invoke-virtual {v11, v10}, Landroid/widget/LinearLayout;->setEnabled(Z)V
-
-    .line 692
-    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
-
-    if-nez v5, :cond_13
+    if-nez v4, :cond_13
 
     if-eqz v1, :cond_13
 
-    const/4 v10, 0x1
+    move v10, v11
 
-    :goto_b
-    invoke-virtual {v11, v10}, Landroid/widget/LinearLayout;->setClickable(Z)V
+    :goto_a
+    invoke-virtual {v12, v10}, Landroid/widget/LinearLayout;->setEnabled(Z)V
 
-    .line 694
-    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
-    if-nez v5, :cond_14
+    if-nez v4, :cond_14
 
     if-eqz v1, :cond_14
 
-    const/4 v10, 0x1
+    move v10, v11
+
+    :goto_b
+    invoke-virtual {v12, v10}, Landroid/widget/LinearLayout;->setClickable(Z)V
+
+    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+
+    if-nez v4, :cond_15
+
+    if-eqz v1, :cond_15
 
     :goto_c
-    invoke-virtual {v11, v10}, Landroid/widget/LinearLayout;->setFocusable(Z)V
+    invoke-virtual {v10, v11}, Landroid/widget/LinearLayout;->setFocusable(Z)V
 
-    .line 698
+    .line 736
     .end local v1           #homeAsUp:Z
-    .end local v3           #outValue:Landroid/util/TypedValue;
-    :cond_4
-    and-int/lit8 v10, v0, 0x10
-
-    if-eqz v10, :cond_5
-
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
-
-    if-eqz v10, :cond_5
-
-    .line 699
-    and-int/lit8 v10, p1, 0x10
-
-    if-eqz v10, :cond_15
-
-    .line 700
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
-
-    invoke-virtual {p0, v10}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
-
-    .line 706
     :cond_5
+    and-int/lit8 v9, v0, 0x10
+
+    if-eqz v9, :cond_6
+
+    iget-object v9, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
+
+    if-eqz v9, :cond_6
+
+    .line 737
+    and-int/lit8 v9, p1, 0x10
+
+    if-eqz v9, :cond_16
+
+    .line 738
+    iget-object v9, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
+
+    invoke-virtual {p0, v9}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
+
+    .line 744
+    :cond_6
     :goto_d
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->requestLayout()V
 
-    .line 712
-    .end local v5           #showHome:Z
-    .end local v9           #vis:I
+    .line 750
+    .end local v4           #showHome:Z
+    .end local v8           #vis:I
     :goto_e
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
+    iget-object v9, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
-    invoke-virtual {v10}, Lcom/android/internal/widget/ActionBarView$HomeView;->isEnabled()Z
+    invoke-virtual {v9}, Lcom/android/internal/widget/ActionBarView$HomeView;->isEnabled()Z
 
-    move-result v10
+    move-result v9
 
-    if-nez v10, :cond_17
+    if-nez v9, :cond_18
 
-    .line 713
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
+    .line 751
+    iget-object v9, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
-    const/4 v11, 0x0
+    const/4 v10, 0x0
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/widget/ActionBarView$HomeView;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v9, v10}, Lcom/android/internal/widget/ActionBarView$HomeView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 721
+    .line 759
     :goto_f
     return-void
 
-    .line 610
+    .line 650
     .end local v0           #flagsChanged:I
-    :cond_6
-    iget v10, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
+    :cond_7
+    iget v12, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
 
-    xor-int v0, p1, v10
+    xor-int v0, p1, v12
 
     goto/16 :goto_0
 
-    .line 628
     .restart local v0       #flagsChanged:I
-    :cond_7
-    const/4 v5, 0x0
+    :cond_8
+    move v4, v9
 
+    .line 668
     goto/16 :goto_1
 
-    .line 629
-    .restart local v5       #showHome:Z
-    :cond_8
-    const/16 v9, 0x8
+    .restart local v4       #showHome:Z
+    :cond_9
+    move v8, v10
 
+    .line 669
     goto/16 :goto_2
 
-    .line 633
-    .restart local v9       #vis:I
-    :cond_9
-    const/4 v4, 0x0
+    .restart local v8       #vis:I
+    :cond_a
+    move v3, v9
 
+    .line 673
     goto/16 :goto_3
 
-    .line 646
-    :cond_a
-    const/4 v2, 0x0
+    :cond_b
+    move v2, v9
 
+    .line 686
     goto/16 :goto_4
 
-    .line 647
+    .line 687
     .restart local v2       #logoVis:Z
-    :cond_b
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mIcon:Landroid/graphics/drawable/Drawable;
+    :cond_c
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mIcon:Landroid/graphics/drawable/Drawable;
 
     goto/16 :goto_5
 
-    .line 654
+    .line 694
     .end local v2           #logoVis:Z
-    :cond_c
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    :cond_d
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
 
-    invoke-virtual {p0, v10}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
+    invoke-virtual {p0, v12}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
 
     goto/16 :goto_6
 
-    .line 660
-    :cond_d
-    const/4 v1, 0x0
+    :cond_e
+    move v1, v9
 
+    .line 700
     goto/16 :goto_7
 
-    .line 661
+    .line 701
     .restart local v1       #homeAsUp:Z
-    :cond_e
-    const/4 v10, 0x4
-
-    goto/16 :goto_8
-
     :cond_f
-    const/16 v10, 0x8
+    const/4 v12, 0x4
 
     goto/16 :goto_8
 
-    .line 676
-    .restart local v3       #outValue:Landroid/util/TypedValue;
-    .restart local v6       #subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .restart local v7       #titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .restart local v8       #titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
     :cond_10
-    if-eqz v1, :cond_11
+    move v12, v10
 
-    .line 677
+    goto/16 :goto_8
+
+    .line 714
+    .restart local v5       #subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .restart local v6       #titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .restart local v7       #titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    :cond_11
+    if-eqz v1, :cond_12
+
+    .line 715
     iget v10, p0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
 
-    iput v10, v8, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
-
-    iput v10, v8, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
-
-    .line 678
-    const/4 v10, 0x0
+    iput v10, v7, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
     iput v10, v7, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    .line 679
-    const/4 v10, 0x0
+    .line 716
+    iput v9, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    iput v10, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+    .line 717
+    iput v9, v5, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     goto :goto_9
 
-    .line 682
-    :cond_11
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
+    .line 720
+    :cond_12
+    iget-object v12, p0, Lcom/android/internal/widget/ActionBarView;->mTitleUpView:Landroid/view/View;
 
-    const/16 v11, 0x8
+    invoke-virtual {v12, v10}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-virtual {v10, v11}, Landroid/view/View;->setVisibility(I)V
+    .line 721
+    iput v9, v7, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
-    .line 683
-    const/4 v10, 0x0
+    iput v9, v7, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    iput v10, v8, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
-
-    iput v10, v8, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
-
-    .line 684
-    iget v10, p0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
-
-    mul-int/lit8 v10, v10, 0x2
-
-    iput v10, v7, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
-
-    .line 685
+    .line 722
     iget v10, p0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
 
     mul-int/lit8 v10, v10, 0x2
 
     iput v10, v6, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
+    .line 723
+    iget v10, p0, Lcom/android/internal/widget/ActionBarView;->mUpMargin:I
+
+    mul-int/lit8 v10, v10, 0x2
+
+    iput v10, v5, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
     goto/16 :goto_9
 
-    .line 691
-    .end local v6           #subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .end local v7           #titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    .end local v8           #titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
-    :cond_12
-    const/4 v10, 0x0
+    .end local v5           #subTitleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v6           #titleLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v7           #titleUpLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    :cond_13
+    move v10, v9
 
+    .line 729
     goto/16 :goto_a
 
-    .line 692
-    :cond_13
-    const/4 v10, 0x0
-
-    goto/16 :goto_b
-
-    .line 694
     :cond_14
-    const/4 v10, 0x0
+    move v10, v9
 
+    .line 730
+    goto :goto_b
+
+    :cond_15
+    move v11, v9
+
+    .line 732
     goto :goto_c
 
-    .line 702
+    .line 740
     .end local v1           #homeAsUp:Z
-    .end local v3           #outValue:Landroid/util/TypedValue;
-    :cond_15
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
+    :cond_16
+    iget-object v9, p0, Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
 
-    invoke-virtual {p0, v10}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
+    invoke-virtual {p0, v9}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
 
     goto :goto_d
 
-    .line 708
-    .end local v5           #showHome:Z
-    .end local v9           #vis:I
-    :cond_16
+    .line 746
+    .end local v4           #showHome:Z
+    .end local v8           #vis:I
+    :cond_17
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->invalidate()V
 
     goto :goto_e
 
-    .line 714
-    :cond_17
-    and-int/lit8 v10, p1, 0x4
+    .line 752
+    :cond_18
+    and-int/lit8 v9, p1, 0x4
 
-    if-eqz v10, :cond_18
+    if-eqz v9, :cond_19
 
-    .line 715
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
+    .line 753
+    iget-object v9, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
-    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v11}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v11
+    move-result-object v10
 
-    const v12, 0x104061b
+    const v11, 0x104062c
 
-    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/widget/ActionBarView$HomeView;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v9, v10}, Lcom/android/internal/widget/ActionBarView$HomeView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     goto :goto_f
 
-    .line 718
-    :cond_18
-    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
+    .line 756
+    :cond_19
+    iget-object v9, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
-    iget-object v11, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
+    iget-object v10, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v11}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v11
+    move-result-object v10
 
-    const v12, 0x104061a
+    const v11, 0x104062b
 
-    invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/widget/ActionBarView$HomeView;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v9, v10}, Lcom/android/internal/widget/ActionBarView$HomeView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_f
 .end method
@@ -5690,20 +6133,20 @@
     .parameter "adapter"
 
     .prologue
-    .line 794
+    .line 832
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView;->mSpinnerAdapter:Landroid/widget/SpinnerAdapter;
 
-    .line 795
+    .line 833
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
 
     if-eqz v0, :cond_0
 
-    .line 796
+    .line 834
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
 
     invoke-virtual {v0, p1}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
-    .line 798
+    .line 836
     :cond_0
     return-void
 .end method
@@ -5713,12 +6156,12 @@
     .parameter "position"
 
     .prologue
-    .line 805
+    .line 843
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
 
     invoke-virtual {v0, p1}, Landroid/widget/Spinner;->setSelection(I)V
 
-    .line 806
+    .line 844
     return-void
 .end method
 
@@ -5729,21 +6172,21 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 410
+    .line 450
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     if-eqz v1, :cond_0
 
-    .line 411
+    .line 451
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
 
-    .line 413
+    .line 453
     :cond_0
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
-    .line 414
+    .line 454
     if-eqz p1, :cond_2
 
     move v1, v2
@@ -5751,7 +6194,7 @@
     :goto_0
     iput-boolean v1, p0, Lcom/android/internal/widget/ActionBarView;->mIncludeTabs:Z
 
-    .line 415
+    .line 455
     iget-boolean v1, p0, Lcom/android/internal/widget/ActionBarView;->mIncludeTabs:Z
 
     if-eqz v1, :cond_1
@@ -5762,38 +6205,38 @@
 
     if-ne v1, v3, :cond_1
 
-    .line 416
+    .line 456
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 417
+    .line 457
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-virtual {v1}, Lcom/android/internal/widget/ScrollingTabContainerView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
-    .line 418
+    .line 458
     .local v0, lp:Landroid/view/ViewGroup$LayoutParams;
     const/4 v1, -0x2
 
     iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 419
+    .line 459
     const/4 v1, -0x1
 
     iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 420
+    .line 460
     invoke-virtual {p1, v2}, Lcom/android/internal/widget/ScrollingTabContainerView;->setAllowCollapse(Z)V
 
-    .line 422
+    .line 462
     .end local v0           #lp:Landroid/view/ViewGroup$LayoutParams;
     :cond_1
     return-void
 
-    .line 414
+    .line 454
     :cond_2
     const/4 v1, 0x0
 
@@ -5805,31 +6248,31 @@
     .parameter "enable"
 
     .prologue
-    .line 595
+    .line 635
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/widget/ActionBarView$HomeView;->setEnabled(Z)V
 
-    .line 596
+    .line 636
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/widget/ActionBarView$HomeView;->setFocusable(Z)V
 
-    .line 598
+    .line 638
     if-nez p1, :cond_0
 
-    .line 599
+    .line 639
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarView$HomeView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 607
+    .line 647
     :goto_0
     return-void
 
-    .line 600
+    .line 640
     :cond_0
     iget v0, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
 
@@ -5837,7 +6280,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 601
+    .line 641
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
@@ -5846,7 +6289,7 @@
 
     move-result-object v1
 
-    const v2, 0x104061b
+    const v2, 0x104062c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5856,7 +6299,7 @@
 
     goto :goto_0
 
-    .line 604
+    .line 644
     :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
@@ -5866,7 +6309,7 @@
 
     move-result-object v1
 
-    const v2, 0x104061a
+    const v2, 0x104062b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -5882,7 +6325,7 @@
     .parameter "resId"
 
     .prologue
-    .line 735
+    .line 773
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -5895,7 +6338,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarView;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 736
+    .line 774
     return-void
 .end method
 
@@ -5904,10 +6347,10 @@
     .parameter "icon"
 
     .prologue
-    .line 724
+    .line 762
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    .line 725
+    .line 763
     if-eqz p1, :cond_1
 
     iget v0, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
@@ -5920,19 +6363,19 @@
 
     if-nez v0, :cond_1
 
-    .line 727
+    .line 765
     :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/widget/ActionBarView$HomeView;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 729
+    .line 767
     :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
 
     if-eqz v0, :cond_2
 
-    .line 730
+    .line 768
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mIcon:Landroid/graphics/drawable/Drawable;
@@ -5951,7 +6394,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarView$HomeView;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 732
+    .line 770
     :cond_2
     return-void
 .end method
@@ -5961,7 +6404,7 @@
     .parameter "resId"
 
     .prologue
-    .line 746
+    .line 784
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -5974,7 +6417,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarView;->setLogo(Landroid/graphics/drawable/Drawable;)V
 
-    .line 747
+    .line 785
     return-void
 .end method
 
@@ -5983,10 +6426,10 @@
     .parameter "logo"
 
     .prologue
-    .line 739
+    .line 777
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView;->mLogo:Landroid/graphics/drawable/Drawable;
 
-    .line 740
+    .line 778
     if-eqz p1, :cond_0
 
     iget v0, p0, Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
@@ -5995,12 +6438,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 741
+    .line 779
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/widget/ActionBarView$HomeView;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 743
+    .line 781
     :cond_0
     return-void
 .end method
@@ -6016,29 +6459,29 @@
     .prologue
     const/4 v7, -0x1
 
-    .line 429
+    .line 469
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mOptionsMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     if-ne p1, v4, :cond_0
 
-    .line 499
+    .line 539
     :goto_0
     return-void
 
-    .line 431
+    .line 471
     :cond_0
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mOptionsMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     if-eqz v4, :cond_1
 
-    .line 432
+    .line 472
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mOptionsMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     iget-object v5, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v4, v5}, Lcom/android/internal/view/menu/MenuBuilder;->removeMenuPresenter(Lcom/android/internal/view/menu/MenuPresenter;)V
 
-    .line 433
+    .line 473
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mOptionsMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     iget-object v5, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
@@ -6048,19 +6491,19 @@
     :cond_1
     move-object v0, p1
 
-    .line 436
+    .line 476
     check-cast v0, Lcom/android/internal/view/menu/MenuBuilder;
 
-    .line 437
+    .line 477
     .local v0, builder:Lcom/android/internal/view/menu/MenuBuilder;
     iput-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mOptionsMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    .line 438
+    .line 478
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     if-eqz v4, :cond_2
 
-    .line 439
+    .line 479
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v4}, Lcom/android/internal/view/menu/ActionMenuView;->getParent()Landroid/view/ViewParent;
@@ -6069,23 +6512,19 @@
 
     check-cast v3, Landroid/view/ViewGroup;
 
-    .line 440
     .local v3, oldParent:Landroid/view/ViewGroup;
     if-eqz v3, :cond_2
 
-    .line 441
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 444
     .end local v3           #oldParent:Landroid/view/ViewGroup;
     :cond_2
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     if-nez v4, :cond_3
 
-    .line 445
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
 
     invoke-static {v4}, Lcom/android/internal/widget/ActionBarView$Injector;->createActionMenuPresenter(Landroid/content/Context;)Lcom/android/internal/view/menu/ActionMenuPresenter;
@@ -6094,19 +6533,19 @@
 
     iput-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
-    .line 456
+    .line 496
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v4, p2}, Lcom/android/internal/view/menu/ActionMenuPresenter;->setCallback(Lcom/android/internal/view/menu/MenuPresenter$Callback;)V
 
-    .line 457
+    .line 497
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     const v5, 0x1020259
 
     invoke-virtual {v4, v5}, Lcom/android/internal/view/menu/ActionMenuPresenter;->setId(I)V
 
-    .line 458
+    .line 498
     new-instance v4, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
     const/4 v5, 0x0
@@ -6115,7 +6554,7 @@
 
     iput-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedMenuPresenter:Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;
 
-    .line 462
+    .line 502
     :cond_3
     new-instance v1, Landroid/view/ViewGroup$LayoutParams;
 
@@ -6123,13 +6562,13 @@
 
     invoke-direct {v1, v4, v7}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 464
+    .line 504
     .local v1, layoutParams:Landroid/view/ViewGroup$LayoutParams;
     iget-boolean v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitActionBar:Z
 
     if-nez v4, :cond_5
 
-    .line 465
+    .line 505
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getResources()Landroid/content/res/Resources;
@@ -6144,10 +6583,10 @@
 
     invoke-virtual {v4, v5}, Lcom/android/internal/view/menu/ActionMenuPresenter;->setExpandedActionViewsExclusive(Z)V
 
-    .line 468
+    .line 508
     invoke-direct {p0, v0}, Lcom/android/internal/widget/ActionBarView;->configPresenters(Lcom/android/internal/view/menu/MenuBuilder;)V
 
-    .line 469
+    .line 509
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v4, p0}, Lcom/android/internal/view/menu/ActionMenuPresenter;->getMenuView(Landroid/view/ViewGroup;)Lcom/android/internal/view/menu/MenuView;
@@ -6156,7 +6595,7 @@
 
     check-cast v2, Lcom/android/internal/view/menu/ActionMenuView;
 
-    .line 470
+    .line 510
     .local v2, menuView:Lcom/android/internal/view/menu/ActionMenuView;
     invoke-virtual {v2}, Lcom/android/internal/view/menu/ActionMenuView;->getParent()Landroid/view/ViewParent;
 
@@ -6164,27 +6603,27 @@
 
     check-cast v3, Landroid/view/ViewGroup;
 
-    .line 471
+    .line 511
     .restart local v3       #oldParent:Landroid/view/ViewGroup;
     if-eqz v3, :cond_4
 
     if-eq v3, p0, :cond_4
 
-    .line 472
+    .line 512
     invoke-virtual {v3, v2}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 474
+    .line 514
     :cond_4
     invoke-virtual {p0, v2, v1}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 498
+    .line 538
     .end local v3           #oldParent:Landroid/view/ViewGroup;
     :goto_1
     iput-object v2, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     goto/16 :goto_0
 
-    .line 476
+    .line 516
     .end local v2           #menuView:Lcom/android/internal/view/menu/ActionMenuView;
     :cond_5
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
@@ -6193,7 +6632,7 @@
 
     invoke-virtual {v4, v5}, Lcom/android/internal/view/menu/ActionMenuPresenter;->setExpandedActionViewsExclusive(Z)V
 
-    .line 478
+    .line 518
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getContext()Landroid/content/Context;
@@ -6214,20 +6653,20 @@
 
     invoke-virtual {v4, v5, v6}, Lcom/android/internal/view/menu/ActionMenuPresenter;->setWidthLimit(IZ)V
 
-    .line 481
+    .line 521
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     const v5, 0x7fffffff
 
     invoke-virtual {v4, v5}, Lcom/android/internal/view/menu/ActionMenuPresenter;->setItemLimit(I)V
 
-    .line 483
+    .line 523
     iput v7, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 484
+    .line 524
     invoke-direct {p0, v0}, Lcom/android/internal/widget/ActionBarView;->configPresenters(Lcom/android/internal/view/menu/MenuBuilder;)V
 
-    .line 485
+    .line 525
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v4, p0}, Lcom/android/internal/view/menu/ActionMenuPresenter;->getMenuView(Landroid/view/ViewGroup;)Lcom/android/internal/view/menu/MenuView;
@@ -6236,20 +6675,20 @@
 
     check-cast v2, Lcom/android/internal/view/menu/ActionMenuView;
 
-    .line 486
+    .line 526
     .restart local v2       #menuView:Lcom/android/internal/view/menu/ActionMenuView;
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
 
     if-eqz v4, :cond_7
 
-    .line 487
+    .line 527
     invoke-virtual {v2}, Lcom/android/internal/view/menu/ActionMenuView;->getParent()Landroid/view/ViewParent;
 
     move-result-object v3
 
     check-cast v3, Landroid/view/ViewGroup;
 
-    .line 488
+    .line 528
     .restart local v3       #oldParent:Landroid/view/ViewGroup;
     if-eqz v3, :cond_6
 
@@ -6257,10 +6696,10 @@
 
     if-eq v3, v4, :cond_6
 
-    .line 489
+    .line 529
     invoke-virtual {v3, v2}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 491
+    .line 531
     :cond_6
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getAnimatedVisibility()I
 
@@ -6268,17 +6707,81 @@
 
     invoke-virtual {v2, v4}, Lcom/android/internal/view/menu/ActionMenuView;->setVisibility(I)V
 
-    .line 492
+    .line 532
     iget-object v4, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
 
     invoke-virtual {v4, v2, v1}, Lcom/android/internal/widget/ActionBarContainer;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     goto :goto_1
 
-    .line 495
+    .line 535
     .end local v3           #oldParent:Landroid/view/ViewGroup;
     :cond_7
     invoke-virtual {v2, v1}, Lcom/android/internal/view/menu/ActionMenuView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_1
+.end method
+
+.method public setMultiWindowReserved(Z)V
+    .locals 2
+    .parameter "reserveMultiWindow"
+
+    .prologue
+    .line 988
+    iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    if-nez v0, :cond_1
+
+    .line 989
+    iput-boolean p1, p0, Lcom/android/internal/widget/ActionBarView;->mReserveMultiWindow:Z
+
+    .line 1007
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 992
+    :cond_1
+    iget-boolean v0, p0, Lcom/android/internal/widget/ActionBarView;->mReserveMultiWindow:Z
+
+    if-eq v0, p1, :cond_0
+
+    .line 996
+    if-eqz p1, :cond_2
+
+    .line 997
+    iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 998
+    iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
+
+    .line 1005
+    :goto_1
+    iput-boolean p1, p0, Lcom/android/internal/widget/ActionBarView;->mReserveMultiWindow:Z
+
+    .line 1006
+    invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->requestLayout()V
+
+    goto :goto_0
+
+    .line 1001
+    :cond_2
+    iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 1002
+    iget-object v0, p0, Lcom/android/internal/widget/ActionBarView;->mMultiWindowMenuButton:Landroid/view/View;
+
+    invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
 
     goto :goto_1
 .end method
@@ -6290,47 +6793,47 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 750
+    .line 788
     iget v0, p0, Lcom/android/internal/widget/ActionBarView;->mNavigationMode:I
 
-    .line 751
+    .line 789
     .local v0, oldMode:I
     if-eq p1, v0, :cond_2
 
-    .line 752
+    .line 790
     packed-switch v0, :pswitch_data_0
 
-    .line 764
+    .line 802
     :cond_0
     :goto_0
     packed-switch p1, :pswitch_data_1
 
-    .line 788
+    .line 826
     :cond_1
     :goto_1
     iput p1, p0, Lcom/android/internal/widget/ActionBarView;->mNavigationMode:I
 
-    .line 789
+    .line 827
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->requestLayout()V
 
-    .line 791
+    .line 829
     :cond_2
     return-void
 
-    .line 754
+    .line 792
     :pswitch_0
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
 
     if-eqz v2, :cond_0
 
-    .line 755
+    .line 793
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {p0, v2}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
 
     goto :goto_0
 
-    .line 759
+    .line 797
     :pswitch_1
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
@@ -6340,20 +6843,20 @@
 
     if-eqz v2, :cond_0
 
-    .line 760
+    .line 798
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-virtual {p0, v2}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
 
     goto :goto_0
 
-    .line 766
+    .line 804
     :pswitch_2
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
 
     if-nez v2, :cond_3
 
-    .line 767
+    .line 805
     new-instance v2, Landroid/widget/Spinner;
 
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
@@ -6364,7 +6867,7 @@
 
     iput-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
 
-    .line 769
+    .line 807
     new-instance v2, Landroid/widget/LinearLayout;
 
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarView;->mContext:Landroid/content/Context;
@@ -6375,7 +6878,7 @@
 
     iput-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
 
-    .line 771
+    .line 809
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v2, -0x2
@@ -6384,20 +6887,20 @@
 
     invoke-direct {v1, v2, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 773
+    .line 811
     .local v1, params:Landroid/widget/LinearLayout$LayoutParams;
     const/16 v2, 0x11
 
     iput v2, v1, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 774
+    .line 812
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
 
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
 
     invoke-virtual {v2, v3, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 776
+    .line 814
     .end local v1           #params:Landroid/widget/LinearLayout$LayoutParams;
     :cond_3
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
@@ -6410,14 +6913,14 @@
 
     if-eq v2, v3, :cond_4
 
-    .line 777
+    .line 815
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
 
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarView;->mSpinnerAdapter:Landroid/widget/SpinnerAdapter;
 
     invoke-virtual {v2, v3}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
-    .line 779
+    .line 817
     :cond_4
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
 
@@ -6425,14 +6928,14 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    .line 780
+    .line 818
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mListNavLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {p0, v2}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
     goto :goto_1
 
-    .line 783
+    .line 821
     :pswitch_3
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
@@ -6442,14 +6945,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 784
+    .line 822
     iget-object v2, p0, Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-virtual {p0, v2}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
     goto :goto_1
 
-    .line 752
+    .line 790
     nop
 
     :pswitch_data_0
@@ -6458,7 +6961,7 @@
         :pswitch_1
     .end packed-switch
 
-    .line 764
+    .line 802
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_2
@@ -6473,17 +6976,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 362
+    .line 402
     iget-boolean v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitActionBar:Z
 
     if-eq v1, p1, :cond_5
 
-    .line 363
+    .line 403
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     if-eqz v1, :cond_2
 
-    .line 364
+    .line 404
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1}, Lcom/android/internal/view/menu/ActionMenuView;->getParent()Landroid/view/ViewParent;
@@ -6492,32 +6995,32 @@
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    .line 365
+    .line 405
     .local v0, oldParent:Landroid/view/ViewGroup;
     if-eqz v0, :cond_0
 
-    .line 366
+    .line 406
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 368
+    .line 408
     :cond_0
     if-eqz p1, :cond_6
 
-    .line 369
+    .line 409
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
 
     if-eqz v1, :cond_1
 
-    .line 370
+    .line 410
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
 
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1, v3}, Lcom/android/internal/widget/ActionBarContainer;->addView(Landroid/view/View;)V
 
-    .line 372
+    .line 412
     :cond_1
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
@@ -6529,20 +7032,20 @@
 
     iput v3, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 377
+    .line 417
     :goto_0
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1}, Lcom/android/internal/view/menu/ActionMenuView;->requestLayout()V
 
-    .line 379
+    .line 419
     .end local v0           #oldParent:Landroid/view/ViewGroup;
     :cond_2
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
 
     if-eqz v1, :cond_3
 
-    .line 380
+    .line 420
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
 
     if-eqz p1, :cond_7
@@ -6552,16 +7055,16 @@
     :goto_1
     invoke-virtual {v3, v1}, Lcom/android/internal/widget/ActionBarContainer;->setVisibility(I)V
 
-    .line 383
+    .line 423
     :cond_3
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     if-eqz v1, :cond_4
 
-    .line 384
+    .line 424
     if-nez p1, :cond_8
 
-    .line 385
+    .line 425
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getResources()Landroid/content/res/Resources;
@@ -6576,23 +7079,23 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/ActionMenuPresenter;->setExpandedActionViewsExclusive(Z)V
 
-    .line 397
+    .line 437
     :cond_4
     :goto_2
     invoke-super {p0, p1}, Lcom/android/internal/widget/AbsActionBarView;->setSplitActionBar(Z)V
 
-    .line 399
+    .line 439
     :cond_5
     return-void
 
-    .line 374
+    .line 414
     .restart local v0       #oldParent:Landroid/view/ViewGroup;
     :cond_6
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 375
+    .line 415
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
     invoke-virtual {v1}, Lcom/android/internal/view/menu/ActionMenuView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -6605,20 +7108,20 @@
 
     goto :goto_0
 
-    .line 380
+    .line 420
     .end local v0           #oldParent:Landroid/view/ViewGroup;
     :cond_7
     const/16 v1, 0x8
 
     goto :goto_1
 
-    .line 389
+    .line 429
     :cond_8
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/ActionMenuPresenter;->setExpandedActionViewsExclusive(Z)V
 
-    .line 391
+    .line 431
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getContext()Landroid/content/Context;
@@ -6639,7 +7142,7 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/internal/view/menu/ActionMenuPresenter;->setWidthLimit(IZ)V
 
-    .line 394
+    .line 434
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     const v2, 0x7fffffff
@@ -6658,20 +7161,20 @@
 
     const/4 v2, 0x0
 
-    .line 583
+    .line 623
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitle:Ljava/lang/CharSequence;
 
-    .line 584
+    .line 624
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
 
     if-eqz v1, :cond_1
 
-    .line 585
+    .line 625
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
 
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 586
+    .line 626
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView;->mSubtitleView:Landroid/widget/TextView;
 
     if-eqz p1, :cond_2
@@ -6681,7 +7184,7 @@
     :goto_0
     invoke-virtual {v4, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 587
+    .line 627
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
 
     if-nez v1, :cond_3
@@ -6711,7 +7214,7 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 590
+    .line 630
     .local v0, visible:Z
     :goto_1
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
@@ -6721,7 +7224,7 @@
     :goto_2
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 592
+    .line 632
     .end local v0           #visible:Z
     :cond_1
     return-void
@@ -6729,20 +7232,20 @@
     :cond_2
     move v1, v3
 
-    .line 586
+    .line 626
     goto :goto_0
 
     :cond_3
     move v0, v2
 
-    .line 587
+    .line 627
     goto :goto_1
 
     .restart local v0       #visible:Z
     :cond_4
     move v2, v3
 
-    .line 590
+    .line 630
     goto :goto_2
 .end method
 
@@ -6764,15 +7267,15 @@
     .parameter "title"
 
     .prologue
-    .line 548
+    .line 588
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/widget/ActionBarView;->mUserTitle:Z
 
-    .line 549
+    .line 589
     invoke-direct {p0, p1}, Lcom/android/internal/widget/ActionBarView;->setTitleImpl(Ljava/lang/CharSequence;)V
 
-    .line 550
+    .line 590
     return-void
 .end method
 
@@ -6807,10 +7310,10 @@
     .parameter "cb"
 
     .prologue
-    .line 326
+    .line 366
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView;->mWindowCallback:Landroid/view/Window$Callback;
 
-    .line 327
+    .line 367
     return-void
 .end method
 
@@ -6819,15 +7322,15 @@
     .parameter "title"
 
     .prologue
-    .line 559
+    .line 599
     iget-boolean v0, p0, Lcom/android/internal/widget/ActionBarView;->mUserTitle:Z
 
     if-nez v0, :cond_0
 
-    .line 560
+    .line 600
     invoke-direct {p0, p1}, Lcom/android/internal/widget/ActionBarView;->setTitleImpl(Ljava/lang/CharSequence;)V
 
-    .line 562
+    .line 602
     :cond_0
     return-void
 .end method
@@ -6836,8 +7339,99 @@
     .locals 1
 
     .prologue
-    .line 341
+    .line 381
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public updateCollapsed()V
+    .locals 7
+
+    .prologue
+    .line 1103
+    invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/view/ViewGroup;
+
+    .line 1104
+    .local v3, parent:Landroid/view/ViewGroup;
+    if-eqz v3, :cond_3
+
+    iget-boolean v5, p0, Lcom/android/internal/widget/ActionBarView;->mIsCollapsable:Z
+
+    if-eqz v5, :cond_3
+
+    .line 1105
+    invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarView;->getChildCount()I
+
+    move-result v1
+
+    .line 1106
+    .local v1, childCount:I
+    const/4 v4, 0x0
+
+    .line 1107
+    .local v4, visibleChildren:I
+    const/4 v2, 0x0
+
+    .local v2, i:I
+    :goto_0
+    if-ge v2, v1, :cond_2
+
+    .line 1108
+    invoke-virtual {p0, v2}, Lcom/android/internal/widget/ActionBarView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 1109
+    .local v0, child:Landroid/view/View;
+    invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
+
+    move-result v5
+
+    const/16 v6, 0x8
+
+    if-eq v5, v6, :cond_1
+
+    iget-object v5, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
+
+    if-ne v0, v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
+
+    invoke-virtual {v5}, Lcom/android/internal/view/menu/ActionMenuView;->getChildCount()I
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    .line 1111
+    :cond_0
+    add-int/lit8 v4, v4, 0x1
+
+    .line 1107
+    :cond_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    .line 1115
+    .end local v0           #child:Landroid/view/View;
+    :cond_2
+    if-nez v4, :cond_3
+
+    .line 1117
+    const/4 v5, 0x1
+
+    iput-boolean v5, p0, Lcom/android/internal/widget/ActionBarView;->mIsCollapsed:Z
+
+    .line 1120
+    .end local v1           #childCount:I
+    .end local v2           #i:I
+    .end local v4           #visibleChildren:I
+    :cond_3
+    return-void
 .end method

@@ -19,6 +19,13 @@
     <dimen name="default_app_widget_padding_top">4.0dip</dimen>
     <dimen name="default_app_widget_padding_right">12.0dip</dimen>
     <dimen name="default_app_widget_padding_bottom">20.0dip</dimen>
+    <dimen name="multiwindow_gap">50.0dip</dimen>
+    <dimen name="multiwindow_def_width">640.0dip</dimen>
+    <dimen name="multiwindow_def_height">400.0dip</dimen>
+    <dimen name="multiwindow_minimized_width">394.0dip</dimen>
+    <dimen name="multiwindow_minimized_height">39.0dip</dimen>
+    <dimen name="multiwindow_default_center_bar_width">14.0dip</dimen>
+    <dimen name="multiwindow_default_center_bar_inner_padding">0.0dip</dimen>
     <dimen name="keyguard_lockscreen_application_shortcut_padding_width">27.0dip</dimen>
     <dimen name="keyguard_lockscreen_application_shortcut_icon_width">98.0dip</dimen>
     <dimen name="keyguard_lockscreen_application_shortcut_icon_height">72.0dip</dimen>

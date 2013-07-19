@@ -35,21 +35,21 @@
     .parameter "uCount"
 
     .prologue
-    .line 2936
+    .line 2959
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2937
+    .line 2960
     iput-object p1, p0, Landroid/app/ActivityThread$ProviderRefCount;->holder:Landroid/app/IActivityManager$ContentProviderHolder;
 
-    .line 2938
+    .line 2961
     iput-object p2, p0, Landroid/app/ActivityThread$ProviderRefCount;->client:Landroid/app/ActivityThread$ProviderClientRecord;
 
-    .line 2939
+    .line 2962
     iput p3, p0, Landroid/app/ActivityThread$ProviderRefCount;->stableCount:I
 
-    .line 2940
+    .line 2963
     iput p4, p0, Landroid/app/ActivityThread$ProviderRefCount;->unstableCount:I
 
-    .line 2941
+    .line 2964
     return-void
 .end method

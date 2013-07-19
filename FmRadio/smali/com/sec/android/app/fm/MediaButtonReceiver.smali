@@ -31,13 +31,13 @@
 
     sput-object v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->TAG:Ljava/lang/String;
 
-    .line 23
+    .line 24
     sput v1, Lcom/sec/android/app/fm/MediaButtonReceiver;->double_click:I
 
-    .line 28
+    .line 29
     sput-boolean v1, Lcom/sec/android/app/fm/MediaButtonReceiver;->mPressed:Z
 
-    .line 33
+    .line 36
     new-instance v0, Lcom/sec/android/app/fm/MediaButtonReceiver$1;
 
     invoke-direct {v0}, Lcom/sec/android/app/fm/MediaButtonReceiver$1;-><init>()V
@@ -98,29 +98,6 @@
     return-object v0
 .end method
 
-.method private isForbidDoubleClick(Landroid/content/Intent;)Z
-    .locals 2
-    .parameter "intent"
-
-    .prologue
-    const/4 v1, 0x0
-
-    const-string v0, "forbid_double_click"
-
-    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    :goto_0
-    return v1
-
-    :cond_0
-    const/4 v1, 0x1
-
-    goto :goto_0
-.end method
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
@@ -129,25 +106,16 @@
     .parameter
 
     .prologue
-    invoke-direct {p0, p2}, Lcom/sec/android/app/fm/MediaButtonReceiver;->isForbidDoubleClick(Landroid/content/Intent;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_miui_0
-
-    return-void
-
-    :cond_miui_0
     const/4 v4, 0x2
 
     const/4 v6, 0x0
 
     const/4 v5, 0x1
 
-    .line 69
+    .line 75
     sput-object p1, Lcom/sec/android/app/fm/MediaButtonReceiver;->mContext:Landroid/content/Context;
 
-    .line 70
+    .line 76
     const-string v0, "FMPlayer"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -156,7 +124,7 @@
 
     check-cast v0, Lcom/samsung/media/fmradio/FMPlayer;
 
-    .line 72
+    .line 78
     const-string v0, "android.intent.extra.KEY_EVENT"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -165,37 +133,37 @@
 
     check-cast v0, Landroid/view/KeyEvent;
 
-    .line 73
+    .line 79
     if-nez v0, :cond_1
 
-    .line 133
+    .line 137
     :cond_0
     :goto_0
     return-void
 
-    .line 76
+    .line 82
     :cond_1
     invoke-virtual {v0}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v1
 
-    .line 77
+    .line 83
     invoke-virtual {v0}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v2
 
-    .line 80
+    .line 85
     invoke-virtual {v0}, Landroid/view/KeyEvent;->isLongPress()Z
 
     move-result v0
 
-    .line 82
+    .line 87
     if-eqz v0, :cond_2
 
-    .line 83
+    .line 88
     sput-boolean v5, Lcom/sec/android/app/fm/MediaButtonReceiver;->mPressed:Z
 
-    .line 85
+    .line 90
     :cond_2
     new-instance v0, Landroid/content/Intent;
 
@@ -203,37 +171,37 @@
 
     invoke-direct {v0, p1, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 86
+    .line 91
     invoke-virtual {p1, v0}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    .line 88
+    .line 93
     sparse-switch v1, :sswitch_data_0
 
-    .line 129
+    .line 133
     :cond_3
     :goto_1
     if-ne v2, v5, :cond_0
 
-    .line 130
+    .line 134
     sput-boolean v6, Lcom/sec/android/app/fm/MediaButtonReceiver;->mPressed:Z
 
     goto :goto_0
 
-    .line 92
+    .line 97
     :sswitch_0
     if-nez v2, :cond_5
 
-    .line 93
+    .line 98
     sget v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->double_click:I
 
     if-ne v0, v4, :cond_4
 
-    .line 94
+    .line 99
     sget-object v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v4}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 98
+    .line 103
     :goto_2
     sget-object v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->mHandler:Landroid/os/Handler;
 
@@ -243,7 +211,7 @@
 
     goto :goto_1
 
-    .line 96
+    .line 101
     :cond_4
     sget v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->double_click:I
 
@@ -253,7 +221,7 @@
 
     goto :goto_2
 
-    .line 99
+    .line 104
     :cond_5
     if-ne v2, v5, :cond_6
 
@@ -261,12 +229,12 @@
 
     if-nez v0, :cond_6
 
-    .line 100
+    .line 105
     sget v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->double_click:I
 
     if-ne v0, v5, :cond_3
 
-    .line 101
+    .line 106
     sget v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->double_click:I
 
     add-int/lit8 v0, v0, 0x1
@@ -275,7 +243,7 @@
 
     goto :goto_1
 
-    .line 104
+    .line 109
     :cond_6
     sget-object v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->mHandler:Landroid/os/Handler;
 
@@ -285,35 +253,35 @@
 
     if-eqz v0, :cond_7
 
-    .line 105
+    .line 110
     sget-object v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->TAG:Ljava/lang/String;
 
     const-string v1, "Short -> Message removed"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 106
+    .line 111
     sget-object v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v6}, Landroid/os/Handler;->removeMessages(I)V
 
     goto :goto_1
 
-    .line 109
+    .line 113
     :cond_7
     sget-object v0, Lcom/sec/android/app/fm/MediaButtonReceiver;->TAG:Ljava/lang/String;
 
     const-string v1, "Long -> Do nothing"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 116
+    .line 120
     :sswitch_1
     if-ne v2, v5, :cond_3
 
-    .line 117
+    .line 121
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.fm.player.tune.next"
@@ -324,11 +292,11 @@
 
     goto :goto_1
 
-    .line 121
+    .line 125
     :sswitch_2
     if-ne v2, v5, :cond_3
 
-    .line 122
+    .line 126
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.fm.player.tune.prev"
@@ -339,7 +307,7 @@
 
     goto :goto_1
 
-    .line 88
+    .line 93
     :sswitch_data_0
     .sparse-switch
         0x4f -> :sswitch_0

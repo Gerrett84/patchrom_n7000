@@ -27,12 +27,12 @@
     .parameter
 
     .prologue
-    .line 767
+    .line 779
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockView$SineEaseInOut;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 768
+    .line 780
     return-void
 .end method
 
@@ -43,12 +43,12 @@
     .parameter "attrs"
 
     .prologue
-    .line 770
+    .line 782
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockView$SineEaseInOut;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 771
+    .line 783
     return-void
 .end method
 
@@ -61,7 +61,7 @@
     .prologue
     const/high16 v2, 0x3f80
 
-    .line 774
+    .line 786
     const/high16 v0, -0x4100
 
     const v1, 0x40490fdb

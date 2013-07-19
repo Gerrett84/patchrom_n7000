@@ -115,7 +115,7 @@
     .locals 0
 
     .prologue
-    .line 119
+    .line 118
     return-void
 .end method
 
@@ -123,24 +123,24 @@
     .locals 0
 
     .prologue
-    .line 129
+    .line 128
     return-void
 .end method
 
 .method protected sendCmdToSensorHub(BB[B)V
-    .locals 7
+    .locals 6
     .parameter "inst"
     .parameter "type"
     .parameter "data"
 
     .prologue
-    const/4 v6, 0x3
+    const/4 v5, 0x3
 
-    const/4 v5, 0x2
+    const/4 v4, 0x2
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     .line 97
     const/4 v1, 0x4
@@ -149,27 +149,37 @@
 
     .line 98
     .local v0, packet:[B
-    aput-byte p1, v0, v3
+    aput-byte p1, v0, v2
 
     .line 99
-    aput-byte p2, v0, v4
+    aput-byte p2, v0, v3
 
     .line 100
+    aget-byte v1, p3, v2
+
+    aput-byte v1, v0, v4
+
+    .line 101
     aget-byte v1, p3, v3
 
     aput-byte v1, v0, v5
-
-    .line 101
-    aget-byte v1, p3, v4
-
-    aput-byte v1, v0, v6
 
     .line 103
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "inst = "
+    aget-byte v2, v0, v2
+
+    invoke-static {v2}, Ljava/lang/Byte;->toString(B)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -185,18 +195,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/hardware/contextaware/utilbundle/CALogger;->info(Ljava/lang/String;)V
-
-    .line 104
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "type = "
+    const-string v2, ", "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -212,18 +211,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/hardware/contextaware/utilbundle/CALogger;->info(Ljava/lang/String;)V
-
-    .line 105
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "data[0] = "
+    const-string v2, ", "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -245,39 +233,12 @@
 
     invoke-static {v1}, Landroid/hardware/contextaware/utilbundle/CALogger;->info(Ljava/lang/String;)V
 
-    .line 106
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "data[1] = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    aget-byte v2, v0, v6
-
-    invoke-static {v2}, Ljava/lang/Byte;->toString(B)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/hardware/contextaware/utilbundle/CALogger;->info(Ljava/lang/String;)V
-
-    .line 108
+    .line 107
     array-length v1, v0
 
     invoke-direct {p0, v1, v0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->sendPacketToSensorHub(I[B)V
 
-    .line 109
+    .line 108
     return-void
 .end method
 

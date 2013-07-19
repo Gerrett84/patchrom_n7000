@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 231
+    .line 243
     invoke-static {}, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->values()[Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     move-result-object v0

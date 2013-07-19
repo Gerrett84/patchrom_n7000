@@ -3,12 +3,12 @@
 .source "MainActivity.java"
 
 # interfaces
-.implements Landroid/view/animation/Animation$AnimationListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/fm/MainActivity;->radioStatusHideAnimation()V
+    value = Lcom/sec/android/app/fm/MainActivity;->onCreateDialog(I)Landroid/app/Dialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 11938
+    .line 4619
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$34;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,59 +37,31 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 2
-    .parameter "arg0"
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 4
+    .parameter "dialog"
 
     .prologue
-    .line 11946
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$34;->this$0:Lcom/sec/android/app/fm/MainActivity;
+    .line 4623
+    new-instance v0, Landroid/os/Message;
 
+    invoke-direct {v0}, Landroid/os/Message;-><init>()V
+
+    .line 4624
+    .local v0, msg:Landroid/os/Message;
     const/16 v1, 0x8
 
-    #calls: Lcom/sec/android/app/fm/MainActivity;->setRadioStatusTextVisibility(I)V
-    invoke-static {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->access$600(Lcom/sec/android/app/fm/MainActivity;I)V
+    iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 11948
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$34;->this$0:Lcom/sec/android/app/fm/MainActivity;
+    .line 4625
+    iget-object v1, p0, Lcom/sec/android/app/fm/MainActivity$34;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->mTxtRadioStatusText:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$700(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/TextView;
+    iget-object v1, v1, Lcom/sec/android/app/fm/MainActivity;->mHandler:Lcom/sec/android/app/fm/MainActivity$MyHandler;
 
-    move-result-object v0
+    const-wide/16 v2, 0x1f4
 
-    const-string v1, ""
+    invoke-virtual {v1, v0, v2, v3}, Lcom/sec/android/app/fm/MainActivity$MyHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 11952
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$34;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->mTxtRadioStatusText:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$700(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->clearAnimation()V
-
-    .line 11956
-    return-void
-.end method
-
-.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
-    .parameter "arg0"
-
-    .prologue
-    .line 11942
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 0
-    .parameter "arg0"
-
-    .prologue
-    .line 11940
+    .line 4627
     return-void
 .end method

@@ -653,6 +653,18 @@
     return v0
 .end method
 
+.method public static getInstance(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+    .locals 1
+    .parameter "context"
+
+    .prologue
+    new-instance v0, Landroid/view/ViewConfiguration;
+
+    invoke-direct {v0, p0}, Landroid/view/ViewConfiguration;-><init>(Landroid/content/Context;)V
+
+    return-object v0
+.end method
+
 .method public static getJumpTapTimeout()I
     .locals 1
 
@@ -993,16 +1005,4 @@
     iget-boolean v0, p0, Landroid/view/ViewConfiguration;->mFadingMarqueeEnabled:Z
 
     return v0
-.end method
-
-.method public static getInstance(Landroid/content/Context;)Landroid/view/ViewConfiguration;
-    .locals 1
-    .parameter "context"
-
-    .prologue
-    new-instance v0, Landroid/view/ViewConfiguration;
-
-    invoke-direct {v0, p0}, Landroid/view/ViewConfiguration;-><init>(Landroid/content/Context;)V
-
-    return-object v0
 .end method

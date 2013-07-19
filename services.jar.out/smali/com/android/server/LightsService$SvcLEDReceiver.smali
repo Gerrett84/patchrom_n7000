@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 416
+    .line 441
     iput-object p1, p0, Lcom/android/server/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/LightsService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 416
+    .line 441
     invoke-direct {p0, p1}, Lcom/android/server/LightsService$SvcLEDReceiver;-><init>(Lcom/android/server/LightsService;)V
 
     return-void
@@ -54,12 +54,12 @@
     .prologue
     const/4 v7, 0x1
 
-    .line 420
+    .line 445
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
-    .line 421
+    .line 446
     .local v0, calendar:Ljava/util/Calendar;
     const/16 v5, 0xa
 
@@ -67,7 +67,7 @@
 
     move-result v1
 
-    .line 422
+    .line 447
     .local v1, hour:I
     const/16 v5, 0x9
 
@@ -77,10 +77,10 @@
 
     if-ne v5, v7, :cond_0
 
-    .line 423
+    .line 448
     add-int/lit8 v1, v1, 0xc
 
-    .line 425
+    .line 450
     :cond_0
     const/16 v5, 0xc
 
@@ -88,7 +88,7 @@
 
     move-result v2
 
-    .line 426
+    .line 451
     .local v2, minute:I
     const/16 v5, 0xd
 
@@ -96,7 +96,7 @@
 
     move-result v3
 
-    .line 427
+    .line 452
     .local v3, second:I
     mul-int/lit16 v5, v1, 0x2710
 
@@ -106,7 +106,7 @@
 
     add-int v4, v5, v3
 
-    .line 429
+    .line 454
     .local v4, time:I
     const v5, 0xc350
 
@@ -116,15 +116,15 @@
 
     if-ge v4, v5, :cond_1
 
-    .line 430
+    .line 455
     iget-object v5, p0, Lcom/android/server/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/LightsService;
 
     const/4 v6, 0x0
 
     #setter for: Lcom/android/server/LightsService;->isHappyNight:Z
-    invoke-static {v5, v6}, Lcom/android/server/LightsService;->access$2302(Lcom/android/server/LightsService;Z)Z
+    invoke-static {v5, v6}, Lcom/android/server/LightsService;->access$2602(Lcom/android/server/LightsService;Z)Z
 
-    .line 434
+    .line 459
     :goto_0
     const-string v5, "LightsService"
 
@@ -141,7 +141,7 @@
     iget-object v7, p0, Lcom/android/server/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/LightsService;
 
     #getter for: Lcom/android/server/LightsService;->isHappyNight:Z
-    invoke-static {v7}, Lcom/android/server/LightsService;->access$2300(Lcom/android/server/LightsService;)Z
+    invoke-static {v7}, Lcom/android/server/LightsService;->access$2600(Lcom/android/server/LightsService;)Z
 
     move-result v7
 
@@ -155,43 +155,43 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 438
+    .line 463
     iget-object v5, p0, Lcom/android/server/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/LightsService;
 
     #getter for: Lcom/android/server/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
-    invoke-static {v5}, Lcom/android/server/LightsService;->access$200(Lcom/android/server/LightsService;)Landroid/os/HandlerThread;
+    invoke-static {v5}, Lcom/android/server/LightsService;->access$400(Lcom/android/server/LightsService;)Landroid/os/HandlerThread;
 
     move-result-object v6
 
     monitor-enter v6
 
-    .line 439
+    .line 464
     :try_start_0
     iget-object v5, p0, Lcom/android/server/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/LightsService;
 
     const/4 v7, 0x1
 
     #calls: Lcom/android/server/LightsService;->enableSvcLEDLightSensorLocked(Z)V
-    invoke-static {v5, v7}, Lcom/android/server/LightsService;->access$1800(Lcom/android/server/LightsService;Z)V
+    invoke-static {v5, v7}, Lcom/android/server/LightsService;->access$2100(Lcom/android/server/LightsService;Z)V
 
-    .line 440
+    .line 465
     monitor-exit v6
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 459
+    .line 484
     return-void
 
-    .line 432
+    .line 457
     :cond_1
     iget-object v5, p0, Lcom/android/server/LightsService$SvcLEDReceiver;->this$0:Lcom/android/server/LightsService;
 
     #setter for: Lcom/android/server/LightsService;->isHappyNight:Z
-    invoke-static {v5, v7}, Lcom/android/server/LightsService;->access$2302(Lcom/android/server/LightsService;Z)Z
+    invoke-static {v5, v7}, Lcom/android/server/LightsService;->access$2602(Lcom/android/server/LightsService;Z)Z
 
     goto :goto_0
 
-    .line 440
+    .line 465
     :catchall_0
     move-exception v5
 

@@ -8,6 +8,8 @@
 
 .field public static final TAG_CSCFEATURE_LOCKSCREEN_DISPLAYPLMN:Ljava/lang/String; = "CscFeature_LockScreen_DisplayPlmn"
 
+.field public static final TAG_CSCFEATURE_LOCKSCREEN_ENABLEECCKEYPAD_WHEN_HWKEYPRESS:Ljava/lang/String; = "CscFeature_LockScreen_EnableEccKeypadWhenHwKeyPress"
+
 
 # direct methods
 .method public constructor <init>()V

@@ -43,18 +43,18 @@
     .parameter "usage"
 
     .prologue
-    .line 3711
+    .line 3680
     iput-object p1, p0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3712
+    .line 3681
     iput-object p2, p0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->mCmd:Ljava/lang/String;
 
-    .line 3713
+    .line 3682
     iput-wide p3, p0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->mUsage:J
 
-    .line 3714
+    .line 3683
     return-void
 .end method
 
@@ -63,7 +63,7 @@
     .parameter "x0"
 
     .prologue
-    .line 3701
+    .line 3670
     iget-object v0, p0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->mCmd:Ljava/lang/String;
 
     return-object v0
@@ -74,7 +74,7 @@
     .parameter "x0"
 
     .prologue
-    .line 3701
+    .line 3670
     iget-wide v0, p0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->mUsage:J
 
     return-wide v0
@@ -87,7 +87,7 @@
     .parameter "other"
 
     .prologue
-    .line 3754
+    .line 3723
     iget-wide v0, p0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->mUsage:J
 
     iget-wide v2, p1, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->mUsage:J
@@ -96,7 +96,7 @@
 
     if-nez v0, :cond_0
 
-    .line 3755
+    .line 3724
     iget-object v0, p0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->mCmd:Ljava/lang/String;
 
     iget-object v1, p1, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->mCmd:Ljava/lang/String;
@@ -105,7 +105,7 @@
 
     move-result v0
 
-    .line 3757
+    .line 3726
     :goto_0
     return v0
 
@@ -128,7 +128,7 @@
     .parameter "x0"
 
     .prologue
-    .line 3701
+    .line 3670
     check-cast p1, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;
 
     .end local p1
@@ -145,7 +145,7 @@
     .parameter "total"
 
     .prologue
-    .line 3724
+    .line 3693
     new-instance v0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;
 
     iget-object v1, p0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
@@ -173,7 +173,7 @@
     .locals 1
 
     .prologue
-    .line 3733
+    .line 3702
     iget-object v0, p0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->mCmd:Ljava/lang/String;
 
     return-object v0
@@ -183,7 +183,7 @@
     .locals 2
 
     .prologue
-    .line 3742
+    .line 3711
     iget-wide v0, p0, Lcom/android/server/enterprise/ApplicationPolicy$AppInfoTask;->mUsage:J
 
     return-wide v0

@@ -79,6 +79,10 @@
 
 .field public static final actionModeStyle:I = 0x1010394
 
+.field public static final actionMultiWindowButtonBackground:I = 0x10103cb
+
+.field public static final actionMultiWindowButtonDrawable:I = 0x10103ca
+
 .field public static final actionOverflowButtonStyle:I = 0x10102f6
 
 .field public static final actionProviderClass:I = 0x1010389

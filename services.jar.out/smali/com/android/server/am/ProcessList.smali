@@ -857,100 +857,155 @@
 .end method
 
 .method public updateHiddenAppNum(II)I
-    .locals 7
+    .locals 12
     .parameter "maxHiddenApp"
     .parameter "curHidden"
 
     .prologue
+    const-wide/16 v10, 0x0
+
     .line 284
     move v0, p1
 
     .line 286
     .local v0, ret:I
-    sget-object v3, Lcom/android/server/am/ProcessList;->mInfo:Lcom/android/internal/util/MemInfoReader;
+    sget-object v6, Lcom/android/server/am/ProcessList;->mInfo:Lcom/android/internal/util/MemInfoReader;
 
-    if-eqz v3, :cond_0
+    if-eqz v6, :cond_2
 
     .line 288
-    sget-object v3, Lcom/android/server/am/ProcessList;->mInfo:Lcom/android/internal/util/MemInfoReader;
+    sget-object v6, Lcom/android/server/am/ProcessList;->mInfo:Lcom/android/internal/util/MemInfoReader;
 
-    invoke-virtual {v3}, Lcom/android/internal/util/MemInfoReader;->readMemInfo()V
+    invoke-virtual {v6}, Lcom/android/internal/util/MemInfoReader;->readMemInfo()V
 
     .line 291
-    sget-object v3, Lcom/android/server/am/ProcessList;->mInfo:Lcom/android/internal/util/MemInfoReader;
+    sget-object v6, Lcom/android/server/am/ProcessList;->mInfo:Lcom/android/internal/util/MemInfoReader;
 
-    invoke-virtual {v3}, Lcom/android/internal/util/MemInfoReader;->getFreeSize()J
+    invoke-virtual {v6}, Lcom/android/internal/util/MemInfoReader;->getFreeSize()J
 
-    move-result-wide v3
+    move-result-wide v6
 
-    sget-object v5, Lcom/android/server/am/ProcessList;->mInfo:Lcom/android/internal/util/MemInfoReader;
+    sget-object v8, Lcom/android/server/am/ProcessList;->mInfo:Lcom/android/internal/util/MemInfoReader;
 
-    invoke-virtual {v5}, Lcom/android/internal/util/MemInfoReader;->getCachedSize()J
+    invoke-virtual {v8}, Lcom/android/internal/util/MemInfoReader;->getCachedSize()J
 
-    move-result-wide v5
+    move-result-wide v8
 
-    add-long v1, v3, v5
+    add-long v2, v6, v8
 
-    .line 301
-    .local v1, szFreeMem:J
-    iget-wide v3, p0, Lcom/android/server/am/ProcessList;->mSzDHAThreshold:J
+    .line 292
+    .local v2, szFreeMem:J
+    sget-object v6, Lcom/android/server/am/ProcessList;->mInfo:Lcom/android/internal/util/MemInfoReader;
 
-    cmp-long v3, v1, v3
+    invoke-virtual {v6}, Lcom/android/internal/util/MemInfoReader;->getLowFreeSize()J
 
-    if-gez v3, :cond_1
+    move-result-wide v6
 
-    const/16 v3, 0xf
+    sget-object v8, Lcom/android/server/am/ProcessList;->mInfo:Lcom/android/internal/util/MemInfoReader;
 
-    if-le v0, v3, :cond_1
+    invoke-virtual {v8}, Lcom/android/internal/util/MemInfoReader;->getLowCachedSize()J
 
-    .line 302
+    move-result-wide v8
+
+    add-long v4, v6, v8
+
+    .line 303
+    .local v4, szLowFreeMem:J
+    cmp-long v6, v2, v10
+
+    if-nez v6, :cond_0
+
+    move v1, v0
+
+    .line 334
+    .end local v0           #ret:I
+    .end local v2           #szFreeMem:J
+    .end local v4           #szLowFreeMem:J
+    .local v1, ret:I
+    :goto_0
+    return v1
+
+    .line 305
+    .end local v1           #ret:I
+    .restart local v0       #ret:I
+    .restart local v2       #szFreeMem:J
+    .restart local v4       #szLowFreeMem:J
+    :cond_0
+    cmp-long v6, v4, v10
+
+    if-nez v6, :cond_1
+
+    .line 306
+    move-wide v4, v2
+
+    .line 310
+    :cond_1
+    iget-wide v6, p0, Lcom/android/server/am/ProcessList;->mSzDHAThreshold:J
+
+    cmp-long v6, v4, v6
+
+    if-gez v6, :cond_3
+
+    const/16 v6, 0xf
+
+    if-le v0, v6, :cond_3
+
+    .line 311
     add-int/lit8 v0, v0, -0x1
 
-    .line 325
-    .end local v1           #szFreeMem:J
-    :cond_0
-    :goto_0
-    return v0
-
-    .line 309
-    .restart local v1       #szFreeMem:J
-    :cond_1
-    iget-wide v3, p0, Lcom/android/server/am/ProcessList;->mSzDHAThreshold:J
-
-    const-wide/32 v5, 0xa00000
-
-    add-long/2addr v3, v5
-
-    cmp-long v3, v1, v3
-
-    if-lez v3, :cond_0
-
-    const/16 v3, 0x32
-
-    if-ge v0, v3, :cond_0
-
-    if-gt p1, p2, :cond_0
-
-    .line 312
-    const/16 v3, 0x19
-
-    if-ge v0, v3, :cond_2
-
-    .line 313
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 315
+    .end local v2           #szFreeMem:J
+    .end local v4           #szLowFreeMem:J
     :cond_2
-    const-wide/32 v3, 0x1f400000
+    :goto_1
+    move v1, v0
 
-    cmp-long v3, v1, v3
+    .line 334
+    .end local v0           #ret:I
+    .restart local v1       #ret:I
+    goto :goto_0
 
-    if-lez v3, :cond_0
+    .line 318
+    .end local v1           #ret:I
+    .restart local v0       #ret:I
+    .restart local v2       #szFreeMem:J
+    .restart local v4       #szLowFreeMem:J
+    :cond_3
+    iget-wide v6, p0, Lcom/android/server/am/ProcessList;->mSzDHAThreshold:J
 
-    .line 316
+    const-wide/32 v8, 0xa00000
+
+    add-long/2addr v6, v8
+
+    cmp-long v6, v2, v6
+
+    if-lez v6, :cond_2
+
+    const/16 v6, 0x32
+
+    if-ge v0, v6, :cond_2
+
+    if-gt p1, p2, :cond_2
+
+    .line 321
+    const/16 v6, 0x19
+
+    if-ge v0, v6, :cond_4
+
+    .line 322
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
+
+    .line 324
+    :cond_4
+    const-wide/32 v6, 0x1f400000
+
+    cmp-long v6, v2, v6
+
+    if-lez v6, :cond_2
+
+    .line 325
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
 .end method

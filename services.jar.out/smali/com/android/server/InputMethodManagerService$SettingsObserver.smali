@@ -27,20 +27,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 456
+    .line 459
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$SettingsObserver;->this$0:Lcom/android/server/InputMethodManagerService;
 
-    .line 457
+    .line 460
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 458
+    .line 461
     iget-object v1, p1, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 459
+    .line 462
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v1, "default_input_method"
 
@@ -50,7 +50,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 461
+    .line 464
     const-string v1, "enabled_input_methods"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -59,7 +59,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 463
+    .line 466
     const-string v1, "selected_input_method_subtype"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -68,7 +68,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 465
+    .line 468
     return-void
 .end method
 
@@ -79,26 +79,26 @@
     .parameter "selfChange"
 
     .prologue
-    .line 468
+    .line 471
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$SettingsObserver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iget-object v1, v0, Lcom/android/server/InputMethodManagerService;->mMethodMap:Ljava/util/HashMap;
 
     monitor-enter v1
 
-    .line 469
+    .line 472
     :try_start_0
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$SettingsObserver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/InputMethodManagerService;->updateFromSettingsLocked()V
 
-    .line 470
+    .line 473
     monitor-exit v1
 
-    .line 471
+    .line 474
     return-void
 
-    .line 470
+    .line 473
     :catchall_0
     move-exception v0
 

@@ -70,83 +70,83 @@
 
     const/4 v1, 0x0
 
-    .line 591
+    .line 585
     iput-object p1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->this$0:Landroid/view/GestureDetector;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 592
+    .line 586
     iput-boolean v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepDown:Z
 
-    .line 593
+    .line 587
     iput-boolean v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mbPalmSwipeDetected:Z
 
-    .line 595
+    .line 589
     const/16 v0, 0x32
 
     iput v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepSizeTH:I
 
-    .line 598
+    .line 592
     const/4 v0, 0x1
 
     iput v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->SWEEP_RIGHT:I
 
-    .line 599
+    .line 593
     const/4 v0, 0x2
 
     iput v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->SWEEP_LEFT:I
 
-    .line 602
+    .line 596
     iput-boolean v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mLRSizeDecreased:Z
 
-    .line 603
+    .line 597
     iput-boolean v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mVarXBig:Z
 
-    .line 604
+    .line 598
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mLRSDCnt:I
 
-    .line 605
+    .line 599
     iput v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mMoveXTH:I
 
-    .line 606
+    .line 600
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanXpre:F
 
-    .line 607
+    .line 601
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanX:F
 
-    .line 608
+    .line 602
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepLeftReverseSum:F
 
-    .line 609
+    .line 603
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepRightReverseSum:F
 
-    .line 610
+    .line 604
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mDiffx:F
 
-    .line 611
+    .line 605
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mInitDiffx:F
 
-    .line 612
+    .line 606
     new-array v0, v3, [Z
 
     iput-object v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrIsValidWithTouchMajor:[Z
 
-    .line 613
+    .line 607
     new-array v0, v3, [I
 
     iput-object v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrMaxTouchMajor:[I
 
-    .line 614
+    .line 608
     new-array v0, v3, [I
 
     iput-object v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrSumSize:[I
 
-    .line 616
+    .line 610
     iput v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseAngleCnt:I
 
-    .line 617
+    .line 611
     iput v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseSizeCnt:I
 
     return-void
@@ -158,7 +158,7 @@
     .parameter "x1"
 
     .prologue
-    .line 591
+    .line 585
     invoke-direct {p0, p1}, Landroid/view/GestureDetector$PalmSweepRecognizer;-><init>(Landroid/view/GestureDetector;)V
 
     return-void
@@ -173,7 +173,7 @@
     .prologue
     const/16 v8, 0x2d
 
-    const/high16 v7, 0x43c8
+    const/high16 v7, 0x4348
 
     const/high16 v4, 0x4248
 
@@ -181,10 +181,10 @@
 
     const/4 v5, 0x0
 
-    .line 694
+    .line 686
     invoke-virtual {p0, p1}, Landroid/view/GestureDetector$PalmSweepRecognizer;->SetArrMaxTouchMajor(Landroid/view/GestureDetector$SurfaceTouchSharingData;)V
 
-    .line 695
+    .line 687
     iget-boolean v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepDown:Z
 
     if-nez v2, :cond_1
@@ -216,9 +216,7 @@
 
     iget v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
 
-    const/high16 v3, 0x4348
-
-    cmpg-float v2, v2, v3
+    cmpg-float v2, v2, v7
 
     if-gez v2, :cond_1
 
@@ -228,18 +226,18 @@
 
     if-gez v2, :cond_1
 
-    .line 696
+    .line 688
     iget v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanX:F
 
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mInitDiffx:F
 
-    .line 697
+    .line 689
     iput-boolean v6, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepDown:Z
 
-    .line 698
+    .line 690
     iput-boolean v5, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mLRSizeDecreased:Z
 
-    .line 699
+    .line 691
     const-string v2, "GestureDetector"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -288,7 +286,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 702
+    .line 694
     :cond_1
     iget v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mTouchCnt:I
 
@@ -296,12 +294,12 @@
 
     if-lt v2, v3, :cond_3
 
-    .line 703
+    .line 695
     iget-boolean v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepDown:Z
 
     if-ne v2, v6, :cond_3
 
-    .line 704
+    .line 696
     iget v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
 
     const/high16 v3, 0x420c
@@ -310,10 +308,10 @@
 
     if-gez v2, :cond_3
 
-    .line 705
+    .line 697
     iput-boolean v6, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mLRSizeDecreased:Z
 
-    .line 706
+    .line 698
     iget v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mLRSDCnt:I
 
     if-gez v2, :cond_2
@@ -322,7 +320,7 @@
 
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mLRSDCnt:I
 
-    .line 707
+    .line 699
     :cond_2
     iget v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseSizeCnt:I
 
@@ -330,7 +328,7 @@
 
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseSizeCnt:I
 
-    .line 712
+    .line 704
     :cond_3
     iget v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mAction:I
 
@@ -340,7 +338,7 @@
 
     if-ne v2, v6, :cond_5
 
-    .line 713
+    .line 705
     iget v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanX:F
 
     iget v3, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanXpre:F
@@ -361,7 +359,7 @@
 
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepRightReverseSum:F
 
-    .line 714
+    .line 706
     :cond_4
     iget v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanX:F
 
@@ -387,26 +385,28 @@
 
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepLeftReverseSum:F
 
-    .line 716
+    .line 708
     :cond_5
     iget v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SvarX:F
 
-    cmpl-float v2, v2, v7
+    const/high16 v3, 0x43c8
+
+    cmpl-float v2, v2, v3
 
     if-lez v2, :cond_6
 
     iput-boolean v6, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mVarXBig:Z
 
-    .line 717
+    .line 709
     :cond_6
     iget-boolean v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepDown:Z
 
     if-ne v2, v6, :cond_a
 
-    .line 719
+    .line 711
     const/4 v1, 0x0
 
-    .line 720
+    .line 712
     .local v1, mMaxSizeTouch:I
     const/4 v0, 0x0
 
@@ -418,7 +418,7 @@
 
     if-ge v0, v2, :cond_8
 
-    .line 722
+    .line 714
     iget-object v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Ssd:[[I
 
     aget-object v2, v2, v0
@@ -433,22 +433,22 @@
 
     if-le v2, v3, :cond_7
 
-    .line 723
+    .line 715
     move v1, v0
 
-    .line 720
+    .line 712
     :cond_7
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 725
+    .line 717
     :cond_8
     iget-boolean v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mIsRotated:Z
 
     if-nez v2, :cond_b
 
-    .line 727
+    .line 719
     iget-object v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sad:[[I
 
     aget-object v2, v2, v1
@@ -461,14 +461,14 @@
 
     if-le v2, v8, :cond_9
 
-    .line 728
+    .line 720
     iget v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseAngleCnt:I
 
     add-int/lit8 v2, v2, 0x1
 
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseAngleCnt:I
 
-    .line 735
+    .line 727
     :cond_9
     :goto_1
     iget v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
@@ -479,20 +479,20 @@
 
     if-lez v2, :cond_a
 
-    .line 736
+    .line 728
     iget v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseSizeCnt:I
 
     add-int/lit8 v2, v2, 0x1
 
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseSizeCnt:I
 
-    .line 738
+    .line 730
     .end local v0           #i:I
     .end local v1           #mMaxSizeTouch:I
     :cond_a
     return-void
 
-    .line 732
+    .line 724
     .restart local v0       #i:I
     .restart local v1       #mMaxSizeTouch:I
     :cond_b
@@ -520,7 +520,7 @@
 
     if-eqz v2, :cond_9
 
-    .line 733
+    .line 725
     iget v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseAngleCnt:I
 
     add-int/lit8 v2, v2, 0x1
@@ -531,143 +531,131 @@
 .end method
 
 .method public GetRangeNum(Landroid/view/GestureDetector$SurfaceTouchSharingData;)I
-    .locals 11
+    .locals 9
     .parameter "data"
 
     .prologue
-    .line 641
-    iget-object v9, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->this$0:Landroid/view/GestureDetector;
+    .line 635
+    iget-object v7, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->this$0:Landroid/view/GestureDetector;
 
-    iget-object v9, v9, Landroid/view/GestureDetector;->context1:Landroid/content/Context;
+    iget-object v7, v7, Landroid/view/GestureDetector;->context1:Landroid/content/Context;
 
-    const-string/jumbo v10, "window"
+    const-string/jumbo v8, "window"
 
-    invoke-virtual {v9, v10}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v7, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v5
 
-    check-cast v7, Landroid/view/WindowManager;
+    check-cast v5, Landroid/view/WindowManager;
 
-    .line 642
-    .local v7, wm:Landroid/view/WindowManager;
-    invoke-interface {v7}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+    .line 636
+    .local v5, wm:Landroid/view/WindowManager;
+    invoke-interface {v5}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
     move-result-object v0
 
-    .line 643
+    .line 637
     .local v0, disp:Landroid/view/Display;
     new-instance v2, Landroid/util/DisplayMetrics;
 
     invoke-direct {v2}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 644
+    .line 638
     .local v2, metrics:Landroid/util/DisplayMetrics;
     invoke-virtual {v0, v2}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 645
+    .line 639
     iget v1, v2, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    .line 646
+    .line 640
     .local v1, height:I
-    iget v6, v2, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget v4, v2, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    .line 645
+    .local v4, width:I
+    const/4 v3, 0x0
+
+    .line 646
+    .local v3, result:I
+    iget v7, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanX:F
+
+    float-to-int v6, v7
 
     .line 648
-    .local v6, width:I
-    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    .local v6, x:I
+    iget-boolean v7, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mIsRotated:Z
 
-    move-result-object v4
+    if-nez v7, :cond_2
 
-    .line 649
-    .local v4, tempHeight:Ljava/lang/String;
-    invoke-static {v6}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    .line 650
+    div-int/lit8 v7, v4, 0x3
 
-    move-result-object v5
+    if-ge v6, v7, :cond_0
 
-    .line 653
-    .local v5, tempWidth:Ljava/lang/String;
+    .line 652
     const/4 v3, 0x0
 
-    .line 654
-    .local v3, result:I
-    iget v9, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanX:F
-
-    float-to-int v8, v9
-
-    .line 656
-    .local v8, x:I
-    iget-boolean v9, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mIsRotated:Z
-
-    if-nez v9, :cond_2
-
-    .line 658
-    div-int/lit8 v9, v6, 0x3
-
-    if-ge v8, v9, :cond_0
-
-    .line 660
-    const/4 v3, 0x0
-
-    .line 690
+    .line 682
     :goto_0
     return v3
 
-    .line 662
+    .line 654
     :cond_0
-    mul-int/lit8 v9, v6, 0x2
+    mul-int/lit8 v7, v4, 0x2
 
-    div-int/lit8 v9, v9, 0x3
+    div-int/lit8 v7, v7, 0x3
 
-    if-ge v8, v9, :cond_1
+    if-ge v6, v7, :cond_1
 
-    .line 664
+    .line 656
     const/4 v3, 0x1
 
     goto :goto_0
 
-    .line 668
+    .line 660
     :cond_1
     const/4 v3, 0x2
 
     goto :goto_0
 
-    .line 673
+    .line 665
     :cond_2
-    div-int/lit8 v9, v1, 0x4
+    div-int/lit8 v7, v4, 0x4
 
-    if-ge v8, v9, :cond_3
+    if-ge v6, v7, :cond_3
 
-    .line 675
+    .line 667
     const/4 v3, 0x0
 
     goto :goto_0
 
-    .line 677
+    .line 669
     :cond_3
-    mul-int/lit8 v9, v1, 0x2
+    mul-int/lit8 v7, v4, 0x2
 
-    div-int/lit8 v9, v9, 0x4
+    div-int/lit8 v7, v7, 0x4
 
-    if-ge v8, v9, :cond_4
+    if-ge v6, v7, :cond_4
 
-    .line 679
+    .line 671
     const/4 v3, 0x1
 
     goto :goto_0
 
-    .line 681
+    .line 673
     :cond_4
-    mul-int/lit8 v9, v1, 0x3
+    mul-int/lit8 v7, v4, 0x3
 
-    div-int/lit8 v9, v9, 0x4
+    div-int/lit8 v7, v7, 0x4
 
-    if-ge v8, v9, :cond_5
+    if-ge v6, v7, :cond_5
 
-    .line 683
+    .line 675
     const/4 v3, 0x2
 
     goto :goto_0
 
-    .line 687
+    .line 679
     :cond_5
     const/4 v3, 0x3
 
@@ -682,48 +670,48 @@
 
     const/4 v2, 0x0
 
-    .line 803
+    .line 799
     iput-boolean v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepDown:Z
 
-    .line 804
+    .line 800
     iput-boolean v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mbPalmSwipeDetected:Z
 
-    .line 805
+    .line 801
     iput v3, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanXpre:F
 
-    .line 806
+    .line 802
     iput v3, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanX:F
 
-    .line 807
+    .line 803
     iput-boolean v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mLRSizeDecreased:Z
 
-    .line 808
+    .line 804
     const/4 v1, -0x1
 
     iput v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mLRSDCnt:I
 
-    .line 809
+    .line 805
     iput v3, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepLeftReverseSum:F
 
-    .line 810
+    .line 806
     iput v3, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepRightReverseSum:F
 
-    .line 811
+    .line 807
     iput v3, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mDiffx:F
 
-    .line 812
+    .line 808
     iput-boolean v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mVarXBig:Z
 
-    .line 813
+    .line 809
     iput v3, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mInitDiffx:F
 
-    .line 814
+    .line 810
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseAngleCnt:I
 
-    .line 815
+    .line 811
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mFalseSizeCnt:I
 
-    .line 816
+    .line 812
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -732,27 +720,27 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 818
+    .line 814
     iget-object v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrIsValidWithTouchMajor:[Z
 
     aput-boolean v2, v1, v0
 
-    .line 819
+    .line 815
     iget-object v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrMaxTouchMajor:[I
 
     aput v2, v1, v0
 
-    .line 820
+    .line 816
     iget-object v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrSumSize:[I
 
     aput v2, v1, v0
 
-    .line 816
+    .line 812
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 822
+    .line 818
     :cond_0
     return-void
 .end method
@@ -762,13 +750,13 @@
     .parameter "data"
 
     .prologue
-    .line 795
+    .line 791
     invoke-virtual {p0, p1}, Landroid/view/GestureDetector$PalmSweepRecognizer;->UpdateData(Landroid/view/GestureDetector$SurfaceTouchSharingData;)V
 
-    .line 796
+    .line 792
     invoke-virtual {p0, p1}, Landroid/view/GestureDetector$PalmSweepRecognizer;->CalculateHorizontalSweepData(Landroid/view/GestureDetector$SurfaceTouchSharingData;)V
 
-    .line 797
+    .line 793
     iget v0, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mAction:I
 
     const/4 v1, 0x1
@@ -779,10 +767,10 @@
 
     if-nez v0, :cond_0
 
-    .line 798
+    .line 794
     invoke-virtual {p0, p1}, Landroid/view/GestureDetector$PalmSweepRecognizer;->RocognizeHorizontalSweepData(Landroid/view/GestureDetector$SurfaceTouchSharingData;)V
 
-    .line 800
+    .line 796
     :cond_0
     return-void
 .end method
@@ -802,12 +790,12 @@
 
     const/4 v5, 0x1
 
-    .line 741
+    .line 733
     iget-boolean v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mLRSizeDecreased:Z
 
     if-ne v2, v5, :cond_0
 
-    .line 742
+    .line 734
     iget v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mTouchCnt:I
 
     iget v3, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mLRSDCnt:I
@@ -824,14 +812,14 @@
 
     if-le v2, v3, :cond_0
 
-    .line 743
+    .line 735
     iput-boolean v7, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepDown:Z
 
-    .line 746
+    .line 738
     :cond_0
     const/4 v1, 0x0
 
-    .line 747
+    .line 739
     .local v1, validMajorCount:I
     const/4 v0, 0x0
 
@@ -841,29 +829,29 @@
 
     if-ge v0, v2, :cond_2
 
-    .line 749
+    .line 741
     iget-object v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrIsValidWithTouchMajor:[Z
 
     aget-boolean v2, v2, v0
 
     if-ne v2, v5, :cond_1
 
-    .line 751
+    .line 743
     add-int/lit8 v1, v1, 0x1
 
-    .line 747
+    .line 739
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 754
+    .line 746
     :cond_2
     iget-boolean v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepDown:Z
 
     if-ne v2, v5, :cond_6
 
-    .line 755
+    .line 747
     iget v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mInitDiffx:F
 
     iget v3, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanX:F
@@ -872,7 +860,7 @@
 
     iput v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mDiffx:F
 
-    .line 756
+    .line 748
     iget-boolean v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mVarXBig:Z
 
     if-nez v2, :cond_5
@@ -893,7 +881,7 @@
 
     if-lt v1, v6, :cond_5
 
-    .line 757
+    .line 749
     iget v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepRightReverseSum:F
 
     cmpg-float v2, v2, v4
@@ -906,7 +894,7 @@
 
     if-gt v2, v3, :cond_3
 
-    .line 758
+    .line 750
     const-string v2, "GestureDetector"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1003,19 +991,19 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 759
+    .line 751
     iget-object v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mShapeListener:Landroid/view/GestureDetector$OnShapeGestureListener;
 
     invoke-interface {v2, v5}, Landroid/view/GestureDetector$OnShapeGestureListener;->onSweepDown(I)Z
 
-    .line 760
+    .line 752
     iput-boolean v5, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mbPalmSwipeDetected:Z
 
-    .line 781
+    .line 773
     :goto_1
     return-void
 
-    .line 761
+    .line 753
     :cond_3
     iget v2, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepLeftReverseSum:F
 
@@ -1029,7 +1017,7 @@
 
     if-gt v2, v3, :cond_4
 
-    .line 762
+    .line 754
     const-string v2, "GestureDetector"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1126,17 +1114,17 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 763
+    .line 755
     iget-object v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mShapeListener:Landroid/view/GestureDetector$OnShapeGestureListener;
 
     invoke-interface {v2, v6}, Landroid/view/GestureDetector$OnShapeGestureListener;->onSweepDown(I)Z
 
-    .line 764
+    .line 756
     iput-boolean v5, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mbPalmSwipeDetected:Z
 
     goto :goto_1
 
-    .line 767
+    .line 759
     :cond_4
     const-string v2, "GestureDetector"
 
@@ -1188,7 +1176,7 @@
 
     goto/16 :goto_1
 
-    .line 773
+    .line 765
     :cond_5
     const-string v2, "GestureDetector"
 
@@ -1310,7 +1298,7 @@
 
     goto/16 :goto_1
 
-    .line 779
+    .line 771
     :cond_6
     const-string v2, "GestureDetector"
 
@@ -1368,12 +1356,12 @@
     .parameter "data"
 
     .prologue
-    .line 627
+    .line 621
     invoke-virtual {p0, p1}, Landroid/view/GestureDetector$PalmSweepRecognizer;->GetRangeNum(Landroid/view/GestureDetector$SurfaceTouchSharingData;)I
 
     move-result v0
 
-    .line 628
+    .line 622
     .local v0, range:I
     iget-object v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrMaxTouchMajor:[I
 
@@ -1385,7 +1373,7 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 630
+    .line 624
     iget-object v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrMaxTouchMajor:[I
 
     iget v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumMajor:F
@@ -1394,7 +1382,7 @@
 
     aput v2, v1, v0
 
-    .line 632
+    .line 626
     :cond_0
     iget-object v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrIsValidWithTouchMajor:[Z
 
@@ -1402,14 +1390,14 @@
 
     if-nez v1, :cond_1
 
-    .line 634
+    .line 628
     iget-object v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrIsValidWithTouchMajor:[Z
 
     const/4 v2, 0x1
 
     aput-boolean v2, v1, v0
 
-    .line 635
+    .line 629
     iget-object v1, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mArrSumSize:[I
 
     iget v2, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
@@ -1418,61 +1406,84 @@
 
     aput v2, v1, v0
 
-    .line 637
+    .line 631
     :cond_1
     return-void
 .end method
 
 .method public UpdateData(Landroid/view/GestureDetector$SurfaceTouchSharingData;)V
-    .locals 1
+    .locals 7
     .parameter "data"
 
     .prologue
-    .line 784
-    iget-boolean v0, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mIsRotated:Z
+    .line 776
+    iget-object v5, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->this$0:Landroid/view/GestureDetector;
 
-    if-nez v0, :cond_0
+    iget-object v5, v5, Landroid/view/GestureDetector;->context1:Landroid/content/Context;
 
-    .line 785
-    const/16 v0, 0x15e
+    const-string/jumbo v6, "window"
 
-    iput v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mMoveXTH:I
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 790
-    :goto_0
-    iget v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanX:F
+    move-result-object v4
 
-    iput v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanXpre:F
+    check-cast v4, Landroid/view/WindowManager;
 
-    .line 791
-    iget v0, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanX:F
+    .line 777
+    .local v4, wm:Landroid/view/WindowManager;
+    invoke-interface {v4}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    iput v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanX:F
+    move-result-object v0
 
-    .line 792
-    return-void
+    .line 778
+    .local v0, disp:Landroid/view/Display;
+    new-instance v2, Landroid/util/DisplayMetrics;
+
+    invoke-direct {v2}, Landroid/util/DisplayMetrics;-><init>()V
+
+    .line 779
+    .local v2, metrics:Landroid/util/DisplayMetrics;
+    invoke-virtual {v0, v2}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+
+    .line 781
+    iget v1, v2, Landroid/util/DisplayMetrics;->heightPixels:I
+
+    .line 782
+    .local v1, height:I
+    iget v3, v2, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    .line 783
+    .local v3, width:I
+    div-int/lit8 v5, v3, 0x2
+
+    iput v5, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mMoveXTH:I
+
+    .line 786
+    iget v5, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanX:F
+
+    iput v5, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanXpre:F
 
     .line 787
-    :cond_0
-    const/16 v0, 0x258
+    iget v5, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanX:F
 
-    iput v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mMoveXTH:I
+    iput v5, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSmeanX:F
 
-    goto :goto_0
+    .line 788
+    return-void
 .end method
 
 .method public getSweepDown()Z
     .locals 3
 
     .prologue
-    .line 620
+    .line 614
     iget-boolean v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepDown:Z
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 621
+    .line 615
     const-string v0, "GestureDetector"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1497,7 +1508,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 622
+    .line 616
     :cond_0
     iget-boolean v0, p0, Landroid/view/GestureDetector$PalmSweepRecognizer;->mSweepDown:Z
 

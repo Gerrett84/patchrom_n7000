@@ -25,13 +25,13 @@
     .parameter "looper"
 
     .prologue
-    .line 491
+    .line 494
     iput-object p1, p0, Landroid/hardware/scontext/SContextService$ServiceHandler;->this$0:Landroid/hardware/scontext/SContextService;
 
-    .line 492
+    .line 495
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 493
+    .line 496
     return-void
 .end method
 
@@ -42,12 +42,12 @@
     .parameter "msg"
 
     .prologue
-    .line 497
+    .line 500
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/hardware/scontext/SContextEvent;
 
-    .line 499
+    .line 502
     .local v2, scontextEvent:Landroid/hardware/scontext/SContextEvent;
     iget-object v4, v2, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
@@ -55,23 +55,23 @@
 
     move-result v3
 
-    .line 501
+    .line 504
     .local v3, service:I
     iget-object v4, p0, Landroid/hardware/scontext/SContextService$ServiceHandler;->this$0:Landroid/hardware/scontext/SContextService;
 
     #getter for: Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
-    invoke-static {v4}, Landroid/hardware/scontext/SContextService;->access$800(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
+    invoke-static {v4}, Landroid/hardware/scontext/SContextService;->access$900(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
 
     move-result-object v5
 
     monitor-enter v5
 
-    .line 502
+    .line 505
     :try_start_0
     iget-object v4, p0, Landroid/hardware/scontext/SContextService$ServiceHandler;->this$0:Landroid/hardware/scontext/SContextService;
 
     #getter for: Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
-    invoke-static {v4}, Landroid/hardware/scontext/SContextService;->access$800(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
+    invoke-static {v4}, Landroid/hardware/scontext/SContextService;->access$900(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
 
     move-result-object v4
 
@@ -94,7 +94,7 @@
 
     check-cast v1, Landroid/hardware/scontext/SContextService$Listener;
 
-    .line 503
+    .line 506
     .local v1, l:Landroid/hardware/scontext/SContextService$Listener;
     #getter for: Landroid/hardware/scontext/SContextService$Listener;->mServices:Ljava/util/HashSet;
     invoke-static {v1}, Landroid/hardware/scontext/SContextService$Listener;->access$000(Landroid/hardware/scontext/SContextService$Listener;)Ljava/util/HashSet;
@@ -111,12 +111,12 @@
 
     if-eqz v4, :cond_0
 
-    .line 504
+    .line 507
     invoke-virtual {v1, v2}, Landroid/hardware/scontext/SContextService$Listener;->callback(Landroid/hardware/scontext/SContextEvent;)V
 
     goto :goto_0
 
-    .line 510
+    .line 513
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #l:Landroid/hardware/scontext/SContextService$Listener;
     :catchall_0
@@ -128,34 +128,34 @@
 
     throw v4
 
-    .line 508
+    .line 511
     .restart local v0       #i$:Ljava/util/Iterator;
     :cond_1
     :try_start_1
     iget-object v4, p0, Landroid/hardware/scontext/SContextService$ServiceHandler;->this$0:Landroid/hardware/scontext/SContextService;
 
     #getter for: Landroid/hardware/scontext/SContextService;->mEventPool:Landroid/hardware/scontext/SContextService$EventPool;
-    invoke-static {v4}, Landroid/hardware/scontext/SContextService;->access$900(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextService$EventPool;
+    invoke-static {v4}, Landroid/hardware/scontext/SContextService;->access$1000(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextService$EventPool;
 
     move-result-object v4
 
     invoke-virtual {v4, v2}, Landroid/hardware/scontext/SContextService$EventPool;->recycle(Landroid/hardware/scontext/SContextEvent;)V
 
-    .line 509
+    .line 512
     iget-object v4, p0, Landroid/hardware/scontext/SContextService$ServiceHandler;->this$0:Landroid/hardware/scontext/SContextService;
 
     #getter for: Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
-    invoke-static {v4}, Landroid/hardware/scontext/SContextService;->access$800(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
+    invoke-static {v4}, Landroid/hardware/scontext/SContextService;->access$900(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
 
     move-result-object v4
 
     invoke-virtual {v4}, Ljava/lang/Object;->notify()V
 
-    .line 510
+    .line 513
     monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 511
+    .line 514
     return-void
 .end method

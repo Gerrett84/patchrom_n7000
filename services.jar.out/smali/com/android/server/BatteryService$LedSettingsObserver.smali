@@ -24,17 +24,17 @@
     .parameter
 
     .prologue
-    .line 217
+    .line 231
     iput-object p1, p0, Lcom/android/server/BatteryService$LedSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
-    .line 218
+    .line 232
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 219
+    .line 233
     return-void
 .end method
 
@@ -49,10 +49,10 @@
 
     const/4 v2, 0x1
 
-    .line 223
+    .line 237
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    .line 225
+    .line 239
     iget-object v1, p0, Lcom/android/server/BatteryService$LedSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
     #getter for: Lcom/android/server/BatteryService;->mContext:Landroid/content/Context;
@@ -64,7 +64,7 @@
 
     move-result-object v0
 
-    .line 226
+    .line 240
     .local v0, contentResolver:Landroid/content/ContentResolver;
     iget-object v4, p0, Lcom/android/server/BatteryService$LedSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
@@ -82,7 +82,7 @@
     #setter for: Lcom/android/server/BatteryService;->mLedChargingSettingsEnable:Z
     invoke-static {v4, v1}, Lcom/android/server/BatteryService;->access$902(Lcom/android/server/BatteryService;Z)Z
 
-    .line 227
+    .line 241
     iget-object v1, p0, Lcom/android/server/BatteryService$LedSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
     const-string v4, "led_indicator_low_battery"
@@ -97,7 +97,7 @@
     #setter for: Lcom/android/server/BatteryService;->mLedLowBatterySettingsEnable:Z
     invoke-static {v1, v2}, Lcom/android/server/BatteryService;->access$1002(Lcom/android/server/BatteryService;Z)Z
 
-    .line 228
+    .line 242
     invoke-static {}, Lcom/android/server/BatteryService;->access$000()Ljava/lang/String;
 
     move-result-object v1
@@ -129,7 +129,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 229
+    .line 243
     invoke-static {}, Lcom/android/server/BatteryService;->access$000()Ljava/lang/String;
 
     move-result-object v1
@@ -161,7 +161,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 231
+    .line 245
     iget-object v1, p0, Lcom/android/server/BatteryService$LedSettingsObserver;->this$0:Lcom/android/server/BatteryService;
 
     #getter for: Lcom/android/server/BatteryService;->mLed:Lcom/android/server/BatteryService$Led;
@@ -171,18 +171,18 @@
 
     invoke-virtual {v1}, Lcom/android/server/BatteryService$Led;->updateLightsLocked()V
 
-    .line 232
+    .line 246
     return-void
 
     :cond_0
     move v1, v3
 
-    .line 226
+    .line 240
     goto :goto_0
 
     :cond_1
     move v2, v3
 
-    .line 227
+    .line 241
     goto :goto_1
 .end method

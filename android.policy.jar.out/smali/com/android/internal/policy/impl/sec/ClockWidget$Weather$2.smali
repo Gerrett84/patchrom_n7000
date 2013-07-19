@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 303
+    .line 341
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,17 +40,17 @@
     .parameter "intent"
 
     .prologue
-    .line 305
+    .line 343
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 306
+    .line 344
     .local v0, action:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->ACTION_WEATHER_SETTING_CHANGED:Ljava/lang/String;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$600(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$700(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -60,18 +60,18 @@
 
     if-eqz v1, :cond_1
 
-    .line 307
+    .line 345
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$700(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$800(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Landroid/os/Handler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$700(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$800(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Landroid/os/Handler;
 
     move-result-object v2
 
@@ -83,24 +83,24 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 309
+    .line 347
     const-string v1, "ClockWidget"
 
     const-string v2, "Receice ACTION_WEATHER_SETTING_CHANGED"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 315
+    .line 353
     :cond_0
     :goto_0
     return-void
 
-    .line 310
+    .line 348
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->ACTION_WEATHER_DATE_SYNC:Ljava/lang/String;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$800(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$900(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -110,18 +110,18 @@
 
     if-eqz v1, :cond_0
 
-    .line 311
+    .line 349
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$700(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Landroid/os/Handler;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$800(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Landroid/os/Handler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->mHandler:Landroid/os/Handler;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$700(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$800(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;)Landroid/os/Handler;
 
     move-result-object v2
 
@@ -133,12 +133,12 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 313
+    .line 351
     const-string v1, "ClockWidget"
 
     const-string v2, "Receice ACTION_WEATHER_DATE_SYNC"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

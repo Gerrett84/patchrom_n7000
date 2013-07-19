@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1142
+    .line 1145
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$7;->this$0:Lcom/android/server/input/InputManagerService;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,11 +40,11 @@
     .parameter "selfChange"
 
     .prologue
-    .line 1145
+    .line 1148
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$7;->this$0:Lcom/android/server/input/InputManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateShowTouchesFromSettings()V
 
-    .line 1146
+    .line 1149
     return-void
 .end method

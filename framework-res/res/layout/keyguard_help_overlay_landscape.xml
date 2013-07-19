@@ -6,6 +6,6 @@
             <TextView android:textSize="20.0dip" android:textColor="#ffffffff" android:id="@id/gestureText1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dip" android:text="@string/screen_overlay_1st" />
             <Button android:textSize="20.0dip" android:textColor="@color/lockscreen_help_overlay_btn_text_color" android:gravity="center" android:id="@id/button1" android:background="@drawable/tw_popup_button_background_holo_dark" android:layout_width="300.0dip" android:layout_height="39.0dip" android:layout_marginTop="14.0dip" android:text="@string/ok" />
         </LinearLayout>
-        <ImageView android:id="@id/gestureImage1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/gesture_layout" />
+        <ImageView android:id="@id/gestureImage1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="matrix" android:layout_below="@id/gesture_layout" />
     </RelativeLayout>
 </RelativeLayout>

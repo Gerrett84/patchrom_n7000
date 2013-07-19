@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 234
+    .line 246
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 239
+    .line 251
     new-instance v2, Landroid/content/Intent;
 
     const-string v4, "android.intent.action.MAIN"
@@ -51,13 +51,13 @@
 
     invoke-direct {v2, v4, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 240
+    .line 252
     .local v2, intent:Landroid/content/Intent;
     const-string v4, "android.intent.category.LAUNCHER"
 
     invoke-virtual {v2, v4}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 241
+    .line 253
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mContext:Landroid/content/Context;
@@ -69,7 +69,7 @@
 
     move-result-object v3
 
-    .line 243
+    .line 255
     .local v3, pm:Landroid/content/pm/PackageManager;
     :try_start_0
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
@@ -78,14 +78,14 @@
 
     if-eqz v4, :cond_0
 
-    .line 244
+    .line 256
     const-string v4, "com.sec.android.daemonapp.ap.yonhapnews"
 
     const/16 v5, 0x80
 
     invoke-virtual {v3, v4, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
-    .line 245
+    .line 257
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v4, "com.sec.android.daemonapp.ap.yonhapnews"
@@ -94,21 +94,21 @@
 
     invoke-direct {v0, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 252
+    .line 264
     .local v0, cn:Landroid/content/ComponentName;
     :goto_0
     invoke-virtual {v2, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 257
+    .line 269
     .end local v0           #cn:Landroid/content/ComponentName;
     :goto_1
     const/high16 v4, 0x1000
 
     invoke-virtual {v2, v4}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 258
+    .line 270
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mContext:Landroid/content/Context;
@@ -118,7 +118,7 @@
 
     invoke-virtual {v4, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 259
+    .line 271
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
@@ -128,10 +128,10 @@
 
     invoke-interface {v4}, Lcom/android/internal/policy/impl/sec/TickerCallback;->goToUnlockScreen()V
 
-    .line 260
+    .line 272
     return-void
 
-    .line 248
+    .line 260
     :cond_0
     :try_start_1
     const-string v4, "com.sec.android.daemonapp.ap.yahoonews"
@@ -140,7 +140,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
-    .line 249
+    .line 261
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v4, "com.sec.android.daemonapp.ap.yahoonews"
@@ -154,12 +154,12 @@
     .restart local v0       #cn:Landroid/content/ComponentName;
     goto :goto_0
 
-    .line 253
+    .line 265
     .end local v0           #cn:Landroid/content/ComponentName;
     :catch_0
     move-exception v1
 
-    .line 254
+    .line 266
     .local v1, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -170,9 +170,9 @@
 
     const-string v5, "com.sec.android.daemonapp.ap.yahoonews not found!!!! error"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 255
+    .line 267
     invoke-virtual {v1}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
     goto :goto_1

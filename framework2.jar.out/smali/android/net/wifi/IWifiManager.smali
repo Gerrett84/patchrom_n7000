@@ -161,6 +161,24 @@
     .end annotation
 .end method
 
+.method public abstract getPartialScanResults([I)Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "([I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/net/wifi/ScanResult;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getRoamBand()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -204,6 +222,14 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract getSpecificNetwork(I)Landroid/net/wifi/WifiConfiguration;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

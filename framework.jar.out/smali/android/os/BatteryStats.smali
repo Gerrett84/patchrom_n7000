@@ -206,7 +206,7 @@
 
     aput-object v1, v0, v9
 
-    const-string v1, "medium"
+    const-string/jumbo v1, "medium"
 
     aput-object v1, v0, v10
 
@@ -949,7 +949,7 @@
     invoke-virtual {p0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     .line 1061
-    const-string v2, "ms "
+    const-string/jumbo v2, "ms "
 
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -980,7 +980,7 @@
     invoke-virtual {p0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     .line 1068
-    const-string v2, "ms "
+    const-string/jumbo v2, "ms "
 
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

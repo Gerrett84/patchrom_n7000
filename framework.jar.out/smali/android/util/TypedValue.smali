@@ -164,7 +164,7 @@
 
     const/4 v1, 0x5
 
-    const-string v2, "mm"
+    const-string/jumbo v2, "mm"
 
     aput-object v2, v0, v1
 
@@ -186,6 +186,8 @@
     return-void
 
     .line 191
+    nop
+
     :array_0
     .array-data 0x4
         0x0t 0x0t 0x80t 0x3bt
@@ -492,7 +494,7 @@
     :pswitch_8
     if-eqz p1, :cond_1
 
-    const-string v0, "true"
+    const-string/jumbo v0, "true"
 
     goto/16 :goto_0
 
@@ -513,6 +515,10 @@
     move-result-object v0
 
     goto/16 :goto_0
+
+    nop
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0

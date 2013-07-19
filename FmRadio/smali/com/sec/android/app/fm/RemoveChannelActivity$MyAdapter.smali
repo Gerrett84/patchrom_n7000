@@ -26,19 +26,19 @@
     .parameter
 
     .prologue
-    .line 642
+    .line 677
     iput-object p1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$MyAdapter;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 643
+    .line 678
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$MyAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 644
+    .line 679
     return-void
 .end method
 
@@ -48,7 +48,7 @@
     .locals 1
 
     .prologue
-    .line 647
+    .line 683
     iget-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$MyAdapter;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RemoveChannelActivity;->mAllChList:Ljava/util/ArrayList;
@@ -68,13 +68,13 @@
     .parameter "arg0"
 
     .prologue
-    .line 651
+    .line 688
     if-nez p1, :cond_0
 
-    .line 652
+    .line 689
     const/4 v0, 0x0
 
-    .line 653
+    .line 690
     :goto_0
     return-object v0
 
@@ -98,7 +98,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 657
+    .line 695
     int-to-long v0, p1
 
     return-wide v0
@@ -111,7 +111,7 @@
     .parameter "arg2"
 
     .prologue
-    .line 662
+    .line 701
     iget-object v10, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$MyAdapter;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RemoveChannelActivity;->mAllChList:Ljava/util/ArrayList;
@@ -127,18 +127,18 @@
 
     check-cast v1, Lcom/sec/android/app/fm/RemoveChannelActivity$ChannelInfo;
 
-    .line 663
+    .line 702
     .local v1, chInfo:Lcom/sec/android/app/fm/RemoveChannelActivity$ChannelInfo;
     iget-object v2, v1, Lcom/sec/android/app/fm/RemoveChannelActivity$ChannelInfo;->channel:Lcom/sec/android/app/fm/data/Channel;
 
-    .line 664
+    .line 703
     .local v2, channel:Lcom/sec/android/app/fm/data/Channel;
     if-nez p2, :cond_0
 
-    .line 665
+    .line 704
     iget-object v10, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$MyAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v11, 0x7f030004
+    const v11, 0x7f030006
 
     const/4 v12, 0x0
 
@@ -146,7 +146,7 @@
 
     move-result-object p2
 
-    .line 667
+    .line 706
     :cond_0
     iget-object v10, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$MyAdapter;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
@@ -154,8 +154,8 @@
 
     invoke-virtual {v10, v0}, Lcom/sec/android/app/fm/RemoveChannelActivity;->setChanFreqWidth(Landroid/view/View;)V
 
-    .line 669
-    const v10, 0x7f070009
+    .line 708
+    const v10, 0x7f07000b
 
     move-object/from16 v0, p2
 
@@ -165,9 +165,9 @@
 
     check-cast v6, Landroid/widget/ImageView;
 
-    .line 672
+    .line 710
     .local v6, imgFavIcon:Landroid/widget/ImageView;
-    const v10, 0x7f070008
+    const v10, 0x7f07000a
 
     move-object/from16 v0, p2
 
@@ -177,9 +177,9 @@
 
     check-cast v7, Landroid/widget/ImageView;
 
-    .line 675
+    .line 712
     .local v7, imgSpkIcon:Landroid/widget/ImageView;
-    const v10, 0x7f07000a
+    const v10, 0x7f07000c
 
     move-object/from16 v0, p2
 
@@ -189,9 +189,9 @@
 
     check-cast v5, Landroid/widget/CheckBox;
 
-    .line 676
+    .line 713
     .local v5, imgDelIcon:Landroid/widget/CheckBox;
-    const v10, 0x7f070007
+    const v10, 0x7f070009
 
     move-object/from16 v0, p2
 
@@ -201,9 +201,9 @@
 
     check-cast v9, Landroid/widget/TextView;
 
-    .line 678
+    .line 714
     .local v9, txtChannelName:Landroid/widget/TextView;
-    const v10, 0x7f070006
+    const v10, 0x7f070008
 
     move-object/from16 v0, p2
 
@@ -213,18 +213,18 @@
 
     check-cast v8, Landroid/widget/TextView;
 
-    .line 681
+    .line 716
     .local v8, txtChannelFreq:Landroid/widget/TextView;
     const/4 v10, 0x0
 
     invoke-virtual {v5, v10}, Landroid/widget/CheckBox;->setVisibility(I)V
 
-    .line 682
+    .line 717
     iget-boolean v10, v1, Lcom/sec/android/app/fm/RemoveChannelActivity$ChannelInfo;->willDeleted:Z
 
     invoke-virtual {v5, v10}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    .line 683
+    .line 718
     invoke-static {}, Lcom/sec/android/app/fm/FMRadioFeature;->GetFrequencySpace()I
 
     move-result v10
@@ -233,7 +233,7 @@
 
     if-ne v10, v11, :cond_1
 
-    .line 684
+    .line 719
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
@@ -274,7 +274,7 @@
 
     invoke-virtual {v8, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 685
+    .line 720
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
@@ -319,40 +319,40 @@
 
     move-result-object v3
 
-    .line 686
+    .line 721
     .local v3, desc:Ljava/lang/String;
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 687
+    .line 722
     invoke-virtual {v8, v3}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 688
+    .line 723
     invoke-virtual {v9, v3}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 697
+    .line 731
     :goto_0
     iget-object v10, v2, Lcom/sec/android/app/fm/data/Channel;->mFreqName:Ljava/lang/String;
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 698
+    .line 732
     const/4 v10, 0x0
 
     invoke-virtual {v6, v10}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 699
+    .line 733
     iget-boolean v10, v2, Lcom/sec/android/app/fm/data/Channel;->mIsFavourite:Z
 
     if-eqz v10, :cond_2
 
-    .line 700
-    const v10, 0x7f0200d3
+    .line 734
+    const v10, 0x7f02009d
 
     invoke-virtual {v6, v10}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 708
+    .line 742
     :goto_1
     :try_start_0
     sget-object v10, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -367,12 +367,12 @@
 
     if-nez v10, :cond_3
 
-    .line 714
+    .line 748
     const/4 v10, 0x0
 
     invoke-virtual {v7, v10}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 730
+    .line 764
     :goto_2
     invoke-static {}, Lcom/sec/android/app/fm/RemoveChannelActivity;->access$800()Landroid/content/res/ColorStateList;
 
@@ -382,11 +382,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 736
+    .line 772
     :goto_3
     return-object p2
 
-    .line 691
+    .line 725
     .end local v3           #desc:Ljava/lang/String;
     :cond_1
     new-instance v10, Ljava/lang/StringBuilder;
@@ -411,7 +411,7 @@
 
     invoke-virtual {v8, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 692
+    .line 726
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
@@ -438,29 +438,29 @@
 
     move-result-object v3
 
-    .line 693
+    .line 727
     .restart local v3       #desc:Ljava/lang/String;
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 694
+    .line 728
     invoke-virtual {v8, v3}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 695
+    .line 729
     invoke-virtual {v9, v3}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
-    .line 702
+    .line 736
     :cond_2
-    const v10, 0x7f0200d2
+    const v10, 0x7f02009c
 
     invoke-virtual {v6, v10}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_1
 
-    .line 727
+    .line 761
     :cond_3
     const/16 v10, 0x8
 
@@ -471,11 +471,11 @@
 
     goto :goto_2
 
-    .line 731
+    .line 765
     :catch_0
     move-exception v4
 
-    .line 733
+    .line 767
     .local v4, e:Ljava/lang/Exception;
     :try_start_2
     invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
@@ -484,7 +484,7 @@
 
     goto :goto_3
 
-    .line 734
+    .line 768
     :catch_1
     move-exception v10
 

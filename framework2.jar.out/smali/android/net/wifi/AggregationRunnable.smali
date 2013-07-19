@@ -36,18 +36,18 @@
     .parameter "context"
 
     .prologue
-    .line 60
+    .line 62
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
+    .line 56
     const-string v0, "AggregationRunnable"
 
     iput-object v0, p0, Landroid/net/wifi/AggregationRunnable;->TAG:Ljava/lang/String;
 
-    .line 61
+    .line 63
     iput-object p1, p0, Landroid/net/wifi/AggregationRunnable;->mContext:Landroid/content/Context;
 
-    .line 62
+    .line 64
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .parameter "x0"
 
     .prologue
-    .line 50
+    .line 52
     iget-object v0, p0, Landroid/net/wifi/AggregationRunnable;->TAG:Ljava/lang/String;
 
     return-object v0
@@ -67,7 +67,7 @@
     .parameter "x0"
 
     .prologue
-    .line 50
+    .line 52
     iget-object v0, p0, Landroid/net/wifi/AggregationRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
 
     return-object v0
@@ -78,7 +78,7 @@
     .parameter "x0"
 
     .prologue
-    .line 50
+    .line 52
     iget-object v0, p0, Landroid/net/wifi/AggregationRunnable;->handler:Landroid/net/wifi/AggregationHandler;
 
     return-object v0
@@ -90,21 +90,21 @@
     .locals 6
 
     .prologue
-    .line 66
+    .line 68
     iget-object v3, p0, Landroid/net/wifi/AggregationRunnable;->TAG:Ljava/lang/String;
 
     const-string v4, "run() method"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 68
+    .line 70
     new-instance v3, Landroid/net/wifi/AggregationHandler;
 
     invoke-direct {v3}, Landroid/net/wifi/AggregationHandler;-><init>()V
 
     iput-object v3, p0, Landroid/net/wifi/AggregationRunnable;->handler:Landroid/net/wifi/AggregationHandler;
 
-    .line 70
+    .line 72
     :try_start_0
     const-string v3, "org.ccil.cowan.tagsoup.Parser"
 
@@ -114,7 +114,7 @@
 
     iput-object v3, p0, Landroid/net/wifi/AggregationRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
 
-    .line 71
+    .line 73
     iget-object v3, p0, Landroid/net/wifi/AggregationRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
 
     const-string v4, "http://xml.org/sax/properties/lexical-handler"
@@ -125,7 +125,7 @@
     :try_end_0
     .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 77
+    .line 79
     :goto_0
     iget-object v3, p0, Landroid/net/wifi/AggregationRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
 
@@ -133,40 +133,40 @@
 
     invoke-interface {v3, v4}, Lorg/xml/sax/XMLReader;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
 
-    .line 79
+    .line 81
     new-instance v2, Landroid/net/wifi/AggregationRunnable$TestHttpGet;
 
     invoke-direct {v2, p0}, Landroid/net/wifi/AggregationRunnable$TestHttpGet;-><init>(Landroid/net/wifi/AggregationRunnable;)V
 
-    .line 81
+    .line 83
     .local v2, test:Landroid/net/wifi/AggregationRunnable$TestHttpGet;
     :try_start_1
     invoke-virtual {v2}, Landroid/net/wifi/AggregationRunnable$TestHttpGet;->executeHttpGet()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 89
+    .line 91
     :goto_1
     return-void
 
-    .line 72
+    .line 74
     .end local v2           #test:Landroid/net/wifi/AggregationRunnable$TestHttpGet;
     :catch_0
     move-exception v1
 
-    .line 74
+    .line 76
     .local v1, e1:Lorg/xml/sax/SAXException;
     invoke-virtual {v1}, Lorg/xml/sax/SAXException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 82
+    .line 84
     .end local v1           #e1:Lorg/xml/sax/SAXException;
     .restart local v2       #test:Landroid/net/wifi/AggregationRunnable$TestHttpGet;
     :catch_1
     move-exception v0
 
-    .line 84
+    .line 86
     .local v0, e:Ljava/lang/Exception;
     iget-object v3, p0, Landroid/net/wifi/AggregationRunnable;->TAG:Ljava/lang/String;
 
@@ -174,7 +174,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 86
+    .line 88
     iget-object v3, p0, Landroid/net/wifi/AggregationRunnable;->mContext:Landroid/content/Context;
 
     new-instance v4, Landroid/content/Intent;
@@ -185,7 +185,7 @@
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 87
+    .line 89
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1

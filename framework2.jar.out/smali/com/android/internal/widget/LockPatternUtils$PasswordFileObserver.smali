@@ -21,10 +21,10 @@
     .parameter "mask"
 
     .prologue
-    .line 183
+    .line 187
     invoke-direct {p0, p1, p2}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
 
-    .line 184
+    .line 188
     return-void
 .end method
 
@@ -36,7 +36,7 @@
     .parameter "path"
 
     .prologue
-    .line 188
+    .line 192
     const-string v0, "sparepassword.key"
 
     invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -45,14 +45,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 189
+    .line 193
     const-string v0, "LockPatternUtils"
 
     const-string v1, "lock sparepassword file changed"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 190
+    .line 194
     invoke-static {}, Lcom/android/internal/widget/LockPatternUtils;->access$100()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v1
@@ -80,11 +80,11 @@
     :goto_0
     invoke-virtual {v1, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 192
+    .line 196
     :cond_0
     return-void
 
-    .line 190
+    .line 194
     :cond_1
     const/4 v0, 0x0
 

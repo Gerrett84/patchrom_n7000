@@ -23,6 +23,14 @@
     .end annotation
 .end method
 
+.method public abstract getListenerPackageName()Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract motionCallback(Landroid/hardware/motion/MREvent;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

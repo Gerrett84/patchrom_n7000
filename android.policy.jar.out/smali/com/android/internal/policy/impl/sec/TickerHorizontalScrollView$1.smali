@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 72
+    .line 73
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$1;->this$0:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 75
+    .line 76
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 80
+    .line 81
     :goto_0
     return-void
 
-    .line 77
+    .line 78
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$1;->this$0:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
@@ -57,7 +57,7 @@
 
     goto :goto_0
 
-    .line 75
+    .line 76
     :pswitch_data_0
     .packed-switch 0x12c1
         :pswitch_0

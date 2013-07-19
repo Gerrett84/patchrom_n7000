@@ -48,24 +48,24 @@
     .parameter
 
     .prologue
-    .line 2162
+    .line 2131
     iput-object p1, p0, Lcom/android/server/enterprise/ApplicationPolicy$ApplicationPackageInfo;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2163
+    .line 2132
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/server/enterprise/ApplicationPolicy$ApplicationPackageInfo;->packageName:Ljava/lang/String;
 
-    .line 2164
+    .line 2133
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/enterprise/ApplicationPolicy$ApplicationPackageInfo;->permissions:Ljava/util/List;
 
-    .line 2165
+    .line 2134
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -81,7 +81,7 @@
     .locals 2
 
     .prologue
-    .line 2168
+    .line 2137
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 343
+    .line 399
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,94 +38,124 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 5
 
     .prologue
-    .line 346
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
+    .line 402
+    iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
 
-    iget-object v2, v2, Lcom/android/internal/policy/impl/sec/TickerWidget$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    iget-object v3, v3, Lcom/android/internal/policy/impl/sec/TickerWidget$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #calls: Lcom/android/internal/policy/impl/sec/TickerWidget;->updateFacebookInstalled()V
-    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1700(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
+    invoke-static {v3}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1800(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
-    .line 348
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
+    .line 404
+    iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
 
-    iget-object v2, v2, Lcom/android/internal/policy/impl/sec/TickerWidget$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    iget-object v3, v3, Lcom/android/internal/policy/impl/sec/TickerWidget$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookInstalled:Z
-    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+    invoke-static {v3}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 349
-    const-string v2, "facebook:/newsfeed"
+    .line 405
+    const-string v3, "fb://newsfeed"
 
-    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object v2
 
-    .line 350
-    .local v1, uri:Landroid/net/Uri;
-    new-instance v0, Landroid/content/Intent;
+    .line 406
+    .local v2, uri:Landroid/net/Uri;
+    new-instance v1, Landroid/content/Intent;
 
-    const-string v2, "android.intent.action.VIEW"
+    const-string v3, "android.intent.action.VIEW"
 
-    invoke-direct {v0, v2, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v1, v3, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 351
-    .local v0, intent:Landroid/content/Intent;
-    const/high16 v2, 0x1000
+    .line 407
+    .local v1, intent:Landroid/content/Intent;
+    const/high16 v3, 0x1000
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v1, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 352
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
+    .line 409
+    :try_start_0
+    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    iget-object v2, v2, Lcom/android/internal/policy/impl/sec/TickerWidget$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    move-result-object v3
+
+    invoke-interface {v3}, Landroid/app/IActivityManager;->dismissKeyguardOnNextActivity()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 413
+    :goto_0
+    iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
+
+    iget-object v3, v3, Lcom/android/internal/policy/impl/sec/TickerWidget$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1500(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/content/Context;
+    invoke-static {v3}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v3, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 356
-    .end local v0           #intent:Landroid/content/Intent;
-    .end local v1           #uri:Landroid/net/Uri;
-    :goto_0
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
+    .line 417
+    .end local v1           #intent:Landroid/content/Intent;
+    .end local v2           #uri:Landroid/net/Uri;
+    :goto_1
+    iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
 
-    iget-object v2, v2, Lcom/android/internal/policy/impl/sec/TickerWidget$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    iget-object v3, v3, Lcom/android/internal/policy/impl/sec/TickerWidget$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+    invoke-static {v3}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1700(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {v2}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToUnlockScreen()V
+    invoke-interface {v3}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToUnlockScreen()V
 
-    .line 357
+    .line 418
     return-void
 
-    .line 354
-    :cond_0
-    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
+    .line 410
+    .restart local v1       #intent:Landroid/content/Intent;
+    .restart local v2       #uri:Landroid/net/Uri;
+    :catch_0
+    move-exception v0
 
-    iget-object v2, v2, Lcom/android/internal/policy/impl/sec/TickerWidget$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    .line 411
+    .local v0, e:Landroid/os/RemoteException;
+    const-string v3, "TickerWidget"
 
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerScrollView;
+    const-string v4, "dismissKeyguard remoteException"
 
-    move-result-object v2
-
-    iget-object v2, v2, Lcom/android/internal/policy/impl/sec/TickerScrollView;->mAccountThread:Lcom/android/internal/policy/impl/sec/TickerScrollView$AccountThread;
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/sec/TickerScrollView$AccountThread;->start()V
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+
+    .line 415
+    .end local v0           #e:Landroid/os/RemoteException;
+    .end local v1           #intent:Landroid/content/Intent;
+    .end local v2           #uri:Landroid/net/Uri;
+    :cond_0
+    iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$5$1;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$5;
+
+    iget-object v3, v3, Lcom/android/internal/policy/impl/sec/TickerWidget$5;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mVerticalScrollView:Lcom/android/internal/policy/impl/sec/TickerScrollView;
+    invoke-static {v3}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerScrollView;
+
+    move-result-object v3
+
+    iget-object v3, v3, Lcom/android/internal/policy/impl/sec/TickerScrollView;->mAccountThread:Lcom/android/internal/policy/impl/sec/TickerScrollView$AccountThread;
+
+    invoke-virtual {v3}, Lcom/android/internal/policy/impl/sec/TickerScrollView$AccountThread;->start()V
+
+    goto :goto_1
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 258
+    .line 254
     iput-object p1, p0, Lcom/android/server/pm/ShutdownDialog$1;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 3
 
     .prologue
-    .line 260
+    .line 256
     iget-object v1, p0, Lcom/android/server/pm/ShutdownDialog$1;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #getter for: Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
@@ -51,18 +51,18 @@
 
     if-nez v1, :cond_0
 
-    .line 261
+    .line 257
     const-string v1, "ShutdownDialog"
 
     const-string v2, "MediaPlayer is null"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 279
+    .line 275
     :goto_0
     return-void
 
-    .line 265
+    .line 261
     :cond_0
     :try_start_0
     const-string v1, "ShutdownDialog"
@@ -71,7 +71,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 267
+    .line 263
     iget-object v1, p0, Lcom/android/server/pm/ShutdownDialog$1;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #getter for: Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
@@ -81,7 +81,7 @@
 
     invoke-virtual {v1}, Landroid/media/MediaPlayer;->start()V
 
-    .line 268
+    .line 264
     iget-object v1, p0, Lcom/android/server/pm/ShutdownDialog$1;->this$0:Lcom/android/server/pm/ShutdownDialog;
 
     #getter for: Lcom/android/server/pm/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
@@ -103,11 +103,11 @@
 
     goto :goto_0
 
-    .line 269
+    .line 265
     :catch_0
     move-exception v0
 
-    .line 271
+    .line 267
     .local v0, e:Ljava/lang/IllegalStateException;
     const-string v1, "ShutdownDialog"
 
@@ -117,12 +117,12 @@
 
     goto :goto_0
 
-    .line 272
+    .line 268
     .end local v0           #e:Ljava/lang/IllegalStateException;
     :catch_1
     move-exception v0
 
-    .line 274
+    .line 270
     .local v0, e:Ljava/lang/InterruptedException;
     const-string v1, "ShutdownDialog"
 
@@ -132,12 +132,12 @@
 
     goto :goto_0
 
-    .line 275
+    .line 271
     .end local v0           #e:Ljava/lang/InterruptedException;
     :catch_2
     move-exception v0
 
-    .line 277
+    .line 273
     .local v0, e:Ljava/lang/Exception;
     const-string v1, "ShutdownDialog"
 

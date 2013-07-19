@@ -50,97 +50,97 @@
     .locals 2
 
     .prologue
-    .line 947
+    .line 1256
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 927
+    .line 1236
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->title:Ljava/lang/String;
 
-    .line 928
+    .line 1237
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->album:Ljava/lang/String;
 
-    .line 929
+    .line 1238
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->filename:Ljava/lang/String;
 
-    .line 930
+    .line 1239
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->id:Ljava/lang/String;
 
-    .line 932
+    .line 1241
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->size:Ljava/lang/String;
 
-    .line 933
+    .line 1242
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->mimeType:Ljava/lang/String;
 
-    .line 934
+    .line 1243
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->artist:Ljava/lang/String;
 
-    .line 935
+    .line 1244
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->composer:Ljava/lang/String;
 
-    .line 937
+    .line 1246
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->description:Ljava/lang/String;
 
-    .line 938
+    .line 1247
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->language:Ljava/lang/String;
 
-    .line 939
+    .line 1248
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->longitude:Ljava/lang/String;
 
-    .line 940
+    .line 1249
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->latitude:Ljava/lang/String;
 
-    .line 941
+    .line 1250
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->creationDate:Ljava/lang/String;
 
-    .line 942
+    .line 1251
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->path:Ljava/lang/String;
 
-    .line 943
+    .line 1252
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->modificationDate:Ljava/lang/String;
 
-    .line 944
+    .line 1253
     const-string v0, ""
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->genreName:Ljava/lang/String;
 
-    .line 948
+    .line 1257
     const-string v0, "MTPJNIInterface"
 
     const-string v1, "Inside MediaObject Constructor"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 949
+    .line 1258
     return-void
 .end method
 
@@ -166,118 +166,118 @@
     .parameter "genreName"
 
     .prologue
-    .line 953
+    .line 1262
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 927
+    .line 1236
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->title:Ljava/lang/String;
 
-    .line 928
+    .line 1237
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->album:Ljava/lang/String;
 
-    .line 929
+    .line 1238
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->filename:Ljava/lang/String;
 
-    .line 930
+    .line 1239
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->id:Ljava/lang/String;
 
-    .line 932
+    .line 1241
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->size:Ljava/lang/String;
 
-    .line 933
+    .line 1242
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->mimeType:Ljava/lang/String;
 
-    .line 934
+    .line 1243
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->artist:Ljava/lang/String;
 
-    .line 935
+    .line 1244
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->composer:Ljava/lang/String;
 
-    .line 937
+    .line 1246
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->description:Ljava/lang/String;
 
-    .line 938
+    .line 1247
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->language:Ljava/lang/String;
 
-    .line 939
+    .line 1248
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->longitude:Ljava/lang/String;
 
-    .line 940
+    .line 1249
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->latitude:Ljava/lang/String;
 
-    .line 941
+    .line 1250
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->creationDate:Ljava/lang/String;
 
-    .line 942
+    .line 1251
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->path:Ljava/lang/String;
 
-    .line 943
+    .line 1252
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->modificationDate:Ljava/lang/String;
 
-    .line 944
+    .line 1253
     const-string v1, ""
 
     iput-object v1, p0, Landroid/mtp/MediaObject;->genreName:Ljava/lang/String;
 
-    .line 954
+    .line 1263
     iput-object p1, p0, Landroid/mtp/MediaObject;->filename:Ljava/lang/String;
 
-    .line 955
+    .line 1264
     iput-object p2, p0, Landroid/mtp/MediaObject;->album:Ljava/lang/String;
 
-    .line 956
+    .line 1265
     iput-object p3, p0, Landroid/mtp/MediaObject;->artist:Ljava/lang/String;
 
-    .line 957
+    .line 1266
     iput-object p4, p0, Landroid/mtp/MediaObject;->composer:Ljava/lang/String;
 
-    .line 958
+    .line 1267
     iput-object p5, p0, Landroid/mtp/MediaObject;->creationDate:Ljava/lang/String;
 
-    .line 959
+    .line 1268
     iput-object p6, p0, Landroid/mtp/MediaObject;->description:Ljava/lang/String;
 
-    .line 960
+    .line 1269
     if-eqz p7, :cond_0
 
-    .line 961
+    .line 1270
     invoke-static {p7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v1
 
     iput v1, p0, Landroid/mtp/MediaObject;->duration:I
 
-    .line 965
+    .line 1274
     :goto_0
     const-string v1, "MTPJNIInterface"
 
@@ -303,60 +303,60 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 966
+    .line 1275
     iput-object p8, p0, Landroid/mtp/MediaObject;->id:Ljava/lang/String;
 
-    .line 967
+    .line 1276
     iput-object p9, p0, Landroid/mtp/MediaObject;->language:Ljava/lang/String;
 
-    .line 968
+    .line 1277
     iput-object p10, p0, Landroid/mtp/MediaObject;->latitude:Ljava/lang/String;
 
-    .line 969
+    .line 1278
     iput-object p11, p0, Landroid/mtp/MediaObject;->longitude:Ljava/lang/String;
 
-    .line 970
+    .line 1279
     move-object/from16 v0, p12
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->mimeType:Ljava/lang/String;
 
-    .line 971
+    .line 1280
     move-object/from16 v0, p13
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->modificationDate:Ljava/lang/String;
 
-    .line 972
+    .line 1281
     move-object/from16 v0, p14
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->path:Ljava/lang/String;
 
-    .line 973
+    .line 1282
     move-object/from16 v0, p15
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->size:Ljava/lang/String;
 
-    .line 974
+    .line 1283
     move-object/from16 v0, p16
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->title:Ljava/lang/String;
 
-    .line 975
+    .line 1284
     if-eqz p17, :cond_1
 
-    .line 976
+    .line 1285
     invoke-static/range {p17 .. p17}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v1
 
     iput v1, p0, Landroid/mtp/MediaObject;->year:I
 
-    .line 980
+    .line 1289
     :goto_1
     move-object/from16 v0, p18
 
     iput-object v0, p0, Landroid/mtp/MediaObject;->genreName:Ljava/lang/String;
 
-    .line 981
+    .line 1290
     const-string v1, "MTPJNIInterface"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -381,10 +381,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 982
+    .line 1291
     return-void
 
-    .line 963
+    .line 1272
     :cond_0
     const/4 v1, 0x0
 
@@ -392,7 +392,7 @@
 
     goto :goto_0
 
-    .line 978
+    .line 1287
     :cond_1
     const/4 v1, 0x0
 

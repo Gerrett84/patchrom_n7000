@@ -3,12 +3,12 @@
 .source "MainActivity.java"
 
 # interfaces
-.implements Landroid/view/animation/Animation$AnimationListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/fm/MainActivity;->setPlayPauseImage()V
+    value = Lcom/sec/android/app/fm/MainActivity;->onCreateDialog(I)Landroid/app/Dialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 10812
+    .line 4599
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$33;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,41 +37,18 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/view/animation/Animation;)V
+.method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 2
-    .parameter "arg0"
+    .parameter "dialog"
 
     .prologue
-    .line 10832
+    .line 4603
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$33;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->mTxtRadioStatusText:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$700(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/TextView;
+    const/16 v1, 0xe
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->removeDialog(I)V
 
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 10834
-    return-void
-.end method
-
-.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
-    .parameter "arg0"
-
-    .prologue
-    .line 10824
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 0
-    .parameter "arg0"
-
-    .prologue
-    .line 10818
+    .line 4604
     return-void
 .end method

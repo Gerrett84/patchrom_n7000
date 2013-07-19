@@ -187,7 +187,7 @@
 
     const/4 v1, 0x6
 
-    const-string v2, "mailto:"
+    const-string/jumbo v2, "mailto:"
 
     aput-object v2, v0, v1
 
@@ -376,6 +376,8 @@
     return-void
 
     .line 185
+    nop
+
     nop
 
     :array_0
@@ -835,7 +837,7 @@
 
     new-instance v2, Ljava/lang/NullPointerException;
 
-    const-string v3, "mimeType is null"
+    const-string/jumbo v3, "mimeType is null"
 
     invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
@@ -856,7 +858,7 @@
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "mimeType is empty"
+    const-string/jumbo v3, "mimeType is empty"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -876,7 +878,7 @@
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "mimeType must have major type"
+    const-string/jumbo v3, "mimeType must have major type"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -895,7 +897,7 @@
     .line 420
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "mimeType must have minor type"
+    const-string/jumbo v3, "mimeType must have minor type"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

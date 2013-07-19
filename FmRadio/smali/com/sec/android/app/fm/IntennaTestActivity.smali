@@ -6,20 +6,16 @@
 .implements Landroid/view/View$OnClickListener;
 
 
-# static fields
-.field static current_rssi:I
-
-.field static factory_rssi:I
-
-.field static test_frequency:J
-
-
 # instance fields
 .field LOG_TAG:Ljava/lang/String;
 
 .field private MAX_REG_COUNT:I
 
+.field private current_rssi:I
+
 .field private doUpdate:Ljava/lang/Runnable;
+
+.field private factory_rssi:I
 
 .field private handler:Landroid/os/Handler;
 
@@ -43,40 +39,22 @@
 
 .field registerName:[Ljava/lang/String;
 
+.field private test_frequency:J
+
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    .prologue
-    .line 42
-    const-wide/32 v0, 0x19258
-
-    sput-wide v0, Lcom/sec/android/app/fm/IntennaTestActivity;->test_frequency:J
-
-    .line 43
-    const/16 v0, -0x41
-
-    sput v0, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
-
-    .line 44
-    const/4 v0, 0x0
-
-    sput v0, Lcom/sec/android/app/fm/IntennaTestActivity;->current_rssi:I
-
-    return-void
-.end method
-
 .method public constructor <init>()V
-    .locals 4
+    .locals 5
 
     .prologue
+    const/4 v4, 0x0
+
     const/4 v3, 0x3
 
-    .line 24
+    .line 23
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 26
+    .line 25
     const-string v0, "### IntennaTestActivity ###"
 
     iput-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
@@ -84,28 +62,26 @@
     .line 31
     iput v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->MAX_REG_COUNT:I
 
-    .line 32
+    .line 33
     iget v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->MAX_REG_COUNT:I
 
     new-array v0, v0, [Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextLabel:[Landroid/widget/TextView;
 
-    .line 33
+    .line 35
     iget v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->MAX_REG_COUNT:I
 
     new-array v0, v0, [Landroid/widget/EditText;
 
     iput-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditReg:[Landroid/widget/EditText;
 
-    .line 36
+    .line 39
     new-array v0, v3, [Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const-string v1, "CurrentFreq(Mhz)"
 
-    const-string v2, "CurrentFreq(Mhz)"
-
-    aput-object v2, v0, v1
+    aput-object v1, v0, v4
 
     const/4 v1, 0x1
 
@@ -121,28 +97,36 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->registerName:[Ljava/lang/String;
 
-    .line 37
+    .line 43
     new-array v0, v3, [I
 
     fill-array-data v0, :array_0
 
     iput-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextViewId:[I
 
-    .line 38
+    .line 47
     new-array v0, v3, [I
 
     fill-array-data v0, :array_1
 
     iput-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditTextId:[I
 
-    .line 46
+    .line 53
+    const-wide/32 v0, 0x19258
+
+    iput-wide v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->test_frequency:J
+
+    .line 57
+    iput v4, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->current_rssi:I
+
+    .line 59
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->handler:Landroid/os/Handler;
 
-    .line 245
+    .line 277
     new-instance v0, Lcom/sec/android/app/fm/IntennaTestActivity$1;
 
     invoke-direct {v0, p0}, Lcom/sec/android/app/fm/IntennaTestActivity$1;-><init>(Lcom/sec/android/app/fm/IntennaTestActivity;)V
@@ -151,20 +135,22 @@
 
     return-void
 
-    .line 37
+    .line 43
+    nop
+
     :array_0
     .array-data 0x4
-        0x28t 0x0t 0x7t 0x7ft
-        0x2at 0x0t 0x7t 0x7ft
-        0x2ct 0x0t 0x7t 0x7ft
-    .end array-data
-
-    .line 38
-    :array_1
-    .array-data 0x4
-        0x29t 0x0t 0x7t 0x7ft
         0x2bt 0x0t 0x7t 0x7ft
         0x2dt 0x0t 0x7t 0x7ft
+        0x2ft 0x0t 0x7t 0x7ft
+    .end array-data
+
+    .line 47
+    :array_1
+    .array-data 0x4
+        0x2ct 0x0t 0x7t 0x7ft
+        0x2et 0x0t 0x7t 0x7ft
+        0x30t 0x0t 0x7t 0x7ft
     .end array-data
 .end method
 
@@ -172,54 +158,54 @@
     .locals 2
 
     .prologue
-    .line 172
-    sget v0, Lcom/sec/android/app/fm/IntennaTestActivity;->current_rssi:I
+    .line 203
+    iget v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->current_rssi:I
 
-    sget v1, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
+    iget v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
 
     if-lt v0, v1, :cond_0
 
-    .line 173
+    .line 204
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, "checkIntennaRssi :: PASS!!!"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 174
+    .line 205
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextResult:Landroid/widget/TextView;
 
     const-string v1, "PASS"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 175
+    .line 206
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextResult:Landroid/widget/TextView;
 
     const v1, -0xffff01
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackgroundColor(I)V
 
-    .line 182
+    .line 213
     :goto_0
     return-void
 
-    .line 178
+    .line 209
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, "checkIntennaRssi :: FAIL!!!"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 179
+    .line 210
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextResult:Landroid/widget/TextView;
 
     const-string v1, "FAIL"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 180
+    .line 211
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextResult:Landroid/widget/TextView;
 
     const/high16 v1, -0x1
@@ -235,7 +221,7 @@
     .parameter "x1"
 
     .prologue
-    .line 24
+    .line 23
     invoke-direct {p0, p1}, Lcom/sec/android/app/fm/IntennaTestActivity;->readThreshold(I)V
 
     return-void
@@ -246,7 +232,7 @@
     .parameter "x0"
 
     .prologue
-    .line 24
+    .line 23
     invoke-direct {p0}, Lcom/sec/android/app/fm/IntennaTestActivity;->UpdateIntennaTest()V
 
     return-void
@@ -257,7 +243,7 @@
     .parameter "x0"
 
     .prologue
-    .line 24
+    .line 23
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->doUpdate:Ljava/lang/Runnable;
 
     return-object v0
@@ -268,7 +254,7 @@
     .parameter "x0"
 
     .prologue
-    .line 24
+    .line 23
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->handler:Landroid/os/Handler;
 
     return-object v0
@@ -278,8 +264,8 @@
     .locals 3
 
     .prologue
-    .line 51
-    const v1, 0x7f07002e
+    .line 80
+    const v1, 0x7f070031
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/IntennaTestActivity;->findViewById(I)Landroid/view/View;
 
@@ -289,20 +275,20 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mOkButton:Landroid/widget/Button;
 
-    .line 52
+    .line 81
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mOkButton:Landroid/widget/Button;
 
     invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 53
+    .line 82
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mOkButton:Landroid/widget/Button;
 
     const-string v2, "Apply"
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 56
-    const v1, 0x7f07002f
+    .line 85
+    const v1, 0x7f070032
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/IntennaTestActivity;->findViewById(I)Landroid/view/View;
 
@@ -312,19 +298,19 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mCancelButton:Landroid/widget/Button;
 
-    .line 57
+    .line 86
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mCancelButton:Landroid/widget/Button;
 
     invoke-virtual {v1, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 58
+    .line 87
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mCancelButton:Landroid/widget/Button;
 
     const-string v2, "Cancel"
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 61
+    .line 90
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -333,7 +319,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 63
+    .line 91
     iget-object v2, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextLabel:[Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextViewId:[I
@@ -348,7 +334,7 @@
 
     aput-object v1, v2, v0
 
-    .line 64
+    .line 92
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextLabel:[Landroid/widget/TextView;
 
     aget-object v1, v1, v0
@@ -359,7 +345,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 65
+    .line 93
     iget-object v2, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditReg:[Landroid/widget/EditText;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditTextId:[I
@@ -374,14 +360,14 @@
 
     aput-object v1, v2, v0
 
-    .line 61
+    .line 90
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 69
+    .line 97
     :cond_0
-    const v1, 0x7f070030
+    const v1, 0x7f070033
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/IntennaTestActivity;->findViewById(I)Landroid/view/View;
 
@@ -391,21 +377,21 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextResult:Landroid/widget/TextView;
 
-    .line 70
+    .line 98
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextResult:Landroid/widget/TextView;
 
     const-string v2, "Ready"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 71
+    .line 99
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mTextResult:Landroid/widget/TextView;
 
     const/4 v2, -0x1
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setBackgroundColor(I)V
 
-    .line 73
+    .line 101
     const-string v1, "FMPlayer"
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/IntennaTestActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -416,7 +402,7 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
-    .line 74
+    .line 102
     const-string v1, "audio"
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/IntennaTestActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -427,7 +413,14 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 76
+    .line 104
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/IntennaTestActivity;->GetFactoryRssi()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
+
+    .line 105
     return-void
 .end method
 
@@ -438,23 +431,23 @@
     .prologue
     const/16 v6, 0xa
 
-    .line 110
+    .line 137
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     if-nez v3, :cond_1
 
-    .line 144
+    .line 172
     :cond_0
     :goto_0
     return-void
 
-    .line 112
+    .line 140
     :cond_1
     packed-switch p1, :pswitch_data_0
 
     goto :goto_0
 
-    .line 115
+    .line 143
     :pswitch_0
     :try_start_0
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
@@ -465,14 +458,14 @@
 
     if-eqz v3, :cond_0
 
-    .line 116
+    .line 144
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v3}, Lcom/samsung/media/fmradio/FMPlayer;->getCurrentChannel()J
 
     move-result-wide v1
 
-    .line 117
+    .line 145
     .local v1, freq:J
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
 
@@ -494,9 +487,9 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 118
+    .line 146
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditReg:[Landroid/widget/EditText;
 
     aget-object v3, v3, p1
@@ -515,18 +508,18 @@
 
     goto :goto_0
 
-    .line 120
+    .line 148
     .end local v1           #freq:J
     :catch_0
     move-exception v0
 
-    .line 121
+    .line 149
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 125
+    .line 153
     .end local v0           #e:Ljava/lang/Exception;
     :pswitch_1
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
@@ -541,7 +534,7 @@
 
     move-result-object v4
 
-    sget v5, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
+    iget v5, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -551,14 +544,14 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 126
+    .line 154
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditReg:[Landroid/widget/EditText;
 
     aget-object v3, v3, p1
 
-    sget v4, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
+    iget v4, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
 
     invoke-static {v4, v6}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
 
@@ -568,7 +561,7 @@
 
     goto :goto_0
 
-    .line 131
+    .line 159
     :pswitch_2
     :try_start_1
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
@@ -579,7 +572,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 132
+    .line 160
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v3}, Lcom/samsung/media/fmradio/FMPlayer;->getCurrentRSSI()J
@@ -588,9 +581,9 @@
 
     long-to-int v3, v3
 
-    sput v3, Lcom/sec/android/app/fm/IntennaTestActivity;->current_rssi:I
+    iput v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->current_rssi:I
 
-    .line 133
+    .line 161
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -603,7 +596,7 @@
 
     move-result-object v4
 
-    sget v5, Lcom/sec/android/app/fm/IntennaTestActivity;->current_rssi:I
+    iget v5, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->current_rssi:I
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -613,14 +606,14 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 134
+    .line 162
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditReg:[Landroid/widget/EditText;
 
     aget-object v3, v3, p1
 
-    sget v4, Lcom/sec/android/app/fm/IntennaTestActivity;->current_rssi:I
+    iget v4, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->current_rssi:I
 
     const/16 v5, 0xa
 
@@ -634,17 +627,17 @@
 
     goto/16 :goto_0
 
-    .line 136
+    .line 164
     :catch_1
     move-exception v0
 
-    .line 137
+    .line 165
     .restart local v0       #e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 112
+    .line 140
     nop
 
     :pswitch_data_0
@@ -659,24 +652,24 @@
     .locals 5
 
     .prologue
-    .line 79
+    .line 108
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     if-nez v1, :cond_0
 
-    .line 98
+    .line 128
     :goto_0
     return-void
 
-    .line 81
+    .line 111
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
 
     const-string v2, "setFreq "
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 84
+    .line 114
     :try_start_0
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
@@ -686,19 +679,19 @@
 
     if-nez v1, :cond_1
 
-    .line 86
+    .line 116
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v1}, Lcom/samsung/media/fmradio/FMPlayer;->on()Z
 
-    .line 88
+    .line 118
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
 
     const-string v2, "setFreq :: set volume 7 "
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 89
+    .line 119
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mAudioManager:Landroid/media/AudioManager;
 
     const/16 v2, 0xa
@@ -709,18 +702,18 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
-    .line 90
+    .line 120
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Lcom/samsung/media/fmradio/FMPlayer;->setSpeakerOn(Z)Z
 
-    .line 93
+    .line 123
     :cond_1
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
-    sget-wide v2, Lcom/sec/android/app/fm/IntennaTestActivity;->test_frequency:J
+    iget-wide v2, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->test_frequency:J
 
     invoke-virtual {v1, v2, v3}, Lcom/samsung/media/fmradio/FMPlayer;->tune(J)Z
     :try_end_0
@@ -728,11 +721,11 @@
 
     goto :goto_0
 
-    .line 95
+    .line 125
     :catch_0
     move-exception v0
 
-    .line 96
+    .line 126
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -743,7 +736,7 @@
     .locals 3
 
     .prologue
-    .line 102
+    .line 131
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -752,7 +745,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 104
+    .line 132
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditReg:[Landroid/widget/EditText;
 
     aget-object v1, v1, v0
@@ -761,12 +754,12 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 102
+    .line 131
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 106
+    .line 134
     :cond_0
     return-void
 .end method
@@ -776,18 +769,18 @@
     .parameter "index"
 
     .prologue
-    .line 148
+    .line 175
     iget v2, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->MAX_REG_COUNT:I
 
     if-lt p1, v2, :cond_1
 
-    .line 169
+    .line 200
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
-    .line 150
+    .line 178
     :cond_1
     iget-object v3, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditReg:[Landroid/widget/EditText;
 
@@ -803,7 +796,7 @@
 
     aput-object v2, v3, p1
 
-    .line 152
+    .line 180
     iget-object v2, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditReg:[Landroid/widget/EditText;
 
     aget-object v2, v2, p1
@@ -818,12 +811,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 154
+    .line 183
     packed-switch p1, :pswitch_data_0
 
     goto :goto_0
 
-    .line 158
+    .line 187
     :pswitch_1
     iget-object v2, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mEditReg:[Landroid/widget/EditText;
 
@@ -837,7 +830,7 @@
 
     move-result-object v1
 
-    .line 159
+    .line 188
     .local v1, ret:Ljava/lang/String;
     const/16 v2, 0xa
 
@@ -845,7 +838,7 @@
 
     move-result v0
 
-    .line 161
+    .line 190
     .local v0, Value:I
     iget-object v2, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
 
@@ -867,14 +860,21 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 162
-    sput v0, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
+    .line 191
+    iput v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
+
+    .line 193
+    iget v2, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->factory_rssi:I
+
+    invoke-virtual {p0, v2}, Lcom/sec/android/app/fm/IntennaTestActivity;->SetFactoryRssi(I)V
 
     goto :goto_0
 
-    .line 154
+    .line 183
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -885,6 +885,109 @@
 
 
 # virtual methods
+.method public GetFactoryRssi()I
+    .locals 4
+
+    .prologue
+    .line 62
+    const-string v1, "SettingsPreference"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v1, v2}, Lcom/sec/android/app/fm/IntennaTestActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    const-string v2, "factoryrssi"
+
+    const/16 v3, -0x46
+
+    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    .line 65
+    .local v0, factory_rssi:I
+    iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "GetFactoryRssi :: rssi="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 66
+    return v0
+.end method
+
+.method public SetFactoryRssi(I)V
+    .locals 4
+    .parameter "rssi"
+
+    .prologue
+    .line 70
+    const-string v1, "SettingsPreference"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v1, v2}, Lcom/sec/android/app/fm/IntennaTestActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    .line 73
+    .local v0, editor:Landroid/content/SharedPreferences$Editor;
+    const-string v1, "factoryrssi"
+
+    invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+
+    .line 74
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+
+    .line 75
+    iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "SetFactoryRssi :: rssi="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 76
+    return-void
+.end method
+
 .method public onClick(Landroid/view/View;)V
     .locals 3
     .parameter "v"
@@ -894,31 +997,31 @@
 
     const/4 v1, 0x0
 
-    .line 185
+    .line 217
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 206
+    .line 237
     :goto_0
     return-void
 
-    .line 188
+    .line 219
     :pswitch_0
     invoke-direct {p0, v2}, Lcom/sec/android/app/fm/IntennaTestActivity;->writeThreshold(I)V
 
-    .line 189
+    .line 220
     invoke-direct {p0}, Lcom/sec/android/app/fm/IntennaTestActivity;->uiclear()V
 
-    .line 190
+    .line 221
     invoke-direct {p0, v1}, Lcom/sec/android/app/fm/IntennaTestActivity;->readThreshold(I)V
 
-    .line 191
+    .line 222
     invoke-direct {p0, v2}, Lcom/sec/android/app/fm/IntennaTestActivity;->readThreshold(I)V
 
-    .line 193
+    .line 224
     const-string v0, "Apply Complete~!!"
 
     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -929,17 +1032,17 @@
 
     goto :goto_0
 
-    .line 196
+    .line 227
     :pswitch_1
     invoke-direct {p0}, Lcom/sec/android/app/fm/IntennaTestActivity;->uiclear()V
 
-    .line 197
+    .line 228
     invoke-direct {p0, v1}, Lcom/sec/android/app/fm/IntennaTestActivity;->readThreshold(I)V
 
-    .line 198
+    .line 229
     invoke-direct {p0, v2}, Lcom/sec/android/app/fm/IntennaTestActivity;->readThreshold(I)V
 
-    .line 200
+    .line 231
     const-string v0, "Cancel~!!"
 
     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -950,11 +1053,11 @@
 
     goto :goto_0
 
-    .line 185
+    .line 217
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f07002e
+    .packed-switch 0x7f070031
         :pswitch_0
         :pswitch_1
     .end packed-switch
@@ -965,41 +1068,41 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 210
+    .line 241
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 212
-    const v0, 0x7f030007
+    .line 243
+    const v0, 0x7f03000a
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/IntennaTestActivity;->setContentView(I)V
 
-    .line 214
+    .line 245
     invoke-direct {p0}, Lcom/sec/android/app/fm/IntennaTestActivity;->initialize()V
 
-    .line 215
+    .line 246
     invoke-direct {p0}, Lcom/sec/android/app/fm/IntennaTestActivity;->setFreq()V
 
-    .line 217
+    .line 248
     invoke-direct {p0}, Lcom/sec/android/app/fm/IntennaTestActivity;->uiclear()V
 
-    .line 218
+    .line 249
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/sec/android/app/fm/IntennaTestActivity;->readThreshold(I)V
 
-    .line 219
+    .line 250
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/sec/android/app/fm/IntennaTestActivity;->readThreshold(I)V
 
-    .line 221
+    .line 252
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->handler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->doUpdate:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 222
+    .line 253
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->handler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->doUpdate:Ljava/lang/Runnable;
@@ -1008,7 +1111,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 223
+    .line 254
     return-void
 .end method
 
@@ -1016,34 +1119,34 @@
     .locals 3
 
     .prologue
-    .line 227
+    .line 258
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 228
+    .line 259
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->LOG_TAG:Ljava/lang/String;
 
     const-string v2, "onDestroy"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 230
+    .line 261
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->handler:Landroid/os/Handler;
 
     iget-object v2, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->doUpdate:Ljava/lang/Runnable;
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 232
+    .line 263
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     if-nez v1, :cond_1
 
-    .line 243
+    .line 275
     :cond_0
     :goto_0
     return-void
 
-    .line 235
+    .line 267
     :cond_1
     :try_start_0
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
@@ -1056,7 +1159,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 237
+    .line 269
     iget-object v1, p0, Lcom/sec/android/app/fm/IntennaTestActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v1}, Lcom/samsung/media/fmradio/FMPlayer;->off()Z
@@ -1065,11 +1168,11 @@
 
     goto :goto_0
 
-    .line 240
+    .line 272
     :catch_0
     move-exception v0
 
-    .line 241
+    .line 273
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 

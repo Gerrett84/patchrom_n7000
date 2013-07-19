@@ -269,7 +269,7 @@
 
     .prologue
     .line 279
-    const v0, 0x101042e
+    const v0, 0x1010433
 
     invoke-direct {p0, p1, p2, v0}, Landroid/inputmethodservice/KeyboardView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -761,7 +761,7 @@
 
     move-result-object v7
 
-    const v8, 0x1110024
+    const v8, 0x1110025
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -3555,7 +3555,7 @@
     :sswitch_0
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040603
+    const v4, 0x1040614
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3568,7 +3568,7 @@
     :sswitch_1
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040604
+    const v4, 0x1040615
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3581,7 +3581,7 @@
     :sswitch_2
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040605
+    const v4, 0x1040616
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3594,7 +3594,7 @@
     :sswitch_3
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040606
+    const v4, 0x1040617
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3607,7 +3607,7 @@
     :sswitch_4
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040607
+    const v4, 0x1040618
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3620,7 +3620,7 @@
     :sswitch_5
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040608
+    const v4, 0x1040619
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3633,7 +3633,7 @@
     :sswitch_6
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040609
+    const v4, 0x104061a
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3660,7 +3660,7 @@
     :cond_4
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040618
+    const v4, 0x1040629
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3672,7 +3672,7 @@
     :cond_5
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040619
+    const v4, 0x104062a
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

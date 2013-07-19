@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 140
+    .line 147
     iput-object p1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$1;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 143
+    .line 150
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 159
+    .line 166
     :goto_0
     return-void
 
-    .line 145
+    .line 152
     :pswitch_0
     invoke-static {}, Lcom/sec/android/app/fm/DeleteFileActivity;->access$200()Ljava/lang/String;
 
@@ -56,11 +56,11 @@
 
     const-string v1, "Delete thread started"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 148
+    .line 155
     :pswitch_1
     invoke-static {}, Lcom/sec/android/app/fm/DeleteFileActivity;->access$200()Ljava/lang/String;
 
@@ -68,9 +68,9 @@
 
     const-string v1, "Delete thread finished"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 149
+    .line 156
     iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$1;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mProgressDialog:Landroid/app/ProgressDialog;
@@ -80,7 +80,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 150
+    .line 157
     iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$1;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mProgressDialog:Landroid/app/ProgressDialog;
@@ -90,7 +90,7 @@
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->cancel()V
 
-    .line 151
+    .line 158
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$1;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
@@ -101,7 +101,7 @@
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
-    .line 152
+    .line 159
     iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$1;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mCheckBoxSelectAll:Landroid/widget/CheckBox;
@@ -113,21 +113,21 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    .line 153
+    .line 160
     iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$1;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     iget-object v0, v0, Lcom/sec/android/app/fm/RecordedFileListActivity;->mAdapter:Landroid/widget/CursorAdapter;
 
     invoke-virtual {v0}, Landroid/widget/CursorAdapter;->notifyDataSetChanged()V
 
-    .line 155
+    .line 162
     iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$1;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/DeleteFileActivity;->finish()V
 
     goto :goto_0
 
-    .line 143
+    .line 150
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

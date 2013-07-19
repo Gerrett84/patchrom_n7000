@@ -12,9 +12,9 @@
                     <ImageView android:id="@id/ticker_sliding_handle_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/keyguard_ticker_handler_ic_arrow_up" />
                 </LinearLayout>
                 <LinearLayout android:gravity="right|center" android:paddingRight="6.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
-                    <TextView android:textSize="14.0dip" android:textStyle="bold" android:textColor="#ffe6e6e6" android:id="@id/ticker_sliding_handle_update_date" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <TextView android:textSize="14.0dip" android:textStyle="bold" android:textColor="#ffe6e6e6" android:ellipsize="marquee" android:id="@id/ticker_sliding_handle_update_date" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" />
                     <FrameLayout android:id="@id/ticker_sliding_handle_refresh_icon" android:paddingLeft="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                        <ProgressBar android:layout_gravity="center" android:id="@id/ticker_sliding_handle_refresh_progress" android:padding="4.0dip" android:visibility="gone" android:layout_width="25.0dip" android:layout_height="25.0dip" style="@android:style/Widget.ProgressBar.Small" />
+                        <ProgressBar android:layout_gravity="center" android:id="@id/ticker_sliding_handle_refresh_progress" android:padding="4.0dip" android:visibility="gone" android:layout_width="25.0dip" android:layout_height="25.0dip" style="@android:style/Widget.ProgressBar" />
                         <ImageView android:layout_gravity="center" android:id="@id/ticker_sliding_handle_refresh_image" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/keyguard_ticker_handler_ic_refresh" />
                     </FrameLayout>
                 </LinearLayout>

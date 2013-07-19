@@ -287,7 +287,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "onGetSensorHubDataLocked:: t.buffer"
+    const-string v5, "onGetSensorHubDataLocked["
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -297,7 +297,7 @@
 
     move-result-object v4
 
-    const-string v5, " = "
+    const-string v5, "] = "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -322,25 +322,25 @@
 
     goto :goto_1
 
-    .line 268
+    .line 267
     :cond_1
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v1
 
-    .line 269
+    .line 268
     .local v1, msg:Landroid/os/Message;
     iput v6, v1, Landroid/os/Message;->what:I
 
-    .line 270
+    .line 269
     iput-object v2, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 271
+    .line 270
     iget-object v3, p0, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v3, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 272
+    .line 271
     return-void
 .end method
 

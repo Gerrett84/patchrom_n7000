@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 618
+    .line 617
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,7 +45,7 @@
     .parameter "in"
 
     .prologue
-    .line 620
+    .line 619
     new-instance v0, Landroid/app/SpellScroll;
 
     invoke-direct {v0, p1}, Landroid/app/SpellScroll;-><init>(Landroid/os/Parcel;)V
@@ -58,7 +58,7 @@
     .parameter "x0"
 
     .prologue
-    .line 618
+    .line 617
     invoke-virtual {p0, p1}, Landroid/app/SpellScroll$1;->createFromParcel(Landroid/os/Parcel;)Landroid/app/SpellScroll;
 
     move-result-object v0
@@ -71,7 +71,7 @@
     .parameter "size"
 
     .prologue
-    .line 624
+    .line 623
     new-array v0, p1, [Landroid/app/SpellScroll;
 
     return-object v0
@@ -82,7 +82,7 @@
     .parameter "x0"
 
     .prologue
-    .line 618
+    .line 617
     invoke-virtual {p0, p1}, Landroid/app/SpellScroll$1;->newArray(I)[Landroid/app/SpellScroll;
 
     move-result-object v0

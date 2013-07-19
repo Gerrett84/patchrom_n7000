@@ -30,15 +30,15 @@
     .parameter "label"
 
     .prologue
-    .line 546
+    .line 553
     iput-object p1, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 547
+    .line 554
     iput-object p2, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->mLabel:Ljava/lang/CharSequence;
 
-    .line 548
+    .line 555
     return-void
 .end method
 
@@ -49,7 +49,7 @@
     .parameter "x2"
 
     .prologue
-    .line 542
+    .line 549
     invoke-direct {p0, p1, p2}, Landroid/widget/TabHost$LabelIndicatorStrategy;-><init>(Landroid/widget/TabHost;Ljava/lang/CharSequence;)V
 
     return-void
@@ -61,14 +61,14 @@
     .locals 7
 
     .prologue
-    .line 551
+    .line 558
     iget-object v4, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
     invoke-virtual {v4}, Landroid/widget/TabHost;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 552
+    .line 559
     .local v0, context:Landroid/content/Context;
     const-string v4, "layout_inflater"
 
@@ -78,19 +78,19 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 554
+    .line 561
     .local v1, inflater:Landroid/view/LayoutInflater;
     iget-object v4, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
     #getter for: Landroid/widget/TabHost;->mTabLayoutId:I
-    invoke-static {v4}, Landroid/widget/TabHost;->access$900(Landroid/widget/TabHost;)I
+    invoke-static {v4}, Landroid/widget/TabHost;->access$1000(Landroid/widget/TabHost;)I
 
     move-result v4
 
     iget-object v5, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
     #getter for: Landroid/widget/TabHost;->mTabWidget:Landroid/widget/TabWidget;
-    invoke-static {v5}, Landroid/widget/TabHost;->access$1000(Landroid/widget/TabHost;)Landroid/widget/TabWidget;
+    invoke-static {v5}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/TabWidget;
 
     move-result-object v5
 
@@ -100,7 +100,7 @@
 
     move-result-object v2
 
-    .line 558
+    .line 565
     .local v2, tabIndicator:Landroid/view/View;
     const v4, 0x1020016
 
@@ -110,13 +110,13 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 559
+    .line 566
     .local v3, tv:Landroid/widget/TextView;
     iget-object v4, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->mLabel:Ljava/lang/CharSequence;
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 561
+    .line 568
     invoke-virtual {v0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v4
@@ -127,17 +127,17 @@
 
     if-gt v4, v5, :cond_0
 
-    .line 563
-    const v4, 0x108073d
+    .line 570
+    const v4, 0x1080774
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 564
+    .line 571
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    const v5, 0x1060085
+    const v5, 0x1060089
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -145,7 +145,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    .line 567
+    .line 574
     :cond_0
     return-object v2
 .end method

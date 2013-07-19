@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2673
+    .line 2690
     iput-object p1, p0, Lcom/android/server/enterprise/WifiPolicy$3$1;->this$1:Lcom/android/server/enterprise/WifiPolicy$3;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
     .locals 1
 
     .prologue
-    .line 2675
+    .line 2692
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/security/KeyStore;->lock()Z
 
-    .line 2676
+    .line 2693
     return-void
 .end method

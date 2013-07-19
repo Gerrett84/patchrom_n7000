@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 346
+    .line 349
     iput-object p1, p0, Lcom/samsung/wfd/WFDSourceService$WfdStateReceiver;->this$0:Lcom/samsung/wfd/WFDSourceService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 346
+    .line 349
     invoke-direct {p0, p1}, Lcom/samsung/wfd/WFDSourceService$WfdStateReceiver;-><init>(Lcom/samsung/wfd/WFDSourceService;)V
 
     return-void
@@ -52,12 +52,12 @@
     .parameter "intent"
 
     .prologue
-    .line 349
+    .line 352
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 350
+    .line 353
     .local v3, action:Ljava/lang/String;
     const-string v18, "WFDSourceService"
 
@@ -83,7 +83,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 352
+    .line 355
     const-string v18, "android.intent.action.WIFI_DISPLAY_REQ"
 
     move-object/from16 v0, v18
@@ -94,7 +94,7 @@
 
     if-eqz v18, :cond_9
 
-    .line 354
+    .line 357
     const-string v18, "Control"
 
     move-object/from16 v0, p2
@@ -105,7 +105,7 @@
 
     move-result-object v14
 
-    .line 355
+    .line 358
     .local v14, strSessionControl:Ljava/lang/String;
     if-eqz v14, :cond_1
 
@@ -119,13 +119,13 @@
 
     if-eqz v18, :cond_1
 
-    .line 478
+    .line 491
     .end local v14           #strSessionControl:Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
-    .line 359
+    .line 362
     .restart local v14       #strSessionControl:Ljava/lang/String;
     :cond_1
     const-string v18, "res"
@@ -142,7 +142,7 @@
 
     move-result v10
 
-    .line 360
+    .line 363
     .local v10, resolution:I
     const-string v18, "3D"
 
@@ -154,7 +154,7 @@
 
     move-result-object v13
 
-    .line 361
+    .line 364
     .local v13, str3d:Ljava/lang/String;
     const-string v18, "WFDSourceService"
 
@@ -192,10 +192,10 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 362
+    .line 365
     const/4 v6, 0x0
 
-    .line 363
+    .line 366
     .local v6, dim_mode:I
     if-eqz v13, :cond_2
 
@@ -209,30 +209,30 @@
 
     if-eqz v18, :cond_2
 
-    .line 364
+    .line 367
     const/4 v6, 0x1
 
-    .line 371
+    .line 374
     :goto_1
     const/16 v17, 0x0
 
-    .line 372
+    .line 375
     .local v17, width:I
     const/4 v8, 0x0
 
-    .line 374
+    .line 377
     .local v8, height:I
     and-int/lit8 v18, v10, 0x1
 
     if-eqz v18, :cond_3
 
-    .line 375
+    .line 378
     const/16 v17, 0x280
 
-    .line 376
+    .line 379
     const/16 v8, 0x1e0
 
-    .line 398
+    .line 401
     :goto_2
     const-string v18, "WFDSourceService"
 
@@ -272,7 +272,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 399
+    .line 402
     const/16 v18, 0x0
 
     move/from16 v0, v18
@@ -283,7 +283,7 @@
 
     goto/16 :goto_0
 
-    .line 366
+    .line 369
     .end local v8           #height:I
     .end local v17           #width:I
     :cond_2
@@ -291,7 +291,7 @@
 
     goto :goto_1
 
-    .line 377
+    .line 380
     .restart local v8       #height:I
     .restart local v17       #width:I
     :cond_3
@@ -299,80 +299,80 @@
 
     if-eqz v18, :cond_4
 
-    .line 378
+    .line 381
     const/16 v17, 0x2d0
 
-    .line 379
+    .line 382
     const/16 v8, 0x1e0
 
     goto :goto_2
 
-    .line 380
+    .line 383
     :cond_4
     and-int/lit8 v18, v10, 0x4
 
     if-eqz v18, :cond_5
 
-    .line 381
+    .line 384
     const/16 v17, 0x2d0
 
-    .line 382
+    .line 385
     const/16 v8, 0x240
 
     goto :goto_2
 
-    .line 383
+    .line 386
     :cond_5
     and-int/lit8 v18, v10, 0x8
 
     if-eqz v18, :cond_6
 
-    .line 384
+    .line 387
     const/16 v17, 0x500
 
-    .line 385
+    .line 388
     const/16 v8, 0x2d0
 
     goto :goto_2
 
-    .line 386
+    .line 389
     :cond_6
     and-int/lit8 v18, v10, 0x10
 
     if-eqz v18, :cond_7
 
-    .line 387
+    .line 390
     const/16 v17, 0x780
 
-    .line 388
+    .line 391
     const/16 v8, 0x438
 
     goto :goto_2
 
-    .line 389
+    .line 392
     :cond_7
     and-int/lit8 v18, v10, 0x20
 
     if-eqz v18, :cond_8
 
-    .line 390
+    .line 393
     const/16 v17, 0x320
 
-    .line 391
+    .line 394
     const/16 v8, 0x258
 
     goto :goto_2
 
-    .line 394
+    .line 397
     :cond_8
     const/16 v17, 0x500
 
-    .line 395
+    .line 398
     const/16 v8, 0x2d0
 
     goto :goto_2
 
-    .line 401
+    .line 404
     .end local v6           #dim_mode:I
     .end local v8           #height:I
     .end local v10           #resolution:I
@@ -390,14 +390,14 @@
 
     if-eqz v18, :cond_a
 
-    .line 402
+    .line 405
     const/16 v18, 0x1
 
     invoke-static/range {v18 .. v18}, Lcom/samsung/wfd/WFDNative;->sendUpdateUserInput(I)Z
 
     goto/16 :goto_0
 
-    .line 404
+    .line 407
     :cond_a
     const-string v18, "android.intent.action.WIFI_DISPLAY_UPDATE_INPUT_FROM_APP"
 
@@ -409,14 +409,14 @@
 
     if-eqz v18, :cond_b
 
-    .line 405
+    .line 408
     const/16 v18, 0x0
 
     invoke-static/range {v18 .. v18}, Lcom/samsung/wfd/WFDNative;->sendUpdateUserInput(I)Z
 
     goto/16 :goto_0
 
-    .line 407
+    .line 410
     :cond_b
     const-string v18, "android.intent.action.WIFI_DISPLAY_TCP_TRANSPORT"
 
@@ -428,25 +428,25 @@
 
     if-eqz v18, :cond_c
 
-    .line 408
+    .line 411
     const-string v18, "WFDSourceService"
 
     const-string v19, "On Receive << ACTION_WIFI_DISPLAY_TCP_TRANSPORT"
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 409
+    .line 412
     const/4 v15, 0x1
 
-    .line 410
+    .line 413
     .local v15, transportType:I
     const/16 v5, 0x12c
 
-    .line 411
+    .line 414
     .local v5, bufferLengthMs:I
     const/16 v9, 0x4a3a
 
-    .line 412
+    .line 415
     .local v9, port:I
     move-object/from16 v0, p0
 
@@ -459,7 +459,7 @@
     #setter for: Lcom/samsung/wfd/WFDSourceService;->mConnectionType:I
     invoke-static/range {v18 .. v19}, Lcom/samsung/wfd/WFDSourceService;->access$102(Lcom/samsung/wfd/WFDSourceService;I)I
 
-    .line 414
+    .line 417
     const-string v18, "WFDSourceService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -508,7 +508,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 415
+    .line 418
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/wfd/WFDSourceService$WfdStateReceiver;->this$0:Lcom/samsung/wfd/WFDSourceService;
@@ -522,7 +522,7 @@
 
     move-result v11
 
-    .line 416
+    .line 419
     .local v11, ret:Z
     const-string v18, "WFDSourceService"
 
@@ -550,7 +550,7 @@
 
     goto/16 :goto_0
 
-    .line 417
+    .line 420
     .end local v5           #bufferLengthMs:I
     .end local v9           #port:I
     .end local v11           #ret:Z
@@ -566,25 +566,25 @@
 
     if-eqz v18, :cond_d
 
-    .line 418
+    .line 421
     const-string v18, "WFDSourceService"
 
     const-string v19, "On Receive << ACTION_WIFI_DISPLAY_UDP_TRANSPORT"
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 419
+    .line 422
     const/4 v15, 0x0
 
-    .line 420
+    .line 423
     .restart local v15       #transportType:I
     const/4 v5, 0x0
 
-    .line 421
+    .line 424
     .restart local v5       #bufferLengthMs:I
     const/16 v9, 0x4a38
 
-    .line 422
+    .line 425
     .restart local v9       #port:I
     move-object/from16 v0, p0
 
@@ -597,7 +597,7 @@
     #setter for: Lcom/samsung/wfd/WFDSourceService;->mConnectionType:I
     invoke-static/range {v18 .. v19}, Lcom/samsung/wfd/WFDSourceService;->access$102(Lcom/samsung/wfd/WFDSourceService;I)I
 
-    .line 423
+    .line 426
     const-string v18, "WFDSourceService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -646,7 +646,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 424
+    .line 427
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/wfd/WFDSourceService$WfdStateReceiver;->this$0:Lcom/samsung/wfd/WFDSourceService;
@@ -660,7 +660,7 @@
 
     move-result v11
 
-    .line 425
+    .line 428
     .restart local v11       #ret:Z
     const-string v18, "WFDSourceService"
 
@@ -688,7 +688,7 @@
 
     goto/16 :goto_0
 
-    .line 426
+    .line 429
     .end local v5           #bufferLengthMs:I
     .end local v9           #port:I
     .end local v11           #ret:Z
@@ -704,7 +704,7 @@
 
     if-eqz v18, :cond_e
 
-    .line 428
+    .line 431
     const-string v18, "android.media.EXTRA_VOLUME_STREAM_TYPE"
 
     const/16 v19, 0x0
@@ -719,7 +719,7 @@
 
     move-result v4
 
-    .line 429
+    .line 432
     .local v4, audio_type:I
     const-string v18, "android.media.EXTRA_VOLUME_STREAM_VALUE"
 
@@ -735,7 +735,7 @@
 
     move-result v16
 
-    .line 431
+    .line 434
     .local v16, volume_value:I
     const-string v18, "WFDSourceService"
 
@@ -775,19 +775,19 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 433
+    .line 436
     const/16 v18, 0x3
 
     move/from16 v0, v18
 
     if-ne v4, v0, :cond_0
 
-    .line 434
+    .line 437
     invoke-static/range {v16 .. v16}, Lcom/samsung/wfd/WFDNative;->sendStreamMusicVolume(I)Z
 
     goto/16 :goto_0
 
-    .line 436
+    .line 439
     .end local v4           #audio_type:I
     .end local v16           #volume_value:I
     :cond_e
@@ -801,7 +801,7 @@
 
     if-eqz v18, :cond_10
 
-    .line 437
+    .line 440
     const-string v18, "WFDSourceService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -835,7 +835,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 438
+    .line 441
     const-string v18, "state"
 
     move-object/from16 v0, p2
@@ -848,7 +848,7 @@
 
     if-eqz v18, :cond_0
 
-    .line 439
+    .line 442
     const-string v18, "state"
 
     const/16 v19, 0x0
@@ -865,7 +865,7 @@
 
     if-nez v18, :cond_f
 
-    .line 440
+    .line 443
     const-string v18, "WFDSourceService"
 
     const-string v19, "headset out"
@@ -874,7 +874,7 @@
 
     goto/16 :goto_0
 
-    .line 442
+    .line 445
     :cond_f
     const-string v18, "state"
 
@@ -917,14 +917,14 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 443
+    .line 446
     const-string v18, "WFDSourceService"
 
     const-string v19, "headset in"
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 444
+    .line 447
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/wfd/WFDSourceService$WfdStateReceiver;->this$0:Lcom/samsung/wfd/WFDSourceService;
@@ -935,7 +935,7 @@
 
     goto/16 :goto_0
 
-    .line 447
+    .line 450
     :cond_10
     const-string v18, "android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED"
 
@@ -947,7 +947,7 @@
 
     if-eqz v18, :cond_11
 
-    .line 448
+    .line 451
     const-string v18, "android.bluetooth.profile.extra.STATE"
 
     const/16 v19, 0x2
@@ -962,7 +962,7 @@
 
     move-result v12
 
-    .line 449
+    .line 452
     .local v12, state:I
     const-string v18, "WFDSourceService"
 
@@ -1009,14 +1009,14 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 450
+    .line 453
     const/16 v18, 0x2
 
     move/from16 v0, v18
 
     if-ne v12, v0, :cond_0
 
-    .line 452
+    .line 455
     :try_start_0
     const-string v18, "WFDSourceService"
 
@@ -1024,12 +1024,12 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 453
+    .line 456
     const-wide/16 v18, 0x7d0
 
     invoke-static/range {v18 .. v19}, Ljava/lang/Thread;->sleep(J)V
 
-    .line 454
+    .line 457
     const-string v18, "WFDSourceService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -1067,7 +1067,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 455
+    .line 458
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/wfd/WFDSourceService$WfdStateReceiver;->this$0:Lcom/samsung/wfd/WFDSourceService;
@@ -1104,14 +1104,14 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 456
+    .line 459
     const-string v18, "WFDSourceService"
 
     const-string v19, "isBluetoothA2dpOn()"
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 457
+    .line 460
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/wfd/WFDSourceService$WfdStateReceiver;->this$0:Lcom/samsung/wfd/WFDSourceService;
@@ -1124,11 +1124,11 @@
 
     goto/16 :goto_0
 
-    .line 459
+    .line 462
     :catch_0
     move-exception v7
 
-    .line 460
+    .line 463
     .local v7, e:Ljava/lang/InterruptedException;
     const-string v18, "WFDSourceService"
 
@@ -1138,7 +1138,7 @@
 
     goto/16 :goto_0
 
-    .line 463
+    .line 466
     .end local v7           #e:Ljava/lang/InterruptedException;
     .end local v12           #state:I
     :cond_11
@@ -1150,9 +1150,9 @@
 
     move-result v18
 
-    if-eqz v18, :cond_0
+    if-eqz v18, :cond_13
 
-    .line 464
+    .line 467
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/wfd/WFDSourceService$WfdStateReceiver;->this$0:Lcom/samsung/wfd/WFDSourceService;
@@ -1176,7 +1176,7 @@
     #setter for: Lcom/samsung/wfd/WFDSourceService;->mConnectionType:I
     invoke-static/range {v18 .. v19}, Lcom/samsung/wfd/WFDSourceService;->access$102(Lcom/samsung/wfd/WFDSourceService;I)I
 
-    .line 465
+    .line 468
     const-string v18, "WFDSourceService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -1260,7 +1260,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 466
+    .line 469
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/samsung/wfd/WFDSourceService$WfdStateReceiver;->this$0:Lcom/samsung/wfd/WFDSourceService;
@@ -1314,7 +1314,7 @@
 
     if-eqz v18, :cond_0
 
-    .line 467
+    .line 470
     :cond_12
     move-object/from16 v0, p0
 
@@ -1323,6 +1323,78 @@
     move-object/from16 v18, v0
 
     invoke-virtual/range {v18 .. v18}, Lcom/samsung/wfd/WFDSourceService;->teardownForAudioOut()V
+
+    goto/16 :goto_0
+
+    .line 473
+    :cond_13
+    const-string v18, "android.intent.action.WFD_RESUME"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_14
+
+    .line 474
+    const-string v18, "WFDSourceService"
+
+    const-string v19, "WFD TEST Resume"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 475
+    invoke-static {}, Lcom/samsung/wfd/WFDNative;->resume()Z
+
+    goto/16 :goto_0
+
+    .line 476
+    :cond_14
+    const-string v18, "android.intent.action.WFD_PAUSE"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_15
+
+    .line 477
+    const-string v18, "WFDSourceService"
+
+    const-string v19, "WFD TEST Puase"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 478
+    invoke-static {}, Lcom/samsung/wfd/WFDNative;->pause()Z
+
+    goto/16 :goto_0
+
+    .line 479
+    :cond_15
+    const-string v18, "android.intent.action.WFD_STOP"
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_0
+
+    .line 480
+    const-string v18, "WFDSourceService"
+
+    const-string v19, "WFD TEST Stop"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 481
+    invoke-static {}, Lcom/samsung/wfd/WFDNative;->stop()Z
 
     goto/16 :goto_0
 .end method

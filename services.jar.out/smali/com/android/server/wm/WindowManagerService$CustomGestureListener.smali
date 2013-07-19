@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 988
+    .line 1005
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$CustomGestureListener;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     invoke-direct {p0}, Landroid/view/GestureDetector$SimpleOnGestureListener;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 988
+    .line 1005
     invoke-direct {p0, p1}, Lcom/android/server/wm/WindowManagerService$CustomGestureListener;-><init>(Lcom/android/server/wm/WindowManagerService;)V
 
     return-void
@@ -51,7 +51,7 @@
     .parameter "e"
 
     .prologue
-    .line 1006
+    .line 1023
     const/4 v0, 0x1
 
     return v0
@@ -71,7 +71,7 @@
 
     const/high16 v2, 0x42f0
 
-    .line 991
+    .line 1008
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v0
@@ -92,12 +92,12 @@
 
     if-lez v0, :cond_1
 
-    .line 1001
+    .line 1018
     :cond_0
     :goto_0
     return v4
 
-    .line 996
+    .line 1013
     :cond_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -121,7 +121,7 @@
 
     if-lez v0, :cond_2
 
-    .line 997
+    .line 1014
     const-string v0, "WindowManager"
 
     const-string v1, "TODO : sending intent LEFT SWIPE"
@@ -130,7 +130,7 @@
 
     goto :goto_0
 
-    .line 998
+    .line 1015
     :cond_2
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
@@ -154,7 +154,7 @@
 
     if-lez v0, :cond_0
 
-    .line 999
+    .line 1016
     const-string v0, "WindowManager"
 
     const-string v1, "TODO : sending intent RIGHT SWIPE"

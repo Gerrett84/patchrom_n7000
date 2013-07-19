@@ -29,15 +29,15 @@
     .parameter "handler"
 
     .prologue
-    .line 269
+    .line 297
     iput-object p1, p0, Landroid/hardware/motion/MotionRecognitionService$PollIntThread;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
-    .line 270
+    .line 298
     iput-object p2, p0, Landroid/hardware/motion/MotionRecognitionService$PollIntThread;->mMainHandler:Landroid/os/Handler;
 
-    .line 271
+    .line 299
     return-void
 .end method
 
@@ -47,19 +47,19 @@
     .locals 1
 
     .prologue
-    .line 273
+    .line 301
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
-    .line 275
+    .line 303
     new-instance v0, Landroid/hardware/motion/MotionRecognitionService$PollIntThread$1;
 
     invoke-direct {v0, p0}, Landroid/hardware/motion/MotionRecognitionService$PollIntThread$1;-><init>(Landroid/hardware/motion/MotionRecognitionService$PollIntThread;)V
 
     iput-object v0, p0, Landroid/hardware/motion/MotionRecognitionService$PollIntThread;->mHandler:Landroid/os/Handler;
 
-    .line 339
+    .line 368
     invoke-static {}, Landroid/os/Looper;->loop()V
 
-    .line 340
+    .line 369
     return-void
 .end method

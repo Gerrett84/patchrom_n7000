@@ -239,7 +239,7 @@
     .line 183
     const/4 v11, 0x0
 
-    const-string v12, "name"
+    const-string/jumbo v12, "name"
 
     invoke-interface {v6, v11, v12}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -275,7 +275,7 @@
 
     const/4 v11, 0x0
 
-    const-string v12, "name"
+    const-string/jumbo v12, "name"
 
     invoke-interface {v6, v11, v12}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 

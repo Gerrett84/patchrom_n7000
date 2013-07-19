@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 265
+    .line 277
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 268
+    .line 280
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mContext:Landroid/content/Context;
@@ -54,7 +54,7 @@
 
     move-result-object v2
 
-    .line 270
+    .line 282
     .local v2, pm:Landroid/content/pm/PackageManager;
     :try_start_0
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
@@ -63,7 +63,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 271
+    .line 283
     const-string v4, "com.sec.android.daemonapp.ap.edaily.stockclock"
 
     const/4 v5, 0x0
@@ -72,7 +72,7 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 282
+    .line 294
     :goto_0
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
@@ -80,23 +80,23 @@
 
     if-eqz v4, :cond_2
 
-    .line 283
+    .line 295
     const-string v3, "com.sec.android.daemonapp.ap.edaily.stockclock.MENUSETTING"
 
-    .line 289
+    .line 301
     .local v3, stockList:Ljava/lang/String;
     :goto_1
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 290
+    .line 302
     .local v1, intent:Landroid/content/Intent;
     const/high16 v4, 0x1000
 
     invoke-virtual {v1, v4}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 291
+    .line 303
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mContext:Landroid/content/Context;
@@ -106,7 +106,7 @@
 
     invoke-virtual {v4, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 292
+    .line 304
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
@@ -116,10 +116,10 @@
 
     invoke-interface {v4}, Lcom/android/internal/policy/impl/sec/TickerCallback;->goToUnlockScreen()V
 
-    .line 293
+    .line 305
     return-void
 
-    .line 272
+    .line 284
     .end local v1           #intent:Landroid/content/Intent;
     .end local v3           #stockList:Ljava/lang/String;
     :cond_0
@@ -130,7 +130,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 273
+    .line 285
     const-string v4, "com.sec.android.daemonapp.ap.sinastock.stockclock"
 
     const/4 v5, 0x0
@@ -141,11 +141,11 @@
 
     goto :goto_0
 
-    .line 277
+    .line 289
     :catch_0
     move-exception v0
 
-    .line 278
+    .line 290
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -156,14 +156,14 @@
 
     const-string v5, "com.sec.android.daemonapp.ap.yahoostock.stockclock"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 279
+    .line 291
     invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 275
+    .line 287
     .end local v0           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :cond_1
     :try_start_2
@@ -177,7 +177,7 @@
 
     goto :goto_0
 
-    .line 284
+    .line 296
     :cond_2
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
 
@@ -185,13 +185,13 @@
 
     if-eqz v4, :cond_3
 
-    .line 285
+    .line 297
     const-string v3, "com.sec.android.daemonapp.ap.sinastock.stockclock.MENUSETTING"
 
     .restart local v3       #stockList:Ljava/lang/String;
     goto :goto_1
 
-    .line 287
+    .line 299
     .end local v3           #stockList:Ljava/lang/String;
     :cond_3
     const-string v3, "com.sec.android.daemonapp.ap.yahoostock.stockclock.stocklist.StockList"

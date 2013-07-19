@@ -3,7 +3,7 @@
 .source "TickerWidget.java"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerCloseListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 437
+    .line 506
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,44 +37,55 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public onDrawerClosed()V
     .locals 2
-    .parameter "arg0"
 
     .prologue
-    .line 441
+    .line 509
+    const-string v0, "TickerWidget"
+
+    const-string v1, "onDrawerClosed"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 511
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
-    iget-boolean v0, v0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mNewsRefreshing:Z
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mUnlockWidget:Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2300(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
 
-    if-nez v0, :cond_0
+    move-result-object v0
 
+    if-eqz v0, :cond_0
+
+    .line 512
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mStockRefreshing:Z
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1200(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mUnlockWidget:Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2300(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
 
-    move-result v0
+    move-result-object v0
 
-    if-nez v0, :cond_0
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->tikerRippleForClose()V
 
+    .line 515
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
-    iget-boolean v0, v0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mFacebookRefreshing:Z
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleArrowImage:Landroid/widget/ImageView;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2400(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ImageView;
 
-    if-nez v0, :cond_0
+    move-result-object v0
 
-    .line 442
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    const v1, 0x1080492
 
-    #calls: Lcom/android/internal/policy/impl/sec/TickerWidget;->requestTickerDataToDemon()V
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2400(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 443
+    .line 516
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ImageView;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ImageView;
 
     move-result-object v0
 
@@ -82,29 +93,70 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 444
+    .line 518
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ProgressBar;
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2200(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 520
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setVisibility(I)V
 
-    .line 446
-    :cond_0
+    .line 521
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     move-result-object v0
 
-    invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->startAutoScroll()V
 
-    .line 447
+    .line 522
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getDefaultBottomOffset()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setBottomOffset(I)V
+
+    .line 523
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$9;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate()V
+
+    .line 525
+    :cond_1
     return-void
 .end method

@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 175
+    .line 192
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,7 +45,7 @@
     .parameter "in"
 
     .prologue
-    .line 177
+    .line 194
     new-instance v0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -62,7 +62,7 @@
     .parameter "x0"
 
     .prologue
-    .line 175
+    .line 192
     invoke-virtual {p0, p1}, Lcom/samsung/bluetoothle/BluetoothLEClientChar$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/bluetoothle/BluetoothLEClientChar;
 
     move-result-object v0
@@ -75,7 +75,7 @@
     .parameter "size"
 
     .prologue
-    .line 181
+    .line 198
     new-array v0, p1, [Lcom/samsung/bluetoothle/BluetoothLEClientChar;
 
     return-object v0
@@ -86,7 +86,7 @@
     .parameter "x0"
 
     .prologue
-    .line 175
+    .line 192
     invoke-virtual {p0, p1}, Lcom/samsung/bluetoothle/BluetoothLEClientChar$1;->newArray(I)[Lcom/samsung/bluetoothle/BluetoothLEClientChar;
 
     move-result-object v0

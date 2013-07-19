@@ -42,7 +42,7 @@
     .locals 1
 
     .prologue
-    .line 131
+    .line 123
     new-instance v0, Landroid/hardware/scontext/SContextEvent$1;
 
     invoke-direct {v0}, Landroid/hardware/scontext/SContextEvent$1;-><init>()V
@@ -95,14 +95,14 @@
     .parameter "src"
 
     .prologue
-    .line 120
+    .line 112
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/hardware/scontext/SContextEvent;->timestamp:J
 
-    .line 121
+    .line 113
     const-class v0, Landroid/hardware/scontext/SContext;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -117,7 +117,7 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
-    .line 122
+    .line 114
     const-class v0, Landroid/hardware/scontext/SContextApproach;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -132,7 +132,7 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mApproachContext:Landroid/hardware/scontext/SContextApproach;
 
-    .line 123
+    .line 115
     const-class v0, Landroid/hardware/scontext/SContextPedometer;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -147,7 +147,7 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mPedometerContext:Landroid/hardware/scontext/SContextPedometer;
 
-    .line 124
+    .line 116
     const-class v0, Landroid/hardware/scontext/SContextStepCountAlert;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -162,7 +162,7 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mStepCountAlertContext:Landroid/hardware/scontext/SContextStepCountAlert;
 
-    .line 125
+    .line 117
     const-class v0, Landroid/hardware/scontext/SContextMotion;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -177,7 +177,7 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mMotionContext:Landroid/hardware/scontext/SContextMotion;
 
-    .line 126
+    .line 118
     const-class v0, Landroid/hardware/scontext/SContextMovement;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -192,7 +192,7 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mMovementContext:Landroid/hardware/scontext/SContextMovement;
 
-    .line 127
+    .line 119
     const-class v0, Landroid/hardware/scontext/SContextAutoRotation;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -207,7 +207,7 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mAutoRotationContext:Landroid/hardware/scontext/SContextAutoRotation;
 
-    .line 129
+    .line 121
     return-void
 .end method
 
@@ -217,7 +217,7 @@
     .locals 1
 
     .prologue
-    .line 104
+    .line 96
     const/4 v0, 0x0
 
     return v0
@@ -227,7 +227,7 @@
     .locals 1
 
     .prologue
-    .line 55
+    .line 47
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mApproachContext:Landroid/hardware/scontext/SContextApproach;
 
     return-object v0
@@ -237,7 +237,7 @@
     .locals 1
 
     .prologue
-    .line 99
+    .line 87
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mAutoRotationContext:Landroid/hardware/scontext/SContextAutoRotation;
 
     return-object v0
@@ -247,7 +247,7 @@
     .locals 1
 
     .prologue
-    .line 83
+    .line 71
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mMotionContext:Landroid/hardware/scontext/SContextMotion;
 
     return-object v0
@@ -257,7 +257,7 @@
     .locals 1
 
     .prologue
-    .line 91
+    .line 79
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mMovementContext:Landroid/hardware/scontext/SContextMovement;
 
     return-object v0
@@ -267,7 +267,7 @@
     .locals 1
 
     .prologue
-    .line 63
+    .line 55
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mPedometerContext:Landroid/hardware/scontext/SContextPedometer;
 
     return-object v0
@@ -277,20 +277,10 @@
     .locals 1
 
     .prologue
-    .line 71
+    .line 63
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mStepCountAlertContext:Landroid/hardware/scontext/SContextStepCountAlert;
 
     return-object v0
-.end method
-
-.method public getTimeStamp()J
-    .locals 2
-
-    .prologue
-    .line 47
-    iget-wide v0, p0, Landroid/hardware/scontext/SContextEvent;->timestamp:J
-
-    return-wide v0
 .end method
 
 .method public setApproachContext(Landroid/hardware/scontext/SContextApproach;)V
@@ -298,10 +288,10 @@
     .parameter "approachContext"
 
     .prologue
-    .line 59
+    .line 51
     iput-object p1, p0, Landroid/hardware/scontext/SContextEvent;->mApproachContext:Landroid/hardware/scontext/SContextApproach;
 
-    .line 60
+    .line 52
     return-void
 .end method
 
@@ -310,10 +300,10 @@
     .parameter "autoRotationContext"
 
     .prologue
-    .line 95
+    .line 91
     iput-object p1, p0, Landroid/hardware/scontext/SContextEvent;->mAutoRotationContext:Landroid/hardware/scontext/SContextAutoRotation;
 
-    .line 96
+    .line 92
     return-void
 .end method
 
@@ -322,10 +312,10 @@
     .parameter "motionContext"
 
     .prologue
-    .line 79
+    .line 75
     iput-object p1, p0, Landroid/hardware/scontext/SContextEvent;->mMotionContext:Landroid/hardware/scontext/SContextMotion;
 
-    .line 80
+    .line 76
     return-void
 .end method
 
@@ -334,10 +324,10 @@
     .parameter "movementContext"
 
     .prologue
-    .line 87
+    .line 83
     iput-object p1, p0, Landroid/hardware/scontext/SContextEvent;->mMovementContext:Landroid/hardware/scontext/SContextMovement;
 
-    .line 88
+    .line 84
     return-void
 .end method
 
@@ -346,10 +336,10 @@
     .parameter "pedometerContext"
 
     .prologue
-    .line 67
+    .line 59
     iput-object p1, p0, Landroid/hardware/scontext/SContextEvent;->mPedometerContext:Landroid/hardware/scontext/SContextPedometer;
 
-    .line 68
+    .line 60
     return-void
 .end method
 
@@ -358,22 +348,10 @@
     .parameter "stepCountAlertContext"
 
     .prologue
-    .line 75
+    .line 67
     iput-object p1, p0, Landroid/hardware/scontext/SContextEvent;->mStepCountAlertContext:Landroid/hardware/scontext/SContextStepCountAlert;
 
-    .line 76
-    return-void
-.end method
-
-.method public setTimeStamp(J)V
-    .locals 0
-    .parameter "timestamp"
-
-    .prologue
-    .line 51
-    iput-wide p1, p0, Landroid/hardware/scontext/SContextEvent;->timestamp:J
-
-    .line 52
+    .line 68
     return-void
 .end method
 
@@ -383,46 +361,46 @@
     .parameter "flags"
 
     .prologue
-    .line 109
+    .line 101
     iget-wide v0, p0, Landroid/hardware/scontext/SContextEvent;->timestamp:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 110
+    .line 102
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 111
+    .line 103
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mApproachContext:Landroid/hardware/scontext/SContextApproach;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 112
+    .line 104
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mPedometerContext:Landroid/hardware/scontext/SContextPedometer;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 113
+    .line 105
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mStepCountAlertContext:Landroid/hardware/scontext/SContextStepCountAlert;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 114
+    .line 106
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mMotionContext:Landroid/hardware/scontext/SContextMotion;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 115
+    .line 107
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mMovementContext:Landroid/hardware/scontext/SContextMovement;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 116
+    .line 108
     iget-object v0, p0, Landroid/hardware/scontext/SContextEvent;->mAutoRotationContext:Landroid/hardware/scontext/SContextAutoRotation;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 117
+    .line 109
     return-void
 .end method

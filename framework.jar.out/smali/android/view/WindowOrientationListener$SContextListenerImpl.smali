@@ -33,18 +33,18 @@
     .parameter "orientationListener"
 
     .prologue
-    .line 277
+    .line 289
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 275
+    .line 287
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mSkiped:Z
 
-    .line 278
+    .line 290
     iput-object p1, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mOrientationListener:Landroid/view/WindowOrientationListener;
 
-    .line 279
+    .line 291
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .prologue
     const/4 v6, 0x1
 
-    .line 282
+    .line 294
     const-string v3, "WindowOrientationListener"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -81,12 +81,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 283
+    .line 295
     iget-boolean v3, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mSkiped:Z
 
     if-ne v3, v6, :cond_0
 
-    .line 284
+    .line 296
     iget-object v3, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mOrientationListener:Landroid/view/WindowOrientationListener;
 
     #getter for: Landroid/view/WindowOrientationListener;->mContext:Landroid/content/Context;
@@ -102,28 +102,28 @@
 
     check-cast v2, Landroid/view/WindowManager;
 
-    .line 285
+    .line 297
     .local v2, wm:Landroid/view/WindowManager;
     invoke-interface {v2}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
     move-result-object v0
 
-    .line 286
+    .line 298
     .local v0, disp:Landroid/view/Display;
     invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
 
     move-result v1
 
-    .line 287
+    .line 299
     .local v1, rotation:I
     packed-switch v1, :pswitch_data_0
 
-    .line 305
+    .line 317
     const/4 v3, -0x1
 
     invoke-static {v3}, Landroid/view/WindowOrientationListener;->access$202(I)I
 
-    .line 309
+    .line 321
     :goto_0
     const-string v3, "WindowOrientationListener"
 
@@ -151,19 +151,19 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 310
+    .line 322
     invoke-static {}, Landroid/view/WindowOrientationListener;->access$200()I
 
     move-result v3
 
-    .line 314
+    .line 326
     .end local v0           #disp:Landroid/view/Display;
     .end local v1           #rotation:I
     .end local v2           #wm:Landroid/view/WindowManager;
     :goto_1
     return v3
 
-    .line 290
+    .line 302
     .restart local v0       #disp:Landroid/view/Display;
     .restart local v1       #rotation:I
     .restart local v2       #wm:Landroid/view/WindowManager;
@@ -174,13 +174,13 @@
 
     goto :goto_0
 
-    .line 294
+    .line 306
     :pswitch_1
     invoke-static {v6}, Landroid/view/WindowOrientationListener;->access$202(I)I
 
     goto :goto_0
 
-    .line 298
+    .line 310
     :pswitch_2
     const/4 v3, 0x2
 
@@ -188,7 +188,7 @@
 
     goto :goto_0
 
-    .line 302
+    .line 314
     :pswitch_3
     const/4 v3, 0x3
 
@@ -196,7 +196,7 @@
 
     goto :goto_0
 
-    .line 313
+    .line 325
     .end local v0           #disp:Landroid/view/Display;
     .end local v1           #rotation:I
     .end local v2           #wm:Landroid/view/WindowManager;
@@ -225,12 +225,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 314
+    .line 326
     sget v3, Landroid/view/WindowOrientationListener$SContextListenerImpl;->scontextRotation:I
 
     goto :goto_1
 
-    .line 287
+    .line 299
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -249,10 +249,10 @@
 
     const/4 v6, 0x0
 
-    .line 319
+    .line 331
     iget-object v3, p1, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
-    .line 320
+    .line 332
     .local v3, scontext:Landroid/hardware/scontext/SContext;
     invoke-virtual {v3}, Landroid/hardware/scontext/SContext;->getType()I
 
@@ -260,18 +260,18 @@
 
     packed-switch v7, :pswitch_data_0
 
-    .line 387
+    .line 399
     :cond_0
     :goto_0
     return-void
 
-    .line 322
+    .line 334
     :pswitch_0
     invoke-virtual {p1}, Landroid/hardware/scontext/SContextEvent;->getAutoRotationContext()Landroid/hardware/scontext/SContextAutoRotation;
 
     move-result-object v0
 
-    .line 323
+    .line 335
     .local v0, autoRotationContext:Landroid/hardware/scontext/SContextAutoRotation;
     invoke-virtual {v0}, Landroid/hardware/scontext/SContextAutoRotation;->getAngle()I
 
@@ -279,7 +279,7 @@
 
     sput v7, Landroid/view/WindowOrientationListener$SContextListenerImpl;->scontextRotation:I
 
-    .line 324
+    .line 336
     const-string v7, "WindowOrientationListener"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -304,7 +304,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 325
+    .line 337
     sget v7, Landroid/view/WindowOrientationListener$SContextListenerImpl;->scontextRotation:I
 
     iget-object v8, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mOrientationListener:Landroid/view/WindowOrientationListener;
@@ -317,7 +317,7 @@
 
     if-ltz v7, :cond_0
 
-    .line 329
+    .line 341
     iget-object v7, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mOrientationListener:Landroid/view/WindowOrientationListener;
 
     #getter for: Landroid/view/WindowOrientationListener;->mContext:Landroid/content/Context;
@@ -358,15 +358,15 @@
 
     move v2, v5
 
-    .line 330
+    .line 342
     .local v2, intelligent_rotation_enabled:Z
     :goto_1
     if-nez v2, :cond_2
 
-    .line 332
+    .line 344
     iput-boolean v6, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mSkiped:Z
 
-    .line 334
+    .line 346
     iget-object v5, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mOrientationListener:Landroid/view/WindowOrientationListener;
 
     sget v6, Landroid/view/WindowOrientationListener$SContextListenerImpl;->scontextRotation:I
@@ -379,19 +379,19 @@
     :cond_1
     move v2, v6
 
-    .line 329
+    .line 341
     goto :goto_1
 
-    .line 340
+    .line 352
     .restart local v2       #intelligent_rotation_enabled:Z
     :cond_2
     const/4 v1, -0x1
 
-    .line 341
+    .line 353
     .local v1, fdangle:I
     const/4 v4, 0x0
 
-    .line 342
+    .line 354
     .local v4, sf:[Lcom/sec/android/facedetection/SecFace;
     iget-object v7, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mOrientationListener:Landroid/view/WindowOrientationListener;
 
@@ -443,21 +443,21 @@
 
     if-eq v7, v8, :cond_5
 
-    .line 350
+    .line 362
     invoke-static {}, Landroid/view/WindowOrientationListener;->access$400()Lcom/sec/android/facedetection/FaceDetectionManager;
 
     move-result-object v7
 
     if-nez v7, :cond_3
 
-    .line 351
+    .line 363
     invoke-static {}, Lcom/sec/android/facedetection/FaceDetectionManager;->getFaceDetectionManager()Lcom/sec/android/facedetection/FaceDetectionManager;
 
     move-result-object v7
 
     invoke-static {v7}, Landroid/view/WindowOrientationListener;->access$402(Lcom/sec/android/facedetection/FaceDetectionManager;)Lcom/sec/android/facedetection/FaceDetectionManager;
 
-    .line 353
+    .line 365
     :cond_3
     invoke-static {}, Landroid/view/WindowOrientationListener;->access$400()Lcom/sec/android/facedetection/FaceDetectionManager;
 
@@ -465,21 +465,21 @@
 
     if-eqz v7, :cond_5
 
-    .line 355
+    .line 367
     const-string v7, "WindowOrientationListener"
 
     const-string v8, "fd ++ "
 
     invoke-static {v7, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 356
+    .line 368
     invoke-static {}, Landroid/view/WindowOrientationListener;->access$400()Lcom/sec/android/facedetection/FaceDetectionManager;
 
     move-result-object v7
 
     invoke-virtual {v7}, Lcom/sec/android/facedetection/FaceDetectionManager;->enable()V
 
-    .line 357
+    .line 369
     invoke-static {}, Landroid/view/WindowOrientationListener;->access$400()Lcom/sec/android/facedetection/FaceDetectionManager;
 
     move-result-object v7
@@ -494,19 +494,19 @@
 
     move-result-object v4
 
-    .line 358
+    .line 370
     if-eqz v4, :cond_4
 
     array-length v7, v4
 
     if-lez v7, :cond_4
 
-    .line 360
+    .line 372
     aget-object v7, v4, v6
 
     iget v1, v7, Lcom/sec/android/facedetection/SecFace;->orientation:I
 
-    .line 361
+    .line 373
     const-string v7, "WindowOrientationListener"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -535,10 +535,10 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 362
+    .line 374
     iput-boolean v5, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mSkiped:Z
 
-    .line 366
+    .line 378
     :cond_4
     invoke-static {}, Landroid/view/WindowOrientationListener;->access$400()Lcom/sec/android/facedetection/FaceDetectionManager;
 
@@ -546,14 +546,14 @@
 
     invoke-virtual {v5}, Lcom/sec/android/facedetection/FaceDetectionManager;->disable()V
 
-    .line 367
+    .line 379
     const-string v5, "WindowOrientationListener"
 
     const-string v7, "fd -- "
 
     invoke-static {v5, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 370
+    .line 382
     :cond_5
     if-eqz v4, :cond_6
 
@@ -561,20 +561,28 @@
 
     if-gtz v5, :cond_7
 
-    .line 371
+    .line 383
     :cond_6
     iput-boolean v6, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mSkiped:Z
 
-    .line 373
+    .line 385
     iget-object v5, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mOrientationListener:Landroid/view/WindowOrientationListener;
 
     sget v6, Landroid/view/WindowOrientationListener$SContextListenerImpl;->scontextRotation:I
 
     invoke-virtual {v5, v6}, Landroid/view/WindowOrientationListener;->onProposedRotationChanged(I)V
 
+    .line 390
+    :goto_2
+    iget-object v5, p0, Landroid/view/WindowOrientationListener$SContextListenerImpl;->mOrientationListener:Landroid/view/WindowOrientationListener;
+
+    sget v6, Landroid/view/WindowOrientationListener$SContextListenerImpl;->scontextRotation:I
+
+    iput v6, v5, Landroid/view/WindowOrientationListener;->mCurrentRotation:I
+
     goto/16 :goto_0
 
-    .line 376
+    .line 388
     :cond_7
     const-string v5, "WindowOrientationListener"
 
@@ -582,9 +590,11 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_0
+    goto :goto_2
 
-    .line 320
+    .line 332
+    nop
+
     :pswitch_data_0
     .packed-switch 0x6
         :pswitch_0

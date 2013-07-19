@@ -20,9 +20,15 @@
 
 .field public static final PROPERTY_DATA_NETWORK_TYPE:Ljava/lang/String; = "gsm.network.type"
 
+.field public static final PROPERTY_DATA_SERVICE:Ljava/lang/String; = "net.gprs.current.data"
+
+.field public static final PROPERTY_DEFAULT_ESN:Ljava/lang/String; = "gsm.default.esn"
+
 .field public static final PROPERTY_DISABLE_CALL:Ljava/lang/String; = "ro.telephony.disable-call"
 
-.field public static final PROPERTY_DUALMODE_TEST:Ljava/lang/String; = "persist.radio.dualmode.test"
+.field public static final PROPERTY_DUALMODE_NETWORK_RESET:Ljava/lang/String; = "ril.dualmode.network-reset"
+
+.field public static final PROPERTY_DUALMODE_TEST:Ljava/lang/String; = "ril.dualmode.test"
 
 .field public static final PROPERTY_ECM_EXIT_TIMER:Ljava/lang/String; = "ro.cdma.ecmexittimer"
 
@@ -31,8 +37,6 @@
 .field public static final PROPERTY_ICC_OPERATOR_ISO_COUNTRY:Ljava/lang/String; = "gsm.sim.operator.iso-country"
 
 .field public static final PROPERTY_ICC_OPERATOR_NUMERIC:Ljava/lang/String; = "gsm.sim.operator.numeric"
-
-.field public static final PROPERTY_ICC_OPERATOR_NUMERIC_FAKE_ROAMING:Ljava/lang/String; = "gsm.sim.operator.fakeroaming"
 
 .field public static final PROPERTY_IDP_STRING:Ljava/lang/String; = "ro.cdma.idpstring"
 
@@ -62,6 +66,8 @@
 
 .field public static final PROPERTY_OPERATOR_NUMERIC:Ljava/lang/String; = "gsm.operator.numeric"
 
+.field public static final PROPERTY_OPERATOR_NUMERIC_SPRINT:Ljava/lang/String; = "gsm.operator.numeric.sprint"
+
 .field public static final PROPERTY_OTASP_NUM_SCHEMA:Ljava/lang/String; = "ro.cdma.otaspnumschema"
 
 .field public static final PROPERTY_RESET_ON_RADIO_TECH_CHANGE:Ljava/lang/String; = "persist.radio.reset_on_switch"
@@ -79,6 +85,8 @@
 .field public static final PROPERTY_SIM_STATE:Ljava/lang/String; = "gsm.sim.state"
 
 .field public static final PROPERTY_SMS_GCF_MODE:Ljava/lang/String; = "ril.sms.gcf-mode"
+
+.field public static final PROPERTY_SMS_REASSEMBLY:Ljava/lang/String; = "ril.sms.reassembly"
 
 .field public static final PROPERTY_SMS_RECEIVE:Ljava/lang/String; = "telephony.sms.receive"
 

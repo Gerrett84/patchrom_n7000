@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 122
+    .line 129
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,12 +45,12 @@
     .parameter "in"
 
     .prologue
-    .line 124
+    .line 131
     new-instance v0, Lcom/samsung/wfd/WfdInfo;
 
     invoke-direct {v0}, Lcom/samsung/wfd/WfdInfo;-><init>()V
 
-    .line 125
+    .line 132
     .local v0, info:Lcom/samsung/wfd/WfdInfo;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -58,35 +58,42 @@
 
     iput-object v1, v0, Lcom/samsung/wfd/WfdInfo;->deviceAddress:Ljava/lang/String;
 
-    .line 126
+    .line 133
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Lcom/samsung/wfd/WfdInfo;->dev_info:I
 
-    .line 127
+    .line 134
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Lcom/samsung/wfd/WfdInfo;->ctrl_port:I
 
-    .line 128
+    .line 135
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Lcom/samsung/wfd/WfdInfo;->max_tput:I
 
-    .line 129
+    .line 136
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Lcom/samsung/wfd/WfdInfo;->cpled_sink_status:I
 
-    .line 130
+    .line 137
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/samsung/wfd/WfdInfo;->coupledDeviceAddress:Ljava/lang/String;
+
+    .line 138
     return-object v0
 .end method
 
@@ -95,7 +102,7 @@
     .parameter "x0"
 
     .prologue
-    .line 122
+    .line 129
     invoke-virtual {p0, p1}, Lcom/samsung/wfd/WfdInfo$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/wfd/WfdInfo;
 
     move-result-object v0
@@ -108,7 +115,7 @@
     .parameter "size"
 
     .prologue
-    .line 134
+    .line 142
     new-array v0, p1, [Lcom/samsung/wfd/WfdInfo;
 
     return-object v0
@@ -119,7 +126,7 @@
     .parameter "x0"
 
     .prologue
-    .line 122
+    .line 129
     invoke-virtual {p0, p1}, Lcom/samsung/wfd/WfdInfo$1;->newArray(I)[Lcom/samsung/wfd/WfdInfo;
 
     move-result-object v0

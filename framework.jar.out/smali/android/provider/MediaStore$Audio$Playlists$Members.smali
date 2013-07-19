@@ -119,7 +119,7 @@
 
     move-result-object v2
 
-    const-string v3, "move"
+    const-string/jumbo v3, "move"
 
     const-string/jumbo v4, "true"
 

@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 646
+    .line 662
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$5;->this$0:Lcom/android/server/WifiOffloadService;
 
     iput-object p2, p0, Lcom/android/server/WifiOffloadService$5;->val$packageName:Ljava/lang/String;
@@ -48,14 +48,14 @@
     .locals 3
 
     .prologue
-    .line 649
+    .line 665
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$5;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v1, "checkDataActivityTimer excecuted"
 
     invoke-virtual {v0, v1}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 653
+    .line 669
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$5;->this$0:Lcom/android/server/WifiOffloadService;
 
     #getter for: Lcom/android/server/WifiOffloadService;->isBootCompleted:Z
@@ -65,11 +65,11 @@
 
     if-nez v0, :cond_0
 
-    .line 668
+    .line 684
     :goto_0
     return-void
 
-    .line 655
+    .line 671
     :cond_0
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$5;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -79,14 +79,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 656
+    .line 672
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$5;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v1, "Intel mode is ON"
 
     invoke-virtual {v0, v1}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 658
+    .line 674
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$5;->this$0:Lcom/android/server/WifiOffloadService;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -116,7 +116,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 659
+    .line 675
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$5;->this$0:Lcom/android/server/WifiOffloadService;
 
     #getter for: Lcom/android/server/WifiOffloadService;->mSeamlessConnectWhileConnecting:Z
@@ -126,7 +126,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 660
+    .line 676
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$5;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v1, "Its already trying to auto-connect to a known network in a loop, so dont offload now"
@@ -135,7 +135,7 @@
 
     goto :goto_0
 
-    .line 663
+    .line 679
     :cond_1
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$5;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -147,7 +147,7 @@
 
     goto :goto_0
 
-    .line 665
+    .line 681
     :cond_2
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$5;->this$0:Lcom/android/server/WifiOffloadService;
 

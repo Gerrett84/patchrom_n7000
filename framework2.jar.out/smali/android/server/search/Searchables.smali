@@ -499,7 +499,7 @@
     .line 344
     iget-object v0, p0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v0, v0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v0, v0, Landroid/content/pm/ApplicationInfo;->flags:I
 
@@ -963,7 +963,7 @@
 
     .line 123
     .local v4, refActivityName:Ljava/lang/String;
-    iget-object v2, v1, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v2, v1, Landroid/content/pm/ComponentInfo;->metaData:Landroid/os/Bundle;
 
     .line 124
     .local v2, md:Landroid/os/Bundle;
@@ -981,7 +981,7 @@
     if-nez v4, :cond_2
 
     .line 129
-    iget-object v7, v1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v7, v1, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget-object v2, v7, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
 

@@ -117,7 +117,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x104041b
+    const v0, 0x1040422
 
     :goto_0
     invoke-virtual {v1, v0}, Lcom/android/internal/widget/SlidingTab;->setRightHintText(I)V
@@ -142,7 +142,7 @@
 
     .line 174
     :cond_2
-    const v0, 0x104041c
+    const v0, 0x1040423
 
     goto :goto_0
 .end method
@@ -275,7 +275,7 @@
 
     if-eqz v0, :cond_1
 
-    const v1, 0x108031b
+    const v1, 0x1080326
 
     :goto_1
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockScreen$SlidingTabMethods;->this$0:Lcom/android/internal/policy/impl/LockScreen;
@@ -287,7 +287,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x10803fa
+    const v2, 0x1080416
 
     :goto_2
     iget-object v3, p0, Lcom/android/internal/policy/impl/LockScreen$SlidingTabMethods;->this$0:Lcom/android/internal/policy/impl/LockScreen;
@@ -299,7 +299,7 @@
 
     if-eqz v3, :cond_4
 
-    const v3, 0x10803e3
+    const v3, 0x10803ff
 
     :goto_3
     iget-object v4, p0, Lcom/android/internal/policy/impl/LockScreen$SlidingTabMethods;->this$0:Lcom/android/internal/policy/impl/LockScreen;
@@ -311,7 +311,7 @@
 
     if-eqz v4, :cond_5
 
-    const v4, 0x10803f6
+    const v4, 0x1080412
 
     :goto_4
     invoke-virtual {v5, v1, v2, v3, v4}, Lcom/android/internal/widget/SlidingTab;->setRightTabResources(IIII)V
@@ -329,27 +329,27 @@
     .line 148
     .restart local v0       #vibe:Z
     :cond_1
-    const v1, 0x1080318
+    const v1, 0x1080323
 
     goto :goto_1
 
     :cond_2
-    const v1, 0x1080319
+    const v1, 0x1080324
 
     goto :goto_1
 
     :cond_3
-    const v2, 0x10803f7
+    const v2, 0x1080413
 
     goto :goto_2
 
     :cond_4
-    const v3, 0x10803e2
+    const v3, 0x10803fe
 
     goto :goto_3
 
     :cond_5
-    const v4, 0x10803f5
+    const v4, 0x1080411
 
     goto :goto_4
 .end method

@@ -27,6 +27,8 @@
 
 .field public static final CMD_PRE_DHCP_ACTION_COMPLETE:I = 0x30006
 
+.field public static final CMD_RELEASE_DHCP:I = 0x30007
+
 .field public static final CMD_RENEW_DHCP:I = 0x30003
 
 .field public static final CMD_START_DHCP:I = 0x30001
@@ -116,7 +118,7 @@
 
     const/4 v4, 0x0
 
-    .line 113
+    .line 114
     const-string v2, "DhcpStateMachine"
 
     invoke-direct {p0, v2}, Lcom/android/internal/util/StateMachine;-><init>(Ljava/lang/String;)V
@@ -124,51 +126,51 @@
     .line 83
     iput-boolean v4, p0, Landroid/net/DhcpStateMachine;->mRegisteredForPreDhcpNotification:Z
 
-    .line 106
+    .line 107
     new-instance v2, Landroid/net/DhcpStateMachine$DefaultState;
 
     invoke-direct {v2, p0}, Landroid/net/DhcpStateMachine$DefaultState;-><init>(Landroid/net/DhcpStateMachine;)V
 
     iput-object v2, p0, Landroid/net/DhcpStateMachine;->mDefaultState:Lcom/android/internal/util/State;
 
-    .line 107
+    .line 108
     new-instance v2, Landroid/net/DhcpStateMachine$StoppedState;
 
     invoke-direct {v2, p0}, Landroid/net/DhcpStateMachine$StoppedState;-><init>(Landroid/net/DhcpStateMachine;)V
 
     iput-object v2, p0, Landroid/net/DhcpStateMachine;->mStoppedState:Lcom/android/internal/util/State;
 
-    .line 108
+    .line 109
     new-instance v2, Landroid/net/DhcpStateMachine$WaitBeforeStartState;
 
     invoke-direct {v2, p0}, Landroid/net/DhcpStateMachine$WaitBeforeStartState;-><init>(Landroid/net/DhcpStateMachine;)V
 
     iput-object v2, p0, Landroid/net/DhcpStateMachine;->mWaitBeforeStartState:Lcom/android/internal/util/State;
 
-    .line 109
+    .line 110
     new-instance v2, Landroid/net/DhcpStateMachine$RunningState;
 
     invoke-direct {v2, p0}, Landroid/net/DhcpStateMachine$RunningState;-><init>(Landroid/net/DhcpStateMachine;)V
 
     iput-object v2, p0, Landroid/net/DhcpStateMachine;->mRunningState:Lcom/android/internal/util/State;
 
-    .line 110
+    .line 111
     new-instance v2, Landroid/net/DhcpStateMachine$WaitBeforeRenewalState;
 
     invoke-direct {v2, p0}, Landroid/net/DhcpStateMachine$WaitBeforeRenewalState;-><init>(Landroid/net/DhcpStateMachine;)V
 
     iput-object v2, p0, Landroid/net/DhcpStateMachine;->mWaitBeforeRenewalState:Lcom/android/internal/util/State;
 
-    .line 115
+    .line 116
     iput-object p1, p0, Landroid/net/DhcpStateMachine;->mContext:Landroid/content/Context;
 
-    .line 116
+    .line 117
     iput-object p2, p0, Landroid/net/DhcpStateMachine;->mController:Lcom/android/internal/util/StateMachine;
 
-    .line 117
+    .line 118
     iput-object p3, p0, Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
 
-    .line 119
+    .line 120
     iget-object v2, p0, Landroid/net/DhcpStateMachine;->mContext:Landroid/content/Context;
 
     const-string v3, "alarm"
@@ -181,7 +183,7 @@
 
     iput-object v2, p0, Landroid/net/DhcpStateMachine;->mAlarmManager:Landroid/app/AlarmManager;
 
-    .line 120
+    .line 121
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "android.net.wifi.DHCP_RENEW"
@@ -190,7 +192,7 @@
 
     invoke-direct {v0, v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 121
+    .line 122
     .local v0, dhcpRenewalIntent:Landroid/content/Intent;
     iget-object v2, p0, Landroid/net/DhcpStateMachine;->mContext:Landroid/content/Context;
 
@@ -200,7 +202,7 @@
 
     iput-object v2, p0, Landroid/net/DhcpStateMachine;->mDhcpRenewalIntent:Landroid/app/PendingIntent;
 
-    .line 123
+    .line 124
     iget-object v2, p0, Landroid/net/DhcpStateMachine;->mContext:Landroid/content/Context;
 
     const-string v3, "power"
@@ -211,7 +213,7 @@
 
     check-cast v1, Landroid/os/PowerManager;
 
-    .line 125
+    .line 126
     .local v1, powerManager:Landroid/os/PowerManager;
     const-string v2, "DHCP"
 
@@ -221,12 +223,12 @@
 
     iput-object v2, p0, Landroid/net/DhcpStateMachine;->mDhcpWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 126
+    .line 127
     iget-object v2, p0, Landroid/net/DhcpStateMachine;->mDhcpWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v2, v4}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
-    .line 128
+    .line 129
     const-string v2, "DHCP"
 
     invoke-virtual {v1, v5, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
@@ -235,19 +237,19 @@
 
     iput-object v2, p0, Landroid/net/DhcpStateMachine;->mDhcpRenewWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 129
+    .line 130
     iget-object v2, p0, Landroid/net/DhcpStateMachine;->mDhcpRenewWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v2, v4}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
-    .line 131
+    .line 132
     new-instance v2, Landroid/net/DhcpStateMachine$1;
 
     invoke-direct {v2, p0}, Landroid/net/DhcpStateMachine$1;-><init>(Landroid/net/DhcpStateMachine;)V
 
     iput-object v2, p0, Landroid/net/DhcpStateMachine;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 141
+    .line 142
     iget-object v2, p0, Landroid/net/DhcpStateMachine;->mContext:Landroid/content/Context;
 
     iget-object v3, p0, Landroid/net/DhcpStateMachine;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
@@ -260,45 +262,45 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 143
+    .line 144
     iget-object v2, p0, Landroid/net/DhcpStateMachine;->mDefaultState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v2}, Landroid/net/DhcpStateMachine;->addState(Lcom/android/internal/util/State;)V
 
-    .line 144
-    iget-object v2, p0, Landroid/net/DhcpStateMachine;->mStoppedState:Lcom/android/internal/util/State;
-
-    iget-object v3, p0, Landroid/net/DhcpStateMachine;->mDefaultState:Lcom/android/internal/util/State;
-
-    invoke-virtual {p0, v2, v3}, Landroid/net/DhcpStateMachine;->addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
-
     .line 145
-    iget-object v2, p0, Landroid/net/DhcpStateMachine;->mWaitBeforeStartState:Lcom/android/internal/util/State;
+    iget-object v2, p0, Landroid/net/DhcpStateMachine;->mStoppedState:Lcom/android/internal/util/State;
 
     iget-object v3, p0, Landroid/net/DhcpStateMachine;->mDefaultState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v2, v3}, Landroid/net/DhcpStateMachine;->addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
 
     .line 146
-    iget-object v2, p0, Landroid/net/DhcpStateMachine;->mRunningState:Lcom/android/internal/util/State;
+    iget-object v2, p0, Landroid/net/DhcpStateMachine;->mWaitBeforeStartState:Lcom/android/internal/util/State;
 
     iget-object v3, p0, Landroid/net/DhcpStateMachine;->mDefaultState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v2, v3}, Landroid/net/DhcpStateMachine;->addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
 
     .line 147
+    iget-object v2, p0, Landroid/net/DhcpStateMachine;->mRunningState:Lcom/android/internal/util/State;
+
+    iget-object v3, p0, Landroid/net/DhcpStateMachine;->mDefaultState:Lcom/android/internal/util/State;
+
+    invoke-virtual {p0, v2, v3}, Landroid/net/DhcpStateMachine;->addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
+
+    .line 148
     iget-object v2, p0, Landroid/net/DhcpStateMachine;->mWaitBeforeRenewalState:Lcom/android/internal/util/State;
 
     iget-object v3, p0, Landroid/net/DhcpStateMachine;->mDefaultState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v2, v3}, Landroid/net/DhcpStateMachine;->addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
 
-    .line 149
+    .line 150
     iget-object v2, p0, Landroid/net/DhcpStateMachine;->mStoppedState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v2}, Landroid/net/DhcpStateMachine;->setInitialState(Lcom/android/internal/util/State;)V
 
-    .line 150
+    .line 151
     return-void
 .end method
 
@@ -407,7 +409,19 @@
     return-void
 .end method
 
-.method static synthetic access$1700(Landroid/net/DhcpStateMachine;)Landroid/app/PendingIntent;
+.method static synthetic access$1700(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 50
+    invoke-virtual {p0, p1}, Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+
+    return-void
+.end method
+
+.method static synthetic access$1800(Landroid/net/DhcpStateMachine;)Landroid/app/PendingIntent;
     .locals 1
     .parameter "x0"
 
@@ -418,7 +432,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1800(Landroid/net/DhcpStateMachine;)Landroid/app/AlarmManager;
+.method static synthetic access$1900(Landroid/net/DhcpStateMachine;)Landroid/app/AlarmManager;
     .locals 1
     .parameter "x0"
 
@@ -427,18 +441,6 @@
     iget-object v0, p0, Landroid/net/DhcpStateMachine;->mAlarmManager:Landroid/app/AlarmManager;
 
     return-object v0
-.end method
-
-.method static synthetic access$1900(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 50
-    invoke-virtual {p0, p1}, Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
 .end method
 
 .method static synthetic access$200(Landroid/net/DhcpStateMachine;)Ljava/lang/String;
@@ -452,15 +454,16 @@
     return-object v0
 .end method
 
-.method static synthetic access$2000(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
-    .locals 1
+.method static synthetic access$2000(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
+    .locals 0
     .parameter "x0"
+    .parameter "x1"
 
     .prologue
     .line 50
-    iget-object v0, p0, Landroid/net/DhcpStateMachine;->mWaitBeforeRenewalState:Lcom/android/internal/util/State;
+    invoke-virtual {p0, p1}, Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    return-object v0
+    return-void
 .end method
 
 .method static synthetic access$2100(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
@@ -475,16 +478,15 @@
     return-void
 .end method
 
-.method static synthetic access$2200(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .locals 0
+.method static synthetic access$2200(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
+    .locals 1
     .parameter "x0"
-    .parameter "x1"
 
     .prologue
     .line 50
-    invoke-virtual {p0, p1}, Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    iget-object v0, p0, Landroid/net/DhcpStateMachine;->mWaitBeforeRenewalState:Lcom/android/internal/util/State;
 
-    return-void
+    return-object v0
 .end method
 
 .method static synthetic access$2300(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
@@ -512,6 +514,42 @@
 .end method
 
 .method static synthetic access$2500(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 50
+    invoke-virtual {p0, p1}, Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+
+    return-void
+.end method
+
+.method static synthetic access$2600(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 50
+    invoke-virtual {p0, p1}, Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+
+    return-void
+.end method
+
+.method static synthetic access$2700(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 50
+    invoke-virtual {p0, p1}, Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+
+    return-void
+.end method
+
+.method static synthetic access$2800(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -608,16 +646,16 @@
     .parameter "intf"
 
     .prologue
-    .line 154
+    .line 155
     new-instance v0, Landroid/net/DhcpStateMachine;
 
     invoke-direct {v0, p0, p1, p2}, Landroid/net/DhcpStateMachine;-><init>(Landroid/content/Context;Lcom/android/internal/util/StateMachine;Ljava/lang/String;)V
 
-    .line 155
+    .line 156
     .local v0, dsm:Landroid/net/DhcpStateMachine;
     invoke-virtual {v0}, Landroid/net/DhcpStateMachine;->start()V
 
-    .line 156
+    .line 157
     return-object v0
 .end method
 
@@ -632,22 +670,22 @@
 
     const/4 v9, 0x0
 
-    .line 347
+    .line 368
     const/4 v3, 0x0
 
-    .line 348
+    .line 369
     .local v3, success:Z
     new-instance v0, Landroid/net/DhcpInfoInternal;
 
     invoke-direct {v0}, Landroid/net/DhcpInfoInternal;-><init>()V
 
-    .line 350
+    .line 371
     .local v0, dhcpInfoInternal:Landroid/net/DhcpInfoInternal;
     sget-object v4, Landroid/net/DhcpStateMachine$DhcpAction;->START:Landroid/net/DhcpStateMachine$DhcpAction;
 
     if-ne p1, v4, :cond_4
 
-    .line 351
+    .line 372
     sget-boolean v4, Landroid/net/DhcpStateMachine;->DBG:Z
 
     if-eqz v4, :cond_0
@@ -676,7 +714,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 352
+    .line 373
     :cond_0
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
 
@@ -684,15 +722,15 @@
 
     move-result v3
 
-    .line 353
+    .line 374
     iput-object v0, p0, Landroid/net/DhcpStateMachine;->mDhcpInfo:Landroid/net/DhcpInfoInternal;
 
-    .line 360
+    .line 381
     :cond_1
     :goto_0
     if-eqz v3, :cond_7
 
-    .line 361
+    .line 382
     sget-boolean v4, Landroid/net/DhcpStateMachine;->DBG:Z
 
     if-eqz v4, :cond_2
@@ -721,13 +759,13 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 362
+    .line 383
     :cond_2
     iget v4, v0, Landroid/net/DhcpInfoInternal;->leaseDuration:I
 
     int-to-long v1, v4
 
-    .line 365
+    .line 386
     .local v1, leaseDuration:J
     const-wide/16 v4, 0x0
 
@@ -735,17 +773,17 @@
 
     if-ltz v4, :cond_6
 
-    .line 368
+    .line 389
     const-wide/16 v4, 0x3c
 
     cmp-long v4, v1, v4
 
     if-gez v4, :cond_3
 
-    .line 369
+    .line 390
     const-wide/16 v1, 0x3c
 
-    .line 374
+    .line 395
     :cond_3
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mAlarmManager:Landroid/app/AlarmManager;
 
@@ -763,7 +801,7 @@
 
     invoke-virtual {v4, v10, v5, v6, v7}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
-    .line 384
+    .line 405
     :goto_1
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mController:Lcom/android/internal/util/StateMachine;
 
@@ -775,18 +813,18 @@
 
     invoke-virtual {v4}, Landroid/os/Message;->sendToTarget()V
 
-    .line 393
+    .line 414
     .end local v1           #leaseDuration:J
     :goto_2
     return v3
 
-    .line 354
+    .line 375
     :cond_4
     sget-object v4, Landroid/net/DhcpStateMachine$DhcpAction;->RENEW:Landroid/net/DhcpStateMachine$DhcpAction;
 
     if-ne p1, v4, :cond_1
 
-    .line 355
+    .line 376
     sget-boolean v4, Landroid/net/DhcpStateMachine;->DBG:Z
 
     if-eqz v4, :cond_5
@@ -815,7 +853,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 356
+    .line 377
     :cond_5
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
 
@@ -823,14 +861,14 @@
 
     move-result v3
 
-    .line 357
+    .line 378
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mDhcpInfo:Landroid/net/DhcpInfoInternal;
 
     invoke-virtual {v0, v4}, Landroid/net/DhcpInfoInternal;->updateFromDhcpRequest(Landroid/net/DhcpInfoInternal;)V
 
     goto :goto_0
 
-    .line 380
+    .line 401
     .restart local v1       #leaseDuration:J
     :cond_6
     const-string v4, "DhcpStateMachine"
@@ -861,7 +899,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 381
+    .line 402
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mAlarmManager:Landroid/app/AlarmManager;
 
     iget-object v5, p0, Landroid/net/DhcpStateMachine;->mDhcpRenewalIntent:Landroid/app/PendingIntent;
@@ -870,7 +908,7 @@
 
     goto :goto_1
 
-    .line 387
+    .line 408
     .end local v1           #leaseDuration:J
     :cond_7
     const-string v4, "DhcpStateMachine"
@@ -911,12 +949,12 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 389
+    .line 410
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
 
     invoke-static {v4}, Landroid/net/NetworkUtils;->stopDhcp(Ljava/lang/String;)Z
 
-    .line 390
+    .line 411
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mController:Lcom/android/internal/util/StateMachine;
 
     invoke-virtual {v4, v11, v10, v9}, Lcom/android/internal/util/StateMachine;->obtainMessage(III)Landroid/os/Message;
@@ -934,11 +972,11 @@
     .locals 1
 
     .prologue
-    .line 169
+    .line 170
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/net/DhcpStateMachine;->mRegisteredForPreDhcpNotification:Z
 
-    .line 170
+    .line 171
     return-void
 .end method

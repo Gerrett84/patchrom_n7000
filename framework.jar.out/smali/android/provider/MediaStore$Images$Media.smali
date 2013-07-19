@@ -334,7 +334,7 @@
     invoke-virtual {v11, v0, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 879
-    const-string v0, "mime_type"
+    const-string/jumbo v0, "mime_type"
 
     const-string v4, "image/jpeg"
 

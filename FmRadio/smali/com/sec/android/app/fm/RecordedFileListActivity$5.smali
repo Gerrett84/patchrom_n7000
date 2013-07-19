@@ -3,7 +3,7 @@
 .source "RecordedFileListActivity.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 363
+    .line 392
     iput-object p1, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$5;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,120 +37,18 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 6
-    .parameter "arg0"
-    .parameter "arg1"
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 2
+    .parameter "dialog"
 
     .prologue
-    const-wide/16 v4, -0x1
+    .line 396
+    iget-object v0, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$5;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
 
-    .line 366
-    iget-object v2, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$5;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
+    const/4 v1, 0x5
 
-    invoke-virtual {v2}, Lcom/sec/android/app/fm/RecordedFileListActivity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/RecordedFileListActivity;->removeDialog(I)V
 
-    move-result-object v0
-
-    .line 368
-    .local v0, cr:Landroid/content/ContentResolver;
-    iget-object v2, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$5;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
-
-    #getter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mCurrentSelectedId:J
-    invoke-static {v2}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$100(Lcom/sec/android/app/fm/RecordedFileListActivity;)J
-
-    move-result-wide v2
-
-    cmp-long v2, v2, v4
-
-    if-nez v2, :cond_0
-
-    iget-object v2, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$5;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
-
-    #getter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mSavedSelectedId:J
-    invoke-static {v2}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$200(Lcom/sec/android/app/fm/RecordedFileListActivity;)J
-
-    move-result-wide v2
-
-    cmp-long v2, v2, v4
-
-    if-eqz v2, :cond_0
-
-    .line 369
-    iget-object v2, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$5;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
-
-    iget-object v3, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$5;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
-
-    #getter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mSavedSelectedId:J
-    invoke-static {v3}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$200(Lcom/sec/android/app/fm/RecordedFileListActivity;)J
-
-    move-result-wide v3
-
-    #setter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mCurrentSelectedId:J
-    invoke-static {v2, v3, v4}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$102(Lcom/sec/android/app/fm/RecordedFileListActivity;J)J
-
-    .line 371
-    :cond_0
-    iget-object v2, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$5;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
-
-    iget-object v3, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$5;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
-
-    #getter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mCurrentSelectedId:J
-    invoke-static {v3}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$100(Lcom/sec/android/app/fm/RecordedFileListActivity;)J
-
-    move-result-wide v3
-
-    invoke-virtual {v2, v3, v4}, Lcom/sec/android/app/fm/RecordedFileListActivity;->getfilepath(J)V
-
-    .line 372
-    new-instance v1, Ljava/io/File;
-
-    invoke-static {}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$300()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .line 373
-    .local v1, target:Ljava/io/File;
-    if-eqz v1, :cond_1
-
-    .line 374
-    invoke-virtual {v1}, Ljava/io/File;->delete()Z
-
-    .line 375
-    sget-object v2, Landroid/provider/MediaStore$Audio$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "_id="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$5;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
-
-    #getter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mCurrentSelectedId:J
-    invoke-static {v4}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$100(Lcom/sec/android/app/fm/RecordedFileListActivity;)J
-
-    move-result-wide v4
-
-    invoke-virtual {v3, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v0, v2, v3, v4}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
-
-    .line 378
-    :cond_1
+    .line 397
     return-void
 .end method

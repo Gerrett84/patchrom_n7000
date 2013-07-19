@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 672
+    .line 714
     iput-object p1, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,200 +38,239 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 8
 
     .prologue
-    .line 674
-    iget-object v2, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+    const/4 v6, 0x1
 
-    #getter for: Lcom/android/internal/widget/SPenGestureView;->mIsKeyguardOn:Z
-    invoke-static {v2}, Lcom/android/internal/widget/SPenGestureView;->access$1400(Lcom/android/internal/widget/SPenGestureView;)Z
+    .line 716
+    const/4 v2, 0x1
 
-    move-result v2
+    .line 717
+    .local v2, isScreenCaptureEnabled:Z
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
 
-    if-eqz v2, :cond_1
+    #getter for: Lcom/android/internal/widget/SPenGestureView;->mPointers:Ljava/util/ArrayList;
+    invoke-static {v5}, Lcom/android/internal/widget/SPenGestureView;->access$1100(Lcom/android/internal/widget/SPenGestureView;)Ljava/util/ArrayList;
 
-    iget-object v2, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+    move-result-object v5
 
-    #getter for: Lcom/android/internal/widget/SPenGestureView;->mIsEnableDoubleTapOnLockscreen:Z
-    invoke-static {v2}, Lcom/android/internal/widget/SPenGestureView;->access$1500(Lcom/android/internal/widget/SPenGestureView;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
-
-    #getter for: Lcom/android/internal/widget/SPenGestureView;->mIsLiveGlanceView:Z
-    invoke-static {v2}, Lcom/android/internal/widget/SPenGestureView;->access$1600(Lcom/android/internal/widget/SPenGestureView;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 675
-    :cond_0
-    const-string v2, "SPenGesture"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Double tap is disable : "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
-
-    #getter for: Lcom/android/internal/widget/SPenGestureView;->mIsEnableDoubleTapOnLockscreen:Z
-    invoke-static {v4}, Lcom/android/internal/widget/SPenGestureView;->access$1500(Lcom/android/internal/widget/SPenGestureView;)Z
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    .line 719
+    .local v4, totalPointerSize:I
+    invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getInstance()Landroid/sec/enterprise/EnterpriseDeviceManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getRestrictionPolicy()Landroid/sec/enterprise/RestrictionPolicy;
 
     move-result-object v3
 
-    const-string v4, ","
+    .line 720
+    .local v3, rp:Landroid/sec/enterprise/RestrictionPolicy;
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 721
+    invoke-virtual {v3, v6}, Landroid/sec/enterprise/RestrictionPolicy;->isScreenCaptureEnabled(Z)Z
 
-    move-result-object v3
+    move-result v5
 
-    iget-object v4, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+    if-nez v5, :cond_0
 
-    #getter for: Lcom/android/internal/widget/SPenGestureView;->mIsLiveGlanceView:Z
-    invoke-static {v4}, Lcom/android/internal/widget/SPenGestureView;->access$1600(Lcom/android/internal/widget/SPenGestureView;)Z
+    .line 722
+    const-string v5, "SPenGesture"
 
-    move-result v4
+    const-string v6, "MDM: Screen Capture Disabled"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 695
+    .line 770
     :goto_0
     return-void
 
-    .line 680
+    .line 728
+    :cond_0
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    iget-boolean v5, v5, Lcom/android/internal/widget/SPenGestureView;->mScreenCaptureOn:Z
+
+    if-eq v5, v6, :cond_1
+
+    .line 729
+    const-string v5, "SPenGesture"
+
+    const-string v6, "flashannotate couldn\'t by MDM"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 733
     :cond_1
-    :try_start_0
-    const-string v2, "SPenGesture"
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
 
-    const-string v3, "Double tapped!"
+    #calls: Lcom/android/internal/widget/SPenGestureView;->isLockScreenShowing()Z
+    invoke-static {v5}, Lcom/android/internal/widget/SPenGestureView;->access$1200(Lcom/android/internal/widget/SPenGestureView;)Z
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v5
 
-    .line 682
-    iget-object v2, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+    if-eqz v5, :cond_2
 
-    new-instance v3, Landroid/content/Intent;
+    .line 734
+    const-string v5, "SPenGesture"
 
-    const-string v4, "android.intent.action.PEN_GESTURE_PENMEMO_ACTION"
+    const-string v6, "Now keyguard is on!!!"
 
-    invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    #setter for: Lcom/android/internal/widget/SPenGestureView;->mPenMemoActionIntent:Landroid/content/Intent;
-    invoke-static {v2, v3}, Lcom/android/internal/widget/SPenGestureView;->access$1702(Lcom/android/internal/widget/SPenGestureView;Landroid/content/Intent;)Landroid/content/Intent;
+    goto :goto_0
 
-    .line 684
-    iget-object v2, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
-
-    invoke-virtual {v2}, Lcom/android/internal/widget/SPenGestureView;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
-
-    #getter for: Lcom/android/internal/widget/SPenGestureView;->mPenMemoActionIntent:Landroid/content/Intent;
-    invoke-static {v3}, Lcom/android/internal/widget/SPenGestureView;->access$1700(Lcom/android/internal/widget/SPenGestureView;)Landroid/content/Intent;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 686
-    iget-object v2, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
-
-    #getter for: Lcom/android/internal/widget/SPenGestureView;->mTelephonyManager:Landroid/telephony/TelephonyManager;
-    invoke-static {v2}, Lcom/android/internal/widget/SPenGestureView;->access$1800(Lcom/android/internal/widget/SPenGestureView;)Landroid/telephony/TelephonyManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getCallState()I
-
-    move-result v0
-
-    .line 687
-    .local v0, callState:I
-    const/4 v2, 0x1
-
-    if-eq v0, v2, :cond_2
-
-    const/4 v2, 0x2
-
-    if-ne v0, v2, :cond_3
-
-    .line 688
+    .line 738
     :cond_2
-    iget-object v2, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+    const-string v5, "SPenGesture"
 
-    invoke-virtual {v2}, Lcom/android/internal/widget/SPenGestureView;->getContext()Landroid/content/Context;
+    const-string v6, "Long pressed"
 
-    move-result-object v2
+    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v3, Landroid/content/Intent;
+    .line 740
+    :try_start_0
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
 
-    const-string v4, "android.intent.spengesture.DOUBLE_TAB"
+    const-string v6, "com.sec.spen.flashannotate"
 
-    invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    #calls: Lcom/android/internal/widget/SPenGestureView;->isTopActivity(Ljava/lang/String;)Z
+    invoke-static {v5, v6}, Lcom/android/internal/widget/SPenGestureView;->access$1300(Lcom/android/internal/widget/SPenGestureView;Ljava/lang/String;)Z
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    .line 741
+    const-string v5, "SPenGesture"
+
+    const-string v6, "flashannotate is live!!!"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 692
-    .end local v0           #callState:I
+    .line 767
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    .line 693
-    .local v1, e:Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    .line 768
+    .local v0, e:Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 690
-    .end local v1           #e:Ljava/lang/Exception;
-    .restart local v0       #callState:I
+    .line 744
+    .end local v0           #e:Ljava/lang/Exception;
     :cond_3
     :try_start_1
-    iget-object v2, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
 
-    invoke-virtual {v2}, Lcom/android/internal/widget/SPenGestureView;->getContext()Landroid/content/Context;
+    const/4 v6, 0x0
 
-    move-result-object v2
+    #setter for: Lcom/android/internal/widget/SPenGestureView;->mIsClosedCurve:Z
+    invoke-static {v5, v6}, Lcom/android/internal/widget/SPenGestureView;->access$1002(Lcom/android/internal/widget/SPenGestureView;Z)Z
 
-    iget-object v3, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+    .line 745
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
 
-    #getter for: Lcom/android/internal/widget/SPenGestureView;->mDoubleTapIntent:Landroid/content/Intent;
-    invoke-static {v3}, Lcom/android/internal/widget/SPenGestureView;->access$1900(Lcom/android/internal/widget/SPenGestureView;)Landroid/content/Intent;
+    const/4 v6, 0x0
 
-    move-result-object v3
+    #setter for: Lcom/android/internal/widget/SPenGestureView;->mDisplayRoateChanged:Z
+    invoke-static {v5, v6}, Lcom/android/internal/widget/SPenGestureView;->access$1402(Lcom/android/internal/widget/SPenGestureView;Z)Z
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    .line 746
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    invoke-virtual {v5, v4}, Lcom/android/internal/widget/SPenGestureView;->resetVariable(I)V
+
+    .line 747
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    invoke-virtual {v5}, Lcom/android/internal/widget/SPenGestureView;->postInvalidate()V
+
+    .line 749
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    const/4 v6, 0x1
+
+    #setter for: Lcom/android/internal/widget/SPenGestureView;->mIsLiveScreencapture:Z
+    invoke-static {v5, v6}, Lcom/android/internal/widget/SPenGestureView;->access$1502(Lcom/android/internal/widget/SPenGestureView;Z)Z
+
+    .line 751
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    iget-object v5, v5, Lcom/android/internal/widget/SPenGestureView;->mFocusedWindow:Landroid/view/WindowManagerPolicy$WindowState;
+
+    if-eqz v5, :cond_4
+
+    .line 758
+    const-string v5, "SPenGesture"
+
+    const-string v6, "SpenGestureView: mPenLongPress: not freestyle-mode"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 759
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    #getter for: Lcom/android/internal/widget/SPenGestureView;->mLongPressIntent:Landroid/content/Intent;
+    invoke-static {v5}, Lcom/android/internal/widget/SPenGestureView;->access$1600(Lcom/android/internal/widget/SPenGestureView;)Landroid/content/Intent;
+
+    move-result-object v5
+
+    const-string v6, "FrontWindowLayer"
+
+    const/4 v7, -0x1
+
+    invoke-virtual {v5, v6, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    .line 763
+    :cond_4
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    invoke-virtual {v5}, Lcom/android/internal/widget/SPenGestureView;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    #getter for: Lcom/android/internal/widget/SPenGestureView;->mLongPressIntent:Landroid/content/Intent;
+    invoke-static {v6}, Lcom/android/internal/widget/SPenGestureView;->access$1600(Lcom/android/internal/widget/SPenGestureView;)Landroid/content/Intent;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    .line 765
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v5, "com.sec.android.app.videoplayer.VIDEOPLAYER_PLAY"
+
+    invoke-direct {v1, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 766
+    .local v1, intentForVideoPlay:Landroid/content/Intent;
+    iget-object v5, p0, Lcom/android/internal/widget/SPenGestureView$5;->this$0:Lcom/android/internal/widget/SPenGestureView;
+
+    #getter for: Lcom/android/internal/widget/SPenGestureView;->mContext:Landroid/content/Context;
+    invoke-static {v5}, Lcom/android/internal/widget/SPenGestureView;->access$200(Lcom/android/internal/widget/SPenGestureView;)Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method

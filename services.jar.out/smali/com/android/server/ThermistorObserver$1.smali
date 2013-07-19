@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 487
+    .line 624
     iput-object p1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,19 +44,19 @@
 
     const/4 v5, -0x1
 
-    .line 490
+    .line 627
     iget-object v2, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     monitor-enter v2
 
-    .line 491
+    .line 628
     :try_start_0
     const-string v1, "level"
 
     iget-object v3, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mLatestBatteryLevel:I
-    invoke-static {v3}, Lcom/android/server/ThermistorObserver;->access$1000(Lcom/android/server/ThermistorObserver;)I
+    invoke-static {v3}, Lcom/android/server/ThermistorObserver;->access$1300(Lcom/android/server/ThermistorObserver;)I
 
     move-result v3
 
@@ -64,7 +64,7 @@
 
     move-result v0
 
-    .line 492
+    .line 629
     .local v0, currentBatteryLevel:I
     invoke-static {}, Lcom/android/server/ThermistorObserver;->access$000()Ljava/lang/String;
 
@@ -93,7 +93,7 @@
     iget-object v4, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mLatestBatteryLevel:I
-    invoke-static {v4}, Lcom/android/server/ThermistorObserver;->access$1000(Lcom/android/server/ThermistorObserver;)I
+    invoke-static {v4}, Lcom/android/server/ThermistorObserver;->access$1300(Lcom/android/server/ThermistorObserver;)I
 
     move-result v4
 
@@ -107,10 +107,10 @@
 
     invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 494
+    .line 631
     if-ne v0, v5, :cond_0
 
-    .line 495
+    .line 632
     invoke-static {}, Lcom/android/server/ThermistorObserver;->access$000()Ljava/lang/String;
 
     move-result-object v1
@@ -119,25 +119,25 @@
 
     invoke-static {v1, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 496
+    .line 633
     monitor-exit v2
 
-    .line 530
+    .line 667
     :goto_0
     return-void
 
-    .line 499
+    .line 636
     :cond_0
     iget-object v1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mIsLaunchedLimitCharging:Z
-    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1100(Lcom/android/server/ThermistorObserver;)Z
+    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1400(Lcom/android/server/ThermistorObserver;)Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 500
+    .line 637
     invoke-static {}, Lcom/android/server/ThermistorObserver;->access$000()Ljava/lang/String;
 
     move-result-object v1
@@ -146,12 +146,12 @@
 
     invoke-static {v1, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 501
+    .line 638
     monitor-exit v2
 
     goto :goto_0
 
-    .line 529
+    .line 666
     .end local v0           #currentBatteryLevel:I
     :catchall_0
     move-exception v1
@@ -162,118 +162,118 @@
 
     throw v1
 
-    .line 504
+    .line 641
     .restart local v0       #currentBatteryLevel:I
     :cond_1
     :try_start_1
     iget-object v1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mLatestBatteryLevel:I
-    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1000(Lcom/android/server/ThermistorObserver;)I
+    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1300(Lcom/android/server/ThermistorObserver;)I
 
     move-result v1
 
     if-ne v1, v5, :cond_3
 
-    .line 505
+    .line 642
     if-le v0, v6, :cond_2
 
-    .line 506
+    .line 643
     iget-object v1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     iget-object v3, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mLastSIOPLevel:Lcom/android/server/ThermistorObserver$SIOPLevel;
-    invoke-static {v3}, Lcom/android/server/ThermistorObserver;->access$1200(Lcom/android/server/ThermistorObserver;)Lcom/android/server/ThermistorObserver$SIOPLevel;
+    invoke-static {v3}, Lcom/android/server/ThermistorObserver;->access$1500(Lcom/android/server/ThermistorObserver;)Lcom/android/server/ThermistorObserver$SIOPLevel;
 
     move-result-object v3
 
     #getter for: Lcom/android/server/ThermistorObserver$SIOPLevel;->limitChargingCurrent:I
-    invoke-static {v3}, Lcom/android/server/ThermistorObserver$SIOPLevel;->access$800(Lcom/android/server/ThermistorObserver$SIOPLevel;)I
+    invoke-static {v3}, Lcom/android/server/ThermistorObserver$SIOPLevel;->access$1000(Lcom/android/server/ThermistorObserver$SIOPLevel;)I
 
     move-result v3
 
     #calls: Lcom/android/server/ThermistorObserver;->limitChargingCurrent(I)V
-    invoke-static {v1, v3}, Lcom/android/server/ThermistorObserver;->access$1300(Lcom/android/server/ThermistorObserver;I)V
+    invoke-static {v1, v3}, Lcom/android/server/ThermistorObserver;->access$1600(Lcom/android/server/ThermistorObserver;I)V
 
-    .line 528
+    .line 665
     :cond_2
     :goto_1
     iget-object v1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #setter for: Lcom/android/server/ThermistorObserver;->mLatestBatteryLevel:I
-    invoke-static {v1, v0}, Lcom/android/server/ThermistorObserver;->access$1002(Lcom/android/server/ThermistorObserver;I)I
+    invoke-static {v1, v0}, Lcom/android/server/ThermistorObserver;->access$1302(Lcom/android/server/ThermistorObserver;I)I
 
-    .line 529
+    .line 666
     monitor-exit v2
 
     goto :goto_0
 
-    .line 510
+    .line 647
     :cond_3
     iget-object v1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mLatestBatteryLevel:I
-    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1000(Lcom/android/server/ThermistorObserver;)I
+    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1300(Lcom/android/server/ThermistorObserver;)I
 
     move-result v1
 
     if-eq v0, v1, :cond_2
 
-    .line 511
+    .line 648
     iget-object v1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mLatestBatteryLevel:I
-    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1000(Lcom/android/server/ThermistorObserver;)I
+    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1300(Lcom/android/server/ThermistorObserver;)I
 
     move-result v1
 
     if-le v0, v1, :cond_4
 
-    .line 512
+    .line 649
     const/16 v1, 0x19
 
     if-le v0, v1, :cond_2
 
-    .line 513
+    .line 650
     iget-object v1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mIsChargingCurrentLimited:Z
-    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1400(Lcom/android/server/ThermistorObserver;)Z
+    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1700(Lcom/android/server/ThermistorObserver;)Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    .line 514
+    .line 651
     iget-object v1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     iget-object v3, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mLastSIOPLevel:Lcom/android/server/ThermistorObserver$SIOPLevel;
-    invoke-static {v3}, Lcom/android/server/ThermistorObserver;->access$1200(Lcom/android/server/ThermistorObserver;)Lcom/android/server/ThermistorObserver$SIOPLevel;
+    invoke-static {v3}, Lcom/android/server/ThermistorObserver;->access$1500(Lcom/android/server/ThermistorObserver;)Lcom/android/server/ThermistorObserver$SIOPLevel;
 
     move-result-object v3
 
     #getter for: Lcom/android/server/ThermistorObserver$SIOPLevel;->limitChargingCurrent:I
-    invoke-static {v3}, Lcom/android/server/ThermistorObserver$SIOPLevel;->access$800(Lcom/android/server/ThermistorObserver$SIOPLevel;)I
+    invoke-static {v3}, Lcom/android/server/ThermistorObserver$SIOPLevel;->access$1000(Lcom/android/server/ThermistorObserver$SIOPLevel;)I
 
     move-result v3
 
     #calls: Lcom/android/server/ThermistorObserver;->limitChargingCurrent(I)V
-    invoke-static {v1, v3}, Lcom/android/server/ThermistorObserver;->access$1300(Lcom/android/server/ThermistorObserver;I)V
+    invoke-static {v1, v3}, Lcom/android/server/ThermistorObserver;->access$1600(Lcom/android/server/ThermistorObserver;I)V
 
     goto :goto_1
 
-    .line 519
+    .line 656
     :cond_4
     if-gt v0, v6, :cond_2
 
-    .line 520
+    .line 657
     iget-object v1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mIsChargingCurrentLimited:Z
-    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1400(Lcom/android/server/ThermistorObserver;)Z
+    invoke-static {v1}, Lcom/android/server/ThermistorObserver;->access$1700(Lcom/android/server/ThermistorObserver;)Z
 
     move-result v1
 
@@ -281,13 +281,13 @@
 
     if-ne v1, v3, :cond_2
 
-    .line 521
+    .line 658
     iget-object v1, p0, Lcom/android/server/ThermistorObserver$1;->this$0:Lcom/android/server/ThermistorObserver;
 
     const/4 v3, 0x0
 
     #calls: Lcom/android/server/ThermistorObserver;->limitChargingCurrent(I)V
-    invoke-static {v1, v3}, Lcom/android/server/ThermistorObserver;->access$1300(Lcom/android/server/ThermistorObserver;I)V
+    invoke-static {v1, v3}, Lcom/android/server/ThermistorObserver;->access$1600(Lcom/android/server/ThermistorObserver;I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

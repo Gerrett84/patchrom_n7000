@@ -30,6 +30,8 @@
 
 .field public static final ACTION_RADIO_TECHNOLOGY_CHANGED:Ljava/lang/String; = "android.intent.action.RADIO_TECHNOLOGY"
 
+.field public static final ACTION_ROAMING_STATUS_CHANGED:Ljava/lang/String; = "android.intent.action.ACTION_ROAMING_STATUS_CHANGED"
+
 .field public static final ACTION_SERVICE_STATE_CHANGED:Ljava/lang/String; = "android.intent.action.SERVICE_STATE"
 
 .field public static final ACTION_SHOW_DIALOG_DATA_ROAMING_GUARD:Ljava/lang/String; = "android.intent.action.ACTION_SHOW_DIALOG_DATA_ROAMING_GUARD"

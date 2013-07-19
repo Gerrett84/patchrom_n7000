@@ -590,41 +590,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
-    .line 1166
-    const/16 v1, 0x30
-
-    const-string v2, "AXIS_SURFACE_SIZE"
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
-
-    .line 1167
-    const/16 v1, 0x31
-
-    const-string v2, "AXIS_SURFACE_MAJOR"
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
-
-    .line 1168
-    const/16 v1, 0x32
-
-    const-string v2, "AXIS_SURFACE_MINOR"
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
-
-    .line 1169
-    const/16 v1, 0x33
-
-    const-string v2, "AXIS_ANGLE"
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
-
-    .line 1170
-    const/16 v1, 0x34
-
-    const-string v2, "AXIS_PALM"
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
-
     .line 1175
     const-string/jumbo v1, "ro.revision"
 
@@ -638,8 +603,29 @@
 
     if-lt v1, v2, :cond_0
 
-    .line 1244
+    .line 1184
     :cond_0
+    const/16 v1, 0x36
+
+    const-string v2, "AXIS_SUMSIZE"
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
+
+    .line 1185
+    const/16 v1, 0x33
+
+    const-string v2, "AXIS_ANGLE"
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
+
+    .line 1186
+    const/16 v1, 0x35
+
+    const-string v2, "AXIS_ECCEN"
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
+
+    .line 1244
     const/16 v1, 0x20
 
     new-array v1, v1, [Ljava/lang/String;
@@ -2953,7 +2939,7 @@
     .locals 4
 
     .prologue
-    .line 2030
+    .line 2034
     iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
 
     const/16 v1, 0x33
@@ -2974,7 +2960,7 @@
     .parameter "pointerIndex"
 
     .prologue
-    .line 2339
+    .line 2343
     iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
 
     const/16 v1, 0x33
@@ -3072,70 +3058,42 @@
 .end method
 
 .method public final getEccen()F
-    .locals 6
+    .locals 4
 
     .prologue
-    const/4 v5, 0x0
+    .line 2020
+    iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
 
-    const/high16 v4, -0x8000
+    const/16 v1, 0x35
 
-    .line 2014
-    iget v2, p0, Landroid/view/MotionEvent;->mNativePtr:I
+    const/4 v2, 0x0
 
-    const/16 v3, 0x31
+    const/high16 v3, -0x8000
 
-    invoke-static {v2, v3, v5, v4}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
+    invoke-static {v0, v1, v2, v3}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
 
     move-result v0
 
-    .line 2015
-    .local v0, major:F
-    iget v2, p0, Landroid/view/MotionEvent;->mNativePtr:I
-
-    const/16 v3, 0x32
-
-    invoke-static {v2, v3, v5, v4}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
-
-    move-result v1
-
-    .line 2016
-    .local v1, minor:F
-    div-float v2, v0, v1
-
-    return v2
+    return v0
 .end method
 
 .method public final getEccen(I)F
-    .locals 5
+    .locals 3
     .parameter "pointerIndex"
 
     .prologue
-    const/high16 v4, -0x8000
+    .line 2328
+    iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
 
-    .line 2322
-    iget v2, p0, Landroid/view/MotionEvent;->mNativePtr:I
+    const/16 v1, 0x35
 
-    const/16 v3, 0x31
+    const/high16 v2, -0x8000
 
-    invoke-static {v2, v3, p1, v4}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
+    invoke-static {v0, v1, p1, v2}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
 
     move-result v0
 
-    .line 2323
-    .local v0, major:F
-    iget v2, p0, Landroid/view/MotionEvent;->mNativePtr:I
-
-    const/16 v3, 0x32
-
-    invoke-static {v2, v3, p1, v4}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
-
-    move-result v1
-
-    .line 2324
-    .local v1, minor:F
-    div-float v2, v0, v1
-
-    return v2
+    return v0
 .end method
 
 .method public final getEdgeFlags()I
@@ -3686,40 +3644,22 @@
 .end method
 
 .method public final getPalm()F
-    .locals 4
+    .locals 1
 
     .prologue
-    .line 2044
-    iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
-
-    const/16 v1, 0x34
-
-    const/4 v2, 0x0
-
-    const/high16 v3, -0x8000
-
-    invoke-static {v0, v1, v2, v3}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
-
-    move-result v0
+    .line 2048
+    const/high16 v0, -0x4080
 
     return v0
 .end method
 
 .method public final getPalm(I)F
-    .locals 3
+    .locals 1
     .parameter "pointerIndex"
 
     .prologue
-    .line 2353
-    iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
-
-    const/16 v1, 0x34
-
-    const/high16 v2, -0x8000
-
-    invoke-static {v0, v1, p1, v2}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
-
-    move-result v0
+    .line 2357
+    const/high16 v0, -0x4080
 
     return v0
 .end method
@@ -3962,7 +3902,7 @@
 .end method
 
 .method public final getSumSize()Ljava/lang/Float;
-    .locals 2
+    .locals 4
 
     .prologue
     .line 2057
@@ -3978,9 +3918,23 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 2077
+    .line 2073
     :cond_0
-    const/high16 v0, -0x4080
+    iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
+
+    const/16 v1, 0x36
+
+    const/4 v2, 0x0
+
+    const/high16 v3, -0x8000
+
+    invoke-static {v0, v1, v2, v3}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
+
+    move-result v0
+
+    const v1, 0x3fcccccd
+
+    mul-float/2addr v0, v1
 
     invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
@@ -3990,7 +3944,7 @@
 .end method
 
 .method public final getSumSize(I)Ljava/lang/Float;
-    .locals 2
+    .locals 3
     .parameter "pointerIndex"
 
     .prologue
@@ -4007,9 +3961,21 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 2385
+    .line 2380
     :cond_0
-    const/high16 v0, -0x4080
+    iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
+
+    const/16 v1, 0x36
+
+    const/high16 v2, -0x8000
+
+    invoke-static {v0, v1, p1, v2}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
+
+    move-result v0
+
+    const v1, 0x3fcccccd
+
+    mul-float/2addr v0, v1
 
     invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
@@ -4022,10 +3988,10 @@
     .locals 4
 
     .prologue
-    .line 1986
+    .line 1990
     iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
 
-    const/16 v1, 0x31
+    const/4 v1, 0x4
 
     const/4 v2, 0x0
 
@@ -4035,6 +4001,10 @@
 
     move-result v0
 
+    const/high16 v1, 0x4040
+
+    mul-float/2addr v0, v1
+
     return v0
 .end method
 
@@ -4043,16 +4013,20 @@
     .parameter "pointerIndex"
 
     .prologue
-    .line 2294
+    .line 2298
     iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
 
-    const/16 v1, 0x31
+    const/4 v1, 0x4
 
     const/high16 v2, -0x8000
 
     invoke-static {v0, v1, p1, v2}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
 
     move-result v0
+
+    const/high16 v1, 0x4040
+
+    mul-float/2addr v0, v1
 
     return v0
 .end method
@@ -4061,7 +4035,7 @@
     .locals 4
 
     .prologue
-    .line 2000
+    .line 2004
     iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
 
     const/16 v1, 0x32
@@ -4082,7 +4056,7 @@
     .parameter "pointerIndex"
 
     .prologue
-    .line 2308
+    .line 2312
     iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
 
     const/16 v1, 0x32
@@ -4097,40 +4071,22 @@
 .end method
 
 .method public final getSurfaceSize()F
-    .locals 4
+    .locals 1
 
     .prologue
-    .line 1976
-    iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
-
-    const/16 v1, 0x30
-
-    const/4 v2, 0x0
-
-    const/high16 v3, -0x8000
-
-    invoke-static {v0, v1, v2, v3}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
-
-    move-result v0
+    .line 1980
+    const/high16 v0, -0x4080
 
     return v0
 .end method
 
 .method public final getSurfaceSize(I)F
-    .locals 3
+    .locals 1
     .parameter "pointerIndex"
 
     .prologue
-    .line 2284
-    iget v0, p0, Landroid/view/MotionEvent;->mNativePtr:I
-
-    const/16 v1, 0x30
-
-    const/high16 v2, -0x8000
-
-    invoke-static {v0, v1, p1, v2}, Landroid/view/MotionEvent;->nativeGetAxisValue(IIII)F
-
-    move-result v0
+    .line 2288
+    const/high16 v0, -0x4080
 
     return v0
 .end method
@@ -5571,7 +5527,7 @@
     .line 2990
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "matrix must not be null"
+    const-string/jumbo v1, "matrix must not be null"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

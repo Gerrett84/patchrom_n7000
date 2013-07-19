@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 506
+    .line 507
     invoke-static {}, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;->values()[Lcom/android/internal/policy/impl/sec/TickerUtil$TickerSlidingSpeed;
 
     move-result-object v0

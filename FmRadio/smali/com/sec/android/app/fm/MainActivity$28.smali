@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 7828
+    .line 4497
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$28;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,14 +38,33 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
-    .parameter "dialog"
-    .parameter "whichButton"
+    .locals 3
+    .parameter
+    .parameter
 
     .prologue
-    .line 7832
-    invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
+    .line 4501
+    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$28;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    .line 7834
+    const/4 v1, 0x1
+
+    #setter for: Lcom/sec/android/app/fm/MainActivity;->mMyApps:Z
+    invoke-static {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->access$7402(Lcom/sec/android/app/fm/MainActivity;Z)Z
+
+    .line 4508
+    new-instance v0, Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/sec/android/app/fm/MainActivity$28;->this$0:Lcom/sec/android/app/fm/MainActivity;
+
+    const-class v2, Lcom/sec/android/app/fm/RecordedFileListActivity;
+
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    .line 4510
+    iget-object v1, p0, Lcom/sec/android/app/fm/MainActivity$28;->this$0:Lcom/sec/android/app/fm/MainActivity;
+
+    invoke-virtual {v1, v0}, Lcom/sec/android/app/fm/MainActivity;->startActivity(Landroid/content/Intent;)V
+
+    .line 4511
     return-void
 .end method

@@ -150,7 +150,7 @@
 
     .line 332
     .local v1, nid:I
-    const v2, 0x1080697
+    const v2, 0x10806d1
 
     if-ne v1, v2, :cond_0
 

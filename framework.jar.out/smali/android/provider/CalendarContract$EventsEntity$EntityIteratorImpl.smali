@@ -70,11 +70,11 @@
     .line 1283
     new-array v0, v5, [Ljava/lang/String;
 
-    const-string v1, "minutes"
+    const-string/jumbo v1, "minutes"
 
     aput-object v1, v0, v3
 
-    const-string v1, "method"
+    const-string/jumbo v1, "method"
 
     aput-object v1, v0, v4
 
@@ -128,7 +128,7 @@
 
     aput-object v1, v0, v3
 
-    const-string v1, "name"
+    const-string/jumbo v1, "name"
 
     aput-object v1, v0, v4
 
@@ -677,7 +677,7 @@
 
     .line 1412
     .local v13, reminderValues:Landroid/content/ContentValues;
-    const-string v1, "minutes"
+    const-string/jumbo v1, "minutes"
 
     const/4 v2, 0x0
 
@@ -692,7 +692,7 @@
     invoke-virtual {v13, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 1413
-    const-string v1, "method"
+    const-string/jumbo v1, "method"
 
     const/4 v2, 0x1
 
@@ -885,30 +885,22 @@
 
     const/4 v2, 0x5
 
-    invoke-interface {v14, v2}, Landroid/database/Cursor;->getInt(I)I
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-interface {v14, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v7, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v7, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1446
     const-string v1, "attendeeIdNamespace"
 
     const/4 v2, 0x6
 
-    invoke-interface {v14, v2}, Landroid/database/Cursor;->getInt(I)I
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-interface {v14, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v7, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-virtual {v7, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1448
     sget-object v1, Landroid/provider/CalendarContract$Attendees;->CONTENT_URI:Landroid/net/Uri;
@@ -1027,7 +1019,7 @@
     invoke-virtual {v12, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1470
-    const-string v1, "name"
+    const-string/jumbo v1, "name"
 
     const/4 v2, 0x1
 

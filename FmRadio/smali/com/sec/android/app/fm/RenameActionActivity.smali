@@ -160,7 +160,7 @@
     iput-object v1, p0, Lcom/sec/android/app/fm/RenameActionActivity;->inputManager:Landroid/view/inputmethod/InputMethodManager;
 
     .line 58
-    const v1, 0x7f030012
+    const v1, 0x7f03001b
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/RenameActionActivity;->setContentView(I)V
 
@@ -224,7 +224,7 @@
 
     .line 68
     :goto_0
-    const v1, 0x7f070087
+    const v1, 0x7f0700aa
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/RenameActionActivity;->findViewById(I)Landroid/view/View;
 
@@ -341,7 +341,7 @@
 
     .line 160
     .local v0, menuItem:Landroid/view/MenuItem;
-    const v1, 0x7f0200d6
+    const v1, 0x7f0200a6
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -356,7 +356,7 @@
     move-result-object v0
 
     .line 164
-    const v1, 0x7f020134
+    const v1, 0x7f0200fc
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -497,7 +497,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020134
+    const v2, 0x7f0200fc
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -506,7 +506,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200d6
+    const v2, 0x7f0200a6
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 

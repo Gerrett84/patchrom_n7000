@@ -1,14 +1,11 @@
 .class Lcom/android/internal/policy/impl/GlobalActions$10;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "GlobalActions.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/GlobalActions;->comfirmDialog(Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;III)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/internal/policy/impl/GlobalActions;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,55 +24,137 @@
     .parameter
 
     .prologue
-    .line 541
+    .line 1005
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$10;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 3
-    .parameter "unused"
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 4
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    .line 543
-    invoke-static {}, Lcom/android/internal/policy/impl/GlobalActions;->access$1400()Ljava/lang/Object;
+    const/4 v3, 0x0
+
+    .line 1007
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1008
+    .local v0, action:Ljava/lang/String;
+    const-string v2, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "android.intent.action.SCREEN_OFF"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "com.android.systemui.statusbar.EXPANDED"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 1011
+    :cond_0
+    const-string v2, "reason"
+
+    invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    monitor-enter v1
+    .line 1012
+    .local v1, reason:Ljava/lang/String;
+    const-string v2, "globalactions"
 
-    .line 544
-    const/4 v0, 0x0
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    :try_start_0
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$1502(Z)Z
+    move-result v2
 
-    .line 545
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$10;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+    if-nez v2, :cond_1
 
-    const/4 v2, 0x0
+    .line 1013
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$10;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    #setter for: Lcom/android/internal/policy/impl/GlobalActions;->mConfirmDialog:Landroid/app/AlertDialog;
-    invoke-static {v0, v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$1602(Lcom/android/internal/policy/impl/GlobalActions;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mHandler:Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$1800(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/os/Handler;
 
-    .line 546
-    monitor-exit v1
+    move-result-object v2
 
-    .line 547
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    .line 1025
+    .end local v1           #reason:Ljava/lang/String;
+    :cond_1
+    :goto_0
     return-void
 
-    .line 546
-    :catchall_0
-    move-exception v0
+    .line 1015
+    :cond_2
+    const-string v2, "android.intent.action.EMERGENCY_CALLBACK_MODE_CHANGED"
 
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    throw v0
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 1018
+    const-string v2, "PHONE_IN_ECM_STATE"
+
+    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$10;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+
+    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mIsWaitingForEcmExit:Z
+    invoke-static {v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$500(Lcom/android/internal/policy/impl/GlobalActions;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 1020
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$10;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+
+    #setter for: Lcom/android/internal/policy/impl/GlobalActions;->mIsWaitingForEcmExit:Z
+    invoke-static {v2, v3}, Lcom/android/internal/policy/impl/GlobalActions;->access$502(Lcom/android/internal/policy/impl/GlobalActions;Z)Z
+
+    .line 1021
+    const-string v2, "GlobalActions"
+
+    const-string v3, "mBroadcastReceiver changeAirplaneModeSystemSetting called "
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1022
+    iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$10;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+
+    const/4 v3, 0x1
+
+    #calls: Lcom/android/internal/policy/impl/GlobalActions;->changeAirplaneModeSystemSetting(Z)V
+    invoke-static {v2, v3}, Lcom/android/internal/policy/impl/GlobalActions;->access$600(Lcom/android/internal/policy/impl/GlobalActions;Z)V
+
+    goto :goto_0
 .end method

@@ -342,7 +342,7 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 135
-    const v1, 0x7f030014
+    const v1, 0x7f03001d
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/RssiTestActivity;->setContentView(I)V
 
@@ -396,7 +396,7 @@
 
     .line 151
     :goto_0
-    const v1, 0x7f070021
+    const v1, 0x7f070024
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/RssiTestActivity;->findViewById(I)Landroid/view/View;
 
@@ -414,7 +414,7 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 154
-    const v1, 0x7f070088
+    const v1, 0x7f0700ab
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/RssiTestActivity;->findViewById(I)Landroid/view/View;
 
@@ -425,7 +425,7 @@
     iput-object v1, p0, Lcom/sec/android/app/fm/RssiTestActivity;->mEditRssi:Landroid/widget/EditText;
 
     .line 155
-    const v1, 0x7f070089
+    const v1, 0x7f0700ac
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/RssiTestActivity;->findViewById(I)Landroid/view/View;
 
@@ -436,7 +436,7 @@
     iput-object v1, p0, Lcom/sec/android/app/fm/RssiTestActivity;->mEditStartFreq:Landroid/widget/EditText;
 
     .line 156
-    const v1, 0x7f07008a
+    const v1, 0x7f0700ad
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/RssiTestActivity;->findViewById(I)Landroid/view/View;
 
@@ -447,7 +447,7 @@
     iput-object v1, p0, Lcom/sec/android/app/fm/RssiTestActivity;->mEditEndFreq:Landroid/widget/EditText;
 
     .line 158
-    const v1, 0x7f07008b
+    const v1, 0x7f0700ae
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/RssiTestActivity;->findViewById(I)Landroid/view/View;
 
@@ -458,7 +458,7 @@
     iput-object v1, p0, Lcom/sec/android/app/fm/RssiTestActivity;->mBtnStart:Landroid/widget/Button;
 
     .line 159
-    const v1, 0x7f07008c
+    const v1, 0x7f0700af
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/RssiTestActivity;->findViewById(I)Landroid/view/View;
 
@@ -469,7 +469,7 @@
     iput-object v1, p0, Lcom/sec/android/app/fm/RssiTestActivity;->mBtnStop:Landroid/widget/Button;
 
     .line 161
-    const v1, 0x7f07008d
+    const v1, 0x7f0700b0
 
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/RssiTestActivity;->findViewById(I)Landroid/view/View;
 

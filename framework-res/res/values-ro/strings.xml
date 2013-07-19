@@ -322,7 +322,7 @@
     <string name="turn_on_radio">Activare wireless</string>
     <string name="turn_off_radio">Dezactivare wireless</string>
     <string name="screen_lock">Blocare ecran</string>
-    <string name="power_off">Oprire</string>
+    <string name="power_off">Oră închidere</string>
     <string name="silent_mode_silent">Sonerie dezactivată</string>
     <string name="silent_mode_vibrate">Vibraţie ton de sonerie</string>
     <string name="silent_mode_ring">Sonerie activată</string>
@@ -337,10 +337,10 @@
     <string name="no_recent_tasks">Nu există aplicaţii recente</string>
     <string name="global_actions">Opţiuni dispozitiv</string>
     <string name="global_action_lock">Blocare ecran</string>
-    <string name="global_action_power_off">Oprire</string>
+    <string name="global_action_power_off">Închidere</string>
     <string name="global_action_restart">Repornire</string>
-    <string name="global_action_sound_mode_mute">Silenţios</string>
-    <string name="global_action_sound_mode_vibrate">Vibraţie</string>
+    <string name="global_action_sound_mode_mute">Mut</string>
+    <string name="global_action_sound_mode_vibrate">Vibrare</string>
     <string name="global_action_sound_mode_sound">Sunet</string>
     <string name="global_action_toggle_silent_mode">Mod silenţios</string>
     <string name="global_action_silent_mode_on_status">Sunetul este OPRIT</string>
@@ -361,8 +361,8 @@
     <string name="data_usage_disable_mobile">Dezactivaţi conexiunea de date mobilă?</string>
     <string name="global_action_insert_sim_card">Introduceţi cartela SIM</string>
     <string name="global_action_insert_sim_card_message">Introduceţi cartela SIM pentru a accesa serviciile de reţea</string>
-    <string name="globalactions_silent_mode_mute">Silenţios</string>
-    <string name="globalactions_silent_mode_vibrate">Vibraţie</string>
+    <string name="globalactions_silent_mode_mute">Mut</string>
+    <string name="globalactions_silent_mode_vibrate">Vibrare</string>
     <string name="globalactions_silent_mode_sound">Sunet</string>
     <string name="safeMode">Mod de siguranţă</string>
     <string name="permlab_mdmApplications">Gestionare aplicaţii</string>
@@ -413,6 +413,7 @@
     <string name="permdesc_mdmKioskMode">Controlaţi comportamentul dispozitivului în modul Chioşc</string>
     <string name="tether_usb_restrict">Politica de securitate restricţionează furnizarea accesului la Internet prin USB</string>
     <string name="tether_wifi_restrict">Politica de securitate restricţionează utilizarea furnizării accesului la Internet prin Wi-Fi</string>
+    <string name="data_call_restriction">Politica de securitate restricţionează utilizarea datelor mobile</string>
     <string name="dpm_wifi_blocked_network">Politica de securitate blochează utilizarea acestei reţele Wi-Fi</string>
     <string name="dpm_wifi_misc_wifi_disabled">Politica de securitate restricţionează utilizarea reţelei Wi-Fi</string>
     <string name="dpm_wifi_misc_network_insecure">Politica de securitate restricţionează utilizarea reţelelor Wi-Fi nesecurizate</string>
@@ -624,7 +625,7 @@
     <string name="permdesc_writeSocialStream">Permite aplicaţiei să afişeze actualizări sociale de la prietenii dvs. Distribuiți cu precauţie aceste informaţii - cu această permisiune aplicaţia produce mesaje care pot părea că vin de la un prieten. Notă: această permisiune nu poate fi aplicată pentru toate reţelele sociale.</string>
     <string name="permlab_readCalendar">Citire evenimente din calendar şi informaţii confidenţiale</string>
     <string name="permdesc_readCalendar">Permite aplicaţiei să citească toate evenimentele din calendar stocate pe telefon, inclusiv cele ale prietenilor sau colegilor. Acest lucru poate permite aplicaţiei să distribuie sau să salveze datele din calendar, indiferent dacă acestea sunt confidenţiale sau sensibile.</string>
-    <string name="permlab_writeCalendar">adăugarea sau modificarea evenimentelor din calendar şi trimiterea de e-mailuri invitaţilor fără ştirea proprietarului</string>
+    <string name="permlab_writeCalendar">Adăugaţi sau modificaţi evenimente din calendar şi trimiteţi e-mailuri invitaţilor fără ca gazda să ştie</string>
     <string name="permdesc_writeCalendar">Permite aplicaţiei să adauge, să elimine şi să modifice evenimentele pe care le puteţi modifica pe telefon, inclusiv cele ale prietenilor sau colegilor dvs. În acest fel, aplicaţia poate trimite mesaje care par să vină de la proprietarii calendarelor sau să modifice evenimentele fără ştirea proprietarilor.</string>
     <string name="permlab_accessMockLocation">surse false de localizare pentru testare</string>
     <string name="permdesc_accessMockLocation">Permite aplicaţiei să creeze surse de localizare false pentru testare. Dacă este permisă, aplicaţiile rău intenţionate ar putea înlocui locaţia şi/sau starea furnizată de adevăratele surse de localizare, de exemplu, GPS sau operatori, sau ar putea să monitorizeze şi să raporteze locaţia dvs. unor site-uri aleatorii</string>
@@ -714,7 +715,7 @@
     <string name="permdesc_getAccounts">Permite unei aplicaţii să acceseze lista de conturi cunoscute de telefon</string>
     <string name="permlab_authenticateAccounts">Acţionare ca autentificator de conturi</string>
     <string name="permdesc_authenticateAccounts">Permite unei aplicaţii să utilizeze caracteristica Autentificator de conturi al Managerului de conturi. Aceasta include crearea de conturi şi controlarea parolelor</string>
-    <string name="permlab_manageAccounts">adaugă sau elimină conturi</string>
+    <string name="permlab_manageAccounts">Adăugare sau eliminare conturi</string>
     <string name="permdesc_manageAccounts">Permite unei aplicaţii să adauge sau să elimine conturi şi să şteargă parola</string>
     <string name="permlab_useCredentials">Utilizare acreditări de autentificare cont</string>
     <string name="permdesc_useCredentials">Permite unei aplicaţii să solicite simbolurile de autentificare</string>
@@ -736,7 +737,7 @@
     <string name="permdesc_changeWifiState">Permite aplicaţiei să se conecteze şi să se deconecteze de la punctele de acces Wi-Fi şi să aducă schimbări reţelelor Wi-Fi configurate</string>
     <string name="permlab_changeWifiMulticastState">Se permite recepţia de difuzări multiple Wi-Fi</string>
     <string name="permdesc_changeWifiMulticastState">Permite aplicaţiei să primească pachetele trimise către toate dispozitivele dintr-o reţea Wi-Fi, utilizând adrese cu difuzare multiplă, nu doar telefonul dvs. Această funcţie utilizează mai multă energie decât modul fără difuzare multiplă.</string>
-    <string name="permlab_bluetoothAdmin">accesează setările Bluetooth</string>
+    <string name="permlab_bluetoothAdmin">Setări Bluetooth</string>
     <string name="permdesc_bluetoothAdmin">Permite unei aplicaţii să configureze telefonul cu Bluetooth din apropiere, să descopere şi să se asocieze cu dispozitive aflate la distanţă</string>
     <string name="permlab_accessWimaxState">Vizualizare stare WiMAX</string>
     <string name="permdesc_accessWimaxState">Permite aplicaţiei să stabilească dacă o reţea WiMAX este activată şi să vadă informaţiile cu privire la toate reţelele WiMAX conectate.</string>
@@ -826,6 +827,7 @@
     <string name="policydesc_allow_desktopsync">Împiedicaţi utilizarea sincronizării desktopului</string>
     <string name="policylab_require_storagecard_encryption">Setare criptare cartelă SD</string>
     <string name="policydesc_require_storagecard_encryption">Necesită criptarea aplicaţiei de pe cartela SD</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth a fost deconectat</string>
     <string name="bluetooth_security_mode_disable">Politica de securitate restricţionează utilizarea conexiunii Bluetooth</string>
     <string name="bluetooth_security_mode_handsfree">Politica de securitate restricţionează utilizarea conexiunii Bluetooth numai pentru caracteristicile hands-free</string>
     <string name="phoneTypeCustom">Particularizat</string>
@@ -905,7 +907,7 @@
     <string name="keyguard_password_entry_touch_hint">Atingeţi pentru a introduce parola</string>
     <string name="keyguard_password_enter_password_code">Introduceţi parola pentru a debloca</string>
     <string name="keyguard_password_enter_pin_password_code">Introducere cod PIN pentru deblocare</string>
-    <string name="keyguard_password_wrong_pin_code">Cod PIN incorect.</string>
+    <string name="keyguard_password_wrong_pin_code">Cod PIN incorect</string>
     <string name="keyguard_pin_accepted">Cod acceptat</string>
     <string name="keyguard_label_text">Pentru deblocare, apăsaţi pe Meniu, apoi pe 0</string>
     <string name="emergency_call_dialog_number_for_display">Număr de urgenţă</string>
@@ -942,8 +944,9 @@
     <string name="lockscreen_network_locked_message">Reţeaua a fost blocată</string>
     <string name="lockscreen_sim_puk_locked_message">Cartela SIM este blocată prin cod PUK</string>
     <string name="lockscreen_sim_puk_locked_instructions">Consultaţi Ghidul utilizatorului sau contactaţi Asistenţa pentru clienţi</string>
-    <string name="lockscreen_sim_locked_message">Cartela SIM/RUIM este blocată</string>
+    <string name="lockscreen_sim_locked_message">Cartela SIM este blocată</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">Se deblochează cartela SIM…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Model de deblocare incorect desenat de %1$d ori. Încercaţi din nou peste %2$d secunde</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Parolă incorectă introdusă de %1$d ori. Încercaţi din nou peste %2$d secunde</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 blocat. Introduceţi PUK1 pentru a debloca PIN1</string>
@@ -996,6 +999,7 @@
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">La fel ca</string>
     <string name="autofill_billing_designator_re">Factură</string>
+    <string name="autofill_shipping_designator_re">Navă</string>
     <string name="autofill_phone_suffix_re">Sufix</string>
     <string name="autofill_name_on_card_contextual_re">Nume</string>
     <string name="autofill_province">Provincie</string>
@@ -1010,7 +1014,7 @@
     <string name="autofill_parish">Parohie</string>
     <string name="autofill_area">Arie</string>
     <string name="autofill_emirate">Emirat</string>
-    <string name="permlab_readHistoryBookmarks">citeşte marcajele şi istoricul web</string>
+    <string name="permlab_readHistoryBookmarks">Citeşte istoricul şi marcajele Internet</string>
     <string name="permdesc_readHistoryBookmarks">Permite aplicaţiei să citească toate adresele URL accesate şi toate marcajele browserului</string>
     <string name="permlab_writeHistoryBookmarks">scrie în marcajele şi în istoricul web</string>
     <string name="permdesc_writeHistoryBookmarks">Permite aplicaţiei să modifice Istoricul de Internet şi marcajele stocate în telefonul dvs. Dacă este permisă, aplicaţiile rău intenţionate ar putea şterge sau modifica astfel de date</string>
@@ -1089,10 +1093,12 @@
     <string name="editTextMenuTitle">Acţiuni pentru text</string>
     <string name="low_internal_storage_view_title">Memoria este aproape plină</string>
     <string name="low_internal_storage_view_text">Este posibil ca unele funcţii de sistem să nu funcţioneze</string>
+    <string name="full_internal_storage_view_text">Poate apărea o eroare, deoarece memoria dispozitivului este plină. Ştergeţi câteva elemente</string>
     <string name="loading">Încărcare…</string>
     <string name="capital_on">Pornit</string>
     <string name="capital_off">Oprit</string>
     <string name="whichApplication">Finalizaţi acţiunea utilizând</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Utilizare în mod implicit pentru această acţiune</string>
     <string name="clearDefaultHintMsg">Ştergeţi setările implicite ale aplicaţiei accesând Setări > Manager aplicaţii > Toate</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1161,7 +1167,7 @@ Doriţi să o închideţi?"</string>
     <string name="wifi_notification_no_network_message">Deschidere setări Wi-Fi</string>
     <string name="wifi_notification_not_connected">Reţele Wi-Fi disponibile</string>
     <string name="wifi_notification_not_connected_message">Deschidere reţele Wi-Fi disponibile</string>
-    <string name="wifi_notification_connected">Conectat la %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Atingeţi pentru a configura Wi-Fi</string>
     <string name="wifi_notification_connected_secure">Securizat</string>
     <string name="wifi_notification_connected_open">Deschidere</string>
@@ -1175,7 +1181,7 @@ Doriţi să o închideţi?"</string>
     <string name="wifi_p2p_enabled_notification_title">Wi-Fi Direct este activat</string>
     <string name="wifi_p2p_enabled_notification_message">Atingeţi pt. modific. setărilor</string>
     <string name="accept">Acce.</string>
-    <string name="decline">Refuz.</string>
+    <string name="decline">Refuzare</string>
     <string name="wifi_p2p_invitation_sent_title">Invitaţie trimisă</string>
     <string name="wifi_p2p_invitation_to_connect_title">Invitaţie la conectare</string>
     <string name="wifi_p2p_from_message">De la:</string>
@@ -1191,9 +1197,9 @@ Doriţi să o închideţi?"</string>
     <string name="select_character">Introducere caracter</string>
     <string name="sms_control_default_app_name">Aplicaþie necunoscutã</string>
     <string name="sms_control_title">Se trimite SMS-ul…</string>
-    <string name="sms_control_message">S-a trimis un număr mare de mesaje SMS. Atingeţi OK pentru a continua sau Revocare pentru a opri trimiterea</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Anulare</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> trimite un număr mare de mesaje SMS. Permiteţi acestei aplicaţii să trimită în continuare mesaje?</string>
+    <string name="sms_control_yes">Se permite</string>
+    <string name="sms_control_no">Refuzare</string>
     <string name="sim_removed_title">Cartela SIM a fost scoasă</string>
     <string name="sim_removed_message">Reţeaua mobilă va fi indisponibilă până când reporniţi cu o cartelă SIM validă introdusă</string>
     <string name="sim_done_button">Efectuat</string>
@@ -1287,7 +1293,7 @@ Doriţi să o închideţi?"</string>
     <string name="activity_list_empty">Nu au fost găsite activităţi care se potrivesc</string>
     <string name="permlab_pkgUsageStats">actualizare statistici de utilizare a componentelor</string>
     <string name="permdesc_pkgUsageStats">Permite modificarea statisticilor colectate privind utilizarea componentelor. Nu este destinată utilizării de către aplicaţii obişnuite</string>
-    <string name="permlab_copyProtectedData">Permite serviciului container implicit să copieze conţinutul. Nu este destinată utilizării de către aplicaţii obişnuite</string>
+    <string name="permlab_copyProtectedData">Copiere conţinut</string>
     <string name="permdesc_copyProtectedData">Permite serviciului container implicit să copieze conţinutul. Nu este destinată utilizării de către aplicaţii obişnuite</string>
     <string name="permlab_route_media_output">Direcţionare ieşire media</string>
     <string name="permdesc_route_media_output">Permite unei aplicaţii să direcţioneze ieşirea media spre alte dispozitive externe</string>
@@ -1427,10 +1433,11 @@ pentru contul %s"</string>
     <string name="action_bar_home_description">Navigare către casă</string>
     <string name="action_bar_up_description">Navigare în sus</string>
     <string name="action_menu_overflow_description">Mai multe opţiuni</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Comutare la dimensiunea anterioară</string>
     <string name="storage_internal">Memorie dispozitiv</string>
     <string name="storage_sd_card">Cartelă SD</string>
     <string name="storage_usb">Spaţiu de stocare USB</string>
-    <string name="extract_edit_menu_button">Edit…</string>
+    <string name="extract_edit_menu_button">Editare</string>
     <string name="data_usage_warning_title">Avertisment utilizare date</string>
     <string name="data_usage_warning_body">Atingeţi pentru a vizualiza utilizarea şi setările</string>
     <string name="data_usage_3g_limit_title">Date 2G-3G dezactivate</string>
@@ -1460,7 +1467,7 @@ pentru contul %s"</string>
     <string name="fingerprints">Amprente</string>
     <string name="sha256_fingerprint">Amprentă SHA-256:</string>
     <string name="sha1_fingerprint">Amprentă SHA-1:</string>
-    <string name="activity_chooser_view_see_all">Toate</string>
+    <string name="activity_chooser_view_see_all">Vizualizare totală</string>
     <string name="activity_chooser_view_dialog_title_default">Selectare activitate</string>
     <string name="share_action_provider_share_with">Partajare cu</string>
     <string name="status_bar_device_locked">Dispozitiv blocat</string>
@@ -1516,6 +1523,8 @@ pentru contul %s"</string>
     <string name="lockscreen_fmapp_name">Radio FM</string>
     <string name="lockscreen_clock_dualclock_home">Acasă</string>
     <string name="lockscreen_clock_dualclock_roaming">Roaming</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Seul</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">În roaming</string>
     <string name="lockscreen_clock_dualclock_popup_title">Ceas dual</string>
     <string name="lockscreen_clock_dualclock_popup_message">Selectaţi oraşul de domiciliu pentru a afişa ceasul dual pe ecranul de blocare. Accesaţi Setări?</string>
     <string name="lockscreen_ticker_no_data_to_display">Nu există date pentru afişare</string>
@@ -1552,7 +1561,7 @@ pentru contul %s"</string>
     <string name="lockscreen_2ndLock_instructions2">Introduceţi codul PIN de rezervă pentru a debloca</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Aţi desenat incorect desenul de deblocare de %1$d ori. Încercaţi din nou peste %2$d secunde</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Model de deblocare desenat incorect de %1$d ori. Au mai rămas %2$d încercări înainte de a vi se solicita deblocarea dispozitivului utilizând datele de conectare Google sau codul PIN de rezervă. Reîncercaţi în %3$d secunde</string>
     <string name="lockscreen_carrier_noservice">(Fără acoperire)</string>
     <string name="rescan_network">Se caută o reţea disponibilă</string>
     <string name="AutoUpdateOfTimeAndDate">Actualizare automată a orei şi a datei</string>
@@ -1563,6 +1572,8 @@ pentru contul %s"</string>
     <string name="capabilitymanager_managed_errortitle">Eroare</string>
     <string name="security_policy_title">Politici de securitate</string>
     <string name="security_policy_summary">Politici de securitate primite de la administratorul la distanţă</string>
+    <string name="sdcard_unmount_policy_noti_title">Cardul SD a fost deconectat din cauza politicii IT</string>
+    <string name="sdcard_unmount_policy_noti_content">Atingeţi pentru a conecta cardul SD</string>
     <string name="sdcard_encrypt_title_notification">Criptare cartelă SD</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">Se criptează cartela SD…</string>
     <string name="sdcard_encrypt_notification">Cartelă SD criptată</string>
@@ -1586,7 +1597,7 @@ pentru contul %s"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1628,7 +1639,7 @@ pentru contul %s"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Valorile introduse sunt în afara intervalului valid. Verificaţi valorile şi încercaţi din nou</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1650,6 +1661,8 @@ pentru contul %s"</string>
     <string name="SS_USB_TETHERING_ENABLED">Furnizarea de acces la Internet prin USB a fost activată</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Furnizarea de acces la Internet prin Wi-Fi a fost activată</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Furnizarea de acces la Internet a fost activată (Wi-Fi şi USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Dispozitiv blocat. A fost atins numărul maxim de încercări de introducere a parolei. Pentru deblocarea dispozitivului, este necesară recuperarea parolei. Dacă introduceţi o parolă de recuperare incorectă, toate datele vor fi eliminate</string>
+    <string name="recovery_password_required">Parolă de recuperare necesară pentru deblocarea dispozitivului</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Reţeaua dial-up a fost activată</string>
@@ -1683,12 +1696,21 @@ pentru contul %s"</string>
     <string name="lockscreen_ticker_logo_news_tts">Ştiri</string>
     <string name="lockscreen_ticker_logo_stock_tts">Acţiuni</string>
     <string name="lockscreen_ticker_refresh_tts">Reîmprospătare</string>
+    <string name="SS_ALWAYS_ON_TOP">Mereu deasupra</string>
+    <string name="SS_MINIMISE">Minimizare</string>
+    <string name="SS_MAXIMISE">Maximizare</string>
+    <string name="SS_CLOSE_APPLICATION">Închidere aplicaţie</string>
+    <string name="spengesture_media_scanning">Nu se poate trunchia imaginea. Scanerul media este în funcţiune</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">Cod PIN blocat</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Contactaţi furnizorul de servicii pentru deblocarea cartelei SIM</string>
     <string name="resolver_guide_title">Ştergere valori implicite</string>
     <string name="operation_not_allowed">Operaţie nepermisă</string>
     <string name="exceeded_maxlength">Numărul maxim de mesaje depăşit</string>
     <string name="dont_show_again_message">Nu se mai afişează</string>
     <string name="set_bing_as_default">Setaţi Bing ca motor de căutare implicit?</string>
     <string name="ms_domain_site">Site de pe domeniul Microsoft</string>
+    <string name="unsupported_in_popupbrowser">Funcţie neacceptată în Browser pop-up</string>
+    <string name="find_on_page_abb">Găsire în pag.</string>
     <string name="tw_clipboard_already_exists">Există deja</string>
     <string name="tw_clipboard_no_items_to_paste">Niciun element de lipit</string>
     <string name="tw_clipboard_save_in_memo">Salvare în Note</string>
@@ -1702,9 +1724,12 @@ pentru contul %s"</string>
     <string name="tw_ids_com_body_unlock_in_clipboard">Deblocare din clipboard</string>
     <string name="tw_clipboard_clear">Şterg.</string>
     <string name="tw_clipboard_delete_all">Ştergeţi tot?</string>
-    <string name="tw_clipboard_edit">Editare</string>
-    <string name="tw_clipboard_done">Efectuat</string>
+    <string name="tw_clipboard_edit">Edit.</string>
+    <string name="tw_clipboard_done">Gata</string>
     <string name="tw_clipboard_save">Salvare</string>
     <string name="tw_clipboard_no_item">Niciun element</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Toate elementele, cu excepţia celor blocate, vor fi şterse din clipboard</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Lipit din clipboard</string>
+    <string name="Roaming_Auto_Dialing">Cod PIN blocat</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

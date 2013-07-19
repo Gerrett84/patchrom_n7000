@@ -62,7 +62,15 @@
     <item type="id" name="action_menu_presenter" />
     <item type="id" name="overflow_menu_presenter" />
     <item type="id" name="popup_submenu_presenter" />
+    <item type="id" name="notification_wifi_calling" />
     <item type="id" name="clipboard" />
+    <item type="id" name="unlockscreen_root_for_ice" />
+    <item type="id" name="emergency_text" />
+    <item type="id" name="emergencyCircle" />
+    <item type="id" name="emergencyCircleLeft" />
+    <item type="id" name="emergencyCircleRight" />
+    <item type="id" name="icon_dialpad" />
+    <item type="id" name="icon_emergency" />
     <item type="id" name="action_bar_title">false</item>
     <item type="id" name="action_bar_subtitle">false</item>
     <item type="id" name="action_mode_close_button">false</item>
@@ -100,11 +108,12 @@
     <item type="id" name="show_more_icon">false</item>
     <item type="id" name="non_dangerous_perms_list">false</item>
     <item type="id" name="textView1">false</item>
+    <item type="id" name="wifioffload_note">false</item>
+    <item type="id" name="wifioffload_apprunoverwifi">false</item>
     <item type="id" name="wifi_ok">false</item>
     <item type="id" name="always_automatically_turn_wifi_on">false</item>
     <item type="id" name="turn_wifi_off">false</item>
-    <item type="id" name="wifioffload_apprunoverwifi">false</item>
-    <item type="id" name="wifioffload_note">false</item>
+    <item type="id" name="textView2">false</item>
     <item type="id" name="additional_message">false</item>
     <item type="id" name="bright_icon">false</item>
     <item type="id" name="level">false</item>
@@ -139,6 +148,9 @@
     <item type="id" name="buttons">false</item>
     <item type="id" name="deny_button">false</item>
     <item type="id" name="allow_button">false</item>
+    <item type="id" name="graphics_mode">false</item>
+    <item type="id" name="full">false</item>
+    <item type="id" name="original">false</item>
     <item type="id" name="switch_old">false</item>
     <item type="id" name="old_app_icon">false</item>
     <item type="id" name="old_app_action">false</item>
@@ -205,6 +217,7 @@
     <item type="id" name="clock_total_info">false</item>
     <item type="id" name="weather_charge_total_info">false</item>
     <item type="id" name="secure_clock">false</item>
+    <item type="id" name="clock_ampm">false</item>
     <item type="id" name="circle_lockscreen_root">false</item>
     <item type="id" name="circle_lockscreen_clock">false</item>
     <item type="id" name="circle_lockscreen_missed_event">false</item>
@@ -322,11 +335,14 @@
     <item type="id" name="pcwlockmsg">false</item>
     <item type="id" name="pcwCallButton">false</item>
     <item type="id" name="unlockButton">false</item>
+    <item type="id" name="pcwlock_root">false</item>
     <item type="id" name="buttons_holder">false</item>
     <item type="id" name="recover_button">false</item>
+    <item type="id" name="recovery_header">false</item>
+    <item type="id" name="new_password_label">false</item>
     <item type="id" name="headerText">false</item>
-    <item type="id" name="pinDisplayGroup">false</item>
     <item type="id" name="lockinfoText">false</item>
+    <item type="id" name="pinDisplayGroup">false</item>
     <item type="id" name="pinDisplay">false</item>
     <item type="id" name="backspace">false</item>
     <item type="id" name="keyPad">false</item>
@@ -513,6 +529,7 @@
     <item type="id" name="timePicker">false</item>
     <item type="id" name="divider">false</item>
     <item type="id" name="toast_layout_root">false</item>
+    <item type="id" name="action_bar_multi_window_button">false</item>
     <item type="id" name="slidingdrawer">false</item>
     <item type="id" name="clipBoardText">false</item>
     <item type="id" name="clipBoardBottomPanel">false</item>
@@ -549,6 +566,7 @@
     <item type="id" name="banner">false</item>
     <item type="id" name="mount_button">false</item>
     <item type="id" name="unmount_button">false</item>
+    <item type="id" name="video_mode">false</item>
     <item type="id" name="visible_panel">false</item>
     <item type="id" name="slider_group">false</item>
     <item type="id" name="expand_button_divider">false</item>
@@ -560,6 +578,7 @@
     <item type="id" name="matches">false</item>
     <item type="id" name="enter_pin_section">false</item>
     <item type="id" name="wifi_p2p_wps_pin">false</item>
+    <item type="id" name="securelock_clock">false</item>
     <item type="id" name="zoom_fit_page">false</item>
     <item type="id" name="zoom_page_overview">false</item>
     <item type="id" name="zoomControls">false</item>
@@ -567,7 +586,6 @@
     <item type="id" name="zoomIn">false</item>
     <item type="id" name="zoomMagnify">false</item>
     <item type="id" name="unlockscreen_root">false</item>
-    <item type="id" name="securelock_clock">false</item>
     <item type="id" name="emergencyCallText">false</item>
     <item type="id" name="usim_root">false</item>
     <item type="id" name="usim_emergency">false</item>

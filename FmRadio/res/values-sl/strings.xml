@@ -101,13 +101,13 @@ Slušalka deluje kot radijska antena in mora biti priključena"</string>
     <string name="toast_unavailable_in_tvout_mode">Ni na voljo v načinu TV-izhod</string>
     <string name="mute">Utišaj</string>
     <string name="seeking">Iščem</string>
-    <string name="via_earphone">Preko slušalk</string>
-    <string name="via_speaker">Po zvočniku</string>
+    <string name="via_earphone">Predvajanje prek slušalk</string>
+    <string name="via_speaker">Predv. prek zvočnika</string>
     <string name="normal_frequency">Običajna frekvenca</string>
     <string name="tag">Oz.</string>
     <string name="stop">Ustavi</string>
     <string name="recording">Snemam …</string>
-    <string name="memory_full">Snemanje je ustavljeno. Pomnilnik je poln</string>
+    <string name="memory_full">Pomnilnik je poln</string>
     <string name="cancel_recording">Prekličem snemanje?</string>
     <string name="change_frequency">Spremeni frekvenco</string>
     <string name="enter_frequency">Vnesite frekvenco</string>
@@ -133,11 +133,14 @@ Slušalka deluje kot radijska antena in mora biti priključena"</string>
     <string name="tags">Oznake</string>
     <string name="tags_now_broadcasting">Oddajanje poteka</string>
     <string name="tags_no_information">Ni informacij</string>
+    <string name="tags_music_history">Zgodovina glasbe</string>
     <string name="tags_music_title">Naslov</string>
     <string name="tags_music_album">Album</string>
     <string name="tags_music_artist">Izvajalec</string>
+    <string name="tags_music_band">Glasbena skupina</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Domača stran</string>
+    <string name="tags_interact_hotline">Telefonska številka</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Drugo</string>
     <string name="tags_interact_centre">Na sredino</string>
@@ -183,4 +186,14 @@ Ko boste posneli radio, bodo posnete datoteke prikazane"</string>
     <string name="dialog_one_item_deleted">Ta element bo izbrisan</string>
     <string name="dialog_multiple_items_deleted">%d elementov bo izbrisanih</string>
     <string name="dialog_all_items_deleted">Vsi elementi bodo izbrisani</string>
+    <string name="turning_on">Vklop …</string>
+    <string name="not_enough_memory_recording_will_stop">Ni dovolj pomnilnika. Snemanje se bo ustavilo čez %d sekund</string>
+    <string name="low_batt_msg">Prazna baterija</string>
+    <string name="no_play_during_call">Ni mogoče predvajati med klicem</string>
+    <string name="unable_delete">Brisanje ni mogoče</string>
+    <string name="playing">Predvaja…</string>
+    <string name="tts_play_button">Predvajaj</string>
+    <string name="tts_previous_button">Predhodni</string>
+    <string name="tts_Next_button">Naprej</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

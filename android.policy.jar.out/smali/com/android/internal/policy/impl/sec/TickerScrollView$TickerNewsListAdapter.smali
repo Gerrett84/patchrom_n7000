@@ -51,25 +51,25 @@
     .end annotation
 
     .prologue
-    .line 637
+    .line 649
     .local p4, objects:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;>;"
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsListAdapter;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
-    .line 638
+    .line 650
     invoke-direct {p0, p2, p3, p4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
-    .line 635
+    .line 647
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsListAdapter;->mContext:Landroid/content/Context;
 
-    .line 639
+    .line 651
     iput-object p2, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsListAdapter;->mContext:Landroid/content/Context;
 
-    .line 640
+    .line 652
     iput p3, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsListAdapter;->mLayout:I
 
-    .line 641
+    .line 653
     return-void
 .end method
 
@@ -82,18 +82,18 @@
     .parameter "parent"
 
     .prologue
-    const v8, 0x1020323
+    const v8, 0x1020330
 
     const/4 v7, 0x0
 
-    .line 643
+    .line 655
     const/4 v3, 0x0
 
-    .line 644
+    .line 656
     .local v3, row:Landroid/view/View;
     if-nez p2, :cond_1
 
-    .line 645
+    .line 657
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsListAdapter;->mContext:Landroid/content/Context;
 
     const-string v6, "layout_inflater"
@@ -104,7 +104,7 @@
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 646
+    .line 658
     .local v1, inflater:Landroid/view/LayoutInflater;
     iget v5, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsListAdapter;->mLayout:I
 
@@ -114,7 +114,7 @@
 
     move-result-object v3
 
-    .line 650
+    .line 662
     .end local v1           #inflater:Landroid/view/LayoutInflater;
     :goto_0
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsListAdapter;->getItem(I)Ljava/lang/Object;
@@ -123,9 +123,9 @@
 
     check-cast v4, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;
 
-    .line 651
+    .line 663
     .local v4, tickerNewsData:Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;
-    const v5, 0x1020322
+    const v5, 0x102032f
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -139,12 +139,12 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 652
+    .line 664
     invoke-virtual {v4}, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->getNewsAttribute()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 653
+    .line 665
     .local v0, attribution:Ljava/lang/String;
     invoke-virtual {v3, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -152,7 +152,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    .line 654
+    .line 666
     .local v2, mAttributionTextView:Landroid/widget/TextView;
     if-eqz v0, :cond_2
 
@@ -164,19 +164,19 @@
 
     if-eqz v5, :cond_2
 
-    .line 655
-    const v5, 0x108046a
+    .line 667
+    const v5, 0x1080495
 
     invoke-virtual {v2, v5, v7, v7, v7}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 656
+    .line 668
     const-string v5, ""
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 664
+    .line 676
     :goto_1
-    const v5, 0x1020324
+    const v5, 0x1020331
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -190,15 +190,15 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 665
+    .line 677
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
     move-result v5
 
     if-eqz v5, :cond_0
 
-    .line 666
-    const v5, 0x1020321
+    .line 678
+    const v5, 0x102032e
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -210,11 +210,11 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
 
-    .line 668
+    .line 680
     :cond_0
     return-object v3
 
-    .line 648
+    .line 660
     .end local v0           #attribution:Ljava/lang/String;
     .end local v2           #mAttributionTextView:Landroid/widget/TextView;
     .end local v4           #tickerNewsData:Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;
@@ -223,7 +223,7 @@
 
     goto :goto_0
 
-    .line 657
+    .line 669
     .restart local v0       #attribution:Ljava/lang/String;
     .restart local v2       #mAttributionTextView:Landroid/widget/TextView;
     .restart local v4       #tickerNewsData:Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;
@@ -238,12 +238,12 @@
 
     if-eqz v5, :cond_3
 
-    .line 658
-    const v5, 0x108046c
+    .line 670
+    const v5, 0x1080497
 
     invoke-virtual {v2, v5, v7, v7, v7}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 659
+    .line 671
     invoke-virtual {v3, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
@@ -256,11 +256,11 @@
 
     goto :goto_1
 
-    .line 661
+    .line 673
     :cond_3
     invoke-virtual {v2, v7, v7, v7, v7}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 662
+    .line 674
     invoke-virtual {v3, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5

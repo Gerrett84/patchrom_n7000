@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;,
         Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;,
         Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;,
         Landroid/os/CustomFrequencyManager$GPUFrequencyRequest;,
@@ -15,6 +16,8 @@
 
 
 # static fields
+.field public static final CPU_CORE_CONTROL:I = 0x4
+
 .field public static final FREQUENCY_LCD_FRAME_RATE:I = 0x3
 
 .field public static final FREQUENCY_REQ_TYPE_GPU:I = 0x1
@@ -22,6 +25,8 @@
 .field public static final FREQUENCY_REQ_TYPE_SYSBUS:I = 0x2
 
 .field private static final TAG:Ljava/lang/String; = "CustomFrequencyManager"
+
+.field private static infinitCPUCoreServing:Z
 
 .field private static infinitGPUServing:Z
 
@@ -52,17 +57,20 @@
     .line 30
     sput-object v1, Landroid/os/CustomFrequencyManager;->mContext:Landroid/content/Context;
 
-    .line 62
+    .line 65
     sput-object v1, Landroid/os/CustomFrequencyManager;->mTwDVFSAppToken:Landroid/os/IBinder;
 
-    .line 285
+    .line 332
     sput-boolean v0, Landroid/os/CustomFrequencyManager;->infinitLCDFrameReqServing:Z
 
-    .line 286
+    .line 333
     sput-boolean v0, Landroid/os/CustomFrequencyManager;->infinitSysBusReqServing:Z
 
-    .line 287
+    .line 334
     sput-boolean v0, Landroid/os/CustomFrequencyManager;->infinitGPUServing:Z
+
+    .line 335
+    sput-boolean v0, Landroid/os/CustomFrequencyManager;->infinitCPUCoreServing:Z
 
     return-void
 .end method
@@ -150,6 +158,125 @@
     return p0
 .end method
 
+.method static synthetic access$402(Z)Z
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 22
+    sput-boolean p0, Landroid/os/CustomFrequencyManager;->infinitCPUCoreServing:Z
+
+    return p0
+.end method
+
+.method private newFrequencyRequest(IIJLjava/lang/String;)Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    .locals 7
+    .parameter "type"
+    .parameter "frequency"
+    .parameter "timeout"
+    .parameter "pkgName"
+
+    .prologue
+    .line 304
+    const/4 v0, 0x1
+
+    if-ne p1, v0, :cond_0
+
+    .line 305
+    new-instance v0, Landroid/os/CustomFrequencyManager$GPUFrequencyRequest;
+
+    move-object v1, p0
+
+    move v2, p1
+
+    move v3, p2
+
+    move-wide v4, p3
+
+    move-object v6, p5
+
+    invoke-direct/range {v0 .. v6}, Landroid/os/CustomFrequencyManager$GPUFrequencyRequest;-><init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
+
+    .line 313
+    :goto_0
+    return-object v0
+
+    .line 306
+    :cond_0
+    const/4 v0, 0x2
+
+    if-ne p1, v0, :cond_1
+
+    .line 307
+    new-instance v0, Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;
+
+    move-object v1, p0
+
+    move v2, p1
+
+    move v3, p2
+
+    move-wide v4, p3
+
+    move-object v6, p5
+
+    invoke-direct/range {v0 .. v6}, Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;-><init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
+
+    goto :goto_0
+
+    .line 308
+    :cond_1
+    const/4 v0, 0x3
+
+    if-ne p1, v0, :cond_2
+
+    .line 309
+    new-instance v0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;
+
+    move-object v1, p0
+
+    move v2, p1
+
+    move v3, p2
+
+    move-wide v4, p3
+
+    move-object v6, p5
+
+    invoke-direct/range {v0 .. v6}, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;-><init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
+
+    goto :goto_0
+
+    .line 310
+    :cond_2
+    const/4 v0, 0x4
+
+    if-ne p1, v0, :cond_3
+
+    .line 311
+    new-instance v0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;
+
+    move-object v1, p0
+
+    move v2, p1
+
+    move v3, p2
+
+    move-wide v4, p3
+
+    move-object v6, p5
+
+    invoke-direct/range {v0 .. v6}, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;-><init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
+
+    goto :goto_0
+
+    .line 313
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 
 # virtual methods
 .method public getSupportedGPUFrequency()[I
@@ -185,20 +312,23 @@
 .end method
 
 .method public getSupportedSysBusFrequency()[I
-    .locals 2
+    .locals 3
 
     .prologue
+    const/4 v1, 0x0
+
     .line 55
     :try_start_0
-    iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
+    iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
-    invoke-interface {v1}, Landroid/os/ICustomFrequencyManager;->getSupportedSysBusFrequency()[I
+    invoke-interface {v2}, Landroid/os/ICustomFrequencyManager;->getSupportedSysBusFrequency()[I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v1
 
-    .line 58
+    .line 61
     :goto_0
     return-object v1
 
@@ -210,93 +340,16 @@
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 58
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public newFrequencyRequest(IIJLjava/lang/String;)Landroid/os/CustomFrequencyManager$FrequencyRequest;
-    .locals 7
-    .parameter "type"
-    .parameter "frequency"
-    .parameter "timeout"
-    .parameter "pkgName"
-
-    .prologue
-    .line 259
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_0
-
-    .line 260
-    new-instance v0, Landroid/os/CustomFrequencyManager$GPUFrequencyRequest;
-
-    move-object v1, p0
-
-    move v2, p1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-object v6, p5
-
-    invoke-direct/range {v0 .. v6}, Landroid/os/CustomFrequencyManager$GPUFrequencyRequest;-><init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
-
-    .line 266
-    :goto_0
-    return-object v0
-
-    .line 261
-    :cond_0
-    const/4 v0, 0x2
-
-    if-ne p1, v0, :cond_1
-
-    .line 262
-    new-instance v0, Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;
-
-    move-object v1, p0
-
-    move v2, p1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-object v6, p5
-
-    invoke-direct/range {v0 .. v6}, Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;-><init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
-
     goto :goto_0
 
-    .line 263
-    :cond_1
-    const/4 v0, 0x3
+    .line 59
+    .end local v0           #e:Landroid/os/RemoteException;
+    :catch_1
+    move-exception v0
 
-    if-ne p1, v0, :cond_2
-
-    .line 264
-    new-instance v0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;
-
-    move-object v1, p0
-
-    move v2, p1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    move-object v6, p5
-
-    invoke-direct/range {v0 .. v6}, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;-><init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
-
-    goto :goto_0
-
-    .line 266
-    :cond_2
-    const/4 v0, 0x0
+    .line 60
+    .local v0, e:Ljava/lang/NullPointerException;
+    invoke-virtual {v0}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -310,21 +363,21 @@
     .parameter "context"
 
     .prologue
-    .line 251
+    .line 296
     sput-object p6, Landroid/os/CustomFrequencyManager;->mContext:Landroid/content/Context;
 
-    .line 252
-    invoke-virtual/range {p0 .. p5}, Landroid/os/CustomFrequencyManager;->newFrequencyRequest(IIJLjava/lang/String;)Landroid/os/CustomFrequencyManager$FrequencyRequest;
+    .line 297
+    invoke-direct/range {p0 .. p5}, Landroid/os/CustomFrequencyManager;->newFrequencyRequest(IIJLjava/lang/String;)Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     move-result-object v0
 
-    .line 253
+    .line 298
     .local v0, req:Landroid/os/CustomFrequencyManager$FrequencyRequest;
     const/4 v1, 0x0
 
     sput-object v1, Landroid/os/CustomFrequencyManager;->mContext:Landroid/content/Context;
 
-    .line 254
+    .line 299
     return-object v0
 .end method
 
@@ -333,10 +386,10 @@
     .parameter "isTopFullscreen"
 
     .prologue
-    .line 273
+    .line 320
     if-eqz p1, :cond_0
 
-    .line 274
+    .line 321
     :try_start_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
@@ -344,15 +397,15 @@
 
     invoke-interface {v1, v2}, Landroid/os/ICustomFrequencyManager;->requestMpParameterUpdate(Ljava/lang/String;)V
 
-    .line 281
+    .line 328
     :goto_0
     return-void
 
-    .line 276
+    .line 323
     :cond_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
-    const-string v2, "--Nw 1.99 --Tw 140 --Ns 1.1 --Ts 190 --util_h 50 --util_l 40"
+    const-string v2, "--Nw 1.99 --Tw 140 --Ns 1.1 --Ts 190 --util_h 70 --util_l 60"
 
     invoke-interface {v1, v2}, Landroid/os/ICustomFrequencyManager;->requestMpParameterUpdate(Ljava/lang/String;)V
     :try_end_0
@@ -360,11 +413,11 @@
 
     goto :goto_0
 
-    .line 278
+    .line 325
     :catch_0
     move-exception v0
 
-    .line 279
+    .line 326
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "CustomFrequencyManager"
 

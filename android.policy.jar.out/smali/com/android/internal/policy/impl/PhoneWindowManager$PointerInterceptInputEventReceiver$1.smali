@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 516
+    .line 599
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver;
 
     invoke-direct {p0, p2}, Lcom/android/internal/policy/impl/PointerInterceptView;-><init>(Landroid/content/Context;)V
@@ -40,7 +40,7 @@
     .parameter "isOpen"
 
     .prologue
-    .line 518
+    .line 601
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -49,14 +49,14 @@
 
     if-eq v0, p1, :cond_0
 
-    .line 519
+    .line 602
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-boolean p1, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarOpen:Z
 
-    .line 520
+    .line 603
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager$PointerInterceptInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -69,7 +69,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 526
+    .line 609
     :cond_0
     return-void
 .end method

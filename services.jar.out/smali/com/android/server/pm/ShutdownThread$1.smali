@@ -17,24 +17,12 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic val$confirm:Z
-
-.field final synthetic val$context:Landroid/content/Context;
-
-
 # direct methods
-.method constructor <init>(Landroid/content/Context;Z)V
+.method constructor <init>()V
     .locals 0
-    .parameter
-    .parameter
 
     .prologue
-    .line 232
-    iput-object p1, p0, Lcom/android/server/pm/ShutdownThread$1;->val$context:Landroid/content/Context;
-
-    iput-boolean p2, p0, Lcom/android/server/pm/ShutdownThread$1;->val$confirm:Z
-
+    .line 238
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,14 +36,20 @@
     .parameter "which"
 
     .prologue
-    .line 234
-    iget-object v0, p0, Lcom/android/server/pm/ShutdownThread$1;->val$context:Landroid/content/Context;
+    .line 240
+    const-string v0, "ShutdownThread"
 
-    iget-boolean v1, p0, Lcom/android/server/pm/ShutdownThread$1;->val$confirm:Z
+    const-string v1, "Negative button Clicked "
 
-    #calls: Lcom/android/server/pm/ShutdownThread;->beginShutdownSequence(Landroid/content/Context;Z)V
-    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread;->access$000(Landroid/content/Context;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 235
+    .line 241
+    const-string v0, "persist.sys.shutdown"
+
+    const-string v1, "Default"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 242
     return-void
 .end method

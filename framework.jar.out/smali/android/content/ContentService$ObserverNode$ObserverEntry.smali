@@ -42,27 +42,27 @@
     .parameter "_pid"
 
     .prologue
-    .line 570
+    .line 573
     iput-object p1, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->this$0:Landroid/content/ContentService$ObserverNode;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 571
+    .line 574
     iput-object p4, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observersLock:Ljava/lang/Object;
 
-    .line 572
+    .line 575
     iput-object p2, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
-    .line 573
+    .line 576
     iput p5, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->uid:I
 
-    .line 574
+    .line 577
     iput p6, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->pid:I
 
-    .line 575
+    .line 578
     iput-boolean p3, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->notifyForDescendents:Z
 
-    .line 577
+    .line 580
     :try_start_0
     iget-object v1, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
@@ -76,15 +76,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 581
+    .line 584
     :goto_0
     return-void
 
-    .line 578
+    .line 581
     :catch_0
     move-exception v0
 
-    .line 579
+    .line 582
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {p0}, Landroid/content/ContentService$ObserverNode$ObserverEntry;->binderDied()V
 
@@ -97,12 +97,12 @@
     .locals 3
 
     .prologue
-    .line 584
+    .line 587
     iget-object v1, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observersLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 585
+    .line 588
     :try_start_0
     iget-object v0, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->this$0:Landroid/content/ContentService$ObserverNode;
 
@@ -110,13 +110,13 @@
 
     invoke-virtual {v0, v2}, Landroid/content/ContentService$ObserverNode;->removeObserverLocked(Landroid/database/IContentObserver;)Z
 
-    .line 586
+    .line 589
     monitor-exit v1
 
-    .line 587
+    .line 590
     return-void
 
-    .line 586
+    .line 589
     :catchall_0
     move-exception v0
 
@@ -137,7 +137,7 @@
     .parameter "pidCounts"
 
     .prologue
-    .line 591
+    .line 594
     iget v0, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->pid:I
 
     iget v1, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->pid:I
@@ -150,7 +150,7 @@
 
     invoke-virtual {p6, v0, v1}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 592
+    .line 595
     invoke-virtual {p2, p5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual {p2, p4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -159,7 +159,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 593
+    .line 596
     iget v0, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->pid:I
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(I)V
@@ -168,7 +168,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 594
+    .line 597
     iget v0, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->uid:I
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(I)V
@@ -177,7 +177,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 595
+    .line 598
     iget-object v0, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
     if-eqz v0, :cond_0
@@ -199,10 +199,10 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 597
+    .line 600
     return-void
 
-    .line 595
+    .line 598
     :cond_0
     const/4 v0, 0x0
 

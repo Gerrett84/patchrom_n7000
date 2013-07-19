@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 498
+    .line 504
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$KeyboardDockReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 501
+    .line 507
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 502
+    .line 508
     .local v1, intentAction:Ljava/lang/String;
     const-string v2, "InputMethodManagerService"
 
@@ -71,7 +71,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 503
+    .line 509
     const-string v2, "android.intent.action.DOCK_EVENT"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -80,7 +80,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 504
+    .line 510
     const-string v2, "android.intent.extra.DOCK_STATE"
 
     const/4 v3, -0x1
@@ -89,7 +89,7 @@
 
     move-result v0
 
-    .line 505
+    .line 511
     .local v0, extra:I
     const-string v2, "InputMethodManagerService"
 
@@ -113,32 +113,32 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 506
+    .line 512
     const/16 v2, 0x9
 
     if-ne v0, v2, :cond_1
 
-    .line 507
+    .line 513
     invoke-static {v5}, Lcom/android/server/InputMethodManagerService;->access$276(I)I
 
-    .line 509
+    .line 515
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$KeyboardDockReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->setDefaultIMEForKeyboard()V
 
-    .line 510
+    .line 516
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$KeyboardDockReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->hideKeyboardDialog()V
 
-    .line 511
+    .line 517
     invoke-static {}, Lcom/android/server/InputMethodManagerService;->access$300()Ljava/lang/String;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    .line 512
+    .line 518
     invoke-static {}, Lcom/android/server/InputMethodManagerService;->access$300()Ljava/lang/String;
 
     move-result-object v2
@@ -153,12 +153,12 @@
 
     if-nez v2, :cond_0
 
-    .line 513
+    .line 519
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$KeyboardDockReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v2, v5}, Lcom/android/server/InputMethodManagerService;->showKeyboardNotiDailog(I)V
 
-    .line 532
+    .line 538
     .end local v0           #extra:I
     :cond_0
     :goto_0
@@ -188,24 +188,24 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 533
+    .line 539
     return-void
 
-    .line 524
+    .line 530
     .restart local v0       #extra:I
     :cond_1
     const/4 v2, -0x2
 
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$272(I)I
 
-    .line 525
+    .line 531
     invoke-static {}, Lcom/android/server/InputMethodManagerService;->access$400()I
 
     move-result v2
 
     if-ne v2, v5, :cond_2
 
-    .line 526
+    .line 532
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$KeyboardDockReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iget-object v2, v2, Lcom/android/server/InputMethodManagerService;->mContentResolver:Landroid/content/ContentResolver;
@@ -218,13 +218,13 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 528
+    .line 534
     :cond_2
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$KeyboardDockReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/InputMethodManagerService;->hideKeyboardDialog()V
 
-    .line 529
+    .line 535
     const/4 v2, 0x0
 
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$402(I)I

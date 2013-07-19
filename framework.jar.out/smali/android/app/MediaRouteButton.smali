@@ -77,17 +77,15 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
     .prologue
     .line 63
-    const/4 v0, 0x0
+    const v0, 0x10103ad
 
-    const v1, 0x10103ad
-
-    invoke-direct {p0, p1, v0, v1}, Landroid/app/MediaRouteButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    invoke-direct {p0, p1, p2, v0}, Landroid/app/MediaRouteButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 64
     return-void
@@ -117,7 +115,7 @@
     iput-object v2, p0, Landroid/app/MediaRouteButton;->mRouterCallback:Landroid/app/MediaRouteButton$MediaRouteCallback;
 
     .line 69
-    const-string v2, "media_router"
+    const-string/jumbo v2, "media_router"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

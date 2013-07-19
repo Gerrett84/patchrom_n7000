@@ -52,7 +52,7 @@
 
     const/4 v2, 0x0
 
-    .line 165
+    .line 174
     new-instance v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     const-string v1, "CONTEXT_MODE_NONE"
@@ -61,7 +61,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_NONE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
-    .line 166
+    .line 175
     new-instance v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     const-string v1, "CONTEXT_MODE_SPEN"
@@ -70,7 +70,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_SPEN:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
-    .line 167
+    .line 176
     new-instance v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     const-string v1, "CONTEXT_MODE_EARPHONE"
@@ -79,7 +79,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_EARPHONE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
-    .line 168
+    .line 177
     new-instance v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     const-string v1, "CONTEXT_MODE_CARCRADLE"
@@ -88,7 +88,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_CARCRADLE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
-    .line 169
+    .line 178
     new-instance v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     const-string v1, "CONTEXT_MODE_DESKCRADLE"
@@ -97,7 +97,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_DESKCRADLE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
-    .line 164
+    .line 173
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
@@ -138,7 +138,7 @@
     .end annotation
 
     .prologue
-    .line 164
+    .line 173
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -149,7 +149,7 @@
     .parameter "name"
 
     .prologue
-    .line 164
+    .line 173
     const-class v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -165,7 +165,7 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 173
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->$VALUES:[Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     invoke-virtual {v0}, [Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->clone()Ljava/lang/Object;

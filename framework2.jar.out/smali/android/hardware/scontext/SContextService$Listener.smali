@@ -41,22 +41,22 @@
     .parameter "token"
 
     .prologue
-    .line 466
+    .line 469
     iput-object p1, p0, Landroid/hardware/scontext/SContextService$Listener;->this$0:Landroid/hardware/scontext/SContextService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 467
+    .line 470
     iput-object p2, p0, Landroid/hardware/scontext/SContextService$Listener;->mToken:Landroid/os/IBinder;
 
-    .line 468
+    .line 471
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextService$Listener;->mServices:Ljava/util/HashSet;
 
-    .line 469
+    .line 472
     return-void
 .end method
 
@@ -65,7 +65,7 @@
     .parameter "x0"
 
     .prologue
-    .line 460
+    .line 463
     iget-object v0, p0, Landroid/hardware/scontext/SContextService$Listener;->mServices:Ljava/util/HashSet;
 
     return-object v0
@@ -76,7 +76,7 @@
     .parameter "x0"
 
     .prologue
-    .line 460
+    .line 463
     iget-object v0, p0, Landroid/hardware/scontext/SContextService$Listener;->mToken:Landroid/os/IBinder;
 
     return-object v0
@@ -85,88 +85,54 @@
 
 # virtual methods
 .method public binderDied()V
-    .locals 4
+    .locals 3
 
     .prologue
-    .line 471
+    .line 474
     iget-object v0, p0, Landroid/hardware/scontext/SContextService$Listener;->this$0:Landroid/hardware/scontext/SContextService;
 
     #getter for: Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
-    invoke-static {v0}, Landroid/hardware/scontext/SContextService;->access$800(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
+    invoke-static {v0}, Landroid/hardware/scontext/SContextService;->access$900(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
 
     move-result-object v1
 
     monitor-enter v1
 
-    .line 472
+    .line 475
     :try_start_0
     iget-object v0, p0, Landroid/hardware/scontext/SContextService$Listener;->this$0:Landroid/hardware/scontext/SContextService;
 
     #getter for: Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
-    invoke-static {v0}, Landroid/hardware/scontext/SContextService;->access$800(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
+    invoke-static {v0}, Landroid/hardware/scontext/SContextService;->access$900(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 473
-    const-string v0, "SContextService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "  .binderDied : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/hardware/scontext/SContextService$Listener;->this$0:Landroid/hardware/scontext/SContextService;
-
-    #getter for: Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
-    invoke-static {v3}, Landroid/hardware/scontext/SContextService;->access$800(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 474
+    .line 477
     iget-object v0, p0, Landroid/hardware/scontext/SContextService$Listener;->mToken:Landroid/os/IBinder;
 
     const/4 v2, 0x0
 
     invoke-interface {v0, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 475
+    .line 478
     iget-object v0, p0, Landroid/hardware/scontext/SContextService$Listener;->this$0:Landroid/hardware/scontext/SContextService;
 
     #getter for: Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
-    invoke-static {v0}, Landroid/hardware/scontext/SContextService;->access$800(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
+    invoke-static {v0}, Landroid/hardware/scontext/SContextService;->access$900(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
-    .line 476
+    .line 479
     monitor-exit v1
 
-    .line 477
+    .line 480
     return-void
 
-    .line 476
+    .line 479
     :catchall_0
     move-exception v0
 
@@ -182,7 +148,7 @@
     .parameter "scontextEvent"
 
     .prologue
-    .line 482
+    .line 485
     :try_start_0
     iget-object v1, p0, Landroid/hardware/scontext/SContextService$Listener;->mToken:Landroid/os/IBinder;
 
@@ -190,18 +156,18 @@
 
     move-result-object v0
 
-    .line 483
+    .line 486
     .local v0, cb:Landroid/hardware/scontext/ISContextCallback;
     invoke-interface {v0, p1}, Landroid/hardware/scontext/ISContextCallback;->scontextCallback(Landroid/hardware/scontext/SContextEvent;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 486
+    .line 489
     .end local v0           #cb:Landroid/hardware/scontext/ISContextCallback;
     :goto_0
     return-void
 
-    .line 484
+    .line 487
     :catch_0
     move-exception v1
 

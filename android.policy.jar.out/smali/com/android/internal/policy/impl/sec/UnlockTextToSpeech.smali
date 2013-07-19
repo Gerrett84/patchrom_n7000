@@ -51,13 +51,13 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 45
+    .line 46
     sput-object v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
-    .line 46
+    .line 47
     sput-object v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->_instance:Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;
 
-    .line 57
+    .line 58
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->IsTtsInitiated:Z
@@ -73,52 +73,52 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 62
+    .line 63
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
+    .line 44
     iput-object v1, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mContext:Landroid/content/Context;
 
-    .line 44
+    .line 45
     iput-object v1, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTtsListener:Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech$TtsListener;
-
-    .line 49
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->Ttstime:Ljava/lang/String;
 
     .line 50
     const-string v0, ""
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->TtsmissedEvent:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->Ttstime:Ljava/lang/String;
 
     .line 51
     const-string v0, ""
 
+    iput-object v0, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->TtsmissedEvent:Ljava/lang/String;
+
+    .line 52
+    const-string v0, ""
+
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->TtsString:Ljava/lang/String;
 
-    .line 58
+    .line 59
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mIsCircleLockscreen:Z
 
-    .line 60
+    .line 61
     iput-object v1, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
 
-    .line 63
+    .line 64
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mContext:Landroid/content/Context;
 
-    .line 64
+    .line 65
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mIsCircleLockscreen:Z
 
-    .line 66
+    .line 67
     new-instance v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech$TtsListener;
 
     invoke-direct {v0, p0, v1}, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech$TtsListener;-><init>(Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech$1;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTtsListener:Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech$TtsListener;
 
-    .line 67
+    .line 68
     new-instance v0, Landroid/speech/tts/TextToSpeech;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mContext:Landroid/content/Context;
@@ -129,10 +129,10 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
-    .line 69
+    .line 70
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->doSpeak()V
 
-    .line 70
+    .line 71
     return-void
 .end method
 
@@ -141,7 +141,7 @@
     .parameter "x0"
 
     .prologue
-    .line 39
+    .line 40
     sput-boolean p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->IsTtsInitiated:Z
 
     return p0
@@ -151,7 +151,7 @@
     .locals 3
 
     .prologue
-    .line 302
+    .line 307
     const-class v1, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;
 
     monitor-enter v1
@@ -161,47 +161,47 @@
 
     if-eqz v0, :cond_0
 
-    .line 304
+    .line 309
     const-string v0, "UnlockTextToSpeech"
 
     const-string v2, "destroy"
 
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 306
+    .line 311
     sget-object v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     invoke-virtual {v0}, Landroid/speech/tts/TextToSpeech;->stop()I
 
-    .line 307
+    .line 312
     sget-object v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     invoke-virtual {v0}, Landroid/speech/tts/TextToSpeech;->shutdown()V
 
-    .line 308
+    .line 313
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->IsTtsInitiated:Z
 
-    .line 309
+    .line 314
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->_instance:Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;
 
-    .line 310
+    .line 315
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 312
+    .line 317
     :cond_0
     monitor-exit v1
 
     return-void
 
-    .line 302
+    .line 307
     :catchall_0
     move-exception v0
 
@@ -215,7 +215,7 @@
     .parameter "context"
 
     .prologue
-    .line 89
+    .line 90
     const-class v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;
 
     monitor-enter v0
@@ -247,7 +247,7 @@
     .parameter "isCircleLockscreen"
 
     .prologue
-    .line 93
+    .line 94
     const-class v1, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;
 
     monitor-enter v1
@@ -257,12 +257,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 94
+    .line 95
     sget-object v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->_instance:Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;
 
     invoke-static {}, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->destroy()V
 
-    .line 96
+    .line 97
     :cond_0
     new-instance v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;
 
@@ -270,7 +270,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->_instance:Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;
 
-    .line 97
+    .line 98
     sget-object v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->_instance:Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -279,7 +279,7 @@
 
     return-object v0
 
-    .line 93
+    .line 94
     :catchall_0
     move-exception v0
 
@@ -293,7 +293,7 @@
     .parameter "resId"
 
     .prologue
-    .line 332
+    .line 337
     sget-object v4, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     if-eqz v4, :cond_1
@@ -306,7 +306,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 333
+    .line 338
     sget-object v4, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     invoke-virtual {v4}, Landroid/speech/tts/TextToSpeech;->getLanguage()Ljava/util/Locale;
@@ -317,7 +317,7 @@
 
     move-result-object v0
 
-    .line 334
+    .line 339
     .local v0, currentLang:Ljava/lang/String;
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mContext:Landroid/content/Context;
 
@@ -329,7 +329,7 @@
 
     move-result-object v3
 
-    .line 336
+    .line 341
     .local v3, strings:[Ljava/lang/String;
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mContext:Landroid/content/Context;
 
@@ -337,13 +337,13 @@
 
     move-result-object v4
 
-    const v5, 0x107004c
+    const v5, 0x107004e
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v2
 
-    .line 339
+    .line 344
     .local v2, langs:[Ljava/lang/String;
     const/4 v1, 0x0
 
@@ -353,7 +353,7 @@
 
     if-ge v1, v4, :cond_1
 
-    .line 340
+    .line 345
     aget-object v4, v2, v1
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -362,10 +362,10 @@
 
     if-eqz v4, :cond_0
 
-    .line 341
+    .line 346
     aget-object v4, v3, v1
 
-    .line 345
+    .line 350
     .end local v0           #currentLang:Ljava/lang/String;
     .end local v1           #i:I
     .end local v2           #langs:[Ljava/lang/String;
@@ -373,7 +373,7 @@
     :goto_1
     return-object v4
 
-    .line 339
+    .line 344
     .restart local v0       #currentLang:Ljava/lang/String;
     .restart local v1       #i:I
     .restart local v2       #langs:[Ljava/lang/String;
@@ -383,7 +383,7 @@
 
     goto :goto_0
 
-    .line 345
+    .line 350
     .end local v0           #currentLang:Ljava/lang/String;
     .end local v1           #i:I
     .end local v2           #langs:[Ljava/lang/String;
@@ -399,30 +399,30 @@
     .parameter "currentEngine"
 
     .prologue
-    .line 315
+    .line 320
     if-eqz p1, :cond_0
 
     sget-object v4, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     if-eqz v4, :cond_0
 
-    .line 316
+    .line 321
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
 
     invoke-virtual {v4, p1}, Landroid/speech/tts/TtsEngines;->getLocalePrefForEngine(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 317
+    .line 322
     .local v2, localeString:Ljava/lang/String;
     if-eqz v2, :cond_0
 
-    .line 318
+    .line 323
     invoke-static {v2}, Landroid/speech/tts/TtsEngines;->parseLocalePref(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 319
+    .line 324
     .local v1, locale:[Ljava/lang/String;
     new-instance v3, Ljava/util/Locale;
 
@@ -440,7 +440,7 @@
 
     invoke-direct {v3, v4, v5, v6}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 320
+    .line 325
     .local v3, newLocale:Ljava/util/Locale;
     sget-object v4, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
@@ -448,7 +448,7 @@
 
     move-result-object v0
 
-    .line 322
+    .line 327
     .local v0, engineLocale:Ljava/util/Locale;
     invoke-virtual {v3, v0}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
 
@@ -456,7 +456,7 @@
 
     if-nez v4, :cond_0
 
-    .line 324
+    .line 329
     const-string v4, "UnlockTextToSpeech"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -481,14 +481,14 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 325
+    .line 330
     sget-object v4, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     invoke-virtual {v4, v3}, Landroid/speech/tts/TextToSpeech;->setLanguage(Ljava/util/Locale;)I
 
-    .line 329
+    .line 334
     .end local v0           #engineLocale:Ljava/util/Locale;
     .end local v1           #locale:[Ljava/lang/String;
     .end local v2           #localeString:Ljava/lang/String;
@@ -501,7 +501,7 @@
     .locals 2
 
     .prologue
-    .line 295
+    .line 300
     const-class v1, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;
 
     monitor-enter v1
@@ -511,18 +511,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 297
+    .line 302
     invoke-static {}, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->destroy()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 299
+    .line 304
     :cond_0
     monitor-exit v1
 
     return-void
 
-    .line 295
+    .line 300
     :catchall_0
     move-exception v0
 
@@ -537,14 +537,14 @@
     .locals 32
 
     .prologue
-    .line 102
+    .line 103
     const-string v28, "UnlockTextToSpeech"
 
     const-string v29, "Getting into speak TTS"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 104
+    .line 105
     sget-object v28, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     if-eqz v28, :cond_5
@@ -553,14 +553,14 @@
 
     if-eqz v28, :cond_5
 
-    .line 105
+    .line 106
     sget-object v28, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     invoke-virtual/range {v28 .. v28}, Landroid/speech/tts/TextToSpeech;->getCurrentEngine()Ljava/lang/String;
 
     move-result-object v12
 
-    .line 107
+    .line 108
     .local v12, currentEngine:Ljava/lang/String;
     invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -568,14 +568,14 @@
 
     if-eqz v28, :cond_0
 
-    .line 108
+    .line 109
     sget-object v28, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     invoke-virtual/range {v28 .. v28}, Landroid/speech/tts/TextToSpeech;->getDefaultEngine()Ljava/lang/String;
 
     move-result-object v12
 
-    .line 110
+    .line 111
     :cond_0
     new-instance v28, Landroid/speech/tts/TtsEngines;
 
@@ -593,30 +593,30 @@
 
     iput-object v0, v1, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
 
-    .line 111
+    .line 112
     move-object/from16 v0, p0
 
     invoke-direct {v0, v12}, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->maybeUpdateTtsLanguage(Ljava/lang/String;)V
 
-    .line 112
+    .line 113
     sget-object v28, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     invoke-virtual/range {v28 .. v28}, Landroid/speech/tts/TextToSpeech;->getLanguage()Ljava/util/Locale;
 
     move-result-object v13
 
-    .line 114
+    .line 115
     .local v13, currentLocale:Ljava/util/Locale;
     if-nez v13, :cond_2
 
-    .line 116
+    .line 117
     const-string v28, "UnlockTextToSpeech"
 
     const-string v29, "mTts.getLanguage() returns null"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 118
+    .line 119
     sget-object v28, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -627,7 +627,7 @@
 
     move-result v18
 
-    .line 119
+    .line 120
     .local v18, languageResult:I
     const/16 v28, -0x2
 
@@ -645,7 +645,7 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 120
+    .line 121
     :cond_1
     sget-object v28, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
@@ -653,14 +653,14 @@
 
     invoke-virtual/range {v28 .. v29}, Landroid/speech/tts/TextToSpeech;->setLanguage(Ljava/util/Locale;)I
 
-    .line 122
+    .line 123
     const-string v28, "UnlockTextToSpeech"
 
     const-string v29, "TTS cannot use system language, using Locale.US instead"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 127
+    .line 128
     .end local v18           #languageResult:I
     :cond_2
     const-string v28, "UnlockTextToSpeech"
@@ -689,9 +689,9 @@
 
     move-result-object v29
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 129
+    .line 130
     sget-object v28, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     invoke-virtual/range {v28 .. v28}, Landroid/speech/tts/TextToSpeech;->isSpeaking()Z
@@ -700,12 +700,12 @@
 
     if-nez v28, :cond_5
 
-    .line 130
+    .line 131
     new-instance v24, Ljava/util/HashMap;
 
     invoke-direct/range {v24 .. v24}, Ljava/util/HashMap;-><init>()V
 
-    .line 132
+    .line 133
     .local v24, myHashAlarm:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
     const-string v28, "streamType"
 
@@ -723,7 +723,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 133
+    .line 134
     const-string v28, "utteranceId"
 
     const-string v29, "Unlock screen tts ended"
@@ -736,12 +736,12 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 136
+    .line 137
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v10
 
-    .line 137
+    .line 138
     .local v10, cal:Ljava/util/Calendar;
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -751,7 +751,7 @@
 
     invoke-virtual {v10, v0, v1}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 139
+    .line 140
     const/16 v28, 0xb
 
     move/from16 v0, v28
@@ -760,7 +760,7 @@
 
     move-result v15
 
-    .line 140
+    .line 141
     .local v15, hourInt:I
     const/16 v28, 0xc
 
@@ -770,7 +770,7 @@
 
     move-result v23
 
-    .line 141
+    .line 142
     .local v23, minInt:I
     const/16 v28, 0x9
 
@@ -780,7 +780,7 @@
 
     move-result v9
 
-    .line 144
+    .line 145
     .local v9, am_pm:I
     move-object/from16 v0, p0
 
@@ -792,27 +792,27 @@
 
     move-result v20
 
-    .line 147
+    .line 148
     .local v20, mAM_PM_Check01:Z
     if-nez v20, :cond_8
 
-    .line 148
+    .line 149
     const/16 v28, 0xc
 
     move/from16 v0, v28
 
     if-le v15, v0, :cond_6
 
-    .line 149
+    .line 150
     add-int/lit8 v15, v15, -0xc
 
-    .line 153
+    .line 154
     :cond_3
     :goto_0
     if-nez v9, :cond_7
 
-    .line 154
-    const v28, 0x1070040
+    .line 155
+    const v28, 0x1070042
 
     :try_start_0
     move-object/from16 v0, p0
@@ -857,7 +857,7 @@
 
     iput-object v0, v1, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->Ttstime:Ljava/lang/String;
 
-    .line 164
+    .line 165
     :goto_1
     const-string v28, "UnlockTextToSpeech"
 
@@ -885,23 +885,23 @@
 
     move-result-object v29
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 171
+    .line 172
     :goto_2
     const-string v4, "aw_daemon_service_key_app_service_status"
 
-    .line 172
+    .line 173
     .local v4, KEY_APP_SERVICE_STATUS:Ljava/lang/String;
     const-string v5, "aw_daemon_service_key_loc_code"
 
-    .line 173
+    .line 174
     .local v5, KEY_CITY_ID:Ljava/lang/String;
     const/4 v6, 0x1
 
-    .line 176
+    .line 177
     .local v6, LOCK_SCREEN_SERVICE_CODE:I
     move-object/from16 v0, p0
 
@@ -921,7 +921,7 @@
 
     move-result v21
 
-    .line 177
+    .line 178
     .local v21, mAppServiceStatus:I
     and-int/lit8 v28, v21, 0x1
 
@@ -935,7 +935,7 @@
 
     const/16 v17, 0x1
 
-    .line 180
+    .line 181
     .local v17, isServiceEnable:Z
     :goto_3
     move-object/from16 v0, p0
@@ -954,7 +954,7 @@
 
     move-result-object v11
 
-    .line 182
+    .line 183
     .local v11, cityId:Ljava/lang/String;
     const-string v28, "UnlockTextToSpeech"
 
@@ -992,16 +992,16 @@
 
     move-result-object v29
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 184
-    const-string v8, ""
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 185
+    const-string v8, ""
+
+    .line 186
     .local v8, Ttsweather:Ljava/lang/String;
     const-string v7, ""
 
-    .line 188
+    .line 189
     .local v7, TtsDegree:Ljava/lang/String;
     if-eqz v17, :cond_c
 
@@ -1014,7 +1014,7 @@
 
     if-nez v28, :cond_c
 
-    .line 189
+    .line 190
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mContext:Landroid/content/Context;
@@ -1043,7 +1043,7 @@
 
     const/16 v16, 0x1
 
-    .line 191
+    .line 192
     .local v16, isCelsius:Z
     :goto_4
     move-object/from16 v0, p0
@@ -1068,7 +1068,7 @@
 
     float-to-int v14, v0
 
-    .line 192
+    .line 193
     .local v14, currentTemp:I
     new-instance v28, Ljava/lang/StringBuilder;
 
@@ -1110,11 +1110,11 @@
 
     move-result-object v8
 
-    .line 194
+    .line 195
     if-eqz v16, :cond_b
 
-    .line 195
-    const v28, 0x1070043
+    .line 196
+    const v28, 0x1070045
 
     move-object/from16 v0, p0
 
@@ -1142,7 +1142,7 @@
 
     const/16 v30, 0x1
 
-    const v31, 0x1070045
+    const v31, 0x1070047
 
     move-object/from16 v0, p0
 
@@ -1158,7 +1158,7 @@
 
     move-result-object v7
 
-    .line 204
+    .line 205
     .end local v14           #currentTemp:I
     .end local v16           #isCelsius:Z
     :goto_5
@@ -1196,11 +1196,11 @@
 
     move-result-object v29
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 211
+    .line 212
     :goto_6
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
 
@@ -1208,7 +1208,7 @@
 
     if-eqz v28, :cond_4
 
-    .line 213
+    .line 214
     if-eqz v17, :cond_f
 
     if-eqz v11, :cond_f
@@ -1220,7 +1220,7 @@
 
     if-nez v28, :cond_f
 
-    .line 214
+    .line 215
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mContext:Landroid/content/Context;
@@ -1249,7 +1249,7 @@
 
     const/16 v16, 0x1
 
-    .line 216
+    .line 217
     .restart local v16       #isCelsius:Z
     :goto_7
     move-object/from16 v0, p0
@@ -1274,7 +1274,7 @@
 
     float-to-int v14, v0
 
-    .line 217
+    .line 218
     .restart local v14       #currentTemp:I
     move-object/from16 v0, p0
 
@@ -1300,7 +1300,7 @@
 
     move/from16 v19, v0
 
-    .line 218
+    .line 219
     .local v19, lowTemp:I
     new-instance v28, Ljava/lang/StringBuilder;
 
@@ -1342,11 +1342,11 @@
 
     move-result-object v8
 
-    .line 220
+    .line 221
     if-eqz v16, :cond_e
 
-    .line 221
-    const v28, 0x1070044
+    .line 222
+    const v28, 0x1070046
 
     move-object/from16 v0, p0
 
@@ -1382,7 +1382,7 @@
 
     const/16 v30, 0x2
 
-    const v31, 0x1070045
+    const v31, 0x1070047
 
     move-object/from16 v0, p0
 
@@ -1398,7 +1398,7 @@
 
     move-result-object v7
 
-    .line 230
+    .line 231
     .end local v14           #currentTemp:I
     .end local v16           #isCelsius:Z
     .end local v19           #lowTemp:I
@@ -1437,11 +1437,11 @@
 
     move-result-object v29
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 239
+    .line 240
     :cond_4
     :goto_9
     move-object/from16 v0, p0
@@ -1458,11 +1458,11 @@
 
     check-cast v22, Landroid/app/NotificationManager;
 
-    .line 241
+    .line 242
     .local v22, mNM:Landroid/app/NotificationManager;
     if-nez v22, :cond_10
 
-    .line 292
+    .line 297
     .end local v4           #KEY_APP_SERVICE_STATUS:Ljava/lang/String;
     .end local v5           #KEY_CITY_ID:Ljava/lang/String;
     .end local v6           #LOCK_SCREEN_SERVICE_CODE:I
@@ -1484,7 +1484,7 @@
     :goto_a
     return-void
 
-    .line 150
+    .line 151
     .restart local v9       #am_pm:I
     .restart local v10       #cal:Ljava/util/Calendar;
     .restart local v12       #currentEngine:Ljava/lang/String;
@@ -1496,14 +1496,14 @@
     :cond_6
     if-nez v15, :cond_3
 
-    .line 151
+    .line 152
     const/16 v15, 0xc
 
     goto/16 :goto_0
 
-    .line 156
+    .line 157
     :cond_7
-    const v28, 0x1070041
+    const v28, 0x1070043
 
     :try_start_3
     move-object/from16 v0, p0
@@ -1552,27 +1552,27 @@
 
     goto/16 :goto_1
 
-    .line 165
+    .line 166
     :catch_0
     move-exception v27
 
-    .line 166
+    .line 167
     .local v27, nullPonterException:Ljava/lang/NullPointerException;
     const-string v28, "UnlockTextToSpeech"
 
     const-string v29, "NullPointerException has been occured in getTtsLocalString()"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 167
+    .line 168
     invoke-virtual/range {v27 .. v27}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     goto/16 :goto_2
 
-    .line 158
+    .line 159
     .end local v27           #nullPonterException:Ljava/lang/NullPointerException;
     :cond_8
-    const v28, 0x1070042
+    const v28, 0x1070044
 
     :try_start_4
     move-object/from16 v0, p0
@@ -1617,7 +1617,7 @@
 
     iput-object v0, v1, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->Ttstime:Ljava/lang/String;
 
-    .line 160
+    .line 161
     const-string v28, "UnlockTextToSpeech"
 
     new-instance v29, Ljava/lang/StringBuilder;
@@ -1644,13 +1644,13 @@
 
     move-result-object v29
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_4
     .catch Ljava/lang/NullPointerException; {:try_start_4 .. :try_end_4} :catch_0
 
     goto/16 :goto_1
 
-    .line 177
+    .line 178
     .restart local v4       #KEY_APP_SERVICE_STATUS:Ljava/lang/String;
     .restart local v5       #KEY_CITY_ID:Ljava/lang/String;
     .restart local v6       #LOCK_SCREEN_SERVICE_CODE:I
@@ -1660,7 +1660,7 @@
 
     goto/16 :goto_3
 
-    .line 189
+    .line 190
     .restart local v7       #TtsDegree:Ljava/lang/String;
     .restart local v8       #Ttsweather:Ljava/lang/String;
     .restart local v11       #cityId:Ljava/lang/String;
@@ -1670,11 +1670,11 @@
 
     goto/16 :goto_4
 
-    .line 198
+    .line 199
     .restart local v14       #currentTemp:I
     .restart local v16       #isCelsius:Z
     :cond_b
-    const v28, 0x1070043
+    const v28, 0x1070045
 
     :try_start_5
     move-object/from16 v0, p0
@@ -1703,7 +1703,7 @@
 
     const/16 v30, 0x1
 
-    const v31, 0x1070046
+    const v31, 0x1070048
 
     move-object/from16 v0, p0
 
@@ -1721,7 +1721,7 @@
 
     goto/16 :goto_5
 
-    .line 201
+    .line 202
     .end local v14           #currentTemp:I
     .end local v16           #isCelsius:Z
     :cond_c
@@ -1731,36 +1731,36 @@
 
     goto/16 :goto_5
 
-    .line 205
+    .line 206
     :catch_1
     move-exception v27
 
-    .line 206
+    .line 207
     .restart local v27       #nullPonterException:Ljava/lang/NullPointerException;
     const-string v28, "UnlockTextToSpeech"
 
     const-string v29, "NullPointerException has been occured in getTtsLocalString()"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 207
+    .line 208
     invoke-virtual/range {v27 .. v27}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     goto/16 :goto_6
 
-    .line 214
+    .line 215
     .end local v27           #nullPonterException:Ljava/lang/NullPointerException;
     :cond_d
     const/16 v16, 0x0
 
     goto/16 :goto_7
 
-    .line 224
+    .line 225
     .restart local v14       #currentTemp:I
     .restart local v16       #isCelsius:Z
     .restart local v19       #lowTemp:I
     :cond_e
-    const v28, 0x1070044
+    const v28, 0x1070046
 
     :try_start_6
     move-object/from16 v0, p0
@@ -1797,7 +1797,7 @@
 
     const/16 v30, 0x2
 
-    const v31, 0x1070046
+    const v31, 0x1070048
 
     move-object/from16 v0, p0
 
@@ -1815,7 +1815,7 @@
 
     goto/16 :goto_8
 
-    .line 227
+    .line 228
     .end local v14           #currentTemp:I
     .end local v16           #isCelsius:Z
     .end local v19           #lowTemp:I
@@ -1826,34 +1826,34 @@
 
     goto/16 :goto_8
 
-    .line 231
+    .line 232
     :catch_2
     move-exception v27
 
-    .line 232
+    .line 233
     .restart local v27       #nullPonterException:Ljava/lang/NullPointerException;
     const-string v28, "UnlockTextToSpeech"
 
     const-string v29, "NullPointerException has been occured in getTtsLocalString()"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 233
+    .line 234
     invoke-virtual/range {v27 .. v27}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     goto/16 :goto_9
 
-    .line 244
+    .line 245
     .end local v27           #nullPonterException:Ljava/lang/NullPointerException;
     .restart local v22       #mNM:Landroid/app/NotificationManager;
     :cond_10
     const/16 v25, 0x0
 
-    .line 245
+    .line 246
     .local v25, nCallCount:I
     const/16 v26, 0x0
 
-    .line 247
+    .line 248
     .local v26, nMsgCount:I
     const-string v28, "com.android.phone"
 
@@ -1875,7 +1875,7 @@
 
     iput-object v0, v1, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mMissedCallNotiInfo:Landroid/app/NotificationInfo;
 
-    .line 248
+    .line 249
     const-string v28, "com.android.mms"
 
     const/16 v29, 0x7b
@@ -1896,16 +1896,47 @@
 
     iput-object v0, v1, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mUnreadMsgNotiInfo:Landroid/app/NotificationInfo;
 
-    .line 250
+    .line 251
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->getalternatePackageForMessage()Ljava/lang/String;
+
+    move-result-object v28
+
+    if-eqz v28, :cond_11
+
+    .line 252
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->getalternatePackageForMessage()Ljava/lang/String;
+
+    move-result-object v28
+
+    const/16 v29, 0x7b
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v28
+
+    move/from16 v2, v29
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/NotificationManager;->getNotificationInfo(Ljava/lang/String;I)Landroid/app/NotificationInfo;
+
+    move-result-object v28
+
+    move-object/from16 v0, v28
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mUnreadMsgNotiInfo:Landroid/app/NotificationInfo;
+
+    .line 255
+    :cond_11
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mMissedCallNotiInfo:Landroid/app/NotificationInfo;
 
     move-object/from16 v28, v0
 
-    if-eqz v28, :cond_11
+    if-eqz v28, :cond_12
 
-    .line 251
+    .line 256
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mMissedCallNotiInfo:Landroid/app/NotificationInfo;
@@ -1918,17 +1949,17 @@
 
     move/from16 v25, v0
 
-    .line 252
-    :cond_11
+    .line 257
+    :cond_12
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mUnreadMsgNotiInfo:Landroid/app/NotificationInfo;
 
     move-object/from16 v28, v0
 
-    if-eqz v28, :cond_12
+    if-eqz v28, :cond_13
 
-    .line 253
+    .line 258
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mUnreadMsgNotiInfo:Landroid/app/NotificationInfo;
@@ -1941,14 +1972,14 @@
 
     move/from16 v26, v0
 
-    .line 256
-    :cond_12
-    if-lez v25, :cond_15
+    .line 261
+    :cond_13
+    if-lez v25, :cond_16
 
-    if-lez v26, :cond_15
+    if-lez v26, :cond_16
 
-    .line 257
-    const v28, 0x1070047
+    .line 262
+    const v28, 0x1070049
 
     :try_start_7
     move-object/from16 v0, p0
@@ -1995,14 +2026,14 @@
     :try_end_7
     .catch Ljava/lang/NullPointerException; {:try_start_7 .. :try_end_7} :catch_3
 
-    .line 276
+    .line 281
     :goto_b
-    if-gtz v25, :cond_13
+    if-gtz v25, :cond_14
 
-    if-lez v26, :cond_14
+    if-lez v26, :cond_15
 
-    .line 278
-    :cond_13
+    .line 283
+    :cond_14
     const-string v28, "UnlockTextToSpeech"
 
     move-object/from16 v0, p0
@@ -2011,26 +2042,32 @@
 
     move-object/from16 v29, v0
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 280
-    :cond_14
+    .line 285
+    :cond_15
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mIsCircleLockscreen:Z
 
     move/from16 v28, v0
 
-    if-eqz v28, :cond_1b
+    if-eqz v28, :cond_1c
 
-    .line 281
+    .line 286
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isTabletDevice()Z
 
     move-result v28
 
-    if-eqz v28, :cond_1a
+    if-eqz v28, :cond_1b
 
-    .line 282
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isMissedEventEnableOnTablet()Z
+
+    move-result v28
+
+    if-nez v28, :cond_1b
+
+    .line 287
     new-instance v28, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
@@ -2067,7 +2104,7 @@
 
     iput-object v0, v1, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->TtsString:Ljava/lang/String;
 
-    .line 288
+    .line 293
     :goto_c
     sget-object v28, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
@@ -2089,7 +2126,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
 
-    .line 289
+    .line 294
     sget-object v28, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->mTts:Landroid/speech/tts/TextToSpeech;
 
     move-object/from16 v0, p0
@@ -2102,18 +2139,18 @@
 
     goto/16 :goto_a
 
-    .line 259
-    :cond_15
+    .line 264
+    :cond_16
     const/16 v28, 0x1
 
     move/from16 v0, v25
 
     move/from16 v1, v28
 
-    if-le v0, v1, :cond_16
+    if-le v0, v1, :cond_17
 
-    .line 260
-    const v28, 0x1070048
+    .line 265
+    const v28, 0x107004a
 
     :try_start_8
     move-object/from16 v0, p0
@@ -2154,36 +2191,36 @@
 
     goto/16 :goto_b
 
-    .line 271
+    .line 276
     :catch_3
     move-exception v27
 
-    .line 272
+    .line 277
     .restart local v27       #nullPonterException:Ljava/lang/NullPointerException;
     const-string v28, "UnlockTextToSpeech"
 
     const-string v29, "NullPointerException has been occured in getTtsLocalString()"
 
-    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v28 .. v29}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 273
+    .line 278
     invoke-virtual/range {v27 .. v27}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     goto/16 :goto_b
 
-    .line 262
+    .line 267
     .end local v27           #nullPonterException:Ljava/lang/NullPointerException;
-    :cond_16
+    :cond_17
     const/16 v28, 0x1
 
     move/from16 v0, v26
 
     move/from16 v1, v28
 
-    if-le v0, v1, :cond_17
+    if-le v0, v1, :cond_18
 
-    .line 263
-    const v28, 0x1070049
+    .line 268
+    const v28, 0x107004b
 
     :try_start_9
     move-object/from16 v0, p0
@@ -2222,18 +2259,18 @@
 
     goto/16 :goto_b
 
-    .line 265
-    :cond_17
+    .line 270
+    :cond_18
     const/16 v28, 0x1
 
     move/from16 v0, v25
 
     move/from16 v1, v28
 
-    if-ne v0, v1, :cond_18
+    if-ne v0, v1, :cond_19
 
-    .line 266
-    const v28, 0x107004a
+    .line 271
+    const v28, 0x107004c
 
     move-object/from16 v0, p0
 
@@ -2263,18 +2300,18 @@
 
     goto/16 :goto_b
 
-    .line 267
-    :cond_18
+    .line 272
+    :cond_19
     const/16 v28, 0x1
 
     move/from16 v0, v26
 
     move/from16 v1, v28
 
-    if-ne v0, v1, :cond_19
+    if-ne v0, v1, :cond_1a
 
-    .line 268
-    const v28, 0x107004b
+    .line 273
+    const v28, 0x107004d
 
     move-object/from16 v0, p0
 
@@ -2304,8 +2341,8 @@
 
     goto/16 :goto_b
 
-    .line 270
-    :cond_19
+    .line 275
+    :cond_1a
     const-string v28, ""
 
     move-object/from16 v0, v28
@@ -2318,8 +2355,8 @@
 
     goto/16 :goto_b
 
-    .line 284
-    :cond_1a
+    .line 289
+    :cond_1b
     new-instance v28, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v28 .. v28}, Ljava/lang/StringBuilder;-><init>()V
@@ -2374,8 +2411,8 @@
 
     goto/16 :goto_c
 
-    .line 286
-    :cond_1b
+    .line 291
+    :cond_1c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/UnlockTextToSpeech;->Ttstime:Ljava/lang/String;

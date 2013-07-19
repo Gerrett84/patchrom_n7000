@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 227
+    .line 234
     iput-object p1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$4;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,7 +40,7 @@
     .parameter "selfChange"
 
     .prologue
-    .line 230
+    .line 237
     invoke-static {}, Lcom/sec/android/app/fm/DeleteFileActivity;->access$200()Ljava/lang/String;
 
     move-result-object v0
@@ -63,14 +63,61 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 231
+    .line 238
     iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$4;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     #calls: Lcom/sec/android/app/fm/DeleteFileActivity;->refreshLayout()V
     invoke-static {v0}, Lcom/sec/android/app/fm/DeleteFileActivity;->access$500(Lcom/sec/android/app/fm/DeleteFileActivity;)V
 
-    .line 232
+    .line 240
+    iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$4;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
+
+    invoke-virtual {v0}, Lcom/sec/android/app/fm/DeleteFileActivity;->getCursor()Landroid/database/Cursor;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/database/Cursor;->getCount()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 241
+    iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$4;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
+
+    #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mDialogDeleteConfirm:Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/sec/android/app/fm/DeleteFileActivity;->access$600(Lcom/sec/android/app/fm/DeleteFileActivity;)Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$4;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
+
+    #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mDialogDeleteConfirm:Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/sec/android/app/fm/DeleteFileActivity;->access$600(Lcom/sec/android/app/fm/DeleteFileActivity;)Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 242
+    iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$4;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
+
+    #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mDialogDeleteConfirm:Landroid/app/AlertDialog;
+    invoke-static {v0}, Lcom/sec/android/app/fm/DeleteFileActivity;->access$600(Lcom/sec/android/app/fm/DeleteFileActivity;)Landroid/app/AlertDialog;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+
+    .line 245
+    :cond_0
     return-void
 .end method

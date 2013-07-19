@@ -17,6 +17,7 @@
 	ums_sys_path = /sys/class/android_usb/f_mass_storage/lun0/file
 	secure_format = enable
 	discard = enable
+	supported_exfat = disable
 }
 dev_mount sdcard /storage/sdcard0 11 /devices/platform/dw_mmc/mmc_host/mmc0/mmc0 encryptable_nonremovable
 

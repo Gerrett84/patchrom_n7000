@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract getMotionStatus()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getSSPstatus()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

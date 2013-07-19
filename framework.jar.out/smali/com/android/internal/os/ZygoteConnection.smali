@@ -1330,7 +1330,7 @@
     .line 563
     new-instance v5, Ljava/io/IOException;
 
-    const-string v6, "max arg count exceeded"
+    const-string/jumbo v6, "max arg count exceeded"
 
     invoke-direct {v5, v6}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 

@@ -94,13 +94,13 @@
     <string name="toast_unavailable_in_tvout_mode">არ მუშაობს TV რეჟიმში</string>
     <string name="mute">უხმო რეჟიმი</string>
     <string name="seeking">იძებნება…</string>
-    <string name="via_earphone">ყურმილით</string>
-    <string name="via_speaker">დინამიკით</string>
+    <string name="via_earphone">ყურთსასმენებში დაკვრა</string>
+    <string name="via_speaker">დაკვრა დინამიკით</string>
     <string name="normal_frequency">ნორმალური სიხშირე</string>
     <string name="tag">ჩნრ</string>
     <string name="stop">შეჩერება</string>
     <string name="recording">ვიწერ</string>
-    <string name="memory_full">ჩაწერა შეწყდა. მეხსიერება სავსეა</string>
+    <string name="memory_full">მეხსიერება შევსებულია</string>
     <string name="cancel_recording">შეწყდეს ჩაწერა?</string>
     <string name="change_frequency">სიხშირის შეცვლა</string>
     <string name="enter_frequency">ჩაწერეთ სიხშირე</string>
@@ -126,11 +126,14 @@
     <string name="tags">ჩანართები</string>
     <string name="tags_now_broadcasting">ახლა გადაიცემა</string>
     <string name="tags_no_information">ინფორმაცია არ არის</string>
+    <string name="tags_music_history">მუსიკის ისტორია</string>
     <string name="tags_music_title">სათაური</string>
     <string name="tags_music_album">ალბომი</string>
     <string name="tags_music_artist">შემსრულებელი</string>
+    <string name="tags_music_band">დიაპაზონი</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">საწყისი გვერდი</string>
+    <string name="tags_interact_hotline">ცხელი ხაზი</string>
     <string name="tags_interact_studio">სტუდია</string>
     <string name="tags_interact_other">სხვა</string>
     <string name="tags_interact_centre">ცენტრი</string>
@@ -176,4 +179,14 @@
     <string name="dialog_one_item_deleted">ეს ელემენტი წაიშლება</string>
     <string name="dialog_multiple_items_deleted">%d ელემენტი წაიშლება</string>
     <string name="dialog_all_items_deleted">ყველა ელემენტი წაიშლება</string>
+    <string name="turning_on">მიმდინარეობს ჩართვა…</string>
+    <string name="not_enough_memory_recording_will_stop">არ არის საკმარისი მეხსიერება. ჩაწერა გაჩერდება %d წამში</string>
+    <string name="low_batt_msg">კვების ელემენტი იცლება</string>
+    <string name="no_play_during_call">ვერ დაუკრავთ ზარის დროს</string>
+    <string name="unable_delete">წაშლა შეუძლებელია</string>
+    <string name="playing">თამაში…</string>
+    <string name="tts_play_button">დაკვრა</string>
+    <string name="tts_previous_button">წინა</string>
+    <string name="tts_Next_button">შემდეგი</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

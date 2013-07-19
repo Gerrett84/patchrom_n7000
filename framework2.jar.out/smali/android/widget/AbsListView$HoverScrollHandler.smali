@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 7161
+    .line 7362
     iput-object p1, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 7161
+    .line 7362
     invoke-direct {p0, p1}, Landroid/widget/AbsListView$HoverScrollHandler;-><init>(Landroid/widget/AbsListView;)V
 
     return-void
@@ -51,21 +51,21 @@
     .parameter "msg"
 
     .prologue
-    .line 7163
+    .line 7364
     iget v7, p1, Landroid/os/Message;->what:I
 
     packed-switch v7, :pswitch_data_0
 
-    .line 7255
+    .line 7456
     :cond_0
     :goto_0
     return-void
 
-    .line 7165
+    .line 7366
     :pswitch_0
     const/4 v5, 0x0
 
-    .line 7167
+    .line 7368
     .local v5, offset:I
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
@@ -78,7 +78,7 @@
     #setter for: Landroid/widget/AbsListView;->mHoverRecognitionCurrentTime:I
     invoke-static {v7, v8}, Landroid/widget/AbsListView;->access$4702(Landroid/widget/AbsListView;I)I
 
-    .line 7168
+    .line 7369
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     iget-object v8, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
@@ -102,7 +102,7 @@
     #setter for: Landroid/widget/AbsListView;->mHoverRecognitionDurationTime:I
     invoke-static {v7, v8}, Landroid/widget/AbsListView;->access$4802(Landroid/widget/AbsListView;I)I
 
-    .line 7170
+    .line 7371
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mHoverRecognitionCurrentTime:I
@@ -128,14 +128,14 @@
 
     if-lt v7, v8, :cond_0
 
-    .line 7173
+    .line 7374
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v7}, Landroid/widget/AbsListView;->getChildCount()I
 
     move-result v4
 
-    .line 7178
+    .line 7379
     .local v4, count:I
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
@@ -151,14 +151,14 @@
 
     const/4 v1, 0x1
 
-    .line 7180
+    .line 7381
     .local v1, canScrollDown:Z
     :goto_1
     if-nez v1, :cond_2
 
     if-lez v4, :cond_2
 
-    .line 7181
+    .line 7382
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     add-int/lit8 v8, v4, -0x1
@@ -167,7 +167,7 @@
 
     move-result-object v3
 
-    .line 7182
+    .line 7383
     .local v3, child:Landroid/view/View;
     invoke-virtual {v3}, Landroid/view/View;->getBottom()I
 
@@ -213,7 +213,7 @@
     :cond_1
     const/4 v1, 0x1
 
-    .line 7187
+    .line 7388
     .end local v3           #child:Landroid/view/View;
     :cond_2
     :goto_2
@@ -225,12 +225,12 @@
 
     const/4 v2, 0x1
 
-    .line 7189
+    .line 7390
     .local v2, canScrollUp:Z
     :goto_3
     if-nez v2, :cond_3
 
-    .line 7190
+    .line 7391
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v7}, Landroid/widget/AbsListView;->getChildCount()I
@@ -239,7 +239,7 @@
 
     if-lez v7, :cond_3
 
-    .line 7191
+    .line 7392
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     const/4 v8, 0x0
@@ -248,7 +248,7 @@
 
     move-result-object v3
 
-    .line 7192
+    .line 7393
     .restart local v3       #child:Landroid/view/View;
     invoke-virtual {v3}, Landroid/view/View;->getTop()I
 
@@ -264,7 +264,7 @@
 
     const/4 v2, 0x1
 
-    .line 7196
+    .line 7397
     .end local v3           #child:Landroid/view/View;
     :cond_3
     :goto_4
@@ -290,7 +290,7 @@
 
     if-ge v7, v8, :cond_a
 
-    .line 7197
+    .line 7398
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     iget-object v8, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
@@ -305,7 +305,7 @@
     #setter for: Landroid/widget/AbsListView;->mHoverScrollSpeed:I
     invoke-static {v7, v8}, Landroid/widget/AbsListView;->access$5302(Landroid/widget/AbsListView;I)I
 
-    .line 7205
+    .line 7406
     :goto_5
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
@@ -318,7 +318,7 @@
 
     if-ne v7, v8, :cond_d
 
-    .line 7206
+    .line 7407
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mHoverScrollSpeed:I
@@ -328,7 +328,7 @@
 
     mul-int/lit8 v5, v7, -0x1
 
-    .line 7211
+    .line 7412
     :goto_6
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
@@ -346,7 +346,7 @@
 
     if-eqz v7, :cond_0
 
-    .line 7215
+    .line 7416
     if-gez v5, :cond_4
 
     if-nez v2, :cond_5
@@ -356,7 +356,7 @@
 
     if-eqz v1, :cond_e
 
-    .line 7216
+    .line 7417
     :cond_5
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
@@ -364,7 +364,7 @@
 
     invoke-virtual {v7, v5, v8}, Landroid/widget/AbsListView;->smoothScrollBy(II)V
 
-    .line 7217
+    .line 7418
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mHoverHandler:Landroid/widget/AbsListView$HoverScrollHandler;
@@ -387,7 +387,7 @@
 
     goto/16 :goto_0
 
-    .line 7178
+    .line 7379
     .end local v1           #canScrollDown:Z
     .end local v2           #canScrollUp:Z
     :cond_6
@@ -395,7 +395,7 @@
 
     goto/16 :goto_1
 
-    .line 7182
+    .line 7383
     .restart local v1       #canScrollDown:Z
     .restart local v3       #child:Landroid/view/View;
     :cond_7
@@ -403,14 +403,14 @@
 
     goto/16 :goto_2
 
-    .line 7187
+    .line 7388
     .end local v3           #child:Landroid/view/View;
     :cond_8
     const/4 v2, 0x0
 
     goto/16 :goto_3
 
-    .line 7192
+    .line 7393
     .restart local v2       #canScrollUp:Z
     .restart local v3       #child:Landroid/view/View;
     :cond_9
@@ -418,7 +418,7 @@
 
     goto :goto_4
 
-    .line 7198
+    .line 7399
     .end local v3           #child:Landroid/view/View;
     :cond_a
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
@@ -443,7 +443,7 @@
 
     if-ge v7, v8, :cond_b
 
-    .line 7199
+    .line 7400
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     iget-object v8, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
@@ -460,7 +460,7 @@
 
     goto :goto_5
 
-    .line 7200
+    .line 7401
     :cond_b
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
@@ -473,7 +473,7 @@
 
     if-lt v7, v8, :cond_c
 
-    .line 7201
+    .line 7402
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     iget-object v8, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
@@ -490,7 +490,7 @@
 
     goto/16 :goto_5
 
-    .line 7203
+    .line 7404
     :cond_c
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
@@ -506,7 +506,7 @@
 
     goto/16 :goto_5
 
-    .line 7208
+    .line 7409
     :cond_d
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
@@ -519,7 +519,7 @@
 
     goto/16 :goto_6
 
-    .line 7220
+    .line 7421
     :cond_e
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
@@ -527,7 +527,7 @@
 
     move-result v6
 
-    .line 7221
+    .line 7422
     .local v6, overscrollMode:I
     if-eqz v6, :cond_f
 
@@ -547,7 +547,7 @@
     :cond_f
     const/4 v0, 0x1
 
-    .line 7224
+    .line 7425
     .local v0, canOverscroll:Z
     :goto_7
     if-eqz v0, :cond_13
@@ -561,7 +561,7 @@
 
     if-nez v7, :cond_13
 
-    .line 7225
+    .line 7426
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mHoverScrollDirection:I
@@ -573,7 +573,7 @@
 
     if-ne v7, v8, :cond_15
 
-    .line 7226
+    .line 7427
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
@@ -585,7 +585,7 @@
 
     invoke-virtual {v7, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
 
-    .line 7227
+    .line 7428
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -599,7 +599,7 @@
 
     if-nez v7, :cond_10
 
-    .line 7228
+    .line 7429
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -609,7 +609,7 @@
 
     invoke-virtual {v7}, Landroid/widget/EdgeEffect;->onRelease()V
 
-    .line 7237
+    .line 7438
     :cond_10
     :goto_8
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
@@ -647,13 +647,13 @@
 
     if-nez v7, :cond_12
 
-    .line 7239
+    .line 7440
     :cond_11
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v7}, Landroid/widget/AbsListView;->invalidate()V
 
-    .line 7242
+    .line 7443
     :cond_12
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
@@ -662,7 +662,7 @@
     #setter for: Landroid/widget/AbsListView;->mIsHoverOverscrolled:Z
     invoke-static {v7, v8}, Landroid/widget/AbsListView;->access$5802(Landroid/widget/AbsListView;Z)Z
 
-    .line 7245
+    .line 7446
     :cond_13
     if-nez v0, :cond_0
 
@@ -675,7 +675,7 @@
 
     if-nez v7, :cond_0
 
-    .line 7246
+    .line 7447
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     const/4 v8, 0x1
@@ -685,14 +685,14 @@
 
     goto/16 :goto_0
 
-    .line 7221
+    .line 7422
     .end local v0           #canOverscroll:Z
     :cond_14
     const/4 v0, 0x0
 
     goto :goto_7
 
-    .line 7230
+    .line 7431
     .restart local v0       #canOverscroll:Z
     :cond_15
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
@@ -706,7 +706,7 @@
 
     if-ne v7, v8, :cond_10
 
-    .line 7231
+    .line 7432
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -718,7 +718,7 @@
 
     invoke-virtual {v7, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
 
-    .line 7232
+    .line 7433
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
@@ -732,7 +732,7 @@
 
     if-nez v7, :cond_10
 
-    .line 7233
+    .line 7434
     iget-object v7, p0, Landroid/widget/AbsListView$HoverScrollHandler;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
@@ -744,7 +744,7 @@
 
     goto :goto_8
 
-    .line 7163
+    .line 7364
     nop
 
     :pswitch_data_0

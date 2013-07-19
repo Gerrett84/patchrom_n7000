@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 70
+    .line 84
     iput-object p1, p0, Lcom/sec/android/app/fm/RenameChannelActivity$1;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     invoke-direct {p0}, Lcom/sec/android/app/fm/MainActivity$Callback;-><init>()V
@@ -38,14 +38,14 @@
     .locals 2
 
     .prologue
-    .line 87
+    .line 105
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     const-string v1, "RenameChannel Activity : notify UI"
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 88
+    .line 106
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$1;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -55,7 +55,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 89
+    .line 107
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$1;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -65,7 +65,7 @@
 
     invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 90
+    .line 108
     :cond_0
     return-void
 .end method
@@ -75,7 +75,7 @@
     .parameter "reasonCode"
 
     .prologue
-    .line 72
+    .line 87
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$1;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -85,7 +85,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 73
+    .line 88
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$1;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -95,7 +95,7 @@
 
     invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 74
+    .line 89
     :cond_0
     return-void
 .end method
@@ -104,7 +104,7 @@
     .locals 1
 
     .prologue
-    .line 77
+    .line 93
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$1;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -114,7 +114,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 78
+    .line 94
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$1;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -124,7 +124,7 @@
 
     invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 79
+    .line 95
     :cond_0
     return-void
 .end method
@@ -134,7 +134,7 @@
     .parameter "frequency"
 
     .prologue
-    .line 82
+    .line 99
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$1;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -144,7 +144,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 83
+    .line 100
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$1;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -154,7 +154,7 @@
 
     invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 84
+    .line 101
     :cond_0
     return-void
 .end method

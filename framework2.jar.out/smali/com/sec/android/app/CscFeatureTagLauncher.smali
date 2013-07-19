@@ -4,6 +4,10 @@
 
 
 # static fields
+.field public static final TAG_CSCFEATURE_LAUNCHER_CLOSEFOLDERONAPPCLICK:Ljava/lang/String; = "CscFeature_Launcher_CloseFolderOnAppClick"
+
+.field public static final TAG_CSCFEATURE_LAUNCHER_CUSTOMADDTOHOMEDIALOG:Ljava/lang/String; = "CscFeature_Launcher_CustomAddToHomeDialog"
+
 .field public static final TAG_CSCFEATURE_LAUNCHER_DEFAULTPAGENUM:Ljava/lang/String; = "CscFeature_Launcher_DefaultPageNumber"
 
 .field public static final TAG_CSCFEATURE_LAUNCHER_DEFAULTPAGENUMINEASYMODE:Ljava/lang/String; = "CscFeature_Launcher_DefaultPageNumberInEasyMode"
@@ -15,6 +19,12 @@
 .field public static final TAG_CSCFEATURE_LAUNCHER_DISABLEHELPUI:Ljava/lang/String; = "CscFeature_Launcher_DisableHelpUI"
 
 .field public static final TAG_CSCFEATURE_LAUNCHER_DISABLEPAGEROTATION:Ljava/lang/String; = "CscFeature_Launcher_DisablePageRotation"
+
+.field public static final TAG_CSCFEATURE_LAUNCHER_DISABLETILTEFFECT:Ljava/lang/String; = "CscFeature_Launcher_DisableTiltEffect"
+
+.field public static final TAG_CSCFEATURE_LAUNCHER_ENABLEEASYLAUNCHER:Ljava/lang/String; = "CscFeature_Launcher_EnableEasyLauncher"
+
+.field public static final TAG_CSCFEATURE_LAUNCHER_ENABLEINTEGRATEDLAUNCHER:Ljava/lang/String; = "CscFeature_Launcher_EnableInegratedLauncher"
 
 .field public static final TAG_CSCFEATURE_LAUNCHER_ENABLEVIEWBYALPHABETASDEFAULT:Ljava/lang/String; = "CscFeature_Launcher_EnableViewByAlphabetAsDefault"
 

@@ -57,7 +57,7 @@
     <string name="setting_usa">САЩ</string>
     <string name="setting_off">Изключено</string>
     <string name="setting_15min">След 15 мин</string>
-    <string name="setting_30min">След 30 мин.</string>
+    <string name="setting_30min">След 30 мин</string>
     <string name="setting_hour">След 1 час</string>
     <string name="setting_2hour">След 2 часа</string>
     <string name="save">Запази</string>
@@ -100,13 +100,13 @@
     <string name="toast_unavailable_in_tvout_mode">Не е достъпно в режим ТВ изход</string>
     <string name="mute">Изкл. микрофон</string>
     <string name="seeking">Търсене…</string>
-    <string name="via_earphone">През слушалките</string>
-    <string name="via_speaker">През говор.</string>
+    <string name="via_earphone">Възпроизвеждане през слушалки</string>
+    <string name="via_speaker">Възпр. през говорителя</string>
     <string name="normal_frequency">Нормална честота</string>
     <string name="tag">Таг</string>
     <string name="stop">Стоп</string>
     <string name="recording">Запис…</string>
-    <string name="memory_full">Записът е спрян. Паметта е пълна</string>
+    <string name="memory_full">Паметта е заета</string>
     <string name="cancel_recording">Отмяна на записа?</string>
     <string name="change_frequency">Промяна на честотата</string>
     <string name="enter_frequency">Въвеждане на честота</string>
@@ -132,11 +132,14 @@
     <string name="tags">Тагове</string>
     <string name="tags_now_broadcasting">Излъчва се сега</string>
     <string name="tags_no_information">Няма данни</string>
+    <string name="tags_music_history">Хронология на музиката</string>
     <string name="tags_music_title">Заглавие</string>
     <string name="tags_music_album">Албум</string>
     <string name="tags_music_artist">Изпълнител</string>
+    <string name="tags_music_band">Банда</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Начална стр.</string>
+    <string name="tags_interact_hotline">Гореща линия</string>
     <string name="tags_interact_studio">Студио</string>
     <string name="tags_interact_other">Друго</string>
     <string name="tags_interact_centre">Център</string>
@@ -182,4 +185,14 @@
     <string name="dialog_one_item_deleted">Този елемент ще бъде изтрит</string>
     <string name="dialog_multiple_items_deleted">%d елемента ще бъдат изтрити</string>
     <string name="dialog_all_items_deleted">Всички елементи ще бъдат изтрити</string>
+    <string name="turning_on">Включване…</string>
+    <string name="not_enough_memory_recording_will_stop">Няма достатъчно памет. Записването ще спре след %d секунди</string>
+    <string name="low_batt_msg">Изтощена батерия</string>
+    <string name="no_play_during_call">Не може да се възпроизведе по време на разговор</string>
+    <string name="unable_delete">Невъзможно изтриване</string>
+    <string name="playing">Възпр…</string>
+    <string name="tts_play_button">Изпълняване</string>
+    <string name="tts_previous_button">Предишен</string>
+    <string name="tts_Next_button">Следващ</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

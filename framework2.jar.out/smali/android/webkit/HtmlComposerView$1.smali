@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 396
+    .line 414
     iput-object p1, p0, Landroid/webkit/HtmlComposerView$1;->this$0:Landroid/webkit/HtmlComposerView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 
     const/4 v6, -0x1
 
-    .line 399
+    .line 417
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
@@ -57,11 +57,11 @@
     :cond_0
     move v1, v2
 
-    .line 423
+    .line 441
     :goto_0
     return v1
 
-    .line 401
+    .line 419
     :cond_1
     iget-object v3, p0, Landroid/webkit/HtmlComposerView$1;->this$0:Landroid/webkit/HtmlComposerView;
 
@@ -91,7 +91,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 403
+    .line 421
     :cond_2
     iget-object v3, p0, Landroid/webkit/HtmlComposerView$1;->this$0:Landroid/webkit/HtmlComposerView;
 
@@ -129,7 +129,7 @@
 
     if-eq v6, v3, :cond_5
 
-    .line 404
+    .line 422
     iget-object v3, p0, Landroid/webkit/HtmlComposerView$1;->this$0:Landroid/webkit/HtmlComposerView;
 
     #getter for: Landroid/webkit/HtmlComposerView;->mResizingHoverImage:Landroid/widget/ImageView;
@@ -146,16 +146,16 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 406
+    .line 424
     const/4 v3, 0x2
 
     new-array v0, v3, [I
 
-    .line 408
+    .line 426
     .local v0, tmpLocOnWin:[I
     invoke-virtual {p1, v0}, Landroid/view/View;->getLocationInWindow([I)V
 
-    .line 410
+    .line 428
     iget-object v3, p0, Landroid/webkit/HtmlComposerView$1;->this$0:Landroid/webkit/HtmlComposerView;
 
     iget-boolean v3, v3, Landroid/webkit/HtmlComposerView;->DEBUG:Z
@@ -198,7 +198,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 412
+    .line 430
     :cond_3
     iget-object v3, p0, Landroid/webkit/HtmlComposerView$1;->this$0:Landroid/webkit/HtmlComposerView;
 
@@ -218,7 +218,7 @@
     #setter for: Landroid/webkit/HtmlComposerView;->mXCenter:I
     invoke-static {v3, v2}, Landroid/webkit/HtmlComposerView;->access$202(Landroid/webkit/HtmlComposerView;I)I
 
-    .line 413
+    .line 431
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$1;->this$0:Landroid/webkit/HtmlComposerView;
 
     aget v3, v0, v1
@@ -237,7 +237,7 @@
     #setter for: Landroid/webkit/HtmlComposerView;->mYCenter:I
     invoke-static {v2, v3}, Landroid/webkit/HtmlComposerView;->access$302(Landroid/webkit/HtmlComposerView;I)I
 
-    .line 415
+    .line 433
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$1;->this$0:Landroid/webkit/HtmlComposerView;
 
     iget-boolean v2, v2, Landroid/webkit/HtmlComposerView;->DEBUG:Z
@@ -290,7 +290,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 417
+    .line 435
     :cond_4
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$1;->this$0:Landroid/webkit/HtmlComposerView;
 
@@ -308,7 +308,7 @@
 
     invoke-virtual {p2, v2, v3}, Landroid/widget/HoverPopupWindow;->setPopupPosOffset(II)V
 
-    .line 418
+    .line 436
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$1;->this$0:Landroid/webkit/HtmlComposerView;
 
     #getter for: Landroid/webkit/HtmlComposerView;->mResizingHoverImage:Landroid/widget/ImageView;
@@ -320,7 +320,7 @@
 
     goto/16 :goto_0
 
-    .line 420
+    .line 438
     .end local v0           #tmpLocOnWin:[I
     :cond_5
     invoke-virtual {p2}, Landroid/widget/HoverPopupWindow;->dismiss()V

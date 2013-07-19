@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 40
+    .line 41
     iput-object p1, p0, Lcom/sec/android/app/fm/ui/MotionDialog$2;->this$0:Lcom/sec/android/app/fm/ui/MotionDialog;
 
     iput-object p2, p0, Lcom/sec/android/app/fm/ui/MotionDialog$2;->val$context:Landroid/content/Context;
@@ -48,7 +48,7 @@
     .parameter "isChecked"
 
     .prologue
-    .line 44
+    .line 45
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/MotionDialog$2;->val$context:Landroid/content/Context;
 
     const-string v2, "SettingsPreference"
@@ -59,7 +59,7 @@
 
     move-result-object v0
 
-    .line 45
+    .line 46
     .local v0, sp:Landroid/content/SharedPreferences;
     invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
@@ -73,6 +73,6 @@
 
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 46
+    .line 47
     return-void
 .end method

@@ -36,27 +36,27 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 385
+    .line 386
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->this$0:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
-    .line 386
+    .line 387
     invoke-direct {p0, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 388
+    .line 389
     invoke-static {p2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    .line 389
+    .line 390
     .local v0, inflater:Landroid/view/LayoutInflater;
-    const v1, 0x1090066
+    const v1, 0x109006b
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 391
-    const v1, 0x102031e
+    .line 392
+    const v1, 0x102032b
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->findViewById(I)Landroid/view/View;
 
@@ -66,13 +66,13 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->mTitleTextView:Landroid/widget/TextView;
 
-    .line 392
+    .line 393
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->mTitleTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 393
-    const v1, 0x102031f
+    .line 394
+    const v1, 0x102032c
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->findViewById(I)Landroid/view/View;
 
@@ -82,7 +82,7 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->mAttributionTextView:Landroid/widget/TextView;
 
-    .line 394
+    .line 395
     if-eqz p4, :cond_0
 
     const-string v1, "Associated Press"
@@ -93,23 +93,23 @@
 
     if-eqz v1, :cond_0
 
-    .line 395
+    .line 396
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->mAttributionTextView:Landroid/widget/TextView;
 
-    const v2, 0x108046a
+    const v2, 0x1080495
 
     invoke-virtual {v1, v2, v3, v3, v3}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 396
+    .line 397
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->mAttributionTextView:Landroid/widget/TextView;
 
     const-string v2, ""
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 403
+    .line 404
     :goto_0
-    const v1, 0x1020320
+    const v1, 0x102032d
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->findViewById(I)Landroid/view/View;
 
@@ -119,15 +119,15 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->mTimeTextView:Landroid/widget/TextView;
 
-    .line 404
+    .line 405
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->mTimeTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, p5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 405
+    .line 406
     return-void
 
-    .line 397
+    .line 398
     :cond_0
     if-eqz p4, :cond_1
 
@@ -139,14 +139,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 398
+    .line 399
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->mAttributionTextView:Landroid/widget/TextView;
 
-    const v2, 0x108046c
+    const v2, 0x1080497
 
     invoke-virtual {v1, v2, v3, v3, v3}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 399
+    .line 400
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->mAttributionTextView:Landroid/widget/TextView;
 
     const-string v2, ""
@@ -155,7 +155,7 @@
 
     goto :goto_0
 
-    .line 401
+    .line 402
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalNewsData;->mAttributionTextView:Landroid/widget/TextView;
 

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 557
+    .line 694
     iput-object p1, p0, Lcom/android/server/ThermistorObserver$3;->this$0:Lcom/android/server/ThermistorObserver;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,23 +35,33 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 24
+    .locals 25
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 560
+    .line 697
     const-string v2, "frequency"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
 
-    move-result-object v17
+    move-result-object v18
 
-    .line 561
-    .local v17, frequency_eachLevels:[I
+    .line 698
+    .local v18, frequency_eachLevels:[I
     const-string v2, "cpu_max_core"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v2}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
+
+    move-result-object v15
+
+    .line 699
+    .local v15, cpuMaxCore_eachLevels:[I
+    const-string v2, "charging_current"
 
     move-object/from16 v0, p2
 
@@ -59,48 +69,38 @@
 
     move-result-object v14
 
-    .line 562
-    .local v14, cpuMaxCore_eachLevels:[I
-    const-string v2, "charging_current"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
-
-    move-result-object v13
-
-    .line 563
-    .local v13, charging_current_eachLevels:[I
+    .line 700
+    .local v14, charging_current_eachLevels:[I
     const-string v2, "brightness"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->getBooleanArrayExtra(Ljava/lang/String;)[Z
 
-    move-result-object v12
+    move-result-object v13
 
-    .line 564
-    .local v12, brightness_eachLevels:[Z
+    .line 701
+    .local v13, brightness_eachLevels:[Z
     const-string v2, "lcd_fps"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->getBooleanArrayExtra(Ljava/lang/String;)[Z
 
-    move-result-object v21
+    move-result-object v22
 
-    .line 565
-    .local v21, lcdFPS_eachLevels:[Z
+    .line 702
+    .local v22, lcdFPS_eachLevels:[Z
     const-string v2, "flash_led"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->getBooleanArrayExtra(Ljava/lang/String;)[Z
 
-    move-result-object v16
+    move-result-object v17
 
-    .line 567
-    .local v16, flashLed_eachLevels:[Z
+    .line 704
+    .local v17, flashLed_eachLevels:[Z
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/ThermistorObserver$3;->this$0:Lcom/android/server/ThermistorObserver;
@@ -109,53 +109,53 @@
 
     array-length v2, v2
 
-    add-int/lit8 v22, v2, -0x1
+    add-int/lit8 v23, v2, -0x1
 
-    .line 569
-    .local v22, numberOfSIOPLevels:I
-    move-object/from16 v0, v17
+    .line 706
+    .local v23, numberOfSIOPLevels:I
+    move-object/from16 v0, v18
 
     array-length v2, v0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
+
+    if-ne v2, v0, :cond_0
+
+    array-length v2, v15
+
+    move/from16 v0, v23
 
     if-ne v2, v0, :cond_0
 
     array-length v2, v14
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     if-ne v2, v0, :cond_0
 
     array-length v2, v13
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     if-ne v2, v0, :cond_0
 
-    array-length v2, v12
-
-    move/from16 v0, v22
-
-    if-ne v2, v0, :cond_0
-
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     array-length v2, v0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     if-ne v2, v0, :cond_0
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     array-length v2, v0
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
     if-eq v2, v0, :cond_1
 
-    .line 575
+    .line 712
     :cond_0
     invoke-static {}, Lcom/android/server/ThermistorObserver;->access$000()Ljava/lang/String;
 
@@ -165,28 +165,28 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 614
+    .line 752
     :goto_0
     return-void
 
-    .line 580
+    .line 717
     :cond_1
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/ThermistorObserver$3;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mLastSIOPLevel:Lcom/android/server/ThermistorObserver$SIOPLevel;
-    invoke-static {v2}, Lcom/android/server/ThermistorObserver;->access$1200(Lcom/android/server/ThermistorObserver;)Lcom/android/server/ThermistorObserver$SIOPLevel;
+    invoke-static {v2}, Lcom/android/server/ThermistorObserver;->access$1500(Lcom/android/server/ThermistorObserver;)Lcom/android/server/ThermistorObserver$SIOPLevel;
 
     move-result-object v2
 
     #getter for: Lcom/android/server/ThermistorObserver$SIOPLevel;->name:Ljava/lang/String;
-    invoke-static {v2}, Lcom/android/server/ThermistorObserver$SIOPLevel;->access$300(Lcom/android/server/ThermistorObserver$SIOPLevel;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/server/ThermistorObserver$SIOPLevel;->access$500(Lcom/android/server/ThermistorObserver$SIOPLevel;)Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v21
 
-    .line 581
-    .local v20, lastSIOPLevelName:Ljava/lang/String;
+    .line 718
+    .local v21, lastSIOPLevelName:Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/ThermistorObserver$3;->this$0:Lcom/android/server/ThermistorObserver;
@@ -206,28 +206,28 @@
     iget-object v4, v0, Lcom/android/server/ThermistorObserver$3;->this$0:Lcom/android/server/ThermistorObserver;
 
     #getter for: Lcom/android/server/ThermistorObserver;->mLastSIOPLevel:Lcom/android/server/ThermistorObserver$SIOPLevel;
-    invoke-static {v4}, Lcom/android/server/ThermistorObserver;->access$1200(Lcom/android/server/ThermistorObserver;)Lcom/android/server/ThermistorObserver$SIOPLevel;
+    invoke-static {v4}, Lcom/android/server/ThermistorObserver;->access$1500(Lcom/android/server/ThermistorObserver;)Lcom/android/server/ThermistorObserver$SIOPLevel;
 
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lcom/android/server/ThermistorObserver;->changeState(Lcom/android/server/ThermistorObserver$SIOPLevel;Lcom/android/server/ThermistorObserver$SIOPLevel;)V
 
-    .line 584
-    const/16 v18, 0x0
+    .line 721
+    const/16 v19, 0x0
 
-    .local v18, i:I
+    .local v19, i:I
     :goto_1
-    move/from16 v0, v18
+    move/from16 v0, v19
 
-    move/from16 v1, v22
+    move/from16 v1, v23
 
     if-ge v0, v1, :cond_4
 
-    .line 585
-    add-int/lit8 v19, v18, 0x1
+    .line 722
+    add-int/lit8 v20, v19, 0x1
 
-    .line 586
-    .local v19, indexToSet:I
+    .line 723
+    .local v20, indexToSet:I
     :try_start_0
     move-object/from16 v0, p0
 
@@ -235,7 +235,7 @@
 
     iget-object v0, v2, Lcom/android/server/ThermistorObserver;->mSIOPLevels:[Lcom/android/server/ThermistorObserver$SIOPLevel;
 
-    move-object/from16 v23, v0
+    move-object/from16 v24, v0
 
     new-instance v2, Lcom/android/server/ThermistorObserver$SIOPLevel;
 
@@ -253,7 +253,7 @@
 
     move-result-object v4
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -265,42 +265,44 @@
 
     const/4 v5, -0x1
 
-    aget v6, v17, v18
+    aget v6, v18, v19
 
     mul-int/lit16 v6, v6, 0x3e8
 
-    aget v7, v14, v18
+    aget v7, v15, v19
 
-    aget v8, v13, v18
+    aget v8, v14, v19
 
-    aget-boolean v9, v12, v18
+    aget-boolean v9, v13, v19
 
     if-eqz v9, :cond_2
 
     const/16 v9, 0xe6
 
     :goto_2
-    aget-boolean v10, v21, v18
+    aget-boolean v10, v22, v19
 
     if-eqz v10, :cond_3
 
     const/16 v10, 0x28
 
     :goto_3
-    aget-boolean v11, v16, v18
+    aget-boolean v11, v17, v19
 
-    invoke-direct/range {v2 .. v11}, Lcom/android/server/ThermistorObserver$SIOPLevel;-><init>(Lcom/android/server/ThermistorObserver;Ljava/lang/String;IIIIIIZ)V
+    const/4 v12, 0x0
 
-    aput-object v2, v23, v19
+    invoke-direct/range {v2 .. v12}, Lcom/android/server/ThermistorObserver$SIOPLevel;-><init>(Lcom/android/server/ThermistorObserver;Ljava/lang/String;IIIIIIZZ)V
+
+    aput-object v2, v24, v20
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 584
-    add-int/lit8 v18, v18, 0x1
+    .line 721
+    add-int/lit8 v19, v19, 0x1
 
     goto :goto_1
 
-    .line 586
+    .line 723
     :cond_2
     const/4 v9, -0x1
 
@@ -311,22 +313,22 @@
 
     goto :goto_3
 
-    .line 595
+    .line 733
     :catch_0
-    move-exception v15
+    move-exception v16
 
-    .line 596
-    .local v15, e:Ljava/lang/Exception;
-    invoke-virtual {v15}, Ljava/lang/Exception;->printStackTrace()V
+    .line 734
+    .local v16, e:Ljava/lang/Exception;
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 600
-    .end local v15           #e:Ljava/lang/Exception;
-    .end local v19           #indexToSet:I
+    .line 738
+    .end local v16           #e:Ljava/lang/Exception;
+    .end local v20           #indexToSet:I
     :cond_4
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    .line 601
-    const/16 v18, 0x0
+    .line 739
+    const/16 v19, 0x0
 
     :goto_4
     move-object/from16 v0, p0
@@ -337,25 +339,25 @@
 
     array-length v2, v2
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     if-ge v0, v2, :cond_5
 
-    .line 602
+    .line 740
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/ThermistorObserver$3;->this$0:Lcom/android/server/ThermistorObserver;
 
     iget-object v2, v2, Lcom/android/server/ThermistorObserver;->mSIOPLevels:[Lcom/android/server/ThermistorObserver$SIOPLevel;
 
-    aget-object v2, v2, v18
+    aget-object v2, v2, v19
 
     #getter for: Lcom/android/server/ThermistorObserver$SIOPLevel;->name:Ljava/lang/String;
-    invoke-static {v2}, Lcom/android/server/ThermistorObserver$SIOPLevel;->access$300(Lcom/android/server/ThermistorObserver$SIOPLevel;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/server/ThermistorObserver$SIOPLevel;->access$500(Lcom/android/server/ThermistorObserver$SIOPLevel;)Ljava/lang/String;
 
     move-result-object v2
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -363,7 +365,7 @@
 
     if-eqz v2, :cond_6
 
-    .line 607
+    .line 745
     :cond_5
     move-object/from16 v0, p0
 
@@ -373,11 +375,11 @@
 
     array-length v2, v2
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     if-ne v0, v2, :cond_7
 
-    .line 608
+    .line 746
     invoke-static {}, Lcom/android/server/ThermistorObserver;->access$000()Ljava/lang/String;
 
     move-result-object v2
@@ -388,13 +390,13 @@
 
     goto/16 :goto_0
 
-    .line 601
+    .line 739
     :cond_6
-    add-int/lit8 v18, v18, 0x1
+    add-int/lit8 v19, v19, 0x1
 
     goto :goto_4
 
-    .line 611
+    .line 749
     :cond_7
     move-object/from16 v0, p0
 
@@ -406,7 +408,7 @@
 
     iget-object v3, v3, Lcom/android/server/ThermistorObserver;->mSIOPLevels:[Lcom/android/server/ThermistorObserver$SIOPLevel;
 
-    aget-object v3, v3, v18
+    aget-object v3, v3, v19
 
     move-object/from16 v0, p0
 
@@ -420,7 +422,7 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/android/server/ThermistorObserver;->changeState(Lcom/android/server/ThermistorObserver$SIOPLevel;Lcom/android/server/ThermistorObserver$SIOPLevel;)V
 
-    .line 612
+    .line 750
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/ThermistorObserver$3;->this$0:Lcom/android/server/ThermistorObserver;
@@ -431,10 +433,10 @@
 
     iget-object v3, v3, Lcom/android/server/ThermistorObserver;->mSIOPLevels:[Lcom/android/server/ThermistorObserver$SIOPLevel;
 
-    aget-object v3, v3, v18
+    aget-object v3, v3, v19
 
     #setter for: Lcom/android/server/ThermistorObserver;->mLastSIOPLevel:Lcom/android/server/ThermistorObserver$SIOPLevel;
-    invoke-static {v2, v3}, Lcom/android/server/ThermistorObserver;->access$1202(Lcom/android/server/ThermistorObserver;Lcom/android/server/ThermistorObserver$SIOPLevel;)Lcom/android/server/ThermistorObserver$SIOPLevel;
+    invoke-static {v2, v3}, Lcom/android/server/ThermistorObserver;->access$1502(Lcom/android/server/ThermistorObserver;Lcom/android/server/ThermistorObserver$SIOPLevel;)Lcom/android/server/ThermistorObserver$SIOPLevel;
 
     goto/16 :goto_0
 .end method

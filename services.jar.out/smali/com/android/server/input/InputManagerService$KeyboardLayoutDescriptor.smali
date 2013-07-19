@@ -27,7 +27,7 @@
     .locals 0
 
     .prologue
-    .line 1584
+    .line 1587
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +40,7 @@
     .parameter "keyboardName"
 
     .prologue
-    .line 1591
+    .line 1594
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -85,12 +85,12 @@
 
     const/16 v5, 0x2f
 
-    .line 1595
+    .line 1598
     invoke-virtual {p0, v5}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    .line 1596
+    .line 1599
     .local v0, pos:I
     if-ltz v0, :cond_0
 
@@ -102,12 +102,12 @@
 
     if-ne v3, v4, :cond_1
 
-    .line 1608
+    .line 1611
     :cond_0
     :goto_0
     return-object v2
 
-    .line 1599
+    .line 1602
     :cond_1
     add-int/lit8 v3, v0, 0x1
 
@@ -115,7 +115,7 @@
 
     move-result v1
 
-    .line 1600
+    .line 1603
     .local v1, pos2:I
     add-int/lit8 v3, v0, 0x2
 
@@ -129,12 +129,12 @@
 
     if-eq v3, v4, :cond_0
 
-    .line 1604
+    .line 1607
     new-instance v2, Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;
 
     invoke-direct {v2}, Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;-><init>()V
 
-    .line 1605
+    .line 1608
     .local v2, result:Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;
     const/4 v3, 0x0
 
@@ -144,7 +144,7 @@
 
     iput-object v3, v2, Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;->packageName:Ljava/lang/String;
 
-    .line 1606
+    .line 1609
     add-int/lit8 v3, v0, 0x1
 
     invoke-virtual {p0, v3, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -153,7 +153,7 @@
 
     iput-object v3, v2, Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;->receiverName:Ljava/lang/String;
 
-    .line 1607
+    .line 1610
     add-int/lit8 v3, v1, 0x1
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;

@@ -71,7 +71,7 @@
     .end annotation
 .end method
 
-.method public abstract shutdownTimeAfterFakeOff(I)I
+.method public abstract shutdownTimeAfterFakeOff(ZI)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -86,11 +86,6 @@
     .locals 2
 
     .prologue
-    .line 130
-    const-string v0, "================= Step Count Alert ================="
-
-    invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/CALogger;->debug(Ljava/lang/String;)V
-
     .line 131
     new-instance v0, Ljava/lang/StringBuilder;
 

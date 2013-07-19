@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 194
+    .line 195
     iput-object p1, p0, Landroid/net/DhcpStateMachine$StoppedState;->this$0:Landroid/net/DhcpStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 197
+    .line 198
     invoke-static {}, Landroid/net/DhcpStateMachine;->access$000()Z
 
     move-result v0
@@ -71,7 +71,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 198
+    .line 199
     :cond_0
     return-void
 .end method
@@ -81,10 +81,10 @@
     .parameter "message"
 
     .prologue
-    .line 202
+    .line 203
     const/4 v0, 0x1
 
-    .line 203
+    .line 204
     .local v0, retValue:Z
     invoke-static {}, Landroid/net/DhcpStateMachine;->access$000()Z
 
@@ -126,22 +126,22 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 204
+    .line 205
     :cond_0
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_0
+    sparse-switch v1, :sswitch_data_0
 
-    .line 222
+    .line 226
     const/4 v0, 0x0
 
-    .line 225
+    .line 229
     :goto_0
-    :pswitch_0
+    :sswitch_0
     return v0
 
-    .line 206
-    :pswitch_1
+    .line 207
+    :sswitch_1
     iget-object v1, p0, Landroid/net/DhcpStateMachine$StoppedState;->this$0:Landroid/net/DhcpStateMachine;
 
     #getter for: Landroid/net/DhcpStateMachine;->mRegisteredForPreDhcpNotification:Z
@@ -151,7 +151,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 208
+    .line 209
     iget-object v1, p0, Landroid/net/DhcpStateMachine$StoppedState;->this$0:Landroid/net/DhcpStateMachine;
 
     #getter for: Landroid/net/DhcpStateMachine;->mController:Lcom/android/internal/util/StateMachine;
@@ -163,7 +163,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/util/StateMachine;->sendMessage(I)V
 
-    .line 209
+    .line 210
     iget-object v1, p0, Landroid/net/DhcpStateMachine$StoppedState;->this$0:Landroid/net/DhcpStateMachine;
 
     iget-object v2, p0, Landroid/net/DhcpStateMachine$StoppedState;->this$0:Landroid/net/DhcpStateMachine;
@@ -178,7 +178,7 @@
 
     goto :goto_0
 
-    .line 211
+    .line 212
     :cond_1
     iget-object v1, p0, Landroid/net/DhcpStateMachine$StoppedState;->this$0:Landroid/net/DhcpStateMachine;
 
@@ -189,7 +189,7 @@
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 212
+    .line 213
     iget-object v1, p0, Landroid/net/DhcpStateMachine$StoppedState;->this$0:Landroid/net/DhcpStateMachine;
 
     sget-object v2, Landroid/net/DhcpStateMachine$DhcpAction;->START:Landroid/net/DhcpStateMachine$DhcpAction;
@@ -201,7 +201,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 213
+    .line 214
     iget-object v1, p0, Landroid/net/DhcpStateMachine$StoppedState;->this$0:Landroid/net/DhcpStateMachine;
 
     iget-object v2, p0, Landroid/net/DhcpStateMachine$StoppedState;->this$0:Landroid/net/DhcpStateMachine;
@@ -214,7 +214,7 @@
     #calls: Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Landroid/net/DhcpStateMachine;->access$1200(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 215
+    .line 216
     :cond_2
     iget-object v1, p0, Landroid/net/DhcpStateMachine$StoppedState;->this$0:Landroid/net/DhcpStateMachine;
 
@@ -227,10 +227,11 @@
 
     goto :goto_0
 
-    .line 204
-    :pswitch_data_0
-    .packed-switch 0x30001
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    .line 205
+    :sswitch_data_0
+    .sparse-switch
+        0x30001 -> :sswitch_1
+        0x30002 -> :sswitch_0
+        0x30007 -> :sswitch_0
+    .end sparse-switch
 .end method

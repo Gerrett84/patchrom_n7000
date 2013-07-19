@@ -16,6 +16,10 @@
 
 .field public static final TAG_CSCFEATURE_NFC_ENABLESECURITYPROMPTPOPUP:Ljava/lang/String; = "CscFeature_NFC_EnableSecurityPromptPopup"
 
+.field public static final TAG_CSCFEATURE_NFC_ENABLESENDHCICONNECTIVITYENVMSG:Ljava/lang/String; = "CscFeature_NFC_EnableSendHciConnectivityEnvMsg"
+
+.field public static final TAG_CSCFEATURE_NFC_ENABLESWPPROACTIVECOMMAND:Ljava/lang/String; = "CscFeature_NFC_EnableSwpProactiveCommand"
+
 .field public static final TAG_CSCFEATURE_NFC_HIDETERMINALCAPABILITY:Ljava/lang/String; = "CscFeature_NFC_HideTerminalCapability"
 
 .field public static final TAG_CSCFEATURE_NFC_SETACCESSCONTROLTYPE:Ljava/lang/String; = "CscFeature_NFC_SetAccessControlType"

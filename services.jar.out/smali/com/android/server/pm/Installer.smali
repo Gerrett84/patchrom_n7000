@@ -819,7 +819,6 @@
     .end annotation
 
     .prologue
-    .line 408
     invoke-direct {p0, p1}, Lcom/android/server/pm/Installer;->execute(Ljava/lang/String;)I
 
     move-result v0

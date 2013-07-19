@@ -169,7 +169,7 @@
 
     aput-object v1, v0, v3
 
-    const-string v1, "mediaprovider_uri"
+    const-string/jumbo v1, "mediaprovider_uri"
 
     aput-object v1, v0, v4
 
@@ -187,7 +187,7 @@
 
     const/4 v1, 0x5
 
-    const-string v2, "media_type"
+    const-string/jumbo v2, "media_type"
 
     aput-object v2, v0, v1
 
@@ -302,7 +302,7 @@
 
     aput-object v1, v0, v4
 
-    const-string v1, "mediaprovider_uri"
+    const-string/jumbo v1, "mediaprovider_uri"
 
     aput-object v1, v0, v5
 
@@ -340,7 +340,7 @@
 
     const/16 v1, 0x9
 
-    const-string v2, "mimetype AS media_type"
+    const-string/jumbo v2, "mimetype AS media_type"
 
     aput-object v2, v0, v1
 
@@ -421,7 +421,7 @@
 
     const/16 v1, 0x8
 
-    const-string v2, "mimetype"
+    const-string/jumbo v2, "mimetype"
 
     aput-object v2, v0, v1
 
@@ -987,7 +987,7 @@
     invoke-static {v3, p5}, Landroid/app/DownloadManager;->validateArgumentIsNonEmpty(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1625
-    const-string v3, "mimeType"
+    const-string/jumbo v3, "mimeType"
 
     invoke-static {v3, p4}, Landroid/app/DownloadManager;->validateArgumentIsNonEmpty(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1266,7 +1266,7 @@
     if-eqz v3, :cond_3
 
     .line 1476
-    const-string v2, "media_type"
+    const-string/jumbo v2, "media_type"
 
     invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
@@ -1787,7 +1787,7 @@
     invoke-static {v3, p5}, Landroid/app/DownloadManager;->validateArgumentIsNonEmpty(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1660
-    const-string v3, "mimeType"
+    const-string/jumbo v3, "mimeType"
 
     invoke-static {v3, p4}, Landroid/app/DownloadManager;->validateArgumentIsNonEmpty(Ljava/lang/String;Ljava/lang/String;)V
 

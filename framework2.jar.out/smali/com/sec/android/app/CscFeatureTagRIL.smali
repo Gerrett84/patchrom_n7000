@@ -38,9 +38,13 @@
 
 .field public static final TAG_CSCFEATURE_RIL_DISABLE_SIMPROFILE_SELECTION:Ljava/lang/String; = "CscFeature_RIL_DisablePromptPopup4SIMProfileSelection"
 
+.field public static final TAG_CSCFEATURE_RIL_DISPLAY_NETTYPE_WITH_PLMNINFO:Ljava/lang/String; = "CscFeature_RIL_DisplayNetTypeWithPlmnInfo"
+
 .field public static final TAG_CSCFEATURE_RIL_DISPLAY_RATINFO_MANUALSEARCH:Ljava/lang/String; = "CscFeature_RIL_DisplayRatInfoInManualNetSearchList"
 
 .field public static final TAG_CSCFEATURE_RIL_DISPLAY_SPN_ONLY_IN_CASE_SAME_PLMN:Ljava/lang/String; = "CscFeature_RIL_DisplaySpnOnlyInCaseSamePlmn"
+
+.field public static final TAG_CSCFEATURE_RIL_DISPLAY_STK_USSD_DIALOG:Ljava/lang/String; = "CscFeature_RIL_DisplayStkUssdDialog"
 
 .field public static final TAG_CSCFEATURE_RIL_EMPTY_MSG_COPY_TO_SIM:Ljava/lang/String; = "CscFeature_RIL_EmptyMsgCopyToSim"
 
@@ -62,7 +66,11 @@
 
 .field public static final TAG_CSCFEATURE_RIL_ENABLE_TOTALCALLTIME:Ljava/lang/String; = "CscFeature_RIL_EnableTotalCallTime"
 
+.field public static final TAG_CSCFEATURE_RIL_EXTEND_TRANSMIT_CHANNEL_TIMEOUT:Ljava/lang/String; = "CscFeature_RIL_ExtendTransmitChannelTimeout"
+
 .field public static final TAG_CSCFEATURE_RIL_FIXED_STK_MENU:Ljava/lang/String; = "CscFeature_RIL_FixedStkMenu"
+
+.field public static final TAG_CSCFEATURE_RIL_FORCE_CONNECT_IMS:Ljava/lang/String; = "CscFeature_RIL_ForceConnectIMS"
 
 .field public static final TAG_CSCFEATURE_RIL_FORCE_CONNECT_MMS:Ljava/lang/String; = "CscFeature_RIL_ForceConnectMMS"
 
@@ -80,11 +88,15 @@
 
 .field public static final TAG_CSCFEATURE_RIL_IMEI_TRACKER:Ljava/lang/String; = "CscFeature_RIL_ImeiTracker"
 
+.field public static final TAG_CSCFEATURE_RIL_INCLUDE_APN_4_SW_UPDATE:Ljava/lang/String; = "CscFeature_Setting_IncludeApn4SwUpdate"
+
 .field public static final TAG_CSCFEATURE_RIL_INCREASE_DATA_RECOVERY_TIME_FOR_2G:Ljava/lang/String; = "CscFeature_RIL_IncreaseDataRecoveryTimeFor2G"
 
 .field public static final TAG_CSCFEATURE_RIL_KT_SMS_DB_SCHEMA:Ljava/lang/String; = "CscFeature_RIL_KtSmsDbSchema"
 
 .field public static final TAG_CSCFEATURE_RIL_LGT_SMS_DB_SCHEMA:Ljava/lang/String; = "CscFeature_RIL_LgtSmsDbSchema"
+
+.field public static final TAG_CSCFEATURE_RIL_LMS_REASSEMBLE_TIMEOUTS_CTC:Ljava/lang/String; = "CscFeature_RIL_LmsReassembleTimeoutsCtc"
 
 .field public static final TAG_CSCFEATURE_RIL_LOAD_ICCID_ON_LOCK:Ljava/lang/String; = "CscFeature_RIL_LoadIccIdOnLock"
 
@@ -104,6 +116,8 @@
 
 .field public static final TAG_CSCFEATURE_RIL_REMOVE_TOAST_FOR_SIMREFRESH:Ljava/lang/String; = "CscFeature_RIL_STK_DoNotDisplay_SIMRefresh"
 
+.field public static final TAG_CSCFEATURE_RIL_REPLACELABELASECCONLY:Ljava/lang/String; = "CscFeature_RIL_ReplaceLabelAsEccOnly"
+
 .field public static final TAG_CSCFEATURE_RIL_REPLACE_IMEI_SALESCODE_AS:Ljava/lang/String; = "CscFeature_RIL_ReplaceImeiSalesCodeAs"
 
 .field public static final TAG_CSCFEATURE_RIL_SETSMSBEARER:Ljava/lang/String; = "CscFeature_RIL_SetSmsBearer"
@@ -113,6 +127,8 @@
 .field public static final TAG_CSCFEATURE_RIL_SK_SMS_DB_SCHEMA:Ljava/lang/String; = "CscFeature_RIL_SkSmsDbSchema"
 
 .field public static final TAG_CSCFEATURE_RIL_SMS_SENDFAIL_SPECIAL_AREA_CTC:Ljava/lang/String; = "CscFeature_RIL_SmsSendFailSpecialAreaCtc"
+
+.field public static final TAG_CSCFEATURE_RIL_STK_UI_TIMEOUT_SELECTITEM:Ljava/lang/String; = "CscFeature_RIL_StkUiTimeOutForSelectItem"
 
 .field public static final TAG_CSCFEATURE_RIL_SUPPORTUSSDWITHSHARPCHAR:Ljava/lang/String; = "CscFeature_RIL_SupportUssdWithSharpChar"
 

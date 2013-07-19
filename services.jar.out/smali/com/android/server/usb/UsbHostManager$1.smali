@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 234
+    .line 235
     iput-object p1, p0, Lcom/android/server/usb/UsbHostManager$1;->this$0:Lcom/android/server/usb/UsbHostManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,12 +41,12 @@
     .locals 1
 
     .prologue
-    .line 236
+    .line 237
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$1;->this$0:Lcom/android/server/usb/UsbHostManager;
 
     #calls: Lcom/android/server/usb/UsbHostManager;->monitorUsbHostBus()V
     invoke-static {v0}, Lcom/android/server/usb/UsbHostManager;->access$000(Lcom/android/server/usb/UsbHostManager;)V
 
-    .line 237
+    .line 238
     return-void
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 137
+    .line 138
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$1;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 140
+    .line 141
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
 
@@ -62,7 +62,7 @@
 
     check-cast v2, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;
 
-    .line 141
+    .line 142
     .local v2, newsData:Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;
     invoke-virtual {v2}, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->getNewsUrl()Ljava/lang/String;
 
@@ -72,7 +72,7 @@
 
     move-result-object v3
 
-    .line 142
+    .line 143
     .local v3, uri:Landroid/net/Uri;
     new-instance v1, Landroid/content/Intent;
 
@@ -80,13 +80,13 @@
 
     invoke-direct {v1, v4, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 143
+    .line 144
     .local v1, intent:Landroid/content/Intent;
     const/high16 v4, 0x1000
 
     invoke-virtual {v1, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 145
+    .line 146
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -96,7 +96,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 149
+    .line 150
     :goto_0
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$1;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -107,7 +107,7 @@
 
     invoke-virtual {v4, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 150
+    .line 151
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$1;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
@@ -117,7 +117,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 151
+    .line 152
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$1;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
@@ -127,15 +127,15 @@
 
     invoke-interface {v4}, Lcom/android/internal/policy/impl/sec/TickerCallback;->goToUnlockScreen()V
 
-    .line 153
+    .line 154
     :cond_0
     return-void
 
-    .line 146
+    .line 147
     :catch_0
     move-exception v0
 
-    .line 147
+    .line 148
     .local v0, e:Landroid/os/RemoteException;
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$1;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
@@ -146,7 +146,7 @@
 
     const-string v5, "dismissKeyguard remoteException"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

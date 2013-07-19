@@ -62,7 +62,7 @@
     <string name="setting_2hour">Po 2 val.</string>
     <string name="save">Išsaugoti</string>
     <string name="toast_channel_empty">Nėra stočių</string>
-    <string name="toast_earphone_not_connected">Ausinė neprijungta. Ausinė veikia kaip radijo antena. Prijunkite ausinę.</string>
+    <string name="toast_earphone_not_connected">Ausinė neprijungta. Ausinė veikia kaip radijo antena. Prijunkite ausinę</string>
     <string name="dialog_autoscan">Automatinis skenavimas</string>
     <string name="toast_initial_access">Paleidžiamas automatinis skenavimas…</string>
     <string name="scan_result">Paieškos rezultatai</string>
@@ -100,13 +100,13 @@
     <string name="toast_unavailable_in_tvout_mode">Negalimas TV išėjimo režimu</string>
     <string name="mute">Begarsis režimas</string>
     <string name="seeking">Ieškoma…</string>
-    <string name="via_earphone">Per ausines</string>
-    <string name="via_speaker">Per garsiak.</string>
+    <string name="via_earphone">Leisti per ausines</string>
+    <string name="via_speaker">Groti per garsiakalbį</string>
     <string name="normal_frequency">Įprastas dažnis</string>
     <string name="tag">Žym</string>
     <string name="stop">Stabdyti</string>
     <string name="recording">Įrašoma…</string>
-    <string name="memory_full">Įrašymas sustabdytas. Atmintis pilna</string>
+    <string name="memory_full">Atmintis pilna</string>
     <string name="cancel_recording">Atšaukti įrašymą?</string>
     <string name="change_frequency">Keisti dažnį</string>
     <string name="enter_frequency">Įveskite dažnį</string>
@@ -132,11 +132,14 @@
     <string name="tags">Žymos</string>
     <string name="tags_now_broadcasting">Transliuojama dabar</string>
     <string name="tags_no_information">Nėra informacijos</string>
+    <string name="tags_music_history">Muzikos istorija</string>
     <string name="tags_music_title">Pavadinimas</string>
     <string name="tags_music_album">Albumas</string>
     <string name="tags_music_artist">Atlikėjas</string>
+    <string name="tags_music_band">Grupė</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Pagrind. psl.</string>
+    <string name="tags_interact_hotline">Karštoji linija</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Kiti</string>
     <string name="tags_interact_centre">Centre</string>
@@ -182,4 +185,14 @@
     <string name="dialog_one_item_deleted">Šis elementas bus ištrintas</string>
     <string name="dialog_multiple_items_deleted">Bus ištrinta elementų: %d</string>
     <string name="dialog_all_items_deleted">Bus ištrinti visi elementai</string>
+    <string name="turning_on">Įjungiama…</string>
+    <string name="not_enough_memory_recording_will_stop">Nepakanka atminties. Įrašymas bus baigtas po %d sek.</string>
+    <string name="low_batt_msg">Silpnas akumuliatorius!</string>
+    <string name="no_play_during_call">Negalima paleisti skambučio metu</string>
+    <string name="unable_delete">Ištrinti nepavyko</string>
+    <string name="playing">Grojama…</string>
+    <string name="tts_play_button">Paleisti</string>
+    <string name="tts_previous_button">Ankstesnis</string>
+    <string name="tts_Next_button">Kitas</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

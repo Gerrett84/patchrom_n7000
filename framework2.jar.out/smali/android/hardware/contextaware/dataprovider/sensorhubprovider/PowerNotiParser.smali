@@ -46,11 +46,6 @@
     .locals 2
 
     .prologue
-    .line 66
-    const-string v0, "================= Noti (Power) ================="
-
-    invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/CALogger;->debug(Ljava/lang/String;)V
-
     .line 67
     iget v0, p0, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/PowerNotiParser;->mAPStatus:I
 

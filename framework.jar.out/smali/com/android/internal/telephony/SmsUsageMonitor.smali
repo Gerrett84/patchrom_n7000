@@ -6,9 +6,9 @@
 # static fields
 .field private static final DBG:Z = true
 
-.field private static final DEFAULT_SMS_CHECK_PERIOD:I = 0x1b7740
+.field private static final DEFAULT_SMS_CHECK_PERIOD:I = 0x927c0
 
-.field private static final DEFAULT_SMS_MAX_COUNT:I = 0x5a
+.field private static final DEFAULT_SMS_MAX_COUNT:I = 0x3e8
 
 .field private static final TAG:Ljava/lang/String; = "SmsUsageMonitor"
 
@@ -60,7 +60,7 @@
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string/jumbo v1, "sms_outgoing_check_max_count"
 
-    const/16 v2, 0x5a
+    const/16 v2, 0x3e8
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -71,7 +71,7 @@
     .line 79
     const-string/jumbo v1, "sms_outgoing_check_interval_ms"
 
-    const v2, 0x1b7740
+    const v2, 0x927c0
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

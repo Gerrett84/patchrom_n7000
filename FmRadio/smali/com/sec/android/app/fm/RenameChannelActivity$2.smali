@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 170
+    .line 192
     iput-object p1, p0, Lcom/sec/android/app/fm/RenameChannelActivity$2;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 176
+    .line 198
     .local p1, arg0:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     iget-object v1, p0, Lcom/sec/android/app/fm/RenameChannelActivity$2;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
@@ -71,13 +71,13 @@
     #setter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
     invoke-static {v1, v0}, Lcom/sec/android/app/fm/RenameChannelActivity;->access$102(Lcom/sec/android/app/fm/RenameChannelActivity;Lcom/sec/android/app/fm/data/Channel;)Lcom/sec/android/app/fm/data/Channel;
 
-    .line 184
+    .line 206
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameChannelActivity$2;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/RenameChannelActivity;->showDialog(I)V
 
-    .line 186
+    .line 208
     return-void
 .end method

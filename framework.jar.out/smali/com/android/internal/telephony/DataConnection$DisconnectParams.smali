@@ -29,15 +29,15 @@
     .parameter "onCompletedMsg"
 
     .prologue
-    .line 99
+    .line 101
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 100
+    .line 102
     iput-object p1, p0, Lcom/android/internal/telephony/DataConnection$DisconnectParams;->reason:Ljava/lang/String;
 
-    .line 101
+    .line 103
     iput-object p2, p0, Lcom/android/internal/telephony/DataConnection$DisconnectParams;->onCompletedMsg:Landroid/os/Message;
 
-    .line 102
+    .line 104
     return-void
 .end method

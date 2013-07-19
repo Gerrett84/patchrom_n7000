@@ -34,37 +34,37 @@
     .parameter
 
     .prologue
-    .line 557
+    .line 569
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 552
+    .line 564
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockName:Ljava/lang/String;
 
-    .line 553
+    .line 565
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockPrice:Ljava/lang/String;
 
-    .line 554
+    .line 566
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockChange:Ljava/lang/String;
 
-    .line 555
+    .line 567
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockChangeRate:Ljava/lang/String;
 
-    .line 556
+    .line 568
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockUrl:Ljava/lang/String;
 
-    .line 558
+    .line 570
     return-void
 .end method
 
@@ -78,52 +78,52 @@
     .parameter "url"
 
     .prologue
-    .line 559
+    .line 571
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 552
+    .line 564
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockName:Ljava/lang/String;
 
-    .line 553
+    .line 565
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockPrice:Ljava/lang/String;
 
-    .line 554
+    .line 566
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockChange:Ljava/lang/String;
 
-    .line 555
+    .line 567
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockChangeRate:Ljava/lang/String;
 
-    .line 556
+    .line 568
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockUrl:Ljava/lang/String;
 
-    .line 560
+    .line 572
     iput-object p2, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockName:Ljava/lang/String;
 
-    .line 561
+    .line 573
     iput-object p3, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockPrice:Ljava/lang/String;
 
-    .line 562
+    .line 574
     iput-object p4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockChange:Ljava/lang/String;
 
-    .line 563
+    .line 575
     iput-object p5, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockChangeRate:Ljava/lang/String;
 
-    .line 564
+    .line 576
     iput-object p6, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockUrl:Ljava/lang/String;
 
-    .line 565
+    .line 577
     return-void
 .end method
 
@@ -133,7 +133,7 @@
     .locals 1
 
     .prologue
-    .line 573
+    .line 585
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockChange:Ljava/lang/String;
 
     return-object v0
@@ -143,7 +143,7 @@
     .locals 1
 
     .prologue
-    .line 576
+    .line 588
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockChangeRate:Ljava/lang/String;
 
     return-object v0
@@ -153,7 +153,7 @@
     .locals 1
 
     .prologue
-    .line 567
+    .line 579
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockName:Ljava/lang/String;
 
     return-object v0
@@ -163,7 +163,7 @@
     .locals 1
 
     .prologue
-    .line 570
+    .line 582
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockPrice:Ljava/lang/String;
 
     return-object v0
@@ -173,7 +173,7 @@
     .locals 1
 
     .prologue
-    .line 579
+    .line 591
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockUrl:Ljava/lang/String;
 
     return-object v0
@@ -184,10 +184,10 @@
     .parameter "change"
 
     .prologue
-    .line 588
+    .line 600
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockChange:Ljava/lang/String;
 
-    .line 589
+    .line 601
     return-void
 .end method
 
@@ -196,10 +196,10 @@
     .parameter "change_rate"
 
     .prologue
-    .line 591
+    .line 603
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockChange:Ljava/lang/String;
 
-    .line 592
+    .line 604
     return-void
 .end method
 
@@ -208,10 +208,10 @@
     .parameter "name"
 
     .prologue
-    .line 582
+    .line 594
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockName:Ljava/lang/String;
 
-    .line 583
+    .line 595
     return-void
 .end method
 
@@ -220,10 +220,10 @@
     .parameter "price"
 
     .prologue
-    .line 585
+    .line 597
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockPrice:Ljava/lang/String;
 
-    .line 586
+    .line 598
     return-void
 .end method
 
@@ -232,9 +232,9 @@
     .parameter "url"
 
     .prologue
-    .line 594
+    .line 606
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerStockData;->mStockUrl:Ljava/lang/String;
 
-    .line 595
+    .line 607
     return-void
 .end method

@@ -28,7 +28,7 @@
     .parameter
 
     .prologue
-    .line 204
+    .line 215
     iput-object p1, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate$1;->this$1:Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
 
     iput-object p3, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate$1;->val$this$0:Landroid/hardware/scontext/SContextManager;
@@ -45,7 +45,7 @@
     .parameter "msg"
 
     .prologue
-    .line 208
+    .line 219
     iget-object v1, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate$1;->this$1:Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
 
     #getter for: Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;->mListener:Landroid/hardware/scontext/SContextListener;
@@ -55,12 +55,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 209
+    .line 220
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/hardware/scontext/SContextEvent;
 
-    .line 210
+    .line 221
     .local v0, scontextEvent:Landroid/hardware/scontext/SContextEvent;
     iget-object v1, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate$1;->this$1:Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
 
@@ -71,7 +71,7 @@
 
     invoke-interface {v1, v0}, Landroid/hardware/scontext/SContextListener;->onSContextChanged(Landroid/hardware/scontext/SContextEvent;)V
 
-    .line 212
+    .line 223
     .end local v0           #scontextEvent:Landroid/hardware/scontext/SContextEvent;
     :cond_0
     return-void

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 90
+    .line 114
     iput-object p1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     invoke-direct {p0}, Lcom/sec/android/app/fm/MainActivity$Callback;-><init>()V
@@ -40,26 +40,26 @@
 
     const/4 v4, 0x1
 
-    .line 176
+    .line 212
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     invoke-virtual {v1}, Lcom/sec/android/app/fm/AllChannelActivity;->invalidateOptionsMenu()V
 
-    .line 179
+    .line 215
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     iget-object v1, v1, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     if-eqz v1, :cond_0
 
-    .line 180
+    .line 216
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     iget-object v1, v1, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     invoke-virtual {v1}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 182
+    .line 218
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
@@ -70,7 +70,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 183
+    .line 219
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/AllChannelActivity;->mAlertDialog:Landroid/app/AlertDialog;
@@ -80,7 +80,7 @@
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 186
+    .line 222
     :cond_1
     :try_start_0
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
@@ -91,7 +91,7 @@
 
     if-nez v1, :cond_2
 
-    .line 187
+    .line 223
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     const/4 v2, 0x3
@@ -100,7 +100,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 192
+    .line 228
     :cond_2
     :goto_0
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
@@ -112,14 +112,14 @@
 
     if-eqz v1, :cond_3
 
-    .line 193
+    .line 229
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget v1, v1, Lcom/sec/android/app/fm/MainActivity;->count:I
 
     if-le v1, v4, :cond_4
 
-    .line 194
+    .line 230
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/AllChannelActivity;->mScanFinishedDialog:Landroid/app/AlertDialog;
@@ -149,7 +149,7 @@
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 206
+    .line 239
     :cond_3
     :goto_1
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
@@ -164,7 +164,7 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 216
+    .line 249
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v1, v1, Lcom/sec/android/app/fm/MainActivity;->mHandler:Lcom/sec/android/app/fm/MainActivity$MyHandler;
@@ -175,14 +175,14 @@
 
     invoke-virtual {v1, v2, v3, v4}, Lcom/sec/android/app/fm/MainActivity$MyHandler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 218
+    .line 251
     return-void
 
-    .line 188
+    .line 224
     :catch_0
     move-exception v0
 
-    .line 189
+    .line 225
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -212,7 +212,7 @@
 
     goto :goto_0
 
-    .line 197
+    .line 232
     .end local v0           #e:Ljava/lang/Exception;
     :cond_4
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -221,7 +221,7 @@
 
     if-ne v1, v4, :cond_5
 
-    .line 198
+    .line 233
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/AllChannelActivity;->mScanFinishedDialog:Landroid/app/AlertDialog;
@@ -253,7 +253,7 @@
 
     goto :goto_1
 
-    .line 201
+    .line 235
     :cond_5
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -261,7 +261,7 @@
 
     if-nez v1, :cond_3
 
-    .line 202
+    .line 236
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/AllChannelActivity;->mScanFinishedDialog:Landroid/app/AlertDialog;
@@ -288,13 +288,13 @@
     .locals 1
 
     .prologue
-    .line 221
+    .line 255
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     #calls: Lcom/sec/android/app/fm/AllChannelActivity;->refreshScanIcon()V
     invoke-static {v0}, Lcom/sec/android/app/fm/AllChannelActivity;->access$200(Lcom/sec/android/app/fm/AllChannelActivity;)V
 
-    .line 222
+    .line 256
     return-void
 .end method
 
@@ -302,13 +302,13 @@
     .locals 1
 
     .prologue
-    .line 225
+    .line 260
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     #calls: Lcom/sec/android/app/fm/AllChannelActivity;->refreshScanIcon()V
     invoke-static {v0}, Lcom/sec/android/app/fm/AllChannelActivity;->access$200(Lcom/sec/android/app/fm/AllChannelActivity;)V
 
-    .line 226
+    .line 261
     return-void
 .end method
 
@@ -316,28 +316,28 @@
     .locals 2
 
     .prologue
-    .line 93
+    .line 118
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     const-string v1, "AllChannel Activity : notify UI"
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 94
+    .line 119
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     if-eqz v0, :cond_0
 
-    .line 95
+    .line 120
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 96
+    .line 121
     :cond_0
     return-void
 .end method
@@ -357,21 +357,21 @@
 
     const/4 v9, 0x1
 
-    .line 123
+    .line 155
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     iget-object v4, v4, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     if-eqz v4, :cond_0
 
-    .line 124
+    .line 156
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     iget-object v4, v4, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     invoke-virtual {v4}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 125
+    .line 157
     :cond_0
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
@@ -382,7 +382,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 128
+    .line 159
     invoke-static {}, Lcom/sec/android/app/fm/FMRadioFeature;->GetFrequencySpace()I
 
     move-result v4
@@ -391,12 +391,12 @@
 
     if-ne v4, v5, :cond_3
 
-    .line 130
+    .line 160
     long-to-float v4, p1
 
     div-float v0, v4, v6
 
-    .line 131
+    .line 161
     .local v0, freq:F
     const-string v4, "%.2f"
 
@@ -412,7 +412,7 @@
 
     move-result-object v3
 
-    .line 133
+    .line 163
     .local v3, freqText:Ljava/lang/String;
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -420,7 +420,7 @@
 
     if-le v4, v9, :cond_2
 
-    .line 134
+    .line 164
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/AllChannelActivity;->mAlertDialog:Landroid/app/AlertDialog;
@@ -452,7 +452,7 @@
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 152
+    .line 186
     .end local v0           #freq:F
     .end local v3           #freqText:Ljava/lang/String;
     :cond_1
@@ -461,10 +461,10 @@
 
     invoke-virtual {v4}, Lcom/sec/android/app/fm/AllChannelActivity;->invalidateOptionsMenu()V
 
-    .line 154
+    .line 188
     return-void
 
-    .line 136
+    .line 168
     .restart local v0       #freq:F
     .restart local v3       #freqText:Ljava/lang/String;
     :cond_2
@@ -501,7 +501,7 @@
 
     goto :goto_0
 
-    .line 138
+    .line 172
     .end local v0           #freq:F
     .end local v3           #freqText:Ljava/lang/String;
     :cond_3
@@ -511,7 +511,7 @@
 
     float-to-int v2, v4
 
-    .line 139
+    .line 173
     .local v2, freqInt:I
     long-to-float v4, p1
 
@@ -523,7 +523,7 @@
 
     float-to-int v1, v4
 
-    .line 141
+    .line 175
     .local v1, freqDec:I
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -531,7 +531,7 @@
 
     if-le v4, v9, :cond_4
 
-    .line 142
+    .line 176
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/AllChannelActivity;->mAlertDialog:Landroid/app/AlertDialog;
@@ -577,7 +577,7 @@
 
     goto :goto_0
 
-    .line 146
+    .line 180
     :cond_4
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
@@ -630,86 +630,46 @@
     .parameter "reasonCode"
 
     .prologue
-    .line 118
+    .line 149
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     if-eqz v0, :cond_0
 
-    .line 119
+    .line 150
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 120
+    .line 151
     :cond_0
     return-void
 .end method
 
 .method public onOn()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 99
-    iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
+    .line 125
+    iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
-    iget-object v1, v1, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
+    iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 100
-    iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
+    .line 126
+    iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
-    iget-object v1, v1, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
+    iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
-    invoke-virtual {v1}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 102
+    .line 127
     :cond_0
-    iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
-
-    invoke-static {v1}, Lcom/sec/android/app/fm/FMNotificationManager;->getInstance(Landroid/content/Context;)Lcom/sec/android/app/fm/FMNotificationManager;
-
-    move-result-object v1
-
-    iget-boolean v1, v1, Lcom/sec/android/app/fm/FMNotificationManager;->isNotified:Z
-
-    if-nez v1, :cond_1
-
-    .line 104
-    :try_start_0
-    sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
-
-    invoke-virtual {v1}, Lcom/sec/android/app/fm/MainActivity;->notifyToStatusBar()V
-    :try_end_0
-    .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 111
-    :cond_1
-    :goto_0
     return-void
-
-    .line 105
-    :catch_0
-    move-exception v0
-
-    .line 107
-    .local v0, e:Lcom/samsung/media/fmradio/FMPlayerException;
-    :try_start_1
-    invoke-virtual {v0}, Lcom/samsung/media/fmradio/FMPlayerException;->printStackTrace()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
-    goto :goto_0
-
-    .line 108
-    :catch_1
-    move-exception v1
-
-    goto :goto_0
 .end method
 
 .method public onScanFinished([J)V
@@ -717,10 +677,10 @@
     .parameter "frequency"
 
     .prologue
-    .line 170
+    .line 206
     invoke-direct {p0}, Lcom/sec/android/app/fm/AllChannelActivity$1;->scanningOver()V
 
-    .line 171
+    .line 207
     return-void
 .end method
 
@@ -728,21 +688,21 @@
     .locals 3
 
     .prologue
-    .line 157
+    .line 192
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     if-eqz v0, :cond_0
 
-    .line 158
+    .line 193
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 159
+    .line 194
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
@@ -753,7 +713,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 160
+    .line 195
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/AllChannelActivity;->mAlertDialog:Landroid/app/AlertDialog;
@@ -771,7 +731,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 163
+    .line 197
     :cond_1
     return-void
 .end method
@@ -781,33 +741,73 @@
     .parameter "frequency"
 
     .prologue
-    .line 166
+    .line 201
     invoke-direct {p0}, Lcom/sec/android/app/fm/AllChannelActivity$1;->scanningOver()V
 
-    .line 167
+    .line 202
     return-void
 .end method
 
 .method public onTune(J)V
-    .locals 1
+    .locals 2
     .parameter "frequency"
 
     .prologue
-    .line 114
-    iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
+    .line 131
+    iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
-    iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
+    iget-object v1, v1, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 115
-    iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
+    .line 132
+    iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
-    iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
+    iget-object v1, v1, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
-    invoke-virtual {v0}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v1}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 116
+    .line 134
     :cond_0
+    iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$1;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
+
+    invoke-static {v1}, Lcom/sec/android/app/fm/FMNotificationManager;->getInstance(Landroid/content/Context;)Lcom/sec/android/app/fm/FMNotificationManager;
+
+    move-result-object v1
+
+    iget-boolean v1, v1, Lcom/sec/android/app/fm/FMNotificationManager;->isNotified:Z
+
+    if-nez v1, :cond_1
+
+    .line 136
+    :try_start_0
+    sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
+
+    invoke-virtual {v1}, Lcom/sec/android/app/fm/MainActivity;->notifyToStatusBar()V
+    :try_end_0
+    .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 145
+    :cond_1
+    :goto_0
     return-void
+
+    .line 137
+    :catch_0
+    move-exception v0
+
+    .line 139
+    .local v0, e:Lcom/samsung/media/fmradio/FMPlayerException;
+    :try_start_1
+    invoke-virtual {v0}, Lcom/samsung/media/fmradio/FMPlayerException;->printStackTrace()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    goto :goto_0
+
+    .line 140
+    :catch_1
+    move-exception v1
+
+    goto :goto_0
 .end method

@@ -86,11 +86,21 @@
     <dimen name="notification_text_size">14.0dip</dimen>
     <dimen name="notification_title_text_size">18.0dip</dimen>
     <dimen name="notification_subtext_size">12.0dip</dimen>
+    <dimen name="keyguard_lockscreen_status_line_font_size_for_dualplmn">12.0dip</dimen>
     <dimen name="multiwindow_gap">30.0dip</dimen>
     <dimen name="multiwindow_def_width">270.0dip</dimen>
     <dimen name="multiwindow_def_height">350.0dip</dimen>
     <dimen name="multiwindow_minimized_width">130.0dip</dimen>
     <dimen name="multiwindow_minimized_height">39.0dip</dimen>
+    <dimen name="multiwindow_default_center_bar_width">16.0dip</dimen>
+    <dimen name="multiwindow_default_center_bar_inner_padding">0.0dip</dimen>
+    <dimen name="hover_tooltip_text_size">13.0sp</dimen>
+    <dimen name="hover_fulltext_text_size">18.0sp</dimen>
+    <dimen name="hover_tooltip_popup_width">90.0dip</dimen>
+    <dimen name="hover_tooltip_popup_padding_left">10.0dip</dimen>
+    <dimen name="hover_tooltip_popup_padding_right">10.0dip</dimen>
+    <dimen name="hover_tooltip_popup_padding_top">7.0dip</dimen>
+    <dimen name="hover_tooltip_popup_padding_bottom">9.0dip</dimen>
     <dimen name="tw_notification_large_icon_margin_left">7.0dip</dimen>
     <dimen name="tw_notification_large_icon_margin_top">12.0dip</dimen>
     <dimen name="tw_notification_large_icon_margin_right">8.0dip</dimen>
@@ -144,19 +154,7 @@
     <dimen name="tw_flashboard_panel_height">40.0dip</dimen>
     <dimen name="tw_smartswitcher_thumbnail_width">260.0dip</dimen>
     <dimen name="tw_smartswitcher_thumbnail_height">260.0dip</dimen>
-    <item type="dimen" name="APKTOOL_DUMMY_0056">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_0094">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_0095">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_0096">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_0097">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_0098">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_0099">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_009a">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_009b">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_009c">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_009d">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_009e">false</item>
-    <item type="dimen" name="APKTOOL_DUMMY_009f">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_0057">false</item>
     <item type="dimen" name="APKTOOL_DUMMY_00a0">false</item>
     <item type="dimen" name="APKTOOL_DUMMY_00a1">false</item>
     <item type="dimen" name="APKTOOL_DUMMY_00a2">false</item>
@@ -179,4 +177,16 @@
     <item type="dimen" name="APKTOOL_DUMMY_00b3">false</item>
     <item type="dimen" name="APKTOOL_DUMMY_00b4">false</item>
     <item type="dimen" name="APKTOOL_DUMMY_00b5">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b6">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b7">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b8">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00b9">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00ba">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00bb">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00bc">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00bd">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00be">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00bf">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00c0">false</item>
+    <item type="dimen" name="APKTOOL_DUMMY_00c1">false</item>
 </resources>

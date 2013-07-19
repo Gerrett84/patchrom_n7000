@@ -1,11 +1,14 @@
 .class Lcom/android/internal/policy/impl/GlobalActions$15;
-.super Landroid/os/Handler;
+.super Ljava/lang/Object;
 .source "GlobalActions.java"
+
+# interfaces
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/internal/policy/impl/GlobalActions;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/internal/policy/impl/GlobalActions;->isSimReady()Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,93 +27,55 @@
     .parameter
 
     .prologue
-    .line 1037
+    .line 1154
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$15;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 1
-    .parameter "msg"
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 3
+    .parameter "unused"
 
     .prologue
-    .line 1039
-    iget v0, p1, Landroid/os/Message;->what:I
+    .line 1156
+    invoke-static {}, Lcom/android/internal/policy/impl/GlobalActions;->access$2300()Ljava/lang/Object;
 
-    packed-switch v0, :pswitch_data_0
+    move-result-object v1
 
-    .line 1053
-    :cond_0
-    :goto_0
+    monitor-enter v1
+
+    .line 1157
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$2402(Z)Z
+
+    .line 1158
+    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$15;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+
+    const/4 v2, 0x0
+
+    #setter for: Lcom/android/internal/policy/impl/GlobalActions;->mConfirmDialog:Landroid/app/AlertDialog;
+    invoke-static {v0, v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$2502(Lcom/android/internal/policy/impl/GlobalActions;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+
+    .line 1159
+    monitor-exit v1
+
+    .line 1160
     return-void
 
-    .line 1041
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$15;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
+    .line 1159
+    :catchall_0
+    move-exception v0
 
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mDialog:Landroid/app/AlertDialog;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$2400(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/app/AlertDialog;
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    .line 1042
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$15;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
-
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mDialog:Landroid/app/AlertDialog;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$2400(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/app/AlertDialog;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
-
-    goto :goto_0
-
-    .line 1046
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$15;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
-
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAdapter:Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$2200(Lcom/android/internal/policy/impl/GlobalActions;)Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->notifyDataSetChanged()V
-
-    goto :goto_0
-
-    .line 1049
-    :pswitch_2
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$15;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
-
-    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAdapter:Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$2200(Lcom/android/internal/policy/impl/GlobalActions;)Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->notifyDataSetChanged()V
-
-    .line 1050
-    iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$15;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
-
-    #calls: Lcom/android/internal/policy/impl/GlobalActions;->handleShow()V
-    invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$2500(Lcom/android/internal/policy/impl/GlobalActions;)V
-
-    goto :goto_0
-
-    .line 1039
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-    .end packed-switch
+    throw v0
 .end method

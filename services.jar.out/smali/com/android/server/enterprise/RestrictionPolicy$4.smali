@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1617
+    .line 1615
     iput-object p1, p0, Lcom/android/server/enterprise/RestrictionPolicy$4;->this$0:Lcom/android/server/enterprise/RestrictionPolicy;
 
     invoke-direct {p0}, Landroid/os/storage/StorageEventListener;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "newState"
 
     .prologue
-    .line 1620
+    .line 1618
     const-string v1, "RestrictionPolicy"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -84,7 +84,7 @@
 
     invoke-static {v1, v2}, Lcom/android/server/enterprise/Utils;->writeToLog(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1623
+    .line 1621
     const-string v1, "mounted"
 
     invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -101,13 +101,13 @@
 
     if-eqz v1, :cond_0
 
-    .line 1625
+    .line 1623
     iget-object v1, p0, Lcom/android/server/enterprise/RestrictionPolicy$4;->this$0:Lcom/android/server/enterprise/RestrictionPolicy;
 
     #calls: Lcom/android/server/enterprise/RestrictionPolicy;->mountSdCard()Z
     invoke-static {v1}, Lcom/android/server/enterprise/RestrictionPolicy;->access$500(Lcom/android/server/enterprise/RestrictionPolicy;)Z
 
-    .line 1628
+    .line 1626
     :cond_0
     const-string v1, "unmounted"
 
@@ -125,7 +125,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 1630
+    .line 1628
     iget-object v1, p0, Lcom/android/server/enterprise/RestrictionPolicy$4;->this$0:Lcom/android/server/enterprise/RestrictionPolicy;
 
     invoke-virtual {v1}, Lcom/android/server/enterprise/RestrictionPolicy;->getStorageManager()Landroid/os/storage/StorageManager;
@@ -141,25 +141,25 @@
 
     invoke-virtual {v1, v2}, Landroid/os/storage/StorageManager;->unregisterListener(Landroid/os/storage/StorageEventListener;)V
 
-    .line 1631
+    .line 1629
     iget-object v1, p0, Lcom/android/server/enterprise/RestrictionPolicy$4;->this$0:Lcom/android/server/enterprise/RestrictionPolicy;
 
     invoke-virtual {v1}, Lcom/android/server/enterprise/RestrictionPolicy;->isSDCardWriteAllowed()Z
 
     move-result v0
 
-    .line 1632
+    .line 1630
     .local v0, state:Z
     if-nez v0, :cond_2
 
-    .line 1633
+    .line 1631
     const-string v1, "RestrictionPolicy"
 
     const-string v2, "SDCard Remounted with Readonly permission"
 
     invoke-static {v1, v2}, Lcom/android/server/enterprise/Utils;->writeToLog(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1638
+    .line 1636
     .end local v0           #state:Z
     :cond_1
     :goto_0
@@ -169,10 +169,10 @@
 
     invoke-static {v1, v2}, Lcom/android/server/enterprise/Utils;->writeToLog(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1639
+    .line 1637
     return-void
 
-    .line 1635
+    .line 1633
     .restart local v0       #state:Z
     :cond_2
     const-string v1, "RestrictionPolicy"

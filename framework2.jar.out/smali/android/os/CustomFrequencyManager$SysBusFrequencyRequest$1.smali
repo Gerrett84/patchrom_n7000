@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 159
+    .line 160
     iput-object p1, p0, Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest$1;->this$1:Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,11 +41,11 @@
     .locals 1
 
     .prologue
-    .line 161
+    .line 162
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest$1;->this$1:Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;
 
     invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;->cancelFrequencyRequest()V
 
-    .line 162
+    .line 163
     return-void
 .end method

@@ -18,9 +18,13 @@
 
 .field public static final UP_START:I = 0x3
 
+.field private static bluetoothOn:I
+
 .field private static bootupAnim:Lcom/android/server/pm/ShutdownDialog;
 
 .field private static final isPlayBootAnim:Z
+
+.field private static mAutoPowerOff:Z
 
 .field private static mContext:Landroid/content/Context;
 
@@ -29,6 +33,8 @@
 .field private static powerConnected:I
 
 .field private static powerConnectedReceiver:Landroid/content/BroadcastReceiver;
+
+.field private static sBatteryStatusLock:Ljava/lang/Object;
 
 .field private static sFakeStateGuard:Ljava/lang/Object;
 
@@ -48,6 +54,10 @@
 
 .field private mHandler:Landroid/os/Handler;
 
+.field private mp:Landroid/media/MediaPlayer;
+
+.field private soundThread:Ljava/lang/Thread;
+
 .field private syncObj:Ljava/lang/Object;
 
 .field private wakeupSync:Ljava/lang/Object;
@@ -55,49 +65,62 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 4
 
     .prologue
-    const/4 v2, 0x2
+    const/4 v3, 0x2
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
-    .line 84
-    sput v2, Lcom/android/server/pm/FakeShutdown;->oldAirplaneMode:I
+    .line 96
+    sput v3, Lcom/android/server/pm/FakeShutdown;->oldAirplaneMode:I
 
-    .line 86
+    .line 98
     sput-object v1, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
-    .line 87
+    .line 99
     sput-object v1, Lcom/android/server/pm/FakeShutdown;->bootupAnim:Lcom/android/server/pm/ShutdownDialog;
 
-    .line 88
+    .line 100
     sput-object v1, Lcom/android/server/pm/FakeShutdown;->shutdownAnim:Lcom/android/server/pm/ShutdownDialog;
 
-    .line 94
+    .line 101
+    sput-boolean v2, Lcom/android/server/pm/FakeShutdown;->mAutoPowerOff:Z
+
+    .line 107
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
 
-    .line 95
-    const/4 v0, 0x0
+    .line 108
+    sput v2, Lcom/android/server/pm/FakeShutdown;->sState:I
 
-    sput v0, Lcom/android/server/pm/FakeShutdown;->sState:I
+    .line 117
+    sput v2, Lcom/android/server/pm/FakeShutdown;->bluetoothOn:I
 
-    .line 104
+    .line 121
     sput-object v1, Lcom/android/server/pm/FakeShutdown;->sInstance:Lcom/android/server/pm/FakeShutdown;
 
-    .line 314
-    sput v2, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
+    .line 434
+    sput v3, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
 
-    .line 315
+    .line 435
     new-instance v0, Lcom/android/server/pm/FakeShutdown$2;
 
     invoke-direct {v0}, Lcom/android/server/pm/FakeShutdown$2;-><init>()V
 
     sput-object v0, Lcom/android/server/pm/FakeShutdown;->powerConnectedReceiver:Landroid/content/BroadcastReceiver;
+
+    .line 712
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Lcom/android/server/pm/FakeShutdown;->sBatteryStatusLock:Ljava/lang/Object;
 
     return-void
 .end method
@@ -110,37 +133,37 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 150
+    .line 167
     const-string v0, "FakeShutdown"
 
     invoke-direct {p0, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
-    .line 90
+    .line 103
     iput-object v1, p0, Lcom/android/server/pm/FakeShutdown;->airplaneDoneSync:Ljava/lang/Object;
 
-    .line 91
+    .line 104
     iput-object v1, p0, Lcom/android/server/pm/FakeShutdown;->activitiesDoneSync:Ljava/lang/Object;
 
-    .line 92
+    .line 105
     iput-object v1, p0, Lcom/android/server/pm/FakeShutdown;->wakeupSync:Ljava/lang/Object;
 
-    .line 580
+    .line 760
     new-instance v0, Lcom/android/server/pm/FakeShutdown$5;
 
     invoke-direct {v0, p0}, Lcom/android/server/pm/FakeShutdown$5;-><init>(Lcom/android/server/pm/FakeShutdown;)V
 
     iput-object v0, p0, Lcom/android/server/pm/FakeShutdown;->autoPowerOffObserver:Landroid/os/UEventObserver;
 
-    .line 151
+    .line 168
     sput-object p1, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
-    .line 152
+    .line 169
     if-eqz p2, :cond_0
 
-    .line 153
+    .line 170
     sput-object p2, Lcom/android/server/pm/FakeShutdown;->shutdownAnim:Lcom/android/server/pm/ShutdownDialog;
 
-    .line 154
+    .line 171
     :cond_0
     return-void
 .end method
@@ -149,62 +172,83 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 93
     sget-object v0, Lcom/android/server/pm/FakeShutdown;->powerConnectedReceiver:Landroid/content/BroadcastReceiver;
 
     return-object v0
 .end method
 
-.method static synthetic access$100()I
+.method static synthetic access$100()Ljava/lang/Object;
     .locals 1
 
     .prologue
-    .line 81
+    .line 93
+    sget-object v0, Lcom/android/server/pm/FakeShutdown;->sBatteryStatusLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic access$200()I
+    .locals 1
+
+    .prologue
+    .line 93
     sget v0, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
 
     return v0
 .end method
 
-.method static synthetic access$102(I)I
+.method static synthetic access$202(I)I
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 81
+    .line 93
     sput p0, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
 
     return p0
 .end method
 
-.method static synthetic access$200(Lcom/android/server/pm/FakeShutdown;)Ljava/lang/Object;
+.method static synthetic access$300(Lcom/android/server/pm/FakeShutdown;)Ljava/lang/Object;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 81
+    .line 93
     iget-object v0, p0, Lcom/android/server/pm/FakeShutdown;->syncObj:Ljava/lang/Object;
 
     return-object v0
 .end method
 
-.method static synthetic access$300()Landroid/content/Context;
+.method static synthetic access$400()Landroid/content/Context;
     .locals 1
 
     .prologue
-    .line 81
+    .line 93
     sget-object v0, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$400()I
+.method static synthetic access$500()I
     .locals 1
 
     .prologue
-    .line 81
+    .line 93
     sget v0, Lcom/android/server/pm/FakeShutdown;->sState:I
 
     return v0
+.end method
+
+.method static synthetic access$600(Lcom/android/server/pm/FakeShutdown;)Landroid/media/MediaPlayer;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 93
+    iget-object v0, p0, Lcom/android/server/pm/FakeShutdown;->mp:Landroid/media/MediaPlayer;
+
+    return-object v0
 .end method
 
 .method public static addFakeConfirm(Landroid/content/Context;Landroid/app/AlertDialog;)V
@@ -213,7 +257,7 @@
     .parameter "dialog"
 
     .prologue
-    .line 530
+    .line 682
     return-void
 .end method
 
@@ -222,74 +266,116 @@
     .parameter "state"
 
     .prologue
-    .line 306
+    .line 425
     const-string v1, "FakeShutdown"
 
     const-string v2, "!@AirplaneMode"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 307
+    .line 426
     sget-object v1, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
     invoke-static {v1, p1}, Lcom/android/server/pm/FakeShutdown;->makeAirplaneModeIntent(Landroid/content/Context;I)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 308
+    .line 427
     .local v0, intent:Landroid/content/Intent;
     if-nez v0, :cond_0
 
-    .line 312
+    .line 432
     :goto_0
     return-void
 
-    .line 311
+    .line 431
     :cond_0
-    const-string v1, "AirplaneMode"
+    const-string v2, "AirplaneMode"
 
-    const/16 v2, 0xa
+    if-nez p1, :cond_1
 
+    const/4 v1, 0x2
+
+    :goto_1
     const/4 v3, 0x0
 
-    invoke-direct {p0, v0, v1, v2, v3}, Lcom/android/server/pm/FakeShutdown;->waitForIntentBrDone(Landroid/content/Intent;Ljava/lang/String;II)V
+    invoke-direct {p0, v0, v2, v1, v3}, Lcom/android/server/pm/FakeShutdown;->waitForIntentBrDone(Landroid/content/Intent;Ljava/lang/String;II)V
 
     goto :goto_0
+
+    :cond_1
+    const/16 v1, 0x14
+
+    goto :goto_1
 .end method
 
 .method private beginFakeShutdown()V
-    .locals 4
+    .locals 6
 
     .prologue
+    const/16 v5, 0x1f4
+
+    const/4 v4, 0x0
+
     const/4 v3, 0x1
 
-    .line 219
+    .line 267
     const-string v0, "FakeShutdown"
 
     const-string v1, "!@beginFakeShutdown, FAKE_STATE = DOWN_START"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 220
+    .line 268
     sget-object v1, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 221
+    .line 269
     const/4 v0, 0x1
 
     :try_start_0
     sput v0, Lcom/android/server/pm/FakeShutdown;->sState:I
 
-    .line 222
+    .line 270
+    const-string v0, "sys.fakeShutdown.state"
+
+    const-string v2, "power_off"
+
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 271
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 224
-    invoke-direct {p0, v3}, Lcom/android/server/pm/FakeShutdown;->setInputKeys(Z)V
+    .line 273
+    invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->prepareAutoPowerOffSound()V
 
-    .line 226
+    .line 274
+    sget-object v0, Lcom/android/server/pm/FakeShutdown;->shutdownAnim:Lcom/android/server/pm/ShutdownDialog;
+
+    invoke-direct {p0, v0}, Lcom/android/server/pm/FakeShutdown;->waitForAnimStart(Lcom/android/server/pm/ShutdownDialog;)V
+
+    .line 275
+    invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->killAllActivities()V
+
+    .line 278
+    sget-object v0, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "bluetooth_on"
+
+    invoke-static {v0, v1, v4}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/pm/FakeShutdown;->bluetoothOn:I
+
+    .line 282
     sget-object v0, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -298,34 +384,55 @@
 
     const-string v1, "airplane_mode_on"
 
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v0, v1, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
     sput v0, Lcom/android/server/pm/FakeShutdown;->oldAirplaneMode:I
 
-    .line 227
+    .line 283
     invoke-direct {p0, v3}, Lcom/android/server/pm/FakeShutdown;->airplaneMode(I)V
 
-    .line 228
-    invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->killAllActivities()V
+    .line 287
+    sget v0, Lcom/android/server/pm/FakeShutdown;->bluetoothOn:I
 
-    .line 229
+    if-ne v0, v3, :cond_0
+
+    .line 288
+    const-string v0, "FakeShutdown"
+
+    const-string v1, "!@ [p9p9] Settings.Secure.putInt - BLUETOOTH_ON 1"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 289
+    sget-object v0, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "bluetooth_on"
+
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    .line 293
+    :cond_0
     sget-object v0, Lcom/android/server/pm/FakeShutdown;->shutdownAnim:Lcom/android/server/pm/ShutdownDialog;
 
     invoke-direct {p0, v0}, Lcom/android/server/pm/FakeShutdown;->waitForAnimEnd(Lcom/android/server/pm/ShutdownDialog;)V
 
-    .line 230
+    .line 294
     sget-object v0, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/server/pm/FakeShutdown;->updateBatteryState(Landroid/content/Context;)V
 
-    .line 231
-    invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->resetShutdownThread()V
+    .line 296
+    const/16 v0, 0xb4
 
-    .line 232
+    invoke-direct {p0, v0}, Lcom/android/server/pm/FakeShutdown;->waitForPhoneOff(I)V
+
+    .line 297
     sget-object v0, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -338,27 +445,37 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 233
-    const/16 v0, 0x1f4
+    .line 298
+    invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->resetShutdownThread()V
 
-    invoke-direct {p0, v0, v3}, Lcom/android/server/pm/FakeShutdown;->vibrate(IZ)V
+    .line 299
+    sget-boolean v0, Lcom/android/server/pm/FakeShutdown;->mAutoPowerOff:Z
 
-    .line 234
+    if-eqz v0, :cond_1
+
+    .line 300
+    invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->playAutoPowerOffSound()V
+
+    .line 301
+    invoke-direct {p0, v5, v3}, Lcom/android/server/pm/FakeShutdown;->vibrate(IZ)V
+
+    .line 305
+    :goto_0
     invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->gotoSleepMode()V
 
-    .line 235
+    .line 306
     const-string v0, "FakeShutdown"
 
     const-string v1, "!@wait start for bootup animation finish"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 236
+    .line 307
     sget-object v1, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 238
+    .line 309
     :try_start_1
     sget-object v0, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
 
@@ -367,24 +484,24 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 241
-    :goto_0
+    .line 312
+    :goto_1
     :try_start_2
     monitor-exit v1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 242
+    .line 313
     const-string v0, "FakeShutdown"
 
     const-string v1, "!@finish wait bootup animation finish"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 243
+    .line 314
     return-void
 
-    .line 222
+    .line 271
     :catchall_0
     move-exception v0
 
@@ -395,7 +512,13 @@
 
     throw v0
 
-    .line 241
+    .line 303
+    :cond_1
+    invoke-direct {p0, v5, v3}, Lcom/android/server/pm/FakeShutdown;->vibrate(IZ)V
+
+    goto :goto_0
+
+    .line 312
     :catchall_1
     move-exception v0
 
@@ -406,219 +529,332 @@
 
     throw v0
 
-    .line 239
+    .line 310
     :catch_0
     move-exception v0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private beginFastboot()V
-    .locals 9
+    .locals 15
 
     .prologue
-    const/4 v8, 0x0
+    const/4 v12, 0x1
 
-    .line 157
-    const-string v6, "FakeShutdown"
+    const/4 v14, 0x0
 
-    const-string v7, "!@beginFastboot"
+    .line 174
+    const-string v10, "FakeShutdown"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v11, "!@beginFastboot"
 
-    .line 159
-    const/4 v6, 0x1
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {p0, v6}, Lcom/android/server/pm/FakeShutdown;->setInputKeys(Z)V
+    .line 176
+    invoke-static {v12}, Lcom/android/server/pm/ShutdownThread;->setInputKeys(Z)V
 
-    .line 161
-    const/16 v6, 0x1f4
+    .line 177
+    const/16 v10, 0x1f4
 
-    invoke-direct {p0, v6, v8}, Lcom/android/server/pm/FakeShutdown;->vibrate(IZ)V
+    invoke-direct {p0, v10, v14}, Lcom/android/server/pm/FakeShutdown;->vibrate(IZ)V
 
-    .line 162
-    iget-object v6, p0, Lcom/android/server/pm/FakeShutdown;->autoPowerOffObserver:Landroid/os/UEventObserver;
+    .line 178
+    iget-object v10, p0, Lcom/android/server/pm/FakeShutdown;->autoPowerOffObserver:Landroid/os/UEventObserver;
 
-    invoke-virtual {v6}, Landroid/os/UEventObserver;->stopObserving()V
+    invoke-virtual {v10}, Landroid/os/UEventObserver;->stopObserving()V
 
-    .line 165
-    sget-object v6, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+    .line 181
+    sget-object v10, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
-    const-string v7, "power"
+    const-string v11, "power"
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v10, v11}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/os/PowerManager;
+
+    .line 182
+    .local v9, pm:Landroid/os/PowerManager;
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v2
+
+    .line 183
+    .local v2, baseTime:J
+    const-wide/16 v10, 0x1
+
+    add-long/2addr v10, v2
+
+    invoke-virtual {v9, v10, v11, v14}, Landroid/os/PowerManager;->userActivity(JZ)V
+
+    .line 185
+    invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->lauchCamera()Z
+
+    move-result v5
+
+    .line 187
+    .local v5, cameraMode:Z
+    sget v10, Lcom/android/server/pm/FakeShutdown;->oldAirplaneMode:I
+
+    invoke-direct {p0, v10}, Lcom/android/server/pm/FakeShutdown;->airplaneMode(I)V
+
+    .line 188
+    const/4 v10, 0x2
+
+    sput v10, Lcom/android/server/pm/FakeShutdown;->oldAirplaneMode:I
+
+    .line 192
+    const-string v10, "bluetooth"
+
+    invoke-static {v10}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v10
+
+    invoke-static {v10}, Landroid/bluetooth/IBluetooth$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetooth;
 
     move-result-object v4
 
-    check-cast v4, Landroid/os/PowerManager;
+    .line 194
+    .local v4, bluetooth:Landroid/bluetooth/IBluetooth;
+    sget-object v10, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
-    .line 166
-    .local v4, pm:Landroid/os/PowerManager;
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-wide v0
+    move-result-object v10
 
-    .line 167
-    .local v0, baseTime:J
-    const-wide/16 v6, 0x1
+    const-string v11, "bluetooth_on"
 
-    add-long/2addr v6, v0
+    invoke-static {v10, v11, v14}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    invoke-virtual {v4, v6, v7, v8}, Landroid/os/PowerManager;->userActivity(JZ)V
+    move-result v10
 
-    .line 169
-    invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->lauchCamera()Z
+    sput v10, Lcom/android/server/pm/FakeShutdown;->bluetoothOn:I
 
-    move-result v2
-
-    .line 171
-    .local v2, cameraMode:Z
-    sget v6, Lcom/android/server/pm/FakeShutdown;->oldAirplaneMode:I
-
-    invoke-direct {p0, v6}, Lcom/android/server/pm/FakeShutdown;->airplaneMode(I)V
-
-    .line 172
-    const/4 v6, 0x2
-
-    sput v6, Lcom/android/server/pm/FakeShutdown;->oldAirplaneMode:I
-
-    .line 176
+    .line 198
     :try_start_0
-    new-instance v5, Ljava/io/BufferedWriter;
+    sget v10, Lcom/android/server/pm/FakeShutdown;->bluetoothOn:I
 
-    new-instance v6, Ljava/io/FileWriter;
+    if-ne v10, v12, :cond_0
 
-    const-string v7, "/sys/power/state/"
+    .line 199
+    const-string v10, "FakeShutdown"
 
-    invoke-direct {v6, v7}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;)V
+    const-string v11, "!@ [p9p9] bluetooth.enable();"
 
-    invoke-direct {v5, v6}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 177
-    .local v5, writer:Ljava/io/BufferedWriter;
-    const-string v6, "on"
-
-    invoke-virtual {v5, v6}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
-
-    .line 178
-    invoke-virtual {v5}, Ljava/io/BufferedWriter;->close()V
+    .line 200
+    invoke-interface {v4}, Landroid/bluetooth/IBluetooth;->enable()Z
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 185
-    .end local v5           #writer:Ljava/io/BufferedWriter;
+    .line 210
+    :cond_0
     :goto_0
-    sget-object v7, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
+    sget-object v11, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
 
-    monitor-enter v7
+    monitor-enter v11
 
-    .line 186
-    const/4 v6, 0x5
+    .line 211
+    const/4 v10, 0x5
 
     :try_start_1
-    sput v6, Lcom/android/server/pm/FakeShutdown;->sState:I
+    sput v10, Lcom/android/server/pm/FakeShutdown;->sState:I
 
-    .line 187
-    sget-object v6, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
+    .line 212
+    sget-object v10, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
 
-    invoke-virtual {v6}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {v10}, Ljava/lang/Object;->notifyAll()V
 
-    .line 188
-    monitor-exit v7
+    .line 213
+    monitor-exit v11
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 191
-    const-wide/16 v6, 0x5dc
+    .line 215
+    if-eqz v5, :cond_1
 
-    :try_start_2
-    invoke-static {v6, v7}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_2
-    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_1
-
-    .line 194
-    :goto_1
-    if-eqz v2, :cond_0
-
-    .line 195
+    .line 216
     invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->waitForCamera()V
 
-    .line 197
-    :cond_0
-    sget-object v6, Lcom/android/server/pm/FakeShutdown;->bootupAnim:Lcom/android/server/pm/ShutdownDialog;
+    .line 218
+    :cond_1
+    sget-object v10, Lcom/android/server/pm/FakeShutdown;->bootupAnim:Lcom/android/server/pm/ShutdownDialog;
 
-    invoke-direct {p0, v6}, Lcom/android/server/pm/FakeShutdown;->cancelDlg(Landroid/app/Dialog;)V
+    invoke-direct {p0, v10}, Lcom/android/server/pm/FakeShutdown;->cancelDlg(Landroid/app/Dialog;)V
 
-    .line 198
+    .line 219
     invoke-static {}, Lcom/android/server/pm/ShutdownThread;->releaseWakeLocks()V
 
-    .line 199
-    const-string v6, "FakeShutdown"
+    .line 222
+    sget-object v10, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
-    const-string v7, "!@FAKE_STATE = NOTHING"
+    const-string v11, "audio"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v10, v11}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 200
-    sget-object v7, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
+    move-result-object v1
 
-    monitor-enter v7
+    check-cast v1, Landroid/media/AudioManager;
 
-    .line 201
-    const/4 v6, 0x0
+    .line 223
+    .local v1, audioManager:Landroid/media/AudioManager;
+    const-string v10, "shutdown"
+
+    const-string v11, "0"
+
+    invoke-virtual {v1, v10, v11}, Landroid/media/AudioManager;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 227
+    :try_start_2
+    const-string v10, "alarm"
+
+    invoke-static {v10}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v10
+
+    invoke-static {v10}, Landroid/app/IAlarmManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IAlarmManager;
+
+    move-result-object v0
+
+    .line 228
+    .local v0, alarmManager:Landroid/app/IAlarmManager;
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    invoke-interface {v0, v10, v11}, Landroid/app/IAlarmManager;->shutdownTimeAfterFakeOff(ZI)I
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+
+    .line 233
+    .end local v0           #alarmManager:Landroid/app/IAlarmManager;
+    :goto_1
+    const-string v10, "FakeShutdown"
+
+    const-string v11, "!@FAKE_STATE = NOTHING"
+
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 234
+    sget-object v11, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
+
+    monitor-enter v11
+
+    .line 235
+    const/4 v10, 0x0
 
     :try_start_3
-    sput v6, Lcom/android/server/pm/FakeShutdown;->sState:I
+    sput v10, Lcom/android/server/pm/FakeShutdown;->sState:I
 
-    .line 202
-    monitor-exit v7
+    .line 236
+    const-string v10, "sys.fakeShutdown.state"
+
+    const-string v12, "power_on"
+
+    invoke-static {v10, v12}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 237
+    monitor-exit v11
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 203
-    invoke-direct {p0, v8}, Lcom/android/server/pm/FakeShutdown;->setInputKeys(Z)V
+    .line 244
+    const-string v10, "power"
 
-    .line 204
+    invoke-static {v10}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v10
+
+    invoke-static {v10}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
+
+    move-result-object v8
+
+    .line 247
+    .local v8, ipm:Landroid/os/IPowerManager;
+    :try_start_4
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v10
+
+    const/4 v12, 0x0
+
+    const/4 v13, 0x1
+
+    invoke-interface {v8, v10, v11, v12, v13}, Landroid/os/IPowerManager;->userActivityWithForce(JZZ)V
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_2
+
+    .line 251
+    :goto_2
+    invoke-static {v14}, Lcom/android/server/pm/ShutdownThread;->setInputKeys(Z)V
+
+    .line 252
     return-void
 
-    .line 179
+    .line 202
+    .end local v1           #audioManager:Landroid/media/AudioManager;
+    .end local v8           #ipm:Landroid/os/IPowerManager;
     :catch_0
-    move-exception v3
+    move-exception v7
 
-    .line 180
-    .local v3, ex:Ljava/io/IOException;
-    invoke-virtual {v3}, Ljava/io/IOException;->printStackTrace()V
+    .line 203
+    .local v7, ex:Landroid/os/RemoteException;
+    const-string v10, "FakeShutdown"
+
+    const-string v11, "!@RemoteException during bluetooth enable"
+
+    invoke-static {v10, v11, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 
-    .line 188
-    .end local v3           #ex:Ljava/io/IOException;
+    .line 213
+    .end local v7           #ex:Landroid/os/RemoteException;
     :catchall_0
-    move-exception v6
-
-    :try_start_4
-    monitor-exit v7
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    throw v6
-
-    .line 202
-    :catchall_1
-    move-exception v6
+    move-exception v10
 
     :try_start_5
-    monitor-exit v7
+    monitor-exit v11
     :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    throw v6
+    throw v10
 
-    .line 192
+    .line 229
+    .restart local v1       #audioManager:Landroid/media/AudioManager;
     :catch_1
     move-exception v6
 
+    .line 230
+    .local v6, e:Ljava/lang/Exception;
+    const-string v10, "FakeShutdown"
+
+    const-string v11, "!@is service dead?"
+
+    invoke-static {v10, v11, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
     goto :goto_1
+
+    .line 237
+    .end local v6           #e:Ljava/lang/Exception;
+    :catchall_1
+    move-exception v10
+
+    :try_start_6
+    monitor-exit v11
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+
+    throw v10
+
+    .line 248
+    .restart local v8       #ipm:Landroid/os/IPowerManager;
+    :catch_2
+    move-exception v10
+
+    goto :goto_2
 .end method
 
 .method public static bootup(Landroid/content/Context;)V
@@ -626,25 +862,25 @@
     .parameter "context"
 
     .prologue
-    .line 107
+    .line 124
     sget v2, Lcom/android/server/pm/FakeShutdown;->sState:I
 
     const/4 v3, 0x2
 
     if-eq v2, v3, :cond_0
 
-    .line 108
+    .line 125
     const-string v2, "FakeShutdown"
 
     const-string v3, "!@+++++++ duplicate fake bootup ++++++"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 136
+    .line 153
     :goto_0
     return-void
 
-    .line 113
+    .line 130
     :cond_0
     const-string v2, "power"
 
@@ -656,7 +892,7 @@
 
     move-result-object v1
 
-    .line 115
+    .line 132
     .local v1, powerManagerService:Landroid/os/IPowerManager;
     const/4 v2, 0x0
 
@@ -665,7 +901,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 120
+    .line 137
     :goto_1
     const-string v2, "FakeShutdown"
 
@@ -673,23 +909,23 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 121
+    .line 138
     sget-object v3, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 122
+    .line 139
     const/4 v2, 0x3
 
     :try_start_1
     sput v2, Lcom/android/server/pm/FakeShutdown;->sState:I
 
-    .line 123
+    .line 140
     monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 124
+    .line 141
     new-instance v2, Lcom/android/server/pm/FakeShutdown;
 
     sget-object v3, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
@@ -700,15 +936,15 @@
 
     sput-object v2, Lcom/android/server/pm/FakeShutdown;->sInstance:Lcom/android/server/pm/FakeShutdown;
 
-    .line 125
+    .line 142
     sput-object p0, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
-    .line 126
+    .line 143
     sget-object v2, Lcom/android/server/pm/FakeShutdown;->shutdownAnim:Lcom/android/server/pm/ShutdownDialog;
 
     sput-object v2, Lcom/android/server/pm/FakeShutdown;->bootupAnim:Lcom/android/server/pm/ShutdownDialog;
 
-    .line 127
+    .line 144
     new-instance v2, Ljava/io/File;
 
     const-string v3, "/system/media/video/shutdown/warmboot.qmg"
@@ -721,7 +957,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 133
+    .line 150
     :cond_1
     sget-object v2, Lcom/android/server/pm/FakeShutdown;->sInstance:Lcom/android/server/pm/FakeShutdown;
 
@@ -731,24 +967,24 @@
 
     iput-object v3, v2, Lcom/android/server/pm/FakeShutdown;->mHandler:Landroid/os/Handler;
 
-    .line 135
+    .line 152
     sget-object v2, Lcom/android/server/pm/FakeShutdown;->sInstance:Lcom/android/server/pm/FakeShutdown;
 
     invoke-virtual {v2}, Lcom/android/server/pm/FakeShutdown;->start()V
 
     goto :goto_0
 
-    .line 116
+    .line 133
     :catch_0
     move-exception v0
 
-    .line 117
+    .line 134
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_1
 
-    .line 123
+    .line 140
     .end local v0           #e:Landroid/os/RemoteException;
     :catchall_0
     move-exception v2
@@ -766,21 +1002,21 @@
     .parameter "dlg"
 
     .prologue
-    .line 442
+    .line 606
     if-nez p1, :cond_0
 
-    .line 443
+    .line 607
     const-string v0, "FakeShutdown"
 
     const-string v1, "anim dialog not exist"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 448
+    .line 612
     :goto_0
     return-void
 
-    .line 445
+    .line 609
     :cond_0
     const-string v0, "FakeShutdown"
 
@@ -788,7 +1024,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 446
+    .line 610
     invoke-virtual {p1}, Landroid/app/Dialog;->cancel()V
 
     goto :goto_0
@@ -798,7 +1034,7 @@
     .locals 1
 
     .prologue
-    .line 525
+    .line 677
     sget v0, Lcom/android/server/pm/FakeShutdown;->sState:I
 
     return v0
@@ -810,21 +1046,21 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 381
+    .line 545
     sget v3, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
 
     if-ne v3, v4, :cond_0
 
-    .line 382
+    .line 546
     sget-object v3, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
     invoke-static {v3}, Lcom/android/server/pm/ShutdownThread;->silentShutdown(Landroid/content/Context;)V
 
-    .line 418
+    .line 582
     :goto_0
     return-void
 
-    .line 387
+    .line 551
     :cond_0
     const-string v3, "FakeShutdown"
 
@@ -832,14 +1068,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 388
+    .line 552
     iget-object v3, p0, Lcom/android/server/pm/FakeShutdown;->autoPowerOffObserver:Landroid/os/UEventObserver;
 
     const-string v4, "PMEVENT=AutoPowerOff"
 
     invoke-virtual {v3, v4}, Landroid/os/UEventObserver;->startObserving(Ljava/lang/String;)V
 
-    .line 390
+    .line 554
     :try_start_0
     const-string v3, "alarm"
 
@@ -851,15 +1087,17 @@
 
     move-result-object v0
 
-    .line 391
+    .line 555
     .local v0, alarmManager:Landroid/app/IAlarmManager;
-    const/16 v3, 0x5a0
+    const/4 v3, 0x1
 
-    invoke-interface {v0, v3}, Landroid/app/IAlarmManager;->shutdownTimeAfterFakeOff(I)I
+    const/16 v4, 0x5a0
+
+    invoke-interface {v0, v3, v4}, Landroid/app/IAlarmManager;->shutdownTimeAfterFakeOff(ZI)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 397
+    .line 561
     .end local v0           #alarmManager:Landroid/app/IAlarmManager;
     :goto_1
     const-string v3, "FakeShutdown"
@@ -868,7 +1106,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 398
+    .line 562
     const-string v3, "power"
 
     invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -879,7 +1117,7 @@
 
     move-result-object v2
 
-    .line 400
+    .line 564
     .local v2, powerManagerService:Landroid/os/IPowerManager;
     const/4 v3, 0x1
 
@@ -888,25 +1126,25 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 405
+    .line 569
     :goto_2
     const/4 v3, 0x0
 
-    invoke-direct {p0, v3}, Lcom/android/server/pm/FakeShutdown;->setInputKeys(Z)V
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThread;->setInputKeys(Z)V
 
-    .line 407
+    .line 571
     const-string v3, "FakeShutdown"
 
     const-string v4, "!@gotoSleepMode"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 408
+    .line 572
     sget-object v4, Lcom/android/server/pm/FakeShutdown;->sFakeStateGuard:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 409
+    .line 573
     :try_start_2
     const-string v3, "FakeShutdown"
 
@@ -914,17 +1152,17 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 410
+    .line 574
     const/4 v3, 0x2
 
     sput v3, Lcom/android/server/pm/FakeShutdown;->sState:I
 
-    .line 411
+    .line 575
     monitor-exit v4
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 413
+    .line 577
     :try_start_3
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -934,7 +1172,7 @@
 
     invoke-interface {v2, v3, v4, v5}, Landroid/os/IPowerManager;->goToSleepWithReason(JI)V
 
-    .line 414
+    .line 578
     const-wide/16 v3, 0x7d0
 
     invoke-static {v3, v4}, Ljava/lang/Thread;->sleep(J)V
@@ -943,11 +1181,11 @@
 
     goto :goto_0
 
-    .line 415
+    .line 579
     :catch_0
     move-exception v1
 
-    .line 416
+    .line 580
     .local v1, e:Ljava/lang/Exception;
     const-string v3, "FakeShutdown"
 
@@ -957,13 +1195,13 @@
 
     goto :goto_0
 
-    .line 392
+    .line 556
     .end local v1           #e:Ljava/lang/Exception;
     .end local v2           #powerManagerService:Landroid/os/IPowerManager;
     :catch_1
     move-exception v1
 
-    .line 393
+    .line 557
     .restart local v1       #e:Ljava/lang/Exception;
     const-string v3, "FakeShutdown"
 
@@ -973,19 +1211,19 @@
 
     goto :goto_1
 
-    .line 401
+    .line 565
     .end local v1           #e:Ljava/lang/Exception;
     .restart local v2       #powerManagerService:Landroid/os/IPowerManager;
     :catch_2
     move-exception v1
 
-    .line 402
+    .line 566
     .local v1, e:Landroid/os/RemoteException;
     invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_2
 
-    .line 411
+    .line 575
     .end local v1           #e:Landroid/os/RemoteException;
     :catchall_0
     move-exception v3
@@ -1002,7 +1240,7 @@
     .locals 1
 
     .prologue
-    .line 521
+    .line 673
     sget v0, Lcom/android/server/pm/FakeShutdown;->sState:I
 
     if-eqz v0, :cond_0
@@ -1019,250 +1257,496 @@
 .end method
 
 .method private killAllActivities()V
-    .locals 8
+    .locals 15
 
     .prologue
-    .line 331
-    const-string v5, "FakeShutdown"
+    const/4 v14, 0x1
 
-    const-string v6, "killAllActivities"
+    .line 453
+    const-string v11, "FakeShutdown"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v12, "!@am.goingToSleep"
 
-    .line 332
-    sget-object v5, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v6, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+    .line 454
+    const-string v11, "activity"
 
-    const-string v6, "activity"
+    invoke-static {v11}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object v11
+
+    invoke-static {v11}, Landroid/app/ActivityManagerNative;->asInterface(Landroid/os/IBinder;)Landroid/app/IActivityManager;
+
+    move-result-object v5
+
+    .line 456
+    .local v5, iam:Landroid/app/IActivityManager;
+    if-eqz v5, :cond_0
+
+    .line 458
+    const/16 v11, 0x2710
+
+    :try_start_0
+    invoke-interface {v5, v11}, Landroid/app/IActivityManager;->shutdown(I)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 464
+    :cond_0
+    :goto_0
+    const-string v11, "FakeShutdown"
+
+    const-string v12, "create fakeActivity"
+
+    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 465
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v11, "android.intent.action.ACTION_REQUEST_SHUTDOWN"
+
+    invoke-direct {v1, v11}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 466
+    .local v1, fakeActivity:Landroid/content/Intent;
+    const-string v11, "fake"
+
+    invoke-virtual {v1, v11, v14}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 467
+    const/high16 v11, 0x1000
+
+    invoke-virtual {v1, v11}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    .line 468
+    sget-object v11, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v11, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    .line 470
+    sget-object v11, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+
+    sget-object v12, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+
+    const-string v12, "activity"
+
+    invoke-virtual {v11, v12}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/ActivityManager;
 
-    .line 333
-    .local v0, actM:Landroid/app/ActivityManager;
-    const-string v5, "com.sec.android.app.camera"
+    .line 474
+    .local v0, am:Landroid/app/ActivityManager;
+    const-string v11, "FakeShutdown"
 
-    invoke-virtual {v0, v5}, Landroid/app/ActivityManager;->forceStopPackage(Ljava/lang/String;)V
+    const-string v12, "!@killRunningActivities"
 
-    .line 335
-    const-string v5, "FakeShutdown"
+    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v6, "!@killRunningActivities"
+    .line 475
+    const/16 v11, 0x64
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v11}, Landroid/app/ActivityManager;->getRunningTasks(I)Ljava/util/List;
 
-    .line 336
-    sget-object v5, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+    move-result-object v10
 
-    sget-object v6, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+    .line 476
+    .local v10, runningTaskInfo:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
+    if-eqz v10, :cond_5
 
-    const-string v6, "activity"
-
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/ActivityManager;
-
-    .line 337
-    .local v1, am:Landroid/app/ActivityManager;
-    const/16 v5, 0x64
-
-    invoke-virtual {v1, v5}, Landroid/app/ActivityManager;->getRunningTasks(I)Ljava/util/List;
+    .line 477
+    invoke-interface {v10}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    .line 338
-    .local v4, runningTaskInfo:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
-    if-eqz v4, :cond_2
+    .local v4, i$:Ljava/util/Iterator;
+    :cond_1
+    :goto_1
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    .line 339
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    move-result v11
+
+    if-eqz v11, :cond_5
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    .local v3, i$:Ljava/util/Iterator;
-    :cond_0
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v3, Landroid/app/ActivityManager$RunningTaskInfo;
 
-    move-result v5
+    .line 478
+    .local v3, i:Landroid/app/ActivityManager$RunningTaskInfo;
+    iget v11, v3, Landroid/app/ActivityManager$RunningTaskInfo;->numRunning:I
 
-    if-eqz v5, :cond_2
+    if-lez v11, :cond_1
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 479
+    iget-boolean v11, v3, Landroid/app/ActivityManager$RunningTaskInfo;->isHomeType:Z
+
+    if-eqz v11, :cond_2
+
+    .line 480
+    const-string v11, "FakeShutdown"
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v13, "skip hometask :"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    iget-object v13, v3, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v13}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 482
+    :cond_2
+    iget-object v11, v3, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v11}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v11
+
+    const-string v12, "android"
+
+    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_3
+
+    .line 483
+    const-string v11, "FakeShutdown"
+
+    const-string v12, "skip android framework package"
+
+    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 485
+    :cond_3
+    iget-object v11, v3, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v11}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v11
+
+    iget-object v12, v3, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v12}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_4
+
+    .line 486
+    const-string v11, "FakeShutdown"
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v13, "i.topActivity.getPackageName() = "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    iget-object v13, v3, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v13}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 487
+    iget-object v11, v3, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v11}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v0, v11}, Landroid/app/ActivityManager;->forceStopPackage(Ljava/lang/String;)V
+
+    goto/16 :goto_1
+
+    .line 489
+    :cond_4
+    const-string v11, "FakeShutdown"
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v13, "i.topActivity.getPackageName() = "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    iget-object v13, v3, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v13}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 490
+    const-string v11, "FakeShutdown"
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v13, "i.baseActivity.getPackageName() = "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    iget-object v13, v3, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v13}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 491
+    iget-object v11, v3, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v11}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v0, v11}, Landroid/app/ActivityManager;->forceStopPackage(Ljava/lang/String;)V
+
+    .line 492
+    iget-object v11, v3, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v11}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v0, v11}, Landroid/app/ActivityManager;->forceStopPackage(Ljava/lang/String;)V
+
+    goto/16 :goto_1
+
+    .line 498
+    .end local v3           #i:Landroid/app/ActivityManager$RunningTaskInfo;
+    .end local v4           #i$:Ljava/util/Iterator;
+    :cond_5
+    const-string v11, "FakeShutdown"
+
+    const-string v12, "!@RemoveRecentTasks"
+
+    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 499
+    const/16 v11, 0x14
+
+    const/4 v12, 0x2
+
+    invoke-virtual {v0, v11, v12}, Landroid/app/ActivityManager;->getRecentTasks(II)Ljava/util/List;
+
+    move-result-object v9
+
+    .line 501
+    .local v9, recentTasks:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RecentTaskInfo;>;"
+    if-eqz v9, :cond_7
+
+    .line 502
+    invoke-interface {v9}, Ljava/util/List;->size()I
+
+    move-result v7
+
+    .line 503
+    .local v7, numTasks:I
+    if-eqz v7, :cond_7
+
+    .line 504
+    sget-object v11, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v11}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v8
+
+    .line 505
+    .local v8, pm:Landroid/content/pm/PackageManager;
+    new-instance v11, Landroid/content/Intent;
+
+    const-string v12, "android.intent.action.MAIN"
+
+    invoke-direct {v11, v12}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string v12, "android.intent.category.HOME"
+
+    invoke-virtual {v11, v12}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v11
+
+    const/4 v12, 0x0
+
+    invoke-virtual {v11, v8, v12}, Landroid/content/Intent;->resolveActivityInfo(Landroid/content/pm/PackageManager;I)Landroid/content/pm/ActivityInfo;
 
     move-result-object v2
 
-    check-cast v2, Landroid/app/ActivityManager$RunningTaskInfo;
+    .line 507
+    .local v2, homeInfo:Landroid/content/pm/ActivityInfo;
+    const/4 v6, 0x1
 
-    .line 340
-    .local v2, i:Landroid/app/ActivityManager$RunningTaskInfo;
-    iget v5, v2, Landroid/app/ActivityManager$RunningTaskInfo;->numRunning:I
+    .local v6, j:I
+    :goto_2
+    if-ge v6, v7, :cond_7
 
-    if-lez v5, :cond_0
+    .line 509
+    if-eqz v2, :cond_6
 
-    .line 341
-    iget-object v5, v2, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
+    iget-object v12, v2, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-interface {v9, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v11
 
-    const-string v6, "com.sec.android.app.launcher"
+    check-cast v11, Landroid/app/ActivityManager$RecentTaskInfo;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v11, v11, Landroid/app/ActivityManager$RecentTaskInfo;->baseIntent:Landroid/content/Intent;
 
-    move-result v5
+    invoke-virtual {v11}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    if-nez v5, :cond_0
+    move-result-object v11
 
-    .line 343
-    iget-object v5, v2, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
+    invoke-virtual {v11}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    move-result-object v11
 
-    move-result-object v5
+    invoke-virtual {v12, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v6, v2, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
+    move-result v11
 
-    invoke-virtual {v6}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    if-eqz v11, :cond_6
 
-    move-result-object v6
+    iget-object v12, v2, Landroid/content/pm/ComponentInfo;->name:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v9, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result v5
+    move-result-object v11
 
-    if-eqz v5, :cond_1
+    check-cast v11, Landroid/app/ActivityManager$RecentTaskInfo;
 
-    .line 344
-    const-string v5, "FakeShutdown"
+    iget-object v11, v11, Landroid/app/ActivityManager$RecentTaskInfo;->baseIntent:Landroid/content/Intent;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-virtual {v11}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v11
 
-    const-string v7, "i.topActivity.getPackageName() = "
+    invoke-virtual {v11}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v6
+    invoke-virtual {v12, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v7, v2, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
+    move-result v11
 
-    invoke-virtual {v7}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    if-eqz v11, :cond_6
 
-    move-result-object v7
+    .line 512
+    const-string v11, "FakeShutdown"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v12, "Don\'t remove homeActivity"
 
-    move-result-object v6
+    invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 507
+    :goto_3
+    add-int/lit8 v6, v6, 0x1
 
-    move-result-object v6
+    goto :goto_2
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    .line 515
+    :cond_6
+    invoke-interface {v9, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    .line 345
-    iget-object v5, v2, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
+    move-result-object v11
 
-    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    check-cast v11, Landroid/app/ActivityManager$RecentTaskInfo;
 
-    move-result-object v5
+    iget v11, v11, Landroid/app/ActivityManager$RecentTaskInfo;->persistentId:I
 
-    invoke-virtual {v1, v5}, Landroid/app/ActivityManager;->forceStopPackage(Ljava/lang/String;)V
+    invoke-virtual {v0, v11, v14}, Landroid/app/ActivityManager;->removeTask(II)Z
 
-    goto :goto_0
+    goto :goto_3
 
-    .line 347
-    :cond_1
-    const-string v5, "FakeShutdown"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "i.topActivity.getPackageName() = "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    iget-object v7, v2, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v7}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 348
-    const-string v5, "FakeShutdown"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "i.baseActivity.getPackageName() = "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    iget-object v7, v2, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v7}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 349
-    iget-object v5, v2, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v1, v5}, Landroid/app/ActivityManager;->forceStopPackage(Ljava/lang/String;)V
-
-    .line 350
-    iget-object v5, v2, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v1, v5}, Landroid/app/ActivityManager;->forceStopPackage(Ljava/lang/String;)V
+    .line 459
+    .end local v0           #am:Landroid/app/ActivityManager;
+    .end local v1           #fakeActivity:Landroid/content/Intent;
+    .end local v2           #homeInfo:Landroid/content/pm/ActivityInfo;
+    .end local v6           #j:I
+    .end local v7           #numTasks:I
+    .end local v8           #pm:Landroid/content/pm/PackageManager;
+    .end local v9           #recentTasks:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RecentTaskInfo;>;"
+    .end local v10           #runningTaskInfo:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
+    :catch_0
+    move-exception v11
 
     goto/16 :goto_0
 
-    .line 355
-    .end local v2           #i:Landroid/app/ActivityManager$RunningTaskInfo;
-    .end local v3           #i$:Ljava/util/Iterator;
-    :cond_2
+    .line 519
+    .restart local v0       #am:Landroid/app/ActivityManager;
+    .restart local v1       #fakeActivity:Landroid/content/Intent;
+    .restart local v9       #recentTasks:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RecentTaskInfo;>;"
+    .restart local v10       #runningTaskInfo:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
+    :cond_7
     return-void
 .end method
 
@@ -1272,10 +1756,10 @@
     .prologue
     const/4 v10, 0x1
 
-    .line 252
+    .line 338
     const/4 v0, 0x1
 
-    .line 254
+    .line 340
     .local v0, cameraMode:Z
     :try_start_0
     sget-object v7, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
@@ -1288,7 +1772,7 @@
 
     move-result-object v5
 
-    .line 255
+    .line 341
     .local v5, myContext:Landroid/content/Context;
     const-string v7, "di_test_prefs"
 
@@ -1298,7 +1782,7 @@
 
     move-result-object v4
 
-    .line 256
+    .line 342
     .local v4, mPrefs:Landroid/content/SharedPreferences;
     const-string v7, "camera_auto_start_key"
 
@@ -1308,7 +1792,7 @@
 
     move-result-object v6
 
-    .line 257
+    .line 343
     .local v6, valueCameraAutoStartKey:Ljava/lang/String;
     const-string v7, "ON"
 
@@ -1321,10 +1805,10 @@
 
     if-eqz v7, :cond_0
 
-    .line 258
+    .line 344
     const/4 v0, 0x1
 
-    .line 268
+    .line 354
     .end local v4           #mPrefs:Landroid/content/SharedPreferences;
     .end local v5           #myContext:Landroid/content/Context;
     .end local v6           #valueCameraAutoStartKey:Ljava/lang/String;
@@ -1337,28 +1821,28 @@
 
     invoke-direct {v2, v7, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 269
+    .line 355
     .local v2, intent:Landroid/content/Intent;
     const-string v7, "android.intent.action.MAIN"
 
     invoke-virtual {v2, v7}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 270
+    .line 356
     const/high16 v7, 0x1000
 
     invoke-virtual {v2, v7}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 271
+    .line 357
     if-eqz v0, :cond_1
 
-    .line 272
+    .line 358
     const-string v7, "FakeShutdown"
 
     const-string v8, "!@launch camera"
 
     invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 273
+    .line 359
     new-instance v3, Landroid/content/ComponentName;
 
     const-string v7, "com.sec.android.app.camera"
@@ -1367,26 +1851,31 @@
 
     invoke-direct {v3, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 274
+    .line 360
     .local v3, mNewComponent:Landroid/content/ComponentName;
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 275
+    .line 361
     const-string v7, "from-am"
 
     invoke-virtual {v2, v7, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 281
+    .line 362
+    const-string v7, "android.intent.category.LAUNCHER"
+
+    invoke-virtual {v2, v7}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 368
     .end local v3           #mNewComponent:Landroid/content/ComponentName;
     :goto_1
     sget-object v7, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
     invoke-virtual {v7, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 282
+    .line 369
     return v0
 
-    .line 260
+    .line 346
     .end local v2           #intent:Landroid/content/Intent;
     .restart local v4       #mPrefs:Landroid/content/SharedPreferences;
     .restart local v5       #myContext:Landroid/content/Context;
@@ -1396,14 +1885,14 @@
 
     goto :goto_0
 
-    .line 262
+    .line 348
     .end local v4           #mPrefs:Landroid/content/SharedPreferences;
     .end local v5           #myContext:Landroid/content/Context;
     .end local v6           #valueCameraAutoStartKey:Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 263
+    .line 349
     .local v1, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v7, "FakeShutdown"
 
@@ -1413,12 +1902,12 @@
 
     goto :goto_0
 
-    .line 264
+    .line 350
     .end local v1           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :catch_1
     move-exception v1
 
-    .line 265
+    .line 351
     .local v1, e:Ljava/lang/SecurityException;
     const-string v7, "FakeShutdown"
 
@@ -1428,7 +1917,7 @@
 
     goto :goto_0
 
-    .line 277
+    .line 364
     .end local v1           #e:Ljava/lang/SecurityException;
     .restart local v2       #intent:Landroid/content/Intent;
     :cond_1
@@ -1438,7 +1927,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 278
+    .line 365
     const-string v7, "android.intent.category.HOME"
 
     invoke-virtual {v2, v7}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
@@ -1454,7 +1943,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 291
+    .line 378
     const-string v3, "FakeShutdown"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1477,7 +1966,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 293
+    .line 381
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -1488,7 +1977,7 @@
 
     move-result v0
 
-    .line 294
+    .line 382
     .local v0, currentState:I
     if-ne p1, v0, :cond_0
 
@@ -1498,7 +1987,7 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 295
+    .line 383
     const-string v2, "FakeShutdown"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1531,21 +2020,21 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 296
+    .line 384
     const-string v2, "FakeShutdown"
 
     const-string v3, "already airplane state you want"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 297
+    .line 385
     const/4 v1, 0x0
 
-    .line 302
+    .line 391
     :goto_0
     return-object v1
 
-    .line 299
+    .line 388
     :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1555,14 +2044,14 @@
 
     invoke-static {v3, v4, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 300
+    .line 389
     new-instance v1, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.AIRPLANE_MODE"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 301
+    .line 390
     .local v1, intent:Landroid/content/Intent;
     const-string v3, "state"
 
@@ -1579,143 +2068,204 @@
     goto :goto_1
 .end method
 
-.method public static needFake(Landroid/content/Context;)Z
-    .locals 4
+.method public static needFake(Landroid/content/Context;ZZZLjava/lang/String;)Z
+    .locals 6
     .parameter "context"
+    .parameter "reboot"
+    .parameter "silent"
+    .parameter "confirm"
+    .parameter "reason"
 
     .prologue
-    const/4 v0, 0x0
+    const/4 v5, 0x1
 
-    .line 562
+    const/4 v1, 0x0
+
+    .line 715
+    if-nez p1, :cond_0
+
+    if-nez p2, :cond_0
+
+    if-nez p3, :cond_1
+
+    const-string v2, "AutoPowerOff"
+
+    invoke-virtual {v2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    .line 756
+    :cond_0
+    :goto_0
+    return v1
+
+    .line 719
+    :cond_1
+    const-string v2, "AutoPowerOff"
+
+    invoke-virtual {v2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    .line 720
+    sput-boolean v5, Lcom/android/server/pm/FakeShutdown;->mAutoPowerOff:Z
+
+    .line 724
+    :goto_1
+    invoke-static {p0}, Lcom/android/server/pm/FakeShutdown;->updateBatteryState(Landroid/content/Context;)V
+
+    .line 726
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "fast_power_on"
+    const-string v3, "device_provisioned"
 
-    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 576
-    :goto_0
-    return v0
-
-    .line 567
-    :cond_0
-    const/4 v0, 0x0
-
-    .line 568
-    .local v0, fake:Z
-    sget v1, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
-
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_1
-
-    .line 569
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    .line 570
-    :cond_1
-    sget v1, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
-
-    if-nez v1, :cond_2
-
-    .line 571
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    .line 573
-    :cond_2
-    const-string v1, "FakeShutdown"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "unknown power connected status"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 730
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    sget v3, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
+    const-string v3, "fast_power_on"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result-object v2
+    move-result v2
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eqz v2, :cond_0
 
-    move-result-object v2
+    .line 735
+    sget-object v3, Lcom/android/server/pm/FakeShutdown;->sBatteryStatusLock:Ljava/lang/Object;
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    monitor-enter v3
 
-    .line 574
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method private resetShutdownThread()V
-    .locals 2
-
-    .prologue
-    .line 246
-    const-string v0, "FakeShutdown"
-
-    const-string v1, "!@prepareScreenOn"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 247
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->resetVars()V
-
-    .line 248
-    invoke-static {}, Lcom/android/server/pm/ShutdownThread$Log;->stopState()V
-
-    .line 249
-    return-void
-.end method
-
-.method private setInputKeys(Z)V
-    .locals 5
-    .parameter "bool"
-
-    .prologue
-    .line 509
-    const-string v2, "input"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/hardware/input/IInputManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/input/IInputManager;
-
-    move-result-object v1
-
-    .line 512
-    .local v1, im:Landroid/hardware/input/IInputManager;
+    .line 736
     :try_start_0
+    sget v2, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
+
+    const/4 v4, 0x2
+
+    if-ne v2, v4, :cond_2
+
+    .line 737
+    const-string v2, "FakeShutdown"
+
+    const-string v4, "!@wait for charge connected check"
+
+    invoke-static {v2, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 739
+    :try_start_1
+    sget-object v2, Lcom/android/server/pm/FakeShutdown;->sBatteryStatusLock:Ljava/lang/Object;
+
+    invoke-virtual {v2}, Ljava/lang/Object;->wait()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
+
+    .line 743
+    :goto_2
+    :try_start_2
+    const-string v2, "FakeShutdown"
+
+    const-string v4, "!@finish charge connected check"
+
+    invoke-static {v2, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 745
+    :cond_2
+    monitor-exit v3
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    .line 747
+    const/4 v1, 0x0
+
+    .line 748
+    .local v1, fake:Z
+    sget v2, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
+
+    if-ne v2, v5, :cond_4
+
+    .line 749
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    .line 722
+    .end local v1           #fake:Z
+    :cond_3
+    sput-boolean v1, Lcom/android/server/pm/FakeShutdown;->mAutoPowerOff:Z
+
+    goto :goto_1
+
+    .line 740
+    :catch_0
+    move-exception v0
+
+    .line 741
+    .local v0, e:Ljava/lang/InterruptedException;
+    :try_start_3
+    const-string v2, "FakeShutdown"
+
+    const-string v4, "sBatteryStatusLock.wait()"
+
+    invoke-static {v2, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
+
+    .line 745
+    .end local v0           #e:Ljava/lang/InterruptedException;
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v3
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    throw v2
+
+    .line 750
+    .restart local v1       #fake:Z
+    :cond_4
+    sget v2, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
+
+    if-nez v2, :cond_5
+
+    .line 751
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    .line 753
+    :cond_5
     const-string v2, "FakeShutdown"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "setStartedShutdown to "
+    const-string v4, "unknown power connected status"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    sget v4, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -1723,33 +2273,295 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 513
-    invoke-interface {v1, p1}, Landroid/hardware/input/IInputManager;->setStartedShutdown(Z)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .line 754
+    const/4 v1, 0x0
 
-    .line 518
+    goto :goto_0
+.end method
+
+.method private playAutoPowerOffSound()V
+    .locals 1
+
+    .prologue
+    .line 794
+    iget-object v0, p0, Lcom/android/server/pm/FakeShutdown;->soundThread:Ljava/lang/Thread;
+
+    if-eqz v0, :cond_0
+
+    sget-boolean v0, Lcom/android/server/pm/FakeShutdown;->mAutoPowerOff:Z
+
+    if-eqz v0, :cond_0
+
+    .line 795
+    iget-object v0, p0, Lcom/android/server/pm/FakeShutdown;->soundThread:Ljava/lang/Thread;
+
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    .line 797
+    :cond_0
+    return-void
+.end method
+
+.method private prepareAutoPowerOffSound()V
+    .locals 10
+
+    .prologue
+    const/4 v9, 0x1
+
+    .line 802
+    const-string v5, "//system/media/audio/ui/AutoPoweroff.ogg"
+
+    .line 803
+    .local v5, soundPath:Ljava/lang/String;
+    new-instance v2, Ljava/io/File;
+
+    invoke-direct {v2, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 804
+    .local v2, f:Ljava/io/File;
+    sget-boolean v7, Lcom/android/server/pm/FakeShutdown;->mAutoPowerOff:Z
+
+    if-eqz v7, :cond_0
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Ljava/io/File;->isFile()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_0
+
+    .line 805
+    sget-object v7, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
+
+    const-string v8, "audio"
+
+    invoke-virtual {v7, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/media/AudioManager;
+
+    .line 806
+    .local v0, audioManager:Landroid/media/AudioManager;
+    invoke-virtual {v0, v9}, Landroid/media/AudioManager;->getStreamVolume(I)I
+
+    move-result v6
+
+    .line 807
+    .local v6, volume:I
+    if-gez v6, :cond_1
+
+    .line 808
+    const-string v7, "FakeShutdown"
+
+    const-string v8, "!@Volume is not enough"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 857
+    .end local v0           #audioManager:Landroid/media/AudioManager;
+    .end local v6           #volume:I
+    :cond_0
     :goto_0
     return-void
 
-    .line 514
-    :catch_0
-    move-exception v0
+    .line 812
+    .restart local v0       #audioManager:Landroid/media/AudioManager;
+    .restart local v6       #volume:I
+    :cond_1
+    const/4 v3, 0x0
 
-    .line 515
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v2, "FakeShutdown"
+    .line 814
+    .local v3, fis:Ljava/io/FileInputStream;
+    :try_start_0
+    new-instance v7, Landroid/media/MediaPlayer;
 
-    const-string v3, "error occur while input disable"
+    invoke-direct {v7}, Landroid/media/MediaPlayer;-><init>()V
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    iput-object v7, p0, Lcom/android/server/pm/FakeShutdown;->mp:Landroid/media/MediaPlayer;
 
-    .line 516
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 815
+    new-instance v4, Ljava/io/FileInputStream;
+
+    invoke-direct {v4, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 816
+    .end local v3           #fis:Ljava/io/FileInputStream;
+    .local v4, fis:Ljava/io/FileInputStream;
+    :try_start_1
+    iget-object v7, p0, Lcom/android/server/pm/FakeShutdown;->mp:Landroid/media/MediaPlayer;
+
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->getFD()Ljava/io/FileDescriptor;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Landroid/media/MediaPlayer;->setDataSource(Ljava/io/FileDescriptor;)V
+
+    .line 817
+    iget-object v7, p0, Lcom/android/server/pm/FakeShutdown;->mp:Landroid/media/MediaPlayer;
+
+    const/4 v8, 0x1
+
+    invoke-virtual {v7, v8}, Landroid/media/MediaPlayer;->setAudioStreamType(I)V
+
+    .line 818
+    iget-object v7, p0, Lcom/android/server/pm/FakeShutdown;->mp:Landroid/media/MediaPlayer;
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v7, v8}, Landroid/media/MediaPlayer;->setLooping(Z)V
+
+    .line 819
+    iget-object v7, p0, Lcom/android/server/pm/FakeShutdown;->mp:Landroid/media/MediaPlayer;
+
+    invoke-virtual {v7}, Landroid/media/MediaPlayer;->prepare()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
+
+    .line 828
+    if-eqz v4, :cond_2
+
+    .line 829
+    :try_start_2
+    invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
+
+    .line 833
+    :cond_2
+    :goto_1
+    new-instance v7, Ljava/lang/Thread;
+
+    new-instance v8, Lcom/android/server/pm/FakeShutdown$6;
+
+    invoke-direct {v8, p0}, Lcom/android/server/pm/FakeShutdown$6;-><init>(Lcom/android/server/pm/FakeShutdown;)V
+
+    invoke-direct {v7, v8}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    iput-object v7, p0, Lcom/android/server/pm/FakeShutdown;->soundThread:Ljava/lang/Thread;
 
     goto :goto_0
+
+    .line 820
+    .end local v4           #fis:Ljava/io/FileInputStream;
+    .restart local v3       #fis:Ljava/io/FileInputStream;
+    :catch_0
+    move-exception v1
+
+    .line 821
+    .local v1, e:Ljava/lang/Exception;
+    :goto_2
+    :try_start_3
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 822
+    const-string v7, "FakeShutdown"
+
+    const-string v8, "!@MediaPlayer exception raised. SoundThread is not started !"
+
+    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    .line 828
+    if-eqz v3, :cond_0
+
+    .line 829
+    :try_start_4
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
+
+    goto :goto_0
+
+    .line 830
+    :catch_1
+    move-exception v7
+
+    goto :goto_0
+
+    .line 827
+    .end local v1           #e:Ljava/lang/Exception;
+    :catchall_0
+    move-exception v7
+
+    .line 828
+    :goto_3
+    if-eqz v3, :cond_3
+
+    .line 829
+    :try_start_5
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
+
+    .line 827
+    :cond_3
+    :goto_4
+    throw v7
+
+    .line 830
+    :catch_2
+    move-exception v8
+
+    goto :goto_4
+
+    .end local v3           #fis:Ljava/io/FileInputStream;
+    .restart local v4       #fis:Ljava/io/FileInputStream;
+    :catch_3
+    move-exception v7
+
+    goto :goto_1
+
+    .line 827
+    :catchall_1
+    move-exception v7
+
+    move-object v3, v4
+
+    .end local v4           #fis:Ljava/io/FileInputStream;
+    .restart local v3       #fis:Ljava/io/FileInputStream;
+    goto :goto_3
+
+    .line 820
+    .end local v3           #fis:Ljava/io/FileInputStream;
+    .restart local v4       #fis:Ljava/io/FileInputStream;
+    :catch_4
+    move-exception v1
+
+    move-object v3, v4
+
+    .end local v4           #fis:Ljava/io/FileInputStream;
+    .restart local v3       #fis:Ljava/io/FileInputStream;
+    goto :goto_2
+.end method
+
+.method private resetShutdownThread()V
+    .locals 2
+
+    .prologue
+    .line 317
+    const-string v0, "FakeShutdown"
+
+    const-string v1, "!@prepareScreenOn"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 318
+    invoke-static {}, Lcom/android/server/pm/ShutdownThread;->resetVars()V
+
+    .line 319
+    invoke-static {}, Lcom/android/server/pm/ShutdownThread$Log;->stopState()V
+
+    .line 320
+    return-void
 .end method
 
 .method public static updateBatteryState(Landroid/content/Context;)V
@@ -1757,12 +2569,12 @@
     .parameter "context"
 
     .prologue
-    .line 556
+    .line 708
     const/4 v0, 0x2
 
     sput v0, Lcom/android/server/pm/FakeShutdown;->powerConnected:I
 
-    .line 557
+    .line 709
     sget-object v0, Lcom/android/server/pm/FakeShutdown;->powerConnectedReceiver:Landroid/content/BroadcastReceiver;
 
     new-instance v1, Landroid/content/IntentFilter;
@@ -1773,7 +2585,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 558
+    .line 710
     return-void
 .end method
 
@@ -1783,16 +2595,16 @@
     .parameter "wait"
 
     .prologue
-    .line 359
+    .line 523
     const/16 v0, 0x1f4
 
-    .line 362
+    .line 526
     .local v0, SHUTDOWN_VIBRATE_MS:I
     new-instance v2, Landroid/os/SystemVibrator;
 
     invoke-direct {v2}, Landroid/os/SystemVibrator;-><init>()V
 
-    .line 364
+    .line 528
     .local v2, vibrator:Landroid/os/Vibrator;
     const-wide/16 v3, 0x1f4
 
@@ -1801,19 +2613,19 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 371
+    .line 535
     :goto_0
     if-nez p2, :cond_0
 
-    .line 378
+    .line 542
     :goto_1
     return-void
 
-    .line 365
+    .line 529
     :catch_0
     move-exception v1
 
-    .line 367
+    .line 531
     .local v1, e:Ljava/lang/Exception;
     const-string v3, "FakeShutdown"
 
@@ -1823,7 +2635,7 @@
 
     goto :goto_0
 
-    .line 374
+    .line 538
     .end local v1           #e:Ljava/lang/Exception;
     :cond_0
     const-wide/16 v3, 0x1f4
@@ -1835,7 +2647,7 @@
 
     goto :goto_1
 
-    .line 375
+    .line 539
     :catch_1
     move-exception v3
 
@@ -1847,27 +2659,27 @@
     .parameter "dlg"
 
     .prologue
-    .line 452
+    .line 616
     if-nez p1, :cond_0
 
-    .line 453
+    .line 617
     const-string v0, "FakeShutdown"
 
     const-string v1, "no animation"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 458
+    .line 622
     :goto_0
     return-void
 
-    .line 455
+    .line 619
     :cond_0
     const/16 v0, 0xf
 
     invoke-virtual {p1, v0}, Lcom/android/server/pm/ShutdownDialog;->waitForAnimEnd(I)Z
 
-    .line 456
+    .line 620
     const-string v0, "FakeShutdown"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1895,11 +2707,82 @@
     goto :goto_0
 .end method
 
+.method private waitForAnimStart(Lcom/android/server/pm/ShutdownDialog;)V
+    .locals 4
+    .parameter "dlg"
+
+    .prologue
+    .line 323
+    const-string v2, "FakeShutdown"
+
+    const-string v3, "!@start wait for shutdown anim, maximum 2 sec"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 324
+    const/4 v0, 0x0
+
+    .local v0, i:I
+    :goto_0
+    const/16 v2, 0x14
+
+    if-ge v0, v2, :cond_0
+
+    .line 325
+    invoke-virtual {p1}, Lcom/android/server/pm/ShutdownDialog;->drawState()I
+
+    move-result v2
+
+    const/16 v3, 0x12c
+
+    if-lt v2, v3, :cond_1
+
+    .line 334
+    :cond_0
+    const-string v2, "FakeShutdown"
+
+    const-string v3, "!@finish wait for shutdown anim"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 335
+    return-void
+
+    .line 329
+    :cond_1
+    const-wide/16 v2, 0x64
+
+    :try_start_0
+    invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 324
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 330
+    :catch_0
+    move-exception v1
+
+    .line 331
+    .local v1, unused:Ljava/lang/InterruptedException;
+    const-string v2, "FakeShutdown"
+
+    const-string v3, "waitForAnimStart sleep error"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
 .method private waitForCamera()V
     .locals 7
 
     .prologue
-    .line 421
+    .line 585
     sget-object v5, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
     sget-object v6, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
@@ -1912,7 +2795,7 @@
 
     check-cast v0, Landroid/app/ActivityManager;
 
-    .line 422
+    .line 586
     .local v0, actM:Landroid/app/ActivityManager;
     const/4 v1, 0x0
 
@@ -1922,14 +2805,14 @@
 
     if-ge v1, v5, :cond_1
 
-    .line 423
+    .line 587
     const/16 v5, 0xf
 
     invoke-virtual {v0, v5}, Landroid/app/ActivityManager;->getRunningTasks(I)Ljava/util/List;
 
     move-result-object v2
 
-    .line 424
+    .line 588
     .local v2, info:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     const/4 v5, 0x0
 
@@ -1941,13 +2824,13 @@
 
     iget-object v3, v5, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
 
-    .line 425
+    .line 589
     .local v3, topActivity:Landroid/content/ComponentName;
     invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 426
+    .line 590
     .local v4, topActivityName:Ljava/lang/String;
     const-string v5, "com.sec.android.app.camera"
 
@@ -1957,21 +2840,21 @@
 
     if-eqz v5, :cond_0
 
-    .line 427
+    .line 591
     const-string v5, "FakeShutdown"
 
     const-string v6, "!@camera started"
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 439
+    .line 603
     .end local v2           #info:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     .end local v3           #topActivity:Landroid/content/ComponentName;
     .end local v4           #topActivityName:Ljava/lang/String;
     :goto_1
     return-void
 
-    .line 431
+    .line 595
     .restart local v2       #info:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     .restart local v3       #topActivity:Landroid/content/ComponentName;
     .restart local v4       #topActivityName:Ljava/lang/String;
@@ -1982,7 +2865,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 433
+    .line 597
     const-wide/16 v5, 0x1f4
 
     :try_start_0
@@ -1990,13 +2873,13 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 422
+    .line 586
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 438
+    .line 602
     .end local v2           #info:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     .end local v3           #topActivity:Landroid/content/ComponentName;
     .end local v4           #topActivityName:Ljava/lang/String;
@@ -2009,7 +2892,7 @@
 
     goto :goto_1
 
-    .line 434
+    .line 598
     .restart local v2       #info:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     .restart local v3       #topActivity:Landroid/content/ComponentName;
     .restart local v4       #topActivityName:Ljava/lang/String;
@@ -2029,19 +2912,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 463
+    .line 627
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/pm/FakeShutdown;->syncObj:Ljava/lang/Object;
 
-    .line 464
+    .line 628
     new-instance v3, Lcom/android/server/pm/FakeShutdown$3;
 
     invoke-direct {v3, p0}, Lcom/android/server/pm/FakeShutdown$3;-><init>(Lcom/android/server/pm/FakeShutdown;)V
 
-    .line 476
+    .line 640
     .local v3, br:Landroid/content/BroadcastReceiver;
     sget-object v0, Lcom/android/server/pm/FakeShutdown;->mContext:Landroid/content/Context;
 
@@ -2057,15 +2940,15 @@
 
     invoke-virtual/range {v0 .. v7}, Landroid/content/Context;->sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
 
-    .line 477
+    .line 641
     iget-object v0, p0, Lcom/android/server/pm/FakeShutdown;->syncObj:Ljava/lang/Object;
 
     invoke-direct {p0, v0, p3, p4, p2}, Lcom/android/server/pm/FakeShutdown;->waitForNoify(Ljava/lang/Object;IILjava/lang/String;)V
 
-    .line 478
+    .line 642
     iput-object v2, p0, Lcom/android/server/pm/FakeShutdown;->syncObj:Ljava/lang/Object;
 
-    .line 479
+    .line 643
     return-void
 .end method
 
@@ -2077,7 +2960,7 @@
     .parameter "waitForWhat"
 
     .prologue
-    .line 483
+    .line 647
     const-string v0, "FakeShutdown"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2100,27 +2983,27 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 484
+    .line 648
     monitor-enter p1
 
-    .line 486
+    .line 650
     if-nez p2, :cond_0
 
-    .line 487
+    .line 651
     :try_start_0
     invoke-virtual {p1}, Ljava/lang/Object;->wait()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 493
+    .line 657
     :goto_0
     :try_start_1
     monitor-exit p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 494
+    .line 658
     const-string v0, "FakeShutdown"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2143,14 +3026,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 496
+    .line 660
     if-nez p3, :cond_1
 
-    .line 506
+    .line 670
     :goto_1
     return-void
 
-    .line 489
+    .line 653
     :cond_0
     mul-int/lit16 v0, p2, 0x3e8
 
@@ -2164,13 +3047,13 @@
 
     goto :goto_0
 
-    .line 491
+    .line 655
     :catch_0
     move-exception v0
 
     goto :goto_0
 
-    .line 493
+    .line 657
     :catchall_0
     move-exception v0
 
@@ -2181,7 +3064,7 @@
 
     throw v0
 
-    .line 500
+    .line 664
     :cond_1
     const-string v0, "FakeShutdown"
 
@@ -2205,7 +3088,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 502
+    .line 666
     mul-int/lit16 v0, p3, 0x3e8
 
     int-to-long v0, v0
@@ -2215,7 +3098,7 @@
     :try_end_4
     .catch Ljava/lang/InterruptedException; {:try_start_4 .. :try_end_4} :catch_1
 
-    .line 505
+    .line 669
     :goto_2
     const-string v0, "FakeShutdown"
 
@@ -2241,11 +3124,162 @@
 
     goto :goto_1
 
-    .line 503
+    .line 667
     :catch_1
     move-exception v0
 
     goto :goto_2
+.end method
+
+.method private waitForPhoneOff(I)V
+    .locals 9
+    .parameter "timeoutSec"
+
+    .prologue
+    .line 396
+    const-string v6, "phone"
+
+    invoke-static {v6}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v6
+
+    invoke-static {v6}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
+
+    move-result-object v3
+
+    .line 397
+    .local v3, phone:Lcom/android/internal/telephony/ITelephony;
+    const/4 v4, 0x0
+
+    .line 399
+    .local v4, radioOff:Z
+    const/16 v0, 0x1f4
+
+    .line 400
+    .local v0, PHONE_STATE_POLL_SLEEP_MSEC:I
+    mul-int/lit16 v6, p1, 0x3e8
+
+    div-int/lit16 v5, v6, 0x1f4
+
+    .line 402
+    .local v5, timeoutCount:I
+    const/4 v2, 0x0
+
+    .local v2, loopCount:I
+    :goto_0
+    if-ge v2, v5, :cond_0
+
+    .line 404
+    :try_start_0
+    invoke-interface {v3}, Lcom/android/internal/telephony/ITelephony;->isRadioOn()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v6
+
+    if-nez v6, :cond_2
+
+    const/4 v4, 0x1
+
+    .line 409
+    :goto_1
+    if-eqz v4, :cond_3
+
+    .line 410
+    const-string v6, "FakeShutdown"
+
+    const-string v7, "!@Radio turned off"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 417
+    :cond_0
+    const-string v6, "FakeShutdown"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "!@off takes ms "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    mul-int/lit16 v8, v2, 0x1f4
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 419
+    if-nez v4, :cond_1
+
+    .line 420
+    const-string v6, "FakeShutdown"
+
+    const-string v7, "!@Radio turned off fail"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 422
+    :cond_1
+    return-void
+
+    .line 404
+    :cond_2
+    const/4 v4, 0x0
+
+    goto :goto_1
+
+    .line 405
+    :catch_0
+    move-exception v1
+
+    .line 406
+    .local v1, ex:Landroid/os/RemoteException;
+    const-string v6, "FakeShutdown"
+
+    const-string v7, "RemoteException during radio shutdown"
+
+    invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 407
+    const/4 v4, 0x1
+
+    goto :goto_1
+
+    .line 413
+    .end local v1           #ex:Landroid/os/RemoteException;
+    :cond_3
+    const-string v6, "FakeShutdown"
+
+    const-string v7, "!@before sleep"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 414
+    const-wide/16 v6, 0x1f4
+
+    invoke-static {v6, v7}, Landroid/os/SystemClock;->sleep(J)V
+
+    .line 415
+    const-string v6, "FakeShutdown"
+
+    const-string v7, "!@after sleep"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 402
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
 .end method
 
 
@@ -2254,32 +3288,32 @@
     .locals 3
 
     .prologue
-    .line 140
+    .line 157
     sget v0, Lcom/android/server/pm/FakeShutdown;->sState:I
 
     const/4 v1, 0x3
 
     if-ne v0, v1, :cond_0
 
-    .line 141
+    .line 158
     invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->beginFastboot()V
 
-    .line 147
+    .line 164
     :goto_0
     return-void
 
-    .line 142
+    .line 159
     :cond_0
     sget v0, Lcom/android/server/pm/FakeShutdown;->sState:I
 
     if-nez v0, :cond_1
 
-    .line 143
+    .line 160
     invoke-direct {p0}, Lcom/android/server/pm/FakeShutdown;->beginFakeShutdown()V
 
     goto :goto_0
 
-    .line 145
+    .line 162
     :cond_1
     const-string v0, "FakeShutdown"
 

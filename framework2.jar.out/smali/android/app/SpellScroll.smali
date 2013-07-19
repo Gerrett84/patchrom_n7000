@@ -110,7 +110,7 @@
     :goto_0
     sput-boolean v0, Landroid/app/SpellScroll;->DEBUG:Z
 
-    .line 618
+    .line 617
     new-instance v0, Landroid/app/SpellScroll$1;
 
     invoke-direct {v0}, Landroid/app/SpellScroll$1;-><init>()V
@@ -243,7 +243,7 @@
 
     .line 172
     .local v1, iconId:I
-    iget-object v0, p2, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v0, p2, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     .line 174
     .local v0, appInfo:Landroid/content/pm/ApplicationInfo;
@@ -803,10 +803,10 @@
     .parameter "cName"
 
     .prologue
-    .line 335
+    .line 334
     const/4 v1, 0x0
 
-    .line 337
+    .line 336
     .local v1, theirContext:Landroid/content/Context;
     :try_start_0
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -822,15 +822,15 @@
 
     move-result-object v1
 
-    .line 345
+    .line 344
     :goto_0
     return-object v1
 
-    .line 339
+    .line 338
     :catch_0
     move-exception v0
 
-    .line 340
+    .line 339
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v2, "SpellScroll"
 
@@ -860,12 +860,12 @@
 
     goto :goto_0
 
-    .line 341
+    .line 340
     .end local v0           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :catch_1
     move-exception v0
 
-    .line 342
+    .line 341
     .local v0, e:Ljava/lang/SecurityException;
     const-string v2, "SpellScroll"
 
@@ -909,7 +909,7 @@
     .line 301
     const/4 v4, 0x0
 
-    .line 326
+    .line 325
     :goto_0
     return-object v4
 
@@ -935,7 +935,7 @@
 
     invoke-direct {v4, v3, p1, v0, p2}, Landroid/app/SpellScroll;-><init>(Landroid/content/Context;Landroid/content/pm/ActivityInfo;Landroid/content/ComponentName;Z)V
 
-    .line 310
+    .line 309
     .local v4, scroll:Landroid/app/SpellScroll;
     new-instance v5, Landroid/app/SpellScroll$Spell;
 
@@ -945,20 +945,20 @@
 
     invoke-direct {v5, v3, p1, v6}, Landroid/app/SpellScroll$Spell;-><init>(Landroid/content/Context;Landroid/content/pm/ActivityInfo;Ljava/lang/String;)V
 
-    .line 311
+    .line 310
     .local v5, spell:Landroid/app/SpellScroll$Spell;
     invoke-virtual {v4, v5}, Landroid/app/SpellScroll;->addSpell(Landroid/app/SpellScroll$Spell;)V
 
-    .line 313
+    .line 312
     new-instance v1, Landroid/app/SpellScroll$SpellEffect;
 
     invoke-direct {v1}, Landroid/app/SpellScroll$SpellEffect;-><init>()V
 
-    .line 314
+    .line 313
     .local v1, effect:Landroid/app/SpellScroll$SpellEffect;
     invoke-virtual {v5, v1}, Landroid/app/SpellScroll$Spell;->addEffect(Landroid/app/SpellScroll$SpellEffect;)V
 
-    .line 316
+    .line 315
     new-instance v6, Landroid/app/ExtraAttr;
 
     const-string v7, "flags"
@@ -969,23 +969,23 @@
 
     invoke-virtual {v1, v6}, Landroid/app/SpellScroll$SpellEffect;->addExtraAttr(Landroid/app/ExtraAttr;)V
 
-    .line 319
+    .line 318
     new-instance v2, Landroid/content/Intent;
 
     const-string v6, "android.intent.action.MAIN"
 
     invoke-direct {v2, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 320
+    .line 319
     .local v2, intent:Landroid/content/Intent;
     const-string v6, "android.intent.category.LAUNCHER"
 
     invoke-virtual {v2, v6}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 322
+    .line 321
     invoke-virtual {v2, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 324
+    .line 323
     invoke-virtual {v1, v2}, Landroid/app/SpellScroll$SpellEffect;->setIntent(Landroid/content/Intent;)V
 
     goto :goto_0
@@ -1000,22 +1000,22 @@
     .parameter "isDisabled"
 
     .prologue
-    .line 403
+    .line 402
     const/4 v15, 0x0
 
-    .line 404
+    .line 403
     .local v15, lastSpellScroll:Landroid/app/SpellScroll;
     const/4 v8, 0x0
 
-    .line 405
+    .line 404
     .local v8, lastIngredient:Landroid/app/SpellScroll$Ingredient;
     const/4 v13, 0x0
 
-    .line 406
+    .line 405
     .local v13, lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
     const/4 v11, 0x0
 
-    .line 408
+    .line 407
     .local v11, lastSpell:Landroid/app/SpellScroll$Spell;
     move-object/from16 v0, p0
 
@@ -1025,16 +1025,16 @@
 
     move-result-object v17
 
-    .line 409
+    .line 408
     .local v17, packageContext:Landroid/content/Context;
     if-nez v17, :cond_1
 
-    .line 410
+    .line 409
     sget-boolean v19, Landroid/app/SpellScroll;->DEBUG:Z
 
     if-eqz v19, :cond_0
 
-    .line 411
+    .line 410
     const-string v19, "SpellScroll"
 
     new-instance v20, Ljava/lang/StringBuilder;
@@ -1067,21 +1067,21 @@
 
     invoke-static/range {v19 .. v20}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 413
+    .line 412
     :cond_0
     const/16 v19, 0x0
 
-    .line 498
+    .line 497
     :goto_0
     return-object v19
 
-    .line 416
+    .line 415
     :cond_1
     new-instance v7, Ljava/util/Stack;
 
     invoke-direct {v7}, Ljava/util/Stack;-><init>()V
 
-    .line 421
+    .line 420
     .local v7, extraAttrOwner:Ljava/util/Stack;,"Ljava/util/Stack<Landroid/app/ExtraAttr$Owner;>;"
     :try_start_0
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
@@ -1107,7 +1107,7 @@
     .local v9, lastIngredient:Landroid/app/SpellScroll$Ingredient;
     move-object/from16 v16, v15
 
-    .line 422
+    .line 421
     .end local v15           #lastSpellScroll:Landroid/app/SpellScroll;
     .local v16, lastSpellScroll:Landroid/app/SpellScroll;
     :cond_2
@@ -1120,13 +1120,13 @@
 
     if-eq v0, v1, :cond_f
 
-    .line 424
+    .line 423
     :try_start_1
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 426
+    .line 425
     .local v5, elementName:Ljava/lang/String;
     const/16 v19, 0x2
 
@@ -1136,16 +1136,16 @@
 
     if-ne v0, v1, :cond_b
 
-    .line 427
+    .line 426
     invoke-static/range {p1 .. p1}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v3
 
-    .line 429
+    .line 428
     .local v3, attr:Landroid/util/AttributeSet;
     if-eqz v3, :cond_2
 
-    .line 433
+    .line 432
     const-string v19, "spellscroll"
 
     move-object/from16 v0, v19
@@ -1156,7 +1156,7 @@
 
     if-eqz v19, :cond_3
 
-    .line 434
+    .line 433
     new-instance v15, Landroid/app/SpellScroll;
 
     move-object/from16 v0, v17
@@ -1171,7 +1171,7 @@
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_8
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
 
-    .line 435
+    .line 434
     .end local v16           #lastSpellScroll:Landroid/app/SpellScroll;
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     :try_start_2
@@ -1181,7 +1181,7 @@
 
     if-nez v19, :cond_13
 
-    .line 436
+    .line 435
     invoke-virtual {v7, v15}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_2
     .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_e
@@ -1198,7 +1198,7 @@
     .restart local v13       #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
     move-object v8, v9
 
-    .line 486
+    .line 485
     .end local v3           #attr:Landroid/util/AttributeSet;
     .end local v9           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .restart local v8       #lastIngredient:Landroid/app/SpellScroll$Ingredient;
@@ -1226,12 +1226,12 @@
     .restart local v9       #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     move-object/from16 v16, v15
 
-    .line 487
+    .line 486
     .end local v15           #lastSpellScroll:Landroid/app/SpellScroll;
     .restart local v16       #lastSpellScroll:Landroid/app/SpellScroll;
     goto :goto_1
 
-    .line 438
+    .line 437
     .restart local v3       #attr:Landroid/util/AttributeSet;
     :cond_3
     :try_start_4
@@ -1247,7 +1247,7 @@
 
     if-eqz v16, :cond_4
 
-    .line 440
+    .line 439
     new-instance v11, Landroid/app/SpellScroll$Spell;
 
     invoke-virtual/range {v16 .. v16}, Landroid/app/SpellScroll;->getName()Ljava/lang/String;
@@ -1266,7 +1266,7 @@
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_8
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
-    .line 441
+    .line 440
     .end local v12           #lastSpell:Landroid/app/SpellScroll$Spell;
     .restart local v11       #lastSpell:Landroid/app/SpellScroll$Spell;
     :try_start_5
@@ -1274,14 +1274,14 @@
 
     invoke-virtual {v0, v11}, Landroid/app/SpellScroll;->addSpell(Landroid/app/SpellScroll$Spell;)V
 
-    .line 442
+    .line 441
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->isEmptyElementTag()Z
 
     move-result v19
 
     if-nez v19, :cond_12
 
-    .line 443
+    .line 442
     invoke-virtual {v7, v11}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_5
     .catch Ljava/lang/IllegalArgumentException; {:try_start_5 .. :try_end_5} :catch_f
@@ -1302,7 +1302,7 @@
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     goto :goto_2
 
-    .line 445
+    .line 444
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .end local v11           #lastSpell:Landroid/app/SpellScroll$Spell;
     .end local v13           #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
@@ -1325,7 +1325,7 @@
 
     if-eqz v12, :cond_5
 
-    .line 447
+    .line 446
     new-instance v8, Landroid/app/SpellScroll$Ingredient;
 
     move-object/from16 v0, v17
@@ -1336,20 +1336,20 @@
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_6 .. :try_end_6} :catch_8
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
 
-    .line 448
+    .line 447
     .end local v9           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .restart local v8       #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     :try_start_7
     invoke-virtual {v12, v8}, Landroid/app/SpellScroll$Spell;->addIngredient(Landroid/app/SpellScroll$Ingredient;)V
 
-    .line 449
+    .line 448
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->isEmptyElementTag()Z
 
     move-result v19
 
     if-nez v19, :cond_11
 
-    .line 450
+    .line 449
     invoke-virtual {v7, v8}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_7
     .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_7} :catch_10
@@ -1370,7 +1370,7 @@
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     goto :goto_2
 
-    .line 452
+    .line 451
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .end local v11           #lastSpell:Landroid/app/SpellScroll$Spell;
     .end local v13           #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
@@ -1393,7 +1393,7 @@
 
     if-eqz v12, :cond_6
 
-    .line 454
+    .line 453
     new-instance v13, Landroid/app/SpellScroll$SpellEffect;
 
     invoke-direct {v13}, Landroid/app/SpellScroll$SpellEffect;-><init>()V
@@ -1402,20 +1402,20 @@
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_8 .. :try_end_8} :catch_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_3
 
-    .line 455
+    .line 454
     .end local v14           #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
     .restart local v13       #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
     :try_start_9
     invoke-virtual {v12, v13}, Landroid/app/SpellScroll$Spell;->addEffect(Landroid/app/SpellScroll$SpellEffect;)V
 
-    .line 456
+    .line 455
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->isEmptyElementTag()Z
 
     move-result v19
 
     if-nez v19, :cond_10
 
-    .line 457
+    .line 456
     invoke-virtual {v7, v13}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_9
     .catch Ljava/lang/IllegalArgumentException; {:try_start_9 .. :try_end_9} :catch_11
@@ -1436,7 +1436,7 @@
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     goto :goto_2
 
-    .line 459
+    .line 458
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .end local v11           #lastSpell:Landroid/app/SpellScroll$Spell;
     .end local v13           #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
@@ -1459,7 +1459,7 @@
 
     if-eqz v14, :cond_7
 
-    .line 461
+    .line 460
     invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v19
@@ -1494,7 +1494,7 @@
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     goto/16 :goto_2
 
-    .line 462
+    .line 461
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .end local v11           #lastSpell:Landroid/app/SpellScroll$Spell;
     .end local v13           #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
@@ -1514,14 +1514,14 @@
 
     if-eqz v19, :cond_9
 
-    .line 463
+    .line 462
     new-instance v6, Landroid/app/ExtraAttr;
 
     move-object/from16 v0, v17
 
     invoke-direct {v6, v0, v3}, Landroid/app/ExtraAttr;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 465
+    .line 464
     .local v6, extraAttr:Landroid/app/ExtraAttr;
     invoke-virtual {v7}, Ljava/util/Stack;->peek()Ljava/lang/Object;
 
@@ -1529,11 +1529,11 @@
 
     check-cast v10, Landroid/app/ExtraAttr$Owner;
 
-    .line 466
+    .line 465
     .local v10, lastOwner:Landroid/app/ExtraAttr$Owner;
     if-eqz v10, :cond_8
 
-    .line 467
+    .line 466
     invoke-virtual {v10, v6}, Landroid/app/ExtraAttr$Owner;->addExtraAttr(Landroid/app/ExtraAttr;)V
 
     :cond_8
@@ -1551,12 +1551,12 @@
     .restart local v8       #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     move-object/from16 v15, v16
 
-    .line 469
+    .line 468
     .end local v16           #lastSpellScroll:Landroid/app/SpellScroll;
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     goto/16 :goto_2
 
-    .line 470
+    .line 469
     .end local v6           #extraAttr:Landroid/app/ExtraAttr;
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .end local v10           #lastOwner:Landroid/app/ExtraAttr$Owner;
@@ -1594,7 +1594,7 @@
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     goto/16 :goto_2
 
-    .line 472
+    .line 471
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .end local v11           #lastSpell:Landroid/app/SpellScroll$Spell;
     .end local v13           #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
@@ -1612,7 +1612,7 @@
 
     if-ne v0, v1, :cond_a
 
-    .line 473
+    .line 472
     const-string v19, "extra-attr"
 
     move-object/from16 v0, v19
@@ -1623,10 +1623,10 @@
 
     if-nez v19, :cond_c
 
-    .line 474
+    .line 473
     invoke-virtual {v7}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
-    .line 477
+    .line 476
     :cond_c
     const-string v19, "spell"
 
@@ -1638,7 +1638,7 @@
 
     if-eqz v19, :cond_d
 
-    .line 478
+    .line 477
     const/4 v11, 0x0
 
     .end local v12           #lastSpell:Landroid/app/SpellScroll$Spell;
@@ -1657,7 +1657,7 @@
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     goto/16 :goto_2
 
-    .line 479
+    .line 478
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .end local v11           #lastSpell:Landroid/app/SpellScroll$Spell;
     .end local v13           #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
@@ -1677,7 +1677,7 @@
 
     if-eqz v19, :cond_e
 
-    .line 480
+    .line 479
     const/4 v8, 0x0
 
     .end local v9           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
@@ -1696,7 +1696,7 @@
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     goto/16 :goto_2
 
-    .line 481
+    .line 480
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .end local v11           #lastSpell:Landroid/app/SpellScroll$Spell;
     .end local v13           #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
@@ -1720,7 +1720,7 @@
 
     if-eqz v19, :cond_a
 
-    .line 482
+    .line 481
     const/4 v13, 0x0
 
     .end local v14           #lastSpellEffect:Landroid/app/SpellScroll$SpellEffect;
@@ -1769,14 +1769,14 @@
     :goto_3
     move-object/from16 v19, v15
 
-    .line 498
+    .line 497
     goto/16 :goto_0
 
-    .line 488
+    .line 487
     :catch_0
     move-exception v4
 
-    .line 489
+    .line 488
     .local v4, e:Ljava/lang/IllegalArgumentException;
     :goto_4
     const-string v19, "SpellScroll"
@@ -1821,12 +1821,12 @@
 
     goto :goto_3
 
-    .line 490
+    .line 489
     .end local v4           #e:Ljava/lang/IllegalArgumentException;
     :catch_1
     move-exception v4
 
-    .line 491
+    .line 490
     .local v4, e:Lorg/xmlpull/v1/XmlPullParserException;
     :goto_5
     const-string v19, "SpellScroll"
@@ -1859,17 +1859,17 @@
 
     invoke-static {v0, v1, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 492
+    .line 491
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 493
+    .line 492
     .end local v4           #e:Lorg/xmlpull/v1/XmlPullParserException;
     :catch_2
     move-exception v4
 
-    .line 494
+    .line 493
     .local v4, e:Ljava/io/IOException;
     :goto_6
     const-string v19, "SpellScroll"
@@ -1902,12 +1902,12 @@
 
     invoke-static {v0, v1, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 495
+    .line 494
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 493
+    .line 492
     .end local v4           #e:Ljava/io/IOException;
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
     .end local v11           #lastSpell:Landroid/app/SpellScroll$Spell;
@@ -2033,7 +2033,7 @@
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     goto :goto_6
 
-    .line 490
+    .line 489
     .end local v3           #attr:Landroid/util/AttributeSet;
     .end local v5           #elementName:Ljava/lang/String;
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
@@ -2159,7 +2159,7 @@
     .restart local v15       #lastSpellScroll:Landroid/app/SpellScroll;
     goto/16 :goto_5
 
-    .line 488
+    .line 487
     .end local v3           #attr:Landroid/util/AttributeSet;
     .end local v5           #elementName:Ljava/lang/String;
     .end local v8           #lastIngredient:Landroid/app/SpellScroll$Ingredient;
@@ -2380,15 +2380,15 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 351
+    .line 350
     if-nez p1, :cond_1
 
-    .line 382
+    .line 381
     :cond_0
     :goto_0
     return-object v1
 
-    .line 357
+    .line 356
     :cond_1
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -2400,11 +2400,11 @@
 
     move-result-object v2
 
-    .line 360
+    .line 359
     .local v2, xml:Landroid/content/res/XmlResourceParser;
     if-eqz v2, :cond_0
 
-    .line 364
+    .line 363
     new-instance v0, Landroid/content/ComponentName;
 
     iget-object v3, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
@@ -2413,25 +2413,25 @@
 
     invoke-direct {v0, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 366
+    .line 365
     .local v0, cName:Landroid/content/ComponentName;
     invoke-static {p0, v2, v0, p2, p3}, Landroid/app/SpellScroll;->getComponentMetaData(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/ComponentName;IZ)Landroid/app/SpellScroll;
 
     move-result-object v1
 
-    .line 367
+    .line 366
     .local v1, scroll:Landroid/app/SpellScroll;
     invoke-interface {v2}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 369
+    .line 368
     sget-boolean v3, Landroid/app/SpellScroll;->DEBUG:Z
 
     if-eqz v3, :cond_0
 
-    .line 370
+    .line 369
     if-eqz v1, :cond_2
 
-    .line 371
+    .line 370
     const-string v3, "SpellScroll"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2544,7 +2544,7 @@
 
     goto/16 :goto_0
 
-    .line 379
+    .line 378
     :cond_2
     const-string v3, "SpellScroll"
 
@@ -2588,7 +2588,7 @@
     .parameter "spell"
 
     .prologue
-    .line 560
+    .line 559
     monitor-enter p0
 
     :try_start_0
@@ -2604,7 +2604,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 561
+    .line 560
     const-string v0, "SpellScroll"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2639,13 +2639,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 569
+    .line 568
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 567
+    .line 566
     :cond_0
     :try_start_1
     iget-object v0, p0, Landroid/app/SpellScroll;->mSpellsMap:Ljava/util/Map;
@@ -2656,7 +2656,7 @@
 
     invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 568
+    .line 567
     iget-object v0, p0, Landroid/app/SpellScroll;->mSpellList:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -2665,7 +2665,7 @@
 
     goto :goto_0
 
-    .line 560
+    .line 559
     :catchall_0
     move-exception v0
 
@@ -2678,7 +2678,7 @@
     .locals 1
 
     .prologue
-    .line 630
+    .line 629
     const/4 v0, 0x0
 
     return v0
@@ -2689,7 +2689,7 @@
     .parameter "pw"
 
     .prologue
-    .line 709
+    .line 708
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2724,7 +2724,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 710
+    .line 709
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2761,7 +2761,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 711
+    .line 710
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2788,7 +2788,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 712
+    .line 711
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2847,7 +2847,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 713
+    .line 712
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2874,7 +2874,7 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 715
+    .line 714
     invoke-virtual {p0}, Landroid/app/SpellScroll;->getExtraAttrsString()Ljava/lang/String;
 
     move-result-object v3
@@ -2885,7 +2885,7 @@
 
     if-lez v3, :cond_0
 
-    .line 716
+    .line 715
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2910,14 +2910,14 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 719
+    .line 718
     :cond_0
     monitor-enter p0
 
-    .line 721
+    .line 720
     const/4 v1, 0x1
 
-    .line 722
+    .line 721
     .local v1, j:I
     :try_start_0
     iget-object v3, p0, Landroid/app/SpellScroll;->mSpellList:Ljava/util/List;
@@ -2941,11 +2941,11 @@
 
     check-cast v2, Landroid/app/SpellScroll$Spell;
 
-    .line 724
+    .line 723
     .local v2, spell:Landroid/app/SpellScroll$Spell;
     if-eqz v2, :cond_1
 
-    .line 725
+    .line 724
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2972,23 +2972,23 @@
 
     invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 726
+    .line 725
     invoke-virtual {v2, p1}, Landroid/app/SpellScroll$Spell;->dump(Ljava/io/PrintWriter;)V
 
-    .line 727
+    .line 726
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 730
+    .line 729
     .end local v2           #spell:Landroid/app/SpellScroll$Spell;
     :cond_2
     monitor-exit p0
 
-    .line 731
+    .line 730
     return-void
 
-    .line 730
+    .line 729
     .end local v0           #i$:Ljava/util/Iterator;
     :catchall_0
     move-exception v3
@@ -3007,12 +3007,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 672
+    .line 671
     instance-of v2, p1, Landroid/app/SpellScroll;
 
     if-nez v2, :cond_1
 
-    .line 704
+    .line 703
     :cond_0
     :goto_0
     return v1
@@ -3020,10 +3020,10 @@
     :cond_1
     move-object v0, p1
 
-    .line 676
+    .line 675
     check-cast v0, Landroid/app/SpellScroll;
 
-    .line 678
+    .line 677
     .local v0, other:Landroid/app/SpellScroll;
     iget v2, p0, Landroid/app/SpellScroll;->mLabelId:I
 
@@ -3055,7 +3055,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 686
+    .line 685
     iget-object v2, p0, Landroid/app/SpellScroll;->mName:Ljava/lang/String;
 
     if-nez v2, :cond_2
@@ -3088,7 +3088,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 692
+    .line 691
     :cond_4
     iget-object v2, p0, Landroid/app/SpellScroll;->mTargetPackage:Ljava/lang/String;
 
@@ -3122,7 +3122,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 698
+    .line 697
     :cond_7
     iget-object v2, p0, Landroid/app/SpellScroll;->mSpellScrollComponent:Landroid/content/ComponentName;
 
@@ -3156,7 +3156,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 704
+    .line 703
     :cond_a
     invoke-super {p0, p1}, Landroid/app/ExtraAttr$Owner;->equals(Ljava/lang/Object;)Z
 
@@ -3169,7 +3169,7 @@
     .locals 1
 
     .prologue
-    .line 518
+    .line 517
     iget v0, p0, Landroid/app/SpellScroll;->mHintId:I
 
     return v0
@@ -3179,7 +3179,7 @@
     .locals 1
 
     .prologue
-    .line 522
+    .line 521
     iget v0, p0, Landroid/app/SpellScroll;->mIconId:I
 
     return v0
@@ -3189,7 +3189,7 @@
     .locals 1
 
     .prologue
-    .line 514
+    .line 513
     iget v0, p0, Landroid/app/SpellScroll;->mLabelId:I
 
     return v0
@@ -3200,7 +3200,7 @@
     .parameter "text"
 
     .prologue
-    .line 606
+    .line 605
     monitor-enter p0
 
     :try_start_0
@@ -3228,7 +3228,7 @@
 
     check-cast v1, Landroid/app/SpellScroll$Spell;
 
-    .line 607
+    .line 606
     .local v1, spell:Landroid/app/SpellScroll$Spell;
     invoke-virtual {v1, p1}, Landroid/app/SpellScroll$Spell;->match(Ljava/lang/String;)Z
 
@@ -3236,14 +3236,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 608
+    .line 607
     invoke-virtual {v1}, Landroid/app/SpellScroll$Spell;->getName()Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
-    .line 612
+    .line 611
     .end local v1           #spell:Landroid/app/SpellScroll$Spell;
     :goto_0
     monitor-exit p0
@@ -3255,7 +3255,7 @@
 
     goto :goto_0
 
-    .line 606
+    .line 605
     .end local v0           #i$:Ljava/util/Iterator;
     :catchall_0
     move-exception v2
@@ -3269,7 +3269,7 @@
     .locals 1
 
     .prologue
-    .line 506
+    .line 505
     iget-object v0, p0, Landroid/app/SpellScroll;->mName:Ljava/lang/String;
 
     return-object v0
@@ -3290,7 +3290,7 @@
     .parameter "context"
 
     .prologue
-    .line 330
+    .line 329
     iget-object v0, p0, Landroid/app/SpellScroll;->mSpellScrollComponent:Landroid/content/ComponentName;
 
     invoke-static {p1, v0}, Landroid/app/SpellScroll;->createPackageContext(Landroid/content/Context;Landroid/content/ComponentName;)Landroid/content/Context;
@@ -3304,7 +3304,7 @@
     .locals 1
 
     .prologue
-    .line 526
+    .line 525
     iget v0, p0, Landroid/app/SpellScroll;->mPriority:I
 
     return v0
@@ -3314,7 +3314,7 @@
     .locals 2
 
     .prologue
-    .line 540
+    .line 539
     monitor-enter p0
 
     :try_start_0
@@ -3326,7 +3326,7 @@
 
     if-lez v0, :cond_0
 
-    .line 541
+    .line 540
     iget-object v0, p0, Landroid/app/SpellScroll;->mSpellList:Ljava/util/List;
 
     const/4 v1, 0x0
@@ -3339,7 +3339,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 544
+    .line 543
     :goto_0
     monitor-exit p0
 
@@ -3350,7 +3350,7 @@
 
     goto :goto_0
 
-    .line 540
+    .line 539
     :catchall_0
     move-exception v0
 
@@ -3364,7 +3364,7 @@
     .parameter "spellName"
 
     .prologue
-    .line 548
+    .line 547
     monitor-enter p0
 
     :try_start_0
@@ -3403,7 +3403,7 @@
     .end annotation
 
     .prologue
-    .line 552
+    .line 551
     monitor-enter p0
 
     :try_start_0
@@ -3411,7 +3411,7 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 553
+    .line 552
     .local v1, keyList:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     iget-object v3, p0, Landroid/app/SpellScroll;->mSpellList:Ljava/util/List;
 
@@ -3433,7 +3433,7 @@
 
     check-cast v2, Landroid/app/SpellScroll$Spell;
 
-    .line 554
+    .line 553
     .local v2, spell:Landroid/app/SpellScroll$Spell;
     invoke-virtual {v2}, Landroid/app/SpellScroll$Spell;->getName()Ljava/lang/String;
 
@@ -3445,7 +3445,7 @@
 
     goto :goto_0
 
-    .line 552
+    .line 551
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #keyList:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     .end local v2           #spell:Landroid/app/SpellScroll$Spell;
@@ -3456,7 +3456,7 @@
 
     throw v3
 
-    .line 556
+    .line 555
     .restart local v0       #i$:Ljava/util/Iterator;
     .restart local v1       #keyList:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     :cond_0
@@ -3469,7 +3469,7 @@
     .locals 1
 
     .prologue
-    .line 502
+    .line 501
     iget-object v0, p0, Landroid/app/SpellScroll;->mSpellScrollComponent:Landroid/content/ComponentName;
 
     return-object v0
@@ -3488,14 +3488,14 @@
     .end annotation
 
     .prologue
-    .line 534
+    .line 533
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Landroid/app/SpellScroll;->mSpellList:Ljava/util/List;
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 536
+    .line 535
     .local v0, result:Ljava/util/List;,"Ljava/util/List<Landroid/app/SpellScroll$Spell;>;"
     return-object v0
 .end method
@@ -3504,7 +3504,7 @@
     .locals 1
 
     .prologue
-    .line 510
+    .line 509
     iget-object v0, p0, Landroid/app/SpellScroll;->mTargetPackage:Ljava/lang/String;
 
     return-object v0
@@ -3514,7 +3514,7 @@
     .locals 5
 
     .prologue
-    .line 659
+    .line 658
     iget v3, p0, Landroid/app/SpellScroll;->mLocalHash:I
 
     invoke-super {p0}, Landroid/app/ExtraAttr$Owner;->hashCode()I
@@ -3523,7 +3523,7 @@
 
     xor-int v1, v3, v4
 
-    .line 660
+    .line 659
     .local v1, result:I
     iget-boolean v3, p0, Landroid/app/SpellScroll;->mDisabled:Z
 
@@ -3536,7 +3536,7 @@
 
     xor-int/2addr v1, v3
 
-    .line 662
+    .line 661
     iget-object v3, p0, Landroid/app/SpellScroll;->mSpellList:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -3557,7 +3557,7 @@
 
     check-cast v2, Landroid/app/SpellScroll$Spell;
 
-    .line 663
+    .line 662
     .local v2, spell:Landroid/app/SpellScroll$Spell;
     invoke-virtual {v2}, Landroid/app/SpellScroll$Spell;->hashCode()I
 
@@ -3567,7 +3567,7 @@
 
     goto :goto_1
 
-    .line 660
+    .line 659
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v2           #spell:Landroid/app/SpellScroll$Spell;
     :cond_0
@@ -3575,7 +3575,7 @@
 
     goto :goto_0
 
-    .line 666
+    .line 665
     .restart local v0       #i$:Ljava/util/Iterator;
     :cond_1
     return v1
@@ -3585,7 +3585,7 @@
     .locals 1
 
     .prologue
-    .line 530
+    .line 529
     iget-boolean v0, p0, Landroid/app/SpellScroll;->mDisabled:Z
 
     return v0
@@ -3596,10 +3596,10 @@
     .parameter "scroll"
 
     .prologue
-    .line 572
+    .line 571
     if-nez p1, :cond_0
 
-    .line 573
+    .line 572
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Given SpellScrollInfo is null!"
@@ -3608,7 +3608,7 @@
 
     throw v0
 
-    .line 577
+    .line 576
     :cond_0
     iget-object v0, p0, Landroid/app/SpellScroll;->mTargetPackage:Ljava/lang/String;
 
@@ -3622,10 +3622,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 578
+    .line 577
     const/4 v0, 0x1
 
-    .line 581
+    .line 580
     :goto_0
     return v0
 
@@ -3640,19 +3640,19 @@
     .parameter "scroll"
 
     .prologue
-    .line 585
+    .line 584
     monitor-enter p0
 
     if-nez p1, :cond_1
 
-    .line 599
+    .line 598
     :cond_0
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 589
+    .line 588
     :cond_1
     :try_start_0
     invoke-virtual {p0, p1}, Landroid/app/SpellScroll;->isMergable(Landroid/app/SpellScroll;)Z
@@ -3661,7 +3661,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 593
+    .line 592
     invoke-virtual {p1}, Landroid/app/SpellScroll;->getSpells()Ljava/util/List;
 
     move-result-object v2
@@ -3684,7 +3684,7 @@
 
     check-cast v1, Landroid/app/SpellScroll$Spell;
 
-    .line 594
+    .line 593
     .local v1, spell:Landroid/app/SpellScroll$Spell;
     invoke-virtual {p0, v1}, Landroid/app/SpellScroll;->addSpell(Landroid/app/SpellScroll$Spell;)V
     :try_end_0
@@ -3692,7 +3692,7 @@
 
     goto :goto_1
 
-    .line 585
+    .line 584
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #spell:Landroid/app/SpellScroll$Spell;
     :catchall_0
@@ -3702,7 +3702,7 @@
 
     throw v2
 
-    .line 598
+    .line 597
     .restart local v0       #i$:Ljava/util/Iterator;
     :cond_2
     :try_start_1
@@ -3725,12 +3725,12 @@
     .locals 1
 
     .prologue
-    .line 602
+    .line 601
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/app/SpellScroll;->mDisabled:Z
 
-    .line 603
+    .line 602
     return-void
 .end method
 
@@ -3754,42 +3754,42 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 634
+    .line 633
     iget-object v3, p0, Landroid/app/SpellScroll;->mName:Ljava/lang/String;
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 635
+    .line 634
     iget-object v3, p0, Landroid/app/SpellScroll;->mSpellScrollComponent:Landroid/content/ComponentName;
 
     invoke-virtual {v3, p1, p2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 636
+    .line 635
     iget-object v3, p0, Landroid/app/SpellScroll;->mTargetPackage:Ljava/lang/String;
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 637
+    .line 636
     iget v3, p0, Landroid/app/SpellScroll;->mLabelId:I
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 638
+    .line 637
     iget v3, p0, Landroid/app/SpellScroll;->mHintId:I
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 639
+    .line 638
     iget v3, p0, Landroid/app/SpellScroll;->mIconId:I
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 640
+    .line 639
     iget v3, p0, Landroid/app/SpellScroll;->mPriority:I
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 642
+    .line 641
     iget-object v3, p0, Landroid/app/SpellScroll;->mSpellsMap:Ljava/util/Map;
 
     invoke-interface {v3}, Ljava/util/Map;->size()I
@@ -3798,16 +3798,16 @@
 
     if-nez v3, :cond_2
 
-    .line 643
+    .line 642
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 652
+    .line 651
     :cond_0
     iget-object v3, p0, Landroid/app/ExtraAttr$Owner;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v3, p1, p2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 653
+    .line 652
     iget-boolean v3, p0, Landroid/app/SpellScroll;->mDisabled:Z
 
     if-eqz v3, :cond_1
@@ -3817,15 +3817,15 @@
     :cond_1
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 654
+    .line 653
     iget-object v2, p0, Landroid/app/SpellScroll;->mNonLocalizedLabel:Ljava/lang/String;
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 655
+    .line 654
     return-void
 
-    .line 645
+    .line 644
     :cond_2
     iget-object v3, p0, Landroid/app/SpellScroll;->mSpellsMap:Ljava/util/Map;
 
@@ -3835,7 +3835,7 @@
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 647
+    .line 646
     iget-object v3, p0, Landroid/app/SpellScroll;->mSpellsMap:Ljava/util/Map;
 
     invoke-interface {v3}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -3860,7 +3860,7 @@
 
     check-cast v1, Landroid/app/SpellScroll$Spell;
 
-    .line 648
+    .line 647
     .local v1, spell:Landroid/app/SpellScroll$Spell;
     invoke-virtual {v1, p1, p2}, Landroid/app/SpellScroll$Spell;->writeToParcel(Landroid/os/Parcel;I)V
 

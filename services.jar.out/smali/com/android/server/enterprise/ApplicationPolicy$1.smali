@@ -35,261 +35,239 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 12
+    .locals 10
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    const/4 v10, 0x0
-
     .line 1023
-    iget-object v9, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
+    iget-object v7, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
     #calls: Lcom/android/server/enterprise/ApplicationPolicy;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
-    invoke-static {v9, p2}, Lcom/android/server/enterprise/ApplicationPolicy;->access$700(Lcom/android/server/enterprise/ApplicationPolicy;Landroid/content/Intent;)Ljava/lang/String;
+    invoke-static {v7, p2}, Lcom/android/server/enterprise/ApplicationPolicy;->access$700(Lcom/android/server/enterprise/ApplicationPolicy;Landroid/content/Intent;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
     .line 1024
-    .local v5, pkgName:Ljava/lang/String;
+    .local v3, pkgName:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 1025
-    .local v4, pkgAction:Ljava/lang/String;
-    const-string v9, "application_state_disable_enable"
-
-    invoke-virtual {p2, v9, v10}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    .line 1027
-    .local v3, intentCauseDisableEnable:Z
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v0
-
-    .line 1033
-    .local v0, callingUid:I
-    if-eqz v5, :cond_1
-
-    :try_start_0
-    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v9
-
-    if-lez v9, :cond_1
-
-    if-eqz v4, :cond_1
-
-    invoke-virtual {v4}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
-
-    move-result v9
-
-    if-lez v9, :cond_1
-
-    .line 1036
-    const-string v9, "android.intent.action.PACKAGE_REMOVED"
-
-    invoke-virtual {v4, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_2
-
-    .line 1037
-    if-nez v3, :cond_1
-
-    .line 1038
-    iget-object v9, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
-
-    #getter for: Lcom/android/server/enterprise/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/EdmStorageProvider;
-    invoke-static {v9}, Lcom/android/server/enterprise/ApplicationPolicy;->access$800(Lcom/android/server/enterprise/ApplicationPolicy;)Lcom/android/server/enterprise/EdmStorageProvider;
-
-    move-result-object v9
-
-    const-string v10, "ADMIN"
-
-    const-string v11, "adminUid"
-
-    invoke-virtual {v9, v10, v11}, Lcom/android/server/enterprise/EdmStorageProvider;->getIntList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;
-
-    move-result-object v7
-
-    .line 1041
-    .local v7, uidList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
-    invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, i$:Ljava/util/Iterator;
+    .line 1030
+    .local v2, pkgAction:Ljava/lang/String;
+    if-eqz v3, :cond_1
+
+    :try_start_0
+    invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v7
+
+    if-lez v7, :cond_1
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v7
+
+    if-lez v7, :cond_1
+
+    .line 1032
+    const-string v7, "android.intent.action.PACKAGE_REMOVED"
+
+    invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    .line 1033
+    iget-object v7, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
+
+    #getter for: Lcom/android/server/enterprise/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/EdmStorageProvider;
+    invoke-static {v7}, Lcom/android/server/enterprise/ApplicationPolicy;->access$800(Lcom/android/server/enterprise/ApplicationPolicy;)Lcom/android/server/enterprise/EdmStorageProvider;
+
+    move-result-object v7
+
+    const-string v8, "ADMIN"
+
+    const-string v9, "adminUid"
+
+    invoke-virtual {v7, v8, v9}, Lcom/android/server/enterprise/EdmStorageProvider;->getIntList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v5
+
+    .line 1035
+    .local v5, uidList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    invoke-virtual {v5}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    .local v1, i$:Ljava/util/Iterator;
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v9
+    move-result v7
 
-    if-eqz v9, :cond_1
+    if-eqz v7, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v7
 
-    check-cast v9, Ljava/lang/Integer;
+    check-cast v7, Ljava/lang/Integer;
 
-    invoke-virtual {v9}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
-    move-result v6
+    move-result v4
 
-    .line 1047
-    .local v6, storedUid:I
-    iget-object v9, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
+    .line 1036
+    .local v4, storedUid:I
+    iget-object v7, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {v9, v5, v10, v6}, Lcom/android/server/enterprise/ApplicationPolicy;->isManagedAppInfo(Ljava/lang/String;[Landroid/app/enterprise/ManagedAppInfo;I)Landroid/app/enterprise/ManagedAppInfo;
+    invoke-virtual {v7, v3, v8, v4}, Lcom/android/server/enterprise/ApplicationPolicy;->isManagedAppInfo(Ljava/lang/String;[Landroid/app/enterprise/ManagedAppInfo;I)Landroid/app/enterprise/ManagedAppInfo;
 
-    move-result-object v9
+    move-result-object v7
 
-    if-eqz v9, :cond_0
+    if-eqz v7, :cond_0
 
-    .line 1048
-    iget-object v9, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
+    .line 1037
+    iget-object v7, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
-    const-string v10, "applicationUninstallationCount"
+    const-string v8, "applicationUninstallationCount"
 
     #calls: Lcom/android/server/enterprise/ApplicationPolicy;->updateCount(ILjava/lang/String;Ljava/lang/String;)V
-    invoke-static {v9, v6, v5, v10}, Lcom/android/server/enterprise/ApplicationPolicy;->access$900(Lcom/android/server/enterprise/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
+    invoke-static {v7, v4, v3, v8}, Lcom/android/server/enterprise/ApplicationPolicy;->access$900(Lcom/android/server/enterprise/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
 
-    .line 1050
-    iget-object v9, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
+    .line 1039
+    iget-object v7, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
-    const/4 v10, 0x2
+    const/4 v8, 0x2
 
-    const/4 v11, 0x0
+    const/4 v9, 0x0
 
     #calls: Lcom/android/server/enterprise/ApplicationPolicy;->setApplicationPkgNameControlState(Ljava/lang/String;IIZ)Z
-    invoke-static {v9, v5, v6, v10, v11}, Lcom/android/server/enterprise/ApplicationPolicy;->access$1000(Lcom/android/server/enterprise/ApplicationPolicy;Ljava/lang/String;IIZ)Z
+    invoke-static {v7, v3, v4, v8, v9}, Lcom/android/server/enterprise/ApplicationPolicy;->access$1000(Lcom/android/server/enterprise/ApplicationPolicy;Ljava/lang/String;IIZ)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 1082
-    .end local v2           #i$:Ljava/util/Iterator;
-    .end local v6           #storedUid:I
-    .end local v7           #uidList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    .line 1058
+    .end local v1           #i$:Ljava/util/Iterator;
+    .end local v4           #storedUid:I
+    .end local v5           #uidList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    .line 1083
-    .local v1, e:Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    .line 1059
+    .local v0, e:Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 1085
-    .end local v1           #e:Ljava/lang/Exception;
+    .line 1061
+    .end local v0           #e:Ljava/lang/Exception;
     :cond_1
     return-void
 
-    .line 1058
+    .line 1043
     :cond_2
     :try_start_1
-    const-string v9, "android.intent.action.PACKAGE_CHANGED"
+    const-string v7, "android.intent.action.PACKAGE_CHANGED"
 
-    invoke-virtual {v4, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v7
 
-    if-nez v9, :cond_1
+    if-nez v7, :cond_1
 
-    .line 1060
-    const-string v9, "android.intent.action.PACKAGE_ADDED"
+    .line 1045
+    const-string v7, "android.intent.action.PACKAGE_ADDED"
 
-    invoke-virtual {v4, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v7
 
-    if-eqz v9, :cond_1
+    if-eqz v7, :cond_1
 
-    .line 1062
-    if-nez v3, :cond_1
-
-    .line 1063
-    iget-object v9, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
+    .line 1046
+    iget-object v7, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
     #getter for: Lcom/android/server/enterprise/ApplicationPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/EdmStorageProvider;
-    invoke-static {v9}, Lcom/android/server/enterprise/ApplicationPolicy;->access$800(Lcom/android/server/enterprise/ApplicationPolicy;)Lcom/android/server/enterprise/EdmStorageProvider;
+    invoke-static {v7}, Lcom/android/server/enterprise/ApplicationPolicy;->access$800(Lcom/android/server/enterprise/ApplicationPolicy;)Lcom/android/server/enterprise/EdmStorageProvider;
 
-    move-result-object v9
+    move-result-object v7
 
-    const-string v10, "ADMIN"
+    const-string v8, "ADMIN"
 
-    const-string v11, "adminUid"
+    const-string v9, "adminUid"
 
-    invoke-virtual {v9, v10, v11}, Lcom/android/server/enterprise/EdmStorageProvider;->getIntList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-virtual {v7, v8, v9}, Lcom/android/server/enterprise/EdmStorageProvider;->getIntList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result-object v8
+    move-result-object v6
 
-    .line 1066
-    .local v8, uidList1:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
-    invoke-virtual {v8}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    .line 1048
+    .local v6, uidList1:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
 
-    .restart local v2       #i$:Ljava/util/Iterator;
+    .restart local v1       #i$:Ljava/util/Iterator;
     :cond_3
     :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v9
+    move-result v7
 
-    if-eqz v9, :cond_1
+    if-eqz v7, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v7
 
-    check-cast v9, Ljava/lang/Integer;
+    check-cast v7, Ljava/lang/Integer;
 
-    invoke-virtual {v9}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
-    move-result v6
+    move-result v4
 
-    .line 1072
-    .restart local v6       #storedUid:I
-    iget-object v9, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
+    .line 1049
+    .restart local v4       #storedUid:I
+    iget-object v7, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {v9, v5, v10, v6}, Lcom/android/server/enterprise/ApplicationPolicy;->isManagedAppInfo(Ljava/lang/String;[Landroid/app/enterprise/ManagedAppInfo;I)Landroid/app/enterprise/ManagedAppInfo;
+    invoke-virtual {v7, v3, v8, v4}, Lcom/android/server/enterprise/ApplicationPolicy;->isManagedAppInfo(Ljava/lang/String;[Landroid/app/enterprise/ManagedAppInfo;I)Landroid/app/enterprise/ManagedAppInfo;
 
-    move-result-object v9
+    move-result-object v7
 
-    if-eqz v9, :cond_3
+    if-eqz v7, :cond_3
 
-    .line 1073
-    iget-object v9, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
+    .line 1050
+    iget-object v7, p0, Lcom/android/server/enterprise/ApplicationPolicy$1;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
-    const-string v10, "applicationInstallationCount"
+    const-string v8, "applicationInstallationCount"
 
     #calls: Lcom/android/server/enterprise/ApplicationPolicy;->updateCount(ILjava/lang/String;Ljava/lang/String;)V
-    invoke-static {v9, v6, v5, v10}, Lcom/android/server/enterprise/ApplicationPolicy;->access$900(Lcom/android/server/enterprise/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
+    invoke-static {v7, v4, v3, v8}, Lcom/android/server/enterprise/ApplicationPolicy;->access$900(Lcom/android/server/enterprise/ApplicationPolicy;ILjava/lang/String;Ljava/lang/String;)V
 
-    .line 1075
-    const-string v9, "ApplicationPolicy"
+    .line 1052
+    const-string v7, "ApplicationPolicy"
 
-    const-string v10, "App install count incremented"
+    const-string v8, "App install count incremented"
 
-    invoke-static {v9, v10}, Lcom/android/server/enterprise/Utils;->writeToLog(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v7, v8}, Lcom/android/server/enterprise/Utils;->writeToLog(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 

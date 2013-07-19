@@ -1626,7 +1626,7 @@
     .line 472
     iget-object v2, p0, Lcom/android/server/sip/SipHelper;->mHeaderFactory:Ljavax/sip/header/HeaderFactory;
 
-    const-string v3, "message"
+    const-string/jumbo v3, "message"
 
     const-string/jumbo v4, "sipfrag"
 

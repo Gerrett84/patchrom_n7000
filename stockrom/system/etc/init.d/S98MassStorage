@@ -1,5 +1,0 @@
-#!/system/bin/sh
-
-/system/bin/setprop sys.usb.config mass_storage,adb
-/system/bin/setprop persist.sys.usb.config mass_storage,adb
-/system/bin/setprop sys.usb.state mass_storage,adb

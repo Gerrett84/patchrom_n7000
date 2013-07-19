@@ -2,7 +2,7 @@
 <resources>
     <plurals name="num_seconds_ago">
         <item quantity="other">il y a %d secondes</item>
-        <item quantity="one">I+G442l y a 1 seconde</item>
+        <item quantity="one">Il y a 1 seconde</item>
     </plurals>
     <plurals name="num_minutes_ago">
         <item quantity="other">il y a %d minutes</item>

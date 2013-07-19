@@ -32,15 +32,17 @@
 
 .field static final TRANSACTION_endCall:I = 0x3
 
-.field static final TRANSACTION_getCallState:I = 0x9
+.field static final TRANSACTION_getCallState:I = 0xa
 
-.field static final TRANSACTION_isIMSEnabledOnWifi:I = 0xa
+.field static final TRANSACTION_isIMSEnabledOnWifi:I = 0xb
 
 .field static final TRANSACTION_isIdle:I = 0x8
 
 .field static final TRANSACTION_isOffhook:I = 0x6
 
 .field static final TRANSACTION_isRinging:I = 0x7
+
+.field static final TRANSACTION_isVideoCall:I = 0x9
 
 .field static final TRANSACTION_showCallScreen:I = 0x1
 
@@ -140,7 +142,7 @@
     .line 47
     sparse-switch p1, :sswitch_data_0
 
-    .line 132
+    .line 140
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
@@ -330,46 +332,72 @@
     .line 117
     .end local v0           #_result:Z
     :sswitch_9
-    const-string v1, "com.sec.android.internal.ims.IIMSTelephony"
-
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 118
-    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSTelephony$Stub;->getCallState()I
-
-    move-result v0
-
-    .line 119
-    .local v0, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 120
-    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_0
-
-    .line 125
-    .end local v0           #_result:I
-    :sswitch_a
     const-string v3, "com.sec.android.internal.ims.IIMSTelephony"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 126
-    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSTelephony$Stub;->isIMSEnabledOnWifi()Z
+    .line 118
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSTelephony$Stub;->isVideoCall()Z
 
     move-result v0
 
-    .line 127
-    .local v0, _result:Z
+    .line 119
+    .restart local v0       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 128
+    .line 120
     if-eqz v0, :cond_5
 
     move v1, v2
 
     :cond_5
+    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 125
+    .end local v0           #_result:Z
+    :sswitch_a
+    const-string v1, "com.sec.android.internal.ims.IIMSTelephony"
+
+    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 126
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSTelephony$Stub;->getCallState()I
+
+    move-result v0
+
+    .line 127
+    .local v0, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 128
+    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 133
+    .end local v0           #_result:I
+    :sswitch_b
+    const-string v3, "com.sec.android.internal.ims.IIMSTelephony"
+
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 134
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSTelephony$Stub;->isIMSEnabledOnWifi()Z
+
+    move-result v0
+
+    .line 135
+    .local v0, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 136
+    if-eqz v0, :cond_6
+
+    move v1, v2
+
+    :cond_6
     invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
@@ -389,6 +417,7 @@
         0x8 -> :sswitch_8
         0x9 -> :sswitch_9
         0xa -> :sswitch_a
+        0xb -> :sswitch_b
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 343
+    .line 372
     iput-object p1, p0, Landroid/hardware/motion/MotionRecognitionService$3;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,21 +39,21 @@
     .parameter "msg"
 
     .prologue
-    .line 346
+    .line 375
     iget v1, p1, Landroid/os/Message;->what:I
 
     const/16 v2, 0x1e
 
     if-ne v1, v2, :cond_0
 
-    .line 347
+    .line 376
     const-string v1, "MotionRecognitionService"
 
     const-string v2, " send reactive alert "
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 348
+    .line 377
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService$3;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
     iget-object v1, v1, Landroid/hardware/motion/MotionRecognitionService;->mEventPool:Landroid/hardware/motion/MotionRecognitionService$EventPool;
@@ -62,19 +62,19 @@
 
     move-result-object v0
 
-    .line 349
+    .line 378
     .local v0, motionEvent:Landroid/hardware/motion/MREvent;
     const/16 v1, 0x43
 
     invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setMotion(I)V
 
-    .line 350
+    .line 379
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService$3;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
     #calls: Landroid/hardware/motion/MotionRecognitionService;->sendMotionEvent(Landroid/hardware/motion/MREvent;)V
     invoke-static {v1, v0}, Landroid/hardware/motion/MotionRecognitionService;->access$600(Landroid/hardware/motion/MotionRecognitionService;Landroid/hardware/motion/MREvent;)V
 
-    .line 352
+    .line 381
     .end local v0           #motionEvent:Landroid/hardware/motion/MREvent;
     :cond_0
     return-void

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1005
+    .line 1006
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$SlidingHandler;->this$0:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1005
+    .line 1006
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$SlidingHandler;-><init>(Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;)V
 
     return-void
@@ -51,16 +51,16 @@
     .parameter "m"
 
     .prologue
-    .line 1007
+    .line 1008
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1012
+    .line 1013
     :goto_0
     return-void
 
-    .line 1009
+    .line 1010
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$SlidingHandler;->this$0:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
@@ -69,7 +69,7 @@
 
     goto :goto_0
 
-    .line 1007
+    .line 1008
     :pswitch_data_0
     .packed-switch 0x3e8
         :pswitch_0

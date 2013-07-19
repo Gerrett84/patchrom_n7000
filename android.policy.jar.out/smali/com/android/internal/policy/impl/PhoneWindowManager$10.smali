@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1505
+    .line 1683
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,95 +38,80 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 3
 
     .prologue
-    const/4 v7, 0x0
+    const/4 v2, 0x0
 
-    const/16 v6, 0x1b
+    .line 1685
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    const/4 v5, 0x0
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->isDeviceProvisioned()Z
 
-    .line 1507
-    iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    move-result v0
 
-    iget-object v2, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->isShowing()Z
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    move-result v2
+    iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
-    if-eqz v2, :cond_1
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->isShowing()Z
 
-    .line 1510
-    iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    move-result v0
 
-    iget-object v2, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
+    if-nez v0, :cond_0
 
-    invoke-virtual {v2, v6, v5}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->onWakeKeyWhenKeyguardShowingTq(IZ)Z
+    .line 1686
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    .line 1521
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->checkHideTrayBar()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 1687
+    const-string v0, "WindowManager"
+
+    const-string v1, "Bar couldn\'t execute"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1694
     :cond_0
     :goto_0
-    new-instance v0, Landroid/view/KeyEvent;
-
-    invoke-direct {v0, v5, v6}, Landroid/view/KeyEvent;-><init>(II)V
-
-    .line 1522
-    .local v0, cameraKeyDown:Landroid/view/KeyEvent;
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.intent.action.CAMERA_BUTTON"
-
-    invoke-direct {v1, v2, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
-
-    .line 1523
-    .local v1, intent:Landroid/content/Intent;
-    const-string v2, "android.intent.extra.KEY_EVENT"
-
-    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    .line 1524
-    const-string v2, "com.sec.android.app.camera"
-
-    const-string v3, "com.sec.android.app.camera.CameraButtonIntentReceiver"
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 1526
-    iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
-
-    iget-object v2, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2, v1, v7}, Landroid/content/Context;->sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
-
-    .line 1527
     return-void
 
-    .line 1515
-    .end local v0           #cameraKeyDown:Landroid/view/KeyEvent;
-    .end local v1           #intent:Landroid/content/Intent;
+    .line 1690
     :cond_1
-    iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    iget-object v2, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
+    const/4 v1, 0x0
 
-    invoke-virtual {v2, v6, v5}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->isWakeKeyWhenKeyguardHiding(IZ)Z
+    invoke-virtual {v0, v1, v2, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->performHapticFeedbackLw(Landroid/view/WindowManagerPolicy$WindowState;IZ)Z
 
-    move-result v2
+    .line 1691
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    if-eqz v2, :cond_0
+    const/4 v1, 0x1
 
-    .line 1517
-    iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    #setter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mConsumeBackKeyUp:Z
+    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$1202(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
-    iget-object v2, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPowerManager:Landroid/os/LocalPowerManager;
+    .line 1692
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
 
-    move-result-wide v3
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    invoke-interface {v2, v3, v4, v5, v5}, Landroid/os/LocalPowerManager;->userActivity(JZI)V
+    #getter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mMultiWindowUIIntent:Landroid/content/Intent;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$1300(Lcom/android/internal/policy/impl/PhoneWindowManager;)Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
     goto :goto_0
 .end method

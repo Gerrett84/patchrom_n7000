@@ -264,7 +264,7 @@
     if-eqz p0, :cond_2
 
     .line 293
-    const-string v2, "name"
+    const-string/jumbo v2, "name"
 
     iget-object v3, p0, Lcom/android/internal/telephony/CallerInfo;->name:Ljava/lang/String;
 

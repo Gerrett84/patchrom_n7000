@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 103
+    .line 104
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 106
+    .line 107
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 111
+    .line 112
     :goto_0
     return-void
 
-    .line 108
+    .line 109
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget;
 
@@ -57,7 +57,7 @@
 
     goto :goto_0
 
-    .line 106
+    .line 107
     :pswitch_data_0
     .packed-switch 0x12c2
         :pswitch_0

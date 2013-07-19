@@ -74,13 +74,13 @@
     if-ne v1, v3, :cond_0
 
     .line 980
-    const v1, 0x109008d
+    const v1, 0x1090092
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     .line 990
     :goto_0
-    const v1, 0x1020381
+    const v1, 0x1020391
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->findViewById(I)Landroid/view/View;
 
@@ -91,7 +91,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mMainView:Landroid/widget/RelativeLayout;
 
     .line 991
-    const v1, 0x1020382
+    const v1, 0x1020392
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->findViewById(I)Landroid/view/View;
 
@@ -102,7 +102,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mMsg:Landroid/widget/TextView;
 
     .line 992
-    const v1, 0x1020385
+    const v1, 0x1020395
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->findViewById(I)Landroid/view/View;
 
@@ -113,7 +113,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mMsg2:Landroid/widget/TextView;
 
     .line 993
-    const v1, 0x1020384
+    const v1, 0x1020394
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->findViewById(I)Landroid/view/View;
 
@@ -124,7 +124,7 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mStatusImg:Landroid/widget/ImageView;
 
     .line 994
-    const v1, 0x1020383
+    const v1, 0x1020393
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->findViewById(I)Landroid/view/View;
 
@@ -148,7 +148,7 @@
 
     .line 982
     :cond_0
-    const v1, 0x109008c
+    const v1, 0x1090091
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -161,7 +161,7 @@
     if-ne v1, v3, :cond_2
 
     .line 985
-    const v1, 0x109008f
+    const v1, 0x1090094
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -169,7 +169,7 @@
 
     .line 987
     :cond_2
-    const v1, 0x109008e
+    const v1, 0x1090093
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -222,14 +222,14 @@
     .line 1030
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mMsg2:Landroid/widget/TextView;
 
-    const v1, 0x10406ed
+    const v1, 0x1040703
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 1031
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mStatusImg:Landroid/widget/ImageView;
 
-    const v1, 0x108041f
+    const v1, 0x1080448
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -249,21 +249,21 @@
     .line 1016
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mMsg:Landroid/widget/TextView;
 
-    const v1, 0x10406ec
+    const v1, 0x1040702
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 1017
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mMsg2:Landroid/widget/TextView;
 
-    const v1, 0x10406f0
+    const v1, 0x1040706
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 1018
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mStatusImg:Landroid/widget/ImageView;
 
-    const v1, 0x108041d
+    const v1, 0x1080446
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -278,14 +278,14 @@
     .line 1023
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mMsg:Landroid/widget/TextView;
 
-    const v1, 0x10406ec
+    const v1, 0x1040702
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 1024
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mStatusImg:Landroid/widget/ImageView;
 
-    const v1, 0x108041d
+    const v1, 0x1080446
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -300,14 +300,14 @@
     .line 1037
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mMsg2:Landroid/widget/TextView;
 
-    const v1, 0x10406ef
+    const v1, 0x1040705
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 1038
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceVoiceUnlock$VoiceUnlockView;->mStatusImg:Landroid/widget/ImageView;
 
-    const v1, 0x108041e
+    const v1, 0x1080447
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 

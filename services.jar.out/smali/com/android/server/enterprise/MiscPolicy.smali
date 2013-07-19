@@ -80,12 +80,12 @@
     .locals 2
 
     .prologue
-    .line 916
+    .line 921
     iget-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mSystemFontChanger:Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;
 
     if-nez v0, :cond_0
 
-    .line 917
+    .line 922
     new-instance v0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;
 
     const/4 v1, 0x0
@@ -94,7 +94,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mSystemFontChanger:Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;
 
-    .line 919
+    .line 924
     :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mSystemFontChanger:Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;
 
@@ -119,10 +119,10 @@
     .parameter "thumbnail"
 
     .prologue
-    .line 664
+    .line 669
     const/4 v10, 0x0
 
-    .line 666
+    .line 671
     .local v10, ret:Z
     new-instance v12, Ljava/util/Date;
 
@@ -132,17 +132,17 @@
 
     move-result-wide v3
 
-    .line 667
+    .line 672
     .local v3, creationTime:J
     new-instance v9, Landroid/content/ContentValues;
 
     invoke-direct {v9}, Landroid/content/ContentValues;-><init>()V
 
-    .line 668
+    .line 673
     .local v9, map:Landroid/content/ContentValues;
     const/4 v5, 0x0
 
-    .line 669
+    .line 674
     .local v5, cursor:Landroid/database/Cursor;
     iget-object v12, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
@@ -150,11 +150,11 @@
 
     move-result-object v2
 
-    .line 670
+    .line 675
     .local v2, cr:Landroid/content/ContentResolver;
     const/4 v7, 0x0
 
-    .line 672
+    .line 677
     .local v7, folder:I
     :try_start_0
     move-object/from16 v0, p1
@@ -166,24 +166,24 @@
 
     move-result-object v5
 
-    .line 673
+    .line 678
     if-nez v5, :cond_1
 
-    .line 674
+    .line 679
     const/4 v12, 0x0
 
-    .line 733
+    .line 738
     if-eqz v5, :cond_0
 
-    .line 734
+    .line 739
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
 
-    .line 736
+    .line 741
     :cond_0
     :goto_0
     return v12
 
-    .line 675
+    .line 680
     :cond_1
     :try_start_1
     invoke-interface {v5}, Landroid/database/Cursor;->moveToFirst()Z
@@ -200,7 +200,7 @@
 
     if-nez v12, :cond_3
 
-    .line 679
+    .line 684
     const-string v12, "created"
 
     invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -209,14 +209,14 @@
 
     invoke-virtual {v9, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    .line 680
+    .line 685
     const-string v12, "title"
 
     move-object/from16 v0, p2
 
     invoke-virtual {v9, v12, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 681
+    .line 686
     const-string v12, "bookmark"
 
     const/4 v13, 0x1
@@ -227,7 +227,7 @@
 
     invoke-virtual {v9, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 682
+    .line 687
     const-string v12, "thumbnail"
 
     invoke-static/range {p3 .. p3}, Lcom/android/server/enterprise/MiscPolicy;->bitmapToBytes(Landroid/graphics/Bitmap;)[B
@@ -236,7 +236,7 @@
 
     invoke-virtual {v9, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
-    .line 683
+    .line 688
     const-string v12, "touch_icon"
 
     invoke-static/range {p3 .. p3}, Lcom/android/server/enterprise/MiscPolicy;->bitmapToBytes(Landroid/graphics/Bitmap;)[B
@@ -245,7 +245,7 @@
 
     invoke-virtual {v9, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
-    .line 684
+    .line 689
     sget-object v12, Landroid/provider/Browser;->BOOKMARKS_URI:Landroid/net/Uri;
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -279,31 +279,31 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 729
+    .line 734
     :goto_1
     const/4 v10, 0x1
 
-    .line 733
+    .line 738
     if-eqz v5, :cond_2
 
-    .line 734
+    .line 739
     :goto_2
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
 
     :cond_2
     move v12, v10
 
-    .line 736
+    .line 741
     goto :goto_0
 
-    .line 686
+    .line 691
     :cond_3
     :try_start_2
     invoke-interface {v5}, Landroid/database/Cursor;->getCount()I
 
     move-result v1
 
-    .line 688
+    .line 693
     .local v1, count:I
     const/4 v8, 0x0
 
@@ -311,10 +311,10 @@
     :goto_3
     if-ge v8, v1, :cond_4
 
-    .line 691
+    .line 696
     invoke-interface {v5, v8}, Landroid/database/Cursor;->moveToPosition(I)Z
 
-    .line 692
+    .line 697
     const/4 v12, 0x5
 
     invoke-interface {v5, v12}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -329,7 +329,7 @@
 
     if-eqz v12, :cond_6
 
-    .line 702
+    .line 707
     :cond_4
     const-string v12, "title"
 
@@ -337,14 +337,14 @@
 
     invoke-virtual {v9, v12, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 703
+    .line 708
     const-string v12, "url"
 
     move-object/from16 v0, p1
 
     invoke-virtual {v9, v12, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 704
+    .line 709
     const-string v12, "created"
 
     invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -353,7 +353,7 @@
 
     invoke-virtual {v9, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
-    .line 705
+    .line 710
     const-string v12, "bookmark"
 
     const/4 v13, 0x1
@@ -364,7 +364,7 @@
 
     invoke-virtual {v9, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 706
+    .line 711
     const-string v12, "date"
 
     const/4 v13, 0x0
@@ -375,7 +375,7 @@
 
     invoke-virtual {v9, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 707
+    .line 712
     const-string v12, "thumbnail"
 
     invoke-static/range {p3 .. p3}, Lcom/android/server/enterprise/MiscPolicy;->bitmapToBytes(Landroid/graphics/Bitmap;)[B
@@ -384,27 +384,27 @@
 
     invoke-virtual {v9, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
-    .line 709
+    .line 714
     const/4 v11, 0x0
 
-    .line 710
+    .line 715
     .local v11, visits:I
     if-lez v1, :cond_5
 
-    .line 716
+    .line 721
     const/4 v12, 0x2
 
     invoke-interface {v5, v12}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v11
 
-    .line 722
+    .line 727
     :cond_5
     if-nez v1, :cond_7
 
     if-nez v7, :cond_7
 
-    .line 723
+    .line 728
     const-string v12, "visits"
 
     add-int/lit8 v13, v11, 0x3
@@ -415,7 +415,7 @@
 
     invoke-virtual {v9, v12, v13}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 727
+    .line 732
     :goto_4
     sget-object v12, Landroid/provider/Browser;->BOOKMARKS_URI:Landroid/net/Uri;
 
@@ -426,14 +426,14 @@
 
     goto :goto_1
 
-    .line 730
+    .line 735
     .end local v1           #count:I
     .end local v8           #i:I
     .end local v11           #visits:I
     :catch_0
     move-exception v6
 
-    .line 731
+    .line 736
     .local v6, e:Ljava/lang/IllegalStateException;
     :try_start_3
     const-string v12, "MiscPolicy"
@@ -460,12 +460,12 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 733
+    .line 738
     if-eqz v5, :cond_2
 
     goto/16 :goto_2
 
-    .line 688
+    .line 693
     .end local v6           #e:Ljava/lang/IllegalStateException;
     .restart local v1       #count:I
     .restart local v8       #i:I
@@ -474,7 +474,7 @@
 
     goto/16 :goto_3
 
-    .line 725
+    .line 730
     .restart local v11       #visits:I
     :cond_7
     :try_start_4
@@ -493,7 +493,7 @@
 
     goto :goto_4
 
-    .line 733
+    .line 738
     .end local v1           #count:I
     .end local v8           #i:I
     .end local v11           #visits:I
@@ -502,10 +502,10 @@
 
     if-eqz v5, :cond_8
 
-    .line 734
+    .line 739
     invoke-interface {v5}, Landroid/database/Cursor;->close()V
 
-    .line 733
+    .line 738
     :cond_8
     throw v12
 .end method
@@ -515,12 +515,12 @@
     .parameter "sb"
 
     .prologue
-    .line 614
+    .line 619
     const-string v0, " OR url = "
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 615
+    .line 620
     return-void
 .end method
 
@@ -529,23 +529,23 @@
     .parameter "bm"
 
     .prologue
-    .line 744
+    .line 749
     if-nez p0, :cond_0
 
-    .line 745
+    .line 750
     const/4 v1, 0x0
 
-    .line 750
+    .line 755
     :goto_0
     return-object v1
 
-    .line 748
+    .line 753
     :cond_0
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 749
+    .line 754
     .local v0, os:Ljava/io/ByteArrayOutputStream;
     sget-object v1, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
@@ -553,7 +553,7 @@
 
     invoke-virtual {p0, v1, v2, v0}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    .line 750
+    .line 755
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v1
@@ -619,14 +619,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 627
+    .line 632
     const/4 v7, 0x0
 
-    .line 628
+    .line 633
     .local v7, secure:Z
     move-object v6, p1
 
-    .line 629
+    .line 634
     .local v6, compareString:Ljava/lang/String;
     const-string v0, "http://"
 
@@ -636,14 +636,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 630
+    .line 635
     const/4 v0, 0x7
 
     invoke-virtual {v6, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 635
+    .line 640
     :cond_0
     :goto_0
     const-string v0, "www."
@@ -654,22 +654,22 @@
 
     if-eqz v0, :cond_1
 
-    .line 636
+    .line 641
     const/4 v0, 0x4
 
     invoke-virtual {v6, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 638
+    .line 643
     :cond_1
     const/4 v8, 0x0
 
-    .line 639
+    .line 644
     .local v8, whereClause:Ljava/lang/StringBuilder;
     if-eqz v7, :cond_3
 
-    .line 640
+    .line 645
     new-instance v8, Ljava/lang/StringBuilder;
 
     .end local v8           #whereClause:Ljava/lang/StringBuilder;
@@ -677,7 +677,7 @@
 
     invoke-direct {v8, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 641
+    .line 646
     .restart local v8       #whereClause:Ljava/lang/StringBuilder;
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -699,10 +699,10 @@
 
     invoke-static {v8, v0}, Landroid/database/DatabaseUtils;->appendEscapedSQLString(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
-    .line 642
+    .line 647
     invoke-static {v8}, Lcom/android/server/enterprise/MiscPolicy;->addOrUrlEquals(Ljava/lang/StringBuilder;)V
 
-    .line 643
+    .line 648
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -723,7 +723,7 @@
 
     invoke-static {v8, v0}, Landroid/database/DatabaseUtils;->appendEscapedSQLString(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
-    .line 655
+    .line 660
     :goto_1
     sget-object v1, Landroid/provider/Browser;->BOOKMARKS_URI:Landroid/net/Uri;
 
@@ -743,7 +743,7 @@
 
     return-object v0
 
-    .line 631
+    .line 636
     .end local v8           #whereClause:Ljava/lang/StringBuilder;
     :cond_2
     const-string v0, "https://"
@@ -754,19 +754,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 632
+    .line 637
     const/16 v0, 0x8
 
     invoke-virtual {v6, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 633
+    .line 638
     const/4 v7, 0x1
 
     goto :goto_0
 
-    .line 645
+    .line 650
     .restart local v8       #whereClause:Ljava/lang/StringBuilder;
     :cond_3
     new-instance v8, Ljava/lang/StringBuilder;
@@ -776,14 +776,14 @@
 
     invoke-direct {v8, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 646
+    .line 651
     .restart local v8       #whereClause:Ljava/lang/StringBuilder;
     invoke-static {v8, v6}, Landroid/database/DatabaseUtils;->appendEscapedSQLString(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
-    .line 647
+    .line 652
     invoke-static {v8}, Lcom/android/server/enterprise/MiscPolicy;->addOrUrlEquals(Ljava/lang/StringBuilder;)V
 
-    .line 648
+    .line 653
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -802,14 +802,14 @@
 
     move-result-object v9
 
-    .line 649
+    .line 654
     .local v9, wwwString:Ljava/lang/String;
     invoke-static {v8, v9}, Landroid/database/DatabaseUtils;->appendEscapedSQLString(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
-    .line 650
+    .line 655
     invoke-static {v8}, Lcom/android/server/enterprise/MiscPolicy;->addOrUrlEquals(Ljava/lang/StringBuilder;)V
 
-    .line 651
+    .line 656
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -830,10 +830,10 @@
 
     invoke-static {v8, v0}, Landroid/database/DatabaseUtils;->appendEscapedSQLString(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
-    .line 652
+    .line 657
     invoke-static {v8}, Lcom/android/server/enterprise/MiscPolicy;->addOrUrlEquals(Ljava/lang/StringBuilder;)V
 
-    .line 653
+    .line 658
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -861,10 +861,10 @@
     .locals 4
 
     .prologue
-    .line 837
+    .line 842
     const/4 v0, 0x0
 
-    .line 838
+    .line 843
     .local v0, ret:Z
     iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/EdmStorageProvider;
 
@@ -874,7 +874,7 @@
 
     move-result-object v1
 
-    .line 839
+    .line 844
     .local v1, s:Ljava/lang/String;
     if-eqz v1, :cond_0
 
@@ -886,10 +886,10 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 840
+    .line 845
     const/4 v0, 0x1
 
-    .line 842
+    .line 847
     :cond_0
     return v0
 .end method
@@ -1435,14 +1435,14 @@
     .parameter "title"
 
     .prologue
-    .line 758
+    .line 763
     const/4 v6, 0x0
 
-    .line 759
+    .line 764
     .local v6, cursor:Landroid/database/Cursor;
     const/4 v10, 0x0
 
-    .line 760
+    .line 765
     .local v10, ret:Z
     iget-object v1, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
@@ -1450,7 +1450,7 @@
 
     move-result-object v0
 
-    .line 762
+    .line 767
     .local v0, cr:Landroid/content/ContentResolver;
     :try_start_0
     sget-object v1, Landroid/provider/Browser;->BOOKMARKS_URI:Landroid/net/Uri;
@@ -1480,24 +1480,24 @@
 
     move-result-object v6
 
-    .line 766
+    .line 771
     if-nez v6, :cond_1
 
-    .line 767
+    .line 772
     const/4 v1, 0x0
 
-    .line 794
+    .line 799
     if-eqz v6, :cond_0
 
-    .line 795
+    .line 800
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 797
+    .line 802
     :cond_0
     :goto_0
     return v1
 
-    .line 768
+    .line 773
     :cond_1
     :try_start_1
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
@@ -1507,23 +1507,23 @@
 
     move-result v8
 
-    .line 770
+    .line 775
     .local v8, first:Z
     if-nez v8, :cond_3
 
-    .line 794
+    .line 799
     if-eqz v6, :cond_2
 
-    .line 795
+    .line 800
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_2
     move v1, v10
 
-    .line 771
+    .line 776
     goto :goto_0
 
-    .line 774
+    .line 779
     :cond_3
     :try_start_2
     sget-object v1, Landroid/provider/Browser;->BOOKMARKS_URI:Landroid/net/Uri;
@@ -1540,7 +1540,7 @@
 
     move-result-object v11
 
-    .line 776
+    .line 781
     .local v11, uri:Landroid/net/Uri;
     const/4 v1, 0x2
 
@@ -1548,11 +1548,11 @@
 
     move-result v9
 
-    .line 777
+    .line 782
     .local v9, numVisits:I
     if-nez v9, :cond_5
 
-    .line 778
+    .line 783
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -1562,14 +1562,14 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/IllegalStateException; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 790
+    .line 795
     :goto_1
     const/4 v10, 0x1
 
-    .line 794
+    .line 799
     if-eqz v6, :cond_4
 
-    .line 795
+    .line 800
     .end local v8           #first:Z
     .end local v9           #numVisits:I
     .end local v11           #uri:Landroid/net/Uri;
@@ -1579,10 +1579,10 @@
     :cond_4
     move v1, v10
 
-    .line 797
+    .line 802
     goto :goto_0
 
-    .line 782
+    .line 787
     .restart local v8       #first:Z
     .restart local v9       #numVisits:I
     .restart local v11       #uri:Landroid/net/Uri;
@@ -1592,7 +1592,7 @@
 
     invoke-direct {v12}, Landroid/content/ContentValues;-><init>()V
 
-    .line 783
+    .line 788
     .local v12, values:Landroid/content/ContentValues;
     const-string v1, "bookmark"
 
@@ -1607,7 +1607,7 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Ljava/lang/IllegalStateException; {:try_start_3 .. :try_end_3} :catch_1
 
-    .line 785
+    .line 790
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -1620,11 +1620,11 @@
 
     goto :goto_1
 
-    .line 786
+    .line 791
     :catch_0
     move-exception v7
 
-    .line 787
+    .line 792
     .local v7, e:Ljava/lang/IllegalStateException;
     :try_start_5
     const-string v1, "removeFromBookmarks"
@@ -1638,7 +1638,7 @@
 
     goto :goto_1
 
-    .line 791
+    .line 796
     .end local v7           #e:Ljava/lang/IllegalStateException;
     .end local v8           #first:Z
     .end local v9           #numVisits:I
@@ -1647,7 +1647,7 @@
     :catch_1
     move-exception v7
 
-    .line 792
+    .line 797
     .restart local v7       #e:Ljava/lang/IllegalStateException;
     :try_start_6
     const-string v1, "MiscPolicy"
@@ -1674,7 +1674,7 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    .line 794
+    .line 799
     if-eqz v6, :cond_4
 
     goto :goto_2
@@ -1685,10 +1685,10 @@
 
     if-eqz v6, :cond_6
 
-    .line 795
+    .line 800
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 794
+    .line 799
     :cond_6
     throw v1
 .end method
@@ -1945,18 +1945,18 @@
     .parameter "clip"
 
     .prologue
-    .line 1254
+    .line 1259
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 1256
+    .line 1261
     iget-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
     if-nez v0, :cond_0
 
-    .line 1257
+    .line 1262
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
-    .line 1258
+    .line 1263
     iget-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
     const-string v1, "clipboard"
@@ -1969,13 +1969,13 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
-    .line 1262
+    .line 1267
     :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
     invoke-virtual {v0, p1}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
 
-    .line 1264
+    .line 1269
     const/4 v0, 0x1
 
     return v0
@@ -1986,18 +1986,18 @@
     .parameter "clip"
 
     .prologue
-    .line 1305
+    .line 1310
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 1307
+    .line 1312
     iget-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
     if-nez v0, :cond_0
 
-    .line 1308
+    .line 1313
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
-    .line 1309
+    .line 1314
     iget-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
     const-string v1, "clipboard"
@@ -2010,13 +2010,13 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
-    .line 1313
+    .line 1318
     :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
     invoke-virtual {v0, p1}, Landroid/content/ClipboardManager;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1315
+    .line 1320
     const/4 v0, 0x1
 
     return v0
@@ -2029,16 +2029,16 @@
     .parameter "iconBm"
 
     .prologue
-    .line 596
+    .line 601
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 597
+    .line 602
     if-nez p1, :cond_0
 
-    .line 598
+    .line 603
     const/4 v0, 0x0
 
-    .line 600
+    .line 605
     :goto_0
     return v0
 
@@ -2063,13 +2063,13 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 579
+    .line 584
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 580
+    .line 585
     const/4 v0, 0x0
 
-    .line 581
+    .line 586
     .local v0, bm:Landroid/graphics/Bitmap;
     if-eqz p3, :cond_0
 
@@ -2077,18 +2077,18 @@
 
     if-lez v2, :cond_0
 
-    .line 582
+    .line 587
     array-length v2, p3
 
     invoke-static {p3, v1, v2}, Landroid/graphics/BitmapFactory;->decodeByteArray([BII)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 585
+    .line 590
     :cond_0
     if-nez p1, :cond_1
 
-    .line 588
+    .line 593
     :goto_0
     return v1
 
@@ -2115,29 +2115,29 @@
 
     const/4 v9, 0x1
 
-    .line 853
+    .line 858
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 854
+    .line 859
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v4
 
-    .line 855
+    .line 860
     .local v4, token:J
     const/4 v2, 0x0
 
-    .line 856
+    .line 861
     .local v2, ret:Z
     const/4 v3, 0x0
 
-    .line 857
+    .line 862
     .local v3, revoked:Z
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->isAdminLockScreenStringSet()Z
 
     move-result v1
 
-    .line 859
+    .line 864
     .local v1, restricted:Z
     if-eqz p1, :cond_0
 
@@ -2147,14 +2147,14 @@
 
     if-gez v6, :cond_1
 
-    .line 860
+    .line 865
     :cond_0
     const/4 v3, 0x1
 
-    .line 861
+    .line 866
     const-string p1, ""
 
-    .line 865
+    .line 870
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -2162,7 +2162,7 @@
 
     if-le v6, v7, :cond_2
 
-    .line 866
+    .line 871
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -2185,18 +2185,18 @@
 
     move-result-object p1
 
-    .line 867
+    .line 872
     const-string v6, "MiscPolicy"
 
     const-string v7, "changeLockScreenString():lock screen text is truncated "
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 871
+    .line 876
     :cond_2
     if-nez v3, :cond_6
 
-    .line 872
+    .line 877
     iget-object v6, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2209,11 +2209,11 @@
 
     move-result v0
 
-    .line 874
+    .line 879
     .local v0, enabled:I
     if-nez v1, :cond_3
 
-    .line 875
+    .line 880
     iget-object v6, p0, Lcom/android/server/enterprise/MiscPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/EdmStorageProvider;
 
     const-string v7, "lockscreenstring"
@@ -2226,18 +2226,18 @@
 
     move-result v2
 
-    .line 878
+    .line 883
     :cond_3
     if-nez v0, :cond_4
 
-    .line 879
+    .line 884
     const-string v6, "MiscPolicy"
 
     const-string v7, "changeLockScreenString(): enabling owner info"
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 880
+    .line 885
     iget-object v6, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2248,7 +2248,7 @@
 
     invoke-static {v6, v7, v9}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 884
+    .line 889
     :cond_4
     iget-object v6, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
@@ -2262,7 +2262,7 @@
 
     move-result v2
 
-    .line 907
+    .line 912
     .end local v0           #enabled:I
     :cond_5
     :goto_0
@@ -2298,24 +2298,24 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 909
+    .line 914
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 911
+    .line 916
     return v2
 
-    .line 888
+    .line 893
     :cond_6
     if-ne v1, v9, :cond_5
 
-    .line 890
+    .line 895
     const-string v6, "MiscPolicy"
 
     const-string v7, "changeLockScreenString(): revoke restriction"
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 892
+    .line 897
     iget-object v6, p0, Lcom/android/server/enterprise/MiscPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/EdmStorageProvider;
 
     const-string v7, "lockscreenstring"
@@ -2328,7 +2328,7 @@
 
     move-result v2
 
-    .line 897
+    .line 902
     iget-object v6, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2348,18 +2348,18 @@
     .locals 3
 
     .prologue
-    .line 1290
+    .line 1295
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 1292
+    .line 1297
     iget-object v1, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
     if-nez v1, :cond_0
 
-    .line 1293
+    .line 1298
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
-    .line 1294
+    .line 1299
     iget-object v1, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
     const-string v2, "clipboard"
@@ -2372,7 +2372,7 @@
 
     iput-object v1, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
-    .line 1298
+    .line 1303
     :cond_0
     const-string v1, "simple text"
 
@@ -2382,13 +2382,13 @@
 
     move-result-object v0
 
-    .line 1299
+    .line 1304
     .local v0, mClip:Landroid/content/ClipData;
     iget-object v1, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
     invoke-virtual {v1, v0}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
 
-    .line 1300
+    .line 1305
     const/4 v1, 0x1
 
     return v1
@@ -2400,16 +2400,16 @@
     .parameter "title"
 
     .prologue
-    .line 605
+    .line 610
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 607
+    .line 612
     if-nez p1, :cond_0
 
-    .line 608
+    .line 613
     const/4 v0, 0x0
 
-    .line 610
+    .line 615
     :goto_0
     return v0
 
@@ -2438,18 +2438,18 @@
     .end annotation
 
     .prologue
-    .line 1268
+    .line 1273
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 1270
+    .line 1275
     iget-object v4, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
     if-nez v4, :cond_0
 
-    .line 1271
+    .line 1276
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
-    .line 1272
+    .line 1277
     iget-object v4, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
     const-string v5, "clipboard"
@@ -2462,13 +2462,13 @@
 
     iput-object v4, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
-    .line 1277
+    .line 1282
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
-    .line 1279
+    .line 1284
     .local v2, token:J
     iget-object v4, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
@@ -2476,20 +2476,20 @@
 
     move-result-object v0
 
-    .line 1280
+    .line 1285
     .local v0, clipx:Landroid/content/ClipData;
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1281
+    .line 1286
     .local v1, mClipList:Ljava/util/List;,"Ljava/util/List<Landroid/content/ClipData;>;"
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1283
+    .line 1288
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 1285
+    .line 1290
     return-object v1
 .end method
 
@@ -2497,18 +2497,18 @@
     .locals 5
 
     .prologue
-    .line 1319
+    .line 1324
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 1321
+    .line 1326
     iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
     if-nez v3, :cond_0
 
-    .line 1322
+    .line 1327
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
-    .line 1323
+    .line 1328
     iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
     const-string v4, "clipboard"
@@ -2521,13 +2521,13 @@
 
     iput-object v3, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
-    .line 1328
+    .line 1333
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v1
 
-    .line 1331
+    .line 1336
     .local v1, token:J
     iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
@@ -2537,7 +2537,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 1332
+    .line 1337
     iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy;->mClipboard:Landroid/content/ClipboardManager;
 
     invoke-virtual {v3}, Landroid/content/ClipboardManager;->getText()Ljava/lang/CharSequence;
@@ -2548,15 +2548,15 @@
 
     move-result-object v0
 
-    .line 1336
+    .line 1341
     .local v0, tempReturn:Ljava/lang/String;
     :goto_0
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 1338
+    .line 1343
     return-object v0
 
-    .line 1334
+    .line 1339
     .end local v0           #tempReturn:Ljava/lang/String;
     :cond_1
     const-string v0, ""
@@ -2571,15 +2571,15 @@
     .prologue
     const/4 v7, 0x1
 
-    .line 807
+    .line 812
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 808
+    .line 813
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v3
 
-    .line 809
+    .line 814
     .local v3, token:J
     iget-object v5, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
@@ -2593,23 +2593,23 @@
 
     move-result v0
 
-    .line 811
+    .line 816
     .local v0, enabled:I
     const/4 v1, 0x0
 
-    .line 812
+    .line 817
     .local v1, lScreenTxt:Ljava/lang/String;
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->isAdminLockScreenStringSet()Z
 
     move-result v2
 
-    .line 813
+    .line 818
     .local v2, restricted:Z
     if-ne v2, v7, :cond_0
 
     if-ne v0, v7, :cond_0
 
-    .line 820
+    .line 825
     iget-object v5, p0, Lcom/android/server/enterprise/MiscPolicy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2622,11 +2622,11 @@
 
     move-result-object v1
 
-    .line 823
+    .line 828
     :cond_0
     invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 825
+    .line 830
     return-object v1
 .end method
 
@@ -2856,7 +2856,7 @@
     .locals 1
 
     .prologue
-    .line 941
+    .line 946
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->GetSystemFontChanger()Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;
 
     move-result-object v0
@@ -2872,7 +2872,7 @@
     .locals 1
 
     .prologue
-    .line 951
+    .line 956
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->GetSystemFontChanger()Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;
 
     move-result-object v0
@@ -2889,7 +2889,7 @@
     .parameter "uid"
 
     .prologue
-    .line 1233
+    .line 1238
     return-void
 .end method
 
@@ -2898,7 +2898,7 @@
     .parameter "uid"
 
     .prologue
-    .line 1239
+    .line 1244
     return-void
 .end method
 
@@ -2907,7 +2907,7 @@
     .parameter "uid"
 
     .prologue
-    .line 1250
+    .line 1255
     return-void
 .end method
 
@@ -3319,10 +3319,10 @@
     .parameter "apkPath"
 
     .prologue
-    .line 930
+    .line 935
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->enforceSecurityPermission()I
 
-    .line 931
+    .line 936
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy;->GetSystemFontChanger()Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;
 
     move-result-object v0
@@ -3338,6 +3338,6 @@
     .locals 0
 
     .prologue
-    .line 1245
+    .line 1250
     return-void
 .end method

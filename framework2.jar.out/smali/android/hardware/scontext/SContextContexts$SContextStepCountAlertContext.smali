@@ -20,15 +20,13 @@
 # instance fields
 .field protected mAlert:I
 
-.field protected mTimestamp:J
-
 
 # direct methods
 .method protected constructor <init>()V
     .locals 0
 
     .prologue
-    .line 52
+    .line 49
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,19 +35,14 @@
 
 # virtual methods
 .method public clear()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 60
+    .line 55
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;->mAlert:I
 
-    .line 61
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;->mTimestamp:J
-
-    .line 62
+    .line 56
     return-void
 .end method

@@ -42,7 +42,7 @@
     .locals 1
 
     .prologue
-    .line 174
+    .line 191
     new-instance v0, Lcom/samsung/bluetoothle/BluetoothLEClientChar$1;
 
     invoke-direct {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientChar$1;-><init>()V
@@ -72,12 +72,12 @@
     .parameter "msg"
 
     .prologue
-    .line 167
+    .line 181
     const-string v0, "BluetoothLEClientChar"
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 168
+    .line 182
     return-void
 .end method
 
@@ -87,7 +87,7 @@
     .locals 1
 
     .prologue
-    .line 171
+    .line 188
     const/4 v0, 0x0
 
     return v0
@@ -97,7 +97,7 @@
     .locals 2
 
     .prologue
-    .line 55
+    .line 53
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -120,7 +120,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 56
+    .line 54
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mCharPath:Ljava/lang/String;
 
     return-object v0
@@ -130,7 +130,7 @@
     .locals 2
 
     .prologue
-    .line 67
+    .line 65
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -153,7 +153,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 68
+    .line 66
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mCharUUID:Ljava/lang/String;
 
     return-object v0
@@ -165,44 +165,44 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 73
+    .line 71
     const-string v2, "getCharVaule "
 
     invoke-direct {p0, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 75
+    .line 73
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mValue:[B
 
     if-eqz v2, :cond_0
 
-    .line 76
+    .line 74
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mValue:[B
 
     array-length v0, v2
 
-    .line 77
+    .line 75
     .local v0, len:I
     new-array v1, v0, [B
 
-    .line 78
+    .line 76
     .local v1, rValue:[B
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mValue:[B
 
     invoke-static {v2, v3, v1, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 83
+    .line 81
     .end local v0           #len:I
     .end local v1           #rValue:[B
     :goto_0
     return-object v1
 
-    .line 82
+    .line 80
     :cond_0
     const-string v2, "the value is not initialized"
 
     invoke-direct {p0, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 83
+    .line 81
     const/4 v1, 0x0
 
     goto :goto_0
@@ -214,44 +214,44 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 97
+    .line 104
     const-string v2, "getClientConfigDesc   : "
 
     invoke-direct {p0, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 99
+    .line 106
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mClientDesc:[B
 
     if-eqz v2, :cond_0
 
-    .line 100
+    .line 107
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mClientDesc:[B
 
     array-length v0, v2
 
-    .line 101
+    .line 108
     .local v0, len:I
     new-array v1, v0, [B
 
-    .line 102
+    .line 109
     .local v1, rValue:[B
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mClientDesc:[B
 
     invoke-static {v2, v3, v1, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 107
+    .line 114
     .end local v0           #len:I
     .end local v1           #rValue:[B
     :goto_0
     return-object v1
 
-    .line 106
+    .line 113
     :cond_0
     const-string v2, "the value is not initialized"
 
     invoke-direct {p0, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 107
+    .line 114
     const/4 v1, 0x0
 
     goto :goto_0
@@ -262,7 +262,7 @@
     .parameter "charPath"
 
     .prologue
-    .line 61
+    .line 59
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -283,10 +283,10 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 62
+    .line 60
     iput-object p1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mCharPath:Ljava/lang/String;
 
-    .line 63
+    .line 61
     return-void
 .end method
 
@@ -297,7 +297,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 88
+    .line 89
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -320,27 +320,41 @@
 
     invoke-direct {p0, v1}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 89
+    .line 90
+    if-nez p1, :cond_0
+
+    .line 91
+    const-string v1, "BluetoothLEClientChar"
+
+    const-string v2, "setCharValue Value is NULL"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 98
+    :goto_0
+    return-void
+
+    .line 94
+    :cond_0
     array-length v0, p1
 
-    .line 90
+    .line 95
     .local v0, len:I
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mValue:[B
 
-    .line 91
+    .line 96
     new-array v1, v0, [B
 
     iput-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mValue:[B
 
-    .line 92
+    .line 97
     iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mValue:[B
 
     invoke-static {p1, v3, v1, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 93
-    return-void
+    goto :goto_0
 .end method
 
 .method public setClientConfigDesc([B)V
@@ -350,7 +364,10 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 112
+    .line 122
+    if-eqz p1, :cond_0
+
+    .line 123
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -373,26 +390,28 @@
 
     invoke-direct {p0, v1}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 113
+    .line 124
     array-length v0, p1
 
-    .line 114
+    .line 125
     .local v0, len:I
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mClientDesc:[B
 
-    .line 115
+    .line 126
     new-array v1, v0, [B
 
     iput-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mClientDesc:[B
 
-    .line 116
+    .line 127
     iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mClientDesc:[B
 
     invoke-static {p1, v3, v1, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 117
+    .line 129
+    .end local v0           #len:I
+    :cond_0
     return-void
 .end method
 
@@ -406,7 +425,7 @@
 
     const/4 v4, 0x0
 
-    .line 120
+    .line 132
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -437,7 +456,7 @@
 
     invoke-direct {p0, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 122
+    .line 134
     const-string v2, "Value"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -446,7 +465,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 123
+    .line 135
     if-eqz p2, :cond_0
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
@@ -455,18 +474,18 @@
 
     if-nez v2, :cond_1
 
-    .line 124
+    .line 136
     :cond_0
     new-array v2, v5, [B
 
     iput-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mValue:[B
 
-    .line 125
+    .line 137
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mValue:[B
 
     aput-byte v4, v2, v4
 
-    .line 135
+    .line 147
     :goto_0
     const/4 v1, 0x0
 
@@ -478,7 +497,7 @@
 
     if-ge v1, v2, :cond_3
 
-    .line 136
+    .line 148
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -505,12 +524,12 @@
 
     invoke-direct {p0, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 135
+    .line 147
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 127
+    .line 139
     .end local v1           #i:I
     :cond_1
     new-instance v2, Ljava/lang/StringBuilder;
@@ -537,7 +556,7 @@
 
     invoke-direct {p0, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 129
+    .line 141
     :try_start_0
     const-string v2, "UTF8"
 
@@ -551,11 +570,11 @@
 
     goto :goto_0
 
-    .line 130
+    .line 142
     :catch_0
     move-exception v0
 
-    .line 131
+    .line 143
     .local v0, e:Ljava/lang/Exception;
     const-string v2, "BluetoothLEClientChar"
 
@@ -565,7 +584,7 @@
 
     goto :goto_0
 
-    .line 137
+    .line 149
     .end local v0           #e:Ljava/lang/Exception;
     :cond_2
     const-string v2, "Name"
@@ -576,15 +595,15 @@
 
     if-eqz v2, :cond_4
 
-    .line 138
+    .line 150
     iput-object p2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mName:Ljava/lang/String;
 
-    .line 159
+    .line 171
     :cond_3
     :goto_2
     return-void
 
-    .line 139
+    .line 151
     :cond_4
     const-string v2, "UUID"
 
@@ -594,12 +613,12 @@
 
     if-eqz v2, :cond_5
 
-    .line 140
+    .line 152
     iput-object p2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mCharUUID:Ljava/lang/String;
 
     goto :goto_2
 
-    .line 141
+    .line 153
     :cond_5
     const-string v2, "ClientDescriptor"
 
@@ -609,7 +628,7 @@
 
     if-eqz v2, :cond_8
 
-    .line 142
+    .line 154
     if-eqz p2, :cond_6
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
@@ -618,18 +637,18 @@
 
     if-nez v2, :cond_7
 
-    .line 143
+    .line 155
     :cond_6
     new-array v2, v5, [B
 
     iput-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mClientDesc:[B
 
-    .line 144
+    .line 156
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mClientDesc:[B
 
     aput-byte v4, v2, v4
 
-    .line 154
+    .line 166
     :goto_3
     const/4 v1, 0x0
 
@@ -641,7 +660,7 @@
 
     if-ge v1, v2, :cond_3
 
-    .line 155
+    .line 167
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -668,12 +687,12 @@
 
     invoke-direct {p0, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->LogD(Ljava/lang/String;)V
 
-    .line 154
+    .line 166
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_4
 
-    .line 146
+    .line 158
     .end local v1           #i:I
     :cond_7
     const-string v2, "BluetoothLEClientChar"
@@ -702,7 +721,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 148
+    .line 160
     :try_start_1
     const-string v2, "UTF8"
 
@@ -716,11 +735,11 @@
 
     goto :goto_3
 
-    .line 149
+    .line 161
     :catch_1
     move-exception v0
 
-    .line 150
+    .line 162
     .restart local v0       #e:Ljava/lang/Exception;
     const-string v2, "BluetoothLEClientChar"
 
@@ -730,7 +749,7 @@
 
     goto :goto_3
 
-    .line 156
+    .line 168
     .end local v0           #e:Ljava/lang/Exception;
     :cond_8
     const-string v2, "Description"
@@ -741,7 +760,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 157
+    .line 169
     iput-object p2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mDescription:Ljava/lang/String;
 
     goto :goto_2
@@ -752,10 +771,10 @@
     .parameter "uuid"
 
     .prologue
-    .line 163
+    .line 177
     iput-object p1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->mCharUUID:Ljava/lang/String;
 
-    .line 164
+    .line 178
     return-void
 .end method
 
@@ -765,6 +784,6 @@
     .parameter "flags"
 
     .prologue
-    .line 187
+    .line 207
     return-void
 .end method

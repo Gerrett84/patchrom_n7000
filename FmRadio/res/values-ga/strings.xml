@@ -19,7 +19,7 @@
     <string name="toast_already_added">Tá stáisiún ann cheana féin. Cuir stáisiún eile leis</string>
     <string name="dialog_channel_found">%1$d.%2$d MHz stáisiún aimsithe. Líon iomlán na stáisiún a aimsíodh: %3$d</string>
     <string name="dialog_channel_one_found">%1$d.%2$d MHz stáisiún aimsithe. Líon iomlán na stáisiún a aimsíodh: 1</string>
-    <string name="dialog_channel_found_south_region">%1$s stáisiún MHz aimsithe. Is iad %22$d líon iomlán na stáisiún a aimsíodh</string>
+    <string name="dialog_channel_found_south_region">%1$s stáisiún MHz aimsithe. Is iad %2$d líon iomlán na stáisiún a aimsíodh</string>
     <string name="dialog_channel_one_found_south_region">%s stáisiún MHz aimsithe. Líon iomlán na stáisiún a aimsíodh: 1</string>
     <string name="toast_channel_found">Aimsíodh %d stáisiún le linn scanadh</string>
     <string name="toast_one_channel_found">Aimsíodh stáisiún amháin le linn scanadh</string>
@@ -101,13 +101,13 @@ Oibríonn an cluasán mar an aintéine raidió. Ceangail cluasán"</string>
     <string name="toast_unavailable_in_tvout_mode">Níl sé ar fáil i mód TF-amach</string>
     <string name="mute">Balbh</string>
     <string name="seeking">Ag cuardach…</string>
-    <string name="via_earphone">Le cluasáin</string>
-    <string name="via_speaker">Le callaire</string>
+    <string name="via_earphone">Seinn trí chluasáin</string>
+    <string name="via_speaker">Seinn trí challaire</string>
     <string name="normal_frequency">Gnáthmhinicíocht</string>
     <string name="tag">Clib</string>
     <string name="stop">Stop</string>
     <string name="recording">Ag taifeadadh…</string>
-    <string name="memory_full">Taifeadadh stoptha. Cuimhne lán</string>
+    <string name="memory_full">Cuimhne lán</string>
     <string name="cancel_recording">Cuir taifeadadh ar ceal?</string>
     <string name="change_frequency">Athraigh minicíocht</string>
     <string name="enter_frequency">Iontráil minicíocht</string>
@@ -133,11 +133,14 @@ Oibríonn an cluasán mar an aintéine raidió. Ceangail cluasán"</string>
     <string name="tags">Clibeanna</string>
     <string name="tags_now_broadcasting">Á chraoladh anois</string>
     <string name="tags_no_information">Níl faisnéis ann</string>
+    <string name="tags_music_history">Stair ceoil</string>
     <string name="tags_music_title">Teideal</string>
     <string name="tags_music_album">Albam</string>
     <string name="tags_music_artist">Ceoltóir</string>
+    <string name="tags_music_band">Banna ceoil</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Lch baile</string>
+    <string name="tags_interact_hotline">Beolíne</string>
     <string name="tags_interact_studio">Stiúideo</string>
     <string name="tags_interact_other">Eile</string>
     <string name="tags_interact_centre">Ionad</string>
@@ -183,4 +186,14 @@ Tar éis raidió a thaifeadadh, taispeánfar comhaid thaifeadta"</string>
     <string name="dialog_one_item_deleted">Scriosfar an mhír seo</string>
     <string name="dialog_multiple_items_deleted">Scriosfar %d mír</string>
     <string name="dialog_all_items_deleted">Scriosfar gach mír</string>
+    <string name="turning_on">Ag casadh air…</string>
+    <string name="not_enough_memory_recording_will_stop">Easpa cuimhne. Stopfar an taifead i gceann %d soicind</string>
+    <string name="low_batt_msg">Ceallra lag</string>
+    <string name="no_play_during_call">Ní féidir seinm le linn glao</string>
+    <string name="unable_delete">Ní féidir scriosadh</string>
+    <string name="playing">Ag seinm…</string>
+    <string name="tts_play_button">Seinn</string>
+    <string name="tts_previous_button">Roimhe</string>
+    <string name="tts_Next_button">Ar aghaidh</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

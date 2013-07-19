@@ -27,6 +27,8 @@
 
 .field public static final PASSWORD:I = 0x1
 
+.field public static final REMOUNT_POLICY:I = 0x8
+
 .field public static final UMOUNT_SD:I = 0x2
 
 .field public static final USB_STATE:I = 0x3
@@ -37,7 +39,7 @@
     .locals 0
 
     .prologue
-    .line 238
+    .line 239
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void

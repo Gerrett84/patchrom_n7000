@@ -856,7 +856,7 @@
     .line 221
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v4, "mTransition=#"
+    const-string/jumbo v4, "mTransition=#"
 
     invoke-virtual {p3, v4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -1306,6 +1306,16 @@
 
     if-eqz v0, :cond_0
 
+    iget-object v0, p0, Landroid/app/BackStackRecord;->mManager:Landroid/app/FragmentManagerImpl;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/app/BackStackRecord;->mManager:Landroid/app/FragmentManagerImpl;
+
+    iget-object v0, v0, Landroid/app/FragmentManagerImpl;->mActivity:Landroid/app/Activity;
+
+    if-eqz v0, :cond_0
+
     .line 316
     iget-object v0, p0, Landroid/app/BackStackRecord;->mManager:Landroid/app/FragmentManagerImpl;
 
@@ -1343,6 +1353,16 @@
     .prologue
     .line 308
     iget v0, p0, Landroid/app/BackStackRecord;->mBreadCrumbTitleRes:I
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/app/BackStackRecord;->mManager:Landroid/app/FragmentManagerImpl;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/app/BackStackRecord;->mManager:Landroid/app/FragmentManagerImpl;
+
+    iget-object v0, v0, Landroid/app/FragmentManagerImpl;->mActivity:Landroid/app/Activity;
 
     if-eqz v0, :cond_0
 

@@ -1730,7 +1730,7 @@
     invoke-direct {p0, v0}, Landroid/opengl/EGLLogWrapper;->returns(Z)V
 
     .line 258
-    const-string v1, "major_minor"
+    const-string/jumbo v1, "major_minor"
 
     invoke-direct {p0, v1, p2}, Landroid/opengl/EGLLogWrapper;->arg(Ljava/lang/String;[I)V
 
@@ -1868,7 +1868,7 @@
     invoke-direct {p0, v1, p1}, Landroid/opengl/EGLLogWrapper;->arg(Ljava/lang/String;Ljavax/microedition/khronos/egl/EGLDisplay;)V
 
     .line 295
-    const-string v1, "name"
+    const-string/jumbo v1, "name"
 
     invoke-direct {p0, v1, p2}, Landroid/opengl/EGLLogWrapper;->arg(Ljava/lang/String;I)V
 

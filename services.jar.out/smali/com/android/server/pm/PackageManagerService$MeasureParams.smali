@@ -32,20 +32,20 @@
     .parameter "observer"
 
     .prologue
-    .line 7112
+    .line 7150
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/android/server/pm/PackageManagerService$HandlerParams;-><init>(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$1;)V
 
-    .line 7113
+    .line 7151
     iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mObserver:Landroid/content/pm/IPackageStatsObserver;
 
-    .line 7114
+    .line 7152
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mStats:Landroid/content/pm/PackageStats;
 
-    .line 7115
+    .line 7153
     return-void
 .end method
 
@@ -55,12 +55,12 @@
     .locals 4
 
     .prologue
-    .line 7164
+    .line 7202
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mObserver:Landroid/content/pm/IPackageStatsObserver;
 
     if-eqz v1, :cond_0
 
-    .line 7166
+    .line 7204
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mObserver:Landroid/content/pm/IPackageStatsObserver;
 
@@ -72,16 +72,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 7171
+    .line 7209
     :cond_0
     :goto_0
     return-void
 
-    .line 7167
+    .line 7205
     :catch_0
     move-exception v0
 
-    .line 7168
+    .line 7206
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "PackageManager"
 
@@ -96,7 +96,7 @@
     .locals 3
 
     .prologue
-    .line 7175
+    .line 7213
     const-string v0, "PackageManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -129,7 +129,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 7177
+    .line 7215
     return-void
 .end method
 
@@ -142,14 +142,14 @@
     .end annotation
 
     .prologue
-    .line 7119
+    .line 7157
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v11, v10, Lcom/android/server/pm/PackageManagerService;->mInstallLock:Ljava/lang/Object;
 
     monitor-enter v11
 
-    .line 7120
+    .line 7158
     :try_start_0
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
@@ -166,27 +166,33 @@
 
     iput-boolean v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mSuccess:Z
 
-    .line 7121
+    .line 7159
     monitor-exit v11
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 7124
+    .line 7162
+    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$1900()Z
+
+    move-result v10
+
+    if-nez v10, :cond_2
+
     invoke-static {}, Landroid/os/Environment;->isExternalStorageEmulated()Z
 
     move-result v10
 
     if-eqz v10, :cond_2
 
-    .line 7125
+    .line 7163
     const/4 v8, 0x1
 
-    .line 7133
+    .line 7171
     .local v8, mounted:Z
     :goto_0
     if-eqz v8, :cond_1
 
-    .line 7134
+    .line 7172
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mStats:Landroid/content/pm/PackageStats;
 
     iget-object v10, v10, Landroid/content/pm/PackageStats;->packageName:Ljava/lang/String;
@@ -195,7 +201,7 @@
 
     move-result-object v0
 
-    .line 7136
+    .line 7174
     .local v0, externalCacheDir:Ljava/io/File;
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
@@ -212,13 +218,13 @@
 
     move-result-wide v1
 
-    .line 7138
+    .line 7176
     .local v1, externalCacheSize:J
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mStats:Landroid/content/pm/PackageStats;
 
     iput-wide v1, v10, Landroid/content/pm/PackageStats;->externalCacheSize:J
 
-    .line 7140
+    .line 7178
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mStats:Landroid/content/pm/PackageStats;
 
     iget-object v10, v10, Landroid/content/pm/PackageStats;->packageName:Ljava/lang/String;
@@ -227,7 +233,7 @@
 
     move-result-object v3
 
-    .line 7142
+    .line 7180
     .local v3, externalDataDir:Ljava/io/File;
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
@@ -244,7 +250,7 @@
 
     move-result-wide v4
 
-    .line 7145
+    .line 7183
     .local v4, externalDataSize:J
     invoke-virtual {v0}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
@@ -256,16 +262,16 @@
 
     if-eqz v10, :cond_0
 
-    .line 7146
+    .line 7184
     sub-long/2addr v4, v1
 
-    .line 7148
+    .line 7186
     :cond_0
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mStats:Landroid/content/pm/PackageStats;
 
     iput-wide v4, v10, Landroid/content/pm/PackageStats;->externalDataSize:J
 
-    .line 7150
+    .line 7188
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mStats:Landroid/content/pm/PackageStats;
 
     iget-object v10, v10, Landroid/content/pm/PackageStats;->packageName:Ljava/lang/String;
@@ -274,7 +280,7 @@
 
     move-result-object v6
 
-    .line 7152
+    .line 7190
     .local v6, externalMediaDir:Ljava/io/File;
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mStats:Landroid/content/pm/PackageStats;
 
@@ -295,7 +301,7 @@
 
     iput-wide v11, v10, Landroid/content/pm/PackageStats;->externalMediaSize:J
 
-    .line 7155
+    .line 7193
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mStats:Landroid/content/pm/PackageStats;
 
     iget-object v10, v10, Landroid/content/pm/PackageStats;->packageName:Ljava/lang/String;
@@ -304,7 +310,7 @@
 
     move-result-object v7
 
-    .line 7157
+    .line 7195
     .local v7, externalObbDir:Ljava/io/File;
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$MeasureParams;->mStats:Landroid/content/pm/PackageStats;
 
@@ -325,7 +331,7 @@
 
     iput-wide v11, v10, Landroid/content/pm/PackageStats;->externalObbSize:J
 
-    .line 7160
+    .line 7198
     .end local v0           #externalCacheDir:Ljava/io/File;
     .end local v1           #externalCacheSize:J
     .end local v3           #externalDataDir:Ljava/io/File;
@@ -335,7 +341,7 @@
     :cond_1
     return-void
 
-    .line 7121
+    .line 7159
     .end local v8           #mounted:Z
     :catchall_0
     move-exception v10
@@ -347,13 +353,13 @@
 
     throw v10
 
-    .line 7127
+    .line 7165
     :cond_2
     invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 7129
+    .line 7167
     .local v9, status:Ljava/lang/String;
     const-string v10, "mounted"
 

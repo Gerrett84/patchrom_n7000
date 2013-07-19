@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 104
+    .line 105
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
     .locals 1
 
     .prologue
-    .line 106
+    .line 107
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->errorDlg:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 107
+    .line 108
     return-void
 .end method

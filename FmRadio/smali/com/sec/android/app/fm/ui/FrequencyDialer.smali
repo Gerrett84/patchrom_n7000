@@ -79,7 +79,7 @@
 
     const/4 v2, 0x0
 
-    .line 107
+    .line 131
     invoke-direct {p0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     .line 26
@@ -87,7 +87,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mStartInitialDegree:F
 
-    .line 52
+    .line 53
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -100,7 +100,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->CENTER_OFFSET_X:F
 
-    .line 53
+    .line 56
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -113,7 +113,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->CENTER_OFFSET_Y:F
 
-    .line 54
+    .line 59
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -126,53 +126,55 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->CIRCLE_RADIUS_OFFSET:F
 
-    .line 59
+    .line 65
     const-wide/16 v0, 0x222e
 
     iput-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
-    .line 67
-    iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+    .line 74
+    const/4 v0, 0x1
 
-    .line 82
+    iput-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    .line 98
     const/16 v0, 0x1e0
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerWidth:I
 
-    .line 83
+    .line 100
     const/high16 v0, 0x43f0
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerHeight:F
 
-    .line 88
+    .line 106
     iput v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->POSITION_NONE:I
 
-    .line 89
+    .line 108
     const/16 v0, 0xc9
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->POSITION_POWER:I
 
-    .line 90
+    .line 110
     const/16 v0, 0xca
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->POSITION_DIAL:I
 
-    .line 91
+    .line 112
     iput v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
 
-    .line 356
+    .line 382
     iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->powerPressed:Z
 
-    .line 509
+    .line 564
     iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mPointVisible:Z
 
-    .line 583
+    .line 641
     iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mIsLock:Z
 
-    .line 108
+    .line 132
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->initCompassView()V
 
-    .line 110
+    .line 134
     return-void
 .end method
 
@@ -186,7 +188,7 @@
 
     const/4 v2, 0x0
 
-    .line 119
+    .line 143
     invoke-direct {p0, p1, p2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 26
@@ -194,7 +196,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mStartInitialDegree:F
 
-    .line 52
+    .line 53
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -207,7 +209,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->CENTER_OFFSET_X:F
 
-    .line 53
+    .line 56
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -220,7 +222,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->CENTER_OFFSET_Y:F
 
-    .line 54
+    .line 59
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -233,53 +235,55 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->CIRCLE_RADIUS_OFFSET:F
 
-    .line 59
+    .line 65
     const-wide/16 v0, 0x222e
 
     iput-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
-    .line 67
-    iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+    .line 74
+    const/4 v0, 0x1
 
-    .line 82
+    iput-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    .line 98
     const/16 v0, 0x1e0
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerWidth:I
 
-    .line 83
+    .line 100
     const/high16 v0, 0x43f0
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerHeight:F
 
-    .line 88
+    .line 106
     iput v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->POSITION_NONE:I
 
-    .line 89
+    .line 108
     const/16 v0, 0xc9
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->POSITION_POWER:I
 
-    .line 90
+    .line 110
     const/16 v0, 0xca
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->POSITION_DIAL:I
 
-    .line 91
+    .line 112
     iput v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
 
-    .line 356
+    .line 382
     iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->powerPressed:Z
 
-    .line 509
+    .line 564
     iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mPointVisible:Z
 
-    .line 583
+    .line 641
     iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mIsLock:Z
 
-    .line 120
+    .line 144
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->initCompassView()V
 
-    .line 122
+    .line 146
     return-void
 .end method
 
@@ -294,7 +298,7 @@
 
     const/4 v2, 0x0
 
-    .line 113
+    .line 137
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 26
@@ -302,7 +306,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mStartInitialDegree:F
 
-    .line 52
+    .line 53
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -315,7 +319,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->CENTER_OFFSET_X:F
 
-    .line 53
+    .line 56
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -328,7 +332,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->CENTER_OFFSET_Y:F
 
-    .line 54
+    .line 59
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -341,53 +345,55 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->CIRCLE_RADIUS_OFFSET:F
 
-    .line 59
+    .line 65
     const-wide/16 v0, 0x222e
 
     iput-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
-    .line 67
-    iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+    .line 74
+    const/4 v0, 0x1
 
-    .line 82
+    iput-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    .line 98
     const/16 v0, 0x1e0
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerWidth:I
 
-    .line 83
+    .line 100
     const/high16 v0, 0x43f0
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerHeight:F
 
-    .line 88
+    .line 106
     iput v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->POSITION_NONE:I
 
-    .line 89
+    .line 108
     const/16 v0, 0xc9
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->POSITION_POWER:I
 
-    .line 90
+    .line 110
     const/16 v0, 0xca
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->POSITION_DIAL:I
 
-    .line 91
+    .line 112
     iput v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
 
-    .line 356
+    .line 382
     iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->powerPressed:Z
 
-    .line 509
+    .line 564
     iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mPointVisible:Z
 
-    .line 583
+    .line 641
     iput-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mIsLock:Z
 
-    .line 114
+    .line 138
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->initCompassView()V
 
-    .line 116
+    .line 140
     return-void
 .end method
 
@@ -396,7 +402,7 @@
     .parameter "x0"
 
     .prologue
-    .line 24
+    .line 23
     iget-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
     return-wide v0
@@ -408,7 +414,7 @@
     .parameter "x1"
 
     .prologue
-    .line 24
+    .line 23
     iput-wide p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
     return-wide p1
@@ -419,7 +425,7 @@
     .parameter "x0"
 
     .prologue
-    .line 24
+    .line 23
     iget-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mPreviousFrequencyPosition:J
 
     return-wide v0
@@ -430,7 +436,7 @@
     .parameter "x0"
 
     .prologue
-    .line 24
+    .line 23
     iget-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCurrentFrequencyPosition:J
 
     return-wide v0
@@ -442,7 +448,7 @@
     .parameter "x1"
 
     .prologue
-    .line 24
+    .line 23
     invoke-direct {p0, p1, p2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->calculatePositionFreqOfDialerPoint(J)F
 
     move-result v0
@@ -455,10 +461,21 @@
     .parameter "x0"
 
     .prologue
-    .line 24
+    .line 23
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
     return-object v0
+.end method
+
+.method static synthetic access$500(Lcom/sec/android/app/fm/ui/FrequencyDialer;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 23
+    iget-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    return v0
 .end method
 
 .method private calculateDegree(FFFF)F
@@ -471,7 +488,7 @@
     .prologue
     const/high16 v5, 0x43b4
 
-    .line 219
+    .line 239
     sub-float v1, p1, p3
 
     float-to-double v1, v1
@@ -494,7 +511,7 @@
 
     double-to-float v0, v1
 
-    .line 220
+    .line 240
     .local v0, degree:F
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -518,7 +535,7 @@
 
     invoke-virtual {p0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;Z)V
 
-    .line 221
+    .line 241
     add-float v1, v5, v0
 
     rem-float/2addr v1, v5
@@ -531,7 +548,7 @@
     .parameter "freq"
 
     .prologue
-    .line 206
+    .line 228
     long-to-float v1, p1
 
     const v2, 0x46002000
@@ -542,7 +559,7 @@
 
     mul-float v0, v1, v2
 
-    .line 208
+    .line 229
     .local v0, degree:F
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -566,13 +583,13 @@
 
     invoke-virtual {p0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;Z)V
 
-    .line 209
+    .line 230
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mStartInitialDegree:F
 
-    .line 210
+    .line 231
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->setCenterXY()V
 
-    .line 212
+    .line 233
     return v0
 .end method
 
@@ -583,7 +600,7 @@
     .parameter "degree"
 
     .prologue
-    .line 181
+    .line 206
     const v3, 0x46002000
 
     const v4, 0x453b8000
@@ -600,7 +617,7 @@
 
     iput-wide v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
-    .line 184
+    .line 208
     invoke-static {}, Lcom/sec/android/app/fm/FMRadioFeature;->GetFrequencySpace()I
 
     move-result v3
@@ -609,10 +626,10 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 186
+    .line 209
     const-wide/16 v1, 0x0
 
-    .line 187
+    .line 210
     .local v1, tempDigit:J
     iget-wide v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
@@ -620,7 +637,7 @@
 
     rem-long v1, v3, v5
 
-    .line 189
+    .line 212
     iget-wide v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
     sub-long/2addr v3, v1
@@ -647,7 +664,7 @@
 
     iput-wide v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
-    .line 195
+    .line 217
     .end local v1           #tempDigit:J
     :goto_0
     iget-wide v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
@@ -656,7 +673,7 @@
 
     move-result v0
 
-    .line 197
+    .line 219
     .local v0, newDegree:F
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -692,10 +709,10 @@
 
     invoke-virtual {p0, v3, v4}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;Z)V
 
-    .line 200
+    .line 222
     return v0
 
-    .line 192
+    .line 214
     .end local v0           #newDegree:F
     :cond_0
     iget-wide v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
@@ -724,22 +741,22 @@
     .prologue
     const/high16 v4, 0x4000
 
-    .line 227
+    .line 247
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 229
+    .line 249
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterX:F
 
     iget v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterY:F
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 230
+    .line 250
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mStartInitialDegree:F
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->rotate(F)V
 
-    .line 231
+    .line 251
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
@@ -774,30 +791,30 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    .line 234
+    .line 254
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 236
+    .line 256
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getFocusedState()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 237
+    .line 257
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 241
+    .line 261
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialFocus:Landroid/graphics/Bitmap;
 
     if-nez v0, :cond_0
 
-    .line 242
+    .line 262
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020066
+    const v1, 0x7f02004c
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -805,7 +822,7 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialFocus:Landroid/graphics/Bitmap;
 
-    .line 245
+    .line 265
     :cond_0
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterX:F
 
@@ -813,7 +830,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 246
+    .line 266
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialFocus:Landroid/graphics/Bitmap;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialFocus:Landroid/graphics/Bitmap;
@@ -844,10 +861,10 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    .line 248
+    .line 268
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 250
+    .line 270
     :cond_1
     return-void
 .end method
@@ -856,12 +873,12 @@
     .locals 2
 
     .prologue
-    .line 151
+    .line 175
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020067
+    const v1, 0x7f02004d
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -869,7 +886,7 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
 
-    .line 153
+    .line 176
     return-void
 .end method
 
@@ -877,7 +894,7 @@
     .locals 1
 
     .prologue
-    .line 579
+    .line 637
     iget-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mIsFocused:Z
 
     return v0
@@ -887,49 +904,49 @@
     .locals 3
 
     .prologue
-    .line 134
+    .line 158
     invoke-virtual {p0, p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    .line 136
+    .line 160
     new-instance v1, Landroid/graphics/Paint;
 
     invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerPaint:Landroid/graphics/Paint;
 
-    .line 137
+    .line 161
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerPaint:Landroid/graphics/Paint;
 
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 138
+    .line 162
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getBitmapImage()V
 
-    .line 139
+    .line 163
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f020073
+    const v2, 0x7f020055
 
     invoke-static {v1, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 140
+    .line 164
     .local v0, bm:Landroid/graphics/Bitmap;
     if-eqz v0, :cond_0
 
-    .line 141
+    .line 165
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v1
 
     iput v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerWidth:I
 
-    .line 142
+    .line 166
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v1
@@ -938,13 +955,13 @@
 
     iput v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerHeight:F
 
-    .line 143
+    .line 167
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 144
+    .line 168
     const/4 v0, 0x0
 
-    .line 146
+    .line 170
     :cond_0
     iget v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerWidth:I
 
@@ -962,10 +979,10 @@
 
     iput-wide v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDrawingPointCircleRadius:D
 
-    .line 147
+    .line 171
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
 
-    .line 148
+    .line 172
     return-void
 .end method
 
@@ -982,10 +999,10 @@
 
     const/high16 v6, 0x4248
 
-    .line 299
+    .line 325
     const/4 v1, 0x0
 
-    .line 301
+    .line 327
     .local v1, isFMPlayerOn:Z
     :try_start_0
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -1000,10 +1017,10 @@
 
     if-eqz v4, :cond_0
 
-    .line 302
+    .line 328
     const/4 v1, 0x1
 
-    .line 310
+    .line 338
     :cond_0
     :goto_0
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1080,7 +1097,7 @@
 
     invoke-virtual {p0, v4, v3}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;Z)V
 
-    .line 326
+    .line 354
     iget v4, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterX:F
 
     sub-float/2addr v4, v6
@@ -1118,7 +1135,7 @@
 
     if-nez v4, :cond_5
 
-    .line 330
+    .line 357
     :cond_2
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -1130,25 +1147,25 @@
 
     if-eqz v4, :cond_4
 
-    .line 336
+    .line 362
     invoke-direct {p0, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->setPressState(Z)V
 
-    .line 342
+    .line 367
     :cond_3
     :goto_1
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
 
     move v2, v3
 
-    .line 350
+    .line 375
     :goto_2
     return v2
 
-    .line 304
+    .line 330
     :catch_0
     move-exception v0
 
-    .line 306
+    .line 332
     .local v0, e:Ljava/lang/Exception;
     :try_start_1
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
@@ -1157,23 +1174,23 @@
 
     goto/16 :goto_0
 
-    .line 307
+    .line 333
     :catch_1
     move-exception v4
 
     goto/16 :goto_0
 
-    .line 338
+    .line 363
     .end local v0           #e:Ljava/lang/Exception;
     :cond_4
     if-nez p3, :cond_3
 
-    .line 339
+    .line 364
     invoke-direct {p0, v3}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->setPressState(Z)V
 
     goto :goto_1
 
-    .line 346
+    .line 371
     :cond_5
     invoke-direct {p0, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->setPressState(Z)V
 
@@ -1185,24 +1202,24 @@
     .parameter "isTouch"
 
     .prologue
-    const v3, 0x7f020068
+    const v3, 0x7f02004e
 
     const/4 v4, 0x0
 
-    .line 479
+    .line 532
     sget-boolean v1, Lcom/sec/android/app/fm/MainActivity;->IS_BIGGER_THAN_MDPI:Z
 
     if-eqz v1, :cond_0
 
-    .line 480
+    .line 533
     if-eqz p1, :cond_1
 
-    .line 481
+    .line 534
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f020069
+    const v2, 0x7f02004f
 
     invoke-static {v1, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -1210,7 +1227,7 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
 
-    .line 483
+    .line 536
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
 
     iget-object v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
@@ -1231,12 +1248,12 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
 
-    .line 506
+    .line 561
     :cond_0
     :goto_0
     return-void
 
-    .line 487
+    .line 540
     :cond_1
     :try_start_0
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -1249,12 +1266,12 @@
 
     if-eqz v1, :cond_2
 
-    .line 488
+    .line 541
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f020067
+    const v2, 0x7f02004d
 
     invoke-static {v1, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -1264,7 +1281,7 @@
     :try_end_0
     .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 502
+    .line 557
     :goto_1
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
 
@@ -1288,14 +1305,14 @@
 
     goto :goto_0
 
-    .line 491
+    .line 544
     :cond_2
     :try_start_1
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f020068
+    const v2, 0x7f02004e
 
     invoke-static {v1, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -1307,11 +1324,11 @@
 
     goto :goto_1
 
-    .line 495
+    .line 548
     :catch_0
     move-exception v0
 
-    .line 496
+    .line 549
     .local v0, e:Lcom/samsung/media/fmradio/FMPlayerException;
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
@@ -1323,7 +1340,7 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
 
-    .line 499
+    .line 552
     :try_start_2
     invoke-virtual {v0}, Lcom/samsung/media/fmradio/FMPlayerException;->printStackTrace()V
     :try_end_2
@@ -1331,7 +1348,7 @@
 
     goto :goto_1
 
-    .line 500
+    .line 553
     :catch_1
     move-exception v1
 
@@ -1343,29 +1360,29 @@
     .parameter "degree"
 
     .prologue
-    .line 125
+    .line 149
     const/4 v0, -0x1
 
-    .line 126
+    .line 150
     .local v0, action:I
     iput p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mStartInitialDegree:F
 
-    .line 127
+    .line 151
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
 
-    .line 128
+    .line 152
     iget-boolean v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
 
     if-nez v1, :cond_0
 
-    .line 129
+    .line 153
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
     iget-wide v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
     invoke-interface {v1, v2, v3, v0}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onDegreeChanged(JI)V
 
-    .line 131
+    .line 155
     :cond_0
     return-void
 .end method
@@ -1376,7 +1393,7 @@
     .prologue
     const/high16 v2, 0x4000
 
-    .line 156
+    .line 179
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerWidth:I
 
     int-to-float v0, v0
@@ -1389,7 +1406,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterX:F
 
-    .line 157
+    .line 180
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialerHeight:F
 
     div-float/2addr v0, v2
@@ -1400,7 +1417,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterY:F
 
-    .line 158
+    .line 181
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1437,7 +1454,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;Z)V
 
-    .line 159
+    .line 183
     return-void
 .end method
 
@@ -1446,32 +1463,32 @@
     .parameter "pressed"
 
     .prologue
-    .line 360
+    .line 386
     iget-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->powerPressed:Z
 
     if-eq v0, p1, :cond_0
 
-    .line 361
+    .line 387
     iput-boolean p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->powerPressed:Z
 
-    .line 363
+    .line 389
     iget-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->powerPressed:Z
 
     if-eqz v0, :cond_1
 
-    .line 369
+    .line 395
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onTouchPower(I)V
 
-    .line 384
+    .line 409
     :cond_0
     :goto_0
     return-void
 
-    .line 377
+    .line 402
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
@@ -1488,7 +1505,7 @@
     .locals 1
 
     .prologue
-    .line 593
+    .line 652
     iget-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mIsLock:Z
 
     return v0
@@ -1498,12 +1515,12 @@
     .locals 1
 
     .prologue
-    .line 586
+    .line 644
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mIsLock:Z
 
-    .line 587
+    .line 645
     return-void
 .end method
 
@@ -1512,12 +1529,12 @@
     .parameter "message"
 
     .prologue
-    .line 522
+    .line 579
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;Z)V
 
-    .line 523
+    .line 580
     return-void
 .end method
 
@@ -1527,15 +1544,15 @@
     .parameter "isFreqLog"
 
     .prologue
-    .line 526
+    .line 583
     if-nez p2, :cond_0
 
-    .line 527
+    .line 584
     const-string v0, "FrequencyDialer"
 
-    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 528
+    .line 585
     :cond_0
     return-void
 .end method
@@ -1545,10 +1562,10 @@
     .parameter "cv"
 
     .prologue
-    .line 162
+    .line 187
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 163
+    .line 188
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mStartInitialDegree:F
 
     iget v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterX:F
@@ -1557,21 +1574,21 @@
 
     invoke-virtual {p1, v0, v1, v2}, Landroid/graphics/Canvas;->rotate(FFF)V
 
-    .line 164
+    .line 189
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 165
+    .line 190
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 166
+    .line 191
     iget-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mPointVisible:Z
 
     if-eqz v0, :cond_0
 
-    .line 167
+    .line 192
     invoke-direct {p0, p1}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->drawDialer(Landroid/graphics/Canvas;)V
 
-    .line 168
+    .line 193
     :cond_0
     return-void
 .end method
@@ -1582,10 +1599,10 @@
     .parameter "state"
 
     .prologue
-    .line 575
+    .line 633
     iput-boolean p2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mIsFocused:Z
 
-    .line 576
+    .line 634
     return-void
 .end method
 
@@ -1597,10 +1614,10 @@
     .parameter "oldh"
 
     .prologue
-    .line 172
+    .line 197
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/ImageView;->onSizeChanged(IIII)V
 
-    .line 173
+    .line 198
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1633,10 +1650,10 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;Z)V
 
-    .line 174
+    .line 199
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->setCenterXY()V
 
-    .line 175
+    .line 200
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterX:F
 
     iget v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterY:F
@@ -1645,7 +1662,7 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->calculatePositionOfDialerPoint(FFF)F
 
-    .line 176
+    .line 201
     return-void
 .end method
 
@@ -1654,15 +1671,15 @@
     .parameter "event"
 
     .prologue
-    const/16 v9, 0xc9
+    const/16 v9, 0xca
 
-    const/16 v8, 0xca
+    const/16 v8, 0xc9
 
     const/4 v7, 0x0
 
     const/4 v6, 0x1
 
-    .line 388
+    .line 415
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
@@ -1681,17 +1698,17 @@
 
     if-eqz v2, :cond_3
 
-    .line 389
+    .line 416
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 390
-    iput v9, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
+    .line 417
+    iput v8, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
 
-    .line 392
+    .line 419
     :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -1699,17 +1716,23 @@
 
     if-ne v2, v6, :cond_2
 
-    .line 393
+    .line 420
+    iput-boolean v6, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    .line 421
+    invoke-direct {p0, v7}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
+
+    .line 422
     iget v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
 
-    if-eq v2, v9, :cond_2
+    if-eq v2, v8, :cond_2
 
-    .line 394
+    .line 423
     iget v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
 
-    if-ne v2, v8, :cond_1
+    if-ne v2, v9, :cond_1
 
-    .line 395
+    .line 424
     iget-object v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
@@ -1718,18 +1741,18 @@
 
     invoke-interface {v2, v3}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onTouchDial(I)V
 
-    .line 471
+    .line 524
     :cond_1
     :goto_0
     return v6
 
-    .line 400
+    .line 429
     :cond_2
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     goto :goto_0
 
-    .line 405
+    .line 433
     :cond_3
     :try_start_0
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -1744,15 +1767,92 @@
 
     if-eqz v2, :cond_1
 
-    .line 413
+    .line 443
     :goto_1
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isLocked()Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-eqz v2, :cond_7
 
-    .line 416
+    .line 444
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v2
+
+    if-ne v2, v6, :cond_5
+
+    .line 445
+    iput-boolean v6, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    .line 446
+    invoke-direct {p0, v7}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
+
+    .line 455
+    :cond_4
+    :goto_2
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v3
+
+    invoke-interface {v2, v3}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onTouchDial(I)V
+
+    goto :goto_0
+
+    .line 435
+    :catch_0
+    move-exception v1
+
+    .line 437
+    .local v1, e:Ljava/lang/Exception;
+    :try_start_1
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    goto :goto_1
+
+    .line 438
+    :catch_1
+    move-exception v2
+
+    goto :goto_1
+
+    .line 447
+    .end local v1           #e:Ljava/lang/Exception;
+    :cond_5
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    .line 448
+    iput-boolean v7, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    .line 449
+    invoke-direct {p0, v6}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
+
+    .line 450
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getAnimation()Landroid/view/animation/Animation;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_6
+
+    .line 451
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->clearAnimation()V
+
+    .line 453
+    :cond_6
+    iput v9, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
+
+    goto :goto_2
+
+    .line 460
+    :cond_7
     iget v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterX:F
 
     iget v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterY:F
@@ -1769,7 +1869,7 @@
 
     move-result v0
 
-    .line 418
+    .line 461
     .local v0, degree:F
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1791,103 +1891,36 @@
 
     invoke-virtual {p0, v2, v6}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;Z)V
 
-    .line 420
+    .line 463
     const/high16 v2, 0x43a1
 
     cmpl-float v2, v0, v2
 
-    if-lez v2, :cond_6
+    if-lez v2, :cond_a
 
-    .line 421
+    .line 464
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v2
 
-    if-ne v2, v6, :cond_5
+    if-ne v2, v6, :cond_9
 
-    .line 422
+    .line 465
     iput-boolean v6, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
 
-    .line 423
+    .line 466
     invoke-direct {p0, v7}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
 
-    .line 429
-    :cond_4
-    :goto_2
-    iget-object v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
+    .line 467
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+    .line 468
+    iget v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
 
-    move-result v3
+    if-eq v2, v8, :cond_1
 
-    invoke-interface {v2, v3}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onTouchDial(I)V
-
-    goto :goto_0
-
-    .line 407
-    .end local v0           #degree:F
-    :catch_0
-    move-exception v1
-
-    .line 409
-    .local v1, e:Ljava/lang/Exception;
-    :try_start_1
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
-    goto :goto_1
-
-    .line 410
-    :catch_1
-    move-exception v2
-
-    goto :goto_1
-
-    .line 424
-    .end local v1           #e:Ljava/lang/Exception;
-    .restart local v0       #degree:F
-    :cond_5
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    .line 425
-    iput-boolean v7, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
-
-    .line 426
-    invoke-direct {p0, v6}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
-
-    .line 427
-    iput v8, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
-
-    goto :goto_2
-
-    .line 431
-    :cond_6
-    const/high16 v2, 0x4260
-
-    cmpg-float v2, v0, v2
-
-    if-gez v2, :cond_9
-
-    .line 432
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v2
-
-    if-ne v2, v6, :cond_8
-
-    .line 433
-    iput-boolean v6, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
-
-    .line 434
-    invoke-direct {p0, v7}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
-
-    .line 440
-    :cond_7
+    .line 477
+    :cond_8
     :goto_3
     iget-object v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
@@ -1899,82 +1932,60 @@
 
     goto/16 :goto_0
 
-    .line 435
-    :cond_8
+    .line 471
+    :cond_9
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_8
 
-    .line 436
+    .line 472
     iput-boolean v7, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
 
-    .line 437
+    .line 473
     invoke-direct {p0, v6}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
 
-    .line 438
-    iput v8, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
+    .line 474
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
+
+    .line 475
+    iput v9, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
 
     goto :goto_3
 
-    .line 444
-    :cond_9
-    const/high16 v2, 0x439c
-
-    cmpl-float v2, v0, v2
-
-    if-lez v2, :cond_c
-
-    .line 445
-    const/high16 v0, 0x439c
-
-    .line 449
+    .line 479
     :cond_a
-    :goto_4
-    iget-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+    const/high16 v2, 0x4260
 
-    if-eqz v2, :cond_b
+    cmpg-float v2, v0, v2
 
-    .line 450
-    iput-boolean v7, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+    if-gez v2, :cond_d
 
-    .line 452
-    :cond_b
+    .line 480
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v2
 
-    if-ne v2, v6, :cond_d
+    if-ne v2, v6, :cond_c
 
-    .line 453
+    .line 481
     iput-boolean v6, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
 
-    .line 454
+    .line 482
     invoke-direct {p0, v7}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
 
-    .line 465
-    :goto_5
-    iget v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
-
-    if-eq v2, v9, :cond_1
-
-    .line 467
-    iget v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterX:F
-
-    iget v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterY:F
-
-    invoke-direct {p0, v2, v3, v0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->calculatePositionOfDialerPoint(FFF)F
-
-    move-result v0
-
-    .line 468
-    invoke-direct {p0, v0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->judgeDirection(F)V
-
-    .line 469
+    .line 483
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
 
-    .line 470
+    .line 484
+    iget v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
+
+    if-eq v2, v8, :cond_1
+
+    .line 493
+    :cond_b
+    :goto_4
     iget-object v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
@@ -1985,65 +1996,156 @@
 
     goto/16 :goto_0
 
-    .line 446
+    .line 487
     :cond_c
-    const/high16 v2, 0x4284
-
-    cmpg-float v2, v0, v2
-
-    if-gez v2, :cond_a
-
-    .line 447
-    const/high16 v0, 0x4284
-
-    goto :goto_4
-
-    .line 455
-    :cond_d
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v2
 
-    if-nez v2, :cond_f
+    if-nez v2, :cond_b
 
-    .line 456
+    .line 488
     iput-boolean v7, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
 
-    .line 457
+    .line 489
     invoke-direct {p0, v6}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
 
-    .line 458
+    .line 490
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
+
+    .line 491
+    iput v9, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
+
+    goto :goto_4
+
+    .line 497
+    :cond_d
+    const/high16 v2, 0x439c
+
+    cmpl-float v2, v0, v2
+
+    if-lez v2, :cond_10
+
+    .line 498
+    const/high16 v0, 0x439c
+
+    .line 502
+    :cond_e
+    :goto_5
+    iget-boolean v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    if-eqz v2, :cond_f
+
+    .line 503
+    iput-boolean v7, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    .line 505
+    :cond_f
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v2
+
+    if-ne v2, v6, :cond_11
+
+    .line 506
+    iput-boolean v6, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    .line 507
+    invoke-direct {p0, v7}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
+
+    .line 518
+    :goto_6
+    iget v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
+
+    if-eq v2, v8, :cond_1
+
+    .line 520
+    iget v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterX:F
+
+    iget v3, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCenterY:F
+
+    invoke-direct {p0, v2, v3, v0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->calculatePositionOfDialerPoint(FFF)F
+
+    move-result v0
+
+    .line 521
+    invoke-direct {p0, v0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->judgeDirection(F)V
+
+    .line 522
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
+
+    .line 523
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v3
+
+    invoke-interface {v2, v3}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onTouchDial(I)V
+
+    goto/16 :goto_0
+
+    .line 499
+    :cond_10
+    const/high16 v2, 0x4284
+
+    cmpg-float v2, v0, v2
+
+    if-gez v2, :cond_e
+
+    .line 500
+    const/high16 v0, 0x4284
+
+    goto :goto_5
+
+    .line 508
+    :cond_11
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v2
+
+    if-nez v2, :cond_13
+
+    .line 509
+    iput-boolean v7, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    .line 510
+    invoke-direct {p0, v6}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
+
+    .line 511
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getAnimation()Landroid/view/animation/Animation;
 
     move-result-object v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_12
 
-    .line 459
+    .line 512
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->clearAnimation()V
 
-    .line 461
-    :cond_e
-    iput v8, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
+    .line 514
+    :cond_12
+    iput v9, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDownPosition:I
 
-    goto :goto_5
+    goto :goto_6
 
-    .line 463
-    :cond_f
+    .line 516
+    :cond_13
     iput-boolean v7, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
 
-    goto :goto_5
+    goto :goto_6
 .end method
 
 .method public setFrequency(JZ)V
-    .locals 4
+    .locals 5
     .parameter "freq"
     .parameter "isAnimation"
 
     .prologue
+    const/4 v4, 0x1
+
     const/4 v3, 0x0
 
-    .line 254
+    .line 275
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2084,47 +2186,45 @@
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    invoke-virtual {p0, v0, v4}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;Z)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;Z)V
-
-    .line 256
+    .line 277
     iget-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
     iput-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mPreviousFrequencyPosition:J
 
-    .line 257
+    .line 278
     iput-wide p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
-    .line 258
+    .line 279
     iput-wide p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCurrentFrequencyPosition:J
 
-    .line 259
+    .line 280
     if-eqz p3, :cond_3
 
-    .line 260
+    .line 281
     iget-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mPreviousFrequencyPosition:J
 
     cmp-long v0, v0, p1
 
     if-eqz v0, :cond_2
 
-    .line 261
+    .line 282
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
     invoke-interface {v0, v3}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onTouchDial(I)V
 
-    .line 262
+    .line 283
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getAnimation()Landroid/view/animation/Animation;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 263
+    .line 284
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->clearAnimation()V
 
-    .line 265
+    .line 286
     :cond_0
     new-instance v0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;
 
@@ -2132,61 +2232,73 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mAnimation:Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;
 
-    .line 266
+    .line 287
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mAnimation:Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;
 
     const-wide/16 v1, 0x190
 
     invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->setDuration(J)V
 
-    .line 267
+    .line 288
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mAnimation:Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 278
+    .line 299
     :goto_0
     sget-boolean v0, Lcom/sec/android/app/fm/MainActivity;->IS_BIGGER_THAN_MDPI:Z
 
     if-eqz v0, :cond_1
 
-    .line 279
+    .line 300
+    iget-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+
+    if-eqz v0, :cond_5
+
+    .line 301
     invoke-direct {p0, v3}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
 
-    .line 281
+    .line 307
     :cond_1
+    :goto_1
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
 
-    .line 282
+    .line 308
     return-void
 
-    .line 269
+    .line 290
     :cond_2
     invoke-direct {p0, p1, p2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->calculatePositionFreqOfDialerPoint(J)F
 
-    .line 270
+    .line 291
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
     invoke-interface {v0, p1, p2}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onFreqChanged(J)V
 
     goto :goto_0
 
-    .line 273
+    .line 294
     :cond_3
     sget-boolean v0, Lcom/sec/android/app/fm/MainActivity;->IS_BIGGER_THAN_MDPI:Z
 
     if-eqz v0, :cond_4
 
-    .line 274
+    .line 295
     invoke-direct {p0, p1, p2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->calculatePositionFreqOfDialerPoint(J)F
 
-    .line 276
+    .line 297
     :cond_4
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
     invoke-interface {v0, p1, p2}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onFreqChanged(J)V
 
     goto :goto_0
+
+    .line 303
+    :cond_5
+    invoke-direct {p0, v4}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
+
+    goto :goto_1
 .end method
 
 .method public setOnDegreeChangeListener(Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;)V
@@ -2194,10 +2306,10 @@
     .parameter "listener"
 
     .prologue
-    .line 103
+    .line 127
     iput-object p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
-    .line 104
+    .line 128
     return-void
 .end method
 
@@ -2205,12 +2317,12 @@
     .locals 1
 
     .prologue
-    .line 517
+    .line 573
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mPointVisible:Z
 
-    .line 518
+    .line 574
     return-void
 .end method
 
@@ -2218,44 +2330,44 @@
     .locals 3
 
     .prologue
-    .line 599
+    .line 659
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getAnimation()Landroid/view/animation/Animation;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 600
+    .line 660
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->clearAnimation()V
 
-    .line 601
+    .line 661
     iget-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mCurrentFrequencyPosition:J
 
     iput-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
-    .line 602
+    .line 662
     iget-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
     invoke-direct {p0, v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->calculatePositionFreqOfDialerPoint(J)F
 
-    .line 603
+    .line 663
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
 
-    .line 604
+    .line 664
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
     iget-wide v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
 
     invoke-interface {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onFreqChanged(J)V
 
-    .line 605
+    .line 665
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
 
     const/4 v1, 0x1
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onTouchDial(I)V
 
-    .line 607
+    .line 667
     :cond_0
     return-void
 .end method
@@ -2264,12 +2376,12 @@
     .locals 1
 
     .prologue
-    .line 589
+    .line 648
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mIsLock:Z
 
-    .line 590
+    .line 649
     return-void
 .end method
 
@@ -2280,26 +2392,26 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 285
+    .line 311
     if-eqz p1, :cond_0
 
-    .line 286
+    .line 312
     invoke-direct {p0, v3}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->isOnTouching(Z)V
 
-    .line 295
+    .line 321
     :goto_0
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
 
-    .line 296
+    .line 322
     return-void
 
-    .line 288
+    .line 314
     :cond_0
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f020068
+    const v1, 0x7f02004e
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -2307,7 +2419,7 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
 
-    .line 292
+    .line 318
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer;->mDialPoint:Landroid/graphics/Bitmap;

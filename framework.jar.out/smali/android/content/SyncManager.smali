@@ -4254,7 +4254,7 @@
     .line 1055
     .end local v11           #i$:Ljava/util/Iterator;
     :cond_1
-    const-string v28, "memory low: "
+    const-string/jumbo v28, "memory low: "
 
     move-object/from16 v0, p1
 

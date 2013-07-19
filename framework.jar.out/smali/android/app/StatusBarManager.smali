@@ -460,43 +460,6 @@
     throw v2
 .end method
 
-.method public showCallView()V
-    .locals 3
-
-    .prologue
-    .line 197
-    :try_start_0
-    invoke-direct {p0}, Landroid/app/StatusBarManager;->getService()Lcom/android/internal/statusbar/IStatusBarService;
-
-    move-result-object v1
-
-    .line 198
-    .local v1, svc:Lcom/android/internal/statusbar/IStatusBarService;
-    if-eqz v1, :cond_0
-
-    .line 199
-    invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBarService;->showCallView()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 205
-    :cond_0
-    return-void
-
-    .line 201
-    .end local v1           #svc:Lcom/android/internal/statusbar/IStatusBarService;
-    :catch_0
-    move-exception v0
-
-    .line 203
-    .local v0, ex:Landroid/os/RemoteException;
-    new-instance v2, Ljava/lang/RuntimeException;
-
-    invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v2
-.end method
-
 .method public setStatus(ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 3
     .parameter "what"
@@ -528,6 +491,43 @@
     :catch_0
     move-exception v0
 
+    .local v0, ex:Landroid/os/RemoteException;
+    new-instance v2, Ljava/lang/RuntimeException;
+
+    invoke-direct {v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v2
+.end method
+
+.method public showCallView()V
+    .locals 3
+
+    .prologue
+    .line 197
+    :try_start_0
+    invoke-direct {p0}, Landroid/app/StatusBarManager;->getService()Lcom/android/internal/statusbar/IStatusBarService;
+
+    move-result-object v1
+
+    .line 198
+    .local v1, svc:Lcom/android/internal/statusbar/IStatusBarService;
+    if-eqz v1, :cond_0
+
+    .line 199
+    invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBarService;->showCallView()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 205
+    :cond_0
+    return-void
+
+    .line 201
+    .end local v1           #svc:Lcom/android/internal/statusbar/IStatusBarService;
+    :catch_0
+    move-exception v0
+
+    .line 203
     .local v0, ex:Landroid/os/RemoteException;
     new-instance v2, Ljava/lang/RuntimeException;
 

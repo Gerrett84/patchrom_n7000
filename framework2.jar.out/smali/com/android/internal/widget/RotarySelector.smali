@@ -219,7 +219,7 @@
     iput v3, p0, Lcom/android/internal/widget/RotarySelector;->mDensity:F
 
     .line 181
-    const v3, 0x10803ce
+    const v3, 0x10803ea
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -228,7 +228,7 @@
     iput-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mBackground:Landroid/graphics/Bitmap;
 
     .line 182
-    const v3, 0x10803cf
+    const v3, 0x10803eb
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -237,7 +237,7 @@
     iput-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mDimple:Landroid/graphics/Bitmap;
 
     .line 183
-    const v3, 0x10803d0
+    const v3, 0x10803ec
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -246,7 +246,7 @@
     iput-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mDimpleDim:Landroid/graphics/Bitmap;
 
     .line 185
-    const v3, 0x10803c6
+    const v3, 0x10803e2
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -255,7 +255,7 @@
     iput-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mArrowLongLeft:Landroid/graphics/Bitmap;
 
     .line 186
-    const v3, 0x10803c9
+    const v3, 0x10803e5
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 
@@ -264,7 +264,7 @@
     iput-object v3, p0, Lcom/android/internal/widget/RotarySelector;->mArrowLongRight:Landroid/graphics/Bitmap;
 
     .line 187
-    const v3, 0x10803cc
+    const v3, 0x10803e8
 
     invoke-direct {p0, v3}, Lcom/android/internal/widget/RotarySelector;->getBitmapFor(I)Landroid/graphics/Bitmap;
 

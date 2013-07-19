@@ -101,13 +101,13 @@
     <string name="toast_unavailable_in_tvout_mode">Μη διαθέσιμο στη λειτουργία Tv-out</string>
     <string name="mute">Σίγαση</string>
     <string name="seeking">Αναζήτηση…</string>
-    <string name="via_earphone">Μέσω ακουστικών</string>
-    <string name="via_speaker">Μέσω ηχείου</string>
+    <string name="via_earphone">Ακρόαση μέσω ακουστικών</string>
+    <string name="via_speaker">Αναπαρ. μέσω ηχείου</string>
     <string name="normal_frequency">Κανονική συχνότητα</string>
     <string name="tag">Ετ.</string>
     <string name="stop">Διακοπή</string>
     <string name="recording">Εγγραφή…</string>
-    <string name="memory_full">Η εγγραφή διακόπηκε. Η μνήμη είναι πλήρης</string>
+    <string name="memory_full">Μνήμη ημερολογίου πλήρης</string>
     <string name="cancel_recording">Ακύρωση εγγραφής;</string>
     <string name="change_frequency">Αλλαγή συχνότητας</string>
     <string name="enter_frequency">Εισαγωγή συχνότητας</string>
@@ -133,11 +133,14 @@
     <string name="tags">Ετικέτες</string>
     <string name="tags_now_broadcasting">Τρέχουσα εκπομπή</string>
     <string name="tags_no_information">Χωρίς πληροφορίες</string>
+    <string name="tags_music_history">Ιστορικό μουσικής</string>
     <string name="tags_music_title">Τίτλος</string>
     <string name="tags_music_album">Άλμπουμ</string>
     <string name="tags_music_artist">Καλλιτέχνης</string>
+    <string name="tags_music_band">Συγκρότημα</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Αρχική σελίδα</string>
+    <string name="tags_interact_hotline">Γραμμή επικοινωνίας</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Άλλο</string>
     <string name="tags_interact_centre">Κέντρο</string>
@@ -183,4 +186,14 @@
     <string name="dialog_one_item_deleted">Αυτό το στοιχείο θα διαγραφεί</string>
     <string name="dialog_multiple_items_deleted">Θα διαγραφούν %d στοιχεία</string>
     <string name="dialog_all_items_deleted">Θα γίνει διαγραφή όλων των στοιχείων</string>
+    <string name="turning_on">Γίνεται ενεργοποίηση…</string>
+    <string name="not_enough_memory_recording_will_stop">Ανεπαρκής μνήμη. Η εγγραφή θα διακοπεί σε %d δευτερόλεπτα</string>
+    <string name="low_batt_msg">Χαμηλή μπαταρία</string>
+    <string name="no_play_during_call">Δεν είναι δυνατή η αναπαραγωγή παιχνιδιού κατά την κλήση</string>
+    <string name="unable_delete">Δεν είναι δυνατή η διαγραφή</string>
+    <string name="playing">Αναπ/γωγή..</string>
+    <string name="tts_play_button">Αναπαραγωγή</string>
+    <string name="tts_previous_button">Προηγούμενο</string>
+    <string name="tts_Next_button">Επόμενο</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

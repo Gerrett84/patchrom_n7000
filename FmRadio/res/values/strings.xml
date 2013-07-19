@@ -75,8 +75,8 @@
     <string name="number_30">30</string>
     <string name="number_1">1</string>
     <string name="number_2">2</string>
-    <string name="alrm_15_min_past">Auto FM Radio off. %1$d min passed</string>
-    <string name="alrm_30_min_past">Auto FM Radio off. %1$d min passed</string>
+    <string name="alrm_15_min_past">Auto FM Radio off. %1$d mins passed</string>
+    <string name="alrm_30_min_past">Auto FM Radio off. %1$d mins passed</string>
     <string name="alrm_1_hr_past">Auto FM Radio off. 1 hour passed</string>
     <string name="alrm_2_hrs_past">Auto FM Radio off. %1$d hour passed</string>
     <string name="scan_channels">Scan channels</string>
@@ -101,13 +101,13 @@
     <string name="toast_unavailable_in_tvout_mode">Unavailable in TV-out mode</string>
     <string name="mute">Mute</string>
     <string name="seeking">Searching...</string>
-    <string name="via_earphone">Via earphones</string>
-    <string name="via_speaker">Via speaker</string>
+    <string name="via_earphone">Play via earphones</string>
+    <string name="via_speaker">Play via speaker</string>
     <string name="normal_frequency">Normal frequency</string>
     <string name="tag">Tag</string>
     <string name="stop">Stop</string>
     <string name="recording">Recording...</string>
-    <string name="memory_full">Memory low.so,stop the recording</string>
+    <string name="memory_full">Memory full</string>
     <string name="cancel_recording">Cancel recording?</string>
     <string name="change_frequency">Change frequency</string>
     <string name="enter_frequency">Enter frequency</string>
@@ -153,7 +153,7 @@
     <string name="tags">Tags</string>
     <string name="tags_now_broadcasting">Now broadcasting</string>
     <string name="tags_no_information">No information</string>
-    <string name="tags_music_history">Music History</string>
+    <string name="tags_music_history">Music history</string>
     <string name="tags_music_title">Title</string>
     <string name="tags_music_album">Album</string>
     <string name="tags_music_artist">Artist</string>
@@ -206,7 +206,17 @@ After recording radio, recorded files will be displayed"</string>
     <string name="dialog_one_item_deleted">This item will be deleted</string>
     <string name="dialog_multiple_items_deleted">%1$d items will be deleted</string>
     <string name="dialog_all_items_deleted">All items will be deleted</string>
-    <item type="string" name="APKTOOL_DUMMY_00cd">false</item>
-    <item type="string" name="APKTOOL_DUMMY_00ce">false</item>
-    <item type="string" name="APKTOOL_DUMMY_00cf">false</item>
+    <string name="turning_on">Turning on...</string>
+    <string name="not_enough_memory_recording_will_stop">Not enough memory. Recording will stop in %d seconds</string>
+    <string name="low_batt_msg">Low battery</string>
+    <string name="no_play_during_call">Unable to play during call</string>
+    <string name="unable_delete">Unable to delete</string>
+    <string name="playing">Playing...</string>
+    <string name="tts_play_button">Play</string>
+    <string name="tts_previous_button">Previous</string>
+    <string name="tts_Next_button">Next</string>
+    <string name="stms_version" />
+    <item type="string" name="APKTOOL_DUMMY_00d7">false</item>
+    <item type="string" name="APKTOOL_DUMMY_00d8">false</item>
+    <item type="string" name="APKTOOL_DUMMY_00d9">false</item>
 </resources>

@@ -98,19 +98,28 @@
     if-eqz v1, :cond_0
 
     .line 343
+    if-eqz p2, :cond_1
+
+    .line 344
     :try_start_0
     invoke-interface {v1, v0, p2}, Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack;->onDiscoverCharacteristics(Ljava/lang/String;[Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 349
+    .line 352
     .end local v1           #callBack:Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack;
     :cond_0
     :goto_0
     return-void
 
-    .line 344
+    .line 346
     .restart local v1       #callBack:Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack;
+    :cond_1
+    invoke-interface {v1, v0}, Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack;->onDiscoverCharacteristicsFailed(Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    .line 347
     :catch_0
     move-exception v3
 
@@ -121,7 +130,7 @@
 
     invoke-static {v4, v5, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 345
+    .line 348
     const-string v4, "BluetoothLEGattProxy.LE"
 
     const-string v5, "Failed to call onRefresh."
@@ -606,7 +615,7 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 352
+    .line 355
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEGattProxy$1;->this$0:Lcom/samsung/bluetoothle/BluetoothLEGattProxy;
 
     const-string v6, "IBluetoothLEGattCallback"
@@ -616,7 +625,7 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEGattProxy;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v5, v6, v7}, Lcom/samsung/bluetoothle/BluetoothLEGattProxy;->access$000(Lcom/samsung/bluetoothle/BluetoothLEGattProxy;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 353
+    .line 356
     const-string v5, "/characteristic"
 
     invoke-virtual {p1, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
@@ -627,7 +636,7 @@
 
     move-result-object v4
 
-    .line 354
+    .line 357
     .local v4, servicePath:Ljava/lang/String;
     const-string v5, "/service"
 
@@ -639,7 +648,7 @@
 
     move-result-object v2
 
-    .line 355
+    .line 358
     .local v2, devicePath:Ljava/lang/String;
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEGattProxy$1;->this$0:Lcom/samsung/bluetoothle/BluetoothLEGattProxy;
 
@@ -648,7 +657,7 @@
 
     move-result-object v0
 
-    .line 357
+    .line 360
     .local v0, address:Ljava/lang/String;
     if-eqz v0, :cond_0
 
@@ -665,7 +674,7 @@
 
     if-eqz v5, :cond_0
 
-    .line 358
+    .line 361
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEGattProxy$1;->this$0:Lcom/samsung/bluetoothle/BluetoothLEGattProxy;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEGattProxy;->mLEClientServiceCBTracker:Ljava/util/HashMap;
@@ -679,23 +688,23 @@
 
     check-cast v1, Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack;
 
-    .line 359
+    .line 362
     .local v1, callBack:Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack;
     if-eqz v1, :cond_0
 
-    .line 361
+    .line 364
     :try_start_0
     invoke-interface {v1, p1, p2}, Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack;->onWatcherValueChanged(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 367
+    .line 370
     .end local v1           #callBack:Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack;
     :cond_0
     :goto_0
     return-void
 
-    .line 362
+    .line 365
     .restart local v1       #callBack:Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack;
     :catch_0
     move-exception v3
@@ -707,7 +716,7 @@
 
     invoke-static {v5, v6, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 363
+    .line 366
     const-string v5, "BluetoothLEGattProxy.LE"
 
     const-string v6, "Failed to call onWatcherValueChanged."

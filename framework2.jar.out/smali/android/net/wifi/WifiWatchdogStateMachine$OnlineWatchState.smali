@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 945
+    .line 949
     iput-object p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -36,7 +36,7 @@
     .locals 2
 
     .prologue
-    .line 957
+    .line 961
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mCurrentSignalLevel:I
@@ -46,7 +46,7 @@
 
     if-gtz v0, :cond_0
 
-    .line 958
+    .line 962
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -59,7 +59,7 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v0, v1}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$4900(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 962
+    .line 966
     :cond_0
     return-void
 .end method
@@ -70,7 +70,7 @@
     .locals 2
 
     .prologue
-    .line 947
+    .line 951
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
     move-result v0
@@ -102,7 +102,7 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$300(Ljava/lang/String;)V
 
-    .line 948
+    .line 952
     :cond_0
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -113,14 +113,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 950
+    .line 954
     invoke-direct {p0}, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->handleRssiChange()V
 
-    .line 954
+    .line 958
     :goto_0
     return-void
 
-    .line 952
+    .line 956
     :cond_1
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -142,19 +142,19 @@
     .parameter "msg"
 
     .prologue
-    .line 966
+    .line 970
     iget v2, p1, Landroid/os/Message;->what:I
 
     sparse-switch v2, :sswitch_data_0
 
-    .line 984
+    .line 988
     const/4 v2, 0x0
 
-    .line 986
+    .line 990
     :goto_0
     return v2
 
-    .line 968
+    .line 972
     :sswitch_0
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -170,12 +170,12 @@
     #setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mCurrentSignalLevel:I
     invoke-static {v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$502(Landroid/net/wifi/WifiWatchdogStateMachine;I)I
 
-    .line 970
+    .line 974
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
-    .line 971
+    .line 975
     .local v0, time:J
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -205,10 +205,10 @@
 
     if-lez v2, :cond_1
 
-    .line 973
+    .line 977
     invoke-direct {p0}, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->handleRssiChange()V
 
-    .line 986
+    .line 990
     .end local v0           #time:J
     :cond_0
     :goto_1
@@ -216,7 +216,7 @@
 
     goto :goto_0
 
-    .line 975
+    .line 979
     .restart local v0       #time:J
     :cond_1
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
@@ -299,7 +299,7 @@
 
     goto :goto_1
 
-    .line 981
+    .line 985
     .end local v0           #time:J
     :sswitch_1
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$OnlineWatchState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -316,7 +316,7 @@
 
     goto :goto_1
 
-    .line 966
+    .line 970
     nop
 
     :sswitch_data_0

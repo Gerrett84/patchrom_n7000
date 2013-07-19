@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 379
+    .line 210
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "msg"
 
     .prologue
-    .line 383
+    .line 213
     move-object/from16 v0, p1
 
     iget v0, v0, Landroid/os/Message;->what:I
@@ -48,13 +48,13 @@
 
     sparse-switch v23, :sswitch_data_0
 
-    .line 883
+    .line 472
     :cond_0
     :goto_0
     :sswitch_0
     return-void
 
-    .line 387
+    .line 215
     :sswitch_1
     move-object/from16 v0, p0
 
@@ -67,7 +67,7 @@
 
     goto :goto_0
 
-    .line 393
+    .line 218
     :sswitch_2
     move-object/from16 v0, p0
 
@@ -80,7 +80,7 @@
 
     goto :goto_0
 
-    .line 399
+    .line 221
     :sswitch_3
     move-object/from16 v0, p0
 
@@ -92,7 +92,7 @@
 
     invoke-virtual/range {v23 .. v24}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 401
+    .line 222
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -103,7 +103,7 @@
 
     goto :goto_0
 
-    .line 417
+    .line 230
     :sswitch_4
     move-object/from16 v0, p1
 
@@ -117,7 +117,7 @@
 
     check-cast v16, [Ljava/lang/Object;
 
-    .line 419
+    .line 231
     .local v16, objects:[Ljava/lang/Object;
     const/16 v23, 0x0
 
@@ -125,7 +125,7 @@
 
     check-cast v8, Landroid/app/Dialog;
 
-    .line 421
+    .line 232
     .local v8, dialog:Landroid/app/Dialog;
     const/16 v23, 0x1
 
@@ -133,7 +133,7 @@
 
     check-cast v18, Ljava/lang/Runnable;
 
-    .line 423
+    .line 233
     .local v18, runnable:Ljava/lang/Runnable;
     if-eqz v8, :cond_0
 
@@ -143,18 +143,18 @@
 
     if-eqz v23, :cond_0
 
-    .line 425
+    .line 234
     invoke-virtual {v8}, Landroid/app/Dialog;->cancel()V
 
-    .line 427
+    .line 235
     if-eqz v18, :cond_0
 
-    .line 429
+    .line 236
     invoke-interface/range {v18 .. v18}, Ljava/lang/Runnable;->run()V
 
     goto :goto_0
 
-    .line 437
+    .line 240
     .end local v8           #dialog:Landroid/app/Dialog;
     .end local v16           #objects:[Ljava/lang/Object;
     .end local v18           #runnable:Ljava/lang/Runnable;
@@ -170,7 +170,7 @@
 
     goto :goto_0
 
-    .line 445
+    .line 244
     :sswitch_6
     move-object/from16 v0, p0
 
@@ -190,7 +190,7 @@
 
     if-eqz v23, :cond_3
 
-    .line 449
+    .line 246
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -209,7 +209,7 @@
 
     if-nez v23, :cond_2
 
-    .line 453
+    .line 248
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -228,7 +228,7 @@
 
     if-eqz v23, :cond_1
 
-    .line 455
+    .line 249
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -253,7 +253,7 @@
 
     invoke-virtual/range {v23 .. v26}, Lcom/sec/android/app/fm/MainActivity;->tune(FLandroid/view/View;I)V
 
-    .line 485
+    .line 264
     :goto_1
     move-object/from16 v0, p0
 
@@ -271,7 +271,7 @@
 
     goto/16 :goto_0
 
-    .line 463
+    .line 253
     :cond_1
     move-object/from16 v0, p0
 
@@ -325,7 +325,7 @@
 
     goto :goto_1
 
-    .line 467
+    .line 255
     :cond_2
     move-object/from16 v0, p0
 
@@ -374,7 +374,7 @@
 
     goto :goto_1
 
-    .line 473
+    .line 258
     :cond_3
     move-object/from16 v0, p0
 
@@ -394,7 +394,7 @@
 
     if-eqz v23, :cond_4
 
-    .line 475
+    .line 259
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -431,7 +431,7 @@
 
     goto/16 :goto_1
 
-    .line 481
+    .line 262
     :cond_4
     move-object/from16 v0, p0
 
@@ -459,7 +459,7 @@
 
     goto/16 :goto_1
 
-    .line 491
+    .line 267
     :sswitch_7
     move-object/from16 v0, p0
 
@@ -480,7 +480,7 @@
     #calls: Lcom/sec/android/app/fm/MainActivity;->resetRDS(F)V
     invoke-static/range {v23 .. v24}, Lcom/sec/android/app/fm/MainActivity;->access$400(Lcom/sec/android/app/fm/MainActivity;F)V
 
-    .line 493
+    .line 268
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -494,7 +494,7 @@
 
     if-eqz v23, :cond_5
 
-    .line 495
+    .line 269
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -506,7 +506,7 @@
     #calls: Lcom/sec/android/app/fm/MainActivity;->setRadioStatusTextVisibility(I)V
     invoke-static/range {v23 .. v24}, Lcom/sec/android/app/fm/MainActivity;->access$600(Lcom/sec/android/app/fm/MainActivity;I)V
 
-    .line 497
+    .line 270
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -531,7 +531,7 @@
 
     invoke-virtual/range {v23 .. v24}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 499
+    .line 271
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -547,7 +547,7 @@
 
     invoke-virtual/range {v23 .. v24}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 501
+    .line 272
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -585,7 +585,7 @@
 
     invoke-virtual/range {v23 .. v24}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 507
+    .line 275
     :cond_5
     sget-boolean v23, Lcom/sec/android/app/fm/FMRadioFeature;->FEATURE_DISABLERTPLUSINFO:Z
 
@@ -604,7 +604,7 @@
 
     if-eqz v23, :cond_0
 
-    .line 509
+    .line 276
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -616,7 +616,7 @@
     #calls: Lcom/sec/android/app/fm/MainActivity;->setRadioStatusTextVisibility(I)V
     invoke-static/range {v23 .. v24}, Lcom/sec/android/app/fm/MainActivity;->access$600(Lcom/sec/android/app/fm/MainActivity;I)V
 
-    .line 511
+    .line 277
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -641,7 +641,7 @@
 
     invoke-virtual/range {v23 .. v24}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 513
+    .line 278
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -657,7 +657,7 @@
 
     invoke-virtual/range {v23 .. v24}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 515
+    .line 279
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -697,7 +697,7 @@
 
     goto/16 :goto_0
 
-    .line 527
+    .line 285
     :sswitch_8
     :try_start_0
     move-object/from16 v0, p0
@@ -718,7 +718,7 @@
 
     if-eqz v23, :cond_7
 
-    .line 531
+    .line 287
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -737,7 +737,7 @@
 
     if-eqz v23, :cond_6
 
-    .line 533
+    .line 288
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -754,7 +754,7 @@
 
     invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
 
-    .line 539
+    .line 290
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -769,7 +769,7 @@
 
     invoke-virtual/range {v23 .. v23}, Lcom/samsung/media/fmradio/FMPlayer;->cancelScan()Z
 
-    .line 543
+    .line 292
     :cond_6
     move-object/from16 v0, p0
 
@@ -785,7 +785,7 @@
 
     invoke-virtual/range {v23 .. v23}, Lcom/samsung/media/fmradio/FMPlayer;->cancelSeek()V
 
-    .line 545
+    .line 293
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -804,11 +804,11 @@
 
     goto/16 :goto_0
 
-    .line 583
+    .line 317
     :catch_0
     move-exception v9
 
-    .line 587
+    .line 319
     .local v9, e:Ljava/lang/Exception;
     :try_start_1
     invoke-virtual {v9}, Ljava/lang/Exception;->printStackTrace()V
@@ -817,13 +817,13 @@
 
     goto/16 :goto_0
 
-    .line 589
+    .line 320
     :catch_1
     move-exception v23
 
     goto/16 :goto_0
 
-    .line 559
+    .line 300
     .end local v9           #e:Ljava/lang/Exception;
     :cond_7
     :try_start_2
@@ -835,7 +835,7 @@
 
     invoke-virtual/range {v23 .. v23}, Lcom/sec/android/app/fm/MainActivity;->on()V
 
-    .line 561
+    .line 301
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -845,7 +845,7 @@
     #calls: Lcom/sec/android/app/fm/MainActivity;->setPlayPauseImage()V
     invoke-static/range {v23 .. v23}, Lcom/sec/android/app/fm/MainActivity;->access$900(Lcom/sec/android/app/fm/MainActivity;)V
 
-    .line 563
+    .line 302
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -864,7 +864,7 @@
 
     if-eqz v23, :cond_0
 
-    .line 565
+    .line 303
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -902,7 +902,7 @@
 
     invoke-virtual/range {v23 .. v24}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 567
+    .line 304
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -916,7 +916,7 @@
 
     if-nez v23, :cond_0
 
-    .line 569
+    .line 305
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -945,11 +945,11 @@
 
     goto/16 :goto_0
 
-    .line 573
+    .line 307
     :catch_2
     move-exception v9
 
-    .line 575
+    .line 308
     .restart local v9       #e:Ljava/lang/Exception;
     :try_start_3
     move-object/from16 v0, p0
@@ -961,8 +961,18 @@
     const-string v24, "exception occurred during turning on"
 
     invoke-virtual/range {v23 .. v24}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 577
+    .line 310
+    :try_start_4
+    invoke-virtual {v9}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_6
+
+    .line 314
+    :goto_2
+    :try_start_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -971,12 +981,12 @@
 
     #calls: Lcom/sec/android/app/fm/MainActivity;->setPlayPauseImage()V
     invoke-static/range {v23 .. v23}, Lcom/sec/android/app/fm/MainActivity;->access$900(Lcom/sec/android/app/fm/MainActivity;)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
 
     goto/16 :goto_0
 
-    .line 599
+    .line 327
     .end local v9           #e:Ljava/lang/Exception;
     :sswitch_9
     move-object/from16 v0, p0
@@ -993,7 +1003,7 @@
 
     if-nez v23, :cond_8
 
-    .line 601
+    .line 328
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1003,7 +1013,7 @@
     #calls: Lcom/sec/android/app/fm/MainActivity;->updateRecordingPanelUI()V
     invoke-static/range {v23 .. v23}, Lcom/sec/android/app/fm/MainActivity;->access$1100(Lcom/sec/android/app/fm/MainActivity;)V
 
-    .line 603
+    .line 329
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1014,7 +1024,7 @@
 
     goto/16 :goto_0
 
-    .line 609
+    .line 332
     :cond_8
     move-object/from16 v0, p0
 
@@ -1027,7 +1037,7 @@
 
     goto/16 :goto_0
 
-    .line 619
+    .line 337
     :sswitch_a
     move-object/from16 v0, p0
 
@@ -1040,7 +1050,7 @@
 
     goto/16 :goto_0
 
-    .line 625
+    .line 340
     :sswitch_b
     move-object/from16 v0, p1
 
@@ -1048,7 +1058,7 @@
 
     move/from16 v17, v0
 
-    .line 627
+    .line 341
     .local v17, pos:I
     move-object/from16 v0, p0
 
@@ -1063,7 +1073,7 @@
 
     aget-object v11, v23, v17
 
-    .line 629
+    .line 342
     .local v11, fav:Lcom/sec/android/app/fm/ui/FavoriteButton;
     move-object/from16 v0, p0
 
@@ -1079,11 +1089,11 @@
 
     move-result-object v6
 
-    .line 631
+    .line 343
     .local v6, channel_1:Lcom/sec/android/app/fm/data/Channel;
     if-nez v6, :cond_11
 
-    .line 633
+    .line 344
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1097,7 +1107,7 @@
 
     if-eqz v23, :cond_a
 
-    .line 635
+    .line 345
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1112,7 +1122,7 @@
 
     if-nez v23, :cond_9
 
-    .line 637
+    .line 346
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1135,7 +1145,7 @@
 
     iput-object v0, v1, Lcom/sec/android/app/fm/MainActivity;->mNoChannelToast:Landroid/widget/Toast;
 
-    .line 645
+    .line 348
     :cond_9
     move-object/from16 v0, p0
 
@@ -1153,9 +1163,9 @@
 
     goto/16 :goto_0
 
-    .line 657
+    .line 354
     :cond_a
-    :try_start_4
+    :try_start_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1174,7 +1184,7 @@
 
     if-nez v23, :cond_c
 
-    .line 659
+    .line 355
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1188,7 +1198,7 @@
 
     if-nez v23, :cond_b
 
-    .line 661
+    .line 356
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1212,7 +1222,7 @@
     #setter for: Lcom/sec/android/app/fm/MainActivity;->recordToast:Landroid/widget/Toast;
     invoke-static/range {v23 .. v24}, Lcom/sec/android/app/fm/MainActivity;->access$1602(Lcom/sec/android/app/fm/MainActivity;Landroid/widget/Toast;)Landroid/widget/Toast;
 
-    .line 663
+    .line 358
     :cond_b
     move-object/from16 v0, p0
 
@@ -1229,7 +1239,7 @@
 
     invoke-virtual/range {v23 .. v24}, Landroid/widget/Toast;->setText(I)V
 
-    .line 665
+    .line 359
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1242,20 +1252,20 @@
     move-result-object v23
 
     invoke-virtual/range {v23 .. v23}, Landroid/widget/Toast;->show()V
-    :try_end_4
-    .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_4 .. :try_end_4} :catch_3
+    :try_end_6
+    .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_6 .. :try_end_6} :catch_3
 
     goto/16 :goto_0
 
-    .line 671
+    .line 362
     :catch_3
     move-exception v10
 
-    .line 673
+    .line 363
     .local v10, e1:Lcom/samsung/media/fmradio/FMPlayerException;
     invoke-virtual {v10}, Lcom/samsung/media/fmradio/FMPlayerException;->printStackTrace()V
 
-    .line 687
+    .line 370
     .end local v10           #e1:Lcom/samsung/media/fmradio/FMPlayerException;
     :cond_c
     move-object/from16 v0, p0
@@ -1277,7 +1287,7 @@
 
     move-result-object v19
 
-    .line 691
+    .line 372
     .local v19, station:Ljava/lang/String;
     if-eqz v19, :cond_d
 
@@ -1319,11 +1329,11 @@
 
     if-eqz v23, :cond_e
 
-    .line 699
+    .line 376
     :cond_d
     const-string v19, ""
 
-    .line 703
+    .line 378
     :cond_e
     move-object/from16 v0, p0
 
@@ -1356,19 +1366,19 @@
 
     move-result-object v5
 
-    .line 705
+    .line 379
     .local v5, channel:Lcom/sec/android/app/fm/data/Channel;
     if-eqz v5, :cond_0
 
-    .line 711
+    .line 382
     move/from16 v0, v17
 
     iput v0, v5, Lcom/sec/android/app/fm/data/Channel;->mPosition:I
 
-    .line 713
+    .line 383
     const/4 v7, 0x0
 
-    .line 715
+    .line 384
     .local v7, channelstr:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1392,7 +1402,7 @@
 
     move-wide/from16 v21, v0
 
-    .line 717
+    .line 385
     .local v21, value:J
     move-wide/from16 v0, v21
 
@@ -1408,7 +1418,7 @@
 
     move-result-object v7
 
-    .line 719
+    .line 386
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1434,11 +1444,11 @@
 
     aput v24, v23, v17
 
-    .line 721
+    .line 387
     invoke-virtual {v11, v7}, Lcom/sec/android/app/fm/ui/FavoriteButton;->setFrequencyText(Ljava/lang/String;)V
 
-    .line 725
-    :try_start_5
+    .line 390
+    :try_start_7
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1457,10 +1467,10 @@
 
     if-eqz v23, :cond_10
 
-    .line 727
+    .line 391
     invoke-virtual {v11}, Lcom/sec/android/app/fm/ui/FavoriteButton;->setFreqTextColorAsPlay()V
 
-    .line 731
+    .line 393
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1483,7 +1493,7 @@
 
     if-eqz v23, :cond_f
 
-    .line 735
+    .line 395
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1507,26 +1517,26 @@
     const/16 v26, -0x1
 
     invoke-virtual/range {v23 .. v26}, Lcom/sec/android/app/fm/MainActivity;->onAndTune(FLandroid/view/View;I)V
-    :try_end_5
-    .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_5 .. :try_end_5} :catch_4
+    :try_end_7
+    .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_7 .. :try_end_7} :catch_4
 
-    .line 755
+    .line 405
     :cond_f
-    :goto_2
+    :goto_3
     const/16 v23, 0x1
 
     move/from16 v0, v23
 
     invoke-virtual {v11, v0}, Lcom/sec/android/app/fm/ui/FavoriteButton;->setState(I)V
 
-    .line 757
+    .line 406
     invoke-static {}, Lcom/sec/android/app/fm/data/ChannelStore;->getInstance()Lcom/sec/android/app/fm/data/ChannelStore;
 
     move-result-object v23
 
     invoke-virtual/range {v23 .. v23}, Lcom/sec/android/app/fm/data/ChannelStore;->store()V
 
-    .line 759
+    .line 407
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1540,20 +1550,20 @@
 
     goto/16 :goto_0
 
-    .line 745
+    .line 400
     :cond_10
-    :try_start_6
+    :try_start_8
     invoke-virtual {v11}, Lcom/sec/android/app/fm/ui/FavoriteButton;->setFreqTextColorAsNormal()V
-    :try_end_6
-    .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_6 .. :try_end_6} :catch_4
+    :try_end_8
+    .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_8 .. :try_end_8} :catch_4
 
-    goto :goto_2
+    goto :goto_3
 
-    .line 749
+    .line 402
     :catch_4
     move-exception v9
 
-    .line 751
+    .line 403
     .local v9, e:Lcom/samsung/media/fmradio/FMPlayerException;
     move-object/from16 v0, p0
 
@@ -1565,9 +1575,9 @@
 
     invoke-virtual {v0, v9}, Lcom/sec/android/app/fm/MainActivity;->error(Ljava/lang/Exception;)V
 
-    goto :goto_2
+    goto :goto_3
 
-    .line 763
+    .line 409
     .end local v5           #channel:Lcom/sec/android/app/fm/data/Channel;
     .end local v7           #channelstr:Ljava/lang/String;
     .end local v9           #e:Lcom/samsung/media/fmradio/FMPlayerException;
@@ -1593,7 +1603,7 @@
 
     if-eqz v23, :cond_12
 
-    .line 765
+    .line 410
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1606,7 +1616,7 @@
 
     goto/16 :goto_0
 
-    .line 771
+    .line 414
     :cond_12
     move-object/from16 v0, p0
 
@@ -1621,7 +1631,7 @@
 
     if-eqz v23, :cond_13
 
-    .line 773
+    .line 415
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1653,7 +1663,7 @@
     #calls: Lcom/sec/android/app/fm/MainActivity;->toggleParentLayout(Landroid/view/ViewGroup;Landroid/view/ViewGroup;)V
     invoke-static/range {v23 .. v25}, Lcom/sec/android/app/fm/MainActivity;->access$2400(Lcom/sec/android/app/fm/MainActivity;Landroid/view/ViewGroup;Landroid/view/ViewGroup;)V
 
-    .line 775
+    .line 416
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1696,11 +1706,11 @@
 
     goto/16 :goto_0
 
-    .line 783
+    .line 420
     :cond_13
     iget v12, v6, Lcom/sec/android/app/fm/data/Channel;->mFreqMHz:F
 
-    .line 787
+    .line 422
     .local v12, freq:F
     move-object/from16 v0, p0
 
@@ -1720,8 +1730,8 @@
 
     invoke-virtual {v0, v12, v1, v2}, Lcom/sec/android/app/fm/MainActivity;->onAndTune(FLandroid/view/View;I)V
 
-    .line 791
-    :try_start_7
+    .line 425
+    :try_start_9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1740,25 +1750,25 @@
     const/4 v13, 0x0
 
     .local v13, i$:I
-    :goto_3
+    :goto_4
     if-ge v13, v15, :cond_15
 
     aget-object v20, v4, v13
 
-    .line 793
+    .line 426
     .local v20, temp:Lcom/sec/android/app/fm/ui/FavoriteButton;
     if-eqz v20, :cond_14
 
-    .line 795
+    .line 427
     invoke-virtual/range {v20 .. v20}, Lcom/sec/android/app/fm/ui/FavoriteButton;->setFreqTextColorAsNormal()V
 
-    .line 791
+    .line 425
     :cond_14
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_3
+    goto :goto_4
 
-    .line 799
+    .line 429
     .end local v20           #temp:Lcom/sec/android/app/fm/ui/FavoriteButton;
     :cond_15
     move-object/from16 v0, p0
@@ -1779,21 +1789,21 @@
 
     if-eqz v23, :cond_0
 
-    .line 801
+    .line 430
     invoke-virtual {v11}, Lcom/sec/android/app/fm/ui/FavoriteButton;->setFreqTextColorAsPlay()V
-    :try_end_7
-    .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_7 .. :try_end_7} :catch_5
+    :try_end_9
+    .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_9 .. :try_end_9} :catch_5
 
     goto/16 :goto_0
 
-    .line 805
+    .line 432
     .end local v4           #arr$:[Lcom/sec/android/app/fm/ui/FavoriteButton;
     .end local v13           #i$:I
     .end local v15           #len$:I
     :catch_5
     move-exception v9
 
-    .line 807
+    .line 433
     .restart local v9       #e:Lcom/samsung/media/fmradio/FMPlayerException;
     move-object/from16 v0, p0
 
@@ -1807,7 +1817,7 @@
 
     goto/16 :goto_0
 
-    .line 823
+    .line 441
     .end local v6           #channel_1:Lcom/sec/android/app/fm/data/Channel;
     .end local v9           #e:Lcom/samsung/media/fmradio/FMPlayerException;
     .end local v11           #fav:Lcom/sec/android/app/fm/ui/FavoriteButton;
@@ -1835,7 +1845,7 @@
     #calls: Lcom/sec/android/app/fm/MainActivity;->setVolume(I)V
     invoke-static/range {v23 .. v24}, Lcom/sec/android/app/fm/MainActivity;->access$2700(Lcom/sec/android/app/fm/MainActivity;I)V
 
-    .line 825
+    .line 442
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1858,7 +1868,7 @@
 
     if-ne v0, v1, :cond_16
 
-    .line 827
+    .line 443
     new-instance v14, Landroid/content/Intent;
 
     const-string v23, "com.android.fm.volume_lock"
@@ -1867,7 +1877,7 @@
 
     invoke-direct {v14, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 829
+    .line 444
     .local v14, intent:Landroid/content/Intent;
     move-object/from16 v0, p0
 
@@ -1879,7 +1889,7 @@
 
     invoke-virtual {v0, v14}, Lcom/sec/android/app/fm/MainActivity;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 831
+    .line 445
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1896,7 +1906,7 @@
 
     goto/16 :goto_0
 
-    .line 835
+    .line 447
     .end local v14           #intent:Landroid/content/Intent;
     :cond_16
     move-object/from16 v0, p0
@@ -1921,7 +1931,7 @@
 
     if-ge v0, v1, :cond_17
 
-    .line 837
+    .line 448
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1942,8 +1952,8 @@
 
     iput v0, v1, Lcom/sec/android/app/fm/MainActivity;->mCurrentFadeVolume:I
 
-    .line 845
-    :goto_4
+    .line 452
+    :goto_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -1964,7 +1974,7 @@
 
     goto/16 :goto_0
 
-    .line 841
+    .line 450
     :cond_17
     move-object/from16 v0, p0
 
@@ -1986,9 +1996,9 @@
 
     iput v0, v1, Lcom/sec/android/app/fm/MainActivity;->mCurrentFadeVolume:I
 
-    goto :goto_4
+    goto :goto_5
 
-    .line 855
+    .line 457
     :sswitch_d
     move-object/from16 v0, p0
 
@@ -2011,7 +2021,7 @@
     #calls: Lcom/sec/android/app/fm/MainActivity;->setVolume(I)V
     invoke-static/range {v23 .. v24}, Lcom/sec/android/app/fm/MainActivity;->access$2700(Lcom/sec/android/app/fm/MainActivity;I)V
 
-    .line 857
+    .line 458
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -2041,7 +2051,7 @@
 
     if-eq v0, v1, :cond_19
 
-    .line 859
+    .line 459
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -2071,7 +2081,7 @@
 
     if-ge v0, v1, :cond_18
 
-    .line 861
+    .line 460
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -2092,8 +2102,8 @@
 
     iput v0, v1, Lcom/sec/android/app/fm/MainActivity;->mCurrentFadeVolume:I
 
-    .line 869
-    :goto_5
+    .line 464
+    :goto_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity$MyHandler;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -2114,7 +2124,7 @@
 
     goto/16 :goto_0
 
-    .line 865
+    .line 462
     :cond_18
     move-object/from16 v0, p0
 
@@ -2136,9 +2146,9 @@
 
     iput v0, v1, Lcom/sec/android/app/fm/MainActivity;->mCurrentFadeVolume:I
 
-    goto :goto_5
+    goto :goto_6
 
-    .line 873
+    .line 466
     :cond_19
     move-object/from16 v0, p0
 
@@ -2151,7 +2161,14 @@
 
     goto/16 :goto_0
 
-    .line 383
+    .line 311
+    .local v9, e:Ljava/lang/Exception;
+    :catch_6
+    move-exception v23
+
+    goto/16 :goto_2
+
+    .line 213
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1

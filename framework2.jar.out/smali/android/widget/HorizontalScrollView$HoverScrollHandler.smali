@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1844
+    .line 1871
     iput-object p1, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1844
+    .line 1871
     invoke-direct {p0, p1}, Landroid/widget/HorizontalScrollView$HoverScrollHandler;-><init>(Landroid/widget/HorizontalScrollView;)V
 
     return-void
@@ -61,21 +61,21 @@
 
     const/4 v4, 0x1
 
-    .line 1847
+    .line 1874
     iget v5, p1, Landroid/os/Message;->what:I
 
     packed-switch v5, :pswitch_data_0
 
-    .line 1919
+    .line 1946
     :cond_0
     :goto_0
     return-void
 
-    .line 1849
+    .line 1876
     :pswitch_0
     const/4 v1, 0x0
 
-    .line 1850
+    .line 1877
     .local v1, offset:I
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
@@ -84,7 +84,7 @@
 
     move-result v3
 
-    .line 1852
+    .line 1879
     .local v3, range:I
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
@@ -97,7 +97,7 @@
     #setter for: Landroid/widget/HorizontalScrollView;->mHoverRecognitionCurrentTime:I
     invoke-static {v5, v6}, Landroid/widget/HorizontalScrollView;->access$202(Landroid/widget/HorizontalScrollView;I)I
 
-    .line 1853
+    .line 1880
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     iget-object v6, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
@@ -121,7 +121,7 @@
     #setter for: Landroid/widget/HorizontalScrollView;->mHoverRecognitionDurationTime:I
     invoke-static {v5, v6}, Landroid/widget/HorizontalScrollView;->access$302(Landroid/widget/HorizontalScrollView;I)I
 
-    .line 1855
+    .line 1882
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mHoverRecognitionCurrentTime:I
@@ -147,7 +147,7 @@
 
     if-lt v5, v6, :cond_0
 
-    .line 1858
+    .line 1885
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mHoverRecognitionDurationTime:I
@@ -166,7 +166,7 @@
 
     if-ge v5, v10, :cond_1
 
-    .line 1859
+    .line 1886
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     iget-object v6, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
@@ -181,7 +181,7 @@
     #setter for: Landroid/widget/HorizontalScrollView;->mHoverScrollSpeed:I
     invoke-static {v5, v6}, Landroid/widget/HorizontalScrollView;->access$702(Landroid/widget/HorizontalScrollView;I)I
 
-    .line 1867
+    .line 1894
     :goto_1
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
@@ -192,7 +192,7 @@
 
     if-ne v5, v4, :cond_4
 
-    .line 1868
+    .line 1895
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mHoverScrollSpeed:I
@@ -202,7 +202,7 @@
 
     mul-int/lit8 v1, v5, -0x1
 
-    .line 1877
+    .line 1904
     :goto_2
     if-gez v1, :cond_5
 
@@ -215,12 +215,12 @@
 
     if-lez v5, :cond_5
 
-    .line 1878
+    .line 1905
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     invoke-virtual {v5, v1, v0}, Landroid/widget/HorizontalScrollView;->scrollBy(II)V
 
-    .line 1879
+    .line 1906
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mHoverHandler:Landroid/widget/HorizontalScrollView$HoverScrollHandler;
@@ -241,7 +241,7 @@
 
     goto/16 :goto_0
 
-    .line 1860
+    .line 1887
     :cond_1
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
@@ -263,7 +263,7 @@
 
     if-ge v5, v6, :cond_2
 
-    .line 1861
+    .line 1888
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     iget-object v6, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
@@ -280,7 +280,7 @@
 
     goto :goto_1
 
-    .line 1862
+    .line 1889
     :cond_2
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
@@ -293,7 +293,7 @@
 
     if-lt v5, v6, :cond_3
 
-    .line 1863
+    .line 1890
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     iget-object v6, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
@@ -310,7 +310,7 @@
 
     goto :goto_1
 
-    .line 1865
+    .line 1892
     :cond_3
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
@@ -326,7 +326,7 @@
 
     goto :goto_1
 
-    .line 1870
+    .line 1897
     :cond_4
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
@@ -339,7 +339,7 @@
 
     goto :goto_2
 
-    .line 1880
+    .line 1907
     :cond_5
     if-lez v1, :cond_6
 
@@ -352,12 +352,12 @@
 
     if-ge v5, v3, :cond_6
 
-    .line 1881
+    .line 1908
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     invoke-virtual {v5, v1, v0}, Landroid/widget/HorizontalScrollView;->scrollBy(II)V
 
-    .line 1882
+    .line 1909
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mHoverHandler:Landroid/widget/HorizontalScrollView$HoverScrollHandler;
@@ -378,7 +378,7 @@
 
     goto/16 :goto_0
 
-    .line 1885
+    .line 1912
     :cond_6
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
@@ -386,7 +386,7 @@
 
     move-result v2
 
-    .line 1886
+    .line 1913
     .local v2, overscrollMode:I
     if-eqz v2, :cond_7
 
@@ -397,7 +397,7 @@
     :cond_7
     move v0, v4
 
-    .line 1889
+    .line 1916
     .local v0, canOverscroll:Z
     :cond_8
     if-eqz v0, :cond_c
@@ -411,7 +411,7 @@
 
     if-nez v5, :cond_c
 
-    .line 1890
+    .line 1917
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mHoverScrollDirection:I
@@ -421,7 +421,7 @@
 
     if-ne v5, v4, :cond_d
 
-    .line 1891
+    .line 1918
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
@@ -431,7 +431,7 @@
 
     invoke-virtual {v5, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
 
-    .line 1892
+    .line 1919
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
@@ -445,7 +445,7 @@
 
     if-nez v5, :cond_9
 
-    .line 1893
+    .line 1920
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
@@ -455,7 +455,7 @@
 
     invoke-virtual {v5}, Landroid/widget/EdgeEffect;->onRelease()V
 
-    .line 1902
+    .line 1929
     :cond_9
     :goto_3
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
@@ -493,20 +493,20 @@
 
     if-nez v5, :cond_b
 
-    .line 1904
+    .line 1931
     :cond_a
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     invoke-virtual {v5}, Landroid/widget/HorizontalScrollView;->invalidate()V
 
-    .line 1906
+    .line 1933
     :cond_b
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #setter for: Landroid/widget/HorizontalScrollView;->mIsHoverOverscrolled:Z
     invoke-static {v5, v4}, Landroid/widget/HorizontalScrollView;->access$1402(Landroid/widget/HorizontalScrollView;Z)Z
 
-    .line 1909
+    .line 1936
     :cond_c
     if-nez v0, :cond_0
 
@@ -519,7 +519,7 @@
 
     if-nez v5, :cond_0
 
-    .line 1910
+    .line 1937
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #setter for: Landroid/widget/HorizontalScrollView;->mIsHoverOverscrolled:Z
@@ -527,7 +527,7 @@
 
     goto/16 :goto_0
 
-    .line 1895
+    .line 1922
     :cond_d
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
@@ -538,7 +538,7 @@
 
     if-ne v5, v9, :cond_9
 
-    .line 1896
+    .line 1923
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
@@ -548,7 +548,7 @@
 
     invoke-virtual {v5, v8}, Landroid/widget/EdgeEffect;->onPull(F)V
 
-    .line 1897
+    .line 1924
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
@@ -562,7 +562,7 @@
 
     if-nez v5, :cond_9
 
-    .line 1898
+    .line 1925
     iget-object v5, p0, Landroid/widget/HorizontalScrollView$HoverScrollHandler;->this$0:Landroid/widget/HorizontalScrollView;
 
     #getter for: Landroid/widget/HorizontalScrollView;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
@@ -574,7 +574,7 @@
 
     goto :goto_3
 
-    .line 1847
+    .line 1874
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

@@ -3,6 +3,12 @@
 .source "ExtSeekBar.java"
 
 
+# static fields
+.field private static LOGD:Z = false
+
+.field private static final TAG:Ljava/lang/String; = "ExtSeekBar"
+
+
 # instance fields
 .field private mContext:Landroid/content/Context;
 
@@ -16,27 +22,39 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 21
+    const/4 v0, 0x1
+
+    sput-boolean v0, Landroid/widget/ExtSeekBar;->LOGD:Z
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
     .parameter "context"
 
     .prologue
-    .line 27
+    .line 29
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/widget/SeekBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 22
+    .line 24
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/widget/ExtSeekBar;->mEnableChangeColor:Z
 
-    .line 23
+    .line 25
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/widget/ExtSeekBar;->mOffsetThumb:I
 
-    .line 28
+    .line 30
     return-void
 .end method
 
@@ -46,20 +64,20 @@
     .parameter "attrs"
 
     .prologue
-    .line 31
+    .line 33
     invoke-direct {p0, p1, p2}, Landroid/widget/SeekBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 22
+    .line 24
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/widget/ExtSeekBar;->mEnableChangeColor:Z
 
-    .line 23
+    .line 25
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/widget/ExtSeekBar;->mOffsetThumb:I
 
-    .line 32
+    .line 34
     return-void
 .end method
 
@@ -70,81 +88,197 @@
     .parameter "defStyle"
 
     .prologue
-    .line 35
+    .line 37
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/SeekBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 22
+    .line 24
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/widget/ExtSeekBar;->mEnableChangeColor:Z
 
-    .line 23
+    .line 25
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/widget/ExtSeekBar;->mOffsetThumb:I
 
-    .line 36
+    .line 38
     iput-object p1, p0, Landroid/widget/ExtSeekBar;->mContext:Landroid/content/Context;
 
-    .line 37
+    .line 39
     return-void
 .end method
 
 .method private updateDrawable()V
-    .locals 4
+    .locals 5
 
     .prologue
-    const v3, 0x108090e
+    const v4, 0x1080970
 
-    const/high16 v2, 0x4320
+    const/high16 v3, 0x4320
 
-    .line 72
+    .line 78
+    sget-boolean v0, Landroid/widget/ExtSeekBar;->LOGD:Z
+
+    if-eqz v0, :cond_0
+
+    .line 79
+    const-string v0, "ExtSeekBar"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "updateDrawable this.mThumb = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/widget/ExtSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", msetDrawable = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/widget/ExtSeekBar;->msetDrawable:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", mOffsetThumb = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Landroid/widget/ExtSeekBar;->mOffsetThumb:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 80
+    :cond_0
     iget-object v0, p0, Landroid/widget/ExtSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
-    .line 73
+    .line 81
     iget-object v0, p0, Landroid/widget/AbsSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     iput-object v0, p0, Landroid/widget/ExtSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
-    .line 75
-    :cond_0
+    .line 83
+    :cond_1
     iget-object v0, p0, Landroid/widget/ExtSeekBar;->msetDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
-    .line 76
+    .line 84
     invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->getCurrentDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/widget/ExtSeekBar;->msetDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 78
-    :cond_1
+    .line 86
+    :cond_2
     iget v0, p0, Landroid/widget/ExtSeekBar;->mOffsetThumb:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_3
 
-    .line 79
+    .line 87
     invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->getThumbOffset()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/ExtSeekBar;->mOffsetThumb:I
 
-    .line 83
-    :cond_2
+    .line 91
+    :cond_3
+    sget-boolean v0, Landroid/widget/ExtSeekBar;->LOGD:Z
+
+    if-eqz v0, :cond_4
+
+    .line 92
+    const-string v0, "ExtSeekBar"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "updateDrawable getProgress() = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->getProgress()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", getMax() = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->getMax()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "GeneralUtil.isTablet() = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Landroid/util/GeneralUtil;->isTablet()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 94
+    :cond_4
     invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->isEnableChangeColor()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_7
 
-    .line 84
+    .line 95
     invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->getProgress()I
 
     move-result v0
@@ -153,36 +287,36 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_6
 
-    .line 85
+    .line 96
     invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getMinimumHeight()I
 
-    .line 89
+    .line 100
     invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Landroid/widget/ExtSeekBar;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 91
+    .line 102
     invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x1080939
+    const v1, 0x108099e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -190,19 +324,19 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/ExtSeekBar;->setThumb(Landroid/graphics/drawable/Drawable;)V
 
-    .line 98
+    .line 109
     invoke-static {}, Landroid/util/GeneralUtil;->isTablet()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5
 
-    .line 100
+    .line 111
     sget v0, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
 
     int-to-float v0, v0
 
-    div-float/2addr v0, v2
+    div-float/2addr v0, v3
 
     const/high16 v1, 0x4180
 
@@ -212,19 +346,19 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/ExtSeekBar;->setThumbOffset(I)V
 
-    .line 117
+    .line 128
     :goto_0
     return-void
 
-    .line 103
-    :cond_3
+    .line 114
+    :cond_5
     sget v0, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
 
     int-to-float v0, v0
 
-    div-float/2addr v0, v2
+    div-float/2addr v0, v3
 
-    const/high16 v1, 0x41b8
+    const/high16 v1, 0x41a8
 
     mul-float/2addr v0, v1
 
@@ -234,36 +368,36 @@
 
     goto :goto_0
 
-    .line 107
-    :cond_4
+    .line 118
+    :cond_6
     iget-object v0, p0, Landroid/widget/ExtSeekBar;->msetDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, v0}, Landroid/widget/ExtSeekBar;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 108
+    .line 119
     iget-object v0, p0, Landroid/widget/ExtSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, v0}, Landroid/widget/ExtSeekBar;->setThumb(Landroid/graphics/drawable/Drawable;)V
 
-    .line 109
+    .line 120
     iget v0, p0, Landroid/widget/ExtSeekBar;->mOffsetThumb:I
 
     invoke-virtual {p0, v0}, Landroid/widget/ExtSeekBar;->setThumbOffset(I)V
 
     goto :goto_0
 
-    .line 112
-    :cond_5
+    .line 123
+    :cond_7
     iget-object v0, p0, Landroid/widget/ExtSeekBar;->msetDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, v0}, Landroid/widget/ExtSeekBar;->setProgressDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 113
+    .line 124
     iget-object v0, p0, Landroid/widget/ExtSeekBar;->mThumb:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, v0}, Landroid/widget/ExtSeekBar;->setThumb(Landroid/graphics/drawable/Drawable;)V
 
-    .line 114
+    .line 125
     iget v0, p0, Landroid/widget/ExtSeekBar;->mOffsetThumb:I
 
     invoke-virtual {p0, v0}, Landroid/widget/ExtSeekBar;->setThumbOffset(I)V
@@ -277,7 +411,7 @@
     .locals 1
 
     .prologue
-    .line 53
+    .line 57
     iget-boolean v0, p0, Landroid/widget/ExtSeekBar;->mEnableChangeColor:Z
 
     return v0
@@ -288,51 +422,133 @@
     .parameter "enabled"
 
     .prologue
-    .line 47
+    .line 51
     iput-boolean p1, p0, Landroid/widget/ExtSeekBar;->mEnableChangeColor:Z
 
-    .line 49
+    .line 53
     invoke-direct {p0}, Landroid/widget/ExtSeekBar;->updateDrawable()V
 
-    .line 50
+    .line 54
     return-void
 .end method
 
 .method public setProgress(I)V
-    .locals 0
+    .locals 3
     .parameter "progress"
 
     .prologue
-    .line 41
-    invoke-super {p0, p1}, Landroid/widget/SeekBar;->setProgress(I)V
+    .line 43
+    sget-boolean v0, Landroid/widget/ExtSeekBar;->LOGD:Z
 
-    .line 42
-    invoke-direct {p0}, Landroid/widget/ExtSeekBar;->updateDrawable()V
+    if-eqz v0, :cond_0
 
     .line 44
+    const-string v0, "ExtSeekBar"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "setProgress = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 45
+    :cond_0
+    invoke-super {p0, p1}, Landroid/widget/SeekBar;->setProgress(I)V
+
+    .line 46
+    invoke-direct {p0}, Landroid/widget/ExtSeekBar;->updateDrawable()V
+
+    .line 48
     return-void
 .end method
 
 .method public setProgress(IZ)V
-    .locals 1
+    .locals 3
     .parameter "progress"
     .parameter "fromUser"
 
     .prologue
-    .line 66
+    .line 70
+    sget-boolean v0, Landroid/widget/ExtSeekBar;->LOGD:Z
+
+    if-eqz v0, :cond_0
+
+    .line 71
+    const-string v0, "ExtSeekBar"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "setProgress = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", fromUser = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", isEnableChangeColor() = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->isEnableChangeColor()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 72
+    :cond_0
     invoke-super {p0, p1, p2}, Landroid/widget/SeekBar;->setProgress(IZ)V
 
-    .line 67
+    .line 73
     invoke-virtual {p0}, Landroid/widget/ExtSeekBar;->isEnableChangeColor()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    .line 68
+    .line 74
     invoke-direct {p0}, Landroid/widget/ExtSeekBar;->updateDrawable()V
 
-    .line 69
-    :cond_0
+    .line 75
+    :cond_1
     return-void
 .end method

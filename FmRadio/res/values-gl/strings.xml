@@ -94,13 +94,13 @@ O auricular funciona como a antena de radio. Conectar auricular"</string>
     <string name="toast_unavailable_in_tvout_mode">Non dispoñible en modo saída de TV</string>
     <string name="mute">Silencioso</string>
     <string name="seeking">Buscando…</string>
-    <string name="via_earphone">A través dos auriculares</string>
-    <string name="via_speaker">Por altofal.</string>
+    <string name="via_earphone">Reproducir polos auriculares</string>
+    <string name="via_speaker">Reprod. polo altof.</string>
     <string name="normal_frequency">Frecuencia normal</string>
     <string name="tag">Eti</string>
     <string name="stop">Deter</string>
     <string name="recording">Gravando…</string>
-    <string name="memory_full">Gravación detida. Memoria chea</string>
+    <string name="memory_full">Memoria chea</string>
     <string name="cancel_recording">Cancelar gravación?</string>
     <string name="change_frequency">Cambiar frecuencia</string>
     <string name="enter_frequency">Introduza a frecuencia</string>
@@ -126,11 +126,14 @@ O auricular funciona como a antena de radio. Conectar auricular"</string>
     <string name="tags">Etiquetas</string>
     <string name="tags_now_broadcasting">Transmisión en curso</string>
     <string name="tags_no_information">Sen información</string>
+    <string name="tags_music_history">Historial de música</string>
     <string name="tags_music_title">Título</string>
     <string name="tags_music_album">Álbum</string>
     <string name="tags_music_artist">Artista</string>
+    <string name="tags_music_band">Banda</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Páxina de inicio</string>
+    <string name="tags_interact_hotline">Liña de acceso directo</string>
     <string name="tags_interact_studio">Estudio</string>
     <string name="tags_interact_other">Outro</string>
     <string name="tags_interact_centre">Centro</string>
@@ -176,4 +179,14 @@ Despois de gravar a radio, amosaranse os arquivos gravados"</string>
     <string name="dialog_one_item_deleted">Eliminarase este elemento</string>
     <string name="dialog_multiple_items_deleted">Eliminaranse %d elementos</string>
     <string name="dialog_all_items_deleted">Eliminaranse todos os elementos</string>
+    <string name="turning_on">Activando…</string>
+    <string name="not_enough_memory_recording_will_stop">Non hai memoria suficiente. A gravación deterase en %d segundos</string>
+    <string name="low_batt_msg">Batería baixa</string>
+    <string name="no_play_during_call">Non se pode reproducir durante a chamada</string>
+    <string name="unable_delete">Non se pode eliminar</string>
+    <string name="playing">Reprod…</string>
+    <string name="tts_play_button">Reproducir</string>
+    <string name="tts_previous_button">Anterior</string>
+    <string name="tts_Next_button">Seguinte</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

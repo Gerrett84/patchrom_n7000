@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 7101
+    .line 7302
     iput-object p1, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "motionEvent"
 
     .prologue
-    .line 7103
+    .line 7304
     iget-object v1, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mMotionEnable:Z
@@ -61,31 +61,31 @@
 
     if-nez v1, :cond_1
 
-    .line 7119
+    .line 7320
     :cond_0
     :goto_0
     return-void
 
-    .line 7107
+    .line 7308
     :cond_1
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v0
 
-    .line 7108
+    .line 7309
     .local v0, motion:I
     packed-switch v0, :pswitch_data_0
 
     goto :goto_0
 
-    .line 7110
+    .line 7311
     :pswitch_0
     const-string v1, "[Motion-DoubleTap]"
 
     #calls: Landroid/widget/AbsListView;->log(Ljava/lang/String;)V
     invoke-static {v1}, Landroid/widget/AbsListView;->access$4600(Ljava/lang/String;)V
 
-    .line 7111
+    .line 7312
     iget-object v1, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v1}, Landroid/widget/AbsListView;->getLastVisiblePosition()I
@@ -102,7 +102,7 @@
 
     if-le v1, v2, :cond_2
 
-    .line 7112
+    .line 7313
     iget-object v1, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
     iget-object v2, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
@@ -115,7 +115,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/AbsListView;->setSelection(I)V
 
-    .line 7114
+    .line 7315
     :cond_2
     iget-object v1, p0, Landroid/widget/AbsListView$4;->this$0:Landroid/widget/AbsListView;
 
@@ -125,7 +125,7 @@
 
     goto :goto_0
 
-    .line 7108
+    .line 7309
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

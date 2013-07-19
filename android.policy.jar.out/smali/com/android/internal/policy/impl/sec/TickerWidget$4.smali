@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 319
+    .line 370
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$4;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,11 +42,11 @@
     .parameter "arg0"
 
     .prologue
-    .line 323
+    .line 374
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$4;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     move-result-object v0
 
@@ -56,7 +56,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 324
+    .line 375
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$4;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
@@ -70,7 +70,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 335
+    .line 391
     :cond_0
     return-void
 .end method

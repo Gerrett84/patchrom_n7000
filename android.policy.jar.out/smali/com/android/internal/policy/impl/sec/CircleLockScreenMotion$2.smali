@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 89
+    .line 90
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "motionEvent"
 
     .prologue
-    .line 93
+    .line 94
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;->DBG:Z
@@ -52,7 +52,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 94
+    .line 95
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;->TAG:Ljava/lang/String;
@@ -62,9 +62,9 @@
 
     const-string v1, "Here comes a motion event"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 95
+    .line 96
     :cond_0
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
@@ -72,11 +72,11 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 115
+    .line 117
     :goto_0
     return-void
 
-    .line 98
+    .line 99
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
@@ -87,7 +87,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 99
+    .line 100
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;->TAG:Ljava/lang/String;
@@ -97,9 +97,9 @@
 
     const-string v1, "LOCK_EXECUTE_CAMERA_L"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 100
+    .line 101
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
@@ -116,7 +116,7 @@
 
     goto :goto_0
 
-    .line 95
+    .line 96
     nop
 
     :pswitch_data_0

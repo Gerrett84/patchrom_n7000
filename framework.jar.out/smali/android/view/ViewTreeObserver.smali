@@ -132,12 +132,12 @@
     .locals 2
 
     .prologue
-    .line 624
+    .line 620
     iget-boolean v0, p0, Landroid/view/ViewTreeObserver;->mAlive:Z
 
     if-nez v0, :cond_0
 
-    .line 625
+    .line 621
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "This ViewTreeObserver is not alive, call getViewTreeObserver() again"
@@ -146,7 +146,7 @@
 
     throw v0
 
-    .line 628
+    .line 624
     :cond_0
     return-void
 .end method
@@ -155,12 +155,12 @@
     .locals 1
 
     .prologue
-    .line 650
+    .line 646
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/view/ViewTreeObserver;->mAlive:Z
 
-    .line 651
+    .line 647
     return-void
 .end method
 
@@ -347,51 +347,34 @@
 .end method
 
 .method public addOnStylusButtonEventListener(Landroid/content/Context;Landroid/view/ViewTreeObserver$OnStylusButtonEventListener;)V
-    .locals 2
+    .locals 1
     .parameter "context"
     .parameter "listener"
 
     .prologue
-    .line 601
-    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    .line 600
+    invoke-direct {p0}, Landroid/view/ViewTreeObserver;->checkIsAlive()V
 
-    move-result-object v0
-
-    const-string v1, "com.sec.feature.hovering_ui"
-
-    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
-
-    move-result v0
+    .line 602
+    iget-object v0, p0, Landroid/view/ViewTreeObserver;->mOnStylusButtonEventListeners:Ljava/util/ArrayList;
 
     if-nez v0, :cond_0
 
-    .line 611
-    :goto_0
-    return-void
-
-    .line 604
-    :cond_0
-    invoke-direct {p0}, Landroid/view/ViewTreeObserver;->checkIsAlive()V
-
-    .line 606
-    iget-object v0, p0, Landroid/view/ViewTreeObserver;->mOnStylusButtonEventListeners:Ljava/util/ArrayList;
-
-    if-nez v0, :cond_1
-
-    .line 607
+    .line 603
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/view/ViewTreeObserver;->mOnStylusButtonEventListeners:Ljava/util/ArrayList;
 
-    .line 610
-    :cond_1
+    .line 606
+    :cond_0
     iget-object v0, p0, Landroid/view/ViewTreeObserver;->mOnStylusButtonEventListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    .line 607
+    return-void
 .end method
 
 .method public addOnTouchModeChangeListener(Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;)V
@@ -429,10 +412,10 @@
     .parameter "inoutInfo"
 
     .prologue
-    .line 774
+    .line 770
     iget-object v2, p0, Landroid/view/ViewTreeObserver;->mOnComputeInternalInsetsListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    .line 776
+    .line 772
     .local v2, listeners:Ljava/util/concurrent/CopyOnWriteArrayList;,"Ljava/util/concurrent/CopyOnWriteArrayList<Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;>;"
     if-eqz v2, :cond_0
 
@@ -442,7 +425,7 @@
 
     if-lez v3, :cond_0
 
-    .line 777
+    .line 773
     invoke-virtual {v2}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -461,13 +444,13 @@
 
     check-cast v1, Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;
 
-    .line 778
+    .line 774
     .local v1, listener:Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;
     invoke-interface {v1, p1}, Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;->onComputeInternalInsets(Landroid/view/ViewTreeObserver$InternalInsetsInfo;)V
 
     goto :goto_0
 
-    .line 781
+    .line 777
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #listener:Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;
     :cond_0
@@ -478,21 +461,21 @@
     .locals 4
 
     .prologue
-    .line 717
+    .line 713
     iget-object v3, p0, Landroid/view/ViewTreeObserver;->mOnDrawListeners:Ljava/util/ArrayList;
 
     if-eqz v3, :cond_0
 
-    .line 718
+    .line 714
     iget-object v1, p0, Landroid/view/ViewTreeObserver;->mOnDrawListeners:Ljava/util/ArrayList;
 
-    .line 719
+    .line 715
     .local v1, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/ViewTreeObserver$OnDrawListener;>;"
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    .line 720
+    .line 716
     .local v2, numListeners:I
     const/4 v0, 0x0
 
@@ -500,7 +483,7 @@
     :goto_0
     if-ge v0, v2, :cond_0
 
-    .line 721
+    .line 717
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -509,12 +492,12 @@
 
     invoke-interface {v3}, Landroid/view/ViewTreeObserver$OnDrawListener;->onDraw()V
 
-    .line 720
+    .line 716
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 724
+    .line 720
     .end local v0           #i:I
     .end local v1           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/ViewTreeObserver$OnDrawListener;>;"
     .end local v2           #numListeners:I
@@ -528,10 +511,10 @@
     .parameter "newFocus"
 
     .prologue
-    .line 661
+    .line 657
     iget-object v2, p0, Landroid/view/ViewTreeObserver;->mOnGlobalFocusListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    .line 662
+    .line 658
     .local v2, listeners:Ljava/util/concurrent/CopyOnWriteArrayList;,"Ljava/util/concurrent/CopyOnWriteArrayList<Landroid/view/ViewTreeObserver$OnGlobalFocusChangeListener;>;"
     if-eqz v2, :cond_0
 
@@ -541,7 +524,7 @@
 
     if-lez v3, :cond_0
 
-    .line 663
+    .line 659
     invoke-virtual {v2}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -560,13 +543,13 @@
 
     check-cast v1, Landroid/view/ViewTreeObserver$OnGlobalFocusChangeListener;
 
-    .line 664
+    .line 660
     .local v1, listener:Landroid/view/ViewTreeObserver$OnGlobalFocusChangeListener;
     invoke-interface {v1, p1, p2}, Landroid/view/ViewTreeObserver$OnGlobalFocusChangeListener;->onGlobalFocusChanged(Landroid/view/View;Landroid/view/View;)V
 
     goto :goto_0
 
-    .line 667
+    .line 663
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #listener:Landroid/view/ViewTreeObserver$OnGlobalFocusChangeListener;
     :cond_0
@@ -577,10 +560,10 @@
     .locals 4
 
     .prologue
-    .line 679
+    .line 675
     iget-object v2, p0, Landroid/view/ViewTreeObserver;->mOnGlobalLayoutListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    .line 680
+    .line 676
     .local v2, listeners:Ljava/util/concurrent/CopyOnWriteArrayList;,"Ljava/util/concurrent/CopyOnWriteArrayList<Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;>;"
     if-eqz v2, :cond_0
 
@@ -590,7 +573,7 @@
 
     if-lez v3, :cond_0
 
-    .line 681
+    .line 677
     invoke-virtual {v2}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -609,13 +592,13 @@
 
     check-cast v1, Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
-    .line 682
+    .line 678
     .local v1, listener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
     invoke-interface {v1}, Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;->onGlobalLayout()V
 
     goto :goto_0
 
-    .line 685
+    .line 681
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #listener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
     :cond_0
@@ -628,7 +611,7 @@
     .parameter "clipboardId"
 
     .prologue
-    .line 784
+    .line 780
     iget-object v3, p0, Landroid/view/ViewTreeObserver;->mOnStylusButtonEventListeners:Ljava/util/ArrayList;
 
     if-eqz v3, :cond_0
@@ -641,7 +624,7 @@
 
     if-lez v3, :cond_0
 
-    .line 785
+    .line 781
     iget-object v3, p0, Landroid/view/ViewTreeObserver;->mOnStylusButtonEventListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -650,13 +633,13 @@
 
     check-cast v1, Ljava/util/ArrayList;
 
-    .line 787
+    .line 783
     .local v1, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/ViewTreeObserver$OnStylusButtonEventListener;>;"
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    .line 788
+    .line 784
     .local v2, numListeners:I
     const/4 v0, 0x0
 
@@ -664,7 +647,7 @@
     :goto_0
     if-ge v0, v2, :cond_0
 
-    .line 789
+    .line 785
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -673,12 +656,12 @@
 
     invoke-interface {v3, p1, p2}, Landroid/view/ViewTreeObserver$OnStylusButtonEventListener;->onStylusButtonEvent(Landroid/view/MotionEvent;I)V
 
-    .line 788
+    .line 784
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 792
+    .line 788
     .end local v0           #i:I
     .end local v1           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/ViewTreeObserver$OnStylusButtonEventListener;>;"
     .end local v2           #numListeners:I
@@ -690,10 +673,10 @@
     .locals 5
 
     .prologue
-    .line 701
+    .line 697
     const/4 v0, 0x0
 
-    .line 702
+    .line 698
     .local v0, cancelDraw:Z
     iget-object v4, p0, Landroid/view/ViewTreeObserver;->mOnPreDrawListeners:Ljava/util/ArrayList;
 
@@ -707,7 +690,7 @@
 
     if-lez v4, :cond_1
 
-    .line 703
+    .line 699
     iget-object v4, p0, Landroid/view/ViewTreeObserver;->mOnPreDrawListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -716,13 +699,13 @@
 
     check-cast v2, Ljava/util/ArrayList;
 
-    .line 705
+    .line 701
     .local v2, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/ViewTreeObserver$OnPreDrawListener;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    .line 706
+    .line 702
     .local v3, numListeners:I
     const/4 v1, 0x0
 
@@ -730,7 +713,7 @@
     :goto_0
     if-ge v1, v3, :cond_1
 
-    .line 707
+    .line 703
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
@@ -748,18 +731,18 @@
     :goto_1
     or-int/2addr v0, v4
 
-    .line 706
+    .line 702
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 707
+    .line 703
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_1
 
-    .line 710
+    .line 706
     .end local v1           #i:I
     .end local v2           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/view/ViewTreeObserver$OnPreDrawListener;>;"
     .end local v3           #numListeners:I
@@ -771,10 +754,10 @@
     .locals 4
 
     .prologue
-    .line 749
+    .line 745
     iget-object v2, p0, Landroid/view/ViewTreeObserver;->mOnScrollChangedListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    .line 750
+    .line 746
     .local v2, listeners:Ljava/util/concurrent/CopyOnWriteArrayList;,"Ljava/util/concurrent/CopyOnWriteArrayList<Landroid/view/ViewTreeObserver$OnScrollChangedListener;>;"
     if-eqz v2, :cond_0
 
@@ -784,7 +767,7 @@
 
     if-lez v3, :cond_0
 
-    .line 751
+    .line 747
     invoke-virtual {v2}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -803,13 +786,13 @@
 
     check-cast v1, Landroid/view/ViewTreeObserver$OnScrollChangedListener;
 
-    .line 752
+    .line 748
     .local v1, listener:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
     invoke-interface {v1}, Landroid/view/ViewTreeObserver$OnScrollChangedListener;->onScrollChanged()V
 
     goto :goto_0
 
-    .line 755
+    .line 751
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #listener:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
     :cond_0
@@ -821,10 +804,10 @@
     .parameter "inTouchMode"
 
     .prologue
-    .line 732
+    .line 728
     iget-object v2, p0, Landroid/view/ViewTreeObserver;->mOnTouchModeChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    .line 734
+    .line 730
     .local v2, listeners:Ljava/util/concurrent/CopyOnWriteArrayList;,"Ljava/util/concurrent/CopyOnWriteArrayList<Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;>;"
     if-eqz v2, :cond_0
 
@@ -834,7 +817,7 @@
 
     if-lez v3, :cond_0
 
-    .line 735
+    .line 731
     invoke-virtual {v2}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -853,13 +836,13 @@
 
     check-cast v1, Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;
 
-    .line 736
+    .line 732
     .local v1, listener:Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;
     invoke-interface {v1, p1}, Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;->onTouchModeChanged(Z)V
 
     goto :goto_0
 
-    .line 739
+    .line 735
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #listener:Landroid/view/ViewTreeObserver$OnTouchModeChangeListener;
     :cond_0
@@ -870,10 +853,10 @@
     .locals 2
 
     .prologue
-    .line 761
+    .line 757
     iget-object v0, p0, Landroid/view/ViewTreeObserver;->mOnComputeInternalInsetsListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    .line 763
+    .line 759
     .local v0, listeners:Ljava/util/concurrent/CopyOnWriteArrayList;,"Ljava/util/concurrent/CopyOnWriteArrayList<Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;>;"
     if-eqz v0, :cond_0
 
@@ -898,7 +881,7 @@
     .locals 1
 
     .prologue
-    .line 640
+    .line 636
     iget-boolean v0, p0, Landroid/view/ViewTreeObserver;->mAlive:Z
 
     return v0
@@ -1253,19 +1236,19 @@
     .parameter "victim"
 
     .prologue
-    .line 614
+    .line 610
     invoke-direct {p0}, Landroid/view/ViewTreeObserver;->checkIsAlive()V
 
-    .line 615
+    .line 611
     iget-object v0, p0, Landroid/view/ViewTreeObserver;->mOnStylusButtonEventListeners:Ljava/util/ArrayList;
 
     if-nez v0, :cond_0
 
-    .line 619
+    .line 615
     :goto_0
     return-void
 
-    .line 618
+    .line 614
     :cond_0
     iget-object v0, p0, Landroid/view/ViewTreeObserver;->mOnStylusButtonEventListeners:Ljava/util/ArrayList;
 

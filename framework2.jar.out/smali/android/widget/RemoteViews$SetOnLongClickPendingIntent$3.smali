@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2450
+    .line 2460
     iput-object p1, p0, Landroid/widget/RemoteViews$SetOnLongClickPendingIntent$3;->this$1:Landroid/widget/RemoteViews$SetOnLongClickPendingIntent;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,32 +38,32 @@
 
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 8
+    .locals 9
     .parameter "view"
     .parameter "keyCode"
     .parameter "event"
 
     .prologue
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    .line 2452
+    .line 2462
     const/16 v0, 0x42
 
     if-ne p2, v0, :cond_0
 
-    .line 2453
+    .line 2463
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 2475
+    .line 2490
     :cond_0
     :goto_0
-    return v7
+    return v8
 
-    .line 2455
+    .line 2465
     :pswitch_0
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getRepeatCount()I
 
@@ -71,7 +71,7 @@
 
     if-nez v0, :cond_0
 
-    .line 2456
+    .line 2466
     invoke-static {}, Landroid/widget/RemoteViews;->access$700()Ljava/util/HashMap;
 
     move-result-object v0
@@ -86,7 +86,7 @@
 
     iget-object v1, v1, Landroid/widget/RemoteViews$SetOnLongClickPendingIntent;->key:Landroid/os/IBinder;
 
-    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
 
@@ -94,7 +94,7 @@
 
     goto :goto_0
 
-    .line 2460
+    .line 2472
     :pswitch_1
     invoke-static {}, Landroid/widget/RemoteViews;->access$700()Ljava/util/HashMap;
 
@@ -112,17 +112,21 @@
 
     invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v7
 
-    check-cast v0, Ljava/lang/Boolean;
+    check-cast v7, Ljava/lang/Boolean;
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    .local v7, isLongClick:Ljava/lang/Boolean;
+    if-eqz v7, :cond_0
+
+    .line 2473
+    invoke-virtual {v7}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 2461
+    .line 2475
     invoke-static {}, Landroid/widget/RemoteViews;->access$700()Ljava/util/HashMap;
 
     move-result-object v0
@@ -131,13 +135,13 @@
 
     iget-object v1, v1, Landroid/widget/RemoteViews$SetOnLongClickPendingIntent;->key:Landroid/os/IBinder;
 
-    invoke-static {v7}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v8}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 2464
+    .line 2478
     :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -165,11 +169,11 @@
 
     goto :goto_0
 
-    .line 2468
+    .line 2482
     :catch_0
     move-exception v6
 
-    .line 2469
+    .line 2483
     .local v6, e:Landroid/content/IntentSender$SendIntentException;
     const-string v0, "RemoteViews"
 
@@ -179,7 +183,7 @@
 
     goto :goto_0
 
-    .line 2453
+    .line 2463
     nop
 
     :pswitch_data_0

@@ -25,13 +25,13 @@
     .parameter "context"
 
     .prologue
-    .line 939
+    .line 1039
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$MyOrientationListenerForPenGesture;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    .line 940
+    .line 1040
     invoke-direct {p0, p2}, Landroid/view/WindowOrientationListener;-><init>(Landroid/content/Context;)V
 
-    .line 941
+    .line 1041
     return-void
 .end method
 
@@ -42,7 +42,7 @@
     .parameter "rotation"
 
     .prologue
-    .line 945
+    .line 1045
     const-string v0, "WindowManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,11 +65,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 949
+    .line 1049
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$MyOrientationListenerForPenGesture;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->updateWacomOffset(I)V
 
-    .line 950
+    .line 1050
     return-void
 .end method

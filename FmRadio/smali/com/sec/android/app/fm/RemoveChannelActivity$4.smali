@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 326
+    .line 356
     iput-object p1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$4;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,11 +43,11 @@
     .parameter "arg1"
 
     .prologue
-    .line 329
+    .line 359
     iget-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$4;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/RemoveChannelActivity;->removeChannel()V
 
-    .line 330
+    .line 360
     return-void
 .end method

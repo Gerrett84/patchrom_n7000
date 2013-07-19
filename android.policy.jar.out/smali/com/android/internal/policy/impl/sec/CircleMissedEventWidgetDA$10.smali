@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 457
+    .line 459
     invoke-static {}, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$UnlockMode;->values()[Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$UnlockMode;
 
     move-result-object v0

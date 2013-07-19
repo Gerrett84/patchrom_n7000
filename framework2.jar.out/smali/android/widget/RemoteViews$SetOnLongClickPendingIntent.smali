@@ -150,20 +150,20 @@
 
     invoke-direct {v3, p0}, Landroid/widget/RemoteViews$SetOnLongClickPendingIntent$2;-><init>(Landroid/widget/RemoteViews$SetOnLongClickPendingIntent;)V
 
-    .line 2448
+    .line 2458
     .local v3, touchListener:Landroid/view/View$OnTouchListener;
     invoke-virtual {v2, v3}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 2450
+    .line 2460
     new-instance v0, Landroid/widget/RemoteViews$SetOnLongClickPendingIntent$3;
 
     invoke-direct {v0, p0}, Landroid/widget/RemoteViews$SetOnLongClickPendingIntent$3;-><init>(Landroid/widget/RemoteViews$SetOnLongClickPendingIntent;)V
 
-    .line 2478
+    .line 2493
     .local v0, keyListener:Landroid/view/View$OnKeyListener;
     invoke-virtual {v2, v0}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    .line 2480
+    .line 2495
     .end local v0           #keyListener:Landroid/view/View$OnKeyListener;
     .end local v1           #longClickListener:Landroid/view/View$OnLongClickListener;
     .end local v3           #touchListener:Landroid/view/View$OnTouchListener;

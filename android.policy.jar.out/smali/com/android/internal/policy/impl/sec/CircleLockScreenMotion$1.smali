@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 66
+    .line 67
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "motionEvent"
 
     .prologue
-    .line 70
+    .line 71
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;->DBG:Z
@@ -52,7 +52,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 71
+    .line 72
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;->TAG:Ljava/lang/String;
@@ -62,9 +62,9 @@
 
     const-string v1, "Here comes a motion event"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 72
+    .line 73
     :cond_0
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
@@ -72,11 +72,11 @@
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 86
+    .line 87
     :goto_0
     return-void
 
-    .line 75
+    .line 76
     :sswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
@@ -87,7 +87,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 76
+    .line 77
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;->TAG:Ljava/lang/String;
@@ -97,9 +97,9 @@
 
     const-string v1, "TILT_TO_UNLOCK"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 77
+    .line 78
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
 
@@ -116,7 +116,7 @@
 
     goto :goto_0
 
-    .line 72
+    .line 73
     nop
 
     :sswitch_data_0

@@ -3,12 +3,12 @@
 .source "RenameDialog.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/fm/ui/RenameDialog;->onWindowFocusChanged(Z)V
+    value = Lcom/sec/android/app/fm/ui/RenameDialog;->onAttachedToWindow()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 169
+    .line 209
     iput-object p1, p0, Lcom/sec/android/app/fm/ui/RenameDialog$4;->this$0:Lcom/sec/android/app/fm/ui/RenameDialog;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +37,25 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 0
+.method public onClick(Landroid/view/View;)V
+    .locals 3
+    .parameter "v"
 
     .prologue
-    .line 178
+    .line 213
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog$4;->this$0:Lcom/sec/android/app/fm/ui/RenameDialog;
+
+    #getter for: Lcom/sec/android/app/fm/ui/RenameDialog;->listener:Landroid/content/DialogInterface$OnClickListener;
+    invoke-static {v0}, Lcom/sec/android/app/fm/ui/RenameDialog;->access$400(Lcom/sec/android/app/fm/ui/RenameDialog;)Landroid/content/DialogInterface$OnClickListener;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/sec/android/app/fm/ui/RenameDialog$4;->this$0:Lcom/sec/android/app/fm/ui/RenameDialog;
+
+    const/4 v2, -0x1
+
+    invoke-interface {v0, v1, v2}, Landroid/content/DialogInterface$OnClickListener;->onClick(Landroid/content/DialogInterface;I)V
+
+    .line 214
     return-void
 .end method

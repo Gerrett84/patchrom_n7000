@@ -27,10 +27,10 @@
     .parameter
 
     .prologue
-    .line 7915
+    .line 4492
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$29;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -38,17 +38,14 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+    .locals 0
     .parameter "dialog"
     .parameter "whichButton"
 
     .prologue
-    .line 7919
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$29;->this$0:Lcom/sec/android/app/fm/MainActivity;
+    .line 4495
+    invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
 
-    #calls: Lcom/sec/android/app/fm/MainActivity;->cancelFMRecording()V
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$7100(Lcom/sec/android/app/fm/MainActivity;)V
-
-    .line 7921
+    .line 4496
     return-void
 .end method

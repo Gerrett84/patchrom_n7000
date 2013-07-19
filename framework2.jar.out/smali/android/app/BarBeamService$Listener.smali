@@ -30,15 +30,15 @@
     .parameter "token"
 
     .prologue
-    .line 180
+    .line 196
     iput-object p1, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 181
+    .line 197
     iput-object p2, p0, Landroid/app/BarBeamService$Listener;->mToken:Landroid/os/IBinder;
 
-    .line 182
+    .line 198
     return-void
 .end method
 
@@ -48,14 +48,14 @@
     .locals 4
 
     .prologue
-    .line 184
+    .line 200
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 
     iget-object v1, v0, Landroid/app/BarBeamService;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v1
 
-    .line 185
+    .line 201
     :try_start_0
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 
@@ -63,7 +63,7 @@
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 186
+    .line 202
     const-string v0, "BarBeamService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -94,27 +94,27 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 187
+    .line 203
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->mToken:Landroid/os/IBinder;
 
     const/4 v2, 0x0
 
     invoke-interface {v0, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 188
+    .line 204
     iget-object v0, p0, Landroid/app/BarBeamService$Listener;->this$0:Landroid/app/BarBeamService;
 
     iget-object v0, v0, Landroid/app/BarBeamService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
-    .line 189
+    .line 205
     monitor-exit v1
 
-    .line 190
+    .line 206
     return-void
 
-    .line 189
+    .line 205
     :catchall_0
     move-exception v0
 
@@ -129,7 +129,7 @@
     .locals 4
 
     .prologue
-    .line 204
+    .line 220
     :try_start_0
     iget-object v2, p0, Landroid/app/BarBeamService$Listener;->mToken:Landroid/os/IBinder;
 
@@ -137,22 +137,22 @@
 
     move-result-object v0
 
-    .line 205
+    .line 221
     .local v0, cb:Landroid/app/IBarBeamListener;
     invoke-interface {v0}, Landroid/app/IBarBeamListener;->onBeamingStarted()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 209
+    .line 225
     .end local v0           #cb:Landroid/app/IBarBeamListener;
     :goto_0
     return-void
 
-    .line 206
+    .line 222
     :catch_0
     move-exception v1
 
-    .line 207
+    .line 223
     .local v1, e:Landroid/os/RemoteException;
     const-string v2, "BarBeamService"
 
@@ -167,7 +167,7 @@
     .locals 4
 
     .prologue
-    .line 195
+    .line 211
     :try_start_0
     iget-object v2, p0, Landroid/app/BarBeamService$Listener;->mToken:Landroid/os/IBinder;
 
@@ -175,22 +175,22 @@
 
     move-result-object v0
 
-    .line 196
+    .line 212
     .local v0, cb:Landroid/app/IBarBeamListener;
     invoke-interface {v0}, Landroid/app/IBarBeamListener;->onBeamingStoppped()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 200
+    .line 216
     .end local v0           #cb:Landroid/app/IBarBeamListener;
     :goto_0
     return-void
 
-    .line 197
+    .line 213
     :catch_0
     move-exception v1
 
-    .line 198
+    .line 214
     .local v1, e:Landroid/os/RemoteException;
     const-string v2, "BarBeamService"
 

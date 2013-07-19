@@ -49,10 +49,10 @@
     .parameter "context"
 
     .prologue
-    .line 77
+    .line 89
     invoke-direct {p0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    .line 25
+    .line 28
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -65,7 +65,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->CENTER_OFFSET_X:F
 
-    .line 26
+    .line 31
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -78,12 +78,12 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->CENTER_OFFSET_Y:F
 
-    .line 31
+    .line 38
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mDegree:F
 
-    .line 33
+    .line 40
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -98,7 +98,7 @@
 
     iput-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mDrawingPointCircleRadius:D
 
-    .line 40
+    .line 53
     new-instance v0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;
 
     const-wide/16 v2, 0x1f4
@@ -111,10 +111,10 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mCountTimer:Landroid/os/CountDownTimer;
 
-    .line 81
+    .line 93
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getBitmapImage()V
 
-    .line 82
+    .line 94
     return-void
 .end method
 
@@ -124,10 +124,10 @@
     .parameter "attrs"
 
     .prologue
-    .line 85
+    .line 97
     invoke-direct {p0, p1, p2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 25
+    .line 28
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -140,7 +140,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->CENTER_OFFSET_X:F
 
-    .line 26
+    .line 31
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -153,12 +153,12 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->CENTER_OFFSET_Y:F
 
-    .line 31
+    .line 38
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mDegree:F
 
-    .line 33
+    .line 40
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -173,7 +173,7 @@
 
     iput-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mDrawingPointCircleRadius:D
 
-    .line 40
+    .line 53
     new-instance v0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;
 
     const-wide/16 v2, 0x1f4
@@ -186,29 +186,29 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mCountTimer:Landroid/os/CountDownTimer;
 
-    .line 90
+    .line 102
     const-wide/16 v0, 0x222e
 
     iput-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyPosition:J
 
-    .line 91
+    .line 103
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mDialerPaint:Landroid/graphics/Paint;
 
-    .line 92
+    .line 104
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mDialerPaint:Landroid/graphics/Paint;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 93
+    .line 105
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getBitmapImage()V
 
-    .line 94
+    .line 106
     return-void
 .end method
 
@@ -299,7 +299,7 @@
     .locals 3
 
     .prologue
-    .line 156
+    .line 167
     iget-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyPosition:J
 
     long-to-float v0, v0
@@ -314,7 +314,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mDegree:F
 
-    .line 158
+    .line 169
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -351,7 +351,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->log(Ljava/lang/String;Z)V
 
-    .line 160
+    .line 171
     return-void
 .end method
 
@@ -359,12 +359,12 @@
     .locals 3
 
     .prologue
-    .line 140
+    .line 152
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f020074
+    const v2, 0x7f020056
 
     invoke-static {v1, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -372,42 +372,42 @@
 
     iput-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFreqBar:Landroid/graphics/Bitmap;
 
-    .line 143
+    .line 154
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f020073
+    const v2, 0x7f020055
 
     invoke-static {v1, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 144
+    .line 155
     .local v0, bm:Landroid/graphics/Bitmap;
     if-eqz v0, :cond_0
 
-    .line 145
+    .line 156
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v1
 
     iput v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFreqBgImageWidth:I
 
-    .line 146
+    .line 157
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v1
 
     iput v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFreqBgImageHeight:I
 
-    .line 147
+    .line 158
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 148
+    .line 159
     const/4 v0, 0x0
 
-    .line 150
+    .line 161
     :cond_0
     return-void
 .end method
@@ -416,7 +416,7 @@
     .locals 3
 
     .prologue
-    .line 113
+    .line 125
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -465,22 +465,22 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->log(Ljava/lang/String;Z)V
 
-    .line 116
+    .line 129
     iget-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mPreviousFrequencyPosition:J
 
     iput-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyPosition:J
 
-    .line 117
+    .line 130
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mCountTimer:Landroid/os/CountDownTimer;
 
     invoke-virtual {v0}, Landroid/os/CountDownTimer;->cancel()V
 
-    .line 118
+    .line 131
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mCountTimer:Landroid/os/CountDownTimer;
 
     invoke-virtual {v0}, Landroid/os/CountDownTimer;->start()Landroid/os/CountDownTimer;
 
-    .line 119
+    .line 132
     return-void
 .end method
 
@@ -490,7 +490,7 @@
     .prologue
     const/high16 v2, 0x4000
 
-    .line 172
+    .line 183
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFreqBgImageWidth:I
 
     int-to-float v0, v0
@@ -503,7 +503,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mCenterX:F
 
-    .line 173
+    .line 184
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFreqBgImageHeight:I
 
     int-to-float v0, v0
@@ -516,7 +516,7 @@
 
     iput v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mCenterY:F
 
-    .line 174
+    .line 185
     return-void
 .end method
 
@@ -527,12 +527,12 @@
     .parameter "message"
 
     .prologue
-    .line 192
+    .line 203
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->log(Ljava/lang/String;Z)V
 
-    .line 193
+    .line 204
     return-void
 .end method
 
@@ -542,15 +542,15 @@
     .parameter "isFreqLog"
 
     .prologue
-    .line 196
+    .line 207
     if-nez p2, :cond_0
 
-    .line 197
+    .line 208
     const-string v0, "FrequencyDisplayBar"
 
-    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 198
+    .line 209
     :cond_0
     return-void
 .end method
@@ -560,30 +560,30 @@
     .parameter "canvas"
 
     .prologue
-    .line 123
+    .line 136
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 128
+    .line 141
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 129
+    .line 142
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mCenterX:F
 
     iget v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mCenterY:F
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 130
+    .line 143
     iget v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mDegree:F
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->rotate(F)V
 
-    .line 131
+    .line 144
     const/high16 v0, 0x4334
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->rotate(F)V
 
-    .line 132
+    .line 145
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFreqBar:Landroid/graphics/Bitmap;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFreqBar:Landroid/graphics/Bitmap;
@@ -624,10 +624,10 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    .line 136
+    .line 148
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 137
+    .line 149
     return-void
 .end method
 
@@ -637,24 +637,24 @@
     .parameter "heightMeasureSpec"
 
     .prologue
-    .line 178
+    .line 189
     const/4 v1, 0x0
 
-    .line 179
+    .line 190
     .local v1, maxHeight:I
     const/4 v2, 0x0
 
-    .line 181
+    .line 192
     .local v2, maxWidth:I
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 182
+    .line 193
     .local v0, drawable:Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_0
 
-    .line 183
+    .line 194
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getMinimumHeight()I
 
     move-result v3
@@ -663,7 +663,7 @@
 
     move-result v1
 
-    .line 184
+    .line 195
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getMinimumWidth()I
 
     move-result v3
@@ -672,7 +672,7 @@
 
     move-result v2
 
-    .line 187
+    .line 198
     :cond_0
     invoke-static {v2, p1}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->resolveSize(II)I
 
@@ -684,7 +684,7 @@
 
     invoke-virtual {p0, v3, v4}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->setMeasuredDimension(II)V
 
-    .line 189
+    .line 200
     return-void
 .end method
 
@@ -696,10 +696,10 @@
     .parameter "oldh"
 
     .prologue
-    .line 164
+    .line 175
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/ImageView;->onSizeChanged(IIII)V
 
-    .line 165
+    .line 176
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -732,13 +732,13 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->log(Ljava/lang/String;Z)V
 
-    .line 166
+    .line 177
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->setCenterXY()V
 
-    .line 167
+    .line 178
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->calculateFrequencyPosition()V
 
-    .line 168
+    .line 179
     return-void
 .end method
 
@@ -748,7 +748,7 @@
     .parameter "isAnimation"
 
     .prologue
-    .line 97
+    .line 109
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -793,34 +793,34 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->log(Ljava/lang/String;Z)V
 
-    .line 99
+    .line 111
     iget-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyPosition:J
 
     iput-wide v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mPreviousFrequencyPosition:J
 
-    .line 100
+    .line 112
     iput-wide p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyPosition:J
 
-    .line 101
+    .line 113
     iput-wide p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mCurrentFrequencyPosition:J
 
-    .line 103
+    .line 115
     if-eqz p3, :cond_0
 
-    .line 104
+    .line 116
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->setAnimationToFreqBar()V
 
-    .line 108
+    .line 120
     :goto_0
     invoke-direct {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->calculateFrequencyPosition()V
 
-    .line 109
+    .line 121
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->invalidate()V
 
-    .line 110
+    .line 122
     return-void
 
-    .line 106
+    .line 118
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$OnFrequencyChangeListener;
 
@@ -834,9 +834,9 @@
     .parameter "listener"
 
     .prologue
-    .line 73
+    .line 85
     iput-object p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$OnFrequencyChangeListener;
 
-    .line 74
+    .line 86
     return-void
 .end method

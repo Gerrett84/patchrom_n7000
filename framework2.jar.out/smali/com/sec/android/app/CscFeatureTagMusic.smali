@@ -8,6 +8,8 @@
 
 .field public static final TAG_CSCFEATURE_MUSIC_DISABLE_FINDTAG:Ljava/lang/String; = "CscFeature_Music_DisableFindTag"
 
+.field public static final TAG_CSCFEATURE_MUSIC_DISABLE_SELECTABLE_MUSICHUB_LINK:Ljava/lang/String; = "CscFeature_Music_DisableSelectableMusichubLink"
+
 .field public static final TAG_CSCFEATURE_MUSIC_ENABLE_BIGPONDTOP10FEEDS:Ljava/lang/String; = "CscFeature_Music_EnableBigPondTop10Feeds"
 
 .field public static final TAG_CSCFEATURE_MUSIC_ENABLE_LINKTOBIGPOND:Ljava/lang/String; = "CscFeature_Music_EnableLinkToBigPond"

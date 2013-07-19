@@ -205,7 +205,7 @@
     sput-object v0, Landroid/mtp/MtpDatabase;->OBJECT_INFO_PROJECTION:[Ljava/lang/String;
 
     .line 120
-    const-string v0, "media_jni"
+    const-string/jumbo v0, "media_jni"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
@@ -257,8 +257,6 @@
     return-void
 
     .line 519
-    nop
-
     :array_0
     .array-data 0x4
         0x1t 0xdct 0x0t 0x0t
@@ -408,7 +406,7 @@
 
     move-result-object v10
 
-    const-string v11, "media"
+    const-string/jumbo v11, "media"
 
     invoke-virtual {v10, v11}, Landroid/content/ContentResolver;->acquireProvider(Ljava/lang/String;)Landroid/content/IContentProvider;
 
@@ -1771,7 +1769,7 @@
     invoke-virtual {v3, v4, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 323
-    const-string v4, "name"
+    const-string/jumbo v4, "name"
 
     invoke-virtual {v3, v4, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1802,7 +1800,7 @@
     invoke-virtual {v3, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
     .line 326
-    const-string v4, "media_scanner_new_object_id"
+    const-string/jumbo v4, "media_scanner_new_object_id"
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

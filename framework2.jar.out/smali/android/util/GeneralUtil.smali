@@ -111,7 +111,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 66
+    .line 65
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 43
@@ -123,10 +123,10 @@
     .line 48
     iput-object v0, p0, Landroid/util/GeneralUtil;->pm:Landroid/content/pm/PackageManager;
 
-    .line 67
+    .line 66
     iput-object p1, p0, Landroid/util/GeneralUtil;->ctxt:Landroid/content/Context;
 
-    .line 68
+    .line 67
     iget-object v0, p0, Landroid/util/GeneralUtil;->ctxt:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -135,7 +135,7 @@
 
     iput-object v0, p0, Landroid/util/GeneralUtil;->pm:Landroid/content/pm/PackageManager;
 
-    .line 69
+    .line 68
     return-void
 .end method
 
@@ -145,38 +145,38 @@
     .parameter "pw"
 
     .prologue
-    .line 127
+    .line 126
     invoke-static {p0}, Landroid/util/GeneralUtil;->initialise(Landroid/content/Context;)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 129
+    .line 128
     const/4 v2, 0x0
 
-    .line 138
+    .line 137
     :goto_0
     return v2
 
-    .line 131
+    .line 130
     :cond_0
     const-string v2, "===== Dump of supported system feature ====="
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 132
+    .line 131
     sget-object v2, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
     iget-object v1, v2, Landroid/util/GeneralUtil;->featureCacheSet:Ljava/util/HashSet;
 
-    .line 133
+    .line 132
     .local v1, refSet:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
     invoke-virtual {v1}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .line 134
+    .line 133
     .local v0, iterators:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
     :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -185,7 +185,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 135
+    .line 134
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -196,13 +196,13 @@
 
     goto :goto_1
 
-    .line 137
+    .line 136
     :cond_1
     const-string v2, "===== End dump ====="
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 138
+    .line 137
     const/4 v2, 0x1
 
     goto :goto_0
@@ -214,7 +214,7 @@
     .parameter "nDP"
 
     .prologue
-    .line 151
+    .line 150
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -225,7 +225,7 @@
 
     iget v0, v2, Landroid/util/DisplayMetrics;->density:F
 
-    .line 153
+    .line 152
     .local v0, d:F
     int-to-float v2, p1
 
@@ -233,7 +233,7 @@
 
     float-to-int v1, v2
 
-    .line 154
+    .line 153
     .local v1, nPX:I
     return v1
 .end method
@@ -246,12 +246,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 108
+    .line 107
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_2
 
-    .line 109
+    .line 108
     :cond_0
     sget-object v2, Landroid/util/GeneralUtil;->TAG:Ljava/lang/String;
 
@@ -285,12 +285,12 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 123
+    .line 122
     :cond_1
     :goto_0
     return v1
 
-    .line 114
+    .line 113
     :cond_2
     invoke-static {p0}, Landroid/util/GeneralUtil;->initialise(Landroid/content/Context;)Z
 
@@ -298,12 +298,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 119
+    .line 118
     sget-object v2, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
     iget-object v0, v2, Landroid/util/GeneralUtil;->featureCacheSet:Ljava/util/HashSet;
 
-    .line 120
+    .line 119
     .local v0, refSet:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
@@ -311,7 +311,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 121
+    .line 120
     const/4 v1, 0x1
 
     goto :goto_0
@@ -324,47 +324,47 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 72
+    .line 71
     sget-object v4, Landroid/util/GeneralUtil;->objInstance:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 73
+    .line 72
     :try_start_0
     sget-object v5, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
     if-nez v5, :cond_0
 
-    .line 74
+    .line 73
     new-instance v5, Landroid/util/GeneralUtil;
 
     invoke-direct {v5, p0}, Landroid/util/GeneralUtil;-><init>(Landroid/content/Context;)V
 
     sput-object v5, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
-    .line 76
+    .line 75
     :cond_0
     monitor-exit v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 77
+    .line 76
     sget-object v4, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
     if-nez v4, :cond_1
 
-    .line 78
+    .line 77
     sget-object v4, Landroid/util/GeneralUtil;->TAG:Ljava/lang/String;
 
     const-string v5, "myInstance is null"
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 104
+    .line 103
     :goto_0
     return v3
 
-    .line 76
+    .line 75
     :catchall_0
     move-exception v3
 
@@ -375,11 +375,11 @@
 
     throw v3
 
-    .line 82
+    .line 81
     :cond_1
     const/4 v2, 0x0
 
-    .line 83
+    .line 82
     .local v2, infos:[Landroid/content/pm/FeatureInfo;
     sget-object v4, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
@@ -387,7 +387,7 @@
 
     if-nez v4, :cond_2
 
-    .line 84
+    .line 83
     sget-object v4, Landroid/util/GeneralUtil;->TAG:Ljava/lang/String;
 
     const-string v5, "pm is null"
@@ -396,13 +396,13 @@
 
     goto :goto_0
 
-    .line 88
+    .line 87
     :cond_2
     sget-object v4, Landroid/util/GeneralUtil;->objFeature:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 89
+    .line 88
     :try_start_2
     sget-object v5, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
@@ -414,7 +414,7 @@
 
     if-nez v5, :cond_3
 
-    .line 90
+    .line 89
     sget-object v5, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
     iget-object v5, v5, Landroid/util/GeneralUtil;->pm:Landroid/content/pm/PackageManager;
@@ -423,7 +423,7 @@
 
     move-result-object v2
 
-    .line 91
+    .line 90
     sget-object v5, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
     new-instance v6, Ljava/util/HashSet;
@@ -434,10 +434,10 @@
 
     iput-object v6, v5, Landroid/util/GeneralUtil;->featureCacheSet:Ljava/util/HashSet;
 
-    .line 92
+    .line 91
     const/4 v0, 0x0
 
-    .line 93
+    .line 92
     .local v0, f:Landroid/content/pm/FeatureInfo;
     const/4 v1, 0x0
 
@@ -447,10 +447,10 @@
 
     if-ge v1, v5, :cond_3
 
-    .line 94
+    .line 93
     aget-object v0, v2, v1
 
-    .line 95
+    .line 94
     sget-object v5, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
     iget-object v5, v5, Landroid/util/GeneralUtil;->featureCacheSet:Ljava/util/HashSet;
@@ -459,12 +459,12 @@
 
     invoke-virtual {v5, v6}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 93
+    .line 92
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 98
+    .line 97
     .end local v0           #f:Landroid/content/pm/FeatureInfo;
     .end local v1           #i:I
     :cond_3
@@ -472,14 +472,14 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 99
+    .line 98
     sget-object v4, Landroid/util/GeneralUtil;->myInstance:Landroid/util/GeneralUtil;
 
     iget-object v4, v4, Landroid/util/GeneralUtil;->featureCacheSet:Ljava/util/HashSet;
 
     if-nez v4, :cond_4
 
-    .line 100
+    .line 99
     sget-object v4, Landroid/util/GeneralUtil;->TAG:Ljava/lang/String;
 
     const-string v5, "myInstance.featureCacheSet is null"
@@ -488,7 +488,7 @@
 
     goto :goto_0
 
-    .line 98
+    .line 97
     :catchall_1
     move-exception v3
 
@@ -499,7 +499,7 @@
 
     throw v3
 
-    .line 104
+    .line 103
     :cond_4
     const/4 v3, 0x1
 
@@ -512,7 +512,7 @@
     .parameter "sw"
 
     .prologue
-    .line 157
+    .line 156
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -525,10 +525,10 @@
 
     if-lt v0, p1, :cond_0
 
-    .line 158
+    .line 157
     const/4 v0, 0x1
 
-    .line 160
+    .line 159
     :goto_0
     return v0
 
@@ -542,45 +542,45 @@
     .locals 1
 
     .prologue
-    .line 141
+    .line 140
     sget-boolean v0, Landroid/util/GeneralUtil;->isPhone:Z
 
     return v0
 .end method
 
 .method private static isPhoneInternal()Z
-    .locals 3
+    .locals 2
 
     .prologue
+    .line 56
+    const-string v1, "ro.build.characteristics"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
     .line 57
+    .local v0, sDeviceType:Ljava/lang/String;
+    if-eqz v0, :cond_0
+
     const-string v1, "tablet"
 
-    const-string v2, "ro.build.characteristics"
-
-    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
     .line 58
-    const/4 v0, 0x0
-
-    .line 63
-    .local v0, isPhone:Z
-    :goto_0
-    return v0
+    const/4 v1, 0x0
 
     .line 61
-    .end local v0           #isPhone:Z
-    :cond_0
-    const/4 v0, 0x1
+    :goto_0
+    return v1
 
-    .restart local v0       #isPhone:Z
+    :cond_0
+    const/4 v1, 0x1
+
     goto :goto_0
 .end method
 
@@ -588,7 +588,7 @@
     .locals 1
 
     .prologue
-    .line 145
+    .line 144
     sget-boolean v0, Landroid/util/GeneralUtil;->isPhone:Z
 
     if-nez v0, :cond_0
@@ -609,12 +609,12 @@
     .parameter "context"
 
     .prologue
-    .line 148
+    .line 147
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x1110029
+    const v1, 0x111002a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

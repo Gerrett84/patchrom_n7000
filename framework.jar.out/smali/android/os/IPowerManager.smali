@@ -63,6 +63,14 @@
     .end annotation
 .end method
 
+.method public abstract getCurrentBrightness(Z)F
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getSupportedFrequency()[I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -103,6 +111,14 @@
     .end annotation
 .end method
 
+.method public abstract preventAutoPowerOff(IZ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract preventScreenOn(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -136,6 +152,14 @@
 .end method
 
 .method public abstract releaseWakeLock(Landroid/os/IBinder;I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract resetAutoPowerOffTimer()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

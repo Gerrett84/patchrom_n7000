@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 272
+    .line 285
     iput-object p1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$5;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "arg1"
 
     .prologue
-    .line 275
+    .line 288
     iget-object v0, p0, Lcom/sec/android/app/fm/DeleteFileActivity$5;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mProgressDialog:Landroid/app/ProgressDialog;
@@ -53,7 +53,7 @@
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
 
-    .line 276
+    .line 289
     new-instance v0, Lcom/sec/android/app/fm/DeleteFileActivity$DeleteFileThread;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$5;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
@@ -64,6 +64,6 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/DeleteFileActivity$DeleteFileThread;->start()V
 
-    .line 277
+    .line 290
     return-void
 .end method

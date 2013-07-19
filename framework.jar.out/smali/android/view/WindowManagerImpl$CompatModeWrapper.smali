@@ -32,10 +32,10 @@
     .parameter "ci"
 
     .prologue
-    .line 128
+    .line 132
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 129
+    .line 133
     instance-of v0, p1, Landroid/view/WindowManagerImpl$CompatModeWrapper;
 
     if-eqz v0, :cond_0
@@ -48,10 +48,10 @@
     :goto_0
     iput-object p1, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
 
-    .line 136
+    .line 140
     if-nez p2, :cond_1
 
-    .line 137
+    .line 141
     iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
 
     invoke-virtual {v0}, Landroid/view/WindowManagerImpl;->getDefaultDisplay()Landroid/view/Display;
@@ -60,21 +60,21 @@
 
     iput-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mDefaultDisplay:Landroid/view/Display;
 
-    .line 144
+    .line 148
     :goto_1
     iput-object p2, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mCompatibilityInfo:Landroid/view/CompatibilityInfoHolder;
 
-    .line 145
+    .line 149
     return-void
 
-    .line 129
+    .line 133
     .restart local p1
     :cond_0
     check-cast p1, Landroid/view/WindowManagerImpl;
 
     goto :goto_0
 
-    .line 140
+    .line 144
     .end local p1
     :cond_1
     iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
@@ -104,14 +104,14 @@
     .parameter "params"
 
     .prologue
-    .line 149
+    .line 153
     iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
 
     iget-object v1, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mCompatibilityInfo:Landroid/view/CompatibilityInfoHolder;
 
     invoke-virtual {v0, p1, p2, v1}, Landroid/view/WindowManagerImpl;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;Landroid/view/CompatibilityInfoHolder;)V
 
-    .line 150
+    .line 154
     return-void
 .end method
 
@@ -119,17 +119,31 @@
     .locals 1
 
     .prologue
-    .line 165
+    .line 169
     iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mDefaultDisplay:Landroid/view/Display;
 
     return-object v0
+.end method
+
+.method public getGlobalSystemUiVisibility()I
+    .locals 1
+
+    .prologue
+    .line 185
+    iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
+
+    invoke-virtual {v0}, Landroid/view/WindowManagerImpl;->getGlobalSystemUiVisibility()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public isHardwareAccelerated()Z
     .locals 1
 
     .prologue
-    .line 175
+    .line 179
     iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
 
     invoke-virtual {v0}, Landroid/view/WindowManagerImpl;->isHardwareAccelerated()Z
@@ -144,12 +158,12 @@
     .parameter "view"
 
     .prologue
-    .line 160
+    .line 164
     iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
 
     invoke-virtual {v0, p1}, Landroid/view/WindowManagerImpl;->removeView(Landroid/view/View;)V
 
-    .line 161
+    .line 165
     return-void
 .end method
 
@@ -158,12 +172,12 @@
     .parameter "view"
 
     .prologue
-    .line 170
+    .line 174
     iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
 
     invoke-virtual {v0, p1}, Landroid/view/WindowManagerImpl;->removeViewImmediate(Landroid/view/View;)V
 
-    .line 171
+    .line 175
     return-void
 .end method
 
@@ -173,11 +187,11 @@
     .parameter "params"
 
     .prologue
-    .line 154
+    .line 158
     iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
 
     invoke-virtual {v0, p1, p2}, Landroid/view/WindowManagerImpl;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 156
+    .line 160
     return-void
 .end method

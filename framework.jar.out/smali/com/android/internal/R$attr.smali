@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final DeviceDefaultPointerStyle:I = 0x101045b
+.field public static final DeviceDefaultPointerStyle:I = 0x1010460
 
 .field public static final absListViewStyle:I = 0x101006a
 
@@ -25,7 +25,7 @@
 
 .field public static final accessibilityFlags:I = 0x1010384
 
-.field public static final accessibilityFocusedDrawable:I = 0x10103f3
+.field public static final accessibilityFocusedDrawable:I = 0x10103f6
 
 .field public static final accountPreferences:I = 0x101029f
 
@@ -77,15 +77,21 @@
 
 .field public static final actionModePasteDrawable:I = 0x1010313
 
-.field public static final actionModePopupWindowStyle:I = 0x10103cc
+.field public static final actionModePopupWindowStyle:I = 0x10103cf
 
 .field public static final actionModeSelectAllDrawable:I = 0x101037e
 
-.field public static final actionModeShareDrawable:I = 0x10103c9
+.field public static final actionModeShareDrawable:I = 0x10103cc
 
 .field public static final actionModeSplitBackground:I = 0x101039d
 
 .field public static final actionModeStyle:I = 0x1010394
+
+.field public static final actionMultiWindowButtonBackground:I = 0x10103cb
+
+.field public static final actionMultiWindowButtonDrawable:I = 0x10103ca
+
+.field public static final actionMultiWindowButtonStyle:I = 0x10103c9
 
 .field public static final actionOverflowButtonStyle:I = 0x10102f6
 
@@ -164,13 +170,13 @@
 
 .field public static final apiKey:I = 0x1010211
 
-.field public static final appPermsDangerIcon:I = 0x10103f9
+.field public static final appPermsDangerIcon:I = 0x10103fc
 
-.field public static final appPermsNormalIcon:I = 0x10103f8
+.field public static final appPermsNormalIcon:I = 0x10103fb
 
-.field public static final appPermsShowMaxIcon:I = 0x10103f6
+.field public static final appPermsShowMaxIcon:I = 0x10103f9
 
-.field public static final appPermsShowMinIcon:I = 0x10103f7
+.field public static final appPermsShowMinIcon:I = 0x10103fa
 
 .field public static final author:I = 0x10102b4
 
@@ -404,7 +410,7 @@
 
 .field public static final dial:I = 0x1010102
 
-.field public static final dialogCustomTitleDecorLayout:I = 0x10103d4
+.field public static final dialogCustomTitleDecorLayout:I = 0x10103d7
 
 .field public static final dialogIcon:I = 0x10101f4
 
@@ -418,9 +424,9 @@
 
 .field public static final dialogTitle:I = 0x10101f2
 
-.field public static final dialogTitleDecorLayout:I = 0x10103d5
+.field public static final dialogTitleDecorLayout:I = 0x10103d8
 
-.field public static final dialogTitleIconsDecorLayout:I = 0x10103d3
+.field public static final dialogTitleIconsDecorLayout:I = 0x10103d6
 
 .field public static final digits:I = 0x1010166
 
@@ -550,7 +556,7 @@
 
 .field public static final exported:I = 0x1010010
 
-.field public static final externalRouteEnabledDrawable:I = 0x101044f
+.field public static final externalRouteEnabledDrawable:I = 0x1010454
 
 .field public static final extraTension:I = 0x101026b
 
@@ -869,7 +875,7 @@
 
 .field public static final keyboardMode:I = 0x101024d
 
-.field public static final keyboardViewStyle:I = 0x101042e
+.field public static final keyboardViewStyle:I = 0x1010433
 
 .field public static final keycode:I = 0x10100c5
 
@@ -1069,6 +1075,8 @@
 
 .field public static final moreIcon:I = 0x1010135
 
+.field public static final multiWindowButtonStyle:I = 0x10103fe
+
 .field public static final multiprocess:I = 0x1010013
 
 .field public static final name:I = 0x1010003
@@ -1156,7 +1164,7 @@
 
 .field public static final parentActivityName:I = 0x10103a7
 
-.field public static final parentIsDeviceDefault:I = 0x10103fa
+.field public static final parentIsDeviceDefault:I = 0x10103fd
 
 .field public static final password:I = 0x101015c
     .annotation runtime Ljava/lang/Deprecated;
@@ -1188,7 +1196,7 @@
 
 .field public static final pivotY:I = 0x10101b6
 
-.field public static final pointerStyle:I = 0x10103f0
+.field public static final pointerStyle:I = 0x10103f3
 
 .field public static final popupAnimationStyle:I = 0x10102c9
 
@@ -1210,7 +1218,7 @@
 
 .field public static final preferenceCategoryStyle:I = 0x101008c
 
-.field public static final preferenceFrameLayoutStyle:I = 0x10103ee
+.field public static final preferenceFrameLayoutStyle:I = 0x10103f1
 
 .field public static final preferenceInformationStyle:I = 0x101008d
 
@@ -1404,7 +1412,7 @@
     .end annotation
 .end field
 
-.field public static final searchDialogTheme:I = 0x10103ed
+.field public static final searchDialogTheme:I = 0x10103f0
 
 .field public static final searchMode:I = 0x10101d5
 
@@ -1430,7 +1438,7 @@
 
 .field public static final searchViewGoIcon:I = 0x10103de
 
-.field public static final searchViewSearchFieldIcon:I = 0x10103ec
+.field public static final searchViewSearchFieldIcon:I = 0x10103ef
 
 .field public static final searchViewSearchIcon:I = 0x10103df
 
@@ -1562,6 +1570,8 @@
 
 .field public static final state_expanded:I = 0x10100a8
 
+.field public static final state_finger_hovered:I = 0x10103ff
+
 .field public static final state_first:I = 0x10100a4
 
 .field public static final state_focused:I = 0x101009c
@@ -1624,7 +1634,7 @@
 
 .field public static final switchPreferenceStyle:I = 0x101036d
 
-.field public static final switchStyle:I = 0x10103ef
+.field public static final switchStyle:I = 0x10103f2
 
 .field public static final switchTextAppearance:I = 0x101036e
 
@@ -1992,13 +2002,13 @@
 
 .field public static final windowExitAnimation:I = 0x10100b5
 
-.field public static final windowFixedHeightMajor:I = 0x10103fe
+.field public static final windowFixedHeightMajor:I = 0x1010404
 
-.field public static final windowFixedHeightMinor:I = 0x10103fc
+.field public static final windowFixedHeightMinor:I = 0x1010401
 
-.field public static final windowFixedWidthMajor:I = 0x10103fb
+.field public static final windowFixedWidthMajor:I = 0x1010400
 
-.field public static final windowFixedWidthMinor:I = 0x10103fd
+.field public static final windowFixedWidthMinor:I = 0x1010403
 
 .field public static final windowFrame:I = 0x1010055
 
@@ -2048,7 +2058,7 @@
     .locals 0
 
     .prologue
-    .line 650
+    .line 680
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void

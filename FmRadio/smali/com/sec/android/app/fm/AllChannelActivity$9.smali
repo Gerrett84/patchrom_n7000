@@ -1,11 +1,14 @@
 .class Lcom/sec/android/app/fm/AllChannelActivity$9;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "AllChannelActivity.java"
+
+# interfaces
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/fm/AllChannelActivity;->registerRestoreReceiver()V
+    value = Lcom/sec/android/app/fm/AllChannelActivity;->onCreateDialog(I)Landroid/app/Dialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,103 +27,28 @@
     .parameter
 
     .prologue
-    .line 1082
+    .line 609
     iput-object p1, p0, Lcom/sec/android/app/fm/AllChannelActivity$9;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
-    .parameter "context"
-    .parameter "intent"
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 2
+    .parameter "dialog"
 
     .prologue
-    .line 1087
-    sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
-
-    iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity;->mChannelList:Ljava/util/ArrayList;
-
-    if-eqz v0, :cond_0
-
-    .line 1088
-    sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
-
-    iget-object v1, v0, Lcom/sec/android/app/fm/MainActivity;->mChannelList:Ljava/util/ArrayList;
-
-    monitor-enter v1
-
-    .line 1089
-    :try_start_0
+    .line 613
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$9;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
-    new-instance v2, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
+    const/4 v1, 0x7
 
-    iget-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity$9;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/AllChannelActivity;->removeDialog(I)V
 
-    iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity$9;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
-
-    const v5, 0x7f030004
-
-    sget-object v6, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
-
-    iget-object v6, v6, Lcom/sec/android/app/fm/MainActivity;->mChannelList:Ljava/util/ArrayList;
-
-    invoke-direct {v2, v3, v4, v5, v6}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;-><init>(Lcom/sec/android/app/fm/AllChannelActivity;Landroid/content/Context;ILjava/util/List;)V
-
-    iput-object v2, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
-
-    .line 1091
-    iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$9;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
-
-    #getter for: Lcom/sec/android/app/fm/AllChannelActivity;->mChannelListView:Landroid/widget/ListView;
-    invoke-static {v0}, Lcom/sec/android/app/fm/AllChannelActivity;->access$800(Lcom/sec/android/app/fm/AllChannelActivity;)Landroid/widget/ListView;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/sec/android/app/fm/AllChannelActivity$9;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
-
-    iget-object v2, v2, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
-
-    invoke-virtual {v0, v2}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
-
-    .line 1092
-    iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$9;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
-
-    iget-object v0, v0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
-
-    .line 1093
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 1095
-    :cond_0
-    iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$9;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
-
-    invoke-virtual {v0}, Lcom/sec/android/app/fm/AllChannelActivity;->invalidateOptionsMenu()V
-
-    .line 1097
+    .line 614
     return-void
-
-    .line 1093
-    :catchall_0
-    move-exception v0
-
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v0
 .end method

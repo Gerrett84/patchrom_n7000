@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 523
+    .line 530
     iput-object p1, p0, Lcom/android/server/usb/UsbHostManager$3;->this$0:Lcom/android/server/usb/UsbHostManager;
 
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "event"
 
     .prologue
-    .line 526
+    .line 533
     invoke-static {}, Lcom/android/server/usb/UsbHostManager;->access$100()Ljava/lang/String;
 
     move-result-object v17
@@ -80,7 +80,7 @@
 
     invoke-static/range {v17 .. v18}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 528
+    .line 535
     :cond_0
     move-object/from16 v0, p0
 
@@ -95,7 +95,7 @@
 
     monitor-enter v18
 
-    .line 529
+    .line 536
     :try_start_0
     const-string v17, "DEVPATH"
 
@@ -107,7 +107,7 @@
 
     move-result-object v6
 
-    .line 530
+    .line 537
     .local v6, devPath:Ljava/lang/String;
     const-string v17, "ACTION"
 
@@ -119,7 +119,7 @@
 
     move-result-object v5
 
-    .line 531
+    .line 538
     .local v5, action:Ljava/lang/String;
     const-string v17, "DEVTYPE"
 
@@ -131,7 +131,7 @@
 
     move-result-object v8
 
-    .line 532
+    .line 539
     .local v8, devtype:Ljava/lang/String;
     const-string v17, "DEVICE"
 
@@ -143,7 +143,7 @@
 
     move-result-object v7
 
-    .line 533
+    .line 540
     .local v7, device:Ljava/lang/String;
     const-string v17, "PRODUCT"
 
@@ -155,7 +155,7 @@
 
     move-result-object v14
 
-    .line 534
+    .line 541
     .local v14, product:Ljava/lang/String;
     const-string v17, "TYPE"
 
@@ -167,7 +167,7 @@
 
     move-result-object v16
 
-    .line 535
+    .line 542
     .local v16, type:Ljava/lang/String;
     const-string v17, "INTERFACE"
 
@@ -179,7 +179,7 @@
 
     move-result-object v13
 
-    .line 537
+    .line 544
     .local v13, interfac:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/usb/UsbHostManager;->access$100()Ljava/lang/String;
 
@@ -287,7 +287,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 543
+    .line 550
     :try_start_1
     const-string v17, "/"
 
@@ -297,19 +297,19 @@
 
     move-result-object v15
 
-    .line 544
+    .line 551
     .local v15, tok:[Ljava/lang/String;
     const/16 v17, 0x0
 
     aget-object v2, v15, v17
 
-    .line 545
+    .line 552
     .local v2, Class:Ljava/lang/String;
     const/16 v17, 0x1
 
     aget-object v4, v15, v17
 
-    .line 546
+    .line 553
     .local v4, SubClass:Ljava/lang/String;
     const/16 v17, 0x2
 
@@ -319,7 +319,7 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 548
+    .line 555
     .local v3, Protocal:Ljava/lang/String;
     if-eqz v2, :cond_1
 
@@ -333,7 +333,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 562
+    .line 569
     .end local v2           #Class:Ljava/lang/String;
     .end local v3           #Protocal:Ljava/lang/String;
     .end local v4           #SubClass:Ljava/lang/String;
@@ -341,7 +341,7 @@
     :goto_0
     return-void
 
-    .line 550
+    .line 557
     .restart local v2       #Class:Ljava/lang/String;
     .restart local v3       #Protocal:Ljava/lang/String;
     .restart local v4       #SubClass:Ljava/lang/String;
@@ -356,7 +356,7 @@
 
     move-result v10
 
-    .line 551
+    .line 558
     .local v10, iClass:I
     const/16 v17, 0x1
 
@@ -366,7 +366,7 @@
 
     move-result v12
 
-    .line 552
+    .line 559
     .local v12, iSubClass:I
     const/16 v17, 0x2
 
@@ -376,7 +376,7 @@
 
     move-result v11
 
-    .line 554
+    .line 561
     .local v11, iProtocal:I
     move-object/from16 v0, p0
 
@@ -392,7 +392,7 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_3 .. :try_end_3} :catch_1
 
-    .line 561
+    .line 568
     .end local v2           #Class:Ljava/lang/String;
     .end local v3           #Protocal:Ljava/lang/String;
     .end local v4           #SubClass:Ljava/lang/String;
@@ -422,7 +422,7 @@
 
     throw v17
 
-    .line 555
+    .line 562
     .restart local v5       #action:Ljava/lang/String;
     .restart local v6       #devPath:Ljava/lang/String;
     .restart local v7       #device:Ljava/lang/String;
@@ -433,7 +433,7 @@
     :catch_0
     move-exception v9
 
-    .line 556
+    .line 563
     .local v9, e:Ljava/lang/NumberFormatException;
     :try_start_5
     invoke-static {}, Lcom/android/server/usb/UsbHostManager;->access$100()Ljava/lang/String;
@@ -470,12 +470,12 @@
 
     goto :goto_1
 
-    .line 557
+    .line 564
     .end local v9           #e:Ljava/lang/NumberFormatException;
     :catch_1
     move-exception v9
 
-    .line 558
+    .line 565
     .local v9, e:Ljava/lang/ArrayIndexOutOfBoundsException;
     invoke-static {}, Lcom/android/server/usb/UsbHostManager;->access$100()Ljava/lang/String;
 

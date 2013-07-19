@@ -32,8 +32,6 @@
 
 .field static final TRANSACTION_hasVibrator:I = 0x1
 
-.field static final TRANSACTION_isVibrating:I = 0x12
-
 .field static final TRANSACTION_resetMagnitude:I = 0x10
 
 .field static final TRANSACTION_setMagnitude:I = 0xf
@@ -137,7 +135,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 9
+    .locals 8
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -149,14 +147,12 @@
     .end annotation
 
     .prologue
-    const/4 v6, 0x0
-
     const/4 v7, 0x1
 
     .line 39
     sparse-switch p1, :sswitch_data_0
 
-    .line 238
+    .line 230
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v7
@@ -174,9 +170,9 @@
 
     .line 48
     :sswitch_1
-    const-string v8, "android.os.IVibratorService"
+    const-string v6, "android.os.IVibratorService"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 49
     invoke-virtual {p0}, Landroid/os/IVibratorService$Stub;->hasVibrator()Z
@@ -192,10 +188,15 @@
 
     move v6, v7
 
-    :cond_0
+    :goto_1
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
+
+    :cond_0
+    const/4 v6, 0x0
+
+    goto :goto_1
 
     .line 56
     .end local v5           #_result:Z
@@ -645,35 +646,7 @@
 
     goto/16 :goto_0
 
-    .line 231
-    .end local v5           #_result:I
-    :sswitch_12
-    const-string v8, "android.os.IVibratorService"
-
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 232
-    invoke-virtual {p0}, Landroid/os/IVibratorService$Stub;->isVibrating()Z
-
-    move-result v5
-
-    .line 233
-    .local v5, _result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 234
-    if-eqz v5, :cond_1
-
-    move v6, v7
-
-    :cond_1
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_0
-
     .line 39
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -693,7 +666,6 @@
         0xf -> :sswitch_f
         0x10 -> :sswitch_10
         0x11 -> :sswitch_11
-        0x12 -> :sswitch_12
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

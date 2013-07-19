@@ -39,7 +39,7 @@
     .parameter
 
     .prologue
-    .line 555
+    .line 559
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$1$1;->this$0:Lcom/android/server/pm/PackageManagerService$1;
 
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$1$1;->val$files:[Ljava/lang/String;
@@ -61,7 +61,7 @@
     .locals 8
 
     .prologue
-    .line 558
+    .line 562
     :try_start_0
     sget v6, Lcom/android/server/pm/PackageManagerService;->mPrefetchThreadRunning:I
 
@@ -69,7 +69,7 @@
 
     sput v6, Lcom/android/server/pm/PackageManagerService;->mPrefetchThreadRunning:I
 
-    .line 559
+    .line 563
     const/4 v2, 0x0
 
     .local v2, i:I
@@ -86,7 +86,7 @@
 
     if-nez v6, :cond_2
 
-    .line 560
+    .line 564
     new-instance v1, Ljava/io/File;
 
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$1;->val$dir:Ljava/io/File;
@@ -97,7 +97,7 @@
 
     invoke-direct {v1, v6, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 561
+    .line 565
     .local v1, file:Ljava/io/File;
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$1;->val$files:[Ljava/lang/String;
 
@@ -110,14 +110,14 @@
 
     if-nez v6, :cond_1
 
-    .line 559
+    .line 563
     :cond_0
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 566
+    .line 570
     :cond_1
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$1;->val$files:[Ljava/lang/String;
 
@@ -131,7 +131,7 @@
 
     if-nez v6, :cond_0
 
-    .line 568
+    .line 572
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$1;->val$files:[Ljava/lang/String;
 
     aget-object v6, v6, v2
@@ -144,7 +144,7 @@
 
     if-nez v6, :cond_0
 
-    .line 570
+    .line 574
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$1;->val$files:[Ljava/lang/String;
 
     aget-object v6, v6, v2
@@ -157,7 +157,7 @@
 
     if-nez v6, :cond_0
 
-    .line 572
+    .line 576
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$1;->val$files:[Ljava/lang/String;
 
     aget-object v6, v6, v2
@@ -170,24 +170,24 @@
 
     if-nez v6, :cond_0
 
-    .line 575
+    .line 579
     invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 576
+    .line 580
     .local v5, scanPath:Ljava/lang/String;
     new-instance v4, Landroid/content/pm/PackageParser;
 
     invoke-direct {v4, v5}, Landroid/content/pm/PackageParser;-><init>(Ljava/lang/String;)V
 
-    .line 577
+    .line 581
     .local v4, pp:Landroid/content/pm/PackageParser;
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$1;->val$nSeparateProcessesInner:[Ljava/lang/String;
 
     invoke-virtual {v4, v6}, Landroid/content/pm/PackageParser;->setSeparateProcesses([Ljava/lang/String;)V
 
-    .line 578
+    .line 582
     const/4 v6, 0x0
 
     iget v7, p0, Lcom/android/server/pm/PackageManagerService$1$1;->val$parseFlags:I
@@ -196,7 +196,7 @@
 
     move-result-object v3
 
-    .line 580
+    .line 584
     .local v3, pkg:Landroid/content/pm/PackageParser$Package;
     sget-object v6, Lcom/android/server/pm/PackageManagerService;->pom:Lcom/android/server/pm/PackageManagerService$PackageObjectMap;
 
@@ -208,7 +208,7 @@
 
     goto :goto_1
 
-    .line 583
+    .line 587
     .end local v1           #file:Ljava/io/File;
     .end local v2           #i:I
     .end local v3           #pkg:Landroid/content/pm/PackageParser$Package;
@@ -217,25 +217,25 @@
     :catch_0
     move-exception v0
 
-    .line 584
+    .line 588
     .local v0, e:Ljava/lang/Exception;
     const/4 v6, 0x1
 
     sput-boolean v6, Lcom/android/server/pm/PackageManagerService;->isError:Z
 
-    .line 585
+    .line 589
     const-string v6, "BootTime"
 
     const-string v7, "Exception in Thread"
 
     invoke-static {v6, v7, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 587
+    .line 591
     .end local v0           #e:Ljava/lang/Exception;
     :goto_2
     return-void
 
-    .line 582
+    .line 586
     .restart local v2       #i:I
     :cond_2
     :try_start_1

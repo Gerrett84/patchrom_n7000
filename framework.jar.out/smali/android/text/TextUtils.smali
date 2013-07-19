@@ -104,26 +104,26 @@
 
     sput-object v0, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 1831
+    .line 1857
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/text/TextUtils;->sLock:Ljava/lang/Object;
 
-    .line 1832
+    .line 1858
     const/4 v0, 0x0
 
     sput-object v0, Landroid/text/TextUtils;->sTemp:[C
 
-    .line 1834
+    .line 1860
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/String;
 
     sput-object v0, Landroid/text/TextUtils;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
-    .line 1838
+    .line 1864
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -136,7 +136,7 @@
 
     sput-object v0, Landroid/text/TextUtils;->ELLIPSIS_NORMAL:Ljava/lang/String;
 
-    .line 1840
+    .line 1866
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -801,7 +801,7 @@
 
     const/4 v4, 0x0
 
-    .line 1730
+    .line 1756
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
@@ -817,22 +817,22 @@
     :cond_0
     move v3, v4
 
-    .line 1748
+    .line 1774
     :cond_1
     :goto_0
     return v3
 
-    .line 1733
+    .line 1759
     :cond_2
     const/4 v2, -0x1
 
-    .line 1734
+    .line 1760
     .local v2, pos:I
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    .line 1735
+    .line 1761
     .local v1, length:I
     :cond_3
     add-int/lit8 v5, v2, 0x1
@@ -845,7 +845,7 @@
 
     if-eq v2, v5, :cond_5
 
-    .line 1736
+    .line 1762
     if-lez v2, :cond_4
 
     add-int/lit8 v5, v2, -0x1
@@ -856,7 +856,7 @@
 
     if-ne v5, p1, :cond_3
 
-    .line 1739
+    .line 1765
     :cond_4
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
@@ -864,11 +864,11 @@
 
     add-int v0, v2, v5
 
-    .line 1740
+    .line 1766
     .local v0, expectedDelimiterPos:I
     if-eq v0, v1, :cond_1
 
-    .line 1744
+    .line 1770
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
@@ -881,7 +881,7 @@
     :cond_5
     move v3, v4
 
-    .line 1748
+    .line 1774
     goto :goto_0
 .end method
 
@@ -1910,7 +1910,7 @@
     .line 848
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
-    const-string v5, "max of 9 values are supported"
+    const-string/jumbo v5, "max of 9 values are supported"
 
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -2120,51 +2120,51 @@
 
     const/16 v7, 0x2e
 
-    .line 1634
+    .line 1660
     if-gez p1, :cond_1
 
-    .line 1635
+    .line 1661
     const/4 v4, 0x0
 
-    .line 1719
+    .line 1745
     :cond_0
     :goto_0
     return v4
 
-    .line 1640
+    .line 1666
     :cond_1
     const/4 v4, 0x0
 
-    .line 1642
+    .line 1668
     .local v4, mode:I
     and-int/lit16 v5, p2, 0x1000
 
     if-eqz v5, :cond_2
 
-    .line 1643
+    .line 1669
     or-int/lit16 v4, v4, 0x1000
 
-    .line 1645
+    .line 1671
     :cond_2
     and-int/lit16 v5, p2, 0x6000
 
     if-eqz v5, :cond_0
 
-    .line 1651
+    .line 1677
     move v1, p1
 
     .local v1, i:I
     :goto_1
     if-lez v1, :cond_3
 
-    .line 1652
+    .line 1678
     add-int/lit8 v5, v1, -0x1
 
     invoke-interface {p0, v5}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
 
-    .line 1654
+    .line 1680
     .local v0, c:C
     if-eq v0, v8, :cond_5
 
@@ -2178,12 +2178,12 @@
 
     if-eq v5, v6, :cond_5
 
-    .line 1662
+    .line 1688
     .end local v0           #c:C
     :cond_3
     move v2, v1
 
-    .line 1663
+    .line 1689
     .local v2, j:I
     :goto_2
     if-lez v2, :cond_6
@@ -2203,20 +2203,20 @@
 
     if-ne v0, v5, :cond_6
 
-    .line 1664
+    .line 1690
     :cond_4
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_2
 
-    .line 1651
+    .line 1677
     .end local v2           #j:I
     :cond_5
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
 
-    .line 1666
+    .line 1692
     .end local v0           #c:C
     .restart local v2       #j:I
     :cond_6
@@ -2232,41 +2232,41 @@
 
     if-ne v5, v6, :cond_8
 
-    .line 1667
+    .line 1693
     :cond_7
     or-int/lit16 v4, v4, 0x2000
 
     goto :goto_0
 
-    .line 1672
+    .line 1698
     :cond_8
     and-int/lit16 v5, p2, 0x4000
 
     if-nez v5, :cond_9
 
-    .line 1673
+    .line 1699
     if-eq v1, v2, :cond_0
 
     or-int/lit16 v4, v4, 0x2000
 
     goto :goto_0
 
-    .line 1679
+    .line 1705
     :cond_9
     if-eq v1, v2, :cond_0
 
-    .line 1685
+    .line 1711
     :goto_3
     if-lez v2, :cond_a
 
-    .line 1686
+    .line 1712
     add-int/lit8 v5, v2, -0x1
 
     invoke-interface {p0, v5}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
 
-    .line 1688
+    .line 1714
     .restart local v0       #c:C
     if-eq v0, v8, :cond_d
 
@@ -2280,19 +2280,19 @@
 
     if-eq v5, v6, :cond_d
 
-    .line 1694
+    .line 1720
     .end local v0           #c:C
     :cond_a
     if-lez v2, :cond_0
 
-    .line 1695
+    .line 1721
     add-int/lit8 v5, v2, -0x1
 
     invoke-interface {p0, v5}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
 
-    .line 1697
+    .line 1723
     .restart local v0       #c:C
     if-eq v0, v7, :cond_b
 
@@ -2304,46 +2304,46 @@
 
     if-ne v0, v5, :cond_0
 
-    .line 1701
+    .line 1727
     :cond_b
     if-ne v0, v7, :cond_c
 
-    .line 1702
+    .line 1728
     add-int/lit8 v3, v2, -0x2
 
     .local v3, k:I
     :goto_4
     if-ltz v3, :cond_c
 
-    .line 1703
+    .line 1729
     invoke-interface {p0, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
 
-    .line 1705
+    .line 1731
     if-eq v0, v7, :cond_0
 
-    .line 1709
+    .line 1735
     invoke-static {v0}, Ljava/lang/Character;->isLetter(C)Z
 
     move-result v5
 
     if-nez v5, :cond_e
 
-    .line 1715
+    .line 1741
     .end local v3           #k:I
     :cond_c
     or-int/lit16 v4, v4, 0x4000
 
     goto/16 :goto_0
 
-    .line 1685
+    .line 1711
     :cond_d
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_3
 
-    .line 1702
+    .line 1728
     .restart local v3       #k:I
     :cond_e
     add-int/lit8 v3, v3, -0x1
@@ -2782,43 +2782,43 @@
     .parameter "prefix"
 
     .prologue
-    .line 1541
+    .line 1567
     const/4 v12, 0x0
 
-    .line 1542
+    .line 1568
     .local v12, i:I
     const/4 v14, 0x0
 
-    .line 1543
+    .line 1569
     .local v14, pos:I
     invoke-interface/range {p1 .. p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v4
 
-    .line 1545
+    .line 1571
     .local v4, len:I
     if-eqz v4, :cond_0
 
     if-nez p2, :cond_2
 
-    .line 1546
+    .line 1572
     :cond_0
     const/4 v10, 0x0
 
-    .line 1589
+    .line 1615
     :cond_1
     :goto_0
     return-object v10
 
-    .line 1549
+    .line 1575
     :cond_2
     new-array v8, v4, [F
 
-    .line 1550
+    .line 1576
     .local v8, widths:[F
     new-array v2, v4, [C
 
-    .line 1553
+    .line 1579
     .local v2, chars:[C
     const/4 v12, 0x0
 
@@ -2829,7 +2829,7 @@
 
     if-ge v12, v1, :cond_3
 
-    .line 1554
+    .line 1580
     aget-char v1, p2, v12
 
     invoke-static {v1}, Landroid/text/TextUtils;->isIndianChar(C)Z
@@ -2846,7 +2846,7 @@
 
     if-eqz v1, :cond_4
 
-    .line 1558
+    .line 1584
     :cond_3
     move-object/from16 v0, p2
 
@@ -2854,32 +2854,32 @@
 
     if-ne v12, v1, :cond_5
 
-    .line 1564
+    .line 1590
     const/4 v10, 0x0
 
     goto :goto_0
 
-    .line 1553
+    .line 1579
     :cond_4
     add-int/lit8 v12, v12, 0x1
 
     goto :goto_1
 
-    .line 1567
+    .line 1593
     :cond_5
     invoke-static/range {p1 .. p2}, Landroid/text/TextUtils;->indexOfWordPrefix(Ljava/lang/CharSequence;[C)I
 
     move-result v14
 
-    .line 1568
+    .line 1594
     if-gez v14, :cond_6
 
-    .line 1569
+    .line 1595
     const/4 v10, 0x0
 
     goto :goto_0
 
-    .line 1572
+    .line 1598
     :cond_6
     const/4 v1, 0x0
 
@@ -2889,7 +2889,7 @@
 
     invoke-static {v0, v1, v4, v2, v3}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
 
-    .line 1573
+    .line 1599
     const/4 v3, 0x0
 
     const/4 v5, 0x0
@@ -2904,18 +2904,18 @@
 
     invoke-virtual/range {v1 .. v9}, Landroid/text/TextPaint;->getTextRunAdvances([CIIIII[FI)F
 
-    .line 1575
+    .line 1601
     move-object/from16 v0, p2
 
     array-length v1, v0
 
     add-int v12, v14, v1
 
-    .line 1576
+    .line 1602
     :goto_2
     if-ge v12, v4, :cond_7
 
-    .line 1577
+    .line 1603
     aget v1, v8, v12
 
     const/4 v3, 0x0
@@ -2924,15 +2924,15 @@
 
     if-eqz v1, :cond_8
 
-    .line 1583
+    .line 1609
     :cond_7
     sub-int v11, v12, v14
 
-    .line 1584
+    .line 1610
     .local v11, destLength:I
     new-array v10, v11, [C
 
-    .line 1586
+    .line 1612
     .local v10, dest:[C
     const/4 v13, 0x0
 
@@ -2940,19 +2940,19 @@
     :goto_3
     if-ge v13, v11, :cond_1
 
-    .line 1587
+    .line 1613
     add-int v1, v14, v13
 
     aget-char v1, v2, v1
 
     aput-char v1, v10, v13
 
-    .line 1586
+    .line 1612
     add-int/lit8 v13, v13, 0x1
 
     goto :goto_3
 
-    .line 1580
+    .line 1606
     .end local v10           #dest:[C
     .end local v11           #destLength:I
     .end local v13           #j:I
@@ -3469,16 +3469,16 @@
     .prologue
     const/4 v4, -0x1
 
-    .line 1499
+    .line 1525
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
-    .line 1500
+    .line 1526
     .local v3, textLength:I
     array-length v2, p1
 
-    .line 1502
+    .line 1528
     .local v2, prefixLength:I
     if-eqz v2, :cond_0
 
@@ -3487,21 +3487,21 @@
     :cond_0
     move v0, v4
 
-    .line 1534
+    .line 1560
     :cond_1
     :goto_0
     return v0
 
-    .line 1506
+    .line 1532
     :cond_2
     const/4 v0, 0x0
 
-    .line 1507
+    .line 1533
     .local v0, i:I
     :cond_3
     if-ge v0, v3, :cond_8
 
-    .line 1509
+    .line 1535
     :goto_1
     if-ge v0, v3, :cond_4
 
@@ -3515,12 +3515,12 @@
 
     if-nez v5, :cond_4
 
-    .line 1510
+    .line 1536
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 1513
+    .line 1539
     :cond_4
     add-int v5, v0, v2
 
@@ -3528,10 +3528,10 @@
 
     move v0, v4
 
-    .line 1514
+    .line 1540
     goto :goto_0
 
-    .line 1519
+    .line 1545
     :cond_5
     const/4 v1, 0x0
 
@@ -3539,7 +3539,7 @@
     :goto_2
     if-ge v1, v2, :cond_6
 
-    .line 1520
+    .line 1546
     add-int v5, v0, v1
 
     invoke-interface {p0, v5}, Ljava/lang/CharSequence;->charAt(I)C
@@ -3554,11 +3554,11 @@
 
     if-eq v5, v6, :cond_7
 
-    .line 1524
+    .line 1550
     :cond_6
     if-eq v1, v2, :cond_1
 
-    .line 1529
+    .line 1555
     :goto_3
     if-ge v0, v3, :cond_3
 
@@ -3572,12 +3572,12 @@
 
     if-eqz v5, :cond_3
 
-    .line 1530
+    .line 1556
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
-    .line 1519
+    .line 1545
     :cond_7
     add-int/lit8 v1, v1, 0x1
 
@@ -3587,7 +3587,7 @@
     :cond_8
     move v0, v4
 
-    .line 1534
+    .line 1560
     goto :goto_0
 .end method
 
@@ -3864,6 +3864,198 @@
     goto :goto_0
 .end method
 
+.method public static isIndianVowel(C)Z
+    .locals 1
+    .parameter "c"
+
+    .prologue
+    .line 1487
+    const/16 v0, 0x93e
+
+    if-lt p0, v0, :cond_0
+
+    const/16 v0, 0x944
+
+    if-le p0, v0, :cond_12
+
+    :cond_0
+    const/16 v0, 0x946
+
+    if-lt p0, v0, :cond_1
+
+    const/16 v0, 0x94d
+
+    if-le p0, v0, :cond_12
+
+    :cond_1
+    const/16 v0, 0x962
+
+    if-lt p0, v0, :cond_2
+
+    const/16 v0, 0x963
+
+    if-le p0, v0, :cond_12
+
+    :cond_2
+    const/16 v0, 0x951
+
+    if-lt p0, v0, :cond_3
+
+    const/16 v0, 0x954
+
+    if-le p0, v0, :cond_12
+
+    :cond_3
+    const/16 v0, 0x9be
+
+    if-lt p0, v0, :cond_4
+
+    const/16 v0, 0x9cd
+
+    if-le p0, v0, :cond_12
+
+    :cond_4
+    const/16 v0, 0x9e2
+
+    if-lt p0, v0, :cond_5
+
+    const/16 v0, 0x9e3
+
+    if-le p0, v0, :cond_12
+
+    :cond_5
+    const/16 v0, 0x9d7
+
+    if-eq p0, v0, :cond_12
+
+    const/16 v0, 0xa3e
+
+    if-lt p0, v0, :cond_6
+
+    const/16 v0, 0xa4d
+
+    if-le p0, v0, :cond_12
+
+    :cond_6
+    const/16 v0, 0xabe
+
+    if-lt p0, v0, :cond_7
+
+    const/16 v0, 0xacd
+
+    if-le p0, v0, :cond_12
+
+    :cond_7
+    const/16 v0, 0xae2
+
+    if-lt p0, v0, :cond_8
+
+    const/16 v0, 0xae3
+
+    if-le p0, v0, :cond_12
+
+    :cond_8
+    const/16 v0, 0xbbe
+
+    if-lt p0, v0, :cond_9
+
+    const/16 v0, 0xbcd
+
+    if-le p0, v0, :cond_12
+
+    :cond_9
+    const/16 v0, 0xbd7
+
+    if-eq p0, v0, :cond_12
+
+    const/16 v0, 0xc3e
+
+    if-lt p0, v0, :cond_a
+
+    const/16 v0, 0xc4d
+
+    if-le p0, v0, :cond_12
+
+    :cond_a
+    const/16 v0, 0xc62
+
+    if-lt p0, v0, :cond_b
+
+    const/16 v0, 0xc63
+
+    if-le p0, v0, :cond_12
+
+    :cond_b
+    const/16 v0, 0xc55
+
+    if-lt p0, v0, :cond_c
+
+    const/16 v0, 0xc56
+
+    if-le p0, v0, :cond_12
+
+    :cond_c
+    const/16 v0, 0xcbe
+
+    if-lt p0, v0, :cond_d
+
+    const/16 v0, 0xccd
+
+    if-le p0, v0, :cond_12
+
+    :cond_d
+    const/16 v0, 0xcd5
+
+    if-lt p0, v0, :cond_e
+
+    const/16 v0, 0xcd6
+
+    if-le p0, v0, :cond_12
+
+    :cond_e
+    const/16 v0, 0xce2
+
+    if-lt p0, v0, :cond_f
+
+    const/16 v0, 0xce3
+
+    if-le p0, v0, :cond_12
+
+    :cond_f
+    const/16 v0, 0xd3e
+
+    if-lt p0, v0, :cond_10
+
+    const/16 v0, 0xd4d
+
+    if-le p0, v0, :cond_12
+
+    :cond_10
+    const/16 v0, 0xd62
+
+    if-lt p0, v0, :cond_11
+
+    const/16 v0, 0xd63
+
+    if-le p0, v0, :cond_12
+
+    :cond_11
+    const/16 v0, 0xd57
+
+    if-ne p0, v0, :cond_13
+
+    :cond_12
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_13
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static isPrintableAscii(C)Z
     .locals 3
     .parameter "c"
@@ -3961,7 +4153,7 @@
     .parameter "c"
 
     .prologue
-    .line 1487
+    .line 1506
     const/16 v0, 0xe01
 
     if-lt p0, v0, :cond_0
@@ -3976,6 +4168,45 @@
     return v0
 
     :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isThaiVowel(C)Z
+    .locals 1
+    .parameter "c"
+
+    .prologue
+    .line 1513
+    const/16 v0, 0xe31
+
+    if-eq p0, v0, :cond_1
+
+    const/16 v0, 0xe34
+
+    if-lt p0, v0, :cond_0
+
+    const/16 v0, 0xe3a
+
+    if-le p0, v0, :cond_1
+
+    :cond_0
+    const/16 v0, 0xe47
+
+    if-lt p0, v0, :cond_2
+
+    const/16 v0, 0xe4e
+
+    if-gt p0, v0, :cond_2
+
+    :cond_1
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_2
     const/4 v0, 0x0
 
     goto :goto_0
@@ -4002,7 +4233,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040641
+    const v2, 0x1040653
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -4440,7 +4671,7 @@
     .parameter "end"
 
     .prologue
-    .line 1808
+    .line 1834
     int-to-long v0, p0
 
     const/16 v2, 0x20
@@ -4608,14 +4839,14 @@
     .local p2, klass:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
     const/4 v8, 0x0
 
-    .line 1770
+    .line 1796
     const/4 v0, 0x0
 
-    .line 1771
+    .line 1797
     .local v0, copy:[Ljava/lang/Object;,"[TT;"
     const/4 v1, 0x0
 
-    .line 1773
+    .line 1799
     .local v1, count:I
     const/4 v3, 0x0
 
@@ -4625,29 +4856,29 @@
 
     if-ge v3, v7, :cond_2
 
-    .line 1774
+    .line 1800
     aget-object v5, p0, v3
 
-    .line 1775
+    .line 1801
     .local v5, span:Ljava/lang/Object;,"TT;"
     invoke-interface {p1, v5}, Landroid/text/Spanned;->getSpanStart(Ljava/lang/Object;)I
 
     move-result v6
 
-    .line 1776
+    .line 1802
     .local v6, start:I
     invoke-interface {p1, v5}, Landroid/text/Spanned;->getSpanEnd(Ljava/lang/Object;)I
 
     move-result v2
 
-    .line 1778
+    .line 1804
     .local v2, end:I
     if-ne v6, v2, :cond_1
 
-    .line 1779
+    .line 1805
     if-nez v0, :cond_0
 
-    .line 1780
+    .line 1806
     array-length v7, p0
 
     add-int/lit8 v7, v7, -0x1
@@ -4662,39 +4893,39 @@
 
     check-cast v0, [Ljava/lang/Object;
 
-    .line 1781
+    .line 1807
     invoke-static {p0, v8, v0, v8, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1782
+    .line 1808
     move v1, v3
 
-    .line 1773
+    .line 1799
     :cond_0
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 1785
+    .line 1811
     :cond_1
     if-eqz v0, :cond_0
 
-    .line 1786
+    .line 1812
     aput-object v5, v0, v1
 
-    .line 1787
+    .line 1813
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 1792
+    .line 1818
     .end local v2           #end:I
     .end local v5           #span:Ljava/lang/Object;,"TT;"
     .end local v6           #start:I
     :cond_2
     if-eqz v0, :cond_3
 
-    .line 1793
+    .line 1819
     invoke-static {p2, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
 
     move-result-object v7
@@ -4705,11 +4936,11 @@
 
     check-cast v4, [Ljava/lang/Object;
 
-    .line 1794
+    .line 1820
     .local v4, result:[Ljava/lang/Object;,"[TT;"
     invoke-static {v0, v8, v4, v8, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1797
+    .line 1823
     .end local v4           #result:[Ljava/lang/Object;,"[TT;"
     :goto_2
     return-object v4
@@ -5133,7 +5364,7 @@
     .parameter "range"
 
     .prologue
-    .line 1828
+    .line 1854
     const-wide v0, 0xffffffffL
 
     and-long/2addr v0, p0
@@ -5148,7 +5379,7 @@
     .parameter "range"
 
     .prologue
-    .line 1818
+    .line 1844
     const/16 v0, 0x20
 
     ushr-long v0, p0, v0

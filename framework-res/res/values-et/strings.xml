@@ -270,7 +270,7 @@
     <string name="turn_on_radio">Lülita traadita ühendus sisse</string>
     <string name="turn_off_radio">Lülita traadita ühendus välja</string>
     <string name="screen_lock">Ekraanilukk</string>
-    <string name="power_off">Toide väljas</string>
+    <string name="power_off">Väljalülitumise aeg</string>
     <string name="silent_mode_silent">Helin on väljas</string>
     <string name="silent_mode_vibrate">Helinaks on värin</string>
     <string name="silent_mode_ring">Helin on sees</string>
@@ -285,7 +285,7 @@
     <string name="no_recent_tasks">Hiljutisi rakendusi pole</string>
     <string name="global_actions">Seadme valikud</string>
     <string name="global_action_lock">Ekraanilukk</string>
-    <string name="global_action_power_off">Toide väljas</string>
+    <string name="global_action_power_off">Toide VÄLJA</string>
     <string name="global_action_restart">Taaskäivita</string>
     <string name="global_action_sound_mode_mute">Vaigista</string>
     <string name="global_action_sound_mode_vibrate">Värin</string>
@@ -361,6 +361,7 @@
     <string name="permdesc_mdmKioskMode">Juhtige seadme käitumist kioskirežiimis</string>
     <string name="tether_usb_restrict">Turvalisuse poliis piirab USB-modemi kasutuse</string>
     <string name="tether_wifi_restrict">Turvalisuse poliis piirab Wi-Fi-modemi kasutuse</string>
+    <string name="data_call_restriction">Turvalisuse poliis piirab mobiilse andmeside kasutamist</string>
     <string name="dpm_wifi_blocked_network">Turvalisuse poliis blokeerib selle Wi-Fi võrgu kasutamist</string>
     <string name="dpm_wifi_misc_wifi_disabled">Turvalisuse poliis piirab Wi-Fi kasutuse</string>
     <string name="dpm_wifi_misc_network_insecure">Turvalisuse poliis piirab mitteturvaliste Wi-Fi võrkude kasutamist</string>
@@ -572,7 +573,7 @@
     <string name="permdesc_writeSocialStream">Võimaldab rakendusel kuvada sõprade sotsiaalseid värskendusi. Olge teabe jagamisel ettevaatlik – see võimaldab rakendusel luua sõnumeid, mis võivad näida tulevat sõpradelt. Märkus: see luba ei pruugi jõustuda kõikides suhtlusvõrgustikes.</string>
     <string name="permlab_readCalendar">Lugege kalendri sündmusi ja konfidentsiaalset teavet</string>
     <string name="permdesc_readCalendar">Võimaldab rakendusel lugeda kõiki telefoni salvestatud kalendrisündmusi, sh sõprade või töökaaslaste omi. See võib lubada rakendusel jagada või salvestada teie kalendriandmeid, hoolimata konfidentsiaalsusest või tundlikkusest.</string>
-    <string name="permlab_writeCalendar">kalendrisündmuste lisamine või muutmine ja külalistele omanike teadmata meili saatmine</string>
+    <string name="permlab_writeCalendar">Kalendri sündmuste lisamine või muutmine ja külalistele e-kirjade saatmine ilma hostile teatamata</string>
     <string name="permdesc_writeCalendar">Võimaldab rakendusel lisada, eemaldada ja muuta sündmusi, mida saate muuta oma telefonis, sh sõprade ja töökaaslaste omi. See võib võimaldada rakendusel saata sõnumeid, mis näivad tulevat kalendri omanikelt, või muuta sündmusi omaniku teadmata.</string>
     <string name="permlab_accessMockLocation">teeseldud asukoha allikad testimise jaoks</string>
     <string name="permdesc_accessMockLocation">Lubab rakendusel luua testimiseks teeseldud asukoha allikaid. Kui see on lubatud, võivad pahatahtlikud rakendused alistada asukoha ja/või oleku, mis on tagasi saadetud tõeliste asukoha allikate poolt (näiteks GPS või võrguoperaatorid) või jälgida teie asukohta ja teavitada sellest juhuslikke veebisaite</string>
@@ -662,7 +663,7 @@
     <string name="permdesc_getAccounts">Lubab rakendusel pääseda ligi telefoni kontoloendile</string>
     <string name="permlab_authenticateAccounts">Konto autentijana toimimine</string>
     <string name="permdesc_authenticateAccounts">Lubab rakendusel kasutada kontohalduri konto autentija funktsiooni. Selle hulka kuulub kontode loomine ning paroolide kontrollimine</string>
-    <string name="permlab_manageAccounts">lisage või eemaldage kontosid</string>
+    <string name="permlab_manageAccounts">Lisage või eemaldage kontosid</string>
     <string name="permdesc_manageAccounts">Lubab rakendusel kontosid lisada ja eemaldada ning teie parooli kustutada</string>
     <string name="permlab_useCredentials">Kasuta konto autentimise volitusi</string>
     <string name="permdesc_useCredentials">Lubab rakendusel taotleda autentimise tõendeid</string>
@@ -684,7 +685,7 @@
     <string name="permdesc_changeWifiState">Lubab rakendusel luua ja katkestada ühenduse Wi-Fi pääsupunktidega ning teha muudatusi konfigureeritud Wi-Fi võrkudesse</string>
     <string name="permlab_changeWifiMulticastState">Luba Wi-Fi multiedastuse vastuvõtt</string>
     <string name="permdesc_changeWifiMulticastState">Võimaldab rakendusel vastu võtta pakette, mis on saadetud kõikidele WiFi-võrguga ühendatud seadmetele, mis kasutavad multiedastuse aadresse, mitte ainult teie telefoni. See võtab rohkem energiat kui mittemultiedastuse režiim.</string>
-    <string name="permlab_bluetoothAdmin">juurdepääs Bluetoothi ​​seadetele</string>
+    <string name="permlab_bluetoothAdmin">Bluetoothi seaded</string>
     <string name="permdesc_bluetoothAdmin">Lubab rakendusel konfigureerida kohalikku Bluetooth-telefoni ning leida kaugseadmeid ja nendega siduda</string>
     <string name="permlab_accessWimaxState">Kuva WiMAX-i olek</string>
     <string name="permdesc_accessWimaxState">Võimaldab rakendusel määrata, kas WiMAX on lubatud, ja vaadata teavet kõikide ühendatud WiMAX-võrkude kohta.</string>
@@ -774,6 +775,7 @@
     <string name="policydesc_allow_desktopsync">Takista töölaua sünkroonimise kasutamine</string>
     <string name="policylab_require_storagecard_encryption">Määra SD-kaardi krüptimine</string>
     <string name="policydesc_require_storagecard_encryption">Nõuab, et SD-kaardile salvestatud rakendus oleks krüptitud</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth-ühendus on katkenud</string>
     <string name="bluetooth_security_mode_disable">Turvalisuse poliis piirab Bluetooth-ühenduse kasutuse</string>
     <string name="bluetooth_security_mode_handsfree">Turvalisuse poliis piirab Bluetooth-ühenduse kasutamise ainult käed-vabad funktsioonide puhul</string>
     <string name="phoneTypeCustom">Kohandus</string>
@@ -853,7 +855,7 @@
     <string name="keyguard_password_entry_touch_hint">Toksake parooli sisestamiseks</string>
     <string name="keyguard_password_enter_password_code">Sisestage avamiseks parool</string>
     <string name="keyguard_password_enter_pin_password_code">Ekraani avamiseks sisestage PIN-kood</string>
-    <string name="keyguard_password_wrong_pin_code">Vale PIN-kood.</string>
+    <string name="keyguard_password_wrong_pin_code">Vale PIN-kood</string>
     <string name="keyguard_pin_accepted">Kood on aktsepteeritud</string>
     <string name="keyguard_label_text">Avamiseks valige Menüü ning seejärel 0</string>
     <string name="emergency_call_dialog_number_for_display">Hädaabinumber</string>
@@ -890,8 +892,9 @@
     <string name="lockscreen_network_locked_message">Võrk on lukustatud</string>
     <string name="lockscreen_sim_puk_locked_message">SIM-kaart on PUK-koodiga lukustatud</string>
     <string name="lockscreen_sim_puk_locked_instructions">Palun vaadake kasutusjuhendit või võtke ühendust klienditeenindusega</string>
-    <string name="lockscreen_sim_locked_message">SIM-/RUIM-kaart on lukustatud</string>
+    <string name="lockscreen_sim_locked_message">SIM-kaart on lukustatud</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">SIM-kaardi avamine…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Vale avamise muster on joonistatud %1$d korda. Proovige %2$d sekundi pärast uuesti</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Vale parool sisestati %1$d korda. Proovige uuesti %2$d sekundi pärast</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 on blokeeritud. PIN1-koodi blokeeringu tühistamiseks sisestage PUK1-kood</string>
@@ -944,6 +947,7 @@
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">Sama nagu</string>
     <string name="autofill_billing_designator_re">Arve</string>
+    <string name="autofill_shipping_designator_re">Laev</string>
     <string name="autofill_phone_suffix_re">Järelliide</string>
     <string name="autofill_name_on_card_contextual_re">Nimi</string>
     <string name="autofill_province">Maakond</string>
@@ -958,7 +962,7 @@
     <string name="autofill_parish">Vald</string>
     <string name="autofill_area">Pindala</string>
     <string name="autofill_emirate">Emiraat</string>
-    <string name="permlab_readHistoryBookmarks">lugege oma veebijärjehoidjaid ja -ajalugu</string>
+    <string name="permlab_readHistoryBookmarks">Loe Interneti-ajalugu ja järjehoidjaid</string>
     <string name="permdesc_readHistoryBookmarks">Lubab rakendusel lugeda kõiki URL-e, mida brauser on külastanud, ja kõiki brauseri järjehoidjaid</string>
     <string name="permlab_writeHistoryBookmarks">kirjutage veebijärjehoidjaid ja -ajalugu</string>
     <string name="permdesc_writeHistoryBookmarks">Lubab rakendusel muuta telefoni salvestatud internetiajalugu ja järjehoidjaid. Kui see on lubatud, võivad pahatahtlikud rakendused kustutada või muuta neid andmeid</string>
@@ -1037,10 +1041,12 @@
     <string name="editTextMenuTitle">Tekstitoimingud</string>
     <string name="low_internal_storage_view_title">Mälu on peaaegu täis</string>
     <string name="low_internal_storage_view_text">Mõned süsteemifunktsioonid ei pruugi töötada</string>
+    <string name="full_internal_storage_view_text">Võib tekkida tõrge, kuna seadme mälu on täis. Kustutage mõned üksused</string>
     <string name="loading">Laadimine…</string>
     <string name="capital_on">Sees</string>
     <string name="capital_off">Väljas</string>
     <string name="whichApplication">Lõpeta toiming, kasutades</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Kasuta vaikimisi selle toimingu jaoks</string>
     <string name="clearDefaultHintMsg">Tühistage vaikerakenduse seaded menüüs Seaded > Rakenduste haldur > Kõik</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1109,7 +1115,7 @@ Kas soovite selle sulgeda?"</string>
     <string name="wifi_notification_no_network_message">Ava Wi-Fi seaded</string>
     <string name="wifi_notification_not_connected">Wi-Fi võrgud on saadaval</string>
     <string name="wifi_notification_not_connected_message">Ava saadaolevad Wi-Fi võrgud</string>
-    <string name="wifi_notification_connected">Ühendatud üksusega %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Toksake Wi-Fi konfigureerimiseks</string>
     <string name="wifi_notification_connected_secure">Turvaline</string>
     <string name="wifi_notification_connected_open">Ava</string>
@@ -1139,9 +1145,9 @@ Kas soovite selle sulgeda?"</string>
     <string name="select_character">Sisesta tähemärk</string>
     <string name="sms_control_default_app_name">Tundmatu rakendus</string>
     <string name="sms_control_title">SMS-i saatmine…</string>
-    <string name="sms_control_message">Saadetakse suur arv SMS-sõnumeid. Jätkamiseks toksake OK, saatmise peatamiseks Tühista</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Tühista</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> saadab suurel hulgal SMS-sõnumeid. Kas lubate rakendusel jätkata sõnumite saatmist?</string>
+    <string name="sms_control_yes">Luba</string>
+    <string name="sms_control_no">Keeldu</string>
     <string name="sim_removed_title">SIM-kaart on eemaldatud</string>
     <string name="sim_removed_message">Mobiilsidevõrk ei ole saadaval, kuni taaskäivitate, kui sisestatud on kehtiv SIM-kaart</string>
     <string name="sim_done_button">Valmis</string>
@@ -1235,7 +1241,7 @@ Kas soovite selle sulgeda?"</string>
     <string name="activity_list_empty">Kattuvaid tegevusi ei leitud</string>
     <string name="permlab_pkgUsageStats">värskenda komponendi kasutuse statistikat</string>
     <string name="permdesc_pkgUsageStats">Lubab kogutud komponentide kasutuse statistika muudatusi. Pole mõeldud kasutamiseks tavaliste rakenduste poolt</string>
-    <string name="permlab_copyProtectedData">Lubab vaikimisi valitud teenuse konteineril sisu kopeerida. Pole tavaliste rakendustega kasutamiseks</string>
+    <string name="permlab_copyProtectedData">Kopeeri sisu</string>
     <string name="permdesc_copyProtectedData">Lubab vaikimisi valitud teenuse konteineril sisu kopeerida. Pole tavaliste rakendustega kasutamiseks</string>
     <string name="permlab_route_media_output">Marsruudi meediumiväljundit</string>
     <string name="permdesc_route_media_output">Lubab rakendusel marsruutida meediumiväljundit teistesse välisseadmetesse</string>
@@ -1375,10 +1381,11 @@ konto %s jaoks"</string>
     <string name="action_bar_home_description">Navigeeri koju</string>
     <string name="action_bar_up_description">Navigeeri üles</string>
     <string name="action_menu_overflow_description">Veel valikuid</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Lülita eelmisele suurusele</string>
     <string name="storage_internal">Seadme mälu</string>
     <string name="storage_sd_card">SD kaart</string>
     <string name="storage_usb">USB-mälu</string>
-    <string name="extract_edit_menu_button">Muuda…</string>
+    <string name="extract_edit_menu_button">Muuda</string>
     <string name="data_usage_warning_title">Andmekasutuse hoiatus</string>
     <string name="data_usage_warning_body">Toksake, et vaadata kasutust ja seadeid</string>
     <string name="data_usage_3g_limit_title">2G-3G andmeside on desaktiveeritud</string>
@@ -1408,7 +1415,7 @@ konto %s jaoks"</string>
     <string name="fingerprints">Sõrmejäljed</string>
     <string name="sha256_fingerprint">SHA-256 sõrmejälg:</string>
     <string name="sha1_fingerprint">SHA-1 sõrmejälg:</string>
-    <string name="activity_chooser_view_see_all">Vt kõik</string>
+    <string name="activity_chooser_view_see_all">Vaata kõiki</string>
     <string name="activity_chooser_view_dialog_title_default">Vali tegevus</string>
     <string name="share_action_provider_share_with">Jaga üksusega</string>
     <string name="status_bar_device_locked">Seade on lukustatud</string>
@@ -1464,6 +1471,8 @@ konto %s jaoks"</string>
     <string name="lockscreen_fmapp_name">FM-raadio</string>
     <string name="lockscreen_clock_dualclock_home">Kodu</string>
     <string name="lockscreen_clock_dualclock_roaming">Rändlus</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Sŏul</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Rändlusvõrk</string>
     <string name="lockscreen_clock_dualclock_popup_title">Kaksikkell</string>
     <string name="lockscreen_clock_dualclock_popup_message">Valige kodulinn, mida kuvatakse kaksikkellana lukustusekraanil. Kas avada seaded?</string>
     <string name="lockscreen_ticker_no_data_to_display">Puuduvad andmed, mida kuvada</string>
@@ -1500,7 +1509,7 @@ konto %s jaoks"</string>
     <string name="lockscreen_2ndLock_instructions2">Avamiseks sisestage tagavara PIN-kood</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Joonistasite avamise mustri %1$d korda valesti. Proovige %2$d sekundi pärast uuesti.</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">"Vale avamise muster on joonistatud %1$d korda. Jäänud on %2$d katset enne, kui teil palutakse oma seade avada oma Google'isse sisselogimise või tagavara PIN-koodi abil. Proovige %3$d sekundi pärast uuesti"</string>
     <string name="lockscreen_carrier_noservice">(Teenust pole)</string>
     <string name="rescan_network">Saadaoleva võrgu otsimine</string>
     <string name="AutoUpdateOfTimeAndDate">Kellaaja ja kuupäeva automaatne värskendamine</string>
@@ -1511,6 +1520,8 @@ konto %s jaoks"</string>
     <string name="capabilitymanager_managed_errortitle">Tõrge</string>
     <string name="security_policy_title">Turvalisuse poliisid</string>
     <string name="security_policy_summary">Kaugadministraatorilt on vastu võetud turvalisuse poliisid</string>
+    <string name="sdcard_unmount_policy_noti_title">SD-kaardi ühendus on katkestatud IT-poliitika tõttu</string>
+    <string name="sdcard_unmount_policy_noti_content">Toksake, et ühendada SD-kaarti</string>
     <string name="sdcard_encrypt_title_notification">SD-kaardi krüptimine</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">SD-kaardi krüptimine…</string>
     <string name="sdcard_encrypt_notification">SD-kaart on krüptitud</string>
@@ -1534,7 +1545,7 @@ konto %s jaoks"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1576,7 +1587,7 @@ konto %s jaoks"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Sisestatud väärtused on kehtivast ulatusest väljas. Kontrollige väärtusi ja proovige uuesti</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1598,6 +1609,8 @@ konto %s jaoks"</string>
     <string name="SS_USB_TETHERING_ENABLED">USB modem on aktiveeritud</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Wi-Fi modem on aktiveeritud</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Modem on aktiveeritud (Wi-Fi ja USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Seade on blokeeritud. Maksimaalne arv paroolide sisestuskatseid on saavutatud. Seadme blokeeringu tühistamiseks on nõutud parooli taastamine. Kui sisestate vale taastamise parooli, kustutatakse kõik andmed</string>
+    <string name="recovery_password_required">Seadme blokeeringu tühistamiseks on nõutud parooli taastamine</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Sissehelistusühendus on lubatud</string>
@@ -1631,12 +1644,21 @@ konto %s jaoks"</string>
     <string name="lockscreen_ticker_logo_news_tts">Uudised</string>
     <string name="lockscreen_ticker_logo_stock_tts">Aktsiainfo</string>
     <string name="lockscreen_ticker_refresh_tts">Värskenda</string>
+    <string name="SS_ALWAYS_ON_TOP">Alati üleval</string>
+    <string name="SS_MINIMISE">Minimeeri</string>
+    <string name="SS_MAXIMISE">Maksimeeri</string>
+    <string name="SS_CLOSE_APPLICATION">Sulge rakendus</string>
+    <string name="spengesture_media_scanning">Pilti ei saa kärpida. Meediumiskanner töötab</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN-kood on blokeeritud</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">SIM-kaardi avamiseks võtke ühendust oma teenusepakkujaga</string>
     <string name="resolver_guide_title">Kustuta vaikeseaded</string>
     <string name="operation_not_allowed">Toiming pole lubatud</string>
     <string name="exceeded_maxlength">Sõnumi max maht ületatud</string>
     <string name="dont_show_again_message">Ära näita uuesti</string>
     <string name="set_bing_as_default">Kas määrata Bing vaikimisi otsingumootoriks?</string>
     <string name="ms_domain_site">Microsofti domeeni sait</string>
+    <string name="unsupported_in_popupbrowser">Hüpikbrauseris on mittetoetatud funktsioon</string>
+    <string name="find_on_page_abb">Otsi lehelt</string>
     <string name="tw_clipboard_already_exists">Juba olemas</string>
     <string name="tw_clipboard_no_items_to_paste">Pole üksusi, mida kleepida</string>
     <string name="tw_clipboard_save_in_memo">Salvesta memodesse</string>
@@ -1651,8 +1673,11 @@ konto %s jaoks"</string>
     <string name="tw_clipboard_clear">Tühj.</string>
     <string name="tw_clipboard_delete_all">Kustutada kõik?</string>
     <string name="tw_clipboard_edit">Muuda</string>
-    <string name="tw_clipboard_done">Valmis</string>
-    <string name="tw_clipboard_save">Salvesta</string>
+    <string name="tw_clipboard_done">Valm.</string>
+    <string name="tw_clipboard_save">Salv.</string>
     <string name="tw_clipboard_no_item">Üksusi ei ole</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Kõik üksused, v.a lukustatud üksused, on lõikelaualt kustutatud</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Kleebitud lõikelaualt</string>
+    <string name="Roaming_Auto_Dialing">PIN-kood on blokeeritud</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

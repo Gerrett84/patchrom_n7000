@@ -273,31 +273,6 @@
 
     iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->orientation:F
 
-    .line 3644
-    iget v5, p1, Landroid/view/MotionEvent$PointerCoords;->surfaceSize:F
-
-    iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->surfaceSize:F
-
-    .line 3645
-    iget v5, p1, Landroid/view/MotionEvent$PointerCoords;->surfaceMajor:F
-
-    iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->surfaceMajor:F
-
-    .line 3646
-    iget v5, p1, Landroid/view/MotionEvent$PointerCoords;->surfaceMinor:F
-
-    iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->surfaceMinor:F
-
-    .line 3647
-    iget v5, p1, Landroid/view/MotionEvent$PointerCoords;->angle:F
-
-    iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->angle:F
-
-    .line 3648
-    iget v5, p1, Landroid/view/MotionEvent$PointerCoords;->palm:F
-
-    iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->palm:F
-
     .line 3654
     const-string/jumbo v5, "ro.revision"
 
@@ -311,8 +286,23 @@
 
     if-lt v5, v6, :cond_3
 
-    .line 3667
+    .line 3663
     :cond_3
+    iget v5, p1, Landroid/view/MotionEvent$PointerCoords;->angle:F
+
+    iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->angle:F
+
+    .line 3664
+    iget v5, p1, Landroid/view/MotionEvent$PointerCoords;->SumSize:F
+
+    iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->SumSize:F
+
+    .line 3665
+    iget v5, p1, Landroid/view/MotionEvent$PointerCoords;->eccen:F
+
+    iput v5, p0, Landroid/view/MotionEvent$PointerCoords;->eccen:F
+
+    .line 3667
     return-void
 .end method
 

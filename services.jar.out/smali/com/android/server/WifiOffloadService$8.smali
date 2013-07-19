@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1128
+    .line 1144
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 1131
+    .line 1147
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1132
+    .line 1148
     .local v0, action:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -53,7 +53,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1133
+    .line 1149
     const-string v1, "android.net.wifi.SCAN_RESULTS"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -62,7 +62,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1134
+    .line 1150
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -72,7 +72,7 @@
     #setter for: Lcom/android/server/WifiOffloadService;->lastWifiScanTime:J
     invoke-static {v1, v2, v3}, Lcom/android/server/WifiOffloadService;->access$802(Lcom/android/server/WifiOffloadService;J)J
 
-    .line 1135
+    .line 1151
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -102,7 +102,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1137
+    .line 1153
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     #getter for: Lcom/android/server/WifiOffloadService;->mWaitForScanResults:Z
@@ -112,20 +112,20 @@
 
     if-eqz v1, :cond_0
 
-    .line 1138
+    .line 1154
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v2, "Scan results available after seamless connect"
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1139
+    .line 1155
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     #calls: Lcom/android/server/WifiOffloadService;->hasNetworkInRange()V
     invoke-static {v1}, Lcom/android/server/WifiOffloadService;->access$1000(Lcom/android/server/WifiOffloadService;)V
 
-    .line 1140
+    .line 1156
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     const/4 v2, 0x0
@@ -133,7 +133,7 @@
     #setter for: Lcom/android/server/WifiOffloadService;->mWaitForScanResults:Z
     invoke-static {v1, v2}, Lcom/android/server/WifiOffloadService;->access$902(Lcom/android/server/WifiOffloadService;Z)Z
 
-    .line 1143
+    .line 1159
     :cond_0
     return-void
 .end method

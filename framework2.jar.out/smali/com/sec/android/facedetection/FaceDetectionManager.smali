@@ -80,7 +80,7 @@
 
     const-string v4, "Fail binding the service; facedetection service may not be running properly."
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 43
     const/4 v1, 0x0
@@ -107,7 +107,7 @@
 
     const-string v4, "A new instance of FaceDetectionManager is created"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

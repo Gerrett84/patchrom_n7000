@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 215
+    .line 219
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockView$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockView;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,12 +39,12 @@
     .parameter "msg"
 
     .prologue
-    .line 218
+    .line 222
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockView$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockView;
 
     #calls: Lcom/android/internal/policy/impl/sec/CircleUnlockView;->startCircleAnimation()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockView;->access$000(Lcom/android/internal/policy/impl/sec/CircleUnlockView;)V
 
-    .line 219
+    .line 223
     return-void
 .end method

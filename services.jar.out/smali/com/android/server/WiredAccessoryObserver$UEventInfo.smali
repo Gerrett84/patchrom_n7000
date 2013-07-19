@@ -30,19 +30,19 @@
     .parameter "state2Bits"
 
     .prologue
-    .line 86
+    .line 88
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 87
+    .line 89
     iput-object p1, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mDevName:Ljava/lang/String;
 
-    .line 88
+    .line 90
     iput p2, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState1Bits:I
 
-    .line 89
+    .line 91
     iput p3, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState2Bits:I
 
-    .line 90
+    .line 92
     return-void
 .end method
 
@@ -52,7 +52,7 @@
     .locals 2
 
     .prologue
-    .line 103
+    .line 105
     new-instance v0, Ljava/io/File;
 
     invoke-virtual {p0}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->getSwitchStatePath()Ljava/lang/String;
@@ -61,7 +61,7 @@
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 104
+    .line 106
     .local v0, f:Ljava/io/File;
     if-eqz v0, :cond_0
 
@@ -88,7 +88,7 @@
     .parameter "switchState"
 
     .prologue
-    .line 108
+    .line 110
     iget v2, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState1Bits:I
 
     iget v3, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState2Bits:I
@@ -97,7 +97,7 @@
 
     xor-int/lit8 v0, v2, -0x1
 
-    .line 109
+    .line 111
     .local v0, preserveMask:I
     const/4 v2, 0x1
 
@@ -105,7 +105,7 @@
 
     iget v1, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState1Bits:I
 
-    .line 112
+    .line 114
     .local v1, setBits:I
     :goto_0
     and-int v2, p1, v0
@@ -114,7 +114,7 @@
 
     return v2
 
-    .line 109
+    .line 111
     .end local v1           #setBits:I
     :cond_0
     const/4 v2, 0x2
@@ -135,7 +135,7 @@
     .locals 1
 
     .prologue
-    .line 92
+    .line 94
     iget-object v0, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mDevName:Ljava/lang/String;
 
     return-object v0
@@ -145,7 +145,7 @@
     .locals 4
 
     .prologue
-    .line 95
+    .line 97
     const-string v0, "/devices/virtual/switch/%s"
 
     const/4 v1, 0x1
@@ -169,7 +169,7 @@
     .locals 4
 
     .prologue
-    .line 99
+    .line 101
     const-string v0, "/sys/class/switch/%s/state"
 
     const/4 v1, 0x1

@@ -100,13 +100,13 @@
     <string name="toast_unavailable_in_tvout_mode">Недостапно во режимот ТВ-излез</string>
     <string name="mute">Искл.ѕвонење</string>
     <string name="seeking">Пребарување…</string>
-    <string name="via_earphone">Преку слушалки</string>
-    <string name="via_speaker">Преку звуч.</string>
+    <string name="via_earphone">Пушти преку слушалки</string>
+    <string name="via_speaker">Емитувај преку звучник</string>
     <string name="normal_frequency">Нормална фреквенција</string>
     <string name="tag">Озн</string>
     <string name="stop">Запри</string>
     <string name="recording">Се снима…</string>
-    <string name="memory_full">Снимањето е сопрено. Меморијата е полна</string>
+    <string name="memory_full">Меморијата е полна</string>
     <string name="cancel_recording">Откажи снимање?</string>
     <string name="change_frequency">Смени фреквенција</string>
     <string name="enter_frequency">Внеси фреквенција</string>
@@ -117,7 +117,7 @@
     <string name="recording_error">Грешка во фајлот</string>
     <string name="desc_record">Снимај</string>
     <string name="desc_volume">Јачина на тон</string>
-    <string name="desc_power">Снага</string>
+    <string name="desc_power">Енергија</string>
     <string name="desc_prev">Претходна станица</string>
     <string name="desc_next">Следна станица</string>
     <string name="desc_add_favorite">Додај омил. стр.</string>
@@ -132,11 +132,14 @@
     <string name="tags">Ознаки</string>
     <string name="tags_now_broadcasting">Ново емитување</string>
     <string name="tags_no_information">Нема информации</string>
+    <string name="tags_music_history">Музичка историја</string>
     <string name="tags_music_title">Наслов</string>
     <string name="tags_music_album">Албум</string>
     <string name="tags_music_artist">Изведувач</string>
+    <string name="tags_music_band">Фреквенција</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Почетна страница</string>
+    <string name="tags_interact_hotline">Хотлајн</string>
     <string name="tags_interact_studio">Студио</string>
     <string name="tags_interact_other">Друго</string>
     <string name="tags_interact_centre">На средина</string>
@@ -182,4 +185,14 @@
     <string name="dialog_one_item_deleted">Записот ќе се избрише</string>
     <string name="dialog_multiple_items_deleted">%d записи ќе се избришат</string>
     <string name="dialog_all_items_deleted">Сите записи ќе се избришат</string>
+    <string name="turning_on">Се вклучува…</string>
+    <string name="not_enough_memory_recording_will_stop">Нема доволно меморија. Снимањето ќе сопре за %d секунди</string>
+    <string name="low_batt_msg">Батеријата е празна</string>
+    <string name="no_play_during_call">Не може да се пушти за време на разговор</string>
+    <string name="unable_delete">Не може да се избрише</string>
+    <string name="playing">Емитува…</string>
+    <string name="tts_play_button">Емитувај</string>
+    <string name="tts_previous_button">Претходно</string>
+    <string name="tts_Next_button">Следно</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

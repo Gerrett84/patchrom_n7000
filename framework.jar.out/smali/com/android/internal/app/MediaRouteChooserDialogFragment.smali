@@ -74,11 +74,11 @@
 
     :array_0
     .array-data 0x4
-        0x9ft 0x0t 0x9t 0x1t
-        0x9et 0x0t 0x9t 0x1t
-        0x9bt 0x0t 0x9t 0x1t
-        0x9ct 0x0t 0x9t 0x1t
-        0x9dt 0x0t 0x9t 0x1t
+        0xa4t 0x0t 0x9t 0x1t
+        0xa3t 0x0t 0x9t 0x1t
+        0xa0t 0x0t 0x9t 0x1t
+        0xa1t 0x0t 0x9t 0x1t
+        0xa2t 0x0t 0x9t 0x1t
     .end array-data
 .end method
 
@@ -271,7 +271,7 @@
     invoke-super {p0, p1}, Landroid/app/DialogFragment;->onAttach(Landroid/app/Activity;)V
 
     .line 99
-    const-string v0, "media_router"
+    const-string/jumbo v0, "media_router"
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -319,7 +319,7 @@
     iput-object p1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mInflater:Landroid/view/LayoutInflater;
 
     .line 163
-    const v3, 0x109009a
+    const v3, 0x109009f
 
     invoke-virtual {p1, v3, p2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -327,7 +327,7 @@
 
     .line 165
     .local v1, layout:Landroid/view/View;
-    const v3, 0x102039a
+    const v3, 0x10203aa
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -338,7 +338,7 @@
     iput-object v3, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mVolumeIcon:Landroid/widget/ImageView;
 
     .line 166
-    const v3, 0x102039b
+    const v3, 0x10203ab
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -366,7 +366,7 @@
     if-eqz v3, :cond_0
 
     .line 171
-    const v3, 0x102039c
+    const v3, 0x10203ac
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -563,7 +563,7 @@
 
     if-nez v1, :cond_1
 
-    const v1, 0x10802dc
+    const v1, 0x10802e7
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -601,7 +601,7 @@
 
     .line 128
     :cond_1
-    const v1, 0x108035f
+    const v1, 0x108036a
 
     goto :goto_1
 

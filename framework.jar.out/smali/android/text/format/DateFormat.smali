@@ -1315,7 +1315,7 @@
 
     move-result-object v7
 
-    const-string v8, "time_12_24"
+    const-string/jumbo v8, "time_12_24"
 
     invoke-static {v7, v8}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 

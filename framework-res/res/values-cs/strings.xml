@@ -322,7 +322,7 @@
     <string name="turn_on_radio">Zapnout bezdrátovou síť</string>
     <string name="turn_off_radio">Vypnout bezdrátovou síť</string>
     <string name="screen_lock">Zámek displeje</string>
-    <string name="power_off">Vypnutí</string>
+    <string name="power_off">Čas vypnutí</string>
     <string name="silent_mode_silent">Vyzvánění vypnuto</string>
     <string name="silent_mode_vibrate">Vibrace vyzváněcího tónu</string>
     <string name="silent_mode_ring">Vyzvánění zapnuto</string>
@@ -337,7 +337,7 @@
     <string name="no_recent_tasks">Žádné poslední aplikace</string>
     <string name="global_actions">Možnosti zařízení</string>
     <string name="global_action_lock">Zámek displeje</string>
-    <string name="global_action_power_off">Vypnutí</string>
+    <string name="global_action_power_off">Vypnout</string>
     <string name="global_action_restart">Restartování</string>
     <string name="global_action_sound_mode_mute">Ztlumit</string>
     <string name="global_action_sound_mode_vibrate">Vibrace</string>
@@ -413,6 +413,7 @@
     <string name="permdesc_mdmKioskMode">Řídí chování zařízení v režimu Terminál</string>
     <string name="tether_usb_restrict">Zásady zabezpečení omezují sdílení připojení k Internetu pomocí USB</string>
     <string name="tether_wifi_restrict">Zásady zabezpečení omezují sdílení připojení k Internetu pomocí Wi-Fi</string>
+    <string name="data_call_restriction">Zásady zabezpečení omezují použití mobilních dat</string>
     <string name="dpm_wifi_blocked_network">Zásady zabezpečení blokují použití této sítě Wi-Fi</string>
     <string name="dpm_wifi_misc_wifi_disabled">Zásady zabezpečení omezují použití Wi-Fi</string>
     <string name="dpm_wifi_misc_network_insecure">Zásady zabezpečení omezují použití nezabezpečených sítí Wi-Fi</string>
@@ -624,7 +625,7 @@
     <string name="permdesc_writeSocialStream">Umožňuje aplikaci zobrazit sociální aktualizace od vašich přátel. Při sdílení informací buďte opatrní – aplikace s tímto oprávněním může vytvářet zprávy, které zdánlivě pochází od vašich přátel. Poznámka: Toto oprávnění nemusí platit pro všechny sociální sítě.</string>
     <string name="permlab_readCalendar">Číst události z kalendáře a důvěrné informace</string>
     <string name="permdesc_readCalendar">Umožňuje aplikaci číst všechny události kalendáře uložené v telefonu, včetně událostí přátel nebo spolupracovníků. Aplikace s tímto oprávněním může sdílet nebo ukládat údaje v kalendáři bez ohledu na důvěrnost nebo citlivost těchto údajů.</string>
-    <string name="permlab_writeCalendar">přidávat a upravovat události kalendáře a odesílat e-maily bez vědomí vlastníka</string>
+    <string name="permlab_writeCalendar">Můžete přidat nebo změnit události v kalendáři a odeslat e-maily hostům bez vědomí hostitele</string>
     <string name="permdesc_writeCalendar">Umožňuje aplikaci přidat, odebrat nebo změnit události, které můžete v telefonu upravovat, a to včetně událostí přátel a spolupracovníků. Toto oprávnění umožňuje aplikaci odesílat zprávy, které budou zdánlivě přicházet od vlastníků kalendářů, nebo upravovat události bez vědomí vlastníků.</string>
     <string name="permlab_accessMockLocation">fiktivní zdroje pro určování polohy pro účely testování</string>
     <string name="permdesc_accessMockLocation">Umožní aplikaci vytvářet fiktivní zdroje pro určování polohy pro účely testování. Škodlivé aplikace to mohou využít k potlačení informací o poloze nebo stavu vracených skutečnými zdroji pro určování polohy, jako jsou poskytovatelé služeb GPS nebo operátoři, nebo ke sledování a hlášení vaší polohy náhodným webovým serverům</string>
@@ -714,7 +715,7 @@
     <string name="permdesc_getAccounts">Povolí aplikaci přístup k seznamu účtů, které telefon zná</string>
     <string name="permlab_authenticateAccounts">Jednat jako ověřovač účtu</string>
     <string name="permdesc_authenticateAccounts">Umožní aplikaci používat funkci ověřovače účtu ve Správci účtů. Ta zahrnuje vytváření účtů a řízení hesel</string>
-    <string name="permlab_manageAccounts">přidání nebo odebrání účtů</string>
+    <string name="permlab_manageAccounts">Přidat nebo odebrat účty</string>
     <string name="permdesc_manageAccounts">Umožní aplikaci přidávat či odebírat účty a odstraňovat heslo</string>
     <string name="permlab_useCredentials">Použít ověřovací přihlašovací údaje účtu</string>
     <string name="permdesc_useCredentials">Umožní aplikaci požadovat ověřovací tokeny</string>
@@ -736,7 +737,7 @@
     <string name="permdesc_changeWifiState">Povolí aplikaci připojovat se k přístupovým bodům Wi-Fi a odpojovat se od nich a provádět změny nakonfigurovaných sítí Wi-Fi</string>
     <string name="permlab_changeWifiMulticastState">Povolit příjem vícesměrového vysílání Wi-Fi</string>
     <string name="permdesc_changeWifiMulticastState">Umožňuje aplikaci přijímat pakety odeslané do všech zařízení v síti Wi-Fi nejen pomocí telefonu, ale i prostřednictvím adres vícesměrového vysílání. Spotřeba energie je vyšší než u režimu bez vícesměrového vysílání (multicast).</string>
-    <string name="permlab_bluetoothAdmin">přístup do nastavení Bluetooth</string>
+    <string name="permlab_bluetoothAdmin">Nastavení Bluetooth</string>
     <string name="permdesc_bluetoothAdmin">Umožní aplikaci konfigurovat místní telefon Bluetooth a zjišťovat a párovat se se vzdálenými zařízeními</string>
     <string name="permlab_accessWimaxState">Zobrazit stav WiMAX</string>
     <string name="permdesc_accessWimaxState">Umožňuje aplikaci zjistit, zda je povoleno připojení WiMAX, a také získat informace o všech připojených sítích WiMAX.</string>
@@ -826,6 +827,7 @@
     <string name="policydesc_allow_desktopsync">Zabrání použití synchronizace se stolním počítačem</string>
     <string name="policylab_require_storagecard_encryption">Nastavit šifrování SD karty</string>
     <string name="policydesc_require_storagecard_encryption">Vyžaduje zašifrování aplikace na SD kartě</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth bylo odpojeno</string>
     <string name="bluetooth_security_mode_disable">Zásady zabezpečení omezují použití připojení Bluetooth</string>
     <string name="bluetooth_security_mode_handsfree">Zásady zabezpečení omezují použití připojení Bluetooth pouze na funkce handsfree</string>
     <string name="phoneTypeCustom">Vlastní</string>
@@ -898,14 +900,14 @@
     <string name="sipAddressTypeHome">Domů</string>
     <string name="sipAddressTypeWork">Práce</string>
     <string name="sipAddressTypeOther">Další</string>
-    <string name="keyguard_password_enter_pin_code">Zadejte kód PIN</string>
+    <string name="keyguard_password_enter_pin_code">Zadejte PIN kód</string>
     <string name="keyguard_password_enter_puk_code">Zadejte PUK kód a nový PIN kód</string>
     <string name="keyguard_password_enter_puk_prompt">Kód PUK</string>
     <string name="keyguard_password_enter_pin_prompt">Nový kód PIN</string>
     <string name="keyguard_password_entry_touch_hint">Klepněte a zadejte heslo</string>
     <string name="keyguard_password_enter_password_code">Pro odemknutí zadejte heslo</string>
     <string name="keyguard_password_enter_pin_password_code">Pro odemknutí zadejte PIN kód</string>
-    <string name="keyguard_password_wrong_pin_code">Nesprávný kód PIN.</string>
+    <string name="keyguard_password_wrong_pin_code">Nesprávný PIN kód</string>
     <string name="keyguard_pin_accepted">Kód přijat</string>
     <string name="keyguard_label_text">Pro odemknutí stiskněte Menu a potom 0</string>
     <string name="emergency_call_dialog_number_for_display">Číslo tísňového volání</string>
@@ -942,8 +944,9 @@
     <string name="lockscreen_network_locked_message">Síť je uzamknuta</string>
     <string name="lockscreen_sim_puk_locked_message">SIM karta je zamknuta pomocí PUK kódu</string>
     <string name="lockscreen_sim_puk_locked_instructions">Podívejte se do Uživatelské příručky nebo se obraťte na zákaznické centrum</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM karta je uzamknuta</string>
+    <string name="lockscreen_sim_locked_message">SIM karta je uzamknuta</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">Odblokování SIM karty…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">%1$dkrát jste chybně nakreslili znak pro odemknutí. Opakujte akci za %2$d sekund</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">%1$dkrát jste zadali chybné heslo. Opakujte akci za %2$d sekund</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 kód byl zablokován. Pro odblokování PIN1 kódu zadejte PUK1 kód</string>
@@ -996,6 +999,7 @@
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">Rovná se</string>
     <string name="autofill_billing_designator_re">Účet</string>
+    <string name="autofill_shipping_designator_re">Loď</string>
     <string name="autofill_phone_suffix_re">Titul za jménem</string>
     <string name="autofill_name_on_card_contextual_re">Jméno</string>
     <string name="autofill_province">Kraj</string>
@@ -1010,7 +1014,7 @@
     <string name="autofill_parish">Farnost</string>
     <string name="autofill_area">Plocha</string>
     <string name="autofill_emirate">Emirát</string>
-    <string name="permlab_readHistoryBookmarks">čtení webových záložek a historie</string>
+    <string name="permlab_readHistoryBookmarks">Číst historii a záložky internetového prohlížeče</string>
     <string name="permdesc_readHistoryBookmarks">Povoluje aplikaci číst všechny adresy URL navštívené prohlížečem a všechny záložky prohlížeče</string>
     <string name="permlab_writeHistoryBookmarks">psaní webových záložek a historie</string>
     <string name="permdesc_writeHistoryBookmarks">Povolí aplikaci upravit historii a záložky internetového prohlížeče uložené v telefonu. Škodlivé aplikace mohou vymazat nebo upravit tyto údaje</string>
@@ -1089,10 +1093,12 @@
     <string name="editTextMenuTitle">Operace s textem</string>
     <string name="low_internal_storage_view_title">Paměť je téměř plná</string>
     <string name="low_internal_storage_view_text">Některé funkce systému nemusí fungovat</string>
+    <string name="full_internal_storage_view_text">K chybě mohlo dojít z důvodu plné paměti zařízení. Odstraňte některé položky</string>
     <string name="loading">Nahrávám…</string>
     <string name="capital_on">Zap</string>
     <string name="capital_off">Vyp</string>
     <string name="whichApplication">Dokončit akci pomocí</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Použít ve výchozím nastavení pro tuto akci</string>
     <string name="clearDefaultHintMsg">Vymažte výchozí nastavení aplikací pomocí Nastavení > Správce aplikací > Vše</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1161,7 +1167,7 @@ Chcete ji zavřít?"</string>
     <string name="wifi_notification_no_network_message">Otevřít nastavení Wi-Fi</string>
     <string name="wifi_notification_not_connected">Dostupné sítě Wi-Fi</string>
     <string name="wifi_notification_not_connected_message">Otevřít dostupné sítě Wi-Fi</string>
-    <string name="wifi_notification_connected">Připojeno k %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Klepněte a nakonfigurujte síť Wi-Fi</string>
     <string name="wifi_notification_connected_secure">Zabezpečené</string>
     <string name="wifi_notification_connected_open">Otevřít</string>
@@ -1175,7 +1181,7 @@ Chcete ji zavřít?"</string>
     <string name="wifi_p2p_enabled_notification_title">Wi-Fi Direct je zapnuto</string>
     <string name="wifi_p2p_enabled_notification_message">Klepněte pro změnu nastavení</string>
     <string name="accept">Přij.</string>
-    <string name="decline">Odmítn.</string>
+    <string name="decline">Odmítnout</string>
     <string name="wifi_p2p_invitation_sent_title">Pozvánka byla odeslána</string>
     <string name="wifi_p2p_invitation_to_connect_title">Pozvání k připojení</string>
     <string name="wifi_p2p_from_message">Od:</string>
@@ -1191,9 +1197,9 @@ Chcete ji zavřít?"</string>
     <string name="select_character">Vložte znak</string>
     <string name="sms_control_default_app_name">Neznámá aplikace</string>
     <string name="sms_control_title">Odesílání SMS zprávy…</string>
-    <string name="sms_control_message">Je odesílán velký počet SMS zpráv. Pokračujte klepnutím na tlačítko OK, nebo odesílání zastavte klepnutím na tlačítko Storno</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Zrušit</string>
+    <string name="sms_control_message">Aplikace &lt;b>%s&lt;/b> odesílá velké množství zpráv SMS. Povolit této aplikaci pokračovat v odesílání zpráv?</string>
+    <string name="sms_control_yes">Povolit</string>
+    <string name="sms_control_no">Odmítnout</string>
     <string name="sim_removed_title">SIM karta byla vyjmuta</string>
     <string name="sim_removed_message">Mobilní síť nebude k dispozici, dokud zařízení nerestartujete s vloženou platnou SIM kartou</string>
     <string name="sim_done_button">Hot.</string>
@@ -1287,7 +1293,7 @@ Chcete ji zavřít?"</string>
     <string name="activity_list_empty">Nebyly nalezeny žádné odpovídající činnosti</string>
     <string name="permlab_pkgUsageStats">aktualizovat statistiku využití komponent</string>
     <string name="permdesc_pkgUsageStats">Umožní úpravu shromážděné statistiky využití komponent. Není určeno pro použití normálními aplikacemi</string>
-    <string name="permlab_copyProtectedData">Povolí službě výchozího kontejneru kopírovat obsah. Nepoužívá se pro normální aplikace</string>
+    <string name="permlab_copyProtectedData">Kopírovat obsah</string>
     <string name="permdesc_copyProtectedData">Povolí službě výchozího kontejneru kopírovat obsah. Nepoužívá se pro normální aplikace</string>
     <string name="permlab_route_media_output">Směrovat výstup médií</string>
     <string name="permdesc_route_media_output">Umožní aplikaci směrovat výstup médií do dalších externích zařízení</string>
@@ -1399,7 +1405,7 @@ vyžadováno oprávnění"</string>
     <string name="radiobutton_selected">Vybráno</string>
     <string name="radiobutton_not_selected">Nejsou vybrány žádné kontakty</string>
     <string name="switch_on">Zap</string>
-    <string name="switch_off">Vypnout</string>
+    <string name="switch_off">Vyp</string>
     <string name="togglebutton_pressed">Stiskn.</string>
     <string name="keyboardview_keycode_alt">ALT</string>
     <string name="keyboardview_keycode_cancel">Zrušit</string>
@@ -1427,10 +1433,11 @@ vyžadováno oprávnění"</string>
     <string name="action_bar_home_description">Domů</string>
     <string name="action_bar_up_description">Navigovat nahoru</string>
     <string name="action_menu_overflow_description">Další možnosti</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Přepnout na předchozí velikost</string>
     <string name="storage_internal">Paměť zařízení</string>
     <string name="storage_sd_card">SD karta</string>
     <string name="storage_usb">Paměť USB</string>
-    <string name="extract_edit_menu_button">Upravit…</string>
+    <string name="extract_edit_menu_button">Upravit</string>
     <string name="data_usage_warning_title">Upozornění na využití dat</string>
     <string name="data_usage_warning_body">Klepnutím zobrazíte informace o využití a nastavení</string>
     <string name="data_usage_3g_limit_title">2G-3G data byla vypnuta</string>
@@ -1460,7 +1467,7 @@ vyžadováno oprávnění"</string>
     <string name="fingerprints">Otisky prstů</string>
     <string name="sha256_fingerprint">Otisk prstu SHA-256:</string>
     <string name="sha1_fingerprint">Otisk prstu SHA-1:</string>
-    <string name="activity_chooser_view_see_all">Vše</string>
+    <string name="activity_chooser_view_see_all">Zobrazit vše</string>
     <string name="activity_chooser_view_dialog_title_default">Vyberte činnost</string>
     <string name="share_action_provider_share_with">Sdílet s</string>
     <string name="status_bar_device_locked">Zařízení uzamknuto</string>
@@ -1516,6 +1523,8 @@ vyžadováno oprávnění"</string>
     <string name="lockscreen_fmapp_name">FM rádio</string>
     <string name="lockscreen_clock_dualclock_home">Domů</string>
     <string name="lockscreen_clock_dualclock_roaming">Roaming</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Soul</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Roaming</string>
     <string name="lockscreen_clock_dualclock_popup_title">Duál. hodiny</string>
     <string name="lockscreen_clock_dualclock_popup_message">Vyberte domovské město pro zobrazení duálních hodin na zamknutém displeji. Přejít na Nastavení?</string>
     <string name="lockscreen_ticker_no_data_to_display">Žádná data k zobrazení</string>
@@ -1552,7 +1561,7 @@ vyžadováno oprávnění"</string>
     <string name="lockscreen_2ndLock_instructions2">Pro odemknutí zadejte záložní PIN kód</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">%1$dkrát jste chybně nakreslili znak pro odemknutí. Zkuste to znovu za %2$d sekund</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">%1$dkrát jste chybně nakreslili znak pro odemknutí. Po %2$d dalších neúspěšných pokusech budete požádáni o odemknutí zařízení pomocí vašich přihlašovacích údajů pro Google nebo záložního PIN kódu. Opakujte akci za %3$d sekund</string>
     <string name="lockscreen_carrier_noservice">(Žádná služba)</string>
     <string name="rescan_network">Hledání dostupných sítí</string>
     <string name="AutoUpdateOfTimeAndDate">Automatická aktualizace času a data</string>
@@ -1563,6 +1572,8 @@ vyžadováno oprávnění"</string>
     <string name="capabilitymanager_managed_errortitle">Chyba</string>
     <string name="security_policy_title">Zásady zabezpečení</string>
     <string name="security_policy_summary">Zásady zabezpečení přijaté od vzdáleného správce</string>
+    <string name="sdcard_unmount_policy_noti_title">SD karta byla odpojena z důvodu zásad IT</string>
+    <string name="sdcard_unmount_policy_noti_content">Klepnutím připojte SD kartu</string>
     <string name="sdcard_encrypt_title_notification">Šifrování SD karty</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">Šifrování SD karty…</string>
     <string name="sdcard_encrypt_notification">SD karta byla zašifrována</string>
@@ -1586,7 +1597,7 @@ vyžadováno oprávnění"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1628,7 +1639,7 @@ vyžadováno oprávnění"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Zadané hodnoty jsou mimo platný rozsah. Zkontrolujte hodnoty a opakujte akci</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1650,6 +1661,8 @@ vyžadováno oprávnění"</string>
     <string name="SS_USB_TETHERING_ENABLED">Sdílení připojení USB zapnuto</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Sdílení připojení Wi-Fi zapnuto</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Sdílení připojení (Wi-Fi a USB) zapnuto</string>
+    <string name="lockscreen_failed_max_attempts_reached">Zařízení je blokováno. Byl proveden maximální počet pokusů o zadání hesla. Pro odblokování zařízení je potřeba heslo pro obnovení. Jestliže zadáte chybné heslo pro obnovení, všechna data budou vymazána</string>
+    <string name="recovery_password_required">Pro odblokování zařízení je potřeba heslo pro obnovení</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Telefonické připojení k síti je povoleno</string>
@@ -1683,12 +1696,21 @@ vyžadováno oprávnění"</string>
     <string name="lockscreen_ticker_logo_news_tts">Zprávy</string>
     <string name="lockscreen_ticker_logo_stock_tts">Akcie</string>
     <string name="lockscreen_ticker_refresh_tts">Obnovit</string>
+    <string name="SS_ALWAYS_ON_TOP">Vždy nahoře</string>
+    <string name="SS_MINIMISE">Minimalizovat</string>
+    <string name="SS_MAXIMISE">Maximalizovat</string>
+    <string name="SS_CLOSE_APPLICATION">Ukončit aplikaci</string>
+    <string name="spengesture_media_scanning">Obrázek nelze oříznout. Je spuštěn vyhledávač médií</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN zablokován</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Obraťte se na poskytovatele služeb, aby SIM kartu odblokoval</string>
     <string name="resolver_guide_title">Vymazat výchozí nastavení</string>
     <string name="operation_not_allowed">Operace není povolena</string>
     <string name="exceeded_maxlength">Byla překročena maximální velikost zprávy</string>
     <string name="dont_show_again_message">Znovu nezobrazovat</string>
     <string name="set_bing_as_default">Nastavit Bing jako výchozí vyhledávač?</string>
     <string name="ms_domain_site">Doménový server Microsoft</string>
+    <string name="unsupported_in_popupbrowser">Nepodporovaná funkce v Prohlížeči v okně</string>
+    <string name="find_on_page_abb">Najít na str.</string>
     <string name="tw_clipboard_already_exists">Již existuje</string>
     <string name="tw_clipboard_no_items_to_paste">Žádné položky pro vložení</string>
     <string name="tw_clipboard_save_in_memo">Uložit do poznámky</string>
@@ -1702,9 +1724,12 @@ vyžadováno oprávnění"</string>
     <string name="tw_ids_com_body_unlock_in_clipboard">Odemknout ze schránky</string>
     <string name="tw_clipboard_clear">Smazat</string>
     <string name="tw_clipboard_delete_all">Odstranit vše?</string>
-    <string name="tw_clipboard_edit">Upravit</string>
-    <string name="tw_clipboard_done">Hotovo</string>
-    <string name="tw_clipboard_save">Uložit</string>
+    <string name="tw_clipboard_edit">Upr.</string>
+    <string name="tw_clipboard_done">Hot.</string>
+    <string name="tw_clipboard_save">Ulož.</string>
     <string name="tw_clipboard_no_item">Žádné položky</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Všechny položky kromě zamknutých byly ze schránky odstraněny</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Vloženo ze schránky</string>
+    <string name="Roaming_Auto_Dialing">PIN zablokován</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

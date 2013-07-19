@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 213
+    .line 214
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "s"
 
     .prologue
-    .line 226
+    .line 227
     return-void
 .end method
 
@@ -54,7 +54,7 @@
     .parameter "after"
 
     .prologue
-    .line 222
+    .line 223
     return-void
 .end method
 
@@ -66,14 +66,14 @@
     .parameter "count"
 
     .prologue
-    .line 216
+    .line 217
     const-string v0, "PcwUnlockScreen"
 
     const-string v1, "TextWatcher"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 217
+    .line 218
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -83,6 +83,6 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 218
+    .line 219
     return-void
 .end method

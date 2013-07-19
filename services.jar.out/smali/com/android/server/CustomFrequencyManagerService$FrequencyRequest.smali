@@ -45,31 +45,31 @@
     .parameter "p"
 
     .prologue
-    .line 666
+    .line 986
     iput-object p1, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->this$0:Lcom/android/server/CustomFrequencyManagerService;
 
-    .line 667
+    .line 987
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 668
+    .line 988
     iput p2, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->type:I
 
-    .line 669
+    .line 989
     iput p3, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->frequency:I
 
-    .line 670
+    .line 990
     iput-object p4, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->binder:Landroid/os/IBinder;
 
-    .line 671
+    .line 991
     iput-object p5, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->pkgName:Ljava/lang/String;
 
-    .line 672
+    .line 992
     iput p6, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->uid:I
 
-    .line 673
+    .line 993
     iput p7, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->pid:I
 
-    .line 676
+    .line 996
     const/4 v1, 0x0
 
     :try_start_0
@@ -77,15 +77,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 680
+    .line 1000
     :goto_0
     return-void
 
-    .line 677
+    .line 997
     :catch_0
     move-exception v0
 
-    .line 678
+    .line 998
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->binderDied()V
 
@@ -98,7 +98,7 @@
     .locals 4
 
     .prologue
-    .line 683
+    .line 1003
     iget-object v0, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->this$0:Lcom/android/server/CustomFrequencyManagerService;
 
     #getter for: Lcom/android/server/CustomFrequencyManagerService;->mFreqReqList:Lcom/android/server/CustomFrequencyManagerService$FrequencyRequestList;
@@ -108,7 +108,7 @@
 
     monitor-enter v1
 
-    .line 684
+    .line 1004
     :try_start_0
     invoke-static {}, Lcom/android/server/CustomFrequencyManagerService;->access$200()Z
 
@@ -116,7 +116,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 685
+    .line 1005
     const-string v0, "CustomFrequencyManagerService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -141,7 +141,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 688
+    .line 1008
     :cond_0
     iget v0, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->type:I
 
@@ -149,7 +149,7 @@
 
     if-ne v0, v2, :cond_2
 
-    .line 689
+    .line 1009
     iget-object v0, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->this$0:Lcom/android/server/CustomFrequencyManagerService;
 
     iget-object v2, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->binder:Landroid/os/IBinder;
@@ -158,23 +158,23 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/server/CustomFrequencyManagerService;->releaseGPU(Landroid/os/IBinder;Ljava/lang/String;)V
 
-    .line 693
+    .line 1015
     :cond_1
     :goto_0
     monitor-exit v1
 
-    .line 694
+    .line 1016
     return-void
 
-    .line 690
+    .line 1010
     :cond_2
     iget v0, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->type:I
 
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_3
 
-    .line 691
+    .line 1011
     iget-object v0, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->this$0:Lcom/android/server/CustomFrequencyManagerService;
 
     iget-object v2, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->binder:Landroid/os/IBinder;
@@ -185,7 +185,7 @@
 
     goto :goto_0
 
-    .line 693
+    .line 1015
     :catchall_0
     move-exception v0
 
@@ -194,4 +194,26 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
+
+    .line 1012
+    :cond_3
+    :try_start_1
+    iget v0, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->type:I
+
+    const/4 v2, 0x4
+
+    if-ne v0, v2, :cond_1
+
+    .line 1013
+    iget-object v0, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->this$0:Lcom/android/server/CustomFrequencyManagerService;
+
+    iget-object v2, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->binder:Landroid/os/IBinder;
+
+    iget-object v3, p0, Lcom/android/server/CustomFrequencyManagerService$FrequencyRequest;->pkgName:Ljava/lang/String;
+
+    invoke-virtual {v0, v2, v3}, Lcom/android/server/CustomFrequencyManagerService;->releaseCPUCore(Landroid/os/IBinder;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
 .end method

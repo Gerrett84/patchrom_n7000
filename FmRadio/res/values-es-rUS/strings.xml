@@ -40,7 +40,7 @@
     <string name="rename">Renombrar</string>
     <string name="rename_text">Introducir nombre</string>
     <string name="done">Realiz.</string>
-    <string name="replace">Reemplazar</string>
+    <string name="replace">Sustituir</string>
     <string name="mhz">MHz</string>
     <string name="setting_region">REGIÓN</string>
     <string name="setting_backgroud_playing">Reproducción en 2° plano</string>
@@ -71,7 +71,7 @@ El auricular funciona como antena de la Radio FM. Conecte el auricular."</string
     <string name="alert">Alerta</string>
     <string name="fav_channel">Favoritos</string>
     <string name="menu_refersh_all">Todas las frecuencias</string>
-    <string name="menu_refresh">Actualizar favoritos</string>
+    <string name="menu_refresh">Conservando favoritos</string>
     <string name="number_30">30</string>
     <string name="number_1">Una</string>
     <string name="number_2">2</string>
@@ -94,13 +94,13 @@ El auricular funciona como antena de la Radio FM. Conecte el auricular."</string
     <string name="toast_unavailable_in_tvout_mode">No disponible en modo de salida de TV</string>
     <string name="mute">Silencio</string>
     <string name="seeking">Buscando…</string>
-    <string name="via_earphone">Por auriculares</string>
-    <string name="via_speaker">Por altavoz</string>
+    <string name="via_earphone">Reproducir por auricular</string>
+    <string name="via_speaker">Reproducir por altavoz</string>
     <string name="normal_frequency">Frecuencia normal</string>
     <string name="tag">Et.</string>
     <string name="stop">Detener</string>
     <string name="recording">Grabando…</string>
-    <string name="memory_full">Grabación detenida. Memoria llena</string>
+    <string name="memory_full">Memoria llena</string>
     <string name="cancel_recording">¿Cancelar grabación?</string>
     <string name="change_frequency">Cambiar frecuencia</string>
     <string name="enter_frequency">Introducir frecuencia</string>
@@ -126,11 +126,14 @@ El auricular funciona como antena de la Radio FM. Conecte el auricular."</string
     <string name="tags">Etiquetas</string>
     <string name="tags_now_broadcasting">Transmitiendo ahora</string>
     <string name="tags_no_information">Sin información</string>
+    <string name="tags_music_history">Historial de música</string>
     <string name="tags_music_title">Título</string>
     <string name="tags_music_album">Álbum</string>
     <string name="tags_music_artist">Artista</string>
+    <string name="tags_music_band">Banda</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Página de inicio</string>
+    <string name="tags_interact_hotline">Línea directa</string>
     <string name="tags_interact_studio">Estudio</string>
     <string name="tags_interact_other">Otro</string>
     <string name="tags_interact_centre">Centro</string>
@@ -165,10 +168,10 @@ Después de grabar de la Radio FM, se mostrarán los archivos grabados"</string>
     <string name="use_motion">Utilizar movimiento</string>
     <string name="toast_already_exist">Ya existe</string>
     <string name="toast_name_empty">Nombre vacío</string>
-    <string name="sound_path_earphone_mode">Escuchando a través de los auriculares</string>
+    <string name="sound_path_earphone_mode">Escuchando a través del auricular</string>
     <string name="sound_path_speaker_mode">Escuchando a través del altavoz</string>
     <string name="sound_path_bt_headset_mode">Escuchando a través de auricular BT</string>
-    <string name="tag_button_disable">El botón de etiquetas sólo se activa cuando la estación publica información</string>
+    <string name="tag_button_disable">El botón de etiqueta sólo se activa cuando la frecuencia publica información</string>
     <string name="notification_barge_in">"Puede controlar la Radio FM con comandos de voz como ''Siguiente', ''Anterior', ''Detener' y ''Reproducir'"</string>
     <string name="notification_barge_in_args">Puede controlar la Radio FM con los comandos de voz %1$s, %2$s, %3$s, %4$s, %5$s y %6$s</string>
     <string name="recording_will_be_cancelled">Se cancelará la grabación y no se guardará el archivo</string>
@@ -176,4 +179,14 @@ Después de grabar de la Radio FM, se mostrarán los archivos grabados"</string>
     <string name="dialog_one_item_deleted">Se eliminará este elemento</string>
     <string name="dialog_multiple_items_deleted">Se eliminarán %d elementos</string>
     <string name="dialog_all_items_deleted">Se eliminarán todos los elementos</string>
+    <string name="turning_on">Encendiendo…</string>
+    <string name="not_enough_memory_recording_will_stop">Memoria insuficiente. La grabación se detendrá en %d segundos</string>
+    <string name="low_batt_msg">Batería baja</string>
+    <string name="no_play_during_call">No se puede reproducir durante la llamada</string>
+    <string name="unable_delete">No puede eliminar</string>
+    <string name="playing">Reproduc…</string>
+    <string name="tts_play_button">Reproducir</string>
+    <string name="tts_previous_button">Anterior</string>
+    <string name="tts_Next_button">Siguiente</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

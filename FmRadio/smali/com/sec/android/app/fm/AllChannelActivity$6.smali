@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 516
+    .line 547
     iput-object p1, p0, Lcom/sec/android/app/fm/AllChannelActivity$6;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,21 +47,21 @@
 
     const/4 v1, 0x1
 
-    .line 520
+    .line 552
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-nez v0, :cond_1
 
-    .line 538
+    .line 570
     :cond_0
     :goto_0
     return-void
 
-    .line 523
+    .line 555
     :cond_1
     if-nez p2, :cond_2
 
-    .line 527
+    .line 559
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->startScan(Z)Z
@@ -70,19 +70,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 528
+    .line 560
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$6;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     invoke-virtual {v0, v2}, Lcom/sec/android/app/fm/AllChannelActivity;->showDialog(I)V
 
-    .line 529
+    .line 561
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/MainActivity;->removeAllChannel()V
 
     goto :goto_0
 
-    .line 532
+    .line 564
     :cond_2
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -92,12 +92,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 534
+    .line 566
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity$6;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     invoke-virtual {v0, v2}, Lcom/sec/android/app/fm/AllChannelActivity;->showDialog(I)V
 
-    .line 535
+    .line 567
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/MainActivity;->clearNonFavChannel()V

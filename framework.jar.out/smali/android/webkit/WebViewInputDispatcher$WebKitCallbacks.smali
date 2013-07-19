@@ -15,6 +15,9 @@
 
 
 # virtual methods
+.method public abstract blockWebkitDraw(Z)V
+.end method
+
 .method public abstract dispatchWebKitEvent(Landroid/webkit/WebViewInputDispatcher;Landroid/view/MotionEvent;II)Z
 .end method
 

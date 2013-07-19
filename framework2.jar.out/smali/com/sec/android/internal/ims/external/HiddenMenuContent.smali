@@ -14,7 +14,10 @@
 # static fields
 .field private static final DATABASE_NAME:Ljava/lang/String; = "HiddenMenuContent.db"
 
-.field private static final DATABASE_VERSION:I = 0x2
+.field private static final DATABASE_VERSION:I = 0x4
+
+#the value of this static final field might be set in the static constructor
+.field private static final DEBUG:Z = false
 
 .field private static final TABLE_NAME:Ljava/lang/String; = "HiddenMenu"
 
@@ -33,19 +36,30 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 3
 
     .prologue
-    const/4 v0, 0x0
-
-    .line 71
-    sput-boolean v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isSKT:Z
+    const/4 v2, 0x0
 
     .line 72
-    sput-boolean v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isLGT:Z
+    const-string v0, "eng"
 
-    .line 73
-    sput-boolean v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isKTT:Z
+    sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->DEBUG:Z
+
+    .line 74
+    sput-boolean v2, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isSKT:Z
+
+    .line 75
+    sput-boolean v2, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isLGT:Z
+
+    .line 76
+    sput-boolean v2, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isKTT:Z
 
     return-void
 .end method
@@ -54,30 +68,19 @@
     .locals 0
 
     .prologue
-    .line 61
+    .line 63
     invoke-direct {p0}, Landroid/content/ContentProvider;-><init>()V
 
-    .line 77
+    .line 81
     return-void
 .end method
 
-.method static synthetic access$002(Z)Z
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 61
-    sput-boolean p0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isSKT:Z
-
-    return p0
-.end method
-
-.method static synthetic access$100()Z
+.method static synthetic access$000()Z
     .locals 1
 
     .prologue
-    .line 61
-    sget-boolean v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isLGT:Z
+    .line 63
+    sget-boolean v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->DEBUG:Z
 
     return v0
 .end method
@@ -87,10 +90,20 @@
     .parameter "x0"
 
     .prologue
-    .line 61
-    sput-boolean p0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isLGT:Z
+    .line 63
+    sput-boolean p0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isSKT:Z
 
     return p0
+.end method
+
+.method static synthetic access$200()Z
+    .locals 1
+
+    .prologue
+    .line 63
+    sget-boolean v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isLGT:Z
+
+    return v0
 .end method
 
 .method static synthetic access$202(Z)Z
@@ -98,7 +111,18 @@
     .parameter "x0"
 
     .prologue
-    .line 61
+    .line 63
+    sput-boolean p0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isLGT:Z
+
+    return p0
+.end method
+
+.method static synthetic access$302(Z)Z
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 63
     sput-boolean p0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->isKTT:Z
 
     return p0
@@ -113,10 +137,10 @@
     .parameter "selectionArgs"
 
     .prologue
-    .line 252
+    .line 314
     const/4 v0, 0x0
 
-    .line 254
+    .line 316
     .local v0, x:I
     sget-object v1, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->sqlDB:Landroid/database/sqlite/SQLiteDatabase;
 
@@ -126,7 +150,7 @@
 
     move-result v0
 
-    .line 259
+    .line 321
     return v0
 .end method
 
@@ -135,7 +159,7 @@
     .parameter "uri"
 
     .prologue
-    .line 265
+    .line 327
     const/4 v0, 0x0
 
     return-object v0
@@ -149,19 +173,19 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 273
+    .line 335
     const/4 v2, 0x0
 
-    .line 277
+    .line 339
     .local v2, rowUri:Landroid/net/Uri;
     if-eqz p2, :cond_0
 
-    .line 278
+    .line 340
     new-instance v3, Landroid/content/ContentValues;
 
     invoke-direct {v3, p2}, Landroid/content/ContentValues;-><init>(Landroid/content/ContentValues;)V
 
-    .line 291
+    .line 353
     .local v3, values1:Landroid/content/ContentValues;
     :goto_0
     sget-object v4, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->sqlDB:Landroid/database/sqlite/SQLiteDatabase;
@@ -172,7 +196,7 @@
 
     move-result-wide v0
 
-    .line 292
+    .line 354
     .local v0, rowId:J
     const-wide/16 v4, 0x0
 
@@ -180,7 +204,7 @@
 
     if-lez v4, :cond_1
 
-    .line 294
+    .line 356
     sget-object v4, Lcom/sec/android/internal/ims/external/MenuDetails$User;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v4}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
@@ -195,7 +219,7 @@
 
     move-result-object v2
 
-    .line 295
+    .line 357
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -206,10 +230,10 @@
 
     invoke-virtual {v4, v2, v6}, Landroid/content/ContentResolver;->notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;)V
 
-    .line 296
+    .line 358
     return-object v2
 
-    .line 280
+    .line 342
     .end local v0           #rowId:J
     .end local v3           #values1:Landroid/content/ContentValues;
     :cond_0
@@ -220,7 +244,7 @@
     .restart local v3       #values1:Landroid/content/ContentValues;
     goto :goto_0
 
-    .line 298
+    .line 360
     .restart local v0       #rowId:J
     :cond_1
     new-instance v4, Landroid/database/SQLException;
@@ -252,7 +276,7 @@
     .locals 2
 
     .prologue
-    .line 306
+    .line 368
     new-instance v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent$DatabaseHelper;
 
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->getContext()Landroid/content/Context;
@@ -263,7 +287,7 @@
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->dbHelper:Lcom/sec/android/internal/ims/external/HiddenMenuContent$DatabaseHelper;
 
-    .line 307
+    .line 369
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->dbHelper:Lcom/sec/android/internal/ims/external/HiddenMenuContent$DatabaseHelper;
 
     invoke-virtual {v0}, Lcom/sec/android/internal/ims/external/HiddenMenuContent$DatabaseHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
@@ -272,7 +296,7 @@
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->sqlDB:Landroid/database/sqlite/SQLiteDatabase;
 
-    .line 309
+    .line 371
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->dbHelper:Lcom/sec/android/internal/ims/external/HiddenMenuContent$DatabaseHelper;
 
     if-nez v0, :cond_0
@@ -299,12 +323,12 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 317
+    .line 379
     new-instance v0, Landroid/database/sqlite/SQLiteQueryBuilder;
 
     invoke-direct {v0}, Landroid/database/sqlite/SQLiteQueryBuilder;-><init>()V
 
-    .line 318
+    .line 380
     .local v0, qb:Landroid/database/sqlite/SQLiteQueryBuilder;
     sget-object v2, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->dbHelper:Lcom/sec/android/internal/ims/external/HiddenMenuContent$DatabaseHelper;
 
@@ -312,7 +336,7 @@
 
     move-result-object v1
 
-    .line 319
+    .line 381
     .local v1, db:Landroid/database/sqlite/SQLiteDatabase;
     const-string v2, "HiddenMenu"
 
@@ -328,12 +352,12 @@
 
     move-object v7, p5
 
-    .line 320
+    .line 382
     invoke-virtual/range {v0 .. v7}, Landroid/database/sqlite/SQLiteQueryBuilder;->query(Landroid/database/sqlite/SQLiteDatabase;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v8
 
-    .line 321
+    .line 383
     .local v8, c:Landroid/database/Cursor;
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->getContext()Landroid/content/Context;
 
@@ -345,7 +369,7 @@
 
     invoke-interface {v8, v2, p1}, Landroid/database/Cursor;->setNotificationUri(Landroid/content/ContentResolver;Landroid/net/Uri;)V
 
-    .line 322
+    .line 384
     return-object v8
 .end method
 
@@ -359,15 +383,15 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 332
+    .line 394
     if-eqz p2, :cond_0
 
-    .line 333
+    .line 395
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1, p2}, Landroid/content/ContentValues;-><init>(Landroid/content/ContentValues;)V
 
-    .line 337
+    .line 399
     .local v1, values1:Landroid/content/ContentValues;
     :goto_0
     sget-object v2, Lcom/sec/android/internal/ims/external/HiddenMenuContent;->sqlDB:Landroid/database/sqlite/SQLiteDatabase;
@@ -378,14 +402,14 @@
 
     move-result v0
 
-    .line 338
+    .line 400
     .local v0, result:I
     if-lez v0, :cond_1
 
-    .line 340
+    .line 402
     return v0
 
-    .line 335
+    .line 397
     .end local v0           #result:I
     .end local v1           #values1:Landroid/content/ContentValues;
     :cond_0
@@ -396,7 +420,7 @@
     .restart local v1       #values1:Landroid/content/ContentValues;
     goto :goto_0
 
-    .line 343
+    .line 405
     .restart local v0       #result:I
     :cond_1
     new-instance v2, Landroid/database/SQLException;

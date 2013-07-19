@@ -322,7 +322,7 @@
     <string name="turn_on_radio">Aktivera trådlös funktion</string>
     <string name="turn_off_radio">Slå av trådlös funktion</string>
     <string name="screen_lock">Skärmlåsning</string>
-    <string name="power_off">Stäng av</string>
+    <string name="power_off">Avstängningstid</string>
     <string name="silent_mode_silent">Ringsignal av</string>
     <string name="silent_mode_vibrate">Ringsignalsvibration</string>
     <string name="silent_mode_ring">Ringsignal på</string>
@@ -413,6 +413,7 @@
     <string name="permdesc_mdmKioskMode">Styr enhetsbeteendet i Kioskläget</string>
     <string name="tether_usb_restrict">Säkerhetspolicy begränsar användningen av USB-internetdelning</string>
     <string name="tether_wifi_restrict">Säkerhetspolicy begränsar användningen av Wi-Fi-delning</string>
+    <string name="data_call_restriction">Säkerhetspolicyn begränsar användningen av mobila data</string>
     <string name="dpm_wifi_blocked_network">Säkerhetspolicyn blockerar användningen av detta Wi-Fi-nätverk</string>
     <string name="dpm_wifi_misc_wifi_disabled">Säkerhetspolicy begränsar användningen av Wi-Fi</string>
     <string name="dpm_wifi_misc_network_insecure">Säkerhetspolicyn begränsar användningen av osäkra Wi-Fi-nätverk</string>
@@ -624,7 +625,7 @@
     <string name="permdesc_writeSocialStream">Tillåter att appen visar sociala uppdateringar från dina vänner. Var försiktig när du delar information – med den här behörigheten tillåts appen att generera meddelanden som kan se ut att komma från en vän. Observera att den här behörigheten kanske inte är tillämplig på alla sociala nätverk.</string>
     <string name="permlab_readCalendar">Läs kalenderhändelser och konfidentiell information</string>
     <string name="permdesc_readCalendar">Tillåter att appen läser alla kalenderuppgifter som sparats på mobilen, inklusive dina vänners eller kollegors uppgifter. Med den här behörigheten kan appen tillåtas att dela eller spara kalenderuppgifter även om de är sekretessbelagda eller känsliga.</string>
-    <string name="permlab_writeCalendar">lägga till eller ändra kalenderuppgifter och skicka e-post till gäster utan ägarens vetskap</string>
+    <string name="permlab_writeCalendar">Lägg till eller ändra kalenderhändelser och skicka e-post till gäster utan värdens vetskap</string>
     <string name="permdesc_writeCalendar">Tillåter att appen lägger till, tar bort och ändrar sådana händelser som du kan ändra på mobilen, inklusive dina vänners eller kollegors uppgifter. Detta kan innebära att appen tillåts skicka meddelanden som ser ut att komma från kalenderns ägare eller ändra händelser utan ägarens vetskap.</string>
     <string name="permlab_accessMockLocation">fingerade platskällor för testning</string>
     <string name="permdesc_accessMockLocation">Ger ett program möjlighet att skapa fingerade platskällor för testning. Skadliga program kan åsidosätta den plats och/eller status som returneras av verkliga platskällor, t.ex. GPS eller operatörer, eller övervaka och meddela din plats till webbplatser om det tillåts</string>
@@ -714,7 +715,7 @@
     <string name="permdesc_getAccounts">Ger ett program möjlighet att få åtkomst till kontolistan som telefonen känner till</string>
     <string name="permlab_authenticateAccounts">Fungera som autentiserare för konto</string>
     <string name="permdesc_authenticateAccounts">Ger ett program möjlighet att använda funktionen kontoautentiserare i Kontohanteraren. Detta inkluderar att skapa konton och hantera lösenord</string>
-    <string name="permlab_manageAccounts">lägga till eller ta bort konton</string>
+    <string name="permlab_manageAccounts">Lägg till eller ta bort konton</string>
     <string name="permdesc_manageAccounts">Ger ett program möjlighet att lägga till och ta bort konton, inklusive radera ditt lösenord</string>
     <string name="permlab_useCredentials">Använd kontoautentiseringsuppgifter</string>
     <string name="permdesc_useCredentials">Ger ett program möjlighet att begära autentiseringstoken</string>
@@ -736,7 +737,7 @@
     <string name="permdesc_changeWifiState">Ger ett program möjlighet att ansluta till och koppla bort från Wi-Fi-åtkomstpunkter och ändra konfigurerade Wi-Fi-nätverk</string>
     <string name="permlab_changeWifiMulticastState">Tillåt Wi-Fi-multicastmottagning</string>
     <string name="permdesc_changeWifiMulticastState">Tillåter att appen tar emot paket som skickats med multicast-adress till alla enheter i ett Wi-Fi-nätverk och inte bara till den här mobilen. Detta drar mer batteri än när multicastläget inte används.</string>
-    <string name="permlab_bluetoothAdmin">få åtkomst till Bluetooth-inställningar</string>
+    <string name="permlab_bluetoothAdmin">Bluetooth-inställningar</string>
     <string name="permdesc_bluetoothAdmin">Ger ett program möjlighet att konfigurera den lokala Bluetooth-telefonen samt upptäcka och sammankoppla med fjärrenheter</string>
     <string name="permlab_accessWimaxState">Visa WiMAX-status</string>
     <string name="permdesc_accessWimaxState">Tillåter att appen avgör om WiMAX är aktiverat och kommer åt information om eventuella anslutna WiMAX-nätverk.</string>
@@ -826,6 +827,7 @@
     <string name="policydesc_allow_desktopsync">Förhindra användning av skrivbordssynkronisering</string>
     <string name="policylab_require_storagecard_encryption">Ställ in kryptering för SD-kortet</string>
     <string name="policydesc_require_storagecard_encryption">Kräv att program på SD-kortet ska krypteras</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth har kopplats från</string>
     <string name="bluetooth_security_mode_disable">Säkerhetspolicy begränsar användningen av Bluetooth-anslutning</string>
     <string name="bluetooth_security_mode_handsfree">Säkerhetspolicy begränsar användningen av Bluetooth-anslutning till endast handsfreefunktioner</string>
     <string name="phoneTypeCustom">Egen</string>
@@ -905,11 +907,11 @@
     <string name="keyguard_password_entry_touch_hint">Tryck för att ange lösenord</string>
     <string name="keyguard_password_enter_password_code">Ange lösenord för att låsa upp</string>
     <string name="keyguard_password_enter_pin_password_code">Ange PIN för att låsa upp</string>
-    <string name="keyguard_password_wrong_pin_code">Fel PIN-kod.</string>
+    <string name="keyguard_password_wrong_pin_code">Fel PIN-kod</string>
     <string name="keyguard_pin_accepted">Kod godkänd</string>
     <string name="keyguard_label_text">Tryck på Meny och sedan på 0 för att låsa upp</string>
     <string name="emergency_call_dialog_number_for_display">Nummer för nödsituationer</string>
-    <string name="lockscreen_carrier_default">Endast nödsamtal</string>
+    <string name="lockscreen_carrier_default">Ej service</string>
     <string name="lockscreen_screen_locked">Låst skärm</string>
     <string name="lockscreen_instructions_when_pattern_enabled">Tryck på Meny för att låsa upp eller ringa nödsamtal</string>
     <string name="lockscreen_instructions_when_pattern_disabled">Tryck på Meny för att låsa upp</string>
@@ -942,8 +944,9 @@
     <string name="lockscreen_network_locked_message">Nätverket är låst</string>
     <string name="lockscreen_sim_puk_locked_message">SIM-kortet är PUK-låst</string>
     <string name="lockscreen_sim_puk_locked_instructions">Läs användarguiden eller kontakta kundtjänst</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM-kortet är låst</string>
+    <string name="lockscreen_sim_locked_message">SIM-kortet är låst</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">Låser upp SIM-kort…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Fel upplåsningsmönster har ritats %1$d gånger. Försök igen om %2$d sekunder</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Felaktigt lösenord angivet %1$d gånger. Försök igen om %2$d sekunder</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 blockerad. Ange PUK1 för att låsa upp PIN1</string>
@@ -996,6 +999,7 @@
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">Samma som</string>
     <string name="autofill_billing_designator_re">Räkning</string>
+    <string name="autofill_shipping_designator_re">Fartyg</string>
     <string name="autofill_phone_suffix_re">Suffix</string>
     <string name="autofill_name_on_card_contextual_re">Namn</string>
     <string name="autofill_province">Region</string>
@@ -1010,7 +1014,7 @@
     <string name="autofill_parish">Församling</string>
     <string name="autofill_area">Yta</string>
     <string name="autofill_emirate">Emirat</string>
-    <string name="permlab_readHistoryBookmarks">läsa dina bokmärken och din historik på webben</string>
+    <string name="permlab_readHistoryBookmarks">Läs Internet-historik och -bokmärken</string>
     <string name="permdesc_readHistoryBookmarks">"Tillåt att programmet läser alla URL'er som webbläsaren har besökt samt alla webbläsarens bokmärken"</string>
     <string name="permlab_writeHistoryBookmarks">skriva bokmärken och historik på webben</string>
     <string name="permdesc_writeHistoryBookmarks">Ger ett program möjlighet att ändra Internet-historik och -bokmärken som sparats i telefonen. Skadliga program kan radera eller ändra sådana data om det tillåts</string>
@@ -1089,10 +1093,12 @@
     <string name="editTextMenuTitle">Textåtgärder</string>
     <string name="low_internal_storage_view_title">Minnet är nästan fullt</string>
     <string name="low_internal_storage_view_text">Vissa systemfunktioner fungerar kanske inte</string>
+    <string name="full_internal_storage_view_text">Ett fel inträffade på grund av att enhetsminnet är fullt. Ta bort några objekt</string>
     <string name="loading">Laddar…</string>
     <string name="capital_on">På</string>
     <string name="capital_off">Av</string>
     <string name="whichApplication">Slutför åtgärden med</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Använd som standard för den här åtgärden</string>
     <string name="clearDefaultHintMsg">Rensa standardprograminställningarna genom att gå till Inställningar > Programhanterare > Alla</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1161,7 +1167,7 @@ Vill du stänga sidan?"</string>
     <string name="wifi_notification_no_network_message">Öppna Wi-Fi-inställningar</string>
     <string name="wifi_notification_not_connected">Tillgängliga Wi-Fi-nätverk</string>
     <string name="wifi_notification_not_connected_message">Öppna tillgängliga Wi-Fi-nätverk</string>
-    <string name="wifi_notification_connected">Ansluten till %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Tryck för att konfigurera Wi-Fi</string>
     <string name="wifi_notification_connected_secure">Säker</string>
     <string name="wifi_notification_connected_open">Öppna</string>
@@ -1175,7 +1181,7 @@ Vill du stänga sidan?"</string>
     <string name="wifi_p2p_enabled_notification_title">Wi-Fi Direct är på</string>
     <string name="wifi_p2p_enabled_notification_message">Tryck för att ändra inställn.</string>
     <string name="accept">Accept.</string>
-    <string name="decline">Avböj</string>
+    <string name="decline">Avvisa</string>
     <string name="wifi_p2p_invitation_sent_title">Inbjudan skickad</string>
     <string name="wifi_p2p_invitation_to_connect_title">Inbjudan att ansluta</string>
     <string name="wifi_p2p_from_message">Från:</string>
@@ -1191,9 +1197,9 @@ Vill du stänga sidan?"</string>
     <string name="select_character">Infoga tecken</string>
     <string name="sms_control_default_app_name">Okänd applikation</string>
     <string name="sms_control_title">Skickar SMS…</string>
-    <string name="sms_control_message">Ett stort antal SMS skickas. Välj OK för att fortsätta eller Avbryt för att stoppa sändningen</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Avbryt</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> skickar ett stort antal textmeddelanden. Vill du tillåta att programmet skickar meddelandena?</string>
+    <string name="sms_control_yes">Tillåt</string>
+    <string name="sms_control_no">Avvisa</string>
     <string name="sim_removed_title">SIM-kortet har tagits bort</string>
     <string name="sim_removed_message">Mobilnätverket kommer att vara inte att vara tillgängligt förrän du startar om med ett giltigt SIM-kort isatt</string>
     <string name="sim_done_button">Klar</string>
@@ -1287,7 +1293,7 @@ Vill du stänga sidan?"</string>
     <string name="activity_list_empty">Det fanns inga matchande aktiviteter</string>
     <string name="permlab_pkgUsageStats">uppdatera statistik över komponentanvändning</string>
     <string name="permdesc_pkgUsageStats">Ger möjlighet till ändring av insamlad statistik över komponentanvändning. Inte avsett för användning av normala program</string>
-    <string name="permlab_copyProtectedData">Tillåter att standardinnehållstjänsten kopierar innehåll. Inte avsett att användas av normala program</string>
+    <string name="permlab_copyProtectedData">Kopiera innehållet</string>
     <string name="permdesc_copyProtectedData">Tillåter att standardinnehållstjänsten kopierar innehåll. Inte avsett att användas av normala program</string>
     <string name="permlab_route_media_output">Rutt för medieutdata</string>
     <string name="permdesc_route_media_output">Gör det möjligt för ett program att skapa en rutt för medieutdata till externa enheter</string>
@@ -1427,10 +1433,11 @@ konto %s"</string>
     <string name="action_bar_home_description">Navigera hem</string>
     <string name="action_bar_up_description">Navigera upp</string>
     <string name="action_menu_overflow_description">Fler alternativ</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Växla till föregående storlek</string>
     <string name="storage_internal">Enhetsminne</string>
     <string name="storage_sd_card">SD-kort</string>
     <string name="storage_usb">USB-lagring</string>
-    <string name="extract_edit_menu_button">Redigerar…</string>
+    <string name="extract_edit_menu_button">Redigera</string>
     <string name="data_usage_warning_title">Varning för dataanvändning</string>
     <string name="data_usage_warning_body">Tryck för att visa användning och inställningar</string>
     <string name="data_usage_3g_limit_title">2G-3G-data har inaktiverats</string>
@@ -1516,6 +1523,8 @@ konto %s"</string>
     <string name="lockscreen_fmapp_name">FM-radio</string>
     <string name="lockscreen_clock_dualclock_home">Hem</string>
     <string name="lockscreen_clock_dualclock_roaming">Roaming</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Seoul</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Roaming</string>
     <string name="lockscreen_clock_dualclock_popup_title">Dubbel klocka</string>
     <string name="lockscreen_clock_dualclock_popup_message">Välj hemort för att visa dubbel klocka på låsskärmen. Gå till Inställningar?</string>
     <string name="lockscreen_ticker_no_data_to_display">Inga data att visa</string>
@@ -1552,7 +1561,7 @@ konto %s"</string>
     <string name="lockscreen_2ndLock_instructions2">Ange reserv-PIN för att låsa upp</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Du har ritat fel upplåsningsmönster %1$d gånger. Försök igen om %2$d sekunder</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Fel upplåsningsmönster har ritats %1$d gånger. Efter %2$d fler misslyckade försök ombeds du låsa upp enheten med dina Google-inloggningsuppgifter eller din reserv-PIN. Försök igen om %3$d sekunder</string>
     <string name="lockscreen_carrier_noservice">(Ingen tjänst)</string>
     <string name="rescan_network">Söker efter tillgängligt nätverk</string>
     <string name="AutoUpdateOfTimeAndDate">Automatisk uppdatering av tid och datum</string>
@@ -1563,6 +1572,8 @@ konto %s"</string>
     <string name="capabilitymanager_managed_errortitle">Fel</string>
     <string name="security_policy_title">Säkerhetsprinciper</string>
     <string name="security_policy_summary">Krypteringsregler hämtades från fjärradministratören</string>
+    <string name="sdcard_unmount_policy_noti_title">SD-kortet togs bort på grund av IT-policyn</string>
+    <string name="sdcard_unmount_policy_noti_content">Tryck för att ta bort SD-kortet</string>
     <string name="sdcard_encrypt_title_notification">Kryptering av SD-kortet</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">Krypterar SD-kortet…</string>
     <string name="sdcard_encrypt_notification">SD-kortet har krypterats</string>
@@ -1586,7 +1597,7 @@ konto %s"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1628,7 +1639,7 @@ konto %s"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">De angivna värdena ligger utanför det giltiga intervallet. Kontrollera värdena och försök igen</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1650,6 +1661,8 @@ konto %s"</string>
     <string name="SS_USB_TETHERING_ENABLED">Internetdelning via USB är aktiverat</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Internetdelning via WI-FI är aktiverat</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Internetdelning aktiverat (Wi-Fi och USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Enheten har blockerats. Högsta antalet försök att ange lösenord har uppnåtts. Ett återställningslösenord krävs för att öppna enheten. Om du anger ett felaktigt återställningslösenord raderas alla data</string>
+    <string name="recovery_password_required">Ett återställningslösenord krävs för att låsa upp enheten</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Fjärranslutning har aktiverats</string>
@@ -1660,7 +1673,7 @@ konto %s"</string>
     <string name="volumepanel_system">System</string>
     <string name="keyguard_password_enter_hint_password_code">Ange lösenord</string>
     <string name="keyguard_password_enter_hint_pin_password_code">Ange PIN</string>
-    <string name="pen_detachment_alert_dialog_text">S Pen har kopplats från. Koppa in S Pen innan du går</string>
+    <string name="pen_detachment_alert_dialog_text">S Pen har kopplats från. Koppla in S Pen innan du går</string>
     <string name="pen_detachment_alert_go_to_settings">Gå till Inställningar</string>
     <string name="activity_resolver_use_always">Alltid</string>
     <string name="activity_resolver_use_once">Endast en gång</string>
@@ -1683,12 +1696,21 @@ konto %s"</string>
     <string name="lockscreen_ticker_logo_news_tts">Nyheter</string>
     <string name="lockscreen_ticker_logo_stock_tts">Aktie</string>
     <string name="lockscreen_ticker_refresh_tts">Uppdatera</string>
+    <string name="SS_ALWAYS_ON_TOP">Alltid överst</string>
+    <string name="SS_MINIMISE">Minimera</string>
+    <string name="SS_MAXIMISE">Maximera</string>
+    <string name="SS_CLOSE_APPLICATION">Stäng program</string>
+    <string name="spengesture_media_scanning">Det går inte att beskära bilden. Medieskannern körs</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN låst</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Kontakta tjänstleverantören för att låsa upp SIM-kortet</string>
     <string name="resolver_guide_title">Rensa standard</string>
     <string name="operation_not_allowed">Åtgärden är inte tillåten</string>
     <string name="exceeded_maxlength">Storleksgräns för meddelanden har överskridits</string>
     <string name="dont_show_again_message">Visa inte igen</string>
     <string name="set_bing_as_default">Ange Bing som standardsökmotor?</string>
     <string name="ms_domain_site">Microsoft-domänwebbplats</string>
+    <string name="unsupported_in_popupbrowser">Funktionen stöds inte i Popup-webbläsaren</string>
+    <string name="find_on_page_abb">Sök på sidan</string>
     <string name="tw_clipboard_already_exists">Finns redan</string>
     <string name="tw_clipboard_no_items_to_paste">Inga objekt att klistra in</string>
     <string name="tw_clipboard_save_in_memo">Spara i Memo</string>
@@ -1707,4 +1729,7 @@ konto %s"</string>
     <string name="tw_clipboard_save">Spara</string>
     <string name="tw_clipboard_no_item">Inga objekt</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Alla objekt, förutom låsta objekt, har tagits bort från urklipp</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Inklistrat från urklipp</string>
+    <string name="Roaming_Auto_Dialing">PIN låst</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

@@ -11,6 +11,14 @@
 .field private static sInstance:Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
 
 
+# instance fields
+.field private final TAG:Ljava/lang/String;
+
+.field private final WALLPAPER_PATH:Ljava/lang/String;
+
+.field private wallpaperObserver:Landroid/os/FileObserver;
+
+
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
@@ -18,54 +26,102 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 8
+    .line 10
     sput-object v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->lockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
 
-    .line 9
+    .line 11
     sput-object v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->rippleLockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
 
-    .line 11
+    .line 17
     sput-object v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->sInstance:Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 3
 
     .prologue
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    .line 13
+    .line 19
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 14
-    sput-object v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->lockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
+    const-string v0, "/data/data/com.sec.android.gallery3d/lockscreen_wallpaper.jpg"
+
+    iput-object v0, p0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->WALLPAPER_PATH:Ljava/lang/String;
 
     .line 15
-    sput-object v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->rippleLockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
+    const-string v0, "EnhancedWallpaperWidget"
 
-    .line 16
+    iput-object v0, p0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->TAG:Ljava/lang/String;
+
+    .line 20
+    sput-object v1, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->lockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
+
+    .line 21
+    sput-object v1, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->rippleLockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
+
+    .line 24
+    new-instance v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget$1;
+
+    const-string v1, "/data/data/com.sec.android.gallery3d/lockscreen_wallpaper.jpg"
+
+    const/4 v2, 0x2
+
+    invoke-direct {v0, p0, v1, v2}, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget$1;-><init>(Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;Ljava/lang/String;I)V
+
+    iput-object v0, p0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->wallpaperObserver:Landroid/os/FileObserver;
+
+    .line 32
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->wallpaperObserver:Landroid/os/FileObserver;
+
+    invoke-virtual {v0}, Landroid/os/FileObserver;->startWatching()V
+
+    .line 33
     return-void
+.end method
+
+.method static synthetic access$002(Landroid/graphics/drawable/BitmapDrawable;)Landroid/graphics/drawable/BitmapDrawable;
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 8
+    sput-object p0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->lockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
+
+    return-object p0
+.end method
+
+.method static synthetic access$102(Landroid/graphics/drawable/BitmapDrawable;)Landroid/graphics/drawable/BitmapDrawable;
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 8
+    sput-object p0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->rippleLockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
+
+    return-object p0
 .end method
 
 .method public static getInstance()Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
     .locals 1
 
     .prologue
-    .line 19
+    .line 36
     sget-object v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->sInstance:Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
 
     if-nez v0, :cond_0
 
-    .line 20
+    .line 37
     new-instance v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
 
     invoke-direct {v0}, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;-><init>()V
 
     sput-object v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->sInstance:Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
 
-    .line 22
+    .line 39
     :cond_0
     sget-object v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->sInstance:Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
 
@@ -78,7 +134,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 47
     sget-object v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->lockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
 
     return-object v0
@@ -88,7 +144,7 @@
     .locals 1
 
     .prologue
-    .line 38
+    .line 55
     sget-object v0, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->rippleLockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
 
     return-object v0
@@ -99,10 +155,10 @@
     .parameter "bitmapDrawable"
 
     .prologue
-    .line 26
+    .line 43
     sput-object p1, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->lockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
 
-    .line 27
+    .line 44
     return-void
 .end method
 
@@ -111,9 +167,9 @@
     .parameter "bitmapDrawable"
 
     .prologue
-    .line 34
+    .line 51
     sput-object p1, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->rippleLockscreenBackground:Landroid/graphics/drawable/BitmapDrawable;
 
-    .line 35
+    .line 52
     return-void
 .end method

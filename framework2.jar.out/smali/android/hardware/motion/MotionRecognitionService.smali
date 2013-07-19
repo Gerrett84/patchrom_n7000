@@ -25,6 +25,8 @@
 
 .field private static final CONFIG_USE_ALWAYS:Z = false
 
+.field private static final EVENT_FROM_ENGINE:I = 0x55
+
 .field public static final FILE_DIR:Ljava/lang/String; = "/data/log/acc_int"
 
 .field private static final PANNING_ICON:I = 0x1
@@ -145,7 +147,7 @@
     .locals 1
 
     .prologue
-    .line 64
+    .line 85
     sget-object v0, Landroid/hardware/motion/MotionRecognitionEngineAppId$eAPPID;->APPID_TEST:Landroid/hardware/motion/MotionRecognitionEngineAppId$eAPPID;
 
     invoke-virtual {v0}, Landroid/hardware/motion/MotionRecognitionEngineAppId$eAPPID;->ordinal()I
@@ -172,158 +174,158 @@
 
     const/4 v3, 0x0
 
-    .line 185
+    .line 213
     invoke-direct {p0}, Landroid/hardware/motion/IMotionRecognitionService$Stub;-><init>()V
 
-    .line 81
+    .line 102
     iput-object v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPW:Ljava/io/PrintWriter;
 
-    .line 82
+    .line 103
     const-string v1, ""
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPath:Ljava/lang/String;
 
-    .line 83
+    .line 104
     iput-wide v6, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogTime:J
 
-    .line 84
+    .line 105
     iput-wide v6, p0, Landroid/hardware/motion/MotionRecognitionService;->mPowerTime:J
 
-    .line 86
+    .line 107
     iput-object v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mThread:Landroid/os/HandlerThread;
 
-    .line 87
+    .line 108
     iput-object v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mHandler:Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;
 
-    .line 88
+    .line 109
     iput-object v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mPollThread:Landroid/hardware/motion/MotionRecognitionService$PollIntThread;
 
-    .line 92
+    .line 113
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
-    .line 93
+    .line 114
     iput-object v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mEventPool:Landroid/hardware/motion/MotionRecognitionService$EventPool;
 
-    .line 94
+    .line 115
     new-instance v1, Ljava/lang/Object;
 
     invoke-direct/range {v1 .. v1}, Ljava/lang/Object;-><init>()V
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mLockEngine:Ljava/lang/Object;
 
-    .line 96
+    .line 117
     iput-boolean v2, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineIsAvailable:Z
 
-    .line 97
+    .line 118
     iput-boolean v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineInitialized:Z
 
-    .line 98
+    .line 119
     iput-boolean v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mBootCompeleted:Z
 
-    .line 99
+    .line 120
     iput-boolean v2, p0, Landroid/hardware/motion/MotionRecognitionService;->mScreenOn:Z
 
-    .line 100
+    .line 121
     iput-boolean v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mEnableAccINT:Z
 
-    .line 101
+    .line 122
     iput-boolean v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mFlatEvent:Z
 
-    .line 103
+    .line 124
     const/16 v1, 0x1c
 
     iput v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mRotate:I
 
-    .line 104
+    .line 125
     iput v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mSensorsUsed:I
 
-    .line 105
+    .line 126
     iput v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mSensorsEnabled:I
 
-    .line 106
+    .line 127
     const/16 v1, 0x14
 
     iput v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mSensorDelayInMsec:I
 
-    .line 107
+    .line 128
     const/4 v1, -0x1
 
     iput v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mfdAccint:I
 
-    .line 108
+    .line 129
     iput v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mKeyInput:I
 
-    .line 111
+    .line 132
     iput-boolean v3, p0, Landroid/hardware/motion/MotionRecognitionService;->msspenabled:Z
 
-    .line 112
+    .line 134
     new-instance v1, Landroid/hardware/motion/MotionRecognitionService$1;
 
     invoke-direct {v1, p0}, Landroid/hardware/motion/MotionRecognitionService$1;-><init>(Landroid/hardware/motion/MotionRecognitionService;)V
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 343
+    .line 372
     new-instance v1, Landroid/hardware/motion/MotionRecognitionService$3;
 
     invoke-direct {v1, p0}, Landroid/hardware/motion/MotionRecognitionService$3;-><init>(Landroid/hardware/motion/MotionRecognitionService;)V
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mMsgHandler:Landroid/os/Handler;
 
-    .line 1278
+    .line 1350
     new-array v1, v5, [D
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostAccelVal:[D
 
-    .line 1279
+    .line 1351
     new-array v1, v5, [D
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostGyroVal:[D
 
-    .line 1280
+    .line 1352
     const/4 v1, 0x5
 
     iput-short v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostProxVal:S
 
-    .line 1282
+    .line 1354
     iput-boolean v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostTouch:Z
 
-    .line 1284
+    .line 1356
     new-instance v1, Landroid/hardware/motion/MotionRecognitionService$4;
 
     invoke-direct {v1, p0}, Landroid/hardware/motion/MotionRecognitionService$4;-><init>(Landroid/hardware/motion/MotionRecognitionService;)V
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorAccelerometerListener:Landroid/hardware/SensorEventListener;
 
-    .line 1319
+    .line 1391
     new-instance v1, Landroid/hardware/motion/MotionRecognitionService$5;
 
     invoke-direct {v1, p0}, Landroid/hardware/motion/MotionRecognitionService$5;-><init>(Landroid/hardware/motion/MotionRecognitionService;)V
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorGyroscopeListener:Landroid/hardware/SensorEventListener;
 
-    .line 1356
+    .line 1428
     new-instance v1, Landroid/hardware/motion/MotionRecognitionService$6;
 
     invoke-direct {v1, p0}, Landroid/hardware/motion/MotionRecognitionService$6;-><init>(Landroid/hardware/motion/MotionRecognitionService;)V
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorProximityListener:Landroid/hardware/SensorEventListener;
 
-    .line 1390
+    .line 1462
     new-instance v1, Landroid/hardware/motion/MotionRecognitionService$7;
 
     invoke-direct {v1, p0}, Landroid/hardware/motion/MotionRecognitionService$7;-><init>(Landroid/hardware/motion/MotionRecognitionService;)V
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorLightListener:Landroid/hardware/SensorEventListener;
 
-    .line 186
+    .line 214
     iput-object p1, p0, Landroid/hardware/motion/MotionRecognitionService;->mContext:Landroid/content/Context;
 
-    .line 188
+    .line 216
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->native_motionengine_is_available()I
 
     move-result v1
@@ -335,29 +337,29 @@
     :goto_0
     iput-boolean v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineIsAvailable:Z
 
-    .line 189
+    .line 217
     iget-boolean v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineIsAvailable:Z
 
     if-nez v1, :cond_1
 
-    .line 190
+    .line 218
     const-string v1, "MotionRecognitionService"
 
     const-string v2, "  Engine is not included"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 243
+    .line 271
     :goto_1
     return-void
 
     :cond_0
     move v1, v3
 
-    .line 188
+    .line 216
     goto :goto_0
 
-    .line 194
+    .line 222
     :cond_1
     new-instance v1, Landroid/os/HandlerThread;
 
@@ -367,12 +369,12 @@
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mThread:Landroid/os/HandlerThread;
 
-    .line 195
+    .line 223
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v1}, Landroid/os/HandlerThread;->start()V
 
-    .line 197
+    .line 225
     new-instance v1, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;
 
     iget-object v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mThread:Landroid/os/HandlerThread;
@@ -385,14 +387,14 @@
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mHandler:Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;
 
-    .line 199
+    .line 227
     new-instance v1, Landroid/hardware/motion/MotionRecognitionService$EventPool;
 
     invoke-direct {v1, p0}, Landroid/hardware/motion/MotionRecognitionService$EventPool;-><init>(Landroid/hardware/motion/MotionRecognitionService;)V
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mEventPool:Landroid/hardware/motion/MotionRecognitionService$EventPool;
 
-    .line 201
+    .line 229
     new-instance v1, Landroid/hardware/motion/MotionRecognitionService$PollIntThread;
 
     iget-object v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mMsgHandler:Landroid/os/Handler;
@@ -401,19 +403,19 @@
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mPollThread:Landroid/hardware/motion/MotionRecognitionService$PollIntThread;
 
-    .line 203
+    .line 231
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mPollThread:Landroid/hardware/motion/MotionRecognitionService$PollIntThread;
 
     invoke-virtual {v1}, Landroid/hardware/motion/MotionRecognitionService$PollIntThread;->start()V
 
-    .line 206
+    .line 234
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mResolver:Landroid/content/ContentResolver;
 
-    .line 209
+    .line 237
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -428,7 +430,7 @@
 
     iput-boolean v1, p0, Landroid/hardware/motion/MotionRecognitionService;->msspenabled:Z
 
-    .line 210
+    .line 238
     const-string v1, "MotionRecognitionService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -453,58 +455,58 @@
 
     invoke-static {v1, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 211
+    .line 239
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 212
+    .line 240
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 213
+    .line 241
     const-string v1, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 214
+    .line 242
     const-string v1, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 215
+    .line 243
     const-string v1, "android.intent.action.ACTION_POWER_CONNECTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 216
+    .line 244
     const-string v1, "android.intent.action.ACTION_POWER_DISCONNECTED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 217
+    .line 245
     const-string v1, "android.intent.action.BATTERY_LOW"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 218
+    .line 246
     const-string v1, "com.sec.motions.MOTIONS_SETTINGS_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 219
+    .line 247
     const-string v1, "android.intent.action.USER_PRESENT"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 221
+    .line 249
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 223
+    .line 251
     const-string v1, "power"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -515,7 +517,7 @@
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mPM:Landroid/os/PowerManager;
 
-    .line 224
+    .line 252
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mPM:Landroid/os/PowerManager;
 
     const-string v4, "reactive_alert"
@@ -526,12 +528,12 @@
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mReactiveAlert_Wakelock:Landroid/os/PowerManager$WakeLock;
 
-    .line 225
+    .line 253
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mReactiveAlert_Wakelock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1, v3}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
-    .line 228
+    .line 256
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mContext:Landroid/content/Context;
 
     const-string v2, "sensor"
@@ -544,7 +546,7 @@
 
     iput-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorManager:Landroid/hardware/SensorManager;
 
-    .line 230
+    .line 258
     new-instance v1, Landroid/hardware/motion/MotionRecognitionService$2;
 
     invoke-direct {v1, p0, p1}, Landroid/hardware/motion/MotionRecognitionService$2;-><init>(Landroid/hardware/motion/MotionRecognitionService;Landroid/content/Context;)V
@@ -559,7 +561,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 81
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->initializeMotionEngine()V
 
     return-void
@@ -570,70 +572,81 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 81
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->finalizeIfPossible()V
 
     return-void
 .end method
 
-.method static synthetic access$1000(Landroid/hardware/motion/MotionRecognitionService;)S
+.method static synthetic access$1000(Landroid/hardware/motion/MotionRecognitionService;)[D
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 81
+    iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostGyroVal:[D
+
+    return-object v0
+.end method
+
+.method static synthetic access$1100(Landroid/hardware/motion/MotionRecognitionService;)S
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 81
     iget-short v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostProxVal:S
 
     return v0
 .end method
 
-.method static synthetic access$1002(Landroid/hardware/motion/MotionRecognitionService;S)S
+.method static synthetic access$1102(Landroid/hardware/motion/MotionRecognitionService;S)S
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 81
     iput-short p1, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostProxVal:S
 
     return p1
 .end method
 
-.method static synthetic access$1100(Landroid/hardware/motion/MotionRecognitionService;)I
+.method static synthetic access$1200(Landroid/hardware/motion/MotionRecognitionService;)I
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 81
     iget v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostLightVal:I
 
     return v0
 .end method
 
-.method static synthetic access$1102(Landroid/hardware/motion/MotionRecognitionService;I)I
+.method static synthetic access$1202(Landroid/hardware/motion/MotionRecognitionService;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 81
     iput p1, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostLightVal:I
 
     return p1
 .end method
 
-.method static synthetic access$1200(Landroid/hardware/motion/MotionRecognitionService;)Z
+.method static synthetic access$1300(Landroid/hardware/motion/MotionRecognitionService;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 81
     iget-boolean v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostTouch:Z
 
     return v0
 .end method
 
-.method static synthetic access$1300(Landroid/hardware/motion/MotionRecognitionService;DDDDDDSIZII)I
+.method static synthetic access$1400(Landroid/hardware/motion/MotionRecognitionService;DDDDDDSIZII)I
     .locals 1
     .parameter "x0"
     .parameter "x1"
@@ -649,7 +662,7 @@
     .parameter "x11"
 
     .prologue
-    .line 60
+    .line 81
     invoke-direct/range {p0 .. p17}, Landroid/hardware/motion/MotionRecognitionService;->native_getscenario_id(DDDDDDSIZII)I
 
     move-result v0
@@ -657,13 +670,13 @@
     return v0
 .end method
 
-.method static synthetic access$1400(Landroid/hardware/motion/MotionRecognitionService;I)V
+.method static synthetic access$1500(Landroid/hardware/motion/MotionRecognitionService;I)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 81
     invoke-direct {p0, p1}, Landroid/hardware/motion/MotionRecognitionService;->sendMotionEvent(I)V
 
     return-void
@@ -674,7 +687,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 81
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->finalizeMotionEngine()V
 
     return-void
@@ -686,7 +699,7 @@
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 81
     invoke-direct {p0, p1}, Landroid/hardware/motion/MotionRecognitionService;->native_volume_changed(I)V
 
     return-void
@@ -697,7 +710,7 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 81
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mReactiveAlert_Wakelock:Landroid/os/PowerManager$WakeLock;
 
     return-object v0
@@ -709,7 +722,7 @@
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 81
     invoke-direct {p0, p1}, Landroid/hardware/motion/MotionRecognitionService;->native_motionengine_poll_accint(I)I
 
     move-result v0
@@ -723,7 +736,7 @@
     .parameter "x1"
 
     .prologue
-    .line 60
+    .line 81
     invoke-direct {p0, p1}, Landroid/hardware/motion/MotionRecognitionService;->sendMotionEvent(Landroid/hardware/motion/MREvent;)V
 
     return-void
@@ -734,19 +747,19 @@
     .parameter "x0"
 
     .prologue
-    .line 60
+    .line 81
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->disableUnusedSensors()V
 
     return-void
 .end method
 
-.method static synthetic access$800(Landroid/hardware/motion/MotionRecognitionService;)[D
+.method static synthetic access$800(Landroid/hardware/motion/MotionRecognitionService;)Landroid/content/Context;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 60
-    iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostAccelVal:[D
+    .line 81
+    iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -756,8 +769,8 @@
     .parameter "x0"
 
     .prologue
-    .line 60
-    iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostGyroVal:[D
+    .line 81
+    iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostAccelVal:[D
 
     return-object v0
 .end method
@@ -770,7 +783,7 @@
 
     const/4 v2, 0x0
 
-    .line 662
+    .line 703
     iget-object v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mResolver:Landroid/content/ContentResolver;
 
     const-string v4, "motion_engine"
@@ -781,7 +794,7 @@
 
     if-ne v3, v1, :cond_1
 
-    .line 663
+    .line 704
     .local v1, isEnabled:Z
     :goto_0
     const-string v3, "MotionRecognitionService"
@@ -806,18 +819,18 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 664
+    .line 705
     const-string v3, "debug.motion.enabled"
 
     invoke-static {v3, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    .line 665
+    .line 706
     .local v0, debugEnabled:Z
     if-eqz v0, :cond_0
 
-    .line 666
+    .line 707
     const-string v2, "MotionRecognitionService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -850,10 +863,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 667
+    .line 708
     move v1, v0
 
-    .line 669
+    .line 710
     :cond_0
     return v1
 
@@ -862,7 +875,7 @@
     :cond_1
     move v1, v2
 
-    .line 662
+    .line 703
     goto :goto_0
 .end method
 
@@ -875,7 +888,7 @@
 
     const/4 v2, 0x1
 
-    .line 676
+    .line 717
     const-string v4, "debug.motion.enabled"
 
     invoke-static {v4, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -884,28 +897,28 @@
 
     if-ne v4, v2, :cond_1
 
-    .line 724
+    .line 765
     :cond_0
     :goto_0
     return v2
 
-    .line 679
+    .line 720
     :cond_1
     const/4 v1, 0x0
 
-    .line 680
+    .line 721
     .local v1, setting:Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 681
+    .line 722
     .local v0, panningEvent:Z
     sparse-switch p1, :sswitch_data_0
 
-    .line 709
+    .line 750
     :goto_1
     if-eqz v0, :cond_2
 
-    .line 710
+    .line 751
     iget-object v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mResolver:Landroid/content/ContentResolver;
 
     const-string v5, "motion_panning"
@@ -928,62 +941,62 @@
 
     move v2, v3
 
-    .line 716
+    .line 757
     goto :goto_0
 
-    .line 682
+    .line 723
     :sswitch_0
     const-string v1, "motion_double_tap"
 
     goto :goto_1
 
-    .line 683
+    .line 724
     :sswitch_1
     const-string v1, "motion_overturn"
 
     goto :goto_1
 
-    .line 685
+    .line 726
     :sswitch_2
     const-string v1, "motion_shake"
 
     goto :goto_1
 
-    .line 686
+    .line 727
     :sswitch_3
     const/4 v0, 0x1
 
     goto :goto_1
 
-    .line 687
+    .line 728
     :sswitch_4
     const-string v1, "motion_zooming"
 
     goto :goto_1
 
-    .line 689
+    .line 730
     :sswitch_5
     const-string v1, "motion_pick_up"
 
     goto :goto_1
 
-    .line 690
+    .line 731
     :sswitch_6
     const-string v1, "motion_pick_up_to_call_out"
 
     goto :goto_1
 
-    .line 705
+    .line 746
     :sswitch_7
     const-string v1, "motion_tilt_to_list_scrolling"
 
     goto :goto_1
 
-    .line 720
+    .line 761
     :cond_2
     if-eqz v1, :cond_0
 
-    .line 721
+    .line 762
     iget-object v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mResolver:Landroid/content/ContentResolver;
 
     invoke-static {v4, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -996,7 +1009,7 @@
 
     goto :goto_0
 
-    .line 681
+    .line 722
     nop
 
     :sswitch_data_0
@@ -1038,7 +1051,7 @@
 
     const/4 v6, 0x0
 
-    .line 1138
+    .line 1184
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
@@ -1047,40 +1060,40 @@
 
     if-nez v5, :cond_2
 
-    .line 1139
+    .line 1185
     const/4 v1, 0x0
 
     .local v1, i:I
     :goto_0
     if-ge v1, v8, :cond_0
 
-    .line 1140
+    .line 1186
     shl-int v4, v7, v1
 
-    .line 1141
+    .line 1187
     .local v4, motion_sensor:I
     invoke-direct {p0, v4, v6}, Landroid/hardware/motion/MotionRecognitionService;->useSensor(IZ)V
 
-    .line 1139
+    .line 1185
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1143
+    .line 1189
     .end local v4           #motion_sensor:I
     :cond_0
     invoke-direct {p0, v6}, Landroid/hardware/motion/MotionRecognitionService;->enableAllSensors(Z)V
 
-    .line 1161
+    .line 1207
     :cond_1
     return-void
 
-    .line 1145
+    .line 1191
     .end local v1           #i:I
     :cond_2
     const/4 v0, 0x0
 
-    .line 1147
+    .line 1193
     .local v0, bSensorsUsed:I
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
@@ -1102,7 +1115,7 @@
 
     check-cast v3, Landroid/hardware/motion/MotionRecognitionService$Listener;
 
-    .line 1148
+    .line 1194
     .local v3, listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     iget v5, v3, Landroid/hardware/motion/MotionRecognitionService$Listener;->mMotionSensors:I
 
@@ -1110,7 +1123,7 @@
 
     goto :goto_1
 
-    .line 1151
+    .line 1197
     .end local v3           #listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     :cond_3
     const/4 v1, 0x0
@@ -1119,29 +1132,29 @@
     :goto_2
     if-ge v1, v8, :cond_1
 
-    .line 1152
+    .line 1198
     shl-int v4, v7, v1
 
-    .line 1153
+    .line 1199
     .restart local v4       #motion_sensor:I
     and-int v5, v0, v4
 
     if-nez v5, :cond_4
 
-    .line 1154
+    .line 1200
     invoke-direct {p0, v4}, Landroid/hardware/motion/MotionRecognitionService;->isSensorUsed(I)Z
 
     move-result v5
 
     if-eqz v5, :cond_4
 
-    .line 1155
+    .line 1201
     invoke-direct {p0, v4, v6}, Landroid/hardware/motion/MotionRecognitionService;->useSensor(IZ)V
 
-    .line 1156
+    .line 1202
     invoke-direct {p0, v4, v6}, Landroid/hardware/motion/MotionRecognitionService;->enableSensor(IZ)V
 
-    .line 1151
+    .line 1197
     :cond_4
     add-int/lit8 v1, v1, 0x1
 
@@ -1153,7 +1166,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 1128
+    .line 1174
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -1162,21 +1175,21 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 1129
+    .line 1175
     const/4 v2, 0x1
 
     shl-int v1, v2, v0
 
-    .line 1130
+    .line 1176
     .local v1, motion_sensor:I
     invoke-direct {p0, v1, p1}, Landroid/hardware/motion/MotionRecognitionService;->enableSensor(IZ)V
 
-    .line 1128
+    .line 1174
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1132
+    .line 1178
     .end local v1           #motion_sensor:I
     :cond_0
     return-void
@@ -1198,19 +1211,19 @@
 
     const-wide/16 v6, 0x0
 
-    .line 1075
+    .line 1121
     invoke-static {p1}, Landroid/hardware/motion/MotionRecognitionManager;->isValidMotionSensor(I)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 1122
+    .line 1168
     :cond_0
     :goto_0
     return-void
 
-    .line 1078
+    .line 1124
     :cond_1
     invoke-direct {p0, p1}, Landroid/hardware/motion/MotionRecognitionService;->isSensorEnabled(I)Z
 
@@ -1218,27 +1231,27 @@
 
     if-eq p2, v0, :cond_0
 
-    .line 1080
+    .line 1126
     if-eqz p2, :cond_5
 
-    .line 1081
+    .line 1127
     invoke-direct {p0, p1}, Landroid/hardware/motion/MotionRecognitionService;->isSensorUsed(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1082
+    .line 1128
     iget v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mSensorsEnabled:I
 
     or-int/2addr v0, p1
 
     iput v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mSensorsEnabled:I
 
-    .line 1086
+    .line 1132
     if-ne p1, v5, :cond_2
 
-    .line 1087
+    .line 1133
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorAccelerometerListener:Landroid/hardware/SensorEventListener;
@@ -1259,11 +1272,11 @@
 
     goto :goto_0
 
-    .line 1089
+    .line 1135
     :cond_2
     if-ne p1, v8, :cond_3
 
-    .line 1090
+    .line 1136
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorGyroscopeListener:Landroid/hardware/SensorEventListener;
@@ -1282,30 +1295,30 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;ILandroid/os/Handler;I)Z
 
-    .line 1091
+    .line 1137
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostGyroVal:[D
 
     const/4 v1, 0x0
 
     aput-wide v6, v0, v1
 
-    .line 1092
+    .line 1138
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostGyroVal:[D
 
     aput-wide v6, v0, v5
 
-    .line 1093
+    .line 1139
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostGyroVal:[D
 
     aput-wide v6, v0, v8
 
     goto :goto_0
 
-    .line 1095
+    .line 1141
     :cond_3
     if-ne p1, v3, :cond_4
 
-    .line 1096
+    .line 1142
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorProximityListener:Landroid/hardware/SensorEventListener;
@@ -1326,11 +1339,11 @@
 
     goto :goto_0
 
-    .line 1098
+    .line 1144
     :cond_4
     if-ne p1, v4, :cond_0
 
-    .line 1099
+    .line 1145
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorLightListener:Landroid/hardware/SensorEventListener;
@@ -1353,7 +1366,7 @@
 
     goto :goto_0
 
-    .line 1104
+    .line 1150
     :cond_5
     iget v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mSensorsEnabled:I
 
@@ -1363,10 +1376,10 @@
 
     iput v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mSensorsEnabled:I
 
-    .line 1108
+    .line 1154
     if-ne p1, v5, :cond_6
 
-    .line 1109
+    .line 1155
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorAccelerometerListener:Landroid/hardware/SensorEventListener;
@@ -1375,41 +1388,41 @@
 
     goto/16 :goto_0
 
-    .line 1110
+    .line 1156
     :cond_6
     if-ne p1, v8, :cond_7
 
-    .line 1111
+    .line 1157
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorGyroscopeListener:Landroid/hardware/SensorEventListener;
 
     invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
 
-    .line 1112
+    .line 1158
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostGyroVal:[D
 
     const/4 v1, 0x0
 
     aput-wide v6, v0, v1
 
-    .line 1113
+    .line 1159
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostGyroVal:[D
 
     aput-wide v6, v0, v5
 
-    .line 1114
+    .line 1160
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPostGyroVal:[D
 
     aput-wide v6, v0, v8
 
     goto/16 :goto_0
 
-    .line 1115
+    .line 1161
     :cond_7
     if-ne p1, v3, :cond_8
 
-    .line 1116
+    .line 1162
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorProximityListener:Landroid/hardware/SensorEventListener;
@@ -1418,11 +1431,11 @@
 
     goto/16 :goto_0
 
-    .line 1117
+    .line 1163
     :cond_8
     if-ne p1, v4, :cond_0
 
-    .line 1118
+    .line 1164
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->sensorLightListener:Landroid/hardware/SensorEventListener;
@@ -1436,16 +1449,16 @@
     .locals 1
 
     .prologue
-    .line 921
+    .line 967
     iget-boolean v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineInitialized:Z
 
     if-nez v0, :cond_0
 
-    .line 942
+    .line 988
     :goto_0
     return-void
 
-    .line 940
+    .line 986
     :cond_0
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->finalizeMotionEngine()V
 
@@ -1456,38 +1469,38 @@
     .locals 4
 
     .prologue
-    .line 424
+    .line 453
     iget-boolean v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineIsAvailable:Z
 
     if-nez v0, :cond_1
 
-    .line 440
+    .line 469
     :cond_0
     :goto_0
     return-void
 
-    .line 425
+    .line 454
     :cond_1
     iget-boolean v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineInitialized:Z
 
     if-eqz v0, :cond_0
 
-    .line 427
+    .line 456
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->orientationListener:Landroid/view/WindowOrientationListener;
 
     invoke-virtual {v0}, Landroid/view/WindowOrientationListener;->disable()V
 
-    .line 428
+    .line 457
     invoke-virtual {p0}, Landroid/hardware/motion/MotionRecognitionService;->sensorLogEnd()V
 
-    .line 429
+    .line 458
     iget-boolean v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mEnableAccINT:Z
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_2
 
-    .line 431
+    .line 460
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mPollThread:Landroid/hardware/motion/MotionRecognitionService$PollIntThread;
 
     iget-object v0, v0, Landroid/hardware/motion/MotionRecognitionService$PollIntThread;->mHandler:Landroid/os/Handler;
@@ -1498,36 +1511,36 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 433
+    .line 462
     :cond_2
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mLockEngine:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 434
+    .line 463
     const/4 v0, 0x0
 
     :try_start_0
     iput-boolean v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineInitialized:Z
 
-    .line 435
+    .line 464
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/hardware/motion/MotionRecognitionService;->enableAllSensors(Z)V
 
-    .line 436
+    .line 465
     const-string v0, "MotionRecognitionService"
 
     const-string v2, "  .finalizeMotionEngine"
 
     invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 437
+    .line 466
     sget v0, Landroid/hardware/motion/MotionRecognitionService;->mDefaultAppId:I
 
     invoke-direct {p0, v0}, Landroid/hardware/motion/MotionRecognitionService;->native_finalize_motionengine(I)V
 
-    .line 438
+    .line 467
     monitor-exit v1
 
     goto :goto_0
@@ -1550,36 +1563,36 @@
     .prologue
     const/4 v1, 0x5
 
-    .line 729
+    .line 770
     const/4 v0, 0x0
 
-    .line 730
+    .line 771
     .local v0, setting:Ljava/lang/String;
     sparse-switch p1, :sswitch_data_0
 
-    .line 738
+    .line 779
     :cond_0
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 739
+    .line 780
     iget-object v2, p0, Landroid/hardware/motion/MotionRecognitionService;->mResolver:Landroid/content/ContentResolver;
 
     invoke-static {v2, v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
-    .line 742
+    .line 783
     :cond_1
     return v1
 
-    .line 731
+    .line 772
     :sswitch_0
     const-string v0, "motion_zooming_sensitivity"
 
     goto :goto_0
 
-    .line 733
+    .line 774
     :sswitch_1
     const/4 v2, 0x1
 
@@ -1589,7 +1602,7 @@
 
     goto :goto_0
 
-    .line 734
+    .line 775
     :cond_2
     const/4 v2, 0x2
 
@@ -1599,7 +1612,7 @@
 
     goto :goto_0
 
-    .line 730
+    .line 771
     nop
 
     :sswitch_data_0
@@ -1613,79 +1626,79 @@
     .locals 3
 
     .prologue
-    .line 246
+    .line 274
     iget-boolean v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineIsAvailable:Z
 
     if-nez v1, :cond_1
 
-    .line 263
+    .line 291
     :cond_0
     :goto_0
     return-void
 
-    .line 247
+    .line 275
     :cond_1
     iget-boolean v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineInitialized:Z
 
     if-nez v1, :cond_0
 
-    .line 249
+    .line 277
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->checkSettingEngineEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 251
+    .line 279
     const-string v1, "MotionRecognitionService"
 
     const-string v2, "  .initializeMotionEngine"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 253
+    .line 281
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->orientationListener:Landroid/view/WindowOrientationListener;
 
     invoke-virtual {v1}, Landroid/view/WindowOrientationListener;->enable()V
 
-    .line 254
+    .line 282
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->orientationListener:Landroid/view/WindowOrientationListener;
 
     invoke-virtual {v1}, Landroid/view/WindowOrientationListener;->getProposedRotation()I
 
     move-result v0
 
-    .line 255
+    .line 283
     .local v0, currRotate:I
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->orientationListener:Landroid/view/WindowOrientationListener;
 
     invoke-virtual {v1, v0}, Landroid/view/WindowOrientationListener;->onProposedRotationChanged(I)V
 
-    .line 256
+    .line 284
     invoke-virtual {p0}, Landroid/hardware/motion/MotionRecognitionService;->sensorLogStart()V
 
-    .line 258
+    .line 286
     iget-object v2, p0, Landroid/hardware/motion/MotionRecognitionService;->mLockEngine:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 259
+    .line 287
     const/4 v1, 0x1
 
     :try_start_0
     iput-boolean v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineInitialized:Z
 
-    .line 260
+    .line 288
     sget v1, Landroid/hardware/motion/MotionRecognitionService;->mDefaultAppId:I
 
     invoke-direct {p0, v1}, Landroid/hardware/motion/MotionRecognitionService;->native_initialize_motionengine(I)V
 
-    .line 261
+    .line 289
     const/4 v1, 0x1
 
     invoke-direct {p0, v1}, Landroid/hardware/motion/MotionRecognitionService;->enableAllSensors(Z)V
 
-    .line 262
+    .line 290
     monitor-exit v2
 
     goto :goto_0
@@ -1707,14 +1720,14 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1051
+    .line 1097
     invoke-static {p1}, Landroid/hardware/motion/MotionRecognitionManager;->isValidMotionSensor(I)Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 1053
+    .line 1099
     :cond_0
     :goto_0
     return v0
@@ -1738,14 +1751,14 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1042
+    .line 1088
     invoke-static {p1}, Landroid/hardware/motion/MotionRecognitionManager;->isValidMotionSensor(I)Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 1044
+    .line 1090
     :cond_0
     :goto_0
     return v0
@@ -1812,7 +1825,7 @@
     .parameter "motion"
 
     .prologue
-    .line 658
+    .line 699
     return-void
 .end method
 
@@ -1821,30 +1834,30 @@
     .parameter "motion"
 
     .prologue
-    .line 475
+    .line 515
     move/from16 v5, p1
 
-    .line 476
+    .line 516
     .local v5, motionOrigin:I
     const/4 v6, 0x0
 
-    .line 477
+    .line 517
     .local v6, panningDx:I
     const/4 v8, 0x0
 
-    .line 478
+    .line 518
     .local v8, panningDy:I
     const/4 v10, 0x0
 
-    .line 479
+    .line 519
     .local v10, panningDz:I
     const/16 v20, 0x0
 
-    .line 480
+    .line 520
     .local v20, walkingStatus:I
     const/4 v3, 0x0
 
-    .line 482
+    .line 522
     .local v3, bSendMotion:Z
     move-object/from16 v0, p0
 
@@ -1854,19 +1867,19 @@
 
     if-nez v21, :cond_1
 
-    .line 484
+    .line 524
     const-string v21, "MotionRecognitionService"
 
     const-string v22, "  skip sendMotionEvent because mrengine was disabled."
 
     invoke-static/range {v21 .. v22}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 648
+    .line 689
     :cond_0
     :goto_0
     return-void
 
-    .line 488
+    .line 528
     :cond_1
     move-object/from16 v0, p0
 
@@ -1876,36 +1889,36 @@
 
     monitor-enter v22
 
-    .line 489
+    .line 529
     :try_start_0
     invoke-direct/range {p0 .. p0}, Landroid/hardware/motion/MotionRecognitionService;->native_get_panning_dx()I
 
     move-result v6
 
-    .line 490
+    .line 530
     invoke-direct/range {p0 .. p0}, Landroid/hardware/motion/MotionRecognitionService;->native_get_panning_dy()I
 
     move-result v8
 
-    .line 491
+    .line 531
     invoke-direct/range {p0 .. p0}, Landroid/hardware/motion/MotionRecognitionService;->native_get_panning_dz()I
 
     move-result v10
 
-    .line 492
+    .line 532
     invoke-direct/range {p0 .. p0}, Landroid/hardware/motion/MotionRecognitionService;->native_get_walking_status()I
 
     move-result v20
 
-    .line 493
+    .line 533
     monitor-exit v22
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 495
+    .line 535
     if-lez p1, :cond_3
 
-    const/16 v21, 0x63
+    const/16 v21, 0x64
 
     move/from16 v0, p1
 
@@ -1913,25 +1926,25 @@
 
     if-ge v0, v1, :cond_3
 
-    .line 497
+    .line 537
     sparse-switch p1, :sswitch_data_0
 
-    .line 512
+    .line 552
     :goto_1
     move/from16 v0, p1
 
     if-eq v5, v0, :cond_2
 
-    .line 517
+    .line 557
     :cond_2
     sparse-switch p1, :sswitch_data_1
 
-    .line 576
+    .line 617
     :goto_2
     :sswitch_0
     if-eqz v3, :cond_3
 
-    .line 577
+    .line 618
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/motion/MotionRecognitionService;->mEventPool:Landroid/hardware/motion/MotionRecognitionService$EventPool;
@@ -1942,41 +1955,41 @@
 
     move-result-object v4
 
-    .line 578
+    .line 619
     .local v4, motionEvent:Landroid/hardware/motion/MREvent;
     move/from16 v0, p1
 
     invoke-virtual {v4, v0}, Landroid/hardware/motion/MREvent;->setMotion(I)V
 
-    .line 587
+    .line 628
     move-object/from16 v0, p0
 
     invoke-direct {v0, v4}, Landroid/hardware/motion/MotionRecognitionService;->sendMotionEvent(Landroid/hardware/motion/MREvent;)V
 
-    .line 597
+    .line 638
     .end local v4           #motionEvent:Landroid/hardware/motion/MREvent;
     :cond_3
     if-nez v6, :cond_4
 
     if-eqz v8, :cond_0
 
-    .line 598
+    .line 639
     :cond_4
     const/16 v16, 0x0
 
-    .line 599
+    .line 640
     .local v16, tilt:I
     move v7, v6
 
-    .line 600
+    .line 641
     .local v7, panningDxImage:I
     move v9, v8
 
-    .line 601
+    .line 642
     .local v9, panningDyImage:I
     move v11, v10
 
-    .line 603
+    .line 644
     .local v11, panningDzImage:I
     move-object/from16 v0, p0
 
@@ -1986,10 +1999,10 @@
 
     packed-switch v21, :pswitch_data_0
 
-    .line 608
+    .line 649
     move/from16 v16, v8
 
-    .line 613
+    .line 654
     :goto_3
     const/16 v21, 0x3d
 
@@ -2005,7 +2018,7 @@
 
     move-result v13
 
-    .line 614
+    .line 655
     .local v13, sensitivityPanningIcon:I
     const/16 v21, 0x3d
 
@@ -2021,7 +2034,7 @@
 
     move-result v14
 
-    .line 615
+    .line 656
     .local v14, sensitivityPanningImage:I
     const/16 v21, 0x48
 
@@ -2037,7 +2050,7 @@
 
     move-result v15
 
-    .line 617
+    .line 658
     .local v15, sensitivityTilt:I
     add-int/lit8 v21, v13, -0x5
 
@@ -2047,7 +2060,7 @@
 
     add-int v6, v6, v21
 
-    .line 618
+    .line 659
     add-int/lit8 v21, v13, -0x5
 
     mul-int v21, v21, v8
@@ -2056,7 +2069,7 @@
 
     add-int v8, v8, v21
 
-    .line 619
+    .line 660
     add-int/lit8 v21, v13, -0x5
 
     mul-int v21, v21, v10
@@ -2065,7 +2078,7 @@
 
     add-int v10, v10, v21
 
-    .line 620
+    .line 661
     add-int/lit8 v21, v14, -0x5
 
     mul-int v21, v21, v6
@@ -2074,7 +2087,7 @@
 
     add-int v7, v7, v21
 
-    .line 621
+    .line 662
     add-int/lit8 v21, v14, -0x5
 
     mul-int v21, v21, v8
@@ -2083,7 +2096,7 @@
 
     add-int v9, v9, v21
 
-    .line 622
+    .line 663
     add-int/lit8 v21, v14, -0x5
 
     mul-int v21, v21, v10
@@ -2092,7 +2105,7 @@
 
     add-int v11, v11, v21
 
-    .line 623
+    .line 664
     add-int/lit8 v21, v15, -0x5
 
     mul-int v21, v21, v16
@@ -2101,7 +2114,7 @@
 
     add-int v16, v16, v21
 
-    .line 626
+    .line 667
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/motion/MotionRecognitionService;->mEventPool:Landroid/hardware/motion/MotionRecognitionService$EventPool;
@@ -2112,7 +2125,7 @@
 
     move-result-object v12
 
-    .line 627
+    .line 668
     .local v12, panningEvent:Landroid/hardware/motion/MREvent;
     const/16 v21, 0x3d
 
@@ -2120,33 +2133,33 @@
 
     invoke-virtual {v12, v0}, Landroid/hardware/motion/MREvent;->setMotion(I)V
 
-    .line 628
+    .line 669
     invoke-virtual {v12, v6}, Landroid/hardware/motion/MREvent;->setPanningDx(I)V
 
-    .line 629
+    .line 670
     invoke-virtual {v12, v8}, Landroid/hardware/motion/MREvent;->setPanningDy(I)V
 
-    .line 630
+    .line 671
     invoke-virtual {v12, v10}, Landroid/hardware/motion/MREvent;->setPanningDz(I)V
 
-    .line 631
+    .line 672
     invoke-virtual {v12, v7}, Landroid/hardware/motion/MREvent;->setPanningDxImage(I)V
 
-    .line 632
+    .line 673
     invoke-virtual {v12, v9}, Landroid/hardware/motion/MREvent;->setPanningDyImage(I)V
 
-    .line 633
+    .line 674
     invoke-virtual {v12, v11}, Landroid/hardware/motion/MREvent;->setPanningDzImage(I)V
 
-    .line 636
+    .line 677
     move-object/from16 v0, p0
 
     invoke-direct {v0, v12}, Landroid/hardware/motion/MotionRecognitionService;->sendMotionEvent(Landroid/hardware/motion/MREvent;)V
 
-    .line 638
+    .line 679
     if-eqz v16, :cond_0
 
-    .line 639
+    .line 680
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/motion/MotionRecognitionService;->mEventPool:Landroid/hardware/motion/MotionRecognitionService$EventPool;
@@ -2157,7 +2170,7 @@
 
     move-result-object v17
 
-    .line 640
+    .line 681
     .local v17, tiltEvent:Landroid/hardware/motion/MREvent;
     const/16 v21, 0x48
 
@@ -2167,21 +2180,21 @@
 
     invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setMotion(I)V
 
-    .line 641
+    .line 682
     move-object/from16 v0, v17
 
     move/from16 v1, v16
 
     invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setTilt(I)V
 
-    .line 642
+    .line 683
     move-object/from16 v0, v17
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/hardware/motion/MREvent;->setWalkingStatus(I)V
 
-    .line 643
+    .line 684
     move-object/from16 v0, p0
 
     move-object/from16 v1, v17
@@ -2190,7 +2203,7 @@
 
     goto/16 :goto_0
 
-    .line 493
+    .line 533
     .end local v7           #panningDxImage:I
     .end local v9           #panningDyImage:I
     .end local v11           #panningDzImage:I
@@ -2210,27 +2223,27 @@
 
     throw v21
 
-    .line 499
+    .line 539
     :sswitch_1
     const/16 p1, 0x1
 
-    .line 500
+    .line 540
     goto/16 :goto_1
 
-    .line 504
+    .line 544
     :sswitch_2
     const/16 p1, 0x2
 
-    .line 505
+    .line 545
     goto/16 :goto_1
 
-    .line 509
+    .line 549
     :sswitch_3
     const/16 p1, 0x3
 
     goto/16 :goto_1
 
-    .line 523
+    .line 563
     :sswitch_4
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -2244,7 +2257,7 @@
 
     sub-long v18, v21, v23
 
-    .line 524
+    .line 564
     .local v18, time:J
     const-wide/16 v21, 0x0
 
@@ -2258,7 +2271,7 @@
 
     if-gez v21, :cond_5
 
-    .line 526
+    .line 566
     const-string v21, "MotionRecognitionService"
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -2293,16 +2306,16 @@
 
     goto/16 :goto_2
 
-    .line 564
+    .line 605
     .end local v18           #time:J
     :cond_5
     :sswitch_5
     const/4 v3, 0x1
 
-    .line 565
+    .line 606
     goto/16 :goto_2
 
-    .line 604
+    .line 645
     .restart local v7       #panningDxImage:I
     .restart local v9       #panningDyImage:I
     .restart local v11       #panningDzImage:I
@@ -2312,7 +2325,7 @@
 
     goto/16 :goto_3
 
-    .line 605
+    .line 646
     :pswitch_1
     neg-int v0, v8
 
@@ -2320,7 +2333,7 @@
 
     goto/16 :goto_3
 
-    .line 606
+    .line 647
     :pswitch_2
     neg-int v0, v6
 
@@ -2328,7 +2341,7 @@
 
     goto/16 :goto_3
 
-    .line 497
+    .line 537
     :sswitch_data_0
     .sparse-switch
         0x2f -> :sswitch_2
@@ -2336,7 +2349,7 @@
         0x3f -> :sswitch_1
     .end sparse-switch
 
-    .line 517
+    .line 557
     :sswitch_data_1
     .sparse-switch
         0x1 -> :sswitch_4
@@ -2374,9 +2387,10 @@
         0x60 -> :sswitch_5
         0x61 -> :sswitch_5
         0x62 -> :sswitch_5
+        0x63 -> :sswitch_5
     .end sparse-switch
 
-    .line 603
+    .line 644
     :pswitch_data_0
     .packed-switch 0x1d
         :pswitch_0
@@ -2386,18 +2400,16 @@
 .end method
 
 .method private sendMotionEvent(Landroid/hardware/motion/MREvent;)V
-    .locals 4
+    .locals 5
     .parameter "motionEvent"
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 443
+    .line 472
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v0
 
-    .line 444
+    .line 473
     .local v0, motion:I
     invoke-direct {p0, v0}, Landroid/hardware/motion/MotionRecognitionService;->checkSettingMotionEnabled(I)Z
 
@@ -2405,12 +2417,12 @@
 
     if-nez v2, :cond_1
 
-    .line 471
+    .line 511
     :cond_0
     :goto_0
     return-void
 
-    .line 452
+    .line 481
     :cond_1
     iget-object v2, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
@@ -2420,70 +2432,162 @@
 
     if-lez v2, :cond_0
 
-    .line 453
+    .line 482
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v1
 
-    .line 454
+    .line 483
     .local v1, msg:Landroid/os/Message;
-    iput v3, v1, Landroid/os/Message;->what:I
+    const/16 v2, 0x55
 
-    .line 455
+    iput v2, v1, Landroid/os/Message;->what:I
+
+    .line 484
     iput-object p1, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 457
+    .line 486
     iget-object v2, p0, Landroid/hardware/motion/MotionRecognitionService;->mHandler:Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;
 
     invoke-virtual {v2, v1}, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 459
-    const/16 v2, 0x43
+    .line 488
+    sparse-switch v0, :sswitch_data_0
 
-    if-ne v0, v2, :cond_2
+    goto :goto_0
 
-    .line 460
-    iput-boolean v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mFlatEvent:Z
-
-    .line 461
+    .line 505
+    :sswitch_0
     const-string v2, "MotionRecognitionService"
 
-    const-string v3, "send pick up event ~~"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 463
-    :cond_2
-    const/16 v2, 0x62
+    const-string v4, " send "
 
-    if-ne v0, v2, :cond_3
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 464
-    const-string v2, "MotionRecognitionService"
+    move-result-object v3
 
-    const-string v3, "send pick up tutorial event ~~"
+    invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->toString()Ljava/lang/String;
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v4
 
-    .line 466
-    :cond_3
-    const/16 v2, 0x47
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-ne v0, v2, :cond_0
+    move-result-object v3
 
-    .line 467
-    const/4 v2, 0x1
+    const-string v4, " ~~"
 
-    iput-boolean v2, p0, Landroid/hardware/motion/MotionRecognitionService;->mFlatEvent:Z
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 468
-    const-string v2, "MotionRecognitionService"
+    move-result-object v3
 
-    const-string v3, "send flat event ~~"
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+
+    .line 490
+    :sswitch_1
+    const/4 v2, 0x1
+
+    iput-boolean v2, p0, Landroid/hardware/motion/MotionRecognitionService;->mFlatEvent:Z
+
+    .line 491
+    const-string v2, "MotionRecognitionService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " send "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, " ~~"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 494
+    :sswitch_2
+    const/4 v2, 0x0
+
+    iput-boolean v2, p0, Landroid/hardware/motion/MotionRecognitionService;->mFlatEvent:Z
+
+    .line 495
+    const-string v2, "MotionRecognitionService"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " send "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, " ~~"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    .line 488
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_0
+        0xa -> :sswitch_0
+        0x23 -> :sswitch_0
+        0x43 -> :sswitch_2
+        0x44 -> :sswitch_0
+        0x47 -> :sswitch_1
+        0x4b -> :sswitch_0
+        0x56 -> :sswitch_0
+        0x62 -> :sswitch_0
+        0x63 -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method private useSensor(IZ)V
@@ -2492,19 +2596,19 @@
     .parameter "used"
 
     .prologue
-    .line 1060
+    .line 1106
     invoke-static {p1}, Landroid/hardware/motion/MotionRecognitionManager;->isValidMotionSensor(I)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 1069
+    .line 1115
     :cond_0
     :goto_0
     return-void
 
-    .line 1063
+    .line 1109
     :cond_1
     invoke-direct {p0, p1}, Landroid/hardware/motion/MotionRecognitionService;->isSensorUsed(I)Z
 
@@ -2512,10 +2616,10 @@
 
     if-eq p2, v0, :cond_0
 
-    .line 1064
+    .line 1110
     if-eqz p2, :cond_2
 
-    .line 1065
+    .line 1111
     iget v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mSensorsUsed:I
 
     or-int/2addr v0, p1
@@ -2524,7 +2628,7 @@
 
     goto :goto_0
 
-    .line 1067
+    .line 1113
     :cond_2
     iget v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mSensorsUsed:I
 
@@ -2543,22 +2647,22 @@
     .locals 7
 
     .prologue
-    .line 390
+    .line 419
     const-string v4, "MotionRecognitionService"
 
     const-string v5, "disableAccINT "
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 391
+    .line 420
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mLockEngine:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 392
+    .line 421
     const/4 v2, 0x0
 
-    .line 395
+    .line 424
     .local v2, out:Ljava/io/OutputStream;
     :try_start_0
     new-instance v3, Ljava/io/FileOutputStream;
@@ -2579,13 +2683,13 @@
     .local v3, out:Ljava/io/OutputStream;
     move-object v2, v3
 
-    .line 400
+    .line 429
     .end local v3           #out:Ljava/io/OutputStream;
     .restart local v2       #out:Ljava/io/OutputStream;
     :goto_0
     if-nez v2, :cond_1
 
-    .line 401
+    .line 430
     :try_start_1
     const-string v4, "MotionRecognitionService"
 
@@ -2596,21 +2700,21 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 419
+    .line 448
     :goto_1
     :try_start_2
     monitor-exit v5
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 420
+    .line 449
     return-void
 
-    .line 396
+    .line 425
     :catch_0
     move-exception v0
 
-    .line 397
+    .line 426
     .local v0, e:Ljava/io/FileNotFoundException;
     :try_start_3
     const-string v4, "MotionRecognitionService"
@@ -2624,29 +2728,29 @@
 
     goto :goto_0
 
-    .line 408
+    .line 437
     .end local v0           #e:Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v0
 
-    .line 409
+    .line 438
     .local v0, e:Ljava/io/IOException;
     :try_start_4
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 410
+    .line 439
     if-eqz v2, :cond_0
 
-    .line 412
+    .line 441
     :try_start_5
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
 
-    .line 417
+    .line 446
     :cond_0
     :goto_2
     :try_start_6
@@ -2658,7 +2762,7 @@
 
     goto :goto_1
 
-    .line 419
+    .line 448
     .end local v0           #e:Ljava/io/IOException;
     :catchall_0
     move-exception v4
@@ -2669,22 +2773,22 @@
 
     throw v4
 
-    .line 403
+    .line 432
     :cond_1
     const/16 v4, 0x30
 
     :try_start_7
     invoke-virtual {v2, v4}, Ljava/io/OutputStream;->write(I)V
 
-    .line 404
+    .line 433
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
 
-    .line 405
+    .line 434
     const/4 v4, 0x0
 
     iput-boolean v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mEnableAccINT:Z
 
-    .line 406
+    .line 435
     const-string v4, "MotionRecognitionService"
 
     const-string v6, "disableAccINT Complete!!"
@@ -2696,12 +2800,12 @@
 
     goto :goto_1
 
-    .line 413
+    .line 442
     .restart local v0       #e:Ljava/io/IOException;
     :catch_2
     move-exception v1
 
-    .line 414
+    .line 443
     .local v1, err:Ljava/lang/Exception;
     :try_start_8
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
@@ -2718,18 +2822,18 @@
     .parameter "args"
 
     .prologue
-    .line 946
+    .line 992
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v5
 
-    .line 947
+    .line 993
     .local v5, time:J
     const-string v7, "motion_recognition"
 
     invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 948
+    .line 994
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -2764,7 +2868,7 @@
 
     invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 949
+    .line 995
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -2799,7 +2903,7 @@
 
     invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 950
+    .line 996
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -2846,12 +2950,12 @@
 
     invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 952
+    .line 998
     iget-object v8, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v8
 
-    .line 953
+    .line 999
     :try_start_0
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -2879,10 +2983,10 @@
 
     invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 955
+    .line 1001
     const/4 v1, 0x0
 
-    .line 956
+    .line 1002
     .local v1, i:I
     iget-object v7, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
@@ -2908,7 +3012,7 @@
 
     check-cast v4, Landroid/hardware/motion/MotionRecognitionService$Listener;
 
-    .line 957
+    .line 1003
     .local v4, listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -2960,7 +3064,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 959
+    .line 1005
     :try_start_1
     iget-object v7, v4, Landroid/hardware/motion/MotionRecognitionService$Listener;->mToken:Landroid/os/IBinder;
 
@@ -2968,7 +3072,7 @@
 
     move-result-object v0
 
-    .line 960
+    .line 1006
     .local v0, cb:Landroid/hardware/motion/IMotionRecognitionCallback;
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -3001,12 +3105,12 @@
     :goto_1
     move v2, v1
 
-    .line 962
+    .line 1008
     .end local v1           #i:I
     .restart local v2       #i:I
     goto :goto_0
 
-    .line 964
+    .line 1010
     .end local v4           #listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     :cond_0
     :try_start_2
@@ -3014,13 +3118,13 @@
 
     invoke-virtual {v7}, Ljava/lang/Object;->notify()V
 
-    .line 965
+    .line 1011
     monitor-exit v8
 
-    .line 966
+    .line 1012
     return-void
 
-    .line 965
+    .line 1011
     .end local v2           #i:I
     .end local v3           #i$:Ljava/util/Iterator;
     :catchall_0
@@ -3032,7 +3136,7 @@
 
     throw v7
 
-    .line 961
+    .line 1007
     .restart local v1       #i:I
     .restart local v3       #i$:Ljava/util/Iterator;
     .restart local v4       #listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
@@ -3046,22 +3150,22 @@
     .locals 7
 
     .prologue
-    .line 357
+    .line 386
     const-string v4, "MotionRecognitionService"
 
     const-string v5, "enableAccINT "
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 358
+    .line 387
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mLockEngine:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 359
+    .line 388
     const/4 v2, 0x0
 
-    .line 362
+    .line 391
     .local v2, out:Ljava/io/OutputStream;
     :try_start_0
     new-instance v3, Ljava/io/FileOutputStream;
@@ -3082,13 +3186,13 @@
     .local v3, out:Ljava/io/OutputStream;
     move-object v2, v3
 
-    .line 367
+    .line 396
     .end local v3           #out:Ljava/io/OutputStream;
     .restart local v2       #out:Ljava/io/OutputStream;
     :goto_0
     if-nez v2, :cond_1
 
-    .line 368
+    .line 397
     :try_start_1
     const-string v4, "MotionRecognitionService"
 
@@ -3099,21 +3203,21 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 386
+    .line 415
     :goto_1
     :try_start_2
     monitor-exit v5
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 387
+    .line 416
     return-void
 
-    .line 363
+    .line 392
     :catch_0
     move-exception v0
 
-    .line 364
+    .line 393
     .local v0, e:Ljava/io/FileNotFoundException;
     :try_start_3
     const-string v4, "MotionRecognitionService"
@@ -3127,29 +3231,29 @@
 
     goto :goto_0
 
-    .line 375
+    .line 404
     .end local v0           #e:Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v0
 
-    .line 376
+    .line 405
     .local v0, e:Ljava/io/IOException;
     :try_start_4
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 377
+    .line 406
     if-eqz v2, :cond_0
 
-    .line 379
+    .line 408
     :try_start_5
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
 
-    .line 384
+    .line 413
     :cond_0
     :goto_2
     :try_start_6
@@ -3161,7 +3265,7 @@
 
     goto :goto_1
 
-    .line 386
+    .line 415
     .end local v0           #e:Ljava/io/IOException;
     :catchall_0
     move-exception v4
@@ -3172,22 +3276,22 @@
 
     throw v4
 
-    .line 370
+    .line 399
     :cond_1
     const/16 v4, 0x31
 
     :try_start_7
     invoke-virtual {v2, v4}, Ljava/io/OutputStream;->write(I)V
 
-    .line 371
+    .line 400
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
 
-    .line 372
+    .line 401
     const/4 v4, 0x1
 
     iput-boolean v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mEnableAccINT:Z
 
-    .line 373
+    .line 402
     const-string v4, "MotionRecognitionService"
 
     const-string v6, "enableAccINT Complete!!"
@@ -3199,12 +3303,12 @@
 
     goto :goto_1
 
-    .line 380
+    .line 409
     .restart local v0       #e:Ljava/io/IOException;
     :catch_2
     move-exception v1
 
-    .line 381
+    .line 410
     .local v1, err:Ljava/lang/Exception;
     :try_start_8
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
@@ -3212,6 +3316,84 @@
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     goto :goto_2
+.end method
+
+.method public getMotionStatus()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    const/4 v1, 0x1
+
+    .line 792
+    iget-object v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mResolver:Landroid/content/ContentResolver;
+
+    const-string v4, "motion_pick_up"
+
+    invoke-static {v3, v4, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v3
+
+    if-ne v3, v1, :cond_0
+
+    move v0, v1
+
+    .line 793
+    .local v0, isEnabled:Z
+    :goto_0
+    const-string v3, "MotionRecognitionService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " pick up status : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 794
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->checkSettingEngineEnabled()Z
+
+    move-result v3
+
+    if-ne v3, v1, :cond_1
+
+    :goto_1
+    return v1
+
+    .end local v0           #isEnabled:Z
+    :cond_0
+    move v0, v2
+
+    .line 792
+    goto :goto_0
+
+    .restart local v0       #isEnabled:Z
+    :cond_1
+    move v1, v2
+
+    .line 794
+    goto :goto_1
 .end method
 
 .method public getSSPstatus()Z
@@ -3223,7 +3405,7 @@
     .end annotation
 
     .prologue
-    .line 745
+    .line 786
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -3238,7 +3420,7 @@
 
     iput-boolean v0, p0, Landroid/hardware/motion/MotionRecognitionService;->msspenabled:Z
 
-    .line 746
+    .line 787
     const-string v0, "MotionRecognitionService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3263,7 +3445,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 747
+    .line 788
     iget-boolean v0, p0, Landroid/hardware/motion/MotionRecognitionService;->msspenabled:Z
 
     return v0
@@ -3282,34 +3464,34 @@
     .prologue
     const/4 v12, 0x1
 
-    .line 751
+    .line 798
     iget-boolean v8, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineIsAvailable:Z
 
     if-nez v8, :cond_1
 
-    .line 805
+    .line 851
     :cond_0
     :goto_0
     return-void
 
-    .line 752
+    .line 799
     :cond_1
     const/4 v4, 0x0
 
-    .line 756
+    .line 803
     .local v4, l:Landroid/hardware/motion/MotionRecognitionService$Listener;
     if-eqz p2, :cond_2
 
-    .line 757
+    .line 804
     or-int/lit8 p2, p2, 0x1
 
-    .line 759
+    .line 806
     :cond_2
     iget-object v9, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v9
 
-    .line 760
+    .line 807
     :try_start_0
     iget-object v8, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
@@ -3331,18 +3513,18 @@
 
     check-cast v6, Landroid/hardware/motion/MotionRecognitionService$Listener;
 
-    .line 761
+    .line 808
     .local v6, listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     iget-object v8, v6, Landroid/hardware/motion/MotionRecognitionService$Listener;->mToken:Landroid/os/IBinder;
 
     if-ne p1, v8, :cond_3
 
-    .line 762
+    .line 809
     monitor-exit v9
 
     goto :goto_0
 
-    .line 789
+    .line 835
     .end local v3           #i$:Ljava/util/Iterator;
     .end local v6           #listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     :catchall_0
@@ -3355,12 +3537,12 @@
 
     throw v8
 
-    .line 766
+    .line 813
     .restart local v3       #i$:Ljava/util/Iterator;
     :cond_4
-    if-nez v4, :cond_7
+    if-nez v4, :cond_6
 
-    .line 767
+    .line 814
     :try_start_1
     new-instance v5, Landroid/hardware/motion/MotionRecognitionService$Listener;
 
@@ -3368,7 +3550,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 768
+    .line 815
     .end local v4           #l:Landroid/hardware/motion/MotionRecognitionService$Listener;
     .local v5, l:Landroid/hardware/motion/MotionRecognitionService$Listener;
     const/4 v8, 0x0
@@ -3376,24 +3558,24 @@
     :try_start_2
     invoke-interface {p1, v5, v8}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
-    .line 769
+    .line 816
     iget-object v8, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v8, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 771
+    .line 818
     const-string v1, ""
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    .line 773
+    .line 820
     .local v1, client:Ljava/lang/String;
     :try_start_3
     invoke-static {p1}, Landroid/hardware/motion/IMotionRecognitionCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/motion/IMotionRecognitionCallback;
 
     move-result-object v0
 
-    .line 774
+    .line 821
     .local v0, cb:Landroid/hardware/motion/IMotionRecognitionCallback;
     invoke-interface {v0}, Landroid/hardware/motion/IMotionRecognitionCallback;->getListenerInfo()Ljava/lang/String;
     :try_end_3
@@ -3402,7 +3584,7 @@
 
     move-result-object v1
 
-    .line 777
+    .line 824
     .end local v0           #cb:Landroid/hardware/motion/IMotionRecognitionCallback;
     :goto_2
     :try_start_4
@@ -3444,7 +3626,11 @@
 
     move-result-object v10
 
-    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Landroid/hardware/motion/MotionRecognitionManager;->EncodeLog(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
 
@@ -3454,76 +3640,65 @@
 
     invoke-static {v8, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 778
+    .line 825
     sget v8, Landroid/hardware/motion/MotionRecognitionService;->mDefaultAppId:I
 
     invoke-direct {p0, v8}, Landroid/hardware/motion/MotionRecognitionService;->native_initialize_motionengine(I)V
 
-    .line 779
+    .line 826
     iget-object v8, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v8}, Ljava/lang/Object;->notify()V
 
-    .line 781
+    .line 828
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->checkSettingEngineEnabled()Z
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_5
 
     iget-boolean v8, p0, Landroid/hardware/motion/MotionRecognitionService;->msspenabled:Z
 
-    if-nez v8, :cond_6
-
-    .line 782
-    const-string v8, "com.android.motionservicetestGyro"
-
-    invoke-virtual {v1, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v8
-
     if-nez v8, :cond_5
 
-    const-string v8, "com.android.server.NotificationManagerService"
+    .line 829
+    and-int/lit8 v8, p2, 0x20
 
-    invoke-virtual {v1, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    const/16 v10, 0x20
 
-    move-result v8
+    if-ne v8, v10, :cond_5
 
-    if-eqz v8, :cond_6
-
-    .line 784
-    :cond_5
+    .line 831
     invoke-virtual {p0}, Landroid/hardware/motion/MotionRecognitionService;->enableAccINT()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
-    :cond_6
+    :cond_5
     move-object v4, v5
 
-    .line 789
+    .line 835
     .end local v1           #client:Ljava/lang/String;
     .end local v5           #l:Landroid/hardware/motion/MotionRecognitionService$Listener;
     .restart local v4       #l:Landroid/hardware/motion/MotionRecognitionService$Listener;
-    :cond_7
+    :cond_6
     :try_start_5
     monitor-exit v9
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 793
+    .line 839
     iget-boolean v8, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineInitialized:Z
 
-    if-nez v8, :cond_8
+    if-nez v8, :cond_7
 
     iget-boolean v8, p0, Landroid/hardware/motion/MotionRecognitionService;->mScreenOn:Z
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_7
 
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->initializeMotionEngine()V
 
-    .line 795
-    :cond_8
+    .line 841
+    :cond_7
     const/4 v2, 0x0
 
     .local v2, i:I
@@ -3532,45 +3707,45 @@
 
     if-ge v2, v8, :cond_0
 
-    .line 796
+    .line 842
     shl-int v7, v12, v2
 
-    .line 797
+    .line 843
     .local v7, motion_sensor:I
     and-int v8, v7, p2
 
-    if-eqz v8, :cond_a
+    if-eqz v8, :cond_9
 
-    .line 798
+    .line 844
     invoke-direct {p0, v7, v12}, Landroid/hardware/motion/MotionRecognitionService;->useSensor(IZ)V
 
-    .line 799
+    .line 845
     iget-object v9, p0, Landroid/hardware/motion/MotionRecognitionService;->mLockEngine:Ljava/lang/Object;
 
     monitor-enter v9
 
-    .line 800
+    .line 846
     :try_start_6
     iget-boolean v8, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineInitialized:Z
 
-    if-eqz v8, :cond_9
+    if-eqz v8, :cond_8
 
-    .line 801
+    .line 847
     const/4 v8, 0x1
 
     invoke-direct {p0, v7, v8}, Landroid/hardware/motion/MotionRecognitionService;->enableSensor(IZ)V
 
-    .line 802
-    :cond_9
+    .line 848
+    :cond_8
     monitor-exit v9
 
-    .line 795
-    :cond_a
+    .line 841
+    :cond_9
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
-    .line 802
+    .line 848
     :catchall_1
     move-exception v8
 
@@ -3580,7 +3755,7 @@
 
     throw v8
 
-    .line 789
+    .line 835
     .end local v2           #i:I
     .end local v4           #l:Landroid/hardware/motion/MotionRecognitionService$Listener;
     .end local v7           #motion_sensor:I
@@ -3594,7 +3769,7 @@
     .restart local v4       #l:Landroid/hardware/motion/MotionRecognitionService$Listener;
     goto/16 :goto_1
 
-    .line 775
+    .line 822
     .end local v4           #l:Landroid/hardware/motion/MotionRecognitionService$Listener;
     .restart local v1       #client:Ljava/lang/String;
     .restart local v5       #l:Landroid/hardware/motion/MotionRecognitionService$Listener;
@@ -3613,14 +3788,14 @@
     .end annotation
 
     .prologue
-    .line 916
+    .line 962
     const-string v0, "MotionRecognitionService"
 
     const-string v1, "  .resetMotionEngine"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 917
+    .line 963
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->native_reset_motionengine()I
 
     move-result v0
@@ -3632,35 +3807,35 @@
     .locals 2
 
     .prologue
-    .line 1029
+    .line 1075
     iget-object v1, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPath:Ljava/lang/String;
 
     monitor-enter v1
 
-    .line 1030
+    .line 1076
     :try_start_0
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPW:Ljava/io/PrintWriter;
 
     if-eqz v0, :cond_0
 
-    .line 1031
+    .line 1077
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPW:Ljava/io/PrintWriter;
 
     invoke-virtual {v0}, Ljava/io/PrintWriter;->close()V
 
-    .line 1032
+    .line 1078
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPW:Ljava/io/PrintWriter;
 
-    .line 1034
+    .line 1080
     :cond_0
     monitor-exit v1
 
-    .line 1035
+    .line 1081
     return-void
 
-    .line 1034
+    .line 1080
     :catchall_0
     move-exception v0
 
@@ -3675,7 +3850,7 @@
     .locals 8
 
     .prologue
-    .line 978
+    .line 1024
     iget-object v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPath:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->length()I
@@ -3684,7 +3859,7 @@
 
     if-nez v3, :cond_0
 
-    .line 979
+    .line 1025
     const-string v3, "log.path.motion.sensor"
 
     const-string v4, ""
@@ -3695,7 +3870,7 @@
 
     iput-object v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPath:Ljava/lang/String;
 
-    .line 981
+    .line 1027
     :cond_0
     iget-object v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPath:Ljava/lang/String;
 
@@ -3709,18 +3884,18 @@
 
     if-nez v3, :cond_2
 
-    .line 1005
+    .line 1051
     :cond_1
     :goto_0
     return-void
 
-    .line 985
+    .line 1031
     :cond_2
     iget-object v4, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPath:Ljava/lang/String;
 
     monitor-enter v4
 
-    .line 986
+    .line 1032
     :try_start_0
     new-instance v2, Ljava/io/File;
 
@@ -3730,18 +3905,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 988
+    .line 1034
     .local v2, logFile:Ljava/io/File;
     :try_start_1
     invoke-virtual {v2}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v1
 
-    .line 989
+    .line 1035
     .local v1, logDir:Ljava/io/File;
     if-eqz v1, :cond_4
 
-    .line 990
+    .line 1036
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v3
@@ -3750,7 +3925,7 @@
 
     invoke-virtual {v2}, Ljava/io/File;->mkdirs()Z
 
-    .line 991
+    .line 1037
     :cond_3
     invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;
 
@@ -3764,7 +3939,7 @@
 
     invoke-static {v3, v5, v6, v7}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
 
-    .line 994
+    .line 1040
     :cond_4
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
@@ -3774,11 +3949,11 @@
 
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
-    .line 995
+    .line 1041
     :cond_5
     invoke-virtual {v2}, Ljava/io/File;->createNewFile()Z
 
-    .line 996
+    .line 1042
     invoke-virtual {v2}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v3
@@ -3791,14 +3966,14 @@
 
     invoke-static {v3, v5, v6, v7}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
 
-    .line 998
+    .line 1044
     new-instance v3, Ljava/io/PrintWriter;
 
     invoke-direct {v3, v2}, Ljava/io/PrintWriter;-><init>(Ljava/io/File;)V
 
     iput-object v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPW:Ljava/io/PrintWriter;
 
-    .line 999
+    .line 1045
     const-string v3, "MotionRecognitionService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -3826,7 +4001,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 1004
+    .line 1050
     .end local v1           #logDir:Ljava/io/File;
     :goto_1
     :try_start_2
@@ -3844,12 +4019,12 @@
 
     throw v3
 
-    .line 1000
+    .line 1046
     .restart local v2       #logFile:Ljava/io/File;
     :catch_0
     move-exception v0
 
-    .line 1001
+    .line 1047
     .local v0, e:Ljava/io/IOException;
     :try_start_3
     const-string v3, "MotionRecognitionService"
@@ -3886,7 +4061,7 @@
 
     invoke-static {v3, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1002
+    .line 1048
     const/4 v3, 0x0
 
     iput-object v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPW:Ljava/io/PrintWriter;
@@ -3900,18 +4075,18 @@
     .locals 11
 
     .prologue
-    .line 1008
+    .line 1054
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
 
-    .line 1009
+    .line 1055
     .local v3, time:J
     iget-wide v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogTime:J
 
     sub-long v1, v3, v5
 
-    .line 1010
+    .line 1056
     .local v1, t:J
     const-wide/16 v5, 0x0
 
@@ -3925,26 +4100,26 @@
 
     if-lez v5, :cond_1
 
-    .line 1011
+    .line 1057
     :cond_0
     const-wide/16 v1, 0x0
 
-    .line 1012
+    .line 1058
     :cond_1
     iput-wide v3, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogTime:J
 
-    .line 1014
+    .line 1060
     iget-object v6, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPath:Ljava/lang/String;
 
     monitor-enter v6
 
-    .line 1015
+    .line 1061
     :try_start_0
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPW:Ljava/io/PrintWriter;
 
     if-eqz v5, :cond_2
 
-    .line 1016
+    .line 1062
     const-string v5, "%.6f\t%.6f\t%.6f\t%.6f\t%.6f\t%.6f\t%h\t%d\t%B\t%d\r\n"
 
     const/16 v7, 0xa
@@ -4077,21 +4252,21 @@
 
     move-result-object v0
 
-    .line 1023
+    .line 1069
     .local v0, logStr:Ljava/lang/String;
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPW:Ljava/io/PrintWriter;
 
     invoke-virtual {v5, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1025
+    .line 1071
     .end local v0           #logStr:Ljava/lang/String;
     :cond_2
     monitor-exit v6
 
-    .line 1026
+    .line 1072
     return-void
 
-    .line 1025
+    .line 1071
     :catchall_0
     move-exception v5
 
@@ -4112,15 +4287,15 @@
     .end annotation
 
     .prologue
-    .line 969
+    .line 1015
     if-nez p1, :cond_0
 
-    .line 970
+    .line 1016
     const-string v0, ""
 
     iput-object v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPath:Ljava/lang/String;
 
-    .line 974
+    .line 1020
     :goto_0
     const-string v0, "MotionRecognitionService"
 
@@ -4146,10 +4321,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 975
+    .line 1021
     return-void
 
-    .line 972
+    .line 1018
     :cond_0
     iput-object p1, p0, Landroid/hardware/motion/MotionRecognitionService;->mLogPath:Ljava/lang/String;
 
@@ -4167,26 +4342,26 @@
     .end annotation
 
     .prologue
-    .line 880
+    .line 926
     iget-boolean v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineIsAvailable:Z
 
     if-nez v5, :cond_0
 
-    .line 905
+    .line 951
     :goto_0
     return-void
 
-    .line 881
+    .line 927
     :cond_0
     const/4 v3, 0x0
 
-    .line 883
+    .line 929
     .local v3, l:Landroid/hardware/motion/MotionRecognitionService$Listener;
     iget-object v6, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v6
 
-    .line 884
+    .line 930
     :try_start_0
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
@@ -4208,30 +4383,30 @@
 
     check-cast v4, Landroid/hardware/motion/MotionRecognitionService$Listener;
 
-    .line 885
+    .line 931
     .local v4, listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     iget-object v5, v4, Landroid/hardware/motion/MotionRecognitionService$Listener;->mToken:Landroid/os/IBinder;
 
     if-ne p1, v5, :cond_1
 
-    .line 886
+    .line 932
     move-object v3, v4
 
-    .line 891
+    .line 937
     .end local v4           #listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     :cond_2
     const-string v1, ""
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 893
+    .line 939
     .local v1, client:Ljava/lang/String;
     :try_start_1
     invoke-static {p1}, Landroid/hardware/motion/IMotionRecognitionCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/motion/IMotionRecognitionCallback;
 
     move-result-object v0
 
-    .line 894
+    .line 940
     .local v0, cb:Landroid/hardware/motion/IMotionRecognitionCallback;
     invoke-interface {v0}, Landroid/hardware/motion/IMotionRecognitionCallback;->getListenerInfo()Ljava/lang/String;
     :try_end_1
@@ -4240,16 +4415,16 @@
 
     move-result-object v1
 
-    .line 898
+    .line 944
     .end local v0           #cb:Landroid/hardware/motion/IMotionRecognitionCallback;
     :goto_1
     if-eqz v3, :cond_3
 
-    .line 899
+    .line 945
     :try_start_2
     invoke-direct {p0, p2}, Landroid/hardware/motion/MotionRecognitionService;->native_set_motion_angle(I)V
 
-    .line 900
+    .line 946
     const-string v5, "MotionRecognitionService"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -4272,7 +4447,11 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Landroid/hardware/motion/MotionRecognitionManager;->EncodeLog(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
@@ -4282,13 +4461,13 @@
 
     invoke-static {v5, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 903
+    .line 949
     :cond_3
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/lang/Object;->notify()V
 
-    .line 904
+    .line 950
     monitor-exit v6
 
     goto :goto_0
@@ -4304,7 +4483,7 @@
 
     throw v5
 
-    .line 895
+    .line 941
     .restart local v1       #client:Ljava/lang/String;
     .restart local v2       #i$:Ljava/util/Iterator;
     :catch_0
@@ -4328,16 +4507,16 @@
     .end annotation
 
     .prologue
-    .line 908
+    .line 954
     iget-boolean v0, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineIsAvailable:Z
 
     if-nez v0, :cond_0
 
-    .line 913
+    .line 959
     :goto_0
     return-void
 
-    .line 910
+    .line 956
     :cond_0
     const-string v0, "MotionRecognitionService"
 
@@ -4411,10 +4590,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 911
+    .line 957
     invoke-direct/range {p0 .. p6}, Landroid/hardware/motion/MotionRecognitionService;->native_set_tilt_level(IIIIII)V
 
-    .line 912
+    .line 958
     const-string v0, "MotionRecognitionService"
 
     const-string v1, "  .setMotionTiltLevel : 2"
@@ -4434,30 +4613,30 @@
     .end annotation
 
     .prologue
-    .line 808
+    .line 854
     iget-boolean v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineIsAvailable:Z
 
     if-nez v5, :cond_0
 
-    .line 848
+    .line 894
     :goto_0
     return-void
 
-    .line 809
+    .line 855
     :cond_0
     const/4 v3, 0x0
 
-    .line 810
+    .line 856
     .local v3, l:Landroid/hardware/motion/MotionRecognitionService$Listener;
     const-string v1, ""
 
-    .line 812
+    .line 858
     .local v1, client:Ljava/lang/String;
     iget-object v6, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v6
 
-    .line 813
+    .line 859
     :try_start_0
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
@@ -4479,39 +4658,39 @@
 
     check-cast v4, Landroid/hardware/motion/MotionRecognitionService$Listener;
 
-    .line 814
+    .line 860
     .local v4, listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     iget-object v5, v4, Landroid/hardware/motion/MotionRecognitionService$Listener;->mToken:Landroid/os/IBinder;
 
     if-ne p1, v5, :cond_1
 
-    .line 815
+    .line 861
     move-object v3, v4
 
-    .line 820
+    .line 866
     .end local v4           #listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     :cond_2
     if-eqz v3, :cond_3
 
-    .line 821
+    .line 867
     const/4 v5, 0x0
 
     invoke-interface {p1, v3, v5}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 822
+    .line 868
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 825
+    .line 871
     :try_start_1
     invoke-static {p1}, Landroid/hardware/motion/IMotionRecognitionCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/motion/IMotionRecognitionCallback;
 
     move-result-object v0
 
-    .line 826
+    .line 872
     .local v0, cb:Landroid/hardware/motion/IMotionRecognitionCallback;
     invoke-interface {v0}, Landroid/hardware/motion/IMotionRecognitionCallback;->getListenerInfo()Ljava/lang/String;
     :try_end_1
@@ -4520,7 +4699,7 @@
 
     move-result-object v1
 
-    .line 829
+    .line 875
     .end local v0           #cb:Landroid/hardware/motion/IMotionRecognitionCallback;
     :goto_1
     :try_start_2
@@ -4552,7 +4731,11 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Landroid/hardware/motion/MotionRecognitionManager;->EncodeLog(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
@@ -4562,16 +4745,16 @@
 
     invoke-static {v5, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 830
+    .line 876
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/lang/Object;->notify()V
 
-    .line 833
+    .line 879
     :cond_3
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->disableUnusedSensors()V
 
-    .line 835
+    .line 881
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->checkSettingEngineEnabled()Z
 
     move-result v5
@@ -4582,7 +4765,7 @@
 
     if-nez v5, :cond_5
 
-    .line 836
+    .line 882
     const-string v5, "com.android.motionservicetestGyro"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -4599,28 +4782,28 @@
 
     if-eqz v5, :cond_5
 
-    .line 838
+    .line 884
     :cond_4
     iget-boolean v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mEnableAccINT:Z
 
     if-eqz v5, :cond_5
 
-    .line 839
+    .line 885
     const-string v5, "MotionRecognitionService"
 
     const-string v7, " Cancel reactive alert mode "
 
     invoke-static {v5, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 840
+    .line 886
     invoke-virtual {p0}, Landroid/hardware/motion/MotionRecognitionService;->disableAccINT()V
 
-    .line 841
+    .line 887
     const/4 v5, 0x0
 
     iput-boolean v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mFlatEvent:Z
 
-    .line 846
+    .line 892
     :cond_5
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
@@ -4632,7 +4815,7 @@
 
     invoke-direct {p0}, Landroid/hardware/motion/MotionRecognitionService;->finalizeIfPossible()V
 
-    .line 847
+    .line 893
     :cond_6
     monitor-exit v6
 
@@ -4648,7 +4831,7 @@
 
     throw v5
 
-    .line 827
+    .line 873
     .restart local v2       #i$:Ljava/util/Iterator;
     :catch_0
     move-exception v5
@@ -4667,26 +4850,26 @@
     .end annotation
 
     .prologue
-    .line 851
+    .line 897
     iget-boolean v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mEngineIsAvailable:Z
 
     if-nez v5, :cond_0
 
-    .line 877
+    .line 923
     :goto_0
     return-void
 
-    .line 852
+    .line 898
     :cond_0
     const/4 v3, 0x0
 
-    .line 854
+    .line 900
     .local v3, l:Landroid/hardware/motion/MotionRecognitionService$Listener;
     iget-object v6, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter v6
 
-    .line 855
+    .line 901
     :try_start_0
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
@@ -4708,30 +4891,30 @@
 
     check-cast v4, Landroid/hardware/motion/MotionRecognitionService$Listener;
 
-    .line 856
+    .line 902
     .local v4, listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     iget-object v5, v4, Landroid/hardware/motion/MotionRecognitionService$Listener;->mToken:Landroid/os/IBinder;
 
     if-ne p1, v5, :cond_1
 
-    .line 857
+    .line 903
     move-object v3, v4
 
-    .line 862
+    .line 908
     .end local v4           #listener:Landroid/hardware/motion/MotionRecognitionService$Listener;
     :cond_2
     const-string v1, ""
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 864
+    .line 910
     .local v1, client:Ljava/lang/String;
     :try_start_1
     invoke-static {p1}, Landroid/hardware/motion/IMotionRecognitionCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/motion/IMotionRecognitionCallback;
 
     move-result-object v0
 
-    .line 865
+    .line 911
     .local v0, cb:Landroid/hardware/motion/IMotionRecognitionCallback;
     invoke-interface {v0}, Landroid/hardware/motion/IMotionRecognitionCallback;->getListenerInfo()Ljava/lang/String;
     :try_end_1
@@ -4740,16 +4923,16 @@
 
     move-result-object v1
 
-    .line 869
+    .line 915
     .end local v0           #cb:Landroid/hardware/motion/IMotionRecognitionCallback;
     :goto_1
     if-eqz v3, :cond_3
 
-    .line 870
+    .line 916
     :try_start_2
     iput-boolean p2, v3, Landroid/hardware/motion/MotionRecognitionService$Listener;->mUseAlways:Z
 
-    .line 871
+    .line 917
     const-string v5, "MotionRecognitionService"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -4774,7 +4957,11 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Landroid/hardware/motion/MotionRecognitionManager;->EncodeLog(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
@@ -4784,13 +4971,13 @@
 
     invoke-static {v5, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 875
+    .line 921
     :goto_2
     iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/lang/Object;->notify()V
 
-    .line 876
+    .line 922
     monitor-exit v6
 
     goto :goto_0
@@ -4806,7 +4993,7 @@
 
     throw v5
 
-    .line 873
+    .line 919
     .restart local v1       #client:Ljava/lang/String;
     .restart local v2       #i$:Ljava/util/Iterator;
     :cond_3
@@ -4823,7 +5010,11 @@
 
     move-result-object v7
 
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1}, Landroid/hardware/motion/MotionRecognitionManager;->EncodeLog(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v7
 
@@ -4837,7 +5028,7 @@
 
     goto :goto_2
 
-    .line 866
+    .line 912
     :catch_0
     move-exception v5
 

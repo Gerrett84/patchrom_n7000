@@ -20,8 +20,6 @@
 
 .field private mContext:Landroid/content/Context;
 
-.field private mGapY:I
-
 .field private mGuideLineColor:I
 
 .field private mHoveringPointX:I
@@ -53,11 +51,15 @@
 
 .field private mMissedCount:I
 
+.field private mOrientation:I
+
 .field private mRingDrawable:Landroid/graphics/drawable/Drawable;
 
 .field private mRingHeight:I
 
 .field private mRingWidth:I
+
+.field private mStatusBarHeight:I
 
 .field private mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -67,14 +69,15 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/content/res/Configuration;)V
     .locals 2
     .parameter "context"
+    .parameter "configuration"
 
     .prologue
     const/4 v1, 0x1
 
-    .line 80
+    .line 81
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     .line 46
@@ -90,18 +93,26 @@
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->MAX_LIST_NUM:I
 
-    .line 76
+    .line 77
     const-string v0, "com.android.phone"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->CALL_PKG:Ljava/lang/String;
 
-    .line 77
+    .line 78
     iput v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->REQ_INDEX_CALL_EMAIL:I
 
-    .line 81
-    invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->init(Landroid/content/Context;)V
-
     .line 82
+    iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mContext:Landroid/content/Context;
+
+    .line 83
+    iget v0, p2, Landroid/content/res/Configuration;->orientation:I
+
+    iput v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mOrientation:I
+
+    .line 84
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->init()V
+
+    .line 85
     return-void
 .end method
 
@@ -109,47 +120,53 @@
     .locals 1
 
     .prologue
-    .line 221
+    .line 230
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->m_adapter:Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;->notifyDataSetChanged()V
 
-    .line 222
+    .line 231
     return-void
 .end method
 
-.method private init(Landroid/content/Context;)V
+.method private init()V
     .locals 7
-    .parameter "context"
 
     .prologue
     const/4 v6, 0x0
 
     const/4 v5, 0x1
 
-    .line 85
+    .line 88
     const-string v2, "CircleMissedCallList"
 
     const-string v3, "init"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 86
-    iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mContext:Landroid/content/Context;
+    .line 90
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mContext:Landroid/content/Context;
 
-    .line 88
-    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    invoke-static {v2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    .line 89
+    .line 91
     .local v0, inflater:Landroid/view/LayoutInflater;
-    const v2, 0x109005d
+    iget v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mOrientation:I
+
+    const/4 v3, 0x2
+
+    if-eq v2, v3, :cond_0
+
+    .line 92
+    const v2, 0x1090061
 
     invoke-virtual {v0, v2, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 90
-    const v2, 0x1020307
+    .line 97
+    :goto_0
+    const v2, 0x1020314
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->findViewById(I)Landroid/view/View;
 
@@ -159,8 +176,8 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mListView:Landroid/widget/ListView;
 
-    .line 91
-    const v2, 0x1020308
+    .line 98
+    const v2, 0x1020315
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->findViewById(I)Landroid/view/View;
 
@@ -170,35 +187,37 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mBottomText:Landroid/widget/TextView;
 
-    .line 93
+    .line 100
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mList:Ljava/util/ArrayList;
 
-    .line 94
+    .line 101
     new-instance v2, Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;
 
-    iget-object v3, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mList:Ljava/util/ArrayList;
+    iget-object v3, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mContext:Landroid/content/Context;
 
-    invoke-direct {v2, p1, v3, v5}, Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;-><init>(Landroid/content/Context;Ljava/util/ArrayList;Z)V
+    iget-object v4, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mList:Ljava/util/ArrayList;
+
+    invoke-direct {v2, v3, v4, v5}, Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;-><init>(Landroid/content/Context;Ljava/util/ArrayList;Z)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->m_adapter:Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;
 
-    .line 95
+    .line 102
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mListView:Landroid/widget/ListView;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->m_adapter:Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;
 
     invoke-virtual {v2, v3}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 97
+    .line 104
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x1080428
+    const v3, 0x1080451
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -206,7 +225,7 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mRingDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 98
+    .line 105
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mRingDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -215,7 +234,7 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mRingWidth:I
 
-    .line 99
+    .line 106
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mRingDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
@@ -224,7 +243,7 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mRingHeight:I
 
-    .line 100
+    .line 107
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mRingDrawable:Landroid/graphics/drawable/Drawable;
 
     iget v3, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mRingWidth:I
@@ -233,59 +252,67 @@
 
     invoke-virtual {v2, v6, v6, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 102
+    .line 109
     const v2, -0x887c72
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mGuideLineColor:I
 
-    .line 104
+    .line 111
     new-instance v2, Landroid/graphics/Paint;
 
     invoke-direct {v2}, Landroid/graphics/Paint;-><init>()V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLinePaint:Landroid/graphics/Paint;
 
-    .line 105
+    .line 112
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLinePaint:Landroid/graphics/Paint;
 
     const/high16 v3, 0x4040
 
     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    .line 106
+    .line 113
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLinePaint:Landroid/graphics/Paint;
 
     sget-object v3, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
 
     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
-    .line 107
+    .line 114
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLinePaint:Landroid/graphics/Paint;
 
     iget v3, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mGuideLineColor:I
 
     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 108
+    .line 115
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLinePaint:Landroid/graphics/Paint;
 
     invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 110
-    const/16 v2, 0x32
+    .line 117
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isTabletDevice()Z
 
-    iput v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mGapY:I
+    move-result v2
 
-    .line 112
-    const-string v2, "power"
+    if-eqz v2, :cond_1
 
-    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    .line 118
+    iput v6, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mStatusBarHeight:I
+
+    .line 123
+    :goto_1
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mContext:Landroid/content/Context;
+
+    const-string v3, "power"
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/os/PowerManager;
 
-    .line 113
+    .line 124
     .local v1, pm:Landroid/os/PowerManager;
     const/16 v2, 0x1a
 
@@ -297,11 +324,38 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 115
+    .line 126
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->updateMissedEvent()V
 
-    .line 116
+    .line 127
     return-void
+
+    .line 94
+    .end local v1           #pm:Landroid/os/PowerManager;
+    :cond_0
+    const v2, 0x1090062
+
+    invoke-virtual {v0, v2, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    goto/16 :goto_0
+
+    .line 120
+    :cond_1
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x105000a
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mStatusBarHeight:I
+
+    goto :goto_1
 .end method
 
 .method private setGuideLineStartPos()V
@@ -312,12 +366,12 @@
 
     const/4 v3, 0x0
 
-    .line 202
+    .line 211
     const/4 v1, 0x2
 
     new-array v0, v1, [I
 
-    .line 203
+    .line 212
     .local v0, pos:[I
     iget v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mMissedCount:I
 
@@ -325,12 +379,12 @@
 
     if-le v1, v2, :cond_0
 
-    .line 204
+    .line 213
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mBottomText:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->getLocationOnScreen([I)V
 
-    .line 205
+    .line 214
     aget v1, v0, v3
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mBottomText:Landroid/widget/TextView;
@@ -345,7 +399,7 @@
 
     iput v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLineStartX:I
 
-    .line 206
+    .line 215
     aget v1, v0, v4
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mBottomText:Landroid/widget/TextView;
@@ -356,23 +410,23 @@
 
     add-int/2addr v1, v2
 
-    iget v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mGapY:I
+    iget v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mStatusBarHeight:I
 
     sub-int/2addr v1, v2
 
     iput v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLineStartY:I
 
-    .line 213
+    .line 222
     :goto_0
     return-void
 
-    .line 208
+    .line 217
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mListView:Landroid/widget/ListView;
 
     invoke-virtual {v1, v0}, Landroid/widget/ListView;->getLocationOnScreen([I)V
 
-    .line 209
+    .line 218
     aget v1, v0, v3
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mListView:Landroid/widget/ListView;
@@ -387,7 +441,7 @@
 
     iput v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLineStartX:I
 
-    .line 210
+    .line 219
     aget v1, v0, v4
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mListView:Landroid/widget/ListView;
@@ -398,7 +452,7 @@
 
     add-int/2addr v1, v2
 
-    iget v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mGapY:I
+    iget v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mStatusBarHeight:I
 
     sub-int/2addr v1, v2
 
@@ -413,17 +467,17 @@
     .parameter "posY"
 
     .prologue
-    .line 216
+    .line 225
     iput p1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLineEndX:I
 
-    .line 217
-    iget v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mGapY:I
+    .line 226
+    iget v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mStatusBarHeight:I
 
     sub-int v0, p2, v0
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLineEndY:I
 
-    .line 218
+    .line 227
     return-void
 .end method
 
@@ -434,13 +488,13 @@
     .parameter "canvas"
 
     .prologue
-    .line 190
+    .line 199
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->draw(Landroid/graphics/Canvas;)V
 
-    .line 192
+    .line 201
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 193
+    .line 202
     iget v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLineEndX:I
 
     iget v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mRingWidth:I
@@ -463,18 +517,18 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 194
+    .line 203
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mRingDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 195
+    .line 204
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 197
+    .line 206
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->setGuideLineStartPos()V
 
-    .line 198
+    .line 207
     iget v0, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mLineStartX:I
 
     int-to-float v1, v0
@@ -503,46 +557,29 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    .line 199
+    .line 208
     return-void
 .end method
 
 .method public onHover(Landroid/view/MotionEvent;)V
-    .locals 4
+    .locals 3
     .parameter "event"
 
     .prologue
-    const/4 v3, 0x1
-
     const/4 v2, 0x0
 
-    .line 165
-    iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v1
-
-    iget v1, v1, Landroid/content/res/Configuration;->orientation:I
-
-    if-ne v1, v3, :cond_0
-
-    .line 166
+    .line 176
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 167
+    .line 177
     .local v0, action:I
     const/4 v1, 0x7
 
     if-ne v0, v1, :cond_1
 
-    .line 168
+    .line 178
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v1
@@ -557,23 +594,21 @@
 
     invoke-direct {p0, v1, v2}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->setGuildeLineEndPos(II)V
 
-    .line 169
+    .line 179
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->invalidate()V
 
-    .line 185
-    .end local v0           #action:I
+    .line 194
     :cond_0
     :goto_0
     return-void
 
-    .line 170
-    .restart local v0       #action:I
+    .line 180
     :cond_1
     const/16 v1, 0x9
 
     if-ne v0, v1, :cond_3
 
-    .line 171
+    .line 181
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     if-eqz v1, :cond_2
@@ -586,30 +621,32 @@
 
     if-nez v1, :cond_2
 
-    .line 172
+    .line 182
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 173
-    iput-boolean v3, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mWakeLockAcquired:Z
+    .line 183
+    const/4 v1, 0x1
 
-    .line 175
+    iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mWakeLockAcquired:Z
+
+    .line 185
     :cond_2
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->setVisibility(I)V
 
-    .line 176
+    .line 186
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->setBackgroundColor(I)V
 
     goto :goto_0
 
-    .line 177
+    .line 187
     :cond_3
     const/16 v1, 0xa
 
     if-ne v0, v1, :cond_0
 
-    .line 178
+    .line 188
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mWakeLockAcquired:Z
 
     if-eqz v1, :cond_4
@@ -618,15 +655,15 @@
 
     if-eqz v1, :cond_4
 
-    .line 179
+    .line 189
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 180
+    .line 190
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mWakeLockAcquired:Z
 
-    .line 182
+    .line 192
     :cond_4
     const/16 v1, 0x8
 
@@ -641,14 +678,14 @@
     .prologue
     const/4 v13, 0x0
 
-    .line 119
+    .line 130
     iget-object v8, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mContext:Landroid/content/Context;
 
     invoke-static {v8}, Lcom/android/internal/policy/impl/sec/CircleMissedEventDBAdapter;->getInstance(Landroid/content/Context;)Lcom/android/internal/policy/impl/sec/CircleMissedEventDBAdapter;
 
     move-result-object v1
 
-    .line 121
+    .line 132
     .local v1, dbAdapter:Lcom/android/internal/policy/impl/sec/CircleMissedEventDBAdapter;
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/sec/CircleMissedEventDBAdapter;->isOpen()Z
 
@@ -656,27 +693,27 @@
 
     if-eqz v8, :cond_0
 
-    .line 122
+    .line 133
     const-string v8, "CircleMissedCallList"
 
     const-string v9, "updateMissedCall : DB is opend"
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 162
+    .line 173
     :goto_0
     return-void
 
-    .line 126
+    .line 137
     :cond_0
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/sec/CircleMissedEventDBAdapter;->open()Lcom/android/internal/policy/impl/sec/CircleMissedEventDBAdapter;
 
-    .line 127
+    .line 138
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/sec/CircleMissedEventDBAdapter;->getMissedCallCursor()Landroid/database/Cursor;
 
     move-result-object v0
 
-    .line 129
+    .line 140
     .local v0, cursor:Landroid/database/Cursor;
     const-string v8, "CircleMissedCallList"
 
@@ -684,34 +721,34 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 131
+    .line 142
     const/4 v2, 0x0
 
-    .line 132
+    .line 143
     .local v2, i:I
     iget-object v8, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mList:Ljava/util/ArrayList;
 
     invoke-virtual {v8}, Ljava/util/ArrayList;->clear()V
 
-    .line 133
+    .line 144
     iget v3, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mMissedCount:I
 
-    .line 134
+    .line 145
     .local v3, max_count:I
     const/4 v8, 0x4
 
     if-le v3, v8, :cond_3
 
-    .line 135
+    .line 146
     add-int/lit8 v5, v3, -0x4
 
-    .line 136
+    .line 147
     .local v5, number:I
     iget-object v8, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mBottomText:Landroid/widget/TextView;
 
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mContext:Landroid/content/Context;
 
-    const v10, 0x1040730
+    const v10, 0x1040748
 
     const/4 v11, 0x1
 
@@ -729,15 +766,15 @@
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 137
+    .line 148
     iget-object v8, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mBottomText:Landroid/widget/TextView;
 
     invoke-virtual {v8, v13}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 138
+    .line 149
     const/4 v3, 0x4
 
-    .line 143
+    .line 154
     .end local v5           #number:I
     :goto_1
     invoke-interface {v0}, Landroid/database/Cursor;->moveToLast()Z
@@ -746,26 +783,26 @@
 
     if-eqz v8, :cond_2
 
-    .line 145
+    .line 156
     :cond_1
     if-lt v2, v3, :cond_4
 
-    .line 158
+    .line 169
     :cond_2
     :goto_2
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 159
+    .line 170
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/sec/CircleMissedEventDBAdapter;->close()V
 
-    .line 161
+    .line 172
     iget-object v8, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->m_adapter:Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;
 
     invoke-virtual {v8}, Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;->notifyDataSetChanged()V
 
     goto :goto_0
 
-    .line 140
+    .line 151
     :cond_3
     iget-object v8, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mBottomText:Landroid/widget/TextView;
 
@@ -775,7 +812,7 @@
 
     goto :goto_1
 
-    .line 148
+    .line 159
     :cond_4
     const-string v8, "name"
 
@@ -787,7 +824,7 @@
 
     move-result-object v4
 
-    .line 149
+    .line 160
     .local v4, name:Ljava/lang/String;
     const-string v8, "time"
 
@@ -799,7 +836,7 @@
 
     move-result-wide v6
 
-    .line 151
+    .line 162
     .local v6, time:J
     const-string v8, "CircleMissedCallList"
 
@@ -833,7 +870,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 153
+    .line 164
     iget-object v8, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mList:Ljava/util/ArrayList;
 
     new-instance v9, Lcom/android/internal/policy/impl/sec/CircleMissedEventData;
@@ -842,10 +879,10 @@
 
     invoke-virtual {v8, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 154
+    .line 165
     add-int/lit8 v2, v2, 0x1
 
-    .line 155
+    .line 166
     invoke-interface {v0}, Landroid/database/Cursor;->moveToPrevious()Z
 
     move-result v8
@@ -859,7 +896,7 @@
     .locals 4
 
     .prologue
-    .line 225
+    .line 234
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mContext:Landroid/content/Context;
 
     const-string v3, "notification"
@@ -870,22 +907,22 @@
 
     check-cast v0, Landroid/app/NotificationManager;
 
-    .line 226
+    .line 235
     .local v0, mNM:Landroid/app/NotificationManager;
     if-nez v0, :cond_0
 
-    .line 227
+    .line 236
     const-string v2, "CircleMissedCallList"
 
     const-string v3, "onMissedEventUpdate : mNM is null"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 238
+    .line 247
     :goto_0
     return-void
 
-    .line 230
+    .line 239
     :cond_0
     const-string v2, "com.android.phone"
 
@@ -895,11 +932,11 @@
 
     move-result-object v1
 
-    .line 231
+    .line 240
     .local v1, missedCallNotiInfo:Landroid/app/NotificationInfo;
     if-nez v1, :cond_1
 
-    .line 232
+    .line 241
     const-string v2, "CircleMissedCallList"
 
     const-string v3, "onMissedEventUpdate : missedCallNotiInfo is null"
@@ -908,13 +945,13 @@
 
     goto :goto_0
 
-    .line 236
+    .line 245
     :cond_1
     iget v2, v1, Landroid/app/NotificationInfo;->missedCount:I
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->mMissedCount:I
 
-    .line 237
+    .line 246
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleMissedCallList;->updateMissedCall()V
 
     goto :goto_0

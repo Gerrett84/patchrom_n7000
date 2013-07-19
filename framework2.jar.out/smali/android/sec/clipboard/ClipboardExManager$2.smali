@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 253
+    .line 255
     iput-object p1, p0, Landroid/sec/clipboard/ClipboardExManager$2;->this$0:Landroid/sec/clipboard/ClipboardExManager;
 
     iput-object p2, p0, Landroid/sec/clipboard/ClipboardExManager$2;->val$clipData:Landroid/sec/clipboard/data/ClipboardData;
@@ -43,29 +43,40 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .locals 7
 
     .prologue
-    .line 264
+    const/4 v0, 0x1
+
+    const/4 v3, 0x0
+
+    .line 266
     :try_start_0
-    invoke-static {}, Landroid/sec/clipboard/ClipboardExManager;->access$100()Landroid/sec/clipboard/IClipboardService;
-
-    move-result-object v3
-
     iget-object v4, p0, Landroid/sec/clipboard/ClipboardExManager$2;->val$clipData:Landroid/sec/clipboard/data/ClipboardData;
 
-    invoke-virtual {v4}, Landroid/sec/clipboard/data/ClipboardData;->GetFomat()I
+    if-eqz v4, :cond_1
 
-    move-result v4
+    invoke-static {}, Landroid/sec/clipboard/ClipboardExManager;->access$100()Landroid/sec/clipboard/IClipboardService;
+
+    move-result-object v4
 
     iget-object v5, p0, Landroid/sec/clipboard/ClipboardExManager$2;->val$clipData:Landroid/sec/clipboard/data/ClipboardData;
 
-    invoke-interface {v3, v4, v5}, Landroid/sec/clipboard/IClipboardService;->SetClipboardData(ILandroid/sec/clipboard/data/ClipboardData;)Z
+    invoke-virtual {v5}, Landroid/sec/clipboard/data/ClipboardData;->GetFomat()I
 
-    move-result v0
+    move-result v5
 
-    .line 266
+    iget-object v6, p0, Landroid/sec/clipboard/ClipboardExManager$2;->val$clipData:Landroid/sec/clipboard/data/ClipboardData;
+
+    invoke-interface {v4, v5, v6}, Landroid/sec/clipboard/IClipboardService;->SetClipboardData(ILandroid/sec/clipboard/data/ClipboardData;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    .line 268
     .local v0, Result:Z
+    :goto_0
     iget-object v3, p0, Landroid/sec/clipboard/ClipboardExManager$2;->this$0:Landroid/sec/clipboard/ClipboardExManager;
 
     #getter for: Landroid/sec/clipboard/ClipboardExManager;->mSetDataHandler:Landroid/os/Handler;
@@ -77,17 +88,17 @@
 
     move-result-object v2
 
-    .line 268
+    .line 270
     .local v2, msg:Landroid/os/Message;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    .line 269
+    .line 271
     const/4 v3, 0x0
 
     iput v3, v2, Landroid/os/Message;->what:I
 
-    .line 273
-    :goto_0
+    .line 275
+    :goto_1
     iget-object v3, p0, Landroid/sec/clipboard/ClipboardExManager$2;->this$0:Landroid/sec/clipboard/ClipboardExManager;
 
     #getter for: Landroid/sec/clipboard/ClipboardExManager;->mSetDataHandler:Landroid/os/Handler;
@@ -97,32 +108,38 @@
 
     invoke-virtual {v3, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 278
+    .line 280
     .end local v0           #Result:Z
     .end local v2           #msg:Landroid/os/Message;
     :cond_0
-    :goto_1
+    :goto_2
     return-void
 
-    .line 271
+    :cond_1
+    move v0, v3
+
+    .line 266
+    goto :goto_0
+
+    .line 273
     .restart local v0       #Result:Z
     .restart local v2       #msg:Landroid/os/Message;
-    :cond_1
+    :cond_2
     const/4 v3, 0x1
 
     iput v3, v2, Landroid/os/Message;->what:I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 275
+    .line 277
     .end local v0           #Result:Z
     .end local v2           #msg:Landroid/os/Message;
     :catch_0
     move-exception v1
 
-    .line 276
+    .line 278
     .local v1, e:Landroid/os/RemoteException;
     sget-boolean v3, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
@@ -154,5 +171,5 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_2
 .end method

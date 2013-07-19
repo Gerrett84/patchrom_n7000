@@ -73,23 +73,28 @@
     if-eqz v0, :cond_1
 
     .line 686
+    if-ltz p3, :cond_0
+
+    if-ltz p4, :cond_0
+
+    .line 687
     #calls: Landroid/text/DynamicLayout;->reflow(Ljava/lang/CharSequence;III)V
     invoke-static {v0, p1, p2, p3, p4}, Landroid/text/DynamicLayout;->access$000(Landroid/text/DynamicLayout;Ljava/lang/CharSequence;III)V
 
-    .line 689
+    .line 691
     .end local p1
     :cond_0
     :goto_0
     return-void
 
-    .line 687
+    .line 689
     .restart local p1
     :cond_1
     instance-of v1, p1, Landroid/text/Spannable;
 
     if-eqz v1, :cond_0
 
-    .line 688
+    .line 690
     check-cast p1, Landroid/text/Spannable;
 
     .end local p1
@@ -105,7 +110,7 @@
     .parameter "s"
 
     .prologue
-    .line 701
+    .line 703
     return-void
 .end method
 
@@ -117,7 +122,7 @@
     .parameter "after"
 
     .prologue
-    .line 693
+    .line 695
     return-void
 .end method
 
@@ -129,19 +134,19 @@
     .parameter "end"
 
     .prologue
-    .line 704
+    .line 706
     instance-of v0, p2, Landroid/text/style/UpdateLayout;
 
     if-eqz v0, :cond_0
 
-    .line 705
+    .line 707
     sub-int v0, p4, p3
 
     sub-int v1, p4, p3
 
     invoke-direct {p0, p1, p3, v0, v1}, Landroid/text/DynamicLayout$ChangeWatcher;->reflow(Ljava/lang/CharSequence;III)V
 
-    .line 706
+    .line 708
     :cond_0
     return-void
 .end method
@@ -156,26 +161,26 @@
     .parameter "nend"
 
     .prologue
-    .line 714
+    .line 716
     instance-of v0, p2, Landroid/text/style/UpdateLayout;
 
     if-eqz v0, :cond_0
 
-    .line 715
+    .line 717
     sub-int v0, p4, p3
 
     sub-int v1, p4, p3
 
     invoke-direct {p0, p1, p3, v0, v1}, Landroid/text/DynamicLayout$ChangeWatcher;->reflow(Ljava/lang/CharSequence;III)V
 
-    .line 716
+    .line 718
     sub-int v0, p6, p5
 
     sub-int v1, p6, p5
 
     invoke-direct {p0, p1, p5, v0, v1}, Landroid/text/DynamicLayout$ChangeWatcher;->reflow(Ljava/lang/CharSequence;III)V
 
-    .line 718
+    .line 720
     :cond_0
     return-void
 .end method
@@ -188,19 +193,19 @@
     .parameter "end"
 
     .prologue
-    .line 709
+    .line 711
     instance-of v0, p2, Landroid/text/style/UpdateLayout;
 
     if-eqz v0, :cond_0
 
-    .line 710
+    .line 712
     sub-int v0, p4, p3
 
     sub-int v1, p4, p3
 
     invoke-direct {p0, p1, p3, v0, v1}, Landroid/text/DynamicLayout$ChangeWatcher;->reflow(Ljava/lang/CharSequence;III)V
 
-    .line 711
+    .line 713
     :cond_0
     return-void
 .end method
@@ -213,9 +218,9 @@
     .parameter "after"
 
     .prologue
-    .line 696
+    .line 698
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/text/DynamicLayout$ChangeWatcher;->reflow(Ljava/lang/CharSequence;III)V
 
-    .line 697
+    .line 699
     return-void
 .end method

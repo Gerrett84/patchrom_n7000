@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 229
+    .line 233
     iput-object p1, p0, Landroid/net/DhcpStateMachine$WaitBeforeStartState;->this$0:Landroid/net/DhcpStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 232
+    .line 236
     invoke-static {}, Landroid/net/DhcpStateMachine;->access$000()Z
 
     move-result v0
@@ -71,7 +71,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 233
+    .line 237
     :cond_0
     return-void
 .end method
@@ -81,10 +81,10 @@
     .parameter "message"
 
     .prologue
-    .line 237
+    .line 241
     const/4 v0, 0x1
 
-    .line 238
+    .line 242
     .local v0, retValue:Z
     invoke-static {}, Landroid/net/DhcpStateMachine;->access$000()Z
 
@@ -126,23 +126,23 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 239
+    .line 243
     :cond_0
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 258
+    .line 265
     :pswitch_0
     const/4 v0, 0x0
 
-    .line 261
+    .line 268
     :cond_1
     :goto_0
     :pswitch_1
     return v0
 
-    .line 241
+    .line 245
     :pswitch_2
     iget-object v1, p0, Landroid/net/DhcpStateMachine$WaitBeforeStartState;->this$0:Landroid/net/DhcpStateMachine;
 
@@ -153,7 +153,7 @@
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 242
+    .line 246
     invoke-static {}, Landroid/net/DhcpStateMachine;->access$000()Z
 
     move-result v1
@@ -166,7 +166,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 243
+    .line 247
     :cond_2
     iget-object v1, p0, Landroid/net/DhcpStateMachine$WaitBeforeStartState;->this$0:Landroid/net/DhcpStateMachine;
 
@@ -179,7 +179,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 244
+    .line 248
     iget-object v1, p0, Landroid/net/DhcpStateMachine$WaitBeforeStartState;->this$0:Landroid/net/DhcpStateMachine;
 
     iget-object v2, p0, Landroid/net/DhcpStateMachine$WaitBeforeStartState;->this$0:Landroid/net/DhcpStateMachine;
@@ -192,7 +192,7 @@
     #calls: Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Landroid/net/DhcpStateMachine;->access$1300(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 248
+    .line 252
     :goto_1
     iget-object v1, p0, Landroid/net/DhcpStateMachine$WaitBeforeStartState;->this$0:Landroid/net/DhcpStateMachine;
 
@@ -203,7 +203,7 @@
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 249
+    .line 253
     invoke-static {}, Landroid/net/DhcpStateMachine;->access$000()Z
 
     move-result v1
@@ -218,7 +218,7 @@
 
     goto :goto_0
 
-    .line 246
+    .line 250
     :cond_3
     iget-object v1, p0, Landroid/net/DhcpStateMachine$WaitBeforeStartState;->this$0:Landroid/net/DhcpStateMachine;
 
@@ -234,7 +234,7 @@
 
     goto :goto_1
 
-    .line 252
+    .line 256
     :pswitch_3
     iget-object v1, p0, Landroid/net/DhcpStateMachine$WaitBeforeStartState;->this$0:Landroid/net/DhcpStateMachine;
 
@@ -250,7 +250,23 @@
 
     goto :goto_0
 
-    .line 239
+    .line 259
+    :pswitch_4
+    iget-object v1, p0, Landroid/net/DhcpStateMachine$WaitBeforeStartState;->this$0:Landroid/net/DhcpStateMachine;
+
+    iget-object v2, p0, Landroid/net/DhcpStateMachine$WaitBeforeStartState;->this$0:Landroid/net/DhcpStateMachine;
+
+    #getter for: Landroid/net/DhcpStateMachine;->mStoppedState:Lcom/android/internal/util/State;
+    invoke-static {v2}, Landroid/net/DhcpStateMachine;->access$1400(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
+
+    move-result-object v2
+
+    #calls: Landroid/net/DhcpStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v1, v2}, Landroid/net/DhcpStateMachine;->access$1700(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
+
+    goto :goto_0
+
+    .line 243
     :pswitch_data_0
     .packed-switch 0x30001
         :pswitch_1
@@ -259,5 +275,6 @@
         :pswitch_0
         :pswitch_0
         :pswitch_2
+        :pswitch_4
     .end packed-switch
 .end method

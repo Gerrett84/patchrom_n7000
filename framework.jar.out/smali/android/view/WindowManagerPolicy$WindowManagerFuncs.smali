@@ -15,6 +15,12 @@
 
 
 # static fields
+.field public static final COVER_ABSENT:I = -0x1
+
+.field public static final COVER_CLOSED:I = 0x0
+
+.field public static final COVER_OPEN:I = 0x1
+
 .field public static final LID_ABSENT:I = -0x1
 
 .field public static final LID_CLOSED:I = 0x0
@@ -39,6 +45,9 @@
 .end method
 
 .method public abstract fakebootup()V
+.end method
+
+.method public abstract getCoverState()I
 .end method
 
 .method public abstract getLidState()I

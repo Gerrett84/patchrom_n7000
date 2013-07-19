@@ -22,7 +22,7 @@
     .locals 0
 
     .prologue
-    .line 925
+    .line 992
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,7 +34,16 @@
     .locals 0
 
     .prologue
-    .line 943
+    .line 1010
+    return-void
+.end method
+
+.method public onCsSimStateChanged(I)V
+    .locals 0
+    .parameter "simSlot"
+
+    .prologue
+    .line 1023
     return-void
 .end method
 
@@ -42,7 +51,7 @@
     .locals 0
 
     .prologue
-    .line 949
+    .line 1016
     return-void
 .end method
 
@@ -50,7 +59,7 @@
     .locals 0
 
     .prologue
-    .line 946
+    .line 1013
     return-void
 .end method
 
@@ -59,7 +68,7 @@
     .parameter "phoneState"
 
     .prologue
-    .line 940
+    .line 1007
     return-void
 .end method
 
@@ -70,7 +79,7 @@
     .parameter "batteryLevel"
 
     .prologue
-    .line 928
+    .line 995
     return-void
 .end method
 
@@ -80,7 +89,7 @@
     .parameter "spn"
 
     .prologue
-    .line 934
+    .line 1001
     return-void
 .end method
 
@@ -89,7 +98,7 @@
     .parameter "state"
 
     .prologue
-    .line 937
+    .line 1004
     return-void
 .end method
 
@@ -97,7 +106,7 @@
     .locals 0
 
     .prologue
-    .line 931
+    .line 998
     return-void
 .end method
 
@@ -106,6 +115,6 @@
     .parameter "userId"
 
     .prologue
-    .line 952
+    .line 1019
     return-void
 .end method

@@ -1,11 +1,14 @@
 .class Lcom/sec/android/app/fm/RecordedFileListActivity$6;
-.super Landroid/widget/CursorAdapter;
+.super Ljava/lang/Object;
 .source "RecordedFileListActivity.java"
+
+# interfaces
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/fm/RecordedFileListActivity;->setAdapter()V
+    value = Lcom/sec/android/app/fm/RecordedFileListActivity;->onCreateDialog(I)Landroid/app/Dialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,139 +22,142 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/sec/android/app/fm/RecordedFileListActivity;Landroid/content/Context;Landroid/database/Cursor;Z)V
+.method constructor <init>(Lcom/sec/android/app/fm/RecordedFileListActivity;)V
     .locals 0
     .parameter
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
 
     .prologue
-    .line 497
+    .line 405
     iput-object p1, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
 
-    invoke-direct {p0, p2, p3, p4}, Landroid/widget/CursorAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;Z)V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
+.method public onClick(Landroid/content/DialogInterface;I)V
     .locals 6
-    .parameter "v"
-    .parameter "context"
-    .parameter "c"
+    .parameter "arg0"
+    .parameter "arg1"
 
     .prologue
-    .line 501
-    const v3, 0x7f07007d
+    const-wide/16 v4, -0x1
 
-    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 408
+    iget-object v2, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
+
+    invoke-virtual {v2}, Lcom/sec/android/app/fm/RecordedFileListActivity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    .line 410
+    .local v0, cr:Landroid/content/ContentResolver;
+    iget-object v2, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
+
+    #getter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mCurrentSelectedId:J
+    invoke-static {v2}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$100(Lcom/sec/android/app/fm/RecordedFileListActivity;)J
+
+    move-result-wide v2
+
+    cmp-long v2, v2, v4
+
+    if-nez v2, :cond_0
+
+    iget-object v2, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
+
+    #getter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mSavedSelectedId:J
+    invoke-static {v2}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$200(Lcom/sec/android/app/fm/RecordedFileListActivity;)J
+
+    move-result-wide v2
+
+    cmp-long v2, v2, v4
+
+    if-eqz v2, :cond_0
+
+    .line 411
+    iget-object v2, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
+
+    iget-object v3, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
+
+    #getter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mSavedSelectedId:J
+    invoke-static {v3}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$200(Lcom/sec/android/app/fm/RecordedFileListActivity;)J
+
+    move-result-wide v3
+
+    #setter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mCurrentSelectedId:J
+    invoke-static {v2, v3, v4}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$102(Lcom/sec/android/app/fm/RecordedFileListActivity;J)J
+
+    .line 413
+    :cond_0
+    iget-object v2, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
+
+    iget-object v3, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
+
+    #getter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mCurrentSelectedId:J
+    invoke-static {v3}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$100(Lcom/sec/android/app/fm/RecordedFileListActivity;)J
+
+    move-result-wide v3
+
+    invoke-virtual {v2, v3, v4}, Lcom/sec/android/app/fm/RecordedFileListActivity;->getfilepath(J)Z
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-ne v2, v3, :cond_1
+
+    .line 414
+    new-instance v1, Ljava/io/File;
+
+    invoke-static {}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$300()Ljava/lang/String;
 
     move-result-object v2
 
-    check-cast v2, Landroid/widget/TextView;
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 502
-    .local v2, name:Landroid/widget/TextView;
-    const-string v3, "title"
+    .line 415
+    .local v1, target:Ljava/io/File;
+    if-eqz v1, :cond_1
 
-    invoke-interface {p3, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    .line 416
+    invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
-    move-result v3
+    .line 417
+    sget-object v2, Landroid/provider/MediaStore$Audio$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    invoke-interface {p3, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "_id="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    iget-object v4, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
 
-    .line 504
-    const v3, 0x7f07007e
-
-    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    .line 505
-    .local v0, date:Landroid/widget/TextView;
-    iget-object v3, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
-
-    const-string v4, "date_modified"
-
-    invoke-interface {p3, v4}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v4
-
-    invoke-interface {p3, v4}, Landroid/database/Cursor;->getLong(I)J
+    #getter for: Lcom/sec/android/app/fm/RecordedFileListActivity;->mCurrentSelectedId:J
+    invoke-static {v4}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$100(Lcom/sec/android/app/fm/RecordedFileListActivity;)J
 
     move-result-wide v4
 
-    invoke-virtual {v3, v4, v5}, Lcom/sec/android/app/fm/RecordedFileListActivity;->getDateFormatString(J)Ljava/lang/String;
+    invoke-virtual {v3, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 507
-    const v3, 0x7f07007f
-
-    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    .line 508
-    .local v1, duration:Landroid/widget/TextView;
-    iget-object v3, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$6;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
-
-    const-string v4, "duration"
-
-    invoke-interface {p3, v4}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v4
-
-    invoke-interface {p3, v4}, Landroid/database/Cursor;->getLong(I)J
-
-    move-result-wide v4
-
-    invoke-virtual {v3, v4, v5}, Lcom/sec/android/app/fm/RecordedFileListActivity;->getTimeFormatString(J)Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    const/4 v4, 0x0
 
-    .line 509
+    invoke-virtual {v0, v2, v3, v4}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    .line 421
+    .end local v1           #target:Ljava/io/File;
+    :cond_1
     return-void
-.end method
-
-.method public newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 4
-    .parameter "context"
-    .parameter "c"
-    .parameter "parent"
-
-    .prologue
-    .line 513
-    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v0
-
-    .line 514
-    .local v0, inflater:Landroid/view/LayoutInflater;
-    const v2, 0x7f03000f
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v1
-
-    .line 515
-    .local v1, v:Landroid/view/View;
-    return-object v1
 .end method

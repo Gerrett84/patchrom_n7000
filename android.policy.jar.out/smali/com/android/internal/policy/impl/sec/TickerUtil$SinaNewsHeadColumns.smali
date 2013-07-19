@@ -51,7 +51,7 @@
     .locals 3
 
     .prologue
-    .line 651
+    .line 655
     const-string v0, "content://com.sec.android.daemonapp.sinanews.provider/news_xml"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -60,7 +60,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/sec/TickerUtil$SinaNewsHeadColumns;->SINA_TABLE_URI:Landroid/net/Uri;
 
-    .line 666
+    .line 670
     const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/String;
@@ -128,7 +128,7 @@
     .locals 0
 
     .prologue
-    .line 647
+    .line 651
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -33,10 +33,14 @@
 
 .field public static final TYPE_ROTATION_VECTOR:I = 0xb
 
+.field public static final TYPE_SCREEN_ORIENTATION:I = 0xf
+
 .field public static final TYPE_TEMPERATURE:I = 0x7
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
+
+.field public static final TYPE_ULTRAVIOLET:I = 0xe
 
 
 # instance fields
@@ -64,10 +68,10 @@
     .locals 0
 
     .prologue
-    .line 136
+    .line 142
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 137
+    .line 143
     return-void
 .end method
 
@@ -77,7 +81,7 @@
     .locals 1
 
     .prologue
-    .line 198
+    .line 204
     iget v0, p0, Landroid/hardware/Sensor;->mHandle:I
 
     return v0
@@ -87,7 +91,7 @@
     .locals 1
 
     .prologue
-    .line 171
+    .line 177
     iget v0, p0, Landroid/hardware/Sensor;->mMaxRange:F
 
     return v0
@@ -97,7 +101,7 @@
     .locals 1
 
     .prologue
-    .line 194
+    .line 200
     iget v0, p0, Landroid/hardware/Sensor;->mMinDelay:I
 
     return v0
@@ -107,7 +111,7 @@
     .locals 1
 
     .prologue
-    .line 143
+    .line 149
     iget-object v0, p0, Landroid/hardware/Sensor;->mName:Ljava/lang/String;
 
     return-object v0
@@ -117,7 +121,7 @@
     .locals 1
 
     .prologue
-    .line 185
+    .line 191
     iget v0, p0, Landroid/hardware/Sensor;->mPower:F
 
     return v0
@@ -127,7 +131,7 @@
     .locals 1
 
     .prologue
-    .line 178
+    .line 184
     iget v0, p0, Landroid/hardware/Sensor;->mResolution:F
 
     return v0
@@ -137,7 +141,7 @@
     .locals 1
 
     .prologue
-    .line 157
+    .line 163
     iget v0, p0, Landroid/hardware/Sensor;->mType:I
 
     return v0
@@ -147,7 +151,7 @@
     .locals 1
 
     .prologue
-    .line 150
+    .line 156
     iget-object v0, p0, Landroid/hardware/Sensor;->mVendor:Ljava/lang/String;
 
     return-object v0
@@ -157,7 +161,7 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 170
     iget v0, p0, Landroid/hardware/Sensor;->mVersion:I
 
     return v0
@@ -169,12 +173,12 @@
     .parameter "res"
 
     .prologue
-    .line 202
+    .line 208
     iput p1, p0, Landroid/hardware/Sensor;->mMaxRange:F
 
-    .line 203
+    .line 209
     iput p2, p0, Landroid/hardware/Sensor;->mResolution:F
 
-    .line 204
+    .line 210
     return-void
 .end method

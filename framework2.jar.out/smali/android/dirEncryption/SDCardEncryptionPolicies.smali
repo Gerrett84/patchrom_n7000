@@ -48,7 +48,7 @@
     .locals 1
 
     .prologue
-    .line 114
+    .line 118
     new-instance v0, Landroid/dirEncryption/SDCardEncryptionPolicies$1;
 
     invoke-direct {v0}, Landroid/dirEncryption/SDCardEncryptionPolicies$1;-><init>()V
@@ -59,28 +59,16 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
 
     .prologue
     .line 12
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 13
-    const/4 v0, 0x3
-
-    iput v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
+    invoke-virtual {p0}, Landroid/dirEncryption/SDCardEncryptionPolicies;->init()V
 
     .line 14
-    const/4 v0, 0x5
-
-    iput v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mFullEnc:I
-
-    .line 15
-    const/4 v0, 0x7
-
-    iput v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mExcludeMedia:I
-
-    .line 16
     return-void
 .end method
 
@@ -91,19 +79,19 @@
     .parameter "excludeMedia"
 
     .prologue
-    .line 18
+    .line 22
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 19
+    .line 23
     iput p1, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
 
-    .line 20
+    .line 24
     iput p2, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mFullEnc:I
 
-    .line 21
+    .line 25
     iput p3, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mExcludeMedia:I
 
-    .line 22
+    .line 26
     return-void
 .end method
 
@@ -112,31 +100,31 @@
     .parameter "in"
 
     .prologue
-    .line 125
+    .line 129
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 126
+    .line 130
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
 
-    .line 127
+    .line 131
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mFullEnc:I
 
-    .line 128
+    .line 132
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mExcludeMedia:I
 
-    .line 129
+    .line 133
     return-void
 .end method
 
@@ -145,7 +133,7 @@
     .parameter "in"
 
     .prologue
-    .line 111
+    .line 115
     new-instance v0, Landroid/dirEncryption/SDCardEncryptionPolicies;
 
     invoke-direct {v0, p0}, Landroid/dirEncryption/SDCardEncryptionPolicies;-><init>(Landroid/os/Parcel;)V
@@ -158,26 +146,26 @@
     .parameter "str"
 
     .prologue
-    .line 49
+    .line 53
     const-string v4, " "
 
     invoke-virtual {p0, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 50
+    .line 54
     .local v3, values:[Ljava/lang/String;
     const/4 v0, 0x3
 
-    .line 51
+    .line 55
     .local v0, enc:I
     const/4 v2, 0x5
 
-    .line 52
+    .line 56
     .local v2, fullEnc:I
     const/4 v1, 0x7
 
-    .line 55
+    .line 59
     .local v1, excludeMedia:I
     const/4 v4, 0x0
 
@@ -188,7 +176,7 @@
 
     move-result v0
 
-    .line 56
+    .line 60
     const/4 v4, 0x1
 
     aget-object v4, v3, v4
@@ -197,7 +185,7 @@
 
     move-result v2
 
-    .line 57
+    .line 61
     const/4 v4, 0x2
 
     aget-object v4, v3, v4
@@ -208,7 +196,7 @@
 
     move-result v1
 
-    .line 60
+    .line 64
     :goto_0
     new-instance v4, Landroid/dirEncryption/SDCardEncryptionPolicies;
 
@@ -216,7 +204,7 @@
 
     return-object v4
 
-    .line 58
+    .line 62
     :catch_0
     move-exception v4
 
@@ -229,19 +217,19 @@
     .parameter "out"
 
     .prologue
-    .line 103
+    .line 107
     if-eqz p0, :cond_0
 
-    .line 104
+    .line 108
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Landroid/dirEncryption/SDCardEncryptionPolicies;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 108
+    .line 112
     :goto_0
     return-void
 
-    .line 106
+    .line 110
     :cond_0
     const/4 v0, 0x0
 
@@ -256,7 +244,7 @@
     .locals 4
 
     .prologue
-    .line 25
+    .line 29
     new-instance v0, Landroid/dirEncryption/SDCardEncryptionPolicies;
 
     iget v1, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
@@ -292,7 +280,7 @@
     .parameter "that"
 
     .prologue
-    .line 89
+    .line 93
     invoke-virtual {p0, p1}, Landroid/dirEncryption/SDCardEncryptionPolicies;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -330,7 +318,7 @@
     .locals 1
 
     .prologue
-    .line 93
+    .line 97
     const/4 v0, 0x0
 
     return v0
@@ -343,10 +331,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 72
+    .line 76
     if-eqz p1, :cond_0
 
-    .line 73
+    .line 77
     :try_start_0
     move-object v0, p1
 
@@ -354,7 +342,7 @@
 
     move-object v1, v0
 
-    .line 74
+    .line 78
     .local v1, other:Landroid/dirEncryption/SDCardEncryptionPolicies;
     iget v3, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
 
@@ -378,13 +366,13 @@
 
     const/4 v2, 0x1
 
-    .line 80
+    .line 84
     .end local v1           #other:Landroid/dirEncryption/SDCardEncryptionPolicies;
     :cond_0
     :goto_0
     return v2
 
-    .line 78
+    .line 82
     :catch_0
     move-exception v3
 
@@ -395,7 +383,7 @@
     .locals 2
 
     .prologue
-    .line 45
+    .line 49
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -441,7 +429,7 @@
     .locals 2
 
     .prologue
-    .line 41
+    .line 45
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -487,7 +475,7 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 33
     iget v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
 
     return v0
@@ -497,7 +485,7 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 41
     iget v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mExcludeMedia:I
 
     return v0
@@ -507,7 +495,7 @@
     .locals 1
 
     .prologue
-    .line 33
+    .line 37
     iget v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mFullEnc:I
 
     return v0
@@ -517,17 +505,40 @@
     .locals 1
 
     .prologue
-    .line 85
+    .line 89
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public init()V
+    .locals 1
+
+    .prologue
+    .line 17
+    const/4 v0, 0x3
+
+    iput v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
+
+    .line 18
+    const/4 v0, 0x5
+
+    iput v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mFullEnc:I
+
+    .line 19
+    const/4 v0, 0x7
+
+    iput v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mExcludeMedia:I
+
+    .line 20
+    return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 66
+    .line 70
     invoke-virtual {p0}, Landroid/dirEncryption/SDCardEncryptionPolicies;->flattenToString()Ljava/lang/String;
 
     move-result-object v0
@@ -541,21 +552,21 @@
     .parameter "flags"
 
     .prologue
-    .line 97
+    .line 101
     iget v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mEnc:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 98
+    .line 102
     iget v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mFullEnc:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 99
+    .line 103
     iget v0, p0, Landroid/dirEncryption/SDCardEncryptionPolicies;->mExcludeMedia:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 100
+    .line 104
     return-void
 .end method

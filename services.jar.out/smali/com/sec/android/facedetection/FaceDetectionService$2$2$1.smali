@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 636
+    .line 658
     iput-object p1, p0, Lcom/sec/android/facedetection/FaceDetectionService$2$2$1;->this$2:Lcom/sec/android/facedetection/FaceDetectionService$2$2;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,6 +43,6 @@
     .parameter "which"
 
     .prologue
-    .line 638
+    .line 660
     return-void
 .end method

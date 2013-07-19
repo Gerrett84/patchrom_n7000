@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 168
+    .line 171
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay$2;->this$0:Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 171
+    .line 174
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 172
+    .line 175
     .local v0, action:Ljava/lang/String;
     const-string v2, "com.android.server.NotificationManagerService.NotificationArrived"
 
@@ -63,7 +63,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 173
+    .line 176
     :cond_0
     invoke-static {}, Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay;->access$100()Z
 
@@ -75,9 +75,9 @@
 
     const-string v3, "received MISSED_EVENT intent !! "
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 174
+    .line 177
     :cond_1
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay$2;->this$0:Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay;
 
@@ -92,7 +92,7 @@
 
     move-result-object v1
 
-    .line 175
+    .line 178
     .local v1, msg:Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay$2;->this$0:Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay;
 
@@ -103,13 +103,13 @@
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 181
+    .line 184
     .end local v1           #msg:Landroid/os/Message;
     :cond_2
     :goto_0
     return-void
 
-    .line 176
+    .line 179
     :cond_3
     const-string v2, "android.intent.action.SCREEN_ON"
 
@@ -119,7 +119,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 177
+    .line 180
     invoke-static {}, Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay;->access$100()Z
 
     move-result v2
@@ -130,9 +130,9 @@
 
     const-string v3, "mScreenOn"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 178
+    .line 181
     :cond_4
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay$2;->this$0:Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay;
 
@@ -147,7 +147,7 @@
 
     move-result-object v1
 
-    .line 179
+    .line 182
     .restart local v1       #msg:Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay$2;->this$0:Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay;
 

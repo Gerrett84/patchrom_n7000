@@ -47,7 +47,7 @@
 
     .line 184
     .local v0, action:Ljava/lang/String;
-    const-string v1, "com.samsung.sec.android.clockpackage.alarm.ALARM_ALERT"
+    const-string v1, "com.samsung.sec.android.clockpackage.alarm.ALARM_ALERT_FROM_ALARM"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

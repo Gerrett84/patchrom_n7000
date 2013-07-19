@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 808
+    .line 819
     iput-object p1, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,7 +38,7 @@
     .locals 5
 
     .prologue
-    .line 810
+    .line 821
     new-instance v0, Lcom/android/server/location/GpsXtraDownloader;
 
     iget-object v1, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -57,7 +57,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/location/GpsXtraDownloader;-><init>(Landroid/content/Context;Ljava/util/Properties;)V
 
-    .line 811
+    .line 822
     .local v0, xtraDownloader:Lcom/android/server/location/GpsXtraDownloader;
     iget-object v1, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
@@ -68,7 +68,7 @@
     #setter for: Lcom/android/server/location/GpsLocationProvider;->mXtraData:[B
     invoke-static {v1, v2}, Lcom/android/server/location/GpsLocationProvider;->access$1202(Lcom/android/server/location/GpsLocationProvider;[B)[B
 
-    .line 812
+    .line 823
     iget-object v1, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     const/16 v2, 0x8
@@ -80,6 +80,6 @@
     #calls: Lcom/android/server/location/GpsLocationProvider;->sendMessage(IILjava/lang/Object;)V
     invoke-static {v1, v2, v3, v4}, Lcom/android/server/location/GpsLocationProvider;->access$1000(Lcom/android/server/location/GpsLocationProvider;IILjava/lang/Object;)V
 
-    .line 813
+    .line 824
     return-void
 .end method

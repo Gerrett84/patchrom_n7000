@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 4297
+    .line 4333
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$11;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,16 +42,16 @@
     .parameter "dialog"
 
     .prologue
-    .line 4299
+    .line 4335
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$11;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/InputMethodManagerService;->changeKeyboard()V
 
-    .line 4300
+    .line 4336
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$11;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/InputMethodManagerService;->hideKeyboardDialog()V
 
-    .line 4304
+    .line 4340
     return-void
 .end method

@@ -29,17 +29,17 @@
     .parameter
 
     .prologue
-    .line 804
+    .line 1234
     iput-object p1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$DoubleTapPinupListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
-    .line 805
+    .line 1235
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 807
+    .line 1237
     new-instance v0, Landroid/view/GestureDetector;
 
     #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
-    invoke-static {p1}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+    invoke-static {p1}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
 
     move-result-object v1
 
@@ -51,7 +51,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$DoubleTapPinupListener;->mGd:Landroid/view/GestureDetector;
 
-    .line 855
+    .line 1289
     return-void
 .end method
 
@@ -63,12 +63,12 @@
     .parameter "event"
 
     .prologue
-    .line 859
+    .line 1293
     iget-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$DoubleTapPinupListener;->mGd:Landroid/view/GestureDetector;
 
     invoke-virtual {v0, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    .line 860
+    .line 1294
     const/4 v0, 0x0
 
     return v0

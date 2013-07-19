@@ -1,5 +1,5 @@
-.class Lcom/android/server/VibratorService$4;
-.super Landroid/content/BroadcastReceiver;
+.class synthetic Lcom/android/server/VibratorService$4;
+.super Ljava/lang/Object;
 .source "VibratorService.java"
 
 
@@ -9,138 +9,114 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1008
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/server/VibratorService;
+# static fields
+.field static final synthetic $SwitchMap$android$os$SystemVibrator$MagnitudeType:[I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/VibratorService;)V
-    .locals 0
-    .parameter
+.method static constructor <clinit>()V
+    .locals 3
 
     .prologue
-    .line 777
-    iput-object p1, p0, Lcom/android/server/VibratorService$4;->this$0:Lcom/android/server/VibratorService;
+    .line 929
+    invoke-static {}, Landroid/os/SystemVibrator$MagnitudeType;->values()[Landroid/os/SystemVibrator$MagnitudeType;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    move-result-object v0
 
-    return-void
-.end method
+    array-length v0, v0
 
+    new-array v0, v0, [I
 
-# virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
-    .parameter "context"
-    .parameter "intent"
+    sput-object v0, Lcom/android/server/VibratorService$4;->$SwitchMap$android$os$SystemVibrator$MagnitudeType:[I
 
-    .prologue
-    .line 779
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "android.intent.action.SCREEN_OFF"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 780
-    iget-object v2, p0, Lcom/android/server/VibratorService$4;->this$0:Lcom/android/server/VibratorService;
-
-    #getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
-    invoke-static {v2}, Lcom/android/server/VibratorService;->access$000(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
-
-    move-result-object v3
-
-    monitor-enter v3
-
-    .line 781
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/VibratorService$4;->this$0:Lcom/android/server/VibratorService;
+    sget-object v0, Lcom/android/server/VibratorService$4;->$SwitchMap$android$os$SystemVibrator$MagnitudeType:[I
 
-    #calls: Lcom/android/server/VibratorService;->doCancelVibrateLocked()V
-    invoke-static {v2}, Lcom/android/server/VibratorService;->access$200(Lcom/android/server/VibratorService;)V
+    sget-object v1, Landroid/os/SystemVibrator$MagnitudeType;->TouchMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
-    .line 783
-    iget-object v2, p0, Lcom/android/server/VibratorService$4;->this$0:Lcom/android/server/VibratorService;
-
-    #getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
-    invoke-static {v2}, Lcom/android/server/VibratorService;->access$000(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/util/LinkedList;->size()I
+    invoke-virtual {v1}, Landroid/os/SystemVibrator$MagnitudeType;->ordinal()I
 
     move-result v1
 
-    .line 784
-    .local v1, size:I
-    const/4 v0, 0x0
+    const/4 v2, 0x1
 
-    .local v0, i:I
+    aput v2, v0, v1
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_3
+
     :goto_0
-    if-ge v0, v1, :cond_0
+    :try_start_1
+    sget-object v0, Lcom/android/server/VibratorService$4;->$SwitchMap$android$os$SystemVibrator$MagnitudeType:[I
 
-    .line 785
-    iget-object v4, p0, Lcom/android/server/VibratorService$4;->this$0:Lcom/android/server/VibratorService;
+    sget-object v1, Landroid/os/SystemVibrator$MagnitudeType;->NotificationMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
-    iget-object v2, p0, Lcom/android/server/VibratorService$4;->this$0:Lcom/android/server/VibratorService;
+    invoke-virtual {v1}, Landroid/os/SystemVibrator$MagnitudeType;->ordinal()I
 
-    #getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
-    invoke-static {v2}, Lcom/android/server/VibratorService;->access$000(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
+    move-result v1
 
-    move-result-object v2
+    const/4 v2, 0x2
 
-    invoke-virtual {v2, v0}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
+    aput v2, v0, v1
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_2
 
-    move-result-object v2
+    :goto_1
+    :try_start_2
+    sget-object v0, Lcom/android/server/VibratorService$4;->$SwitchMap$android$os$SystemVibrator$MagnitudeType:[I
 
-    check-cast v2, Lcom/android/server/VibratorService$Vibration;
+    sget-object v1, Landroid/os/SystemVibrator$MagnitudeType;->CallMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
-    #calls: Lcom/android/server/VibratorService;->unlinkVibration(Lcom/android/server/VibratorService$Vibration;)V
-    invoke-static {v4, v2}, Lcom/android/server/VibratorService;->access$1300(Lcom/android/server/VibratorService;Lcom/android/server/VibratorService$Vibration;)V
+    invoke-virtual {v1}, Landroid/os/SystemVibrator$MagnitudeType;->ordinal()I
 
-    .line 784
-    add-int/lit8 v0, v0, 0x1
+    move-result v1
 
-    goto :goto_0
+    const/4 v2, 0x3
 
-    .line 788
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/VibratorService$4;->this$0:Lcom/android/server/VibratorService;
+    aput v2, v0, v1
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_1
 
-    #getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
-    invoke-static {v2}, Lcom/android/server/VibratorService;->access$000(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
+    :goto_2
+    :try_start_3
+    sget-object v0, Lcom/android/server/VibratorService$4;->$SwitchMap$android$os$SystemVibrator$MagnitudeType:[I
 
-    move-result-object v2
+    sget-object v1, Landroid/os/SystemVibrator$MagnitudeType;->MaxMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->clear()V
+    invoke-virtual {v1}, Landroid/os/SystemVibrator$MagnitudeType;->ordinal()I
 
-    .line 789
-    monitor-exit v3
+    move-result v1
 
-    .line 791
-    .end local v0           #i:I
-    .end local v1           #size:I
-    :cond_1
+    const/4 v2, 0x4
+
+    aput v2, v0, v1
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_0
+
+    :goto_3
     return-void
 
-    .line 789
-    :catchall_0
-    move-exception v2
+    :catch_0
+    move-exception v0
 
-    monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    goto :goto_3
 
-    throw v2
+    :catch_1
+    move-exception v0
+
+    goto :goto_2
+
+    :catch_2
+    move-exception v0
+
+    goto :goto_1
+
+    :catch_3
+    move-exception v0
+
+    goto :goto_0
 .end method

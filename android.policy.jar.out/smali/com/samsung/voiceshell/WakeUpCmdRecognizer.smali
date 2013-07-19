@@ -14,9 +14,13 @@
 
 .field static final ERROR_CONFLICT_COMMAND:I = -0x4
 
+.field static final ERROR_MIC_BUSY:I = -0x5
+
 .field public static final Enroll_ConflictCommand:I = 0x68
 
 .field static final NUM_MODELS:I = 0x6
+
+.field public static final Recording_Fail:I = 0x69
 
 .field public static final customVoiceTalkEnablePath:Ljava/lang/String; = "/data/data/com.vlingo.midas/kwd_1.bin"
 
@@ -149,7 +153,7 @@
 
     sput-boolean v0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isEnrollReady:Z
 
-    .line 59
+    .line 61
     const/4 v0, 0x6
 
     new-array v0, v0, [I
@@ -168,7 +172,7 @@
 
     const/4 v1, 0x0
 
-    .line 109
+    .line 111
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 24
@@ -232,214 +236,214 @@
     .line 45
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRunning_enroll:Z
 
-    .line 54
+    .line 56
     iput-short v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->CommandNumber:S
 
-    .line 56
+    .line 58
     iput v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->WType:I
 
-    .line 60
+    .line 62
     const/4 v0, 0x1
 
     new-array v0, v0, [S
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->conflictCommandType:[S
 
-    .line 62
+    .line 64
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSamsungWakeUpLibExist:Z
 
-    .line 63
+    .line 65
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryWakeUpLibExist:Z
 
-    .line 65
+    .line 67
     const-string v0, "WakeUpCmdRecognizer"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
-    .line 67
+    .line 69
     iput-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 68
+    .line 70
     iput-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mContext:Landroid/content/Context;
 
-    .line 69
+    .line 71
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isAudioFocus:Z
 
-    .line 73
+    .line 75
     const-string v0, "/system/wakeupdata/sensory/nn_en_uk_mfcc_16k_15_big_250_v2_0.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 74
+    .line 76
     const-string v0, "/system/wakeupdata/sensory/en_gb_hg_tuned1_endsil_cg.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
-    .line 76
+    .line 78
     const/high16 v0, 0x41a0
 
     iput v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->beam:F
 
-    .line 77
+    .line 79
     const/high16 v0, 0x4220
 
     iput v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->absBeam:F
 
-    .line 78
+    .line 80
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->aoffset:F
 
-    .line 79
+    .line 81
     const/high16 v0, 0x42c8
 
     iput v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->delay:F
 
-    .line 80
+    .line 82
     iput-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->debugSessionPathname:Ljava/lang/String;
 
-    .line 81
+    .line 83
     iput v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->doLoggingParam:I
 
-    .line 83
+    .line 85
     const-string v0, "/system/lib/libSamsungVoiceEngine.so"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->voiceEngineSoFilePath:Ljava/lang/String;
 
-    .line 84
+    .line 86
     const-string v0, "/system/lib/libWakeUpSensory.so"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->sensorySoFilePath:Ljava/lang/String;
 
-    .line 85
+    .line 87
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryInitialize:Z
 
-    .line 86
+    .line 88
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isCustomVoiceTalkEnable:Z
 
-    .line 87
+    .line 89
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->weHaveNoModel:Z
 
-    .line 89
+    .line 91
     const-string v0, "/system/wakeupdata/sensory/nn_ko_mfcc_16k_15_big_250_v2_1.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->koAcousticModelPathname:Ljava/lang/String;
 
-    .line 90
+    .line 92
     const-string v0, "/system/wakeupdata/sensory/nn_en_us_mfcc_16k_15_big_250_v4_5.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->usAcousticModelPathname:Ljava/lang/String;
 
-    .line 91
+    .line 93
     const-string v0, "/system/wakeupdata/sensory/nn_en_uk_mfcc_16k_15_big_250_v2_0.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->ukAcousticModelPathname:Ljava/lang/String;
 
-    .line 92
+    .line 94
     const-string v0, "/system/wakeupdata/sensory/nn_es_mfcc_16k_15_big_250_v1_1.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->esAcousticModelPathname:Ljava/lang/String;
 
-    .line 93
+    .line 95
     const-string v0, "/system/wakeupdata/sensory/nn_fr_mfcc_16k_15_big_250_v2_2.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->frAcousticModelPathname:Ljava/lang/String;
 
-    .line 94
+    .line 96
     const-string v0, "/system/wakeupdata/sensory/nn_de_mfcc_16k_15_big_250_v3_0.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->deAcousticModelPathname:Ljava/lang/String;
 
-    .line 95
+    .line 97
     const-string v0, "/system/wakeupdata/sensory/nn_it_mfcc_16k_15_big_250_v3_2.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->itAcousticModelPathname:Ljava/lang/String;
 
-    .line 97
+    .line 99
     const-string v0, "/system/wakeupdata/sensory/ko_hi_galaxy_endsil_cg.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->koSearchGrammarPathname:Ljava/lang/String;
 
-    .line 98
+    .line 100
     const-string v0, "/system/wakeupdata/sensory/en_us_hg_tuned3_endsil_cg.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->usSearchGrammarPathname:Ljava/lang/String;
 
-    .line 99
+    .line 101
     const-string v0, "/system/wakeupdata/sensory/en_gb_hg_tuned1_endsil_cg.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->ukSearchGrammarPathname:Ljava/lang/String;
 
-    .line 100
+    .line 102
     const-string v0, "/system/wakeupdata/sensory/es_galaxy_endsil_cg.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->esSearchGrammarPathname:Ljava/lang/String;
 
-    .line 101
+    .line 103
     const-string v0, "/system/wakeupdata/sensory/fr_galaxy_tuned8_endsil_cg.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->frSearchGrammarPathname:Ljava/lang/String;
 
-    .line 102
+    .line 104
     const-string v0, "/system/wakeupdata/sensory/de_galaxy_tuned_endsil_cg.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->deSearchGrammarPathname:Ljava/lang/String;
 
-    .line 103
+    .line 105
     const-string v0, "/system/wakeupdata/sensory/it_galaxy_tuned_endsil_cg.raw"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->itSearchGrammarPathname:Ljava/lang/String;
 
-    .line 105
+    .line 107
     const-string v0, "/data/data/com.vlingo.midas/files/language.bin"
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->sVoiceLanguageFilePath:Ljava/lang/String;
 
-    .line 106
+    .line 108
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRecording:Z
 
-    .line 132
+    .line 134
     new-instance v0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$1;
 
     invoke-direct {v0, p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$1;-><init>(Lcom/samsung/voiceshell/WakeUpCmdRecognizer;)V
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->handler:Landroid/os/Handler;
 
-    .line 784
+    .line 795
     new-instance v0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$3;
 
     invoke-direct {v0, p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$3;-><init>(Lcom/samsung/voiceshell/WakeUpCmdRecognizer;)V
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mAudioFocusListener:Landroid/media/AudioManager$OnAudioFocusChangeListener;
 
-    .line 110
+    .line 112
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v1, "WakeUpCmdRecognizer Create"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 111
+    .line 113
     invoke-virtual {p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->setLanguage()V
 
-    .line 112
+    .line 114
     iput-object p1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
 
-    .line 113
+    .line 115
     invoke-direct {p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSamsungVoiceLib()Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSamsungWakeUpLibExist:Z
 
-    .line 114
+    .line 116
     invoke-direct {p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryLib()Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryWakeUpLibExist:Z
 
-    .line 115
+    .line 117
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -464,7 +468,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 116
+    .line 118
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -489,7 +493,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 117
+    .line 119
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -514,7 +518,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 118
+    .line 120
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -539,7 +543,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 119
+    .line 121
     return-void
 .end method
 
@@ -549,14 +553,14 @@
     .prologue
     const/4 v6, 0x1
 
-    .line 607
+    .line 618
     const/4 v1, 0x0
 
-    .line 608
+    .line 619
     .local v1, iResult:I
     const/4 v0, 0x0
 
-    .line 610
+    .line 621
     .local v0, NumSets:I
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
@@ -570,7 +574,7 @@
 
     move-result v0
 
-    .line 612
+    .line 623
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -593,23 +597,23 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 614
+    .line 625
     if-nez v0, :cond_0
 
-    .line 616
+    .line 627
     const/16 v2, -0xa
 
-    .line 637
+    .line 648
     :goto_0
     return v2
 
-    .line 619
+    .line 630
     :cond_0
     iget v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->WType:I
 
     if-nez v2, :cond_1
 
-    .line 621
+    .line 632
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -634,13 +638,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 623
+    .line 634
     :cond_1
     iget v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->WType:I
 
     if-ne v2, v6, :cond_2
 
-    .line 625
+    .line 636
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -665,7 +669,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 627
+    .line 638
     :cond_2
     iget v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->WType:I
 
@@ -673,7 +677,7 @@
 
     if-ne v2, v3, :cond_3
 
-    .line 629
+    .line 640
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -698,13 +702,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 632
+    .line 643
     :cond_3
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     invoke-virtual {v2}, Lcom/samsung/voiceshell/VoiceEngine;->terminateVerify()I
 
-    .line 633
+    .line 644
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     const-string v3, "/system/wakeupdata/samsung/models_16k_NoE.bin"
@@ -717,14 +721,14 @@
 
     move-result v1
 
-    .line 635
+    .line 646
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     invoke-virtual {v2, v6}, Lcom/samsung/voiceshell/VoiceEngine;->setMode(I)V
 
     move v2, v1
 
-    .line 637
+    .line 648
     goto :goto_0
 .end method
 
@@ -732,10 +736,10 @@
     .locals 4
 
     .prologue
-    .line 641
+    .line 652
     const/4 v0, 0x0
 
-    .line 643
+    .line 654
     .local v0, iResult:I
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
@@ -743,26 +747,26 @@
 
     invoke-virtual {v1, v2}, Lcom/samsung/voiceshell/VoiceEngine;->setMode(I)V
 
-    .line 644
+    .line 655
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     const-string v2, "/system/wakeupdata/samsung/models_16k_NoE.bin"
 
     invoke-virtual {v1, v2}, Lcom/samsung/voiceshell/VoiceEngine;->setAdaptationModelPath(Ljava/lang/String;)V
 
-    .line 646
+    .line 657
     iget-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->weHaveNoModel:Z
 
     if-nez v1, :cond_0
 
-    .line 648
+    .line 659
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     invoke-virtual {v1}, Lcom/samsung/voiceshell/VoiceEngine;->startVerify()I
 
     move-result v0
 
-    .line 650
+    .line 661
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -785,13 +789,13 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 653
+    .line 664
     :cond_0
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
-    invoke-virtual {v1}, Lcom/samsung/voiceshell/AudioRecordHaydn;->startRecord()V
+    invoke-virtual {v1}, Lcom/samsung/voiceshell/AudioRecordHaydn;->startRecord()Z
 
-    .line 655
+    .line 666
     return v0
 .end method
 
@@ -799,34 +803,34 @@
     .locals 2
 
     .prologue
-    .line 659
+    .line 670
     const/4 v0, 0x0
 
-    .line 661
+    .line 672
     .local v0, iResult:I
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     if-eqz v1, :cond_0
 
-    .line 663
+    .line 674
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     invoke-virtual {v1}, Lcom/samsung/voiceshell/AudioRecordHaydn;->closeRecord()V
 
-    .line 665
+    .line 676
     :cond_0
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     if-eqz v1, :cond_1
 
-    .line 667
+    .line 678
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     invoke-virtual {v1}, Lcom/samsung/voiceshell/VoiceEngine;->terminateVerify()I
 
     move-result v0
 
-    .line 670
+    .line 681
     :cond_1
     return v0
 .end method
@@ -894,21 +898,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 727
+    .line 738
     if-nez p1, :cond_1
 
-    .line 739
+    .line 750
     :cond_0
     :goto_0
     return v1
 
-    .line 731
+    .line 742
     :cond_1
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 733
+    .line 744
     .local v0, mFile:Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -916,7 +920,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 739
+    .line 750
     const/4 v1, 0x1
 
     goto :goto_0
@@ -926,14 +930,14 @@
     .locals 3
 
     .prologue
-    .line 745
+    .line 756
     new-instance v0, Ljava/io/File;
 
     const-string v1, "/system/lib/libSamsungVoiceEngine.so"
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 746
+    .line 757
     .local v0, mFile:Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -941,17 +945,17 @@
 
     if-nez v1, :cond_0
 
-    .line 748
+    .line 759
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v2, "Error : Could not find libSamsungVoiceEngine.so"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 749
+    .line 760
     const/4 v1, 0x0
 
-    .line 753
+    .line 764
     :goto_0
     return v1
 
@@ -967,14 +971,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 759
+    .line 770
     new-instance v0, Ljava/io/File;
 
     const-string v4, "/system/lib/libWakeUpSensory.so"
 
     invoke-direct {v0, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 760
+    .line 771
     .local v0, mFile:Ljava/io/File;
     new-instance v1, Ljava/io/File;
 
@@ -982,7 +986,7 @@
 
     invoke-direct {v1, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 761
+    .line 772
     .local v1, sensoryAcousticModelFile:Ljava/io/File;
     new-instance v2, Ljava/io/File;
 
@@ -990,7 +994,7 @@
 
     invoke-direct {v2, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 763
+    .line 774
     .local v2, sensorySearchGrammarFile:Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -998,18 +1002,18 @@
 
     if-nez v4, :cond_0
 
-    .line 765
+    .line 776
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v5, "Error : Could not find libsensory.so"
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 780
+    .line 791
     :goto_0
     return v3
 
-    .line 768
+    .line 779
     :cond_0
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -1017,7 +1021,7 @@
 
     if-nez v4, :cond_1
 
-    .line 770
+    .line 781
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v5, "Error : Could not find sensoryAcousticModelFile"
@@ -1026,7 +1030,7 @@
 
     goto :goto_0
 
-    .line 773
+    .line 784
     :cond_1
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
@@ -1034,7 +1038,7 @@
 
     if-nez v4, :cond_2
 
-    .line 775
+    .line 786
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v5, "Error : Could not find sensorySearchGrammarFile"
@@ -1043,7 +1047,7 @@
 
     goto :goto_0
 
-    .line 780
+    .line 791
     :cond_2
     const/4 v3, 0x1
 
@@ -1057,20 +1061,20 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 905
+    .line 916
     new-instance v3, Ljava/io/File;
 
     invoke-direct {v3, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 906
+    .line 917
     .local v3, mFile:Ljava/io/File;
     const/4 v4, 0x0
 
-    .line 907
+    .line 918
     .local v4, mFileInputStream:Ljava/io/FileInputStream;
     const/4 v0, 0x0
 
-    .line 909
+    .line 920
     .local v0, data:[B
     invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
@@ -1078,7 +1082,7 @@
 
     if-eqz v6, :cond_1
 
-    .line 912
+    .line 923
     :try_start_0
     new-instance v5, Ljava/io/FileInputStream;
 
@@ -1086,7 +1090,7 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 913
+    .line 924
     .end local v4           #mFileInputStream:Ljava/io/FileInputStream;
     .local v5, mFileInputStream:Ljava/io/FileInputStream;
     :try_start_1
@@ -1096,13 +1100,13 @@
 
     new-array v0, v6, [B
 
-    .line 914
+    .line 925
     invoke-virtual {v5, v0}, Ljava/io/FileInputStream;->read([B)I
 
-    .line 915
+    .line 926
     invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
 
-    .line 917
+    .line 928
     new-instance v6, Ljava/lang/String;
 
     invoke-direct {v6, v0}, Ljava/lang/String;-><init>([B)V
@@ -1111,42 +1115,42 @@
 
     move-object v4, v5
 
-    .line 936
+    .line 947
     .end local v5           #mFileInputStream:Ljava/io/FileInputStream;
     .restart local v4       #mFileInputStream:Ljava/io/FileInputStream;
     :goto_0
     return-object v6
 
-    .line 919
+    .line 930
     :catch_0
     move-exception v1
 
-    .line 921
+    .line 932
     .local v1, e:Ljava/io/IOException;
     :goto_1
     if-eqz v4, :cond_0
 
-    .line 924
+    .line 935
     :try_start_2
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 930
+    .line 941
     :cond_0
     :goto_2
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     move-object v6, v7
 
-    .line 932
+    .line 943
     goto :goto_0
 
-    .line 925
+    .line 936
     :catch_1
     move-exception v2
 
-    .line 927
+    .line 938
     .local v2, e1:Ljava/io/IOException;
     invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
@@ -1157,10 +1161,10 @@
     :cond_1
     move-object v6, v7
 
-    .line 936
+    .line 947
     goto :goto_0
 
-    .line 919
+    .line 930
     .end local v4           #mFileInputStream:Ljava/io/FileInputStream;
     .restart local v5       #mFileInputStream:Ljava/io/FileInputStream;
     :catch_2
@@ -1179,25 +1183,25 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 492
+    .line 500
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRunning_enroll:Z
 
-    .line 493
+    .line 501
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRunning_all:Z
 
-    .line 495
+    .line 503
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->background_enroll:Ljava/lang/Thread;
 
     if-eqz v1, :cond_0
 
-    .line 497
+    .line 505
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v2, "waitForBackgroundEnroll"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 500
+    .line 508
     :try_start_0
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->background_enroll:Ljava/lang/Thread;
 
@@ -1207,16 +1211,16 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 506
+    .line 514
     :cond_0
     :goto_0
     return-void
 
-    .line 501
+    .line 509
     :catch_0
     move-exception v0
 
-    .line 503
+    .line 511
     .local v0, e:Ljava/lang/InterruptedException;
     invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
 
@@ -1229,10 +1233,10 @@
     .locals 3
 
     .prologue
-    .line 554
+    .line 562
     const/4 v0, 0x0
 
-    .line 556
+    .line 564
     .local v0, iResult:I
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
@@ -1240,7 +1244,7 @@
 
     invoke-virtual {v1, v2}, Lcom/samsung/voiceshell/VoiceEngine;->setMode(I)V
 
-    .line 557
+    .line 565
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     const-string v2, "/system/wakeupdata/samsung/models_16k_NoE.bin"
@@ -1249,12 +1253,12 @@
 
     move-result v0
 
-    .line 560
+    .line 568
     const/4 v1, 0x1
 
     sput-boolean v1, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isEnrollReady:Z
 
-    .line 562
+    .line 570
     return v0
 .end method
 
@@ -1264,34 +1268,43 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 567
+    .line 575
     const/4 v0, -0x3
 
-    .line 569
+    .line 577
     .local v0, iResult:I
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     if-eqz v1, :cond_0
 
-    .line 571
+    .line 579
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
-    invoke-virtual {v1}, Lcom/samsung/voiceshell/AudioRecordHaydn;->startRecord()V
+    invoke-virtual {v1}, Lcom/samsung/voiceshell/AudioRecordHaydn;->startRecord()Z
 
-    .line 574
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 581
+    const/4 v0, -0x5
+
+    .line 585
     :cond_0
     sget-boolean v1, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isEnrollReady:Z
 
-    const/4 v2, 0x1
+    if-eqz v1, :cond_1
 
-    if-ne v1, v2, :cond_1
+    const/4 v1, -0x5
 
-    .line 576
+    if-eq v0, v1, :cond_1
+
+    .line 587
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->conflictCommandType:[S
 
     aput-short v5, v1, v5
 
-    .line 578
+    .line 589
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     const-string v2, "/data/data/com.vlingo.midas/"
@@ -1304,7 +1317,7 @@
 
     move-result v0
 
-    .line 580
+    .line 591
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->conflictCommandType:[S
 
     aget-short v1, v1, v5
@@ -1319,21 +1332,21 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 582
+    .line 593
     const/4 v0, -0x4
 
-    .line 586
+    .line 597
     :cond_1
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     if-eqz v1, :cond_2
 
-    .line 588
+    .line 599
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     invoke-virtual {v1}, Lcom/samsung/voiceshell/AudioRecordHaydn;->closeRecord()V
 
-    .line 591
+    .line 602
     :cond_2
     return v0
 .end method
@@ -1345,44 +1358,44 @@
     .parameter "check"
 
     .prologue
-    .line 151
+    .line 153
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->handler:Landroid/os/Handler;
 
     invoke-virtual {v2}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
     move-result-object v1
 
-    .line 152
+    .line 154
     .local v1, msg:Landroid/os/Message;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 153
+    .line 155
     .local v0, b:Landroid/os/Bundle;
     const-string v2, "job"
 
     invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 154
+    .line 156
     const-string v2, "Enroll_Count"
 
     invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 155
+    .line 157
     const-string v2, "EnrollCheck_Count"
 
     invoke-virtual {v0, v2, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 156
+    .line 158
     invoke-virtual {v1, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
-    .line 157
+    .line 159
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->handler:Landroid/os/Handler;
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 158
+    .line 160
     return-void
 .end method
 
@@ -1390,29 +1403,29 @@
     .locals 2
 
     .prologue
-    .line 596
+    .line 607
     const/4 v0, 0x0
 
-    .line 597
+    .line 608
     .local v0, iResult:I
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     if-eqz v1, :cond_0
 
-    .line 599
+    .line 610
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     invoke-virtual {v1}, Lcom/samsung/voiceshell/VoiceEngine;->terminateEnroll()I
 
     move-result v0
 
-    .line 601
+    .line 612
     :cond_0
     const/4 v1, 0x0
 
     sput-boolean v1, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isEnrollReady:Z
 
-    .line 603
+    .line 614
     return v0
 .end method
 
@@ -1431,16 +1444,16 @@
 
     const/4 v4, -0x1
 
-    .line 675
+    .line 686
     const/4 v2, 0x0
 
-    .line 677
+    .line 688
     .local v2, intent:Landroid/content/Intent;
     const/4 v3, 0x4
 
     new-array v1, v3, [I
 
-    .line 679
+    .line 690
     .local v1, assignCommandArray:[I
     invoke-virtual {p0, v1, v5}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->functionAssignment([II)I
 
@@ -1448,32 +1461,32 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 681
+    .line 692
     aput v4, v1, v5
 
-    .line 682
+    .line 693
     aput v4, v1, v6
 
-    .line 683
+    .line 694
     aput v4, v1, v7
 
-    .line 684
+    .line 695
     aput v4, v1, v8
 
-    .line 687
+    .line 698
     :cond_0
     packed-switch p1, :pswitch_data_0
 
-    .line 716
+    .line 727
     :goto_0
     :pswitch_0
     return-object v2
 
-    .line 692
+    .line 703
     :pswitch_1
     const-string v0, "custom.wakeup.screen"
 
-    .line 693
+    .line 704
     .local v0, EXTRA_CUSTOM_WAKEUP:Ljava/lang/String;
     new-instance v2, Landroid/content/Intent;
 
@@ -1482,7 +1495,7 @@
 
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 694
+    .line 705
     .restart local v2       #intent:Landroid/content/Intent;
     new-instance v3, Landroid/content/ComponentName;
 
@@ -1494,19 +1507,19 @@
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 696
+    .line 707
     const v3, 0x10208000
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 698
+    .line 709
     const-string v3, "custom.wakeup.screen"
 
     invoke-virtual {v2, v3, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     goto :goto_0
 
-    .line 701
+    .line 712
     .end local v0           #EXTRA_CUSTOM_WAKEUP:Ljava/lang/String;
     :pswitch_2
     aget v3, v1, v5
@@ -1515,10 +1528,10 @@
 
     move-result-object v2
 
-    .line 702
+    .line 713
     goto :goto_0
 
-    .line 704
+    .line 715
     :pswitch_3
     aget v3, v1, v6
 
@@ -1526,10 +1539,10 @@
 
     move-result-object v2
 
-    .line 705
+    .line 716
     goto :goto_0
 
-    .line 707
+    .line 718
     :pswitch_4
     aget v3, v1, v7
 
@@ -1537,10 +1550,10 @@
 
     move-result-object v2
 
-    .line 708
+    .line 719
     goto :goto_0
 
-    .line 710
+    .line 721
     :pswitch_5
     aget v3, v1, v8
 
@@ -1548,10 +1561,10 @@
 
     move-result-object v2
 
-    .line 711
+    .line 722
     goto :goto_0
 
-    .line 687
+    .line 698
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1571,32 +1584,32 @@
 
     const/4 v2, 0x0
 
-    .line 510
+    .line 518
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v1, "destroy"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 512
+    .line 520
     iput-boolean v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRunning_enroll:Z
 
-    .line 513
+    .line 521
     iput-boolean v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRunning_all:Z
 
-    .line 515
+    .line 523
     iput-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 516
+    .line 524
     iput-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mContext:Landroid/content/Context;
 
-    .line 518
+    .line 526
     invoke-virtual {p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->stopEnroll()I
 
-    .line 519
+    .line 527
     invoke-virtual {p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->stopVerify()I
 
-    .line 521
+    .line 529
     iget-boolean v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSamsungWakeUpLibExist:Z
 
     if-eqz v0, :cond_2
@@ -1605,92 +1618,92 @@
 
     if-eqz v0, :cond_2
 
-    .line 523
+    .line 531
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     if-eqz v0, :cond_0
 
-    .line 525
+    .line 533
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v1, "waitForBackgroundEnroll start"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 526
+    .line 534
     invoke-direct {p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->waitForBackgroundEnroll()V
 
-    .line 527
+    .line 535
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v1, "waitForBackgroundEnroll end"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 529
+    .line 537
     iput-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
-    .line 530
+    .line 538
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v1, "destroy : mVElib = null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 533
+    .line 541
     :cond_0
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mSensoryJNI:Lcom/vlingo/client/phrasespotter/SensoryJNI;
 
     if-eqz v0, :cond_1
 
-    .line 535
+    .line 543
     iput-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mSensoryJNI:Lcom/vlingo/client/phrasespotter/SensoryJNI;
 
-    .line 536
+    .line 544
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v1, "destroy : mSensoryJNI = null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 539
+    .line 547
     :cond_1
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     if-eqz v0, :cond_2
 
-    .line 540
+    .line 548
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     invoke-virtual {v0}, Lcom/samsung/voiceshell/AudioRecordHaydn;->destroy()V
 
-    .line 541
+    .line 549
     iput-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
-    .line 542
+    .line 550
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v1, "destroy : mDummyRecorder = null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 546
+    .line 554
     :cond_2
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
 
     if-eqz v0, :cond_3
 
-    .line 548
+    .line 556
     iput-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
 
-    .line 549
+    .line 557
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v1, "destroy : mResultListener = null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 551
+    .line 559
     :cond_3
     return-void
 .end method
@@ -1701,7 +1714,7 @@
     .parameter "RW"
 
     .prologue
-    .line 721
+    .line 732
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     const-string v2, "/data/data/com.vlingo.midas/typeDefine.bin"
@@ -1710,7 +1723,7 @@
 
     move-result v0
 
-    .line 723
+    .line 734
     .local v0, result:I
     return v0
 .end method
@@ -1719,7 +1732,7 @@
     .locals 1
 
     .prologue
-    .line 129
+    .line 131
     iget-boolean v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSamsungWakeUpLibExist:Z
 
     return v0
@@ -1733,35 +1746,35 @@
 
     const/4 v0, -0x1
 
-    .line 162
+    .line 164
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v2, "init"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 164
+    .line 166
     iget-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSamsungWakeUpLibExist:Z
 
     if-nez v1, :cond_1
 
-    .line 278
+    .line 286
     :cond_0
     :goto_0
     return v0
 
-    .line 169
+    .line 171
     :cond_1
     iget-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryWakeUpLibExist:Z
 
     if-eqz v1, :cond_0
 
-    .line 174
+    .line 176
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mContext:Landroid/content/Context;
 
     if-eqz v0, :cond_2
 
-    .line 176
+    .line 178
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mContext:Landroid/content/Context;
 
     const-string v1, "audio"
@@ -1774,7 +1787,7 @@
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 179
+    .line 181
     :cond_2
     invoke-static {}, Lcom/samsung/voiceshell/VoiceEngineWrapper;->getInstance()Lcom/samsung/voiceshell/VoiceEngine;
 
@@ -1782,19 +1795,19 @@
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
-    .line 180
+    .line 182
     invoke-static {}, Lcom/vlingo/client/phrasespotter/SensoryEngineWrapper;->getInstance()Lcom/vlingo/client/phrasespotter/SensoryJNI;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mSensoryJNI:Lcom/vlingo/client/phrasespotter/SensoryJNI;
 
-    .line 182
+    .line 184
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     invoke-virtual {v0, v3}, Lcom/samsung/voiceshell/VoiceEngine;->setIsRunningVoiceEngine(Z)V
 
-    .line 184
+    .line 186
     new-instance v0, Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
@@ -1803,10 +1816,10 @@
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
-    .line 186
+    .line 188
     iput-boolean v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRunning_all:Z
 
-    .line 188
+    .line 190
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;
@@ -1817,12 +1830,12 @@
 
     iput-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->background_enroll:Ljava/lang/Thread;
 
-    .line 276
+    .line 284
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->background_enroll:Ljava/lang/Thread;
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 278
+    .line 286
     const/4 v0, 0x0
 
     goto :goto_0
@@ -1833,17 +1846,17 @@
     .parameter "context"
 
     .prologue
-    .line 123
+    .line 125
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v1, "setContext"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 124
+    .line 126
     iput-object p1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mContext:Landroid/content/Context;
 
-    .line 125
+    .line 127
     return-void
 .end method
 
@@ -1851,7 +1864,7 @@
     .locals 6
 
     .prologue
-    .line 806
+    .line 817
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v3
@@ -1860,7 +1873,7 @@
 
     move-result-object v2
 
-    .line 807
+    .line 818
     .local v2, stringLanguage:Ljava/lang/String;
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
@@ -1870,7 +1883,7 @@
 
     move-result-object v1
 
-    .line 808
+    .line 819
     .local v1, stringCountry:Ljava/lang/String;
     const-string v3, "/data/data/com.vlingo.midas/files/language.bin"
 
@@ -1878,7 +1891,7 @@
 
     move-result-object v0
 
-    .line 810
+    .line 821
     .local v0, sVoiceLanguage:Ljava/lang/String;
     iget-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
@@ -1902,7 +1915,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 811
+    .line 822
     iget-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1925,7 +1938,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 812
+    .line 823
     iget-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1948,10 +1961,10 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 814
+    .line 825
     if-eqz v0, :cond_8
 
-    .line 816
+    .line 827
     const-string v3, "ko-KR"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1960,22 +1973,22 @@
 
     if-eqz v3, :cond_1
 
-    .line 818
+    .line 829
     const-string v3, "/system/wakeupdata/sensory/nn_ko_mfcc_16k_15_big_250_v2_1.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 819
+    .line 830
     const-string v3, "/system/wakeupdata/sensory/ko_hi_galaxy_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
-    .line 901
+    .line 912
     :cond_0
     :goto_0
     return-void
 
-    .line 821
+    .line 832
     :cond_1
     const-string v3, "en-GB"
 
@@ -1985,19 +1998,19 @@
 
     if-eqz v3, :cond_2
 
-    .line 823
+    .line 834
     const-string v3, "/system/wakeupdata/sensory/nn_en_uk_mfcc_16k_15_big_250_v2_0.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 824
+    .line 835
     const-string v3, "/system/wakeupdata/sensory/en_gb_hg_tuned1_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 826
+    .line 837
     :cond_2
     const-string v3, "en-US"
 
@@ -2007,19 +2020,19 @@
 
     if-eqz v3, :cond_3
 
-    .line 828
+    .line 839
     const-string v3, "/system/wakeupdata/sensory/nn_en_us_mfcc_16k_15_big_250_v4_5.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 829
+    .line 840
     const-string v3, "/system/wakeupdata/sensory/en_us_hg_tuned3_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 831
+    .line 842
     :cond_3
     const-string v3, "es-ES"
 
@@ -2029,19 +2042,19 @@
 
     if-eqz v3, :cond_4
 
-    .line 833
+    .line 844
     const-string v3, "/system/wakeupdata/sensory/nn_es_mfcc_16k_15_big_250_v1_1.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 834
+    .line 845
     const-string v3, "/system/wakeupdata/sensory/es_galaxy_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 836
+    .line 847
     :cond_4
     const-string v3, "v-es-LA"
 
@@ -2051,19 +2064,19 @@
 
     if-eqz v3, :cond_5
 
-    .line 838
+    .line 849
     const-string v3, "/system/wakeupdata/sensory/nn_es_mfcc_16k_15_big_250_v1_1.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 839
+    .line 850
     const-string v3, "/system/wakeupdata/sensory/es_galaxy_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 841
+    .line 852
     :cond_5
     const-string v3, "fr-FR"
 
@@ -2073,19 +2086,19 @@
 
     if-eqz v3, :cond_6
 
-    .line 843
+    .line 854
     const-string v3, "/system/wakeupdata/sensory/nn_fr_mfcc_16k_15_big_250_v2_2.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 844
+    .line 855
     const-string v3, "/system/wakeupdata/sensory/fr_galaxy_tuned8_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 846
+    .line 857
     :cond_6
     const-string v3, "de-DE"
 
@@ -2095,19 +2108,19 @@
 
     if-eqz v3, :cond_7
 
-    .line 848
+    .line 859
     const-string v3, "/system/wakeupdata/sensory/nn_de_mfcc_16k_15_big_250_v3_0.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 849
+    .line 860
     const-string v3, "/system/wakeupdata/sensory/de_galaxy_tuned_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 851
+    .line 862
     :cond_7
     const-string v3, "it-IT"
 
@@ -2117,23 +2130,23 @@
 
     if-eqz v3, :cond_0
 
-    .line 853
+    .line 864
     const-string v3, "/system/wakeupdata/sensory/nn_it_mfcc_16k_15_big_250_v3_2.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 854
+    .line 865
     const-string v3, "/system/wakeupdata/sensory/it_galaxy_tuned_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 859
+    .line 870
     :cond_8
     if-eqz v2, :cond_0
 
-    .line 861
+    .line 872
     sget-object v3, Ljava/util/Locale;->KOREA:Ljava/util/Locale;
 
     invoke-virtual {v3}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
@@ -2146,19 +2159,19 @@
 
     if-eqz v3, :cond_9
 
-    .line 863
+    .line 874
     const-string v3, "/system/wakeupdata/sensory/nn_ko_mfcc_16k_15_big_250_v2_1.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 864
+    .line 875
     const-string v3, "/system/wakeupdata/sensory/ko_hi_galaxy_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto/16 :goto_0
 
-    .line 866
+    .line 877
     :cond_9
     sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
 
@@ -2172,7 +2185,7 @@
 
     if-eqz v3, :cond_b
 
-    .line 868
+    .line 879
     const-string v3, "GB"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2181,32 +2194,32 @@
 
     if-eqz v3, :cond_a
 
-    .line 870
+    .line 881
     const-string v3, "/system/wakeupdata/sensory/nn_en_uk_mfcc_16k_15_big_250_v2_0.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 871
+    .line 882
     const-string v3, "/system/wakeupdata/sensory/en_gb_hg_tuned1_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto/16 :goto_0
 
-    .line 875
+    .line 886
     :cond_a
     const-string v3, "/system/wakeupdata/sensory/nn_en_us_mfcc_16k_15_big_250_v4_5.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 876
+    .line 887
     const-string v3, "/system/wakeupdata/sensory/en_us_hg_tuned3_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto/16 :goto_0
 
-    .line 879
+    .line 890
     :cond_b
     const-string v3, "es"
 
@@ -2216,19 +2229,19 @@
 
     if-eqz v3, :cond_c
 
-    .line 881
+    .line 892
     const-string v3, "/system/wakeupdata/sensory/nn_es_mfcc_16k_15_big_250_v1_1.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 882
+    .line 893
     const-string v3, "/system/wakeupdata/sensory/es_galaxy_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto/16 :goto_0
 
-    .line 884
+    .line 895
     :cond_c
     sget-object v3, Ljava/util/Locale;->FRANCE:Ljava/util/Locale;
 
@@ -2242,19 +2255,19 @@
 
     if-eqz v3, :cond_d
 
-    .line 886
+    .line 897
     const-string v3, "/system/wakeupdata/sensory/nn_fr_mfcc_16k_15_big_250_v2_2.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 887
+    .line 898
     const-string v3, "/system/wakeupdata/sensory/fr_galaxy_tuned8_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto/16 :goto_0
 
-    .line 889
+    .line 900
     :cond_d
     sget-object v3, Ljava/util/Locale;->GERMAN:Ljava/util/Locale;
 
@@ -2268,19 +2281,19 @@
 
     if-eqz v3, :cond_e
 
-    .line 891
+    .line 902
     const-string v3, "/system/wakeupdata/sensory/nn_de_mfcc_16k_15_big_250_v3_0.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 892
+    .line 903
     const-string v3, "/system/wakeupdata/sensory/de_galaxy_tuned_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
 
     goto/16 :goto_0
 
-    .line 894
+    .line 905
     :cond_e
     sget-object v3, Ljava/util/Locale;->ITALY:Ljava/util/Locale;
 
@@ -2294,12 +2307,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 896
+    .line 907
     const-string v3, "/system/wakeupdata/sensory/nn_it_mfcc_16k_15_big_250_v3_2.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
 
-    .line 897
+    .line 908
     const-string v3, "/system/wakeupdata/sensory/it_galaxy_tuned_endsil_cg.raw"
 
     iput-object v3, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->searchGrammarPathname:Ljava/lang/String;
@@ -2312,7 +2325,7 @@
     .parameter "cmNumber"
 
     .prologue
-    .line 284
+    .line 292
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->startEnroll(SS)I
@@ -2330,39 +2343,39 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 289
+    .line 297
     iget-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSamsungWakeUpLibExist:Z
 
     if-nez v1, :cond_1
 
-    .line 305
+    .line 313
     :cond_0
     :goto_0
     return v0
 
-    .line 294
+    .line 302
     :cond_1
     iget-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryWakeUpLibExist:Z
 
     if-eqz v1, :cond_0
 
-    .line 299
+    .line 307
     iput p2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->WType:I
 
-    .line 300
+    .line 308
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     invoke-virtual {v1, v0}, Lcom/samsung/voiceshell/AudioRecordHaydn;->setWakeUpType(I)V
 
-    .line 302
+    .line 310
     iput-short p1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->CommandNumber:S
 
-    .line 303
+    .line 311
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRunning_enroll:Z
 
-    .line 305
+    .line 313
     const/4 v0, 0x0
 
     goto :goto_0
@@ -2383,47 +2396,47 @@
 
     const/4 v5, 0x0
 
-    .line 328
+    .line 336
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v3, "startVerify"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 330
+    .line 338
     const/4 v11, 0x0
 
-    .line 332
+    .line 340
     .local v11, iResult:I
     iget-boolean v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSamsungWakeUpLibExist:Z
 
     if-nez v2, :cond_1
 
-    .line 459
+    .line 467
     :cond_0
     :goto_0
     return v0
 
-    .line 337
+    .line 345
     :cond_1
     iget-boolean v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryWakeUpLibExist:Z
 
     if-eqz v2, :cond_0
 
-    .line 354
+    .line 362
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mAudioManager:Landroid/media/AudioManager;
 
     if-eqz v0, :cond_2
 
-    .line 356
+    .line 364
     iget-boolean v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isAudioFocus:Z
 
     if-nez v0, :cond_2
 
-    .line 359
+    .line 367
     iput-boolean v5, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRecording:Z
 
-    .line 367
+    .line 375
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mAudioManager:Landroid/media/AudioManager;
 
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mAudioFocusListener:Landroid/media/AudioManager$OnAudioFocusChangeListener;
@@ -2434,25 +2447,25 @@
 
     invoke-virtual {v0, v2, v3, v4}, Landroid/media/AudioManager;->requestAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;II)I
 
-    .line 369
+    .line 377
     iput-boolean v13, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isAudioFocus:Z
 
-    .line 371
+    .line 379
     iget-boolean v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRecording:Z
 
     if-eqz v0, :cond_2
 
-    .line 373
+    .line 381
     iput-boolean v5, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRecording:Z
 
-    .line 374
+    .line 382
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v2, "waiting for recording start"
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 376
+    .line 384
     const-wide/16 v2, 0x1f4
 
     :try_start_0
@@ -2460,7 +2473,7 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 381
+    .line 389
     :goto_1
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
@@ -2468,25 +2481,25 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 386
+    .line 394
     :cond_2
     iput p1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->WType:I
 
-    .line 387
+    .line 395
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     iget v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->WType:I
 
     invoke-virtual {v0, v2}, Lcom/samsung/voiceshell/AudioRecordHaydn;->setWakeUpType(I)V
 
-    .line 389
+    .line 397
     new-instance v12, Ljava/io/File;
 
     const-string v0, "/system/wakeupdata/samsung/models_16k_NoE.bin"
 
     invoke-direct {v12, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 391
+    .line 399
     .local v12, mFile:Ljava/io/File;
     invoke-virtual {v12}, Ljava/io/File;->exists()Z
 
@@ -2494,12 +2507,12 @@
 
     if-nez v0, :cond_4
 
-    .line 393
+    .line 401
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
 
     if-eqz v0, :cond_3
 
-    .line 395
+    .line 403
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
 
     invoke-interface {v0, v1, v5}, Lcom/samsung/voiceshell/VoiceEngineResultListener;->OnVerifyResult(IS)V
@@ -2507,21 +2520,21 @@
     :cond_3
     move v0, v1
 
-    .line 397
+    .line 405
     goto :goto_0
 
-    .line 377
+    .line 385
     .end local v12           #mFile:Ljava/io/File;
     :catch_0
     move-exception v10
 
-    .line 379
+    .line 387
     .local v10, e:Ljava/lang/InterruptedException;
     invoke-virtual {v10}, Ljava/lang/InterruptedException;->printStackTrace()V
 
     goto :goto_1
 
-    .line 400
+    .line 408
     .end local v10           #e:Ljava/lang/InterruptedException;
     .restart local v12       #mFile:Ljava/io/File;
     :cond_4
@@ -2529,10 +2542,10 @@
 
     move-result v11
 
-    .line 402
+    .line 410
     if-ne v11, v6, :cond_a
 
-    .line 404
+    .line 412
     iget v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->WType:I
 
     if-eqz v0, :cond_5
@@ -2543,23 +2556,23 @@
 
     if-ne v0, v1, :cond_7
 
-    .line 406
+    .line 414
     :cond_5
     iput-boolean v13, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->weHaveNoModel:Z
 
-    .line 407
+    .line 415
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     iget-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->weHaveNoModel:Z
 
     invoke-virtual {v0, v1}, Lcom/samsung/voiceshell/AudioRecordHaydn;->setWeHaveNoModel(Z)V
 
-    .line 408
+    .line 416
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
 
     if-eqz v0, :cond_6
 
-    .line 410
+    .line 418
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
 
     invoke-interface {v0, v6, v5}, Lcom/samsung/voiceshell/VoiceEngineResultListener;->OnVerifyResult(IS)V
@@ -2567,21 +2580,21 @@
     :cond_6
     move v0, v11
 
-    .line 412
+    .line 420
     goto :goto_0
 
-    .line 416
+    .line 424
     :cond_7
     iput-boolean v13, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->weHaveNoModel:Z
 
-    .line 417
+    .line 425
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     iget-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->weHaveNoModel:Z
 
     invoke-virtual {v0, v1}, Lcom/samsung/voiceshell/AudioRecordHaydn;->setWeHaveNoModel(Z)V
 
-    .line 426
+    .line 434
     :goto_2
     const-string v0, "/data/data/com.vlingo.midas/kwd_1.bin"
 
@@ -2591,7 +2604,7 @@
 
     iput-boolean v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isCustomVoiceTalkEnable:Z
 
-    .line 427
+    .line 435
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2616,14 +2629,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 428
+    .line 436
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     iget-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isCustomVoiceTalkEnable:Z
 
     invoke-virtual {v0, v1}, Lcom/samsung/voiceshell/AudioRecordHaydn;->setCustomVoiceTalkFlag(Z)V
 
-    .line 430
+    .line 438
     iget v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->WType:I
 
     if-ne v0, v13, :cond_9
@@ -2632,12 +2645,12 @@
 
     if-nez v0, :cond_9
 
-    .line 432
+    .line 440
     iget-boolean v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryInitialize:Z
 
     if-nez v0, :cond_8
 
-    .line 434
+    .line 442
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mSensoryJNI:Lcom/vlingo/client/phrasespotter/SensoryJNI;
 
     iget-object v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->acousticModelPathname:Ljava/lang/String;
@@ -2660,10 +2673,10 @@
 
     invoke-virtual/range {v0 .. v9}, Lcom/vlingo/client/phrasespotter/SensoryJNI;->Initialize(Ljava/lang/String;Ljava/lang/String;IFFFFLjava/lang/String;I)Z
 
-    .line 444
+    .line 452
     iput-boolean v13, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryInitialize:Z
 
-    .line 447
+    .line 455
     :cond_8
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mSensoryJNI:Lcom/vlingo/client/phrasespotter/SensoryJNI;
 
@@ -2673,14 +2686,14 @@
 
     if-eqz v0, :cond_b
 
-    .line 449
+    .line 457
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v1, "SensoryEngine Ready"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 457
+    .line 465
     :cond_9
     :goto_3
     invoke-direct {p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->StartVerify()I
@@ -2689,14 +2702,14 @@
 
     move v0, v11
 
-    .line 459
+    .line 467
     goto/16 :goto_0
 
-    .line 422
+    .line 430
     :cond_a
     iput-boolean v5, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->weHaveNoModel:Z
 
-    .line 423
+    .line 431
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mDummyRecorder:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     iget-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->weHaveNoModel:Z
@@ -2705,7 +2718,7 @@
 
     goto :goto_2
 
-    .line 453
+    .line 461
     :cond_b
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
@@ -2724,31 +2737,31 @@
 
     const/4 v0, -0x1
 
-    .line 310
+    .line 318
     iget-boolean v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSamsungWakeUpLibExist:Z
 
     if-nez v2, :cond_1
 
-    .line 322
+    .line 330
     :cond_0
     :goto_0
     return v0
 
-    .line 315
+    .line 323
     :cond_1
     iget-boolean v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryWakeUpLibExist:Z
 
     if-eqz v2, :cond_0
 
-    .line 320
+    .line 328
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRunning_enroll:Z
 
-    .line 321
+    .line 329
     invoke-virtual {p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TerminateEnroll()I
 
     move v0, v1
 
-    .line 322
+    .line 330
     goto :goto_0
 .end method
 
@@ -2760,55 +2773,55 @@
 
     const/4 v0, -0x1
 
-    .line 464
+    .line 472
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
 
     const-string v3, "stopVerify"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 466
+    .line 474
     iget-boolean v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSamsungWakeUpLibExist:Z
 
     if-nez v2, :cond_1
 
-    .line 487
+    .line 495
     :cond_0
     :goto_0
     return v0
 
-    .line 471
+    .line 479
     :cond_1
     iget-boolean v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isSensoryWakeUpLibExist:Z
 
     if-eqz v2, :cond_0
 
-    .line 476
+    .line 484
     invoke-direct {p0}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TerminateVerify()I
 
-    .line 478
+    .line 486
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mAudioManager:Landroid/media/AudioManager;
 
     if-eqz v0, :cond_2
 
-    .line 480
+    .line 488
     iget-boolean v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isAudioFocus:Z
 
     if-eqz v0, :cond_2
 
-    .line 482
+    .line 490
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mAudioManager:Landroid/media/AudioManager;
 
     iget-object v2, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mAudioFocusListener:Landroid/media/AudioManager$OnAudioFocusChangeListener;
 
     invoke-virtual {v0, v2}, Landroid/media/AudioManager;->abandonAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;)I
 
-    .line 483
+    .line 491
     iput-boolean v1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isAudioFocus:Z
 
     :cond_2
     move v0, v1
 
-    .line 487
+    .line 495
     goto :goto_0
 .end method

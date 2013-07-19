@@ -12,6 +12,10 @@
 
 .field private static mIsDirectCallToECC:Z
 
+.field private static mIsDirectEmergencyCallScreenWithQwerty:Z
+
+.field private static mIsDirectEmergencyCallScreenWithQwertyChecked:Z
+
 .field private static mIsPLMNEnabledByCSC:Z
 
 .field private static mIsSIMToastEnabled:Z
@@ -54,72 +58,78 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 32
+    .line 45
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mShouldbeDisplaySalesCode:Z
 
-    .line 33
+    .line 46
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mChecked:Z
 
-    .line 34
+    .line 47
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsPLMNEnabledByCSC:Z
 
-    .line 35
+    .line 48
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsDirectCallToECC:Z
 
-    .line 36
+    .line 49
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSecureLockOnlyAfterTimerExpires:Z
 
-    .line 37
+    .line 50
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSecureLockOnlyAfterTimerExpiresChecked:Z
 
-    .line 39
+    .line 52
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mWipeOutIntExtMemoryDueToUnlockFail:Z
 
-    .line 40
+    .line 53
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mWipeOutIntExtMemoryDueToUnlockFailChecked:Z
 
-    .line 42
+    .line 55
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseCtcPlmnConcept:Z
 
-    .line 43
+    .line 56
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseCtcPlmnConceptChecked:Z
 
-    .line 44
+    .line 57
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsSinaDaemonEnable:Z
 
-    .line 45
+    .line 58
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsSinaDaemonEnableChecked:Z
 
-    .line 46
+    .line 59
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mDivideMissedEventChecked:Z
 
-    .line 47
+    .line 60
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsSIMToastEnabled:Z
 
-    .line 49
+    .line 62
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSwipeLockBeforeTimeout:Z
 
-    .line 50
+    .line 63
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSwipeLockBeforeTimeoutChecked:Z
 
-    .line 52
+    .line 65
     const-string v0, "SamsungLockScreenProperties"
 
     sput-object v0, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
 
-    .line 54
+    .line 67
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mPINPUKRequest:Z
 
-    .line 55
+    .line 68
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsTablet:Z
 
-    .line 57
+    .line 70
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseIndependentLockTimeout:Z
 
-    .line 58
+    .line 71
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseIndependentLockTimeoutChecked:Z
+
+    .line 74
+    sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsDirectEmergencyCallScreenWithQwerty:Z
+
+    .line 75
+    sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsDirectEmergencyCallScreenWithQwertyChecked:Z
 
     return-void
 .end method
@@ -128,7 +138,7 @@
     .locals 0
 
     .prologue
-    .line 30
+    .line 43
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -145,7 +155,7 @@
 
     const/4 v4, 0x0
 
-    .line 221
+    .line 256
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
@@ -170,33 +180,33 @@
 
     if-ne v5, v3, :cond_3
 
-    .line 223
+    .line 258
     new-instance v0, Landroid/content/Intent;
 
     const-string v5, "android.intent.action.MAIN"
 
     invoke-direct {v0, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 224
+    .line 259
     .local v0, i:Landroid/content/Intent;
     const-string v5, "Booting"
 
     invoke-virtual {v0, v5, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 225
+    .line 260
     const-string v5, "settings.SIM_CARD_NETWORK"
 
     invoke-virtual {v0, v5}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 226
+    .line 261
     const/high16 v5, 0x1000
 
     invoke-virtual {v0, v5}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 227
+    .line 262
     invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 228
+    .line 263
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
@@ -205,14 +215,14 @@
 
     invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 230
+    .line 265
     const-string v5, "gsm.ruim.state"
 
     invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 231
+    .line 266
     .local v1, mCDMAstate:Ljava/lang/String;
     const-string v5, "gsm.sim.state"
 
@@ -220,7 +230,7 @@
 
     move-result-object v2
 
-    .line 233
+    .line 268
     .local v2, mGSMstate:Ljava/lang/String;
     sget-object v5, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
 
@@ -252,9 +262,9 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 237
+    .line 272
     sget-object v5, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -285,14 +295,14 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 239
+    .line 274
     if-eqz v1, :cond_1
 
     if-eqz v2, :cond_1
 
-    .line 240
+    .line 275
     const-string v5, "READY"
 
     invoke-virtual {v1, v5}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -301,7 +311,7 @@
 
     if-eqz v5, :cond_2
 
-    .line 241
+    .line 276
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
@@ -310,7 +320,7 @@
 
     invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 245
+    .line 280
     :cond_0
     :goto_0
     sget-object v4, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
@@ -343,21 +353,21 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 250
+    .line 285
     new-instance v0, Landroid/content/Intent;
 
     .end local v0           #i:Landroid/content/Intent;
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 251
+    .line 286
     .restart local v0       #i:Landroid/content/Intent;
     const-string v4, "ACTION_CURRENT_NETWORK"
 
     invoke-virtual {v0, v4}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 252
+    .line 287
     const-string v4, "state"
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -372,17 +382,17 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 254
+    .line 289
     invoke-static {}, Landroid/app/ActivityManagerNative;->isSystemReady()Z
 
     move-result v4
 
     if-eqz v4, :cond_1
 
-    .line 255
+    .line 290
     invoke-virtual {p0, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 261
+    .line 296
     .end local v0           #i:Landroid/content/Intent;
     .end local v1           #mCDMAstate:Ljava/lang/String;
     .end local v2           #mGSMstate:Ljava/lang/String;
@@ -390,7 +400,7 @@
     :goto_1
     return v3
 
-    .line 242
+    .line 277
     .restart local v0       #i:Landroid/content/Intent;
     .restart local v1       #mCDMAstate:Ljava/lang/String;
     .restart local v2       #mGSMstate:Ljava/lang/String;
@@ -403,7 +413,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 243
+    .line 278
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -414,7 +424,7 @@
 
     goto :goto_0
 
-    .line 260
+    .line 295
     .end local v0           #i:Landroid/content/Intent;
     .end local v1           #mCDMAstate:Ljava/lang/String;
     .end local v2           #mGSMstate:Ljava/lang/String;
@@ -423,11 +433,11 @@
 
     const-string v5, "SimRefreshCheck() return false"
 
-    invoke-static {v3, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v5}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
     move v3, v4
 
-    .line 261
+    .line 296
     goto :goto_1
 .end method
 
@@ -435,7 +445,7 @@
     .locals 1
 
     .prologue
-    .line 411
+    .line 490
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
     move-result v0
@@ -448,10 +458,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 412
+    .line 491
     const/4 v0, 0x1
 
-    .line 414
+    .line 493
     :goto_0
     return v0
 
@@ -465,14 +475,14 @@
     .locals 2
 
     .prologue
-    .line 114
+    .line 141
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 115
+    .line 142
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "SKT"
 
@@ -498,11 +508,11 @@
 
     if-eqz v1, :cond_1
 
-    .line 116
+    .line 143
     :cond_0
     const/4 v1, 0x1
 
-    .line 118
+    .line 145
     :goto_0
     return v1
 
@@ -517,12 +527,12 @@
     .parameter "context"
 
     .prologue
-    .line 393
+    .line 472
     new-instance v0, Landroid/util/DisplayMetrics;
 
     invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 394
+    .line 473
     .local v0, displayMetrics:Landroid/util/DisplayMetrics;
     const-string v2, "window"
 
@@ -532,7 +542,7 @@
 
     check-cast v1, Landroid/view/WindowManager;
 
-    .line 396
+    .line 475
     .local v1, mWindowManager:Landroid/view/WindowManager;
     invoke-interface {v1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
@@ -540,36 +550,125 @@
 
     invoke-virtual {v2, v0}, Landroid/view/Display;->getRealMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 397
+    .line 476
     iget v2, v0, Landroid/util/DisplayMetrics;->densityDpi:I
 
     return v2
 .end method
 
 .method public static getalternatePackageForMessage()Ljava/lang/String;
-    .locals 1
+    .locals 4
 
     .prologue
-    .line 68
-    const/4 v0, 0x0
+    .line 79
+    const-string v2, "ro.product.model"
 
-    return-object v0
+    const-string v3, "Unknown"
+
+    invoke-static {v2, v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 80
+    .local v0, DEVICE_NAME:Ljava/lang/String;
+    const-string v2, "SHW-M250S"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "SHW-M250L"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 81
+    :cond_0
+    const-string v1, "com.sec.mms"
+
+    .line 88
+    .local v1, MSG_PKG:Ljava/lang/String;
+    :goto_0
+    return-object v1
+
+    .line 82
+    .end local v1           #MSG_PKG:Ljava/lang/String;
+    :cond_1
+    const-string v2, "SHV-E160S"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string v2, "SHV-E160L"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string v2, "SHV-E120S"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string v2, "SHV-E120L"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string v2, "SHV-E110S"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    .line 84
+    :cond_2
+    const-string v1, "com.sec.android.mms.kor"
+
+    .restart local v1       #MSG_PKG:Ljava/lang/String;
+    goto :goto_0
+
+    .line 86
+    .end local v1           #MSG_PKG:Ljava/lang/String;
+    :cond_3
+    const/4 v1, 0x0
+
+    .restart local v1       #MSG_PKG:Ljava/lang/String;
+    goto :goto_0
 .end method
 
 .method public static has2GbMemory()Z
     .locals 7
 
     .prologue
-    .line 403
+    .line 482
     new-instance v2, Lcom/android/internal/util/MemInfoReader;
 
     invoke-direct {v2}, Lcom/android/internal/util/MemInfoReader;-><init>()V
 
-    .line 404
+    .line 483
     .local v2, reader:Lcom/android/internal/util/MemInfoReader;
     invoke-virtual {v2}, Lcom/android/internal/util/MemInfoReader;->readMemInfo()V
 
-    .line 405
+    .line 484
     invoke-virtual {v2}, Lcom/android/internal/util/MemInfoReader;->getTotalSize()J
 
     move-result-wide v3
@@ -578,7 +677,7 @@
 
     div-long v0, v3, v5
 
-    .line 407
+    .line 486
     .local v0, TOTAL_DEVICE_MEMORY:J
     const-wide/16 v3, 0x400
 
@@ -601,14 +700,14 @@
     .locals 2
 
     .prologue
-    .line 442
+    .line 521
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 444
+    .line 523
     .local v0, salesCode:Ljava/lang/String;
     const-string v1, "TEL"
 
@@ -674,11 +773,11 @@
 
     if-eqz v1, :cond_1
 
-    .line 452
+    .line 531
     :cond_0
     const/4 v1, 0x1
 
-    .line 455
+    .line 533
     :goto_0
     return v1
 
@@ -689,17 +788,17 @@
 .end method
 
 .method public static isCMCCFeature()Z
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 524
+    .line 604
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 525
+    .line 605
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "CHM"
 
@@ -707,16 +806,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    .line 526
+    const-string v1, "CMCC"
+
+    const-string v2, "OPEN"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 606
+    :cond_0
     const/4 v1, 0x1
 
-    .line 528
+    .line 608
     :goto_0
     return v1
 
-    :cond_0
+    :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
@@ -726,14 +836,14 @@
     .locals 2
 
     .prologue
-    .line 384
+    .line 463
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 385
+    .line 464
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "CTC"
 
@@ -743,10 +853,44 @@
 
     if-eqz v1, :cond_0
 
-    .line 386
+    .line 465
     const/4 v1, 0x1
 
-    .line 388
+    .line 467
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isCUFeature()Z
+    .locals 2
+
+    .prologue
+    .line 771
+    const-string v1, "ro.csc.sales_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 772
+    .local v0, SalesCode:Ljava/lang/String;
+    const-string v1, "CHU"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 773
+    const/4 v1, 0x1
+
+    .line 775
     :goto_0
     return v1
 
@@ -760,14 +904,14 @@
     .locals 2
 
     .prologue
-    .line 122
+    .line 149
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 123
+    .line 150
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "DCM"
 
@@ -777,10 +921,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 124
+    .line 151
     const/4 v1, 0x1
 
-    .line 127
+    .line 154
     :goto_0
     return v1
 
@@ -794,14 +938,14 @@
     .locals 2
 
     .prologue
-    .line 297
+    .line 340
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 298
+    .line 341
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "CHR"
 
@@ -921,13 +1065,74 @@
 
     move-result v1
 
+    if-nez v1, :cond_0
+
+    const-string v1, "SPC"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
     if-eqz v1, :cond_1
 
-    .line 305
+    .line 348
     :cond_0
     const/4 v1, 0x1
 
-    .line 307
+    .line 350
+    :goto_0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isCheckFactoryMode()Z
+    .locals 3
+
+    .prologue
+    .line 648
+    const-string v1, "ro.product.model"
+
+    const-string v2, "Unknown"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 649
+    .local v0, DEVICE_NAME:Ljava/lang/String;
+    const-string v1, "SHW-M250S"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "SHW-M250K"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "SHW-M250L"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 650
+    :cond_0
+    const/4 v1, 0x1
+
+    .line 652
     :goto_0
     return v1
 
@@ -941,14 +1146,14 @@
     .locals 2
 
     .prologue
-    .line 279
+    .line 322
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 280
+    .line 323
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "CHN"
 
@@ -974,11 +1179,11 @@
 
     if-eqz v1, :cond_1
 
-    .line 281
+    .line 324
     :cond_0
     const/4 v1, 0x1
 
-    .line 283
+    .line 326
     :goto_0
     return v1
 
@@ -988,20 +1193,30 @@
     goto :goto_0
 .end method
 
+.method public static isDSDSDevice()Z
+    .locals 1
+
+    .prologue
+    .line 459
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public static isDataNetworkModeEnable()Z
     .locals 5
 
     .prologue
     const/4 v2, 0x1
 
-    .line 489
+    .line 569
     const-string v3, "ro.csc.sales_code"
 
     invoke-static {v3}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 490
+    .line 570
     .local v0, SalesCode:Ljava/lang/String;
     const-string v3, "ro.product.model"
 
@@ -1009,7 +1224,7 @@
 
     move-result-object v1
 
-    .line 492
+    .line 572
     .local v1, product_model:Ljava/lang/String;
     const-string v3, "SKT"
 
@@ -1019,7 +1234,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 493
+    .line 573
     const-string v3, ""
 
     const-string v4, "SHV_E170S"
@@ -1030,12 +1245,12 @@
 
     if-eqz v3, :cond_1
 
-    .line 499
+    .line 579
     :cond_0
     :goto_0
     return v2
 
-    .line 496
+    .line 576
     :cond_1
     const/4 v2, 0x0
 
@@ -1046,14 +1261,14 @@
     .locals 2
 
     .prologue
-    .line 480
+    .line 560
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 482
+    .line 562
     .local v0, salesCode:Ljava/lang/String;
     const-string v1, "PAP"
 
@@ -1063,10 +1278,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 483
+    .line 563
     const/4 v1, 0x1
 
-    .line 485
+    .line 565
     :goto_0
     return v1
 
@@ -1082,7 +1297,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 324
+    .line 367
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v1
@@ -1095,17 +1310,17 @@
 
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsDirectCallToECC:Z
 
-    .line 326
+    .line 369
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsDirectCallToECC:Z
 
     if-eqz v1, :cond_1
 
-    .line 332
+    .line 375
     :cond_0
     :goto_0
     return v0
 
-    .line 329
+    .line 372
     :cond_1
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isAUSFeature()Z
 
@@ -1113,7 +1328,65 @@
 
     if-nez v1, :cond_0
 
-    .line 332
+    .line 375
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isDirectEmergencyCallScreenWithQwerty()Z
+    .locals 2
+
+    .prologue
+    .line 761
+    sget-boolean v0, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsDirectEmergencyCallScreenWithQwertyChecked:Z
+
+    if-nez v0, :cond_0
+
+    .line 762
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v0
+
+    const-string v1, "CscFeature_LockScreen_EnableEccKeypadWhenHwKeyPress"
+
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsDirectEmergencyCallScreenWithQwerty:Z
+
+    .line 764
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsDirectEmergencyCallScreenWithQwertyChecked:Z
+
+    .line 767
+    :cond_0
+    sget-boolean v0, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsDirectEmergencyCallScreenWithQwerty:Z
+
+    return v0
+.end method
+
+.method public static isDisabledStatusBarExpand()Z
+    .locals 1
+
+    .prologue
+    .line 737
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 738
+    const/4 v0, 0x1
+
+    .line 740
+    :goto_0
+    return v0
+
+    :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
@@ -1124,14 +1397,14 @@
     .parameter "context"
 
     .prologue
-    .line 536
+    .line 616
     const-string v2, "ro.csc.sales_code"
 
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 538
+    .line 618
     .local v0, SalesCode:Ljava/lang/String;
     const-string v2, "LGT"
 
@@ -1141,7 +1414,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 539
+    .line 619
     const-string v2, "phone"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1150,7 +1423,7 @@
 
     check-cast v1, Landroid/telephony/TelephonyManager;
 
-    .line 540
+    .line 620
     .local v1, telephonyManager:Landroid/telephony/TelephonyManager;
     invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->isNetworkRoaming()Z
 
@@ -1158,10 +1431,10 @@
 
     if-eqz v2, :cond_0
 
-    .line 541
+    .line 621
     const/4 v2, 0x1
 
-    .line 544
+    .line 624
     .end local v1           #telephonyManager:Landroid/telephony/TelephonyManager;
     :goto_0
     return v2
@@ -1176,7 +1449,7 @@
     .locals 2
 
     .prologue
-    .line 517
+    .line 597
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v0
@@ -1189,10 +1462,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 518
+    .line 598
     const/4 v0, 0x1
 
-    .line 520
+    .line 600
     :goto_0
     return v0
 
@@ -1208,14 +1481,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 203
+    .line 238
     const-string v2, "ro.csc.sales_code"
 
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 204
+    .line 239
     .local v1, SalesCode:Ljava/lang/String;
     const-string v2, "ro.csc.country_code"
 
@@ -1223,7 +1496,7 @@
 
     move-result-object v0
 
-    .line 206
+    .line 241
     .local v0, CountryCode:Ljava/lang/String;
     const-string v2, "Germany"
 
@@ -1241,11 +1514,11 @@
 
     if-eqz v2, :cond_1
 
-    .line 207
+    .line 242
     :cond_0
     sput-boolean v3, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mDivideMissedEventChecked:Z
 
-    .line 210
+    .line 245
     :cond_1
     const-string v2, "SKT"
 
@@ -1271,11 +1544,11 @@
 
     if-eqz v2, :cond_3
 
-    .line 211
+    .line 246
     :cond_2
     sput-boolean v3, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mDivideMissedEventChecked:Z
 
-    .line 214
+    .line 249
     :cond_3
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isAUSFeature()Z
 
@@ -1283,21 +1556,51 @@
 
     if-eqz v2, :cond_4
 
-    .line 215
+    .line 250
     sput-boolean v3, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mDivideMissedEventChecked:Z
 
-    .line 217
+    .line 252
     :cond_4
     sget-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mDivideMissedEventChecked:Z
 
     return v2
 .end method
 
+.method public static isDualClockTablet()Z
+    .locals 1
+
+    .prologue
+    .line 657
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isTabletDevice()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 658
+    const/4 v0, 0x1
+
+    .line 660
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static isDualDevice()Z
     .locals 1
 
     .prologue
-    .line 364
+    .line 415
     const/4 v0, 0x0
 
     return v0
@@ -1308,16 +1611,16 @@
     .parameter "context"
 
     .prologue
-    .line 375
+    .line 446
     const/4 v0, 0x0
 
-    .line 376
+    .line 447
     .local v0, mDualLcd:Z
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 378
+    .line 449
     .local v1, packageManager:Landroid/content/pm/PackageManager;
     sget-object v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
 
@@ -1339,9 +1642,19 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 380
+    .line 451
+    return v0
+.end method
+
+.method public static isDualModeDevice()I
+    .locals 1
+
+    .prologue
+    .line 426
+    const/4 v0, 0x0
+
     return v0
 .end method
 
@@ -1349,28 +1662,444 @@
     .locals 1
 
     .prologue
-    .line 371
+    .line 433
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public static isEmergencyCircleEnable()Z
+    .locals 1
+
+    .prologue
+    .line 632
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isTabletDevice()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 633
+    const/4 v0, 0x1
+
+    .line 635
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isFactoryMode(Landroid/content/Context;Landroid/telephony/TelephonyManager;)Z
+    .locals 8
+    .parameter "mContext"
+    .parameter "mTelephonyManager"
+
+    .prologue
+    const/4 v4, 0x0
+
+    const/4 v3, 0x1
+
+    .line 668
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string v6, "SHOULD_SHUT_DOWN"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-ne v5, v3, :cond_0
+
+    .line 669
+    sget-object v4, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
+
+    const-string v5, "Factory mode is enabled by Case #1"
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 724
+    :goto_0
+    return v3
+
+    .line 674
+    :cond_0
+    if-eqz p1, :cond_1
+
+    const-string v5, "999999999999999"
+
+    invoke-virtual {p1}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    .line 675
+    sget-object v4, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
+
+    const-string v5, "Factory mode is enabled by Case #2"
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 680
+    :cond_1
+    const/4 v2, 0x0
+
+    .line 682
+    .local v2, imeiBlocked:Ljava/lang/String;
+    :try_start_0
+    new-instance v5, Ljava/io/File;
+
+    const-string v6, "/efs/FactoryApp/factorymode"
+
+    invoke-direct {v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    const/16 v6, 0x20
+
+    const/4 v7, 0x0
+
+    invoke-static {v5, v6, v7}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    .line 688
+    :goto_1
+    if-eqz v2, :cond_4
+
+    const-string v5, "ON"
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    .line 689
+    sget-object v5, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
+
+    const-string v6, "Not factory mode"
+
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 697
+    const-string v5, "ro.product.model"
+
+    const-string v6, "Unknown"
+
+    invoke-static {v5, v6}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 698
+    .local v0, deviceName:Ljava/lang/String;
+    if-eqz p1, :cond_5
+
+    const-string v5, "SHW-M250S"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_2
+
+    const-string v5, "SHW-M250K"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_2
+
+    const-string v5, "SHW-M250L"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    .line 699
+    :cond_2
+    const-string v5, "357858010034783"
+
+    invoke-virtual {p1}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    const-string v5, "004400152020002"
+
+    invoke-virtual {p1}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    .line 701
+    :cond_3
+    sget-object v4, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
+
+    const-string v5, "Factory mode is enabled by Case #4"
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 683
+    .end local v0           #deviceName:Ljava/lang/String;
+    :catch_0
+    move-exception v1
+
+    .line 684
+    .local v1, e:Ljava/io/IOException;
+    const-string v2, "OFF"
+
+    .line 685
+    sget-object v5, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
+
+    const-string v6, "cannot open file : /efs/FactoryApp/factorymode"
+
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 691
+    .end local v1           #e:Ljava/io/IOException;
+    :cond_4
+    sget-object v4, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
+
+    const-string v5, "Factory mode is enabled by Case #3"
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    .line 707
+    .restart local v0       #deviceName:Ljava/lang/String;
+    :cond_5
+    const-string v5, "SHV-E110S"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    const-string v5, "SHV-E120S"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    const-string v5, "SHV-E120K"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    const-string v5, "SHV-E120L"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    const-string v5, "SHV-E160S"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    const-string v5, "SHV-E160K"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    const-string v5, "SHV-E160L"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    const-string v5, "GT-I9100"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    const-string v5, "GT-N7000"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    .line 709
+    :cond_6
+    :try_start_1
+    new-instance v5, Ljava/io/File;
+
+    const-string v6, "/efs/imei/keystr"
+
+    invoke-direct {v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    const/16 v6, 0x20
+
+    const/4 v7, 0x0
+
+    invoke-static {v5, v6, v7}, Landroid/os/FileUtils;->readTextFile(Ljava/io/File;ILjava/lang/String;)Ljava/lang/String;
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+
+    move-result-object v2
+
+    .line 714
+    :goto_2
+    if-eqz v2, :cond_7
+
+    const-string v5, "OFF"
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    .line 715
+    sget-object v4, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
+
+    const-string v5, "Factory mode is enabled by Case #5"
+
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    .line 710
+    :catch_1
+    move-exception v1
+
+    .line 711
+    .restart local v1       #e:Ljava/io/IOException;
+    const-string v2, "OFF"
+
+    .line 712
+    sget-object v5, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
+
+    const-string v6, "cannot open file : /efs/imei/keystr"
+
+    invoke-static {v5, v6}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    .line 722
+    .end local v1           #e:Ljava/io/IOException;
+    :cond_7
+    sget-object v3, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
+
+    const-string v5, "Not factory mode. isFactoryMode() returend false"
+
+    invoke-static {v3, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    move v3, v4
+
+    .line 724
+    goto/16 :goto_0
+.end method
+
+.method public static isIgnoreNationalRoaming()Z
+    .locals 2
+
+    .prologue
+    .line 797
+    const-string v1, "ro.csc.sales_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 799
+    .local v0, salesCode:Ljava/lang/String;
+    const-string v1, "XEO"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 800
+    const/4 v1, 0x1
+
+    .line 802
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static isKoreaCameraModel()Z
     .locals 2
 
     .prologue
-    .line 140
+    .line 167
     const-string v1, "ro.product.model"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 141
+    .line 168
     .local v0, modelName:Ljava/lang/String;
     if-eqz v0, :cond_1
 
-    .line 142
+    .line 169
     const-string v1, "EK-KC100S"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1385,13 +2114,37 @@
 
     move-result v1
 
+    if-nez v1, :cond_0
+
+    const-string v1, "EK-KC120S"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "EK-KC120K"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "EK-KC120L"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
     if-eqz v1, :cond_1
 
-    .line 143
+    .line 171
     :cond_0
     const/4 v1, 0x1
 
-    .line 146
+    .line 174
     :goto_0
     return v1
 
@@ -1402,17 +2155,17 @@
 .end method
 
 .method public static isKoreaFeature()Z
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 131
+    .line 158
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 132
+    .line 159
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "SKT"
 
@@ -1444,23 +2197,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
-
-    const-string v1, "KOR"
-
-    const-string v2, ""
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
     if-eqz v1, :cond_1
 
-    .line 134
+    .line 161
     :cond_0
     const/4 v1, 0x1
 
-    .line 136
+    .line 163
     :goto_0
     return v1
 
@@ -1470,14 +2213,36 @@
     goto :goto_0
 .end method
 
+.method public static isKoreaMidFeature()Z
+    .locals 2
+
+    .prologue
+    .line 178
+    const-string v0, "KOR"
+
+    const-string v1, ""
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 181
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public static isKweatherEnable()Z
     .locals 4
 
     .prologue
-    .line 504
+    .line 584
     const-string v0, "kweather"
 
-    .line 505
+    .line 585
     .local v0, DAEMON_KWEATHER:Ljava/lang/String;
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
@@ -1489,30 +2254,37 @@
 
     move-result-object v1
 
-    .line 507
+    .line 587
     .local v1, mCPName:Ljava/lang/String;
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-nez v2, :cond_0
 
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaMidFeature()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
     const-string v2, "kweather"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
-    .line 508
+    .line 588
     const/4 v2, 0x1
 
-    .line 511
+    .line 591
     :goto_0
     return v2
 
-    :cond_0
+    :cond_1
     const/4 v2, 0x0
 
     goto :goto_0
@@ -1522,17 +2294,17 @@
     .locals 1
 
     .prologue
-    .line 473
+    .line 553
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isDemoVersionSW()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 474
+    .line 554
     const/4 v0, 0x1
 
-    .line 476
+    .line 556
     :goto_0
     return v0
 
@@ -1542,25 +2314,192 @@
     goto :goto_0
 .end method
 
+.method public static isMTRDevice()Z
+    .locals 2
+
+    .prologue
+    .line 314
+    const-string v1, "ro.csc.sales_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 315
+    .local v0, SalesCode:Ljava/lang/String;
+    const-string v1, "MTR"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 316
+    const/4 v1, 0x1
+
+    .line 318
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isMidDevice()Z
+    .locals 1
+
+    .prologue
+    .line 612
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public static isMissedEventEnableOnTablet()Z
+    .locals 3
+
+    .prologue
+    .line 728
+    const-string v1, "ro.product.model"
+
+    const-string v2, "Unknown"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 729
+    .local v0, DEVICE_NAME:Ljava/lang/String;
+    const-string v1, "SHV-E230S"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "SHV-E230K"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "SHV-E230L"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 730
+    :cond_0
+    const/4 v1, 0x1
+
+    .line 732
+    :goto_0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isMissedPhoneLock(Landroid/content/Context;)Z
+    .locals 4
+    .parameter "mContext"
+
+    .prologue
+    .line 779
+    const-string v1, "ro.csc.sales_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 780
+    .local v0, SalesCode:Ljava/lang/String;
+    const-string v1, "LGT"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string v1, "lock"
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "missing_phone_lock"
+
+    invoke-static {v2, v3}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 782
+    const/4 v1, 0x1
+
+    .line 784
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isMultiSIMDevice()Z
+    .locals 1
+
+    .prologue
+    .line 441
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public static isNoServiceDisplayWhenNoSIM()Z
     .locals 1
 
     .prologue
-    .line 419
+    .line 498
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isAUSFeature()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    .line 420
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isCanadaFeature()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 499
+    :cond_0
     const/4 v0, 0x1
 
-    .line 422
+    .line 501
     :goto_0
     return v0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -1570,7 +2509,7 @@
     .locals 1
 
     .prologue
-    .line 79
+    .line 99
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isShouldbeDisplayForSalesCode()Z
 
     move-result v0
@@ -1582,14 +2521,14 @@
     .locals 2
 
     .prologue
-    .line 336
+    .line 379
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 338
+    .line 381
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "ATT"
 
@@ -1599,12 +2538,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 339
+    .line 382
     const/4 v1, 0x1
 
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsSIMToastEnabled:Z
 
-    .line 341
+    .line 384
     :cond_0
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsSIMToastEnabled:Z
 
@@ -1615,8 +2554,26 @@
     .locals 1
 
     .prologue
-    .line 548
+    .line 628
     const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public static isShouldDisplayCarrierInfo()Z
+    .locals 2
+
+    .prologue
+    .line 103
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v0
+
+    const-string v1, "CscFeature_LockScreen_DisplayPlmn"
+
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+
+    move-result v0
 
     return v0
 .end method
@@ -1627,19 +2584,19 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 84
+    .line 108
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mChecked:Z
 
     if-nez v1, :cond_2
 
-    .line 85
+    .line 109
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 86
+    .line 110
     .local v0, SalesCode:Ljava/lang/String;
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
@@ -1653,7 +2610,7 @@
 
     sput-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsPLMNEnabledByCSC:Z
 
-    .line 88
+    .line 112
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsPLMNEnabledByCSC:Z
 
     if-nez v1, :cond_0
@@ -1886,17 +2843,53 @@
 
     move-result v1
 
+    if-nez v1, :cond_0
+
+    const-string v1, "SPR"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "SPC"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "CMCC"
+
+    const-string v2, "OPEN"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "CU"
+
+    const-string v2, "OPEN"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
     if-eqz v1, :cond_1
 
-    .line 105
+    .line 132
     :cond_0
     sput-boolean v3, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mShouldbeDisplaySalesCode:Z
 
-    .line 107
+    .line 134
     :cond_1
     sput-boolean v3, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mChecked:Z
 
-    .line 109
+    .line 136
     :cond_2
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mShouldbeDisplaySalesCode:Z
 
@@ -1909,19 +2902,19 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 188
+    .line 223
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsSinaDaemonEnableChecked:Z
 
     if-nez v1, :cond_2
 
-    .line 189
+    .line 224
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 191
+    .line 226
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "CHN"
 
@@ -1955,33 +2948,67 @@
 
     if-eqz v1, :cond_1
 
-    .line 194
+    .line 229
     :cond_0
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsSinaDaemonEnable:Z
 
-    .line 196
+    .line 231
     :cond_1
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsSinaDaemonEnableChecked:Z
 
-    .line 198
+    .line 233
     :cond_2
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsSinaDaemonEnable:Z
 
     return v1
 .end method
 
-.method public static isSprintDevice()Z
+.method public static isSktModel()Z
     .locals 2
 
     .prologue
-    .line 353
+    .line 788
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 354
+    .line 789
+    .local v0, SalesCode:Ljava/lang/String;
+    const-string v1, "SKT"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 790
+    const/4 v1, 0x1
+
+    .line 792
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isSprintDevice()Z
+    .locals 2
+
+    .prologue
+    .line 396
+    const-string v1, "ro.csc.sales_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 397
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "SPR"
 
@@ -1991,10 +3018,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 355
+    .line 398
     const/4 v1, 0x1
 
-    .line 357
+    .line 400
     :goto_0
     return v1
 
@@ -2008,14 +3035,14 @@
     .locals 2
 
     .prologue
-    .line 271
+    .line 306
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 272
+    .line 307
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "TMB"
 
@@ -2025,10 +3052,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 273
+    .line 308
     const/4 v1, 0x1
 
-    .line 275
+    .line 310
     :goto_0
     return v1
 
@@ -2044,7 +3071,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 428
+    .line 507
     :try_start_0
     const-string v2, "window"
 
@@ -2056,7 +3083,7 @@
 
     move-result-object v1
 
-    .line 429
+    .line 508
     .local v1, wm:Landroid/view/IWindowManager;
     invoke-interface {v1}, Landroid/view/IWindowManager;->hasSystemNavBar()Z
 
@@ -2064,20 +3091,20 @@
 
     if-eqz v2, :cond_0
 
-    .line 430
+    .line 509
     const/4 v2, 0x1
 
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsTablet:Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 438
+    .line 517
     :goto_0
     sget-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsTablet:Z
 
     return v2
 
-    .line 432
+    .line 511
     :cond_0
     const/4 v2, 0x0
 
@@ -2088,19 +3115,19 @@
 
     goto :goto_0
 
-    .line 434
+    .line 513
     :catch_0
     move-exception v0
 
-    .line 435
+    .line 514
     .local v0, e:Landroid/os/RemoteException;
     sget-object v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
 
     const-string v3, "Failing check whether status bar can hide"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 436
+    .line 515
     sput-boolean v4, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mIsTablet:Z
 
     goto :goto_0
@@ -2110,14 +3137,14 @@
     .locals 2
 
     .prologue
-    .line 287
+    .line 330
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 288
+    .line 331
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "VZW"
 
@@ -2175,11 +3202,11 @@
 
     if-eqz v1, :cond_1
 
-    .line 291
+    .line 334
     :cond_0
     const/4 v1, 0x1
 
-    .line 293
+    .line 336
     :goto_0
     return v1
 
@@ -2189,18 +3216,48 @@
     goto :goto_0
 .end method
 
+.method public static isUsimWidgetEnable()Z
+    .locals 1
+
+    .prologue
+    .line 753
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isWifiModel()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 754
+    const/4 v0, 0x1
+
+    .line 756
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static isVZWDevice()Z
     .locals 2
 
     .prologue
-    .line 345
+    .line 388
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 346
+    .line 389
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "VZW"
 
@@ -2210,10 +3267,10 @@
 
     if-eqz v1, :cond_0
 
-    .line 347
+    .line 390
     const/4 v1, 0x1
 
-    .line 349
+    .line 392
     :goto_0
     return v1
 
@@ -2223,14 +3280,120 @@
     goto :goto_0
 .end method
 
-.method public static isWIFIOnly()Z
-    .locals 1
+.method public static isVirginMobileDevice()Z
+    .locals 2
 
     .prologue
-    .line 532
+    .line 404
+    const-string v1, "ro.csc.sales_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 405
+    .local v0, SalesCode:Ljava/lang/String;
+    const-string v1, "VMU"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 406
+    const/4 v1, 0x1
+
+    .line 408
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isWifiModel()Z
+    .locals 2
+
+    .prologue
+    .line 745
+    const-string v1, "ro.csc.sales_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 746
+    .local v0, SalesCode:Ljava/lang/String;
+    const-string v1, "ANY"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 747
+    const/4 v1, 0x1
+
+    .line 749
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isWindowOrientationPortrait()Z
+    .locals 2
+
+    .prologue
+    .line 640
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isTabletDevice()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
+
+    move-result-object v0
+
+    const-string v1, "CscFeature_KTSpider_UseSpiderFeature"
+
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaCameraModel()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 641
+    const/4 v0, 0x1
+
+    .line 643
+    :goto_0
+    return v0
+
+    :cond_0
     const/4 v0, 0x0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public static lockOnlyAfterTimerExpires()Z
@@ -2239,19 +3402,19 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 150
+    .line 185
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSecureLockOnlyAfterTimerExpiresChecked:Z
 
     if-nez v1, :cond_1
 
-    .line 151
+    .line 186
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 153
+    .line 188
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "ATT"
 
@@ -2261,14 +3424,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 154
+    .line 189
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSecureLockOnlyAfterTimerExpires:Z
 
-    .line 157
+    .line 192
     :cond_0
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSecureLockOnlyAfterTimerExpiresChecked:Z
 
-    .line 159
+    .line 194
     :cond_1
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSecureLockOnlyAfterTimerExpires:Z
 
@@ -2280,10 +3443,10 @@
     .parameter "state"
 
     .prologue
-    .line 266
+    .line 301
     sput-boolean p0, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mPINPUKRequest:Z
 
-    .line 267
+    .line 302
     sget-object v0, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2306,9 +3469,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 268
+    .line 303
     return-void
 .end method
 
@@ -2318,19 +3481,19 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 311
+    .line 354
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSwipeLockBeforeTimeoutChecked:Z
 
     if-nez v1, :cond_1
 
-    .line 312
+    .line 355
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 314
+    .line 357
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "ATT"
 
@@ -2340,14 +3503,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 315
+    .line 358
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSwipeLockBeforeTimeout:Z
 
-    .line 318
+    .line 361
     :cond_0
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSwipeLockBeforeTimeoutChecked:Z
 
-    .line 320
+    .line 363
     :cond_1
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mSwipeLockBeforeTimeout:Z
 
@@ -2360,12 +3523,12 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 176
+    .line 211
     sget-boolean v0, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseCtcPlmnConceptChecked:Z
 
     if-nez v0, :cond_1
 
-    .line 177
+    .line 212
     const-string v0, "CTC"
 
     const-string v1, "ro.csc.sales_code"
@@ -2380,14 +3543,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 178
+    .line 213
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseCtcPlmnConcept:Z
 
-    .line 180
+    .line 215
     :cond_0
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseCtcPlmnConceptChecked:Z
 
-    .line 183
+    .line 218
     :cond_1
     sget-boolean v0, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseCtcPlmnConcept:Z
 
@@ -2395,57 +3558,15 @@
 .end method
 
 .method public static useIndependentLockTimeout()Z
-    .locals 3
+    .locals 1
 
     .prologue
-    const/4 v2, 0x1
+    .line 549
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->swipeLockBeforeTimeout()Z
 
-    .line 459
-    sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseIndependentLockTimeoutChecked:Z
+    move-result v0
 
-    if-nez v1, :cond_2
-
-    .line 460
-    const-string v1, "ro.product.model"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 461
-    .local v0, modelName:Ljava/lang/String;
-    if-eqz v0, :cond_1
-
-    .line 462
-    const-string v1, "SAMSUNG-SGH-I317"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "SGH-I317"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 463
-    :cond_0
-    sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseIndependentLockTimeout:Z
-
-    .line 466
-    :cond_1
-    sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseIndependentLockTimeoutChecked:Z
-
-    .line 469
-    :cond_2
-    sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mUseIndependentLockTimeout:Z
-
-    return v1
+    return v0
 .end method
 
 .method public static wipeInternalExternalSd()Z
@@ -2454,19 +3575,19 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 163
+    .line 198
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mWipeOutIntExtMemoryDueToUnlockFailChecked:Z
 
     if-nez v1, :cond_2
 
-    .line 164
+    .line 199
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 166
+    .line 201
     .local v0, SalesCode:Ljava/lang/String;
     const-string v1, "ATT"
 
@@ -2484,15 +3605,15 @@
 
     if-eqz v1, :cond_1
 
-    .line 167
+    .line 202
     :cond_0
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mWipeOutIntExtMemoryDueToUnlockFail:Z
 
-    .line 170
+    .line 205
     :cond_1
     sput-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mWipeOutIntExtMemoryDueToUnlockFailChecked:Z
 
-    .line 172
+    .line 207
     :cond_2
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->mWipeOutIntExtMemoryDueToUnlockFail:Z
 

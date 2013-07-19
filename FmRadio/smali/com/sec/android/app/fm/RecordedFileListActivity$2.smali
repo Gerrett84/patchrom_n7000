@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 84
+    .line 95
     iput-object p1, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$2;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 88
+    .line 99
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     invoke-static {}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$000()Ljava/lang/String;
 
@@ -78,22 +78,22 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 89
+    .line 100
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.VIEW"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 90
+    .line 101
     .local v0, intent:Landroid/content/Intent;
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 91
+    .line 102
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -120,11 +120,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 92
+    .line 104
     iget-object v1, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$2;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
 
     invoke-virtual {v1, v0}, Lcom/sec/android/app/fm/RecordedFileListActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 93
+    .line 105
     return-void
 .end method

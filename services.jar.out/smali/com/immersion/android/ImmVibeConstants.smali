@@ -9,10 +9,12 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 7
 
     .prologue
-    const/16 v5, 0x50
+    const/16 v6, 0x50
+
+    const/16 v5, 0x12
 
     const/16 v4, 0x2c
 
@@ -41,7 +43,7 @@
 
     const/4 v1, 0x2
 
-    new-array v2, v5, [B
+    new-array v2, v6, [B
 
     fill-array-data v2, :array_2
 
@@ -77,7 +79,7 @@
 
     const/4 v1, 0x6
 
-    new-array v2, v3, [B
+    new-array v2, v5, [B
 
     fill-array-data v2, :array_6
 
@@ -93,7 +95,7 @@
 
     const/16 v1, 0x8
 
-    new-array v2, v5, [B
+    new-array v2, v6, [B
 
     fill-array-data v2, :array_8
 
@@ -137,9 +139,7 @@
 
     const/16 v1, 0xd
 
-    const/16 v2, 0x12
-
-    new-array v2, v2, [B
+    new-array v2, v5, [B
 
     fill-array-data v2, :array_d
 
@@ -519,7 +519,7 @@
         0x0t
         0xat
         0x0t
-        0x14t
+        0x0t
         0x0t
         0x0t
         0x0t
@@ -527,30 +527,10 @@
         0x6t
         0x0t
         0x0t
-        0x19t
-        0x0t
-        0x0t
         0x40t
         0x0t
         0x0t
-        0x4dt
-        0x0t
-        0x61t
-        0x0t
-        0x67t
-        0x0t
-        0x53t
-        0x0t
-        0x77t
-        0x0t
-        0x65t
-        0x0t
-        0x65t
-        0x0t
-        0x70t
-        0x0t
-        0x0t
-        0x0t
+        0x40t
     .end array-data
 
     nop

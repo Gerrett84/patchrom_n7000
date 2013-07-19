@@ -1,9 +1,6 @@
 .class Lcom/android/server/FMRadioService$11;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "FMRadioService.java"
-
-# interfaces
-.implements Landroid/hardware/motion/MRListener;
 
 
 # annotations
@@ -27,92 +24,213 @@
     .parameter
 
     .prologue
-    .line 647
+    .line 797
     iput-object p1, p0, Lcom/android/server/FMRadioService$11;->this$0:Lcom/android/server/FMRadioService;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onMotionListener(Landroid/hardware/motion/MREvent;)V
-    .locals 4
-    .parameter "motionEvent"
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 8
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v7, 0x1
 
-    .line 651
-    invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
+    .line 801
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result v0
+    move-result-object v0
 
-    .line 652
-    .local v0, motion:I
-    packed-switch v0, :pswitch_data_0
+    .line 804
+    .local v0, action:Ljava/lang/String;
+    const/4 v4, 0x1
 
-    .line 662
+    .line 807
+    .local v4, mLowBatteryWarningLevel:I
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "FMRadioService:mLowBatteryReceiver "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
+
+    .line 808
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Low batteryWarning Level :"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
+
+    .line 821
+    const-string v5, "android.intent.action.BATTERY_CHANGED"
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    .line 822
+    const-string v5, "status"
+
+    invoke-virtual {p2, v5, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v3
+
+    .line 823
+    .local v3, battStatus:I
+    const-string v5, "scale"
+
+    const/16 v6, 0x64
+
+    invoke-virtual {p2, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v2
+
+    .line 824
+    .local v2, battScale:I
+    const-string v5, "level"
+
+    invoke-virtual {p2, v5, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v1
+
+    .line 825
+    .local v1, battLevel:I
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Level = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "/"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
+
+    .line 826
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Status = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
+
+    .line 828
+    if-gt v1, v4, :cond_1
+
+    const/4 v5, 0x2
+
+    if-eq v3, v5, :cond_1
+
+    .line 829
+    iget-object v5, p0, Lcom/android/server/FMRadioService$11;->this$0:Lcom/android/server/FMRadioService;
+
+    #setter for: Lcom/android/server/FMRadioService;->mIsBatteryLow:Z
+    invoke-static {v5, v7}, Lcom/android/server/FMRadioService;->access$2302(Lcom/android/server/FMRadioService;Z)Z
+
+    .line 830
+    iget-object v5, p0, Lcom/android/server/FMRadioService$11;->this$0:Lcom/android/server/FMRadioService;
+
+    #getter for: Lcom/android/server/FMRadioService;->mIsOn:Z
+    invoke-static {v5}, Lcom/android/server/FMRadioService;->access$100(Lcom/android/server/FMRadioService;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    .line 831
+    iget-object v5, p0, Lcom/android/server/FMRadioService$11;->this$0:Lcom/android/server/FMRadioService;
+
+    const/4 v6, 0x7
+
+    #calls: Lcom/android/server/FMRadioService;->offInternal(ZIZ)Z
+    invoke-static {v5, v7, v6, v7}, Lcom/android/server/FMRadioService;->access$700(Lcom/android/server/FMRadioService;ZIZ)Z
+
+    .line 836
+    .end local v1           #battLevel:I
+    .end local v2           #battScale:I
+    .end local v3           #battStatus:I
     :cond_0
     :goto_0
     return-void
 
-    .line 654
-    :pswitch_0
-    iget-object v1, p0, Lcom/android/server/FMRadioService$11;->this$0:Lcom/android/server/FMRadioService;
+    .line 833
+    .restart local v1       #battLevel:I
+    .restart local v2       #battScale:I
+    .restart local v3       #battStatus:I
+    :cond_1
+    iget-object v5, p0, Lcom/android/server/FMRadioService$11;->this$0:Lcom/android/server/FMRadioService;
 
-    #getter for: Lcom/android/server/FMRadioService;->mIsOn:Z
-    invoke-static {v1}, Lcom/android/server/FMRadioService;->access$100(Lcom/android/server/FMRadioService;)Z
+    const/4 v6, 0x0
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/FMRadioService$11;->this$0:Lcom/android/server/FMRadioService;
-
-    #getter for: Lcom/android/server/FMRadioService;->mAudioManager:Landroid/media/AudioManager;
-    invoke-static {v1}, Lcom/android/server/FMRadioService;->access$500(Lcom/android/server/FMRadioService;)Landroid/media/AudioManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/media/AudioManager;->isRadioSpeakerOn()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/FMRadioService$11;->this$0:Lcom/android/server/FMRadioService;
-
-    #getter for: Lcom/android/server/FMRadioService;->mIsMute:Z
-    invoke-static {v1}, Lcom/android/server/FMRadioService;->access$1000(Lcom/android/server/FMRadioService;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    .line 655
-    const-string v1, "FLIP_TOP_TO_BOTTOM : mute"
-
-    invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
-
-    .line 656
-    iget-object v1, p0, Lcom/android/server/FMRadioService$11;->this$0:Lcom/android/server/FMRadioService;
-
-    #getter for: Lcom/android/server/FMRadioService;->mAudioManager:Landroid/media/AudioManager;
-    invoke-static {v1}, Lcom/android/server/FMRadioService;->access$500(Lcom/android/server/FMRadioService;)Landroid/media/AudioManager;
-
-    move-result-object v1
-
-    const/16 v2, 0xa
-
-    invoke-virtual {v1, v2, v3, v3}, Landroid/media/AudioManager;->setStreamVolume(III)V
+    #setter for: Lcom/android/server/FMRadioService;->mIsBatteryLow:Z
+    invoke-static {v5, v6}, Lcom/android/server/FMRadioService;->access$2302(Lcom/android/server/FMRadioService;Z)Z
 
     goto :goto_0
-
-    .line 652
-    :pswitch_data_0
-    .packed-switch 0xa
-        :pswitch_0
-    .end packed-switch
 .end method

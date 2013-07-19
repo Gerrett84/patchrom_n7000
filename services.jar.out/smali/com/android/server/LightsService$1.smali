@@ -28,7 +28,7 @@
     .parameter
 
     .prologue
-    .line 248
+    .line 259
     iput-object p1, p0, Lcom/android/server/LightsService$1;->this$0:Lcom/android/server/LightsService;
 
     invoke-direct {p0}, Landroid/os/IHardwareService$Stub;-><init>()V
@@ -44,7 +44,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 254
+    .line 265
     :try_start_0
     new-instance v1, Ljava/io/FileInputStream;
 
@@ -52,37 +52,37 @@
 
     invoke-direct {v1, v4}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
-    .line 255
+    .line 266
     .local v1, fis:Ljava/io/FileInputStream;
     invoke-virtual {v1}, Ljava/io/FileInputStream;->read()I
 
     move-result v2
 
-    .line 256
+    .line 267
     .local v2, result:I
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 257
+    .line 268
     const/16 v4, 0x30
 
     if-eq v2, v4, :cond_0
 
     const/4 v3, 0x1
 
-    .line 259
+    .line 270
     .end local v1           #fis:Ljava/io/FileInputStream;
     .end local v2           #result:I
     :cond_0
     :goto_0
     return v3
 
-    .line 258
+    .line 269
     :catch_0
     move-exception v0
 
-    .line 259
+    .line 270
     .local v0, e:Ljava/lang/Exception;
     goto :goto_0
 .end method
@@ -92,11 +92,11 @@
     .parameter "on"
 
     .prologue
-    .line 264
+    .line 275
     iget-object v2, p0, Lcom/android/server/LightsService$1;->this$0:Lcom/android/server/LightsService;
 
     #getter for: Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/server/LightsService;->access$1200(Lcom/android/server/LightsService;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/LightsService;->access$1500(Lcom/android/server/LightsService;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -111,7 +111,7 @@
     iget-object v2, p0, Lcom/android/server/LightsService$1;->this$0:Lcom/android/server/LightsService;
 
     #getter for: Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/server/LightsService;->access$1200(Lcom/android/server/LightsService;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/LightsService;->access$1500(Lcom/android/server/LightsService;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -123,7 +123,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 268
+    .line 279
     new-instance v2, Ljava/lang/SecurityException;
 
     const-string v3, "Requires FLASHLIGHT or HARDWARE_TEST permission"
@@ -132,7 +132,7 @@
 
     throw v2
 
-    .line 271
+    .line 282
     :cond_0
     :try_start_0
     new-instance v1, Ljava/io/FileOutputStream;
@@ -141,13 +141,13 @@
 
     invoke-direct {v1, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
-    .line 272
+    .line 283
     .local v1, fos:Ljava/io/FileOutputStream;
     const/4 v2, 0x2
 
     new-array v0, v2, [B
 
-    .line 273
+    .line 284
     .local v0, bytes:[B
     const/4 v3, 0x0
 
@@ -160,28 +160,28 @@
 
     aput-byte v2, v0, v3
 
-    .line 274
+    .line 285
     const/4 v2, 0x1
 
     const/16 v3, 0xa
 
     aput-byte v3, v0, v2
 
-    .line 275
+    .line 286
     invoke-virtual {v1, v0}, Ljava/io/FileOutputStream;->write([B)V
 
-    .line 276
+    .line 287
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 280
+    .line 291
     .end local v0           #bytes:[B
     .end local v1           #fos:Ljava/io/FileOutputStream;
     :goto_1
     return-void
 
-    .line 273
+    .line 284
     .restart local v0       #bytes:[B
     .restart local v1       #fos:Ljava/io/FileOutputStream;
     :cond_1
@@ -189,7 +189,7 @@
 
     goto :goto_0
 
-    .line 277
+    .line 288
     .end local v0           #bytes:[B
     .end local v1           #fos:Ljava/io/FileOutputStream;
     :catch_0

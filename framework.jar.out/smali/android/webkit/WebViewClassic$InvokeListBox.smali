@@ -46,36 +46,36 @@
     .parameter "selection"
 
     .prologue
-    .line 11294
+    .line 12323
     iput-object p1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 11295
+    .line 12324
     iput p4, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelection:I
 
-    .line 11296
+    .line 12325
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mMultiple:Z
 
-    .line 11298
+    .line 12327
     array-length v1, p2
 
-    .line 11299
+    .line 12328
     .local v1, length:I
     new-array v2, v1, [Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     iput-object v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
-    .line 11300
+    .line 12329
     const/4 v0, 0x0
 
     .local v0, i:I
     :goto_0
     if-ge v0, v1, :cond_0
 
-    .line 11301
+    .line 12330
     iget-object v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     new-instance v3, Landroid/webkit/WebViewClassic$InvokeListBox$Container;
@@ -86,7 +86,7 @@
 
     aput-object v3, v2, v0
 
-    .line 11302
+    .line 12331
     iget-object v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     aget-object v2, v2, v0
@@ -95,7 +95,7 @@
 
     iput-object v3, v2, Landroid/webkit/WebViewClassic$InvokeListBox$Container;->mString:Ljava/lang/String;
 
-    .line 11303
+    .line 12332
     iget-object v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     aget-object v2, v2, v0
@@ -104,19 +104,19 @@
 
     iput v3, v2, Landroid/webkit/WebViewClassic$InvokeListBox$Container;->mEnabled:I
 
-    .line 11304
+    .line 12333
     iget-object v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     aget-object v2, v2, v0
 
     iput v0, v2, Landroid/webkit/WebViewClassic$InvokeListBox$Container;->mId:I
 
-    .line 11300
+    .line 12329
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 11306
+    .line 12335
     :cond_0
     return-void
 .end method
@@ -130,7 +130,7 @@
     .parameter "x4"
 
     .prologue
-    .line 11149
+    .line 12178
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/webkit/WebViewClassic$InvokeListBox;-><init>(Landroid/webkit/WebViewClassic;[Ljava/lang/String;[II)V
 
     return-void
@@ -144,36 +144,36 @@
     .parameter "selected"
 
     .prologue
-    .line 11280
+    .line 12309
     iput-object p1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 11281
+    .line 12310
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mMultiple:Z
 
-    .line 11282
+    .line 12311
     iput-object p4, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelectedArray:[I
 
-    .line 11284
+    .line 12313
     array-length v1, p2
 
-    .line 11285
+    .line 12314
     .local v1, length:I
     new-array v2, v1, [Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     iput-object v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
-    .line 11286
+    .line 12315
     const/4 v0, 0x0
 
     .local v0, i:I
     :goto_0
     if-ge v0, v1, :cond_0
 
-    .line 11287
+    .line 12316
     iget-object v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     new-instance v3, Landroid/webkit/WebViewClassic$InvokeListBox$Container;
@@ -184,7 +184,7 @@
 
     aput-object v3, v2, v0
 
-    .line 11288
+    .line 12317
     iget-object v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     aget-object v2, v2, v0
@@ -193,7 +193,7 @@
 
     iput-object v3, v2, Landroid/webkit/WebViewClassic$InvokeListBox$Container;->mString:Ljava/lang/String;
 
-    .line 11289
+    .line 12318
     iget-object v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     aget-object v2, v2, v0
@@ -202,19 +202,19 @@
 
     iput v3, v2, Landroid/webkit/WebViewClassic$InvokeListBox$Container;->mEnabled:I
 
-    .line 11290
+    .line 12319
     iget-object v2, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     aget-object v2, v2, v0
 
     iput v0, v2, Landroid/webkit/WebViewClassic$InvokeListBox$Container;->mId:I
 
-    .line 11286
+    .line 12315
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 11292
+    .line 12321
     :cond_0
     return-void
 .end method
@@ -228,29 +228,29 @@
     .parameter "x4"
 
     .prologue
-    .line 11149
+    .line 12178
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/webkit/WebViewClassic$InvokeListBox;-><init>(Landroid/webkit/WebViewClassic;[Ljava/lang/String;[I[I)V
 
     return-void
 .end method
 
-.method static synthetic access$11400(Landroid/webkit/WebViewClassic$InvokeListBox;)Z
+.method static synthetic access$11500(Landroid/webkit/WebViewClassic$InvokeListBox;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 11149
+    .line 12178
     iget-boolean v0, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mMultiple:Z
 
     return v0
 .end method
 
-.method static synthetic access$11500(Landroid/webkit/WebViewClassic$InvokeListBox;)[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
+.method static synthetic access$11600(Landroid/webkit/WebViewClassic$InvokeListBox;)[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 11149
+    .line 12178
     iget-object v0, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     return-object v0
@@ -270,19 +270,19 @@
 
     const/4 v10, 0x1
 
-    .line 11355
+    .line 12384
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v1}, Landroid/webkit/WebViewClassic;->getSettings()Landroid/webkit/WebSettingsClassic;
 
     move-result-object v9
 
-    .line 11365
+    .line 12394
     .local v9, settings:Landroid/webkit/WebSettingsClassic;
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebViewCore:Landroid/webkit/WebViewCore;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$900(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
 
     move-result-object v1
 
@@ -312,17 +312,17 @@
 
     if-nez v1, :cond_1
 
-    .line 11529
+    .line 12570
     :cond_0
     :goto_0
     return-void
 
-    .line 11371
+    .line 12400
     :cond_1
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$1200(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -330,7 +330,7 @@
 
     move-result-object v1
 
-    const v2, 0x1090148
+    const v2, 0x1090157
 
     const/4 v3, 0x0
 
@@ -340,28 +340,28 @@
 
     check-cast v4, Landroid/widget/ListView;
 
-    .line 11373
+    .line 12402
     .local v4, listView:Landroid/widget/ListView;
     new-instance v5, Landroid/webkit/WebViewClassic$InvokeListBox$MyArrayListAdapter;
 
     invoke-direct {v5, p0}, Landroid/webkit/WebViewClassic$InvokeListBox$MyArrayListAdapter;-><init>(Landroid/webkit/WebViewClassic$InvokeListBox;)V
 
-    .line 11378
+    .line 12407
     .local v5, adapter:Landroid/webkit/WebViewClassic$InvokeListBox$MyArrayListAdapter;
     const/4 v8, 0x1
 
-    .line 11379
+    .line 12408
     .local v8, rebuildDialog:Z
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
     if-nez v1, :cond_2
 
-    .line 11380
+    .line 12409
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     new-instance v2, Landroid/webkit/WebSelectDialog;
@@ -369,30 +369,30 @@
     iget-object v3, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$1200(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v3
 
     invoke-direct {v2, v3, v9}, Landroid/webkit/WebSelectDialog;-><init>(Landroid/content/Context;Landroid/webkit/WebSettingsClassic;)V
 
     #setter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1, v2}, Landroid/webkit/WebViewClassic;->access$8102(Landroid/webkit/WebViewClassic;Landroid/webkit/WebSelectDialog;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1, v2}, Landroid/webkit/WebViewClassic;->access$8702(Landroid/webkit/WebViewClassic;Landroid/webkit/WebSelectDialog;)Landroid/webkit/WebSelectDialog;
 
-    .line 11381
+    .line 12410
     const/4 v8, 0x0
 
-    .line 11386
+    .line 12415
     :cond_2
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Landroid/webkit/WebSelectDialog;->setListView(Landroid/widget/ListView;)V
 
-    .line 11388
+    .line 12417
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     iget-boolean v1, v1, Landroid/webkit/WebViewClassic;->mIsTextFieldNext:Z
@@ -405,22 +405,22 @@
 
     if-eqz v1, :cond_5
 
-    .line 11389
+    .line 12418
     :cond_3
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
     invoke-virtual {v1, v10, v10}, Landroid/webkit/WebSelectDialog;->setButtonEnabled(IZ)V
 
-    .line 11390
+    .line 12419
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
@@ -430,7 +430,7 @@
 
     invoke-virtual {v1, v10, v2}, Landroid/webkit/WebSelectDialog;->setButtonOnClickListener(ILandroid/view/View$OnClickListener;)V
 
-    .line 11415
+    .line 12449
     :goto_1
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
@@ -444,22 +444,22 @@
 
     if-eqz v1, :cond_6
 
-    .line 11416
+    .line 12450
     :cond_4
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
     invoke-virtual {v1, v12, v10}, Landroid/webkit/WebSelectDialog;->setButtonEnabled(IZ)V
 
-    .line 11417
+    .line 12451
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
@@ -469,22 +469,22 @@
 
     invoke-virtual {v1, v12, v2}, Landroid/webkit/WebSelectDialog;->setButtonOnClickListener(ILandroid/view/View$OnClickListener;)V
 
-    .line 11441
+    .line 12480
     :goto_2
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
     invoke-virtual {v1, v13, v10}, Landroid/webkit/WebSelectDialog;->setButtonEnabled(IZ)V
 
-    .line 11442
+    .line 12481
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
@@ -494,16 +494,16 @@
 
     invoke-virtual {v1, v13, v2}, Landroid/webkit/WebSelectDialog;->setButtonOnClickListener(ILandroid/view/View$OnClickListener;)V
 
-    .line 11460
+    .line 12499
     invoke-virtual {v4, v5}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 11461
+    .line 12500
     invoke-virtual {v4, v10}, Landroid/widget/ListView;->setFocusableInTouchMode(Z)V
 
-    .line 11462
+    .line 12501
     invoke-virtual {v4, v11}, Landroid/widget/ListView;->setScrollbarFadingEnabled(Z)V
 
-    .line 11469
+    .line 12508
     iget-boolean v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mMultiple:Z
 
     if-nez v1, :cond_7
@@ -513,20 +513,20 @@
     :goto_3
     invoke-virtual {v4, v1}, Landroid/widget/ListView;->setTextFilterEnabled(Z)V
 
-    .line 11470
+    .line 12509
     iget-boolean v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mMultiple:Z
 
     if-eqz v1, :cond_8
 
-    .line 11471
+    .line 12510
     invoke-virtual {v4, v12}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    .line 11472
+    .line 12511
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelectedArray:[I
 
     array-length v7, v1
 
-    .line 11473
+    .line 12512
     .local v7, length:I
     const/4 v6, 0x0
 
@@ -534,26 +534,26 @@
     :goto_4
     if-ge v6, v7, :cond_9
 
-    .line 11474
+    .line 12513
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelectedArray:[I
 
     aget v1, v1, v6
 
     invoke-virtual {v4, v1, v10}, Landroid/widget/ListView;->setItemChecked(IZ)V
 
-    .line 11473
+    .line 12512
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_4
 
-    .line 11412
+    .line 12446
     .end local v6           #i:I
     .end local v7           #length:I
     :cond_5
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
@@ -561,12 +561,12 @@
 
     goto :goto_1
 
-    .line 11438
+    .line 12477
     :cond_6
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
@@ -577,38 +577,38 @@
     :cond_7
     move v1, v11
 
-    .line 11469
+    .line 12508
     goto :goto_3
 
-    .line 11477
+    .line 12516
     :cond_8
+    invoke-virtual {v4, v10}, Landroid/widget/ListView;->setChoiceMode(I)V
+
+    .line 12517
     new-instance v1, Landroid/webkit/WebViewClassic$InvokeListBox$4;
 
     invoke-direct {v1, p0}, Landroid/webkit/WebViewClassic$InvokeListBox$4;-><init>(Landroid/webkit/WebViewClassic$InvokeListBox;)V
 
     invoke-virtual {v4, v1}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 11494
+    .line 12534
     iget v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelection:I
 
     const/4 v2, -0x1
 
     if-eq v1, v2, :cond_9
 
-    .line 11495
+    .line 12535
     iget v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelection:I
 
     invoke-virtual {v4, v1}, Landroid/widget/ListView;->setSelection(I)V
 
-    .line 11496
-    invoke-virtual {v4, v10}, Landroid/widget/ListView;->setChoiceMode(I)V
-
-    .line 11497
+    .line 12536
     iget v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelection:I
 
     invoke-virtual {v4, v1, v10}, Landroid/widget/ListView;->setItemChecked(IZ)V
 
-    .line 11498
+    .line 12537
     new-instance v0, Landroid/webkit/WebViewClassic$InvokeListBox$SingleDataSetObserver;
 
     iget v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelection:I
@@ -621,17 +621,17 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/webkit/WebViewClassic$InvokeListBox$SingleDataSetObserver;-><init>(Landroid/webkit/WebViewClassic$InvokeListBox;JLandroid/widget/ListView;Landroid/widget/Adapter;)V
 
-    .line 11500
+    .line 12539
     .local v0, observer:Landroid/database/DataSetObserver;
     invoke-virtual {v5, v0}, Landroid/webkit/WebViewClassic$InvokeListBox$MyArrayListAdapter;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
 
-    .line 11503
+    .line 12542
     .end local v0           #observer:Landroid/database/DataSetObserver;
     :cond_9
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
@@ -641,11 +641,11 @@
 
     invoke-virtual {v1, v2}, Landroid/webkit/WebSelectDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 
-    .line 11513
+    .line 12552
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
@@ -655,41 +655,41 @@
 
     invoke-virtual {v1, v2}, Landroid/webkit/WebSelectDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 11522
+    .line 12563
     if-ne v8, v10, :cond_a
 
-    .line 11523
+    .line 12564
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/webkit/WebSelectDialog;->rebuildView()V
 
-    .line 11526
+    .line 12567
     :cond_a
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #setter for: Landroid/webkit/WebViewClassic;->mSelectFocusMoved:Z
-    invoke-static {v1, v11}, Landroid/webkit/WebViewClassic;->access$8202(Landroid/webkit/WebViewClassic;Z)Z
+    invoke-static {v1, v11}, Landroid/webkit/WebViewClassic;->access$8802(Landroid/webkit/WebViewClassic;Z)Z
 
-    .line 11527
+    .line 12568
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebSelectDialog:Landroid/webkit/WebSelectDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8100(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$8700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebSelectDialog;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/webkit/WebSelectDialog;->show()V
 
-    .line 11528
+    .line 12569
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #setter for: Landroid/webkit/WebViewClassic;->bWebSelectDialogIsUp:Z
-    invoke-static {v1, v10}, Landroid/webkit/WebViewClassic;->access$8002(Landroid/webkit/WebViewClassic;Z)Z
+    invoke-static {v1, v10}, Landroid/webkit/WebViewClassic;->access$8602(Landroid/webkit/WebViewClassic;Z)Z
 
     goto/16 :goto_0
 .end method

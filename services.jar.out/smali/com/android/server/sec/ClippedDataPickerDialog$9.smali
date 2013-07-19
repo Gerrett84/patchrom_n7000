@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 876
+    .line 959
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$9;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iput-object p2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$9;->val$data:Landroid/sec/clipboard/data/ClipboardData;
@@ -46,12 +46,12 @@
     .locals 4
 
     .prologue
-    .line 879
+    .line 962
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$9;->val$data:Landroid/sec/clipboard/data/ClipboardData;
 
     check-cast v0, Landroid/sec/clipboard/data/list/ClipboardDataText;
 
-    .line 880
+    .line 963
     .local v0, textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
     new-instance v1, Landroid/content/Intent;
 
@@ -59,20 +59,20 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 881
+    .line 964
     .local v1, textIntent:Landroid/content/Intent;
     const/16 v2, 0x20
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 882
+    .line 965
     const-string v2, "title"
 
     const-string v3, ""
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 883
+    .line 966
     const-string v2, "content"
 
     invoke-virtual {v0}, Landroid/sec/clipboard/data/list/ClipboardDataText;->GetText()Ljava/lang/CharSequence;
@@ -81,7 +81,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
-    .line 884
+    .line 967
     iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$9;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     #getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mContext:Landroid/content/Context;
@@ -91,6 +91,6 @@
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 885
+    .line 968
     return-void
 .end method

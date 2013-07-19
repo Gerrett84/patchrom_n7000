@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 987
+    .line 1003
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$6;->this$0:Lcom/android/server/WifiOffloadService;
 
     iput-object p2, p0, Lcom/android/server/WifiOffloadService$6;->val$processName:Ljava/lang/String;
@@ -46,7 +46,7 @@
     .locals 6
 
     .prologue
-    .line 990
+    .line 1006
     iget-object v4, p0, Lcom/android/server/WifiOffloadService$6;->this$0:Lcom/android/server/WifiOffloadService;
 
     #getter for: Lcom/android/server/WifiOffloadService;->mContext:Landroid/content/Context;
@@ -62,7 +62,7 @@
 
     check-cast v1, Landroid/app/ActivityManager;
 
-    .line 991
+    .line 1007
     .local v1, manager:Landroid/app/ActivityManager;
     const/16 v4, 0x1f4
 
@@ -70,7 +70,7 @@
 
     move-result-object v3
 
-    .line 992
+    .line 1008
     .local v3, runningTaskInfos:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -90,11 +90,11 @@
 
     check-cast v2, Landroid/app/ActivityManager$RunningTaskInfo;
 
-    .line 993
+    .line 1009
     .local v2, process:Landroid/app/ActivityManager$RunningTaskInfo;
     if-eqz v2, :cond_0
 
-    .line 994
+    .line 1010
     iget-object v4, p0, Lcom/android/server/WifiOffloadService$6;->val$processName:Ljava/lang/String;
 
     iget-object v5, v2, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
@@ -109,31 +109,31 @@
 
     if-eqz v4, :cond_0
 
-    .line 995
+    .line 1011
     const/4 v4, 0x1
 
     sput-boolean v4, Lcom/android/server/WifiOffloadService;->isRunning:Z
 
-    .line 996
+    .line 1012
     sget-object v5, Lcom/android/server/WifiOffloadService;->obj:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 997
+    .line 1013
     :try_start_0
     sget-object v4, Lcom/android/server/WifiOffloadService;->obj:Ljava/lang/Object;
 
     invoke-virtual {v4}, Ljava/lang/Object;->notify()V
 
-    .line 998
+    .line 1014
     monitor-exit v5
 
-    .line 1007
+    .line 1023
     .end local v2           #process:Landroid/app/ActivityManager$RunningTaskInfo;
     :goto_0
     return-void
 
-    .line 998
+    .line 1014
     .restart local v2       #process:Landroid/app/ActivityManager$RunningTaskInfo;
     :catchall_0
     move-exception v4
@@ -144,25 +144,25 @@
 
     throw v4
 
-    .line 1003
+    .line 1019
     .end local v2           #process:Landroid/app/ActivityManager$RunningTaskInfo;
     :cond_1
     const/4 v4, 0x0
 
     sput-boolean v4, Lcom/android/server/WifiOffloadService;->isRunning:Z
 
-    .line 1004
+    .line 1020
     sget-object v5, Lcom/android/server/WifiOffloadService;->obj:Ljava/lang/Object;
 
     monitor-enter v5
 
-    .line 1005
+    .line 1021
     :try_start_1
     sget-object v4, Lcom/android/server/WifiOffloadService;->obj:Ljava/lang/Object;
 
     invoke-virtual {v4}, Ljava/lang/Object;->notify()V
 
-    .line 1006
+    .line 1022
     monitor-exit v5
 
     goto :goto_0

@@ -32,20 +32,20 @@
     .parameter "listener"
 
     .prologue
-    .line 675
+    .line 683
     iput-object p1, p0, Lcom/android/server/MountService$MountServiceBinderListener;->this$0:Lcom/android/server/MountService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 673
+    .line 681
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/MountService$MountServiceBinderListener;->caller:I
 
-    .line 676
+    .line 684
     iput-object p2, p0, Lcom/android/server/MountService$MountServiceBinderListener;->mListener:Landroid/os/storage/IMountServiceListener;
 
-    .line 677
+    .line 685
     return-void
 .end method
 
@@ -55,28 +55,28 @@
     .locals 3
 
     .prologue
-    .line 689
+    .line 697
     iget-object v0, p0, Lcom/android/server/MountService$MountServiceBinderListener;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mListeners:Ljava/util/ArrayList;
-    invoke-static {v0}, Lcom/android/server/MountService;->access$1500(Lcom/android/server/MountService;)Ljava/util/ArrayList;
+    invoke-static {v0}, Lcom/android/server/MountService;->access$1700(Lcom/android/server/MountService;)Ljava/util/ArrayList;
 
     move-result-object v1
 
     monitor-enter v1
 
-    .line 690
+    .line 698
     :try_start_0
     iget-object v0, p0, Lcom/android/server/MountService$MountServiceBinderListener;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mListeners:Ljava/util/ArrayList;
-    invoke-static {v0}, Lcom/android/server/MountService;->access$1500(Lcom/android/server/MountService;)Ljava/util/ArrayList;
+    invoke-static {v0}, Lcom/android/server/MountService;->access$1700(Lcom/android/server/MountService;)Ljava/util/ArrayList;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 691
+    .line 699
     iget-object v0, p0, Lcom/android/server/MountService$MountServiceBinderListener;->mListener:Landroid/os/storage/IMountServiceListener;
 
     invoke-interface {v0}, Landroid/os/storage/IMountServiceListener;->asBinder()Landroid/os/IBinder;
@@ -87,13 +87,13 @@
 
     invoke-interface {v0, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 692
+    .line 700
     monitor-exit v1
 
-    .line 693
+    .line 701
     return-void
 
-    .line 692
+    .line 700
     :catchall_0
     move-exception v0
 
@@ -108,7 +108,7 @@
     .locals 1
 
     .prologue
-    .line 684
+    .line 692
     iget v0, p0, Lcom/android/server/MountService$MountServiceBinderListener;->caller:I
 
     return v0
@@ -119,9 +119,9 @@
     .parameter "pid"
 
     .prologue
-    .line 680
+    .line 688
     iput p1, p0, Lcom/android/server/MountService$MountServiceBinderListener;->caller:I
 
-    .line 681
+    .line 689
     return-void
 .end method

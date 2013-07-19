@@ -51,7 +51,7 @@
 
     .prologue
     .line 85
-    const v1, 0x1090097
+    const v1, 0x109009c
 
     .line 86
     .local v1, itemLayout:I
@@ -63,7 +63,7 @@
 
     .line 88
     .local v0, a:Landroid/content/res/TypedArray;
-    const/16 v2, 0x11d
+    const/16 v2, 0x120
 
     const/4 v3, 0x0
 
@@ -78,7 +78,7 @@
     if-eqz v2, :cond_0
 
     .line 89
-    const v1, 0x109010e
+    const v1, 0x1090114
 
     .line 94
     :cond_0

@@ -78,9 +78,11 @@
 
 .field static final TRANSACTION_isSimFDNEnabled:I = 0xb
 
-.field static final TRANSACTION_isVideoCall:I = 0x2a
+.field static final TRANSACTION_isVideoCall:I = 0x2b
 
 .field static final TRANSACTION_notifyVoIPCallStateChangeIntoBT:I = 0x20
+
+.field static final TRANSACTION_sendDtmf:I = 0x2a
 
 .field static final TRANSACTION_sendRequestRawToRIL:I = 0x29
 
@@ -204,7 +206,7 @@
     .line 45
     sparse-switch p1, :sswitch_data_0
 
-    .line 412
+    .line 422
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v6
@@ -1236,16 +1238,24 @@
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 406
-    invoke-virtual {p0}, Lcom/android/internal/telephony/ITelephonyExt$Stub;->isVideoCall()Z
+    .line 407
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v7
+
+    int-to-char v0, v7
+
+    .line 408
+    .local v0, _arg0:C
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/ITelephonyExt$Stub;->sendDtmf(C)Z
 
     move-result v3
 
-    .line 407
+    .line 409
     .local v3, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 408
+    .line 410
     if-eqz v3, :cond_11
 
     move v5, v6
@@ -1255,7 +1265,36 @@
 
     goto/16 :goto_0
 
+    .line 415
+    .end local v0           #_arg0:C
+    .end local v3           #_result:Z
+    :sswitch_2b
+    const-string v7, "com.android.internal.telephony.ITelephonyExt"
+
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 416
+    invoke-virtual {p0}, Lcom/android/internal/telephony/ITelephonyExt$Stub;->isVideoCall()Z
+
+    move-result v3
+
+    .line 417
+    .restart local v3       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 418
+    if-eqz v3, :cond_12
+
+    move v5, v6
+
+    :cond_12
+    invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
     .line 45
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -1300,6 +1339,7 @@
         0x28 -> :sswitch_28
         0x29 -> :sswitch_29
         0x2a -> :sswitch_2a
+        0x2b -> :sswitch_2b
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

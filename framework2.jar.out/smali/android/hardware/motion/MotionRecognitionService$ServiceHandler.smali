@@ -25,100 +25,156 @@
     .parameter "looper"
 
     .prologue
-    .line 1212
+    .line 1276
     iput-object p1, p0, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
-    .line 1213
+    .line 1277
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 1214
+    .line 1278
     return-void
 .end method
 
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 5
+    .locals 8
     .parameter "msg"
 
     .prologue
-    .line 1218
-    iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    .line 1282
+    if-eqz p1, :cond_1
 
-    check-cast v2, Landroid/hardware/motion/MREvent;
+    iget v5, p1, Landroid/os/Message;->what:I
 
-    .line 1220
-    .local v2, motionEvent:Landroid/hardware/motion/MREvent;
-    iget-object v3, p0, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;->this$0:Landroid/hardware/motion/MotionRecognitionService;
+    const/16 v6, 0x55
 
-    iget-object v4, v3, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
+    if-ne v5, v6, :cond_1
 
-    monitor-enter v4
+    .line 1284
+    const/4 v4, 0x0
 
-    .line 1221
+    .line 1286
+    .local v4, motionEvent:Landroid/hardware/motion/MREvent;
     :try_start_0
-    iget-object v3, p0, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;->this$0:Landroid/hardware/motion/MotionRecognitionService;
+    iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v3, v3, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
+    move-object v0, v5
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    check-cast v0, Landroid/hardware/motion/MREvent;
 
-    move-result-object v0
-
-    .local v0, i$:Ljava/util/Iterator;
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/hardware/motion/MotionRecognitionService$Listener;
-
-    .line 1222
-    .local v1, l:Landroid/hardware/motion/MotionRecognitionService$Listener;
-    invoke-virtual {v1, v2}, Landroid/hardware/motion/MotionRecognitionService$Listener;->callback(Landroid/hardware/motion/MREvent;)V
-
-    goto :goto_0
-
-    .line 1227
-    .end local v0           #i$:Ljava/util/Iterator;
-    .end local v1           #l:Landroid/hardware/motion/MotionRecognitionService$Listener;
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v4
+    move-object v4, v0
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    throw v3
+    .line 1291
+    :goto_0
+    iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
-    .line 1225
-    .restart local v0       #i$:Ljava/util/Iterator;
-    :cond_0
+    iget-object v6, v5, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
+
+    monitor-enter v6
+
+    .line 1292
     :try_start_1
-    iget-object v3, p0, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;->this$0:Landroid/hardware/motion/MotionRecognitionService;
+    iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
-    iget-object v3, v3, Landroid/hardware/motion/MotionRecognitionService;->mEventPool:Landroid/hardware/motion/MotionRecognitionService$EventPool;
+    iget-object v5, v5, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v2}, Landroid/hardware/motion/MotionRecognitionService$EventPool;->recycle(Landroid/hardware/motion/MREvent;)V
+    invoke-virtual {v5}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    .line 1226
-    iget-object v3, p0, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;->this$0:Landroid/hardware/motion/MotionRecognitionService;
+    move-result-object v2
 
-    iget-object v3, v3, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
+    .local v2, i$:Ljava/util/Iterator;
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v3}, Ljava/lang/Object;->notify()V
+    move-result v5
 
-    .line 1227
-    monitor-exit v4
+    if-eqz v5, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/hardware/motion/MotionRecognitionService$Listener;
+
+    .line 1293
+    .local v3, l:Landroid/hardware/motion/MotionRecognitionService$Listener;
+    invoke-virtual {v3, v4}, Landroid/hardware/motion/MotionRecognitionService$Listener;->callback(Landroid/hardware/motion/MREvent;)V
+
+    goto :goto_1
+
+    .line 1297
+    .end local v2           #i$:Ljava/util/Iterator;
+    .end local v3           #l:Landroid/hardware/motion/MotionRecognitionService$Listener;
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1228
+    throw v5
+
+    .line 1287
+    :catch_0
+    move-exception v1
+
+    .line 1288
+    .local v1, e:Ljava/lang/ClassCastException;
+    const-string v5, "MotionRecognitionService"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "ClassCastException in handleMessage: msg.obj = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-object v7, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    .line 1295
+    .end local v1           #e:Ljava/lang/ClassCastException;
+    .restart local v2       #i$:Ljava/util/Iterator;
+    :cond_0
+    :try_start_2
+    iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;->this$0:Landroid/hardware/motion/MotionRecognitionService;
+
+    iget-object v5, v5, Landroid/hardware/motion/MotionRecognitionService;->mEventPool:Landroid/hardware/motion/MotionRecognitionService$EventPool;
+
+    invoke-virtual {v5, v4}, Landroid/hardware/motion/MotionRecognitionService$EventPool;->recycle(Landroid/hardware/motion/MREvent;)V
+
+    .line 1296
+    iget-object v5, p0, Landroid/hardware/motion/MotionRecognitionService$ServiceHandler;->this$0:Landroid/hardware/motion/MotionRecognitionService;
+
+    iget-object v5, v5, Landroid/hardware/motion/MotionRecognitionService;->mListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v5}, Ljava/lang/Object;->notify()V
+
+    .line 1297
+    monitor-exit v6
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    .line 1300
+    .end local v2           #i$:Ljava/util/Iterator;
+    .end local v4           #motionEvent:Landroid/hardware/motion/MREvent;
+    :cond_1
     return-void
 .end method

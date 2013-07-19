@@ -46,7 +46,7 @@
     <string name="setting_backgroud_playing">Toisto taustalla</string>
     <string name="setting_sationid">Radioteksti</string>
     <string name="setting_af">Vaihtoehtoinen taajuus</string>
-    <string name="setting_autooff">Automaattinen FM-radio ei ole käytössä</string>
+    <string name="setting_autooff">Sulje FM-radio automaattisesti</string>
     <string name="setting_bgplaying_summary">FM-radio soi taustalla sovelluksen sulkemisen jälkeen</string>
     <string name="setting_stationid_summary">Asematiedot näytetään</string>
     <string name="setting_af_summary">Ota vaihtoehtoinen taajuus käyttöön tai poista se käytöstä</string>
@@ -100,13 +100,13 @@
     <string name="toast_unavailable_in_tvout_mode">Ei käytettävissä TV-out -tilassa</string>
     <string name="mute">Mykistä</string>
     <string name="seeking">Etsitään…</string>
-    <string name="via_earphone">Kuulokkeiden kautta</string>
-    <string name="via_speaker">Kaiutt. k.</string>
+    <string name="via_earphone">Toista kuulokkeilla</string>
+    <string name="via_speaker">Toista kaiuttimella</string>
     <string name="normal_frequency">Normaali taajuus</string>
     <string name="tag">Tun</string>
     <string name="stop">Pysäytä</string>
     <string name="recording">Tallennetaan…</string>
-    <string name="memory_full">Tallennus pysäytetty. Muisti on täynnä</string>
+    <string name="memory_full">Muisti on täynnä</string>
     <string name="cancel_recording">Peruutetaanko tallennus?</string>
     <string name="change_frequency">Vaihda taajuutta</string>
     <string name="enter_frequency">Anna taajuus</string>
@@ -117,7 +117,7 @@
     <string name="recording_error">Tiedostovirhe</string>
     <string name="desc_record">Tallenna</string>
     <string name="desc_volume">Äänenvoimakkuus</string>
-    <string name="desc_power">Voima</string>
+    <string name="desc_power">Virta</string>
     <string name="desc_prev">Edellinen asema</string>
     <string name="desc_next">Seuraava asema</string>
     <string name="desc_add_favorite">Lisää suosikki</string>
@@ -132,11 +132,14 @@
     <string name="tags">Tunnisteet</string>
     <string name="tags_now_broadcasting">Nyt lähetetään</string>
     <string name="tags_no_information">Ei tietoja</string>
+    <string name="tags_music_history">Musiikkihistoria</string>
     <string name="tags_music_title">Otsikko</string>
     <string name="tags_music_album">Albumi</string>
     <string name="tags_music_artist">Esittäjä</string>
+    <string name="tags_music_band">Taajuusalue</string>
     <string name="tags_information_url">URL-osoite</string>
     <string name="tags_programme_homepage">Kotisivu</string>
+    <string name="tags_interact_hotline">Palvelunumero</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Muu</string>
     <string name="tags_interact_centre">Keskelle</string>
@@ -182,4 +185,14 @@ Tallennetut tiedostot näytetään radio-ohjelman tallennuksen jälkeen"</string
     <string name="dialog_one_item_deleted">Tämä kohde poistetaan</string>
     <string name="dialog_multiple_items_deleted">%d kohdetta poistetaan</string>
     <string name="dialog_all_items_deleted">Kaikki kohteet poistetaan</string>
+    <string name="turning_on">Käynnistetään…</string>
+    <string name="not_enough_memory_recording_will_stop">Muisti ei riitä. Tallennus pysäytetään %d sekunnin kuluttua</string>
+    <string name="low_batt_msg">Akku on loppumassa</string>
+    <string name="no_play_during_call">Puhelun aikana ei voi toistaa</string>
+    <string name="unable_delete">Ei voi poistaa</string>
+    <string name="playing">Toistaa…</string>
+    <string name="tts_play_button">Toista</string>
+    <string name="tts_previous_button">Edellinen</string>
+    <string name="tts_Next_button">Seuraava</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

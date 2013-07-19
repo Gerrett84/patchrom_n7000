@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1562
+    .line 1668
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 1568
+    .line 1674
     iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
 
     iget-object v2, v2, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
@@ -51,11 +51,11 @@
 
     if-eqz v2, :cond_0
 
-    .line 1589
+    .line 1694
     :goto_0
     return-void
 
-    .line 1573
+    .line 1679
     :cond_0
     :try_start_0
     iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
@@ -70,7 +70,7 @@
 
     move-result v1
 
-    .line 1581
+    .line 1687
     .local v1, index:I
     :try_start_1
     iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
@@ -97,23 +97,23 @@
 
     goto :goto_0
 
-    .line 1582
+    .line 1688
     :catch_0
     move-exception v0
 
-    .line 1584
+    .line 1690
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 1574
+    .line 1680
     .end local v0           #e:Landroid/os/RemoteException;
     .end local v1           #index:I
     :catch_1
     move-exception v0
 
-    .line 1575
+    .line 1681
     .local v0, e:Ljava/lang/NullPointerException;
     invoke-virtual {v0}, Ljava/lang/NullPointerException;->printStackTrace()V
 

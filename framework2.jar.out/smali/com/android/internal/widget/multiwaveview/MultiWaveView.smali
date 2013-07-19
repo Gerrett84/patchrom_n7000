@@ -5681,7 +5681,7 @@
 
     move-result-object v7
 
-    iget-object v2, v7, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v2, v7, Landroid/content/pm/ComponentInfo;->metaData:Landroid/os/Bundle;
 
     .line 1249
     .local v2, metaData:Landroid/os/Bundle;

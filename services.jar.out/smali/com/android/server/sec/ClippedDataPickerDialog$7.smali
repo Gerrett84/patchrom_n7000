@@ -3,12 +3,12 @@
 .source "ClippedDataPickerDialog.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/animation/Animation$AnimationListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/sec/ClippedDataPickerDialog;->onMenuItemSelected(ILandroid/view/MenuItem;)Z
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/sec/ClippedDataPickerDialog;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,15 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
-.field final synthetic val$data:Landroid/sec/clipboard/data/ClipboardData;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog;Landroid/sec/clipboard/data/ClipboardData;)V
+.method constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog;)V
     .locals 0
-    .parameter
     .parameter
 
     .prologue
-    .line 830
+    .line 809
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
-
-    iput-object p2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->val$data:Landroid/sec/clipboard/data/ClipboardData;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,55 +37,150 @@
 
 
 # virtual methods
-.method public run()V
+.method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 4
+    .parameter "animation"
 
     .prologue
-    .line 833
-    iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->val$data:Landroid/sec/clipboard/data/ClipboardData;
+    .line 822
+    sget-boolean v2, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
-    check-cast v0, Landroid/sec/clipboard/data/list/ClipboardDataText;
+    if-eqz v2, :cond_0
 
-    .line 834
-    .local v0, textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
-    new-instance v1, Landroid/content/Intent;
+    const-string v2, "ClipboardServiceEx"
 
-    const-string v2, "android.intent.action.CLIPBOARD_TO_MEMO_INSERT"
+    const-string v3, "clipped dialog. onAnimationEnd START"
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 835
-    .local v1, textIntent:Landroid/content/Intent;
-    const/16 v2, 0x20
+    .line 826
+    :cond_0
+    :try_start_0
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 836
-    const-string v2, "title"
-
-    const-string v3, ""
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 837
-    const-string v2, "content"
-
-    invoke-virtual {v0}, Landroid/sec/clipboard/data/list/ClipboardDataText;->GetText()Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
-
-    .line 838
+    .line 827
+    .local v0, deleteItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
-    #getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$000(Lcom/android/server/sec/ClippedDataPickerDialog;)Landroid/content/Context;
+    #getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mSelectedIndex:I
+    invoke-static {v2}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$800(Lcom/android/server/sec/ClippedDataPickerDialog;)I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 839
+    .line 828
+    iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    iget-object v2, v2, Lcom/android/server/sec/ClippedDataPickerDialog;->mGrid:Lcom/android/server/sec/ClippedDataPickerGridView;
+
+    invoke-virtual {v2, v0}, Lcom/android/server/sec/ClippedDataPickerGridView;->setDeletedItems(Ljava/util/ArrayList;)V
+
+    .line 830
+    iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    #getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mClipboardDataUiEvent:Landroid/sec/clipboard/IClipboardDataUiEvent;
+    invoke-static {v2}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$300(Lcom/android/server/sec/ClippedDataPickerDialog;)Landroid/sec/clipboard/IClipboardDataUiEvent;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    #getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mSelectedIndex:I
+    invoke-static {v3}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$800(Lcom/android/server/sec/ClippedDataPickerDialog;)I
+
+    move-result v3
+
+    invoke-interface {v2, v3}, Landroid/sec/clipboard/IClipboardDataUiEvent;->removeItem(I)V
+
+    .line 831
+    sget v2, Lcom/android/server/sec/ClippedDataPickerDialog;->CHILD_COUNT:I
+
+    add-int/lit8 v2, v2, -0x1
+
+    sput v2, Lcom/android/server/sec/ClippedDataPickerDialog;->CHILD_COUNT:I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 838
+    .end local v0           #deleteItems:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    :goto_0
+    iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    #getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mCbm:Landroid/sec/clipboard/ClipboardExManager;
+    invoke-static {v2}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$100(Lcom/android/server/sec/ClippedDataPickerDialog;)Landroid/sec/clipboard/ClipboardExManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/sec/clipboard/ClipboardExManager;->getDataListSize()I
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    invoke-virtual {v2}, Lcom/android/server/sec/ClippedDataPickerDialog;->dismiss()V
+
+    .line 840
+    :cond_1
+    return-void
+
+    .line 833
+    :catch_0
+    move-exception v1
+
+    .line 835
+    .local v1, e:Landroid/os/RemoteException;
+    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
+.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
+    .locals 2
+    .parameter "animation"
+
+    .prologue
+    .line 817
+    sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "ClipboardServiceEx"
+
+    const-string v1, "clipped dialog. onAnimationRepeat START"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 818
+    :cond_0
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/view/animation/Animation;)V
+    .locals 2
+    .parameter "animation"
+
+    .prologue
+    .line 812
+    sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "ClipboardServiceEx"
+
+    const-string v1, "clipped dialog. onAnimationStart START"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 813
+    :cond_0
     return-void
 .end method

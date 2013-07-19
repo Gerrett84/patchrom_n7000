@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 784
+    .line 795
     iput-object p1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$3;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "focusChange"
 
     .prologue
-    .line 788
+    .line 799
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$3;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     #getter for: Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
@@ -70,14 +70,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 790
+    .line 801
     packed-switch p1, :pswitch_data_0
 
-    .line 801
+    .line 812
     :pswitch_0
     return-void
 
-    .line 790
+    .line 801
     :pswitch_data_0
     .packed-switch -0x3
         :pswitch_0

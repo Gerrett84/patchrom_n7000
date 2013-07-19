@@ -8,7 +8,11 @@
 
 .field public static final ENTERPRISE_PRELOAD_APK:Ljava/lang/String; = "com.sec.enterprise.permissions"
 
+.field private static final LICENSE_FILE:Ljava/lang/String; = "license.dat"
+
 .field private static final MANIFEST_FILE:Ljava/lang/String; = "AndroidManifest.xml"
+
+.field private static final PAYLOAD_BUNDLE_PATH:Ljava/lang/String; = "assets/payload/"
 
 .field private static final PAYLOAD_FILE:Ljava/lang/String; = "sec.android.payload"
 
@@ -22,10 +26,502 @@
     .locals 0
 
     .prologue
-    .line 56
+    .line 58
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
+
+.method private static compareEnterpriseSignature(Ljava/lang/String;Landroid/content/Context;)Z
+    .locals 12
+    .parameter "apkPath"
+    .parameter "context"
+
+    .prologue
+    .line 393
+    const/4 v3, 0x0
+
+    .line 394
+    .local v3, enterprisePkg:Landroid/content/pm/PackageInfo;
+    const/4 v0, 0x0
+
+    .line 396
+    .local v0, adminPkg:Landroid/content/pm/PackageInfo;
+    :try_start_0
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v9
+
+    const-string v10, "com.sec.enterprise.permissions"
+
+    const/16 v11, 0x40
+
+    invoke-virtual {v9, v10, v11}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v3
+
+    .line 398
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v9
+
+    invoke-static {p0}, Lcom/android/server/enterprise/PayloadVerifier;->getPackageNameFromPath(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v10
+
+    const/16 v11, 0x40
+
+    invoke-virtual {v9, v10, v11}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    .line 405
+    :goto_0
+    if-eqz v3, :cond_2
+
+    if-eqz v0, :cond_2
+
+    iget-object v9, v3, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    if-eqz v9, :cond_2
+
+    iget-object v9, v0, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    if-eqz v9, :cond_2
+
+    .line 407
+    new-instance v6, Ljava/util/HashSet;
+
+    invoke-direct {v6}, Ljava/util/HashSet;-><init>()V
+
+    .line 408
+    .local v6, set1:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/content/pm/Signature;>;"
+    iget-object v1, v3, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    .local v1, arr$:[Landroid/content/pm/Signature;
+    array-length v5, v1
+
+    .local v5, len$:I
+    const/4 v4, 0x0
+
+    .local v4, i$:I
+    :goto_1
+    if-ge v4, v5, :cond_0
+
+    aget-object v8, v1, v4
+
+    .line 409
+    .local v8, sig:Landroid/content/pm/Signature;
+    invoke-virtual {v6, v8}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    .line 408
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_1
+
+    .line 400
+    .end local v1           #arr$:[Landroid/content/pm/Signature;
+    .end local v4           #i$:I
+    .end local v5           #len$:I
+    .end local v6           #set1:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/content/pm/Signature;>;"
+    .end local v8           #sig:Landroid/content/pm/Signature;
+    :catch_0
+    move-exception v2
+
+    .line 402
+    .local v2, e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    invoke-virtual {v2}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+
+    goto :goto_0
+
+    .line 411
+    .end local v2           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
+    .restart local v1       #arr$:[Landroid/content/pm/Signature;
+    .restart local v4       #i$:I
+    .restart local v5       #len$:I
+    .restart local v6       #set1:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/content/pm/Signature;>;"
+    :cond_0
+    new-instance v7, Ljava/util/HashSet;
+
+    invoke-direct {v7}, Ljava/util/HashSet;-><init>()V
+
+    .line 412
+    .local v7, set2:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/content/pm/Signature;>;"
+    iget-object v1, v0, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    array-length v5, v1
+
+    const/4 v4, 0x0
+
+    :goto_2
+    if-ge v4, v5, :cond_1
+
+    aget-object v8, v1, v4
+
+    .line 413
+    .restart local v8       #sig:Landroid/content/pm/Signature;
+    invoke-virtual {v7, v8}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    .line 412
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_2
+
+    .line 416
+    .end local v8           #sig:Landroid/content/pm/Signature;
+    :cond_1
+    invoke-virtual {v6, v7}, Ljava/util/HashSet;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_2
+
+    .line 417
+    const/4 v9, 0x1
+
+    .line 421
+    .end local v1           #arr$:[Landroid/content/pm/Signature;
+    .end local v4           #i$:I
+    .end local v5           #len$:I
+    .end local v6           #set1:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/content/pm/Signature;>;"
+    .end local v7           #set2:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/content/pm/Signature;>;"
+    :goto_3
+    return v9
+
+    :cond_2
+    const/4 v9, 0x0
+
+    goto :goto_3
+.end method
+
+.method public static extractLicense(Ljava/lang/String;)[B
+    .locals 10
+    .parameter "apkPath"
+
+    .prologue
+    const/4 v9, 0x0
+
+    .line 184
+    const/4 v2, 0x0
+
+    .line 185
+    .local v2, ipJarFile:Ljava/util/jar/JarFile;
+    const/4 v4, 0x0
+
+    .line 187
+    .local v4, is:Ljava/io/InputStream;
+    :try_start_0
+    new-instance v3, Ljava/util/jar/JarFile;
+
+    invoke-direct {v3, p0}, Ljava/util/jar/JarFile;-><init>(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 188
+    .end local v2           #ipJarFile:Ljava/util/jar/JarFile;
+    .local v3, ipJarFile:Ljava/util/jar/JarFile;
+    :try_start_1
+    const-string v7, "assets/payload/license.dat"
+
+    invoke-virtual {v3, v7}, Ljava/util/jar/JarFile;->getJarEntry(Ljava/lang/String;)Ljava/util/jar/JarEntry;
+
+    move-result-object v5
+
+    .line 189
+    .local v5, je:Ljava/util/jar/JarEntry;
+    if-nez v5, :cond_2
+
+    .line 190
+    const/4 v7, 0x0
+
+    new-array v0, v7, [B
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_9
+
+    .line 201
+    if-eqz v4, :cond_0
+
+    .line 202
+    :try_start_2
+    throw v4
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_5
+
+    .line 207
+    :cond_0
+    :goto_0
+    if-eqz v3, :cond_1
+
+    .line 208
+    :try_start_3
+    invoke-virtual {v3}, Ljava/util/jar/JarFile;->close()V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_6
+
+    :cond_1
+    :goto_1
+    move-object v2, v3
+
+    .line 213
+    .end local v3           #ipJarFile:Ljava/util/jar/JarFile;
+    .end local v5           #je:Ljava/util/jar/JarEntry;
+    .restart local v2       #ipJarFile:Ljava/util/jar/JarFile;
+    :goto_2
+    return-object v0
+
+    .line 191
+    .end local v2           #ipJarFile:Ljava/util/jar/JarFile;
+    .restart local v3       #ipJarFile:Ljava/util/jar/JarFile;
+    .restart local v5       #je:Ljava/util/jar/JarEntry;
+    :cond_2
+    :try_start_4
+    invoke-virtual {v5}, Ljava/util/jar/JarEntry;->getSize()J
+
+    move-result-wide v7
+
+    long-to-int v6, v7
+
+    .line 192
+    .local v6, size:I
+    invoke-virtual {v3, v5}, Ljava/util/jar/JarFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
+
+    move-result-object v4
+
+    .line 193
+    new-array v0, v6, [B
+
+    .line 194
+    .local v0, buf:[B
+    invoke-virtual {v4, v0}, Ljava/io/InputStream;->read([B)I
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_9
+
+    move-result v6
+
+    .line 201
+    if-eqz v4, :cond_3
+
+    .line 202
+    :try_start_5
+    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_7
+
+    .line 207
+    :cond_3
+    :goto_3
+    if-eqz v3, :cond_4
+
+    .line 208
+    :try_start_6
+    invoke-virtual {v3}, Ljava/util/jar/JarFile;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_8
+
+    :cond_4
+    :goto_4
+    move-object v2, v3
+
+    .line 196
+    .end local v3           #ipJarFile:Ljava/util/jar/JarFile;
+    .restart local v2       #ipJarFile:Ljava/util/jar/JarFile;
+    goto :goto_2
+
+    .line 197
+    .end local v0           #buf:[B
+    .end local v5           #je:Ljava/util/jar/JarEntry;
+    .end local v6           #size:I
+    :catch_0
+    move-exception v1
+
+    .line 198
+    .local v1, e:Ljava/lang/Exception;
+    :goto_5
+    :try_start_7
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    .line 201
+    if-eqz v4, :cond_5
+
+    .line 202
+    :try_start_8
+    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_3
+
+    .line 207
+    .end local v1           #e:Ljava/lang/Exception;
+    :cond_5
+    :goto_6
+    if-eqz v2, :cond_6
+
+    .line 208
+    :try_start_9
+    invoke-virtual {v2}, Ljava/util/jar/JarFile;->close()V
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_4
+
+    .line 213
+    :cond_6
+    :goto_7
+    new-array v0, v9, [B
+
+    goto :goto_2
+
+    .line 200
+    :catchall_0
+    move-exception v7
+
+    .line 201
+    :goto_8
+    if-eqz v4, :cond_7
+
+    .line 202
+    :try_start_a
+    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_1
+
+    .line 207
+    :cond_7
+    :goto_9
+    if-eqz v2, :cond_8
+
+    .line 208
+    :try_start_b
+    invoke-virtual {v2}, Ljava/util/jar/JarFile;->close()V
+    :try_end_b
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_2
+
+    .line 200
+    :cond_8
+    :goto_a
+    throw v7
+
+    .line 203
+    :catch_1
+    move-exception v1
+
+    .line 204
+    .local v1, e:Ljava/io/IOException;
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_9
+
+    .line 209
+    .end local v1           #e:Ljava/io/IOException;
+    :catch_2
+    move-exception v1
+
+    .line 210
+    .restart local v1       #e:Ljava/io/IOException;
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_a
+
+    .line 203
+    .local v1, e:Ljava/lang/Exception;
+    :catch_3
+    move-exception v1
+
+    .line 204
+    .local v1, e:Ljava/io/IOException;
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_6
+
+    .line 209
+    .end local v1           #e:Ljava/io/IOException;
+    :catch_4
+    move-exception v1
+
+    .line 210
+    .restart local v1       #e:Ljava/io/IOException;
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_7
+
+    .line 203
+    .end local v1           #e:Ljava/io/IOException;
+    .end local v2           #ipJarFile:Ljava/util/jar/JarFile;
+    .restart local v3       #ipJarFile:Ljava/util/jar/JarFile;
+    .restart local v5       #je:Ljava/util/jar/JarEntry;
+    :catch_5
+    move-exception v1
+
+    .line 204
+    .restart local v1       #e:Ljava/io/IOException;
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_0
+
+    .line 209
+    .end local v1           #e:Ljava/io/IOException;
+    :catch_6
+    move-exception v1
+
+    .line 210
+    .restart local v1       #e:Ljava/io/IOException;
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_1
+
+    .line 203
+    .end local v1           #e:Ljava/io/IOException;
+    .restart local v0       #buf:[B
+    .restart local v6       #size:I
+    :catch_7
+    move-exception v1
+
+    .line 204
+    .restart local v1       #e:Ljava/io/IOException;
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_3
+
+    .line 209
+    .end local v1           #e:Ljava/io/IOException;
+    :catch_8
+    move-exception v1
+
+    .line 210
+    .restart local v1       #e:Ljava/io/IOException;
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_4
+
+    .line 200
+    .end local v0           #buf:[B
+    .end local v1           #e:Ljava/io/IOException;
+    .end local v5           #je:Ljava/util/jar/JarEntry;
+    .end local v6           #size:I
+    :catchall_1
+    move-exception v7
+
+    move-object v2, v3
+
+    .end local v3           #ipJarFile:Ljava/util/jar/JarFile;
+    .restart local v2       #ipJarFile:Ljava/util/jar/JarFile;
+    goto :goto_8
+
+    .line 197
+    .end local v2           #ipJarFile:Ljava/util/jar/JarFile;
+    .restart local v3       #ipJarFile:Ljava/util/jar/JarFile;
+    :catch_9
+    move-exception v1
+
+    move-object v2, v3
+
+    .end local v3           #ipJarFile:Ljava/util/jar/JarFile;
+    .restart local v2       #ipJarFile:Ljava/util/jar/JarFile;
+    goto :goto_5
 .end method
 
 .method private static extractPayload(Ljava/lang/String;I)Ljava/lang/String;
@@ -36,14 +532,14 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 140
+    .line 146
     const/4 v2, 0x0
 
-    .line 141
+    .line 147
     .local v2, ipJarFile:Ljava/util/jar/JarFile;
     const/4 v4, 0x0
 
-    .line 143
+    .line 149
     .local v4, is:Ljava/io/InputStream;
     :try_start_0
     new-instance v3, Ljava/util/jar/JarFile;
@@ -53,7 +549,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 144
+    .line 150
     .end local v2           #ipJarFile:Ljava/util/jar/JarFile;
     .local v3, ipJarFile:Ljava/util/jar/JarFile;
     :try_start_1
@@ -79,11 +575,11 @@
 
     move-result-object v5
 
-    .line 145
+    .line 151
     .local v5, je:Ljava/util/jar/JarEntry;
     if-nez v5, :cond_3
 
-    .line 146
+    .line 152
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -109,24 +605,24 @@
 
     move-result-object v5
 
-    .line 147
+    .line 153
     if-nez v5, :cond_3
 
-    .line 162
+    .line 168
     if-eqz v4, :cond_0
 
-    .line 163
+    .line 169
     :try_start_2
     throw v4
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_5
 
-    .line 168
+    .line 174
     :cond_0
     :goto_0
     if-eqz v3, :cond_1
 
-    .line 169
+    .line 175
     :try_start_3
     invoke-virtual {v3}, Ljava/util/jar/JarFile;->close()V
     :try_end_3
@@ -136,7 +632,7 @@
     :goto_1
     move-object v2, v3
 
-    .line 174
+    .line 180
     .end local v3           #ipJarFile:Ljava/util/jar/JarFile;
     .end local v5           #je:Ljava/util/jar/JarEntry;
     .restart local v2       #ipJarFile:Ljava/util/jar/JarFile;
@@ -144,7 +640,7 @@
     :goto_2
     return-object v7
 
-    .line 151
+    .line 157
     .end local v2           #ipJarFile:Ljava/util/jar/JarFile;
     .restart local v3       #ipJarFile:Ljava/util/jar/JarFile;
     .restart local v5       #je:Ljava/util/jar/JarEntry;
@@ -156,25 +652,25 @@
 
     long-to-int v6, v8
 
-    .line 152
+    .line 158
     .local v6, size:I
     invoke-virtual {v3, v5}, Ljava/util/jar/JarFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
 
     move-result-object v4
 
-    .line 153
+    .line 159
     new-array v0, v6, [B
 
-    .line 154
+    .line 160
     .local v0, buf:[B
     if-eqz v4, :cond_4
 
-    .line 155
+    .line 161
     invoke-virtual {v4, v0}, Ljava/io/InputStream;->read([B)I
 
     move-result v6
 
-    .line 157
+    .line 163
     :cond_4
     new-instance v8, Ljava/lang/String;
 
@@ -183,21 +679,21 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_9
 
-    .line 162
+    .line 168
     if-eqz v4, :cond_5
 
-    .line 163
+    .line 169
     :try_start_5
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_7
 
-    .line 168
+    .line 174
     :cond_5
     :goto_3
     if-eqz v3, :cond_6
 
-    .line 169
+    .line 175
     :try_start_6
     invoke-virtual {v3}, Ljava/util/jar/JarFile;->close()V
     :try_end_6
@@ -211,17 +707,17 @@
     .restart local v2       #ipJarFile:Ljava/util/jar/JarFile;
     move-object v7, v8
 
-    .line 157
+    .line 163
     goto :goto_2
 
-    .line 158
+    .line 164
     .end local v0           #buf:[B
     .end local v5           #je:Ljava/util/jar/JarEntry;
     .end local v6           #size:I
     :catch_0
     move-exception v1
 
-    .line 159
+    .line 165
     .local v1, e:Ljava/io/IOException;
     :goto_5
     :try_start_7
@@ -229,21 +725,21 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    .line 162
+    .line 168
     if-eqz v4, :cond_7
 
-    .line 163
+    .line 169
     :try_start_8
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_4
 
-    .line 168
+    .line 174
     :cond_7
     :goto_6
     if-eqz v2, :cond_2
 
-    .line 169
+    .line 175
     :try_start_9
     invoke-virtual {v2}, Ljava/util/jar/JarFile;->close()V
     :try_end_9
@@ -251,77 +747,77 @@
 
     goto :goto_2
 
-    .line 170
+    .line 176
     :catch_1
     move-exception v1
 
-    .line 171
+    .line 177
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_2
 
-    .line 161
+    .line 167
     .end local v1           #e:Ljava/io/IOException;
     :catchall_0
     move-exception v7
 
-    .line 162
+    .line 168
     :goto_7
     if-eqz v4, :cond_8
 
-    .line 163
+    .line 169
     :try_start_a
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
     :try_end_a
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_2
 
-    .line 168
+    .line 174
     :cond_8
     :goto_8
     if-eqz v2, :cond_9
 
-    .line 169
+    .line 175
     :try_start_b
     invoke-virtual {v2}, Ljava/util/jar/JarFile;->close()V
     :try_end_b
     .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_3
 
-    .line 161
+    .line 167
     :cond_9
     :goto_9
     throw v7
 
-    .line 164
-    :catch_2
-    move-exception v1
-
-    .line 165
-    .restart local v1       #e:Ljava/io/IOException;
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
-
-    goto :goto_8
-
     .line 170
-    .end local v1           #e:Ljava/io/IOException;
-    :catch_3
+    :catch_2
     move-exception v1
 
     .line 171
     .restart local v1       #e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
+    goto :goto_8
+
+    .line 176
+    .end local v1           #e:Ljava/io/IOException;
+    :catch_3
+    move-exception v1
+
+    .line 177
+    .restart local v1       #e:Ljava/io/IOException;
+    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+
     goto :goto_9
 
-    .line 164
+    .line 170
     :catch_4
     move-exception v1
 
-    .line 165
+    .line 171
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_6
 
-    .line 164
+    .line 170
     .end local v1           #e:Ljava/io/IOException;
     .end local v2           #ipJarFile:Ljava/util/jar/JarFile;
     .restart local v3       #ipJarFile:Ljava/util/jar/JarFile;
@@ -329,48 +825,48 @@
     :catch_5
     move-exception v1
 
-    .line 165
+    .line 171
     .restart local v1       #e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 170
+    .line 176
     .end local v1           #e:Ljava/io/IOException;
     :catch_6
     move-exception v1
 
-    .line 171
+    .line 177
     .restart local v1       #e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
-    .line 164
+    .line 170
     .end local v1           #e:Ljava/io/IOException;
     .restart local v0       #buf:[B
     .restart local v6       #size:I
     :catch_7
     move-exception v1
 
-    .line 165
+    .line 171
     .restart local v1       #e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_3
 
-    .line 170
+    .line 176
     .end local v1           #e:Ljava/io/IOException;
     :catch_8
     move-exception v1
 
-    .line 171
+    .line 177
     .restart local v1       #e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_4
 
-    .line 161
+    .line 167
     .end local v0           #buf:[B
     .end local v1           #e:Ljava/io/IOException;
     .end local v5           #je:Ljava/util/jar/JarEntry;
@@ -384,7 +880,7 @@
     .restart local v2       #ipJarFile:Ljava/util/jar/JarFile;
     goto :goto_7
 
-    .line 158
+    .line 164
     .end local v2           #ipJarFile:Ljava/util/jar/JarFile;
     .restart local v3       #ipJarFile:Ljava/util/jar/JarFile;
     :catch_9
@@ -403,14 +899,14 @@
     .parameter "apkFile"
 
     .prologue
-    .line 96
+    .line 102
     const/4 v3, 0x0
 
-    .line 97
+    .line 103
     .local v3, ipJarFile:Ljava/util/jar/JarFile;
     const/4 v5, 0x0
 
-    .line 99
+    .line 105
     .local v5, is:Ljava/io/InputStream;
     :try_start_0
     new-instance v4, Ljava/util/jar/JarFile;
@@ -420,7 +916,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 100
+    .line 106
     .end local v3           #ipJarFile:Ljava/util/jar/JarFile;
     .local v4, ipJarFile:Ljava/util/jar/JarFile;
     :try_start_1
@@ -428,7 +924,7 @@
 
     move-result-object v6
 
-    .line 101
+    .line 107
     .local v6, je:Ljava/util/jar/JarEntry;
     invoke-virtual {v6}, Ljava/util/jar/JarEntry;->getSize()J
 
@@ -436,7 +932,7 @@
 
     long-to-int v8, v9
 
-    .line 102
+    .line 108
     .local v8, total_size:I
     sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -464,23 +960,23 @@
 
     invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 103
+    .line 109
     invoke-virtual {v4, v6}, Ljava/util/jar/JarFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
 
     move-result-object v5
 
-    .line 104
+    .line 110
     new-array v0, v8, [B
 
-    .line 105
+    .line 111
     .local v0, buf:[B
     const/4 v1, 0x0
 
-    .line 106
+    .line 112
     .local v1, count:I
     const/4 v7, 0x0
 
-    .line 108
+    .line 114
     .local v7, read_size:I
     :cond_0
     sub-int v9, v8, v1
@@ -489,13 +985,13 @@
 
     move-result v7
 
-    .line 109
+    .line 115
     add-int/2addr v1, v7
 
-    .line 115
+    .line 121
     if-gtz v7, :cond_0
 
-    .line 117
+    .line 123
     sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -523,21 +1019,21 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_7
 
-    .line 124
+    .line 130
     if-eqz v5, :cond_1
 
-    .line 125
+    .line 131
     :try_start_2
     invoke-virtual {v5}, Ljava/io/InputStream;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_5
 
-    .line 130
+    .line 136
     :cond_1
     :goto_0
     if-eqz v4, :cond_2
 
-    .line 131
+    .line 137
     :try_start_3
     invoke-virtual {v4}, Ljava/util/jar/JarFile;->close()V
     :try_end_3
@@ -547,7 +1043,7 @@
     :goto_1
     move-object v3, v4
 
-    .line 136
+    .line 142
     .end local v0           #buf:[B
     .end local v1           #count:I
     .end local v4           #ipJarFile:Ljava/util/jar/JarFile;
@@ -558,11 +1054,11 @@
     :goto_2
     return-object v0
 
-    .line 119
+    .line 125
     :catch_0
     move-exception v2
 
-    .line 120
+    .line 126
     .local v2, e:Ljava/lang/Exception;
     :goto_3
     :try_start_4
@@ -574,7 +1070,7 @@
 
     invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/Object;)V
 
-    .line 121
+    .line 127
     sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v10, "Check private key"
@@ -583,108 +1079,108 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 124
+    .line 130
     if-eqz v5, :cond_3
 
-    .line 125
+    .line 131
     :try_start_5
     invoke-virtual {v5}, Ljava/io/InputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
-    .line 130
+    .line 136
     .end local v2           #e:Ljava/lang/Exception;
     :cond_3
     :goto_4
     if-eqz v3, :cond_4
 
-    .line 131
+    .line 137
     :try_start_6
     invoke-virtual {v3}, Ljava/util/jar/JarFile;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_4
 
-    .line 136
+    .line 142
     :cond_4
     :goto_5
     const/4 v0, 0x0
 
     goto :goto_2
 
-    .line 123
+    .line 129
     :catchall_0
     move-exception v9
 
-    .line 124
+    .line 130
     :goto_6
     if-eqz v5, :cond_5
 
-    .line 125
+    .line 131
     :try_start_7
     invoke-virtual {v5}, Ljava/io/InputStream;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_1
 
-    .line 130
+    .line 136
     :cond_5
     :goto_7
     if-eqz v3, :cond_6
 
-    .line 131
+    .line 137
     :try_start_8
     invoke-virtual {v3}, Ljava/util/jar/JarFile;->close()V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_2
 
-    .line 123
+    .line 129
     :cond_6
     :goto_8
     throw v9
 
-    .line 126
+    .line 132
     :catch_1
     move-exception v2
 
-    .line 127
+    .line 133
     .local v2, e:Ljava/io/IOException;
     invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_7
 
-    .line 132
+    .line 138
     .end local v2           #e:Ljava/io/IOException;
     :catch_2
     move-exception v2
 
-    .line 133
+    .line 139
     .restart local v2       #e:Ljava/io/IOException;
     invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_8
 
-    .line 126
+    .line 132
     .local v2, e:Ljava/lang/Exception;
     :catch_3
     move-exception v2
 
-    .line 127
+    .line 133
     .local v2, e:Ljava/io/IOException;
     invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_4
 
-    .line 132
+    .line 138
     .end local v2           #e:Ljava/io/IOException;
     :catch_4
     move-exception v2
 
-    .line 133
+    .line 139
     .restart local v2       #e:Ljava/io/IOException;
     invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_5
 
-    .line 126
+    .line 132
     .end local v2           #e:Ljava/io/IOException;
     .end local v3           #ipJarFile:Ljava/util/jar/JarFile;
     .restart local v0       #buf:[B
@@ -696,24 +1192,24 @@
     :catch_5
     move-exception v2
 
-    .line 127
+    .line 133
     .restart local v2       #e:Ljava/io/IOException;
     invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 132
+    .line 138
     .end local v2           #e:Ljava/io/IOException;
     :catch_6
     move-exception v2
 
-    .line 133
+    .line 139
     .restart local v2       #e:Ljava/io/IOException;
     invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
-    .line 123
+    .line 129
     .end local v0           #buf:[B
     .end local v1           #count:I
     .end local v2           #e:Ljava/io/IOException;
@@ -729,7 +1225,7 @@
     .restart local v3       #ipJarFile:Ljava/util/jar/JarFile;
     goto :goto_6
 
-    .line 119
+    .line 125
     .end local v3           #ipJarFile:Ljava/util/jar/JarFile;
     .restart local v4       #ipJarFile:Ljava/util/jar/JarFile;
     :catch_7
@@ -749,14 +1245,14 @@
     .prologue
     const/4 v4, -0x1
 
-    .line 330
+    .line 380
     const-string v3, "-"
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 331
+    .line 381
     .local v1, end:I
     const-string v3, "/"
 
@@ -764,13 +1260,13 @@
 
     move-result v2
 
-    .line 333
+    .line 383
     .local v2, start:I
     if-eq v1, v4, :cond_0
 
     if-eq v2, v4, :cond_0
 
-    .line 334
+    .line 384
     add-int/lit8 v3, v2, 0x1
 
     :try_start_0
@@ -778,11 +1274,11 @@
 
     move-result-object v3
 
-    .line 338
+    .line 388
     :goto_0
     return-object v3
 
-    .line 336
+    .line 386
     :cond_0
     const-string v3, "null"
     :try_end_0
@@ -790,11 +1286,11 @@
 
     goto :goto_0
 
-    .line 337
+    .line 387
     :catch_0
     move-exception v0
 
-    .line 338
+    .line 388
     .local v0, e:Ljava/lang/Exception;
     const-string v3, "null"
 
@@ -806,7 +1302,7 @@
     .parameter "apkPath"
 
     .prologue
-    .line 294
+    .line 344
     const-class v3, Lcom/android/server/enterprise/PayloadVerifier;
 
     monitor-enter v3
@@ -816,7 +1312,7 @@
 
     move-result-object v1
 
-    .line 295
+    .line 345
     .local v1, path:Ljava/lang/String;
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -840,7 +1336,7 @@
 
     invoke-virtual {v2, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 296
+    .line 346
     new-instance v0, Ljava/io/File;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -863,7 +1359,7 @@
 
     invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 297
+    .line 347
     .local v0, f:Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -871,7 +1367,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 298
+    .line 348
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -892,7 +1388,7 @@
 
     move-result-object v2
 
-    .line 300
+    .line 350
     :goto_0
     monitor-exit v3
 
@@ -903,7 +1399,7 @@
 
     goto :goto_0
 
-    .line 294
+    .line 344
     .end local v0           #f:Ljava/io/File;
     .end local v1           #path:Ljava/lang/String;
     :catchall_0
@@ -914,59 +1410,64 @@
     throw v2
 .end method
 
-.method private static joinBytes([B[B[B)[B
-    .locals 5
-    .parameter "bytes1"
-    .parameter "bytes2"
-    .parameter "bytes3"
+.method private static varargs joinBytes([[B)[B
+    .locals 7
+    .parameter "bytes"
 
     .prologue
-    const/4 v4, 0x0
-
-    .line 85
-    const/4 v1, 0x0
-
-    .line 86
-    .local v1, outBytes:[B
-    array-length v2, p0
-
-    array-length v3, p1
-
-    add-int/2addr v2, v3
-
-    array-length v3, p2
-
-    add-int v0, v2, v3
-
-    .line 88
-    .local v0, len:I
-    new-array v1, v0, [B
-
-    .line 89
-    array-length v2, p0
-
-    invoke-static {p0, v4, v1, v4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
     .line 90
-    array-length v2, p0
+    new-instance v2, Ljava/io/ByteArrayOutputStream;
 
-    array-length v3, p1
-
-    invoke-static {p1, v4, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
     .line 91
-    array-length v2, p0
+    .local v2, bos:Ljava/io/ByteArrayOutputStream;
+    move-object v0, p0
 
-    array-length v3, p1
+    .local v0, arr$:[[B
+    array-length v5, v0
 
-    add-int/2addr v2, v3
+    .local v5, len$:I
+    const/4 v4, 0x0
 
-    array-length v3, p2
+    .local v4, i$:I
+    :goto_0
+    if-ge v4, v5, :cond_0
 
-    invoke-static {p2, v4, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    aget-object v1, v0, v4
 
-    .line 92
-    return-object v1
+    .line 93
+    .local v1, b:[B
+    :try_start_0
+    invoke-virtual {v2, v1}, Ljava/io/ByteArrayOutputStream;->write([B)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 91
+    :goto_1
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    .line 94
+    :catch_0
+    move-exception v3
+
+    .line 95
+    .local v3, e:Ljava/io/IOException;
+    invoke-virtual {v3}, Ljava/io/IOException;->printStackTrace()V
+
+    goto :goto_1
+
+    .line 98
+    .end local v1           #b:[B
+    .end local v3           #e:Ljava/io/IOException;
+    :cond_0
+    invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+
+    move-result-object v6
+
+    return-object v6
 .end method
 
 .method private static loadCertificates(Ljava/util/jar/JarFile;Ljava/util/jar/JarEntry;[B)[Ljava/security/cert/Certificate;
@@ -978,7 +1479,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 68
+    .line 73
     :try_start_0
     new-instance v1, Ljava/io/BufferedInputStream;
 
@@ -988,7 +1489,7 @@
 
     invoke-direct {v1, v3}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 69
+    .line 74
     .local v1, is:Ljava/io/InputStream;
     :cond_0
     const/4 v3, 0x0
@@ -1003,10 +1504,10 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 72
+    .line 77
     invoke-virtual {v1}, Ljava/io/InputStream;->close()V
 
-    .line 73
+    .line 78
     if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Ljava/util/jar/JarEntry;->getCertificates()[Ljava/security/cert/Certificate;
@@ -1016,17 +1517,17 @@
 
     move-result-object v2
 
-    .line 81
+    .line 86
     .end local v1           #is:Ljava/io/InputStream;
     :cond_1
     :goto_0
     return-object v2
 
-    .line 74
+    .line 79
     :catch_0
     move-exception v0
 
-    .line 75
+    .line 80
     .local v0, e:Ljava/io/IOException;
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -1068,17 +1569,17 @@
 
     invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 76
+    .line 81
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 77
+    .line 82
     .end local v0           #e:Ljava/io/IOException;
     :catch_1
     move-exception v0
 
-    .line 78
+    .line 83
     .local v0, e:Ljava/lang/RuntimeException;
     sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -1120,7 +1621,7 @@
 
     invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 79
+    .line 84
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->printStackTrace()V
 
     goto :goto_0
@@ -1131,7 +1632,7 @@
     .parameter "apkPath"
 
     .prologue
-    .line 322
+    .line 372
     const-class v3, Lcom/android/server/enterprise/PayloadVerifier;
 
     monitor-enter v3
@@ -1141,7 +1642,7 @@
 
     move-result-object v1
 
-    .line 323
+    .line 373
     .local v1, path:Ljava/lang/String;
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -1165,7 +1666,7 @@
 
     invoke-virtual {v2, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 324
+    .line 374
     new-instance v0, Ljava/io/File;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1188,7 +1689,7 @@
 
     invoke-direct {v0, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 325
+    .line 375
     .local v0, f:Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
@@ -1196,18 +1697,18 @@
 
     if-eqz v2, :cond_0
 
-    .line 326
+    .line 376
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 327
+    .line 377
     :cond_0
     monitor-exit v3
 
     return-void
 
-    .line 322
+    .line 372
     .end local v0           #f:Ljava/io/File;
     .end local v1           #path:Ljava/lang/String;
     :catchall_0
@@ -1224,7 +1725,7 @@
     .parameter "fromApkPath"
 
     .prologue
-    .line 304
+    .line 354
     const-class v5, Lcom/android/server/enterprise/PayloadVerifier;
 
     monitor-enter v5
@@ -1234,7 +1735,7 @@
 
     move-result-object v2
 
-    .line 305
+    .line 355
     .local v2, path:Ljava/lang/String;
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -1258,7 +1759,7 @@
 
     invoke-virtual {v4, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 306
+    .line 356
     new-instance v3, Ljava/io/File;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1281,18 +1782,18 @@
 
     invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 308
+    .line 358
     .local v3, to:Ljava/io/File;
     if-eqz v3, :cond_0
 
-    .line 309
+    .line 359
     invoke-virtual {v3}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v4
 
     invoke-virtual {v4}, Ljava/io/File;->mkdirs()Z
 
-    .line 312
+    .line 362
     :cond_0
     new-instance v1, Ljava/io/File;
 
@@ -1300,7 +1801,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 315
+    .line 365
     .local v1, from:Ljava/io/File;
     :try_start_1
     invoke-static {v1, v3}, Landroid/os/FileUtils;->copyFile(Ljava/io/File;Ljava/io/File;)Z
@@ -1308,17 +1809,17 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 319
+    .line 369
     :goto_0
     monitor-exit v5
 
     return-void
 
-    .line 316
+    .line 366
     :catch_0
     move-exception v0
 
-    .line 317
+    .line 367
     .local v0, e:Ljava/lang/Exception;
     :try_start_2
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
@@ -1327,7 +1828,7 @@
 
     goto :goto_0
 
-    .line 304
+    .line 354
     .end local v0           #e:Ljava/lang/Exception;
     .end local v1           #from:Ljava/io/File;
     .end local v2           #path:Ljava/lang/String;
@@ -1348,26 +1849,26 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 244
+    .line 284
     const/4 v1, 0x0
 
-    .line 245
+    .line 285
     .local v1, enterpriseApkPath:Ljava/lang/String;
     const/4 v5, 0x0
 
-    .line 246
+    .line 286
     .local v5, storedEnterpriseApkPath:Ljava/lang/String;
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
-    .line 249
+    .line 289
     .local v3, pm:Landroid/content/pm/PackageManager;
     invoke-static {p0}, Lcom/android/server/enterprise/PayloadVerifier;->getStoredPublicKeyPath(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 252
+    .line 292
     :try_start_0
     const-string v7, "com.sec.enterprise.permissions"
 
@@ -1377,7 +1878,7 @@
 
     move-result-object v2
 
-    .line 253
+    .line 293
     .local v2, pi:Landroid/content/pm/PackageInfo;
     iget-object v7, v2, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -1385,14 +1886,14 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 258
+    .line 298
     .end local v2           #pi:Landroid/content/pm/PackageInfo;
     :goto_0
     if-nez v1, :cond_1
 
     if-nez v5, :cond_1
 
-    .line 259
+    .line 299
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v8, "Enterprise APK Path is NULL , cannot proceed with payload verification."
@@ -1401,31 +1902,31 @@
 
     move v4, v6
 
-    .line 287
+    .line 337
     :cond_0
     :goto_1
     return v4
 
-    .line 254
+    .line 294
     :catch_0
     move-exception v0
 
-    .line 255
+    .line 295
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 264
+    .line 304
     .end local v0           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :cond_1
     const/4 v4, 0x0
 
-    .line 267
+    .line 307
     .local v4, result:Z
     if-eqz v5, :cond_2
 
-    .line 268
+    .line 308
     :try_start_1
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -1433,19 +1934,19 @@
 
     invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 269
+    .line 309
     invoke-static {v5, p0}, Lcom/android/server/enterprise/PayloadVerifier;->verify(Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result v4
 
-    .line 276
+    .line 316
     :cond_2
     :goto_2
-    if-nez v4, :cond_0
+    if-nez v4, :cond_3
 
-    .line 277
+    .line 317
     :try_start_2
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -1453,51 +1954,84 @@
 
     invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 278
+    .line 318
     invoke-static {p0}, Lcom/android/server/enterprise/PayloadVerifier;->removeStoredPublicKeyPath(Ljava/lang/String;)V
 
-    .line 279
+    .line 319
     invoke-static {v1, p0}, Lcom/android/server/enterprise/PayloadVerifier;->verify(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v4
 
-    .line 280
-    if-eqz v4, :cond_0
+    .line 320
+    if-eqz v4, :cond_3
 
-    .line 281
+    .line 321
     invoke-static {p0, v1}, Lcom/android/server/enterprise/PayloadVerifier;->setStoredPublicKeyPath(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+
+    .line 329
+    :cond_3
+    if-nez v4, :cond_0
+
+    .line 330
+    :try_start_3
+    sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    const-string v8, "COMPARING ENTERPRISE SIGNATURE"
+
+    invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    .line 331
+    invoke-static {p0, p1}, Lcom/android/server/enterprise/PayloadVerifier;->compareEnterpriseSignature(Ljava/lang/String;Landroid/content/Context;)Z
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
+
+    move-result v4
 
     goto :goto_1
 
-    .line 283
+    .line 311
     :catch_1
     move-exception v0
 
-    .line 284
+    .line 312
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    move v4, v6
+    goto :goto_2
 
-    .line 285
-    goto :goto_1
-
-    .line 271
+    .line 323
     .end local v0           #e:Ljava/lang/Exception;
     :catch_2
     move-exception v0
 
-    .line 272
+    .line 324
     .restart local v0       #e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_2
+    move v4, v6
+
+    .line 325
+    goto :goto_1
+
+    .line 333
+    .end local v0           #e:Ljava/lang/Exception;
+    :catch_3
+    move-exception v0
+
+    .line 334
+    .restart local v0       #e:Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    move v4, v6
+
+    .line 335
+    goto :goto_1
 .end method
 
 .method private static verify(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 14
+    .locals 16
     .parameter "enterpriseApkPath"
     .parameter "apkPath"
     .annotation system Ldalvik/annotation/Throws;
@@ -1507,275 +2041,311 @@
     .end annotation
 
     .prologue
-    .line 202
-    new-instance v6, Ljava/util/jar/JarFile;
+    .line 241
+    new-instance v7, Ljava/util/jar/JarFile;
 
-    invoke-direct {v6, p0}, Ljava/util/jar/JarFile;-><init>(Ljava/lang/String;)V
+    move-object/from16 v0, p0
 
-    .line 203
-    .local v6, jarFile:Ljava/util/jar/JarFile;
-    const/16 v11, 0x2000
+    invoke-direct {v7, v0}, Ljava/util/jar/JarFile;-><init>(Ljava/lang/String;)V
 
-    new-array v8, v11, [B
+    .line 242
+    .local v7, jarFile:Ljava/util/jar/JarFile;
+    const/16 v13, 0x2000
 
-    .line 204
-    .local v8, readBuffer:[B
-    const-string v11, "AndroidManifest.xml"
+    new-array v10, v13, [B
 
-    invoke-virtual {v6, v11}, Ljava/util/jar/JarFile;->getJarEntry(Ljava/lang/String;)Ljava/util/jar/JarEntry;
+    .line 243
+    .local v10, readBuffer:[B
+    const-string v13, "AndroidManifest.xml"
 
-    move-result-object v11
+    invoke-virtual {v7, v13}, Ljava/util/jar/JarFile;->getJarEntry(Ljava/lang/String;)Ljava/util/jar/JarEntry;
 
-    invoke-static {v6, v11, v8}, Lcom/android/server/enterprise/PayloadVerifier;->loadCertificates(Ljava/util/jar/JarFile;Ljava/util/jar/JarEntry;[B)[Ljava/security/cert/Certificate;
+    move-result-object v13
 
-    move-result-object v1
-
-    .line 207
-    .local v1, certs:[Ljava/security/cert/Certificate;
-    invoke-virtual {v6}, Ljava/util/jar/JarFile;->close()V
-
-    .line 209
-    if-nez v1, :cond_0
-
-    .line 210
-    const/4 v11, 0x0
-
-    .line 239
-    :goto_0
-    return v11
-
-    .line 213
-    :cond_0
-    const-string v11, "AndroidManifest.xml"
-
-    invoke-static {v11, p1}, Lcom/android/server/enterprise/PayloadVerifier;->getFileData(Ljava/lang/String;Ljava/lang/String;)[B
-
-    move-result-object v7
-
-    .line 214
-    .local v7, manifestData:[B
-    const-string v11, "classes.dex"
-
-    invoke-static {v11, p1}, Lcom/android/server/enterprise/PayloadVerifier;->getFileData(Ljava/lang/String;Ljava/lang/String;)[B
+    invoke-static {v7, v13, v10}, Lcom/android/server/enterprise/PayloadVerifier;->loadCertificates(Ljava/util/jar/JarFile;Ljava/util/jar/JarEntry;[B)[Ljava/security/cert/Certificate;
 
     move-result-object v2
 
-    .line 215
-    .local v2, classesData:[B
-    const-string v11, "resources.arsc"
+    .line 246
+    .local v2, certs:[Ljava/security/cert/Certificate;
+    invoke-virtual {v7}, Ljava/util/jar/JarFile;->close()V
 
-    invoke-static {v11, p1}, Lcom/android/server/enterprise/PayloadVerifier;->getFileData(Ljava/lang/String;Ljava/lang/String;)[B
+    .line 248
+    if-nez v2, :cond_0
+
+    .line 249
+    const/4 v13, 0x0
+
+    .line 279
+    :goto_0
+    return v13
+
+    .line 252
+    :cond_0
+    const-string v13, "AndroidManifest.xml"
+
+    move-object/from16 v0, p1
+
+    invoke-static {v13, v0}, Lcom/android/server/enterprise/PayloadVerifier;->getFileData(Ljava/lang/String;Ljava/lang/String;)[B
 
     move-result-object v9
 
-    .line 216
-    .local v9, rsrcData:[B
-    invoke-static {v7, v2, v9}, Lcom/android/server/enterprise/PayloadVerifier;->joinBytes([B[B[B)[B
+    .line 253
+    .local v9, manifestData:[B
+    const-string v13, "classes.dex"
 
-    move-result-object v10
+    move-object/from16 v0, p1
 
-    .line 217
-    .local v10, totalData:[B
-    const/4 v11, 0x0
-
-    aget-object v0, v1, v11
-
-    .line 218
-    .local v0, cert:Ljava/security/cert/Certificate;
-    const/4 v5, 0x1
-
-    .line 219
-    .local v5, index:I
-    const/4 v4, 0x0
-
-    .line 221
-    .local v4, extractedb64Signature:Ljava/lang/String;
-    :goto_1
-    invoke-static {p1, v5}, Lcom/android/server/enterprise/PayloadVerifier;->extractPayload(Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_2
-
-    .line 222
-    sget-object v11, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    invoke-virtual {v11}, Ljava/io/PrintStream;->println()V
-
-    .line 223
-    sget-object v11, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "Extracted Payload("
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string v13, ") Size : "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
-
-    move-result v13
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    .line 225
-    sget-object v11, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "Extracted Payload("
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string v13, ") - "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    .line 226
-    const/4 v11, 0x0
-
-    invoke-static {v4, v11}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+    invoke-static {v13, v0}, Lcom/android/server/enterprise/PayloadVerifier;->getFileData(Ljava/lang/String;Ljava/lang/String;)[B
 
     move-result-object v3
 
-    .line 227
-    .local v3, extractedSignature:[B
-    invoke-virtual {v0}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
+    .line 254
+    .local v3, classesData:[B
+    const-string v13, "resources.arsc"
+
+    move-object/from16 v0, p1
+
+    invoke-static {v13, v0}, Lcom/android/server/enterprise/PayloadVerifier;->getFileData(Ljava/lang/String;Ljava/lang/String;)[B
 
     move-result-object v11
 
-    invoke-static {v10, v3, v11}, Lcom/android/server/enterprise/PayloadVerifier;->verify([B[BLjava/security/PublicKey;)Z
+    .line 255
+    .local v11, rsrcData:[B
+    invoke-static/range {p1 .. p1}, Lcom/android/server/enterprise/PayloadVerifier;->extractLicense(Ljava/lang/String;)[B
 
-    move-result v11
+    move-result-object v8
 
-    if-eqz v11, :cond_1
+    .line 256
+    .local v8, licenseData:[B
+    const/4 v13, 0x4
 
-    .line 228
-    sget-object v11, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    new-array v13, v13, [[B
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    const/4 v14, 0x0
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    aput-object v9, v13, v14
 
-    const-string v13, "Signature Verification SUCCESS for Payload("
+    const/4 v14, 0x1
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aput-object v3, v13, v14
+
+    const/4 v14, 0x2
+
+    aput-object v11, v13, v14
+
+    const/4 v14, 0x3
+
+    aput-object v8, v13, v14
+
+    invoke-static {v13}, Lcom/android/server/enterprise/PayloadVerifier;->joinBytes([[B)[B
 
     move-result-object v12
 
-    invoke-virtual {v12, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    .line 257
+    .local v12, totalData:[B
+    const/4 v13, 0x0
 
-    move-result-object v12
+    aget-object v1, v2, v13
 
-    const-string v13, ")"
+    .line 258
+    .local v1, cert:Ljava/security/cert/Certificate;
+    const/4 v6, 0x1
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 259
+    .local v6, index:I
+    const/4 v5, 0x0
 
-    move-result-object v12
+    .line 261
+    .local v5, extractedb64Signature:Ljava/lang/String;
+    :goto_1
+    move-object/from16 v0, p1
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, v6}, Lcom/android/server/enterprise/PayloadVerifier;->extractPayload(Ljava/lang/String;I)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v5
 
-    invoke-virtual {v11, v12}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    if-eqz v5, :cond_2
 
-    .line 229
-    const/4 v11, 0x1
+    .line 262
+    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    invoke-virtual {v13}, Ljava/io/PrintStream;->println()V
+
+    .line 263
+    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "Extracted Payload("
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, ") Size : "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v15
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    .line 265
+    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "Extracted Payload("
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, ") - "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    .line 266
+    const/4 v13, 0x0
+
+    invoke-static {v5, v13}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+
+    move-result-object v4
+
+    .line 267
+    .local v4, extractedSignature:[B
+    invoke-virtual {v1}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
+
+    move-result-object v13
+
+    invoke-static {v12, v4, v13}, Lcom/android/server/enterprise/PayloadVerifier;->verify([B[BLjava/security/PublicKey;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_1
+
+    .line 268
+    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "Signature Verification SUCCESS for Payload("
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    const-string v15, ")"
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    .line 269
+    const/4 v13, 0x1
 
     goto/16 :goto_0
 
-    .line 231
+    .line 271
     :cond_1
-    sget-object v11, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v14, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "Signature Verification FAILURE for Payload("
+    const-string v15, "Signature Verification FAILURE for Payload("
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v12, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v14
 
-    const-string v13, ")"
+    const-string v15, ")"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v11, v12}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 233
-    add-int/lit8 v5, v5, 0x1
+    .line 273
+    add-int/lit8 v6, v6, 0x1
 
-    .line 234
+    .line 274
     goto/16 :goto_1
 
-    .line 236
-    .end local v3           #extractedSignature:[B
+    .line 276
+    .end local v4           #extractedSignature:[B
     :cond_2
-    if-nez v4, :cond_3
+    if-nez v5, :cond_3
 
-    .line 237
-    sget-object v11, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    .line 277
+    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string v12, "No more payloads"
+    const-string v14, "No more payloads"
 
-    invoke-virtual {v11, v12}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 239
+    .line 279
     :cond_3
-    const/4 v11, 0x0
+    const/4 v13, 0x0
 
     goto/16 :goto_0
 .end method
@@ -1787,10 +2357,10 @@
     .parameter "key"
 
     .prologue
-    .line 178
+    .line 217
     const/4 v1, 0x0
 
-    .line 184
+    .line 223
     .local v1, ret:Z
     :try_start_0
     const-string v3, "SHA1withRSA"
@@ -1799,14 +2369,14 @@
 
     move-result-object v2
 
-    .line 185
+    .line 224
     .local v2, verify:Ljava/security/Signature;
     invoke-virtual {v2, p2}, Ljava/security/Signature;->initVerify(Ljava/security/PublicKey;)V
 
-    .line 186
+    .line 225
     invoke-virtual {v2, p0}, Ljava/security/Signature;->update([B)V
 
-    .line 187
+    .line 226
     invoke-virtual {v2, p1}, Ljava/security/Signature;->verify([B)Z
     :try_end_0
     .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_0
@@ -1816,49 +2386,49 @@
 
     move-result v1
 
-    .line 197
+    .line 236
     .end local v2           #verify:Ljava/security/Signature;
     :goto_0
     return v1
 
-    .line 188
+    .line 227
     :catch_0
     move-exception v0
 
-    .line 189
+    .line 228
     .local v0, e:Ljava/security/InvalidKeyException;
     invoke-virtual {v0}, Ljava/security/InvalidKeyException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 190
+    .line 229
     .end local v0           #e:Ljava/security/InvalidKeyException;
     :catch_1
     move-exception v0
 
-    .line 191
+    .line 230
     .local v0, e:Ljava/security/NoSuchAlgorithmException;
     invoke-virtual {v0}, Ljava/security/NoSuchAlgorithmException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 192
+    .line 231
     .end local v0           #e:Ljava/security/NoSuchAlgorithmException;
     :catch_2
     move-exception v0
 
-    .line 193
+    .line 232
     .local v0, e:Ljava/security/SignatureException;
     invoke-virtual {v0}, Ljava/security/SignatureException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 194
+    .line 233
     .end local v0           #e:Ljava/security/SignatureException;
     :catch_3
     move-exception v0
 
-    .line 195
+    .line 234
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 

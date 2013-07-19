@@ -3127,7 +3127,7 @@
 
     iget-object v3, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService;->mContext:Landroid/content/Context;
 
-    const v4, 0x10401f1
+    const v4, 0x10401f6
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3336,7 +3336,7 @@
 
     iget-object v6, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService;->mContext:Landroid/content/Context;
 
-    const v7, 0x10401f3
+    const v7, 0x10401f8
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

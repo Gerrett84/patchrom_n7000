@@ -148,6 +148,14 @@
 .method public abstract isIMSEnabledOnWifi()Z
 .end method
 
+.method public abstract isImsForbidden()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/samsung/commonimsservice/IMSException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isMuted(I)Z
 .end method
 
@@ -227,6 +235,9 @@
     .end annotation
 .end method
 
+.method public abstract setAudioMode(I)V
+.end method
+
 .method public abstract setAutoResponse(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -243,7 +254,7 @@
     .end annotation
 .end method
 
-.method public abstract setDisplay(ILandroid/view/SurfaceHolder;)V
+.method public abstract setDisplay(ILandroid/view/SurfaceHolder;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/samsung/commonimsservice/IMSException;

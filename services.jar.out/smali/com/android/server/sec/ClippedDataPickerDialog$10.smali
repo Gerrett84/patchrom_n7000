@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 900
+    .line 982
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$10;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iput-object p2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$10;->val$data:Landroid/sec/clipboard/data/ClipboardData;
@@ -43,79 +43,54 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 4
 
     .prologue
-    .line 903
-    invoke-static {}, Landroid/sec/clipboard/util/FileHelper;->getInstance()Landroid/sec/clipboard/util/FileHelper;
+    .line 985
+    iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$10;->val$data:Landroid/sec/clipboard/data/ClipboardData;
+
+    check-cast v0, Landroid/sec/clipboard/data/list/ClipboardDataText;
+
+    .line 986
+    .local v0, textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "android.intent.action.CLIPBOARD_TO_MEMO_INSERT"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 987
+    .local v1, textIntent:Landroid/content/Intent;
+    const/16 v2, 0x20
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    .line 988
+    const-string v2, "title"
+
+    const-string v3, ""
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 989
+    const-string v2, "content"
+
+    invoke-virtual {v0}, Landroid/sec/clipboard/data/list/ClipboardDataText;->GetText()Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    .line 904
-    .local v3, mFileHelper:Landroid/sec/clipboard/util/FileHelper;
-    invoke-virtual {v3}, Landroid/sec/clipboard/util/FileHelper;->getSDCardPath()Ljava/lang/String;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
-    move-result-object v1
-
-    .line 905
-    .local v1, filePath:Ljava/lang/String;
-    iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$10;->val$data:Landroid/sec/clipboard/data/ClipboardData;
-
-    check-cast v0, Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
-
-    .line 906
-    .local v0, bitData:Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
-    invoke-virtual {v0}, Landroid/sec/clipboard/data/list/ClipboardDataBitmap;->GetBitmapPath()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 908
-    .local v4, path:Ljava/lang/String;
-    new-instance v2, Landroid/content/Intent;
-
-    const-string v5, "com.android.clipboardsaveservice.CLIPBOARD_SAVE_RECEIVER"
-
-    invoke-direct {v2, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 910
-    .local v2, imageIntent:Landroid/content/Intent;
-    const-string v5, "copyPath"
-
-    invoke-virtual {v2, v5, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 911
-    const-string v5, "pastePath"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, "/Clipboard/"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v2, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 912
-    iget-object v5, p0, Lcom/android/server/sec/ClippedDataPickerDialog$10;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+    .line 990
+    iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$10;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     #getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mContext:Landroid/content/Context;
-    invoke-static {v5}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$000(Lcom/android/server/sec/ClippedDataPickerDialog;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$000(Lcom/android/server/sec/ClippedDataPickerDialog;)Landroid/content/Context;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v5, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 913
+    .line 991
     return-void
 .end method

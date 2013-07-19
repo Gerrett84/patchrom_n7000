@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 173
+    .line 260
     iput-object p1, p0, Lcom/android/internal/policy/impl/PointerInterceptView$4;->this$0:Lcom/android/internal/policy/impl/PointerInterceptView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,21 +41,21 @@
     .locals 2
 
     .prologue
-    .line 175
+    .line 262
     const-string v0, "PointerInterceptView"
 
     const-string v1, "AnimatingHide"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 176
+    .line 263
     iget-object v0, p0, Lcom/android/internal/policy/impl/PointerInterceptView$4;->this$0:Lcom/android/internal/policy/impl/PointerInterceptView;
 
     const/4 v1, 0x0
 
     #setter for: Lcom/android/internal/policy/impl/PointerInterceptView;->mReadyStatusBarExpand:Z
-    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/PointerInterceptView;->access$102(Lcom/android/internal/policy/impl/PointerInterceptView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/PointerInterceptView;->access$202(Lcom/android/internal/policy/impl/PointerInterceptView;Z)Z
 
-    .line 177
+    .line 264
     return-void
 .end method

@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 347
+    .line 364
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$4;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     invoke-direct {p0, p2, p3}, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;-><init>(II)V
@@ -37,10 +37,29 @@
 
 # virtual methods
 .method public onPress()V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 356
+    .line 366
+    const-string v0, "eng"
+
+    sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 367
+    const-string v0, "persist.sys.shutdown"
+
+    const-string v1, "GASD"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 375
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$4;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
@@ -50,7 +69,7 @@
 
     invoke-interface {v0}, Landroid/view/WindowManagerPolicy$WindowManagerFuncs;->shutdown()V
 
-    .line 358
+    .line 377
     return-void
 .end method
 
@@ -58,7 +77,7 @@
     .locals 1
 
     .prologue
-    .line 363
+    .line 382
     const/4 v0, 0x1
 
     return v0
@@ -68,7 +87,7 @@
     .locals 1
 
     .prologue
-    .line 366
+    .line 385
     const/4 v0, 0x1
 
     return v0
@@ -78,7 +97,7 @@
     .locals 1
 
     .prologue
-    .line 360
+    .line 379
     const/4 v0, 0x1
 
     return v0

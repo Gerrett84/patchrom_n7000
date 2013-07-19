@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 39
+    .line 42
     iput-object p1, p0, Lcom/sec/android/app/fm/RenameFileActivity$1;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 
     const/4 v7, 0x0
 
-    .line 44
+    .line 47
     invoke-static {}, Lcom/sec/android/app/fm/RenameFileActivity;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -82,9 +82,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 45
+    .line 48
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity$1;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/RenameFileActivity;->getContentResolver()Landroid/content/ContentResolver;
@@ -131,18 +131,18 @@
 
     move-result-object v6
 
-    .line 48
+    .line 53
     .local v6, c:Landroid/database/Cursor;
     if-eqz v6, :cond_1
 
-    .line 49
+    .line 54
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 50
+    .line 55
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity$1;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     const-string v1, "_data"
@@ -158,16 +158,16 @@
     #setter for: Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
     invoke-static {v0, v1}, Lcom/sec/android/app/fm/RenameFileActivity;->access$102(Lcom/sec/android/app/fm/RenameFileActivity;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 51
+    .line 56
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity$1;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     invoke-virtual {v0, v7}, Lcom/sec/android/app/fm/RenameFileActivity;->showDialog(I)V
 
-    .line 53
+    .line 58
     :cond_0
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 55
+    .line 60
     :cond_1
     return-void
 .end method

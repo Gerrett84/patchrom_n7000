@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 64
+    .line 58
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,11 +38,11 @@
     .locals 1
 
     .prologue
-    .line 70
+    .line 64
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/hardware/scontext/SContextContexts$SContextMotionContext;->mType:I
 
-    .line 71
+    .line 65
     return-void
 .end method

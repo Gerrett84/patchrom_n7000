@@ -151,7 +151,7 @@
     .line 74
     iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;->m_inflater:Landroid/view/LayoutInflater;
 
-    const v11, 0x1090059
+    const v11, 0x109005d
 
     const/4 v12, 0x0
 
@@ -175,7 +175,7 @@
     if-eqz v2, :cond_0
 
     .line 84
-    const v10, 0x10202f7
+    const v10, 0x1020304
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -282,7 +282,7 @@
     :cond_1
     iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventListAdapter;->m_inflater:Landroid/view/LayoutInflater;
 
-    const v11, 0x109006a
+    const v11, 0x109006f
 
     const/4 v12, 0x0
 

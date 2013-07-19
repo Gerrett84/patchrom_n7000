@@ -38,12 +38,12 @@
     .parameter
 
     .prologue
-    .line 985
+    .line 995
     iput-object p1, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     invoke-direct {p0}, Landroid/app/ActionBar$Tab;-><init>()V
 
-    .line 991
+    .line 1001
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mPosition:I
@@ -57,7 +57,7 @@
     .locals 1
 
     .prologue
-    .line 1006
+    .line 1016
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mCallback:Landroid/app/ActionBar$TabListener;
 
     return-object v0
@@ -67,7 +67,7 @@
     .locals 1
 
     .prologue
-    .line 1103
+    .line 1113
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mContentDesc:Ljava/lang/CharSequence;
 
     return-object v0
@@ -77,7 +77,7 @@
     .locals 1
 
     .prologue
-    .line 1017
+    .line 1027
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mCustomView:Landroid/view/View;
 
     return-object v0
@@ -87,7 +87,7 @@
     .locals 1
 
     .prologue
-    .line 1037
+    .line 1047
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mIcon:Landroid/graphics/drawable/Drawable;
 
     return-object v0
@@ -97,7 +97,7 @@
     .locals 1
 
     .prologue
-    .line 1042
+    .line 1052
     iget v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
     return v0
@@ -107,7 +107,7 @@
     .locals 1
 
     .prologue
-    .line 996
+    .line 1006
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mTag:Ljava/lang/Object;
 
     return-object v0
@@ -117,7 +117,7 @@
     .locals 1
 
     .prologue
-    .line 1051
+    .line 1061
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mText:Ljava/lang/CharSequence;
 
     return-object v0
@@ -127,12 +127,12 @@
     .locals 1
 
     .prologue
-    .line 1084
+    .line 1094
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/app/ActionBarImpl;->selectTab(Landroid/app/ActionBar$Tab;)V
 
-    .line 1085
+    .line 1095
     return-void
 .end method
 
@@ -141,7 +141,7 @@
     .parameter "resId"
 
     .prologue
-    .line 1089
+    .line 1099
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     #getter for: Lcom/android/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
@@ -169,15 +169,15 @@
     .parameter "contentDesc"
 
     .prologue
-    .line 1094
+    .line 1104
     iput-object p1, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mContentDesc:Ljava/lang/CharSequence;
 
-    .line 1095
+    .line 1105
     iget v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
     if-ltz v0, :cond_0
 
-    .line 1096
+    .line 1106
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     #getter for: Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
@@ -189,7 +189,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    .line 1098
+    .line 1108
     :cond_0
     return-object p0
 .end method
@@ -199,7 +199,7 @@
     .parameter "layoutResId"
 
     .prologue
-    .line 1031
+    .line 1041
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/app/ActionBarImpl;->getThemedContext()Landroid/content/Context;
@@ -228,15 +228,15 @@
     .parameter "view"
 
     .prologue
-    .line 1022
+    .line 1032
     iput-object p1, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mCustomView:Landroid/view/View;
 
-    .line 1023
+    .line 1033
     iget v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
     if-ltz v0, :cond_0
 
-    .line 1024
+    .line 1034
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     #getter for: Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
@@ -248,7 +248,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    .line 1026
+    .line 1036
     :cond_0
     return-object p0
 .end method
@@ -258,7 +258,7 @@
     .parameter "resId"
 
     .prologue
-    .line 1065
+    .line 1075
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     #getter for: Lcom/android/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
@@ -286,15 +286,15 @@
     .parameter "icon"
 
     .prologue
-    .line 1056
+    .line 1066
     iput-object p1, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    .line 1057
+    .line 1067
     iget v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
     if-ltz v0, :cond_0
 
-    .line 1058
+    .line 1068
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     #getter for: Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
@@ -306,7 +306,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    .line 1060
+    .line 1070
     :cond_0
     return-object p0
 .end method
@@ -316,10 +316,10 @@
     .parameter "position"
 
     .prologue
-    .line 1046
+    .line 1056
     iput p1, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
-    .line 1047
+    .line 1057
     return-void
 .end method
 
@@ -328,10 +328,10 @@
     .parameter "callback"
 
     .prologue
-    .line 1011
+    .line 1021
     iput-object p1, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mCallback:Landroid/app/ActionBar$TabListener;
 
-    .line 1012
+    .line 1022
     return-object p0
 .end method
 
@@ -340,10 +340,10 @@
     .parameter "tag"
 
     .prologue
-    .line 1001
+    .line 1011
     iput-object p1, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mTag:Ljava/lang/Object;
 
-    .line 1002
+    .line 1012
     return-object p0
 .end method
 
@@ -352,7 +352,7 @@
     .parameter "resId"
 
     .prologue
-    .line 1079
+    .line 1089
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     #getter for: Lcom/android/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
@@ -380,15 +380,15 @@
     .parameter "text"
 
     .prologue
-    .line 1070
+    .line 1080
     iput-object p1, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mText:Ljava/lang/CharSequence;
 
-    .line 1071
+    .line 1081
     iget v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->mPosition:I
 
     if-ltz v0, :cond_0
 
-    .line 1072
+    .line 1082
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl$TabImpl;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     #getter for: Lcom/android/internal/app/ActionBarImpl;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
@@ -400,7 +400,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    .line 1074
+    .line 1084
     :cond_0
     return-object p0
 .end method

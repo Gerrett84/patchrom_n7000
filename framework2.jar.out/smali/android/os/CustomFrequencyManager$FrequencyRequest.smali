@@ -38,17 +38,17 @@
     .parameter "pkgName"
 
     .prologue
-    .line 71
+    .line 74
     iput-object p1, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->this$0:Landroid/os/CustomFrequencyManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 73
+    .line 76
     const/4 v1, 0x1
 
     if-ne p2, v1, :cond_3
 
-    .line 74
+    .line 77
     :try_start_0
     iget-object v1, p1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
@@ -58,7 +58,7 @@
 
     if-nez v1, :cond_0
 
-    .line 75
+    .line 78
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "GPUFrequencyRequest : invalid frequency range"
@@ -69,33 +69,33 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 82
+    .line 85
     :catch_0
     move-exception v0
 
-    .line 83
+    .line 86
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 85
+    .line 88
     .end local v0           #e:Landroid/os/RemoteException;
     :cond_0
     iput p2, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mType:I
 
-    .line 86
+    .line 89
     iput p3, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mFrequency:I
 
-    .line 87
+    .line 90
     iput-wide p4, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mTimeoutMs:J
 
-    .line 88
+    .line 91
     invoke-static {}, Landroid/os/CustomFrequencyManager;->access$000()Landroid/content/Context;
 
     move-result-object v1
 
     if-eqz v1, :cond_1
 
-    .line 89
+    .line 92
     const-string v1, "com.sec.android.app.twdvfs"
 
     invoke-static {}, Landroid/os/CustomFrequencyManager;->access$000()Landroid/content/Context;
@@ -112,7 +112,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 90
+    .line 93
     sget-object v1, Landroid/os/CustomFrequencyManager;->mTwDVFSAppToken:Landroid/os/IBinder;
 
     if-eqz v1, :cond_4
@@ -125,39 +125,39 @@
 
     if-eqz v1, :cond_4
 
-    .line 91
+    .line 94
     sget-object v1, Landroid/os/CustomFrequencyManager;->mTwDVFSAppToken:Landroid/os/IBinder;
 
     iput-object v1, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
 
-    .line 100
+    .line 103
     :cond_1
     :goto_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
 
     if-nez v1, :cond_2
 
-    .line 101
+    .line 104
     new-instance v1, Landroid/os/Binder;
 
     invoke-direct {v1}, Landroid/os/Binder;-><init>()V
 
     iput-object v1, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
 
-    .line 103
+    .line 106
     :cond_2
     iput-object p6, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mPkgName:Ljava/lang/String;
 
-    .line 104
+    .line 107
     return-void
 
-    .line 77
+    .line 80
     :cond_3
     const/4 v1, 0x2
 
     if-ne p2, v1, :cond_0
 
-    .line 78
+    .line 81
     :try_start_1
     iget-object v1, p1, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
@@ -167,7 +167,7 @@
 
     if-nez v1, :cond_0
 
-    .line 79
+    .line 82
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "SysBusFrequencyRequest : invalid frequency range"
@@ -178,7 +178,7 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 94
+    .line 97
     :cond_4
     new-instance v1, Landroid/os/Binder;
 
@@ -186,7 +186,7 @@
 
     sput-object v1, Landroid/os/CustomFrequencyManager;->mTwDVFSAppToken:Landroid/os/IBinder;
 
-    .line 95
+    .line 98
     sget-object v1, Landroid/os/CustomFrequencyManager;->mTwDVFSAppToken:Landroid/os/IBinder;
 
     iput-object v1, p0, Landroid/os/CustomFrequencyManager$FrequencyRequest;->mToken:Landroid/os/IBinder;
@@ -200,7 +200,7 @@
     .locals 0
 
     .prologue
-    .line 110
+    .line 113
     return-void
 .end method
 
@@ -208,6 +208,6 @@
     .locals 0
 
     .prologue
-    .line 107
+    .line 110
     return-void
 .end method

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2103
+    .line 2241
     iput-object p1, p0, Lcom/android/server/PowerManagerService$8;->this$0:Lcom/android/server/PowerManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,92 +35,99 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 8
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 2105
-    iget-object v1, p0, Lcom/android/server/PowerManagerService$8;->this$0:Lcom/android/server/PowerManagerService;
+    .line 2243
+    iget-object v0, p0, Lcom/android/server/PowerManagerService$8;->this$0:Lcom/android/server/PowerManagerService;
 
     #getter for: Lcom/android/server/PowerManagerService;->mLocks:Lcom/android/server/PowerManagerService$LockList;
-    invoke-static {v1}, Lcom/android/server/PowerManagerService;->access$800(Lcom/android/server/PowerManagerService;)Lcom/android/server/PowerManagerService$LockList;
+    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$800(Lcom/android/server/PowerManagerService;)Lcom/android/server/PowerManagerService$LockList;
 
-    move-result-object v2
+    move-result-object v1
 
-    monitor-enter v2
+    monitor-enter v1
 
-    .line 2106
+    .line 2244
+    const/16 v0, 0xaa6
+
+    const/4 v2, 0x3
+
     :try_start_0
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    move-result-object v0
-
-    .line 2107
-    .local v0, action:Ljava/lang/String;
-    const-string v1, "ResponseAxT9Info"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 2108
-    iget-object v1, p0, Lcom/android/server/PowerManagerService$8;->this$0:Lcom/android/server/PowerManagerService;
-
-    const-string v3, "AxT9IME.isVisibleWindow"
+    const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result v3
+    move-result-object v4
 
-    iput-boolean v3, v1, Lcom/android/server/PowerManagerService;->mIsSipVisible:Z
+    aput-object v4, v2, v3
 
-    .line 2110
-    const-string v1, "PowerManagerService"
+    const/4 v3, 0x1
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-wide v4
 
-    const-string v4, "mIsSipVisible : "
+    iget-object v6, p0, Lcom/android/server/PowerManagerService$8;->this$0:Lcom/android/server/PowerManagerService;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-wide v6, v6, Lcom/android/server/PowerManagerService;->mScreenOffStart:J
 
-    move-result-object v3
+    sub-long/2addr v4, v6
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v4
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x2
 
     iget-object v4, p0, Lcom/android/server/PowerManagerService$8;->this$0:Lcom/android/server/PowerManagerService;
 
-    iget-boolean v4, v4, Lcom/android/server/PowerManagerService;->mIsSipVisible:Z
+    #getter for: Lcom/android/server/PowerManagerService;->mBroadcastWakeLock:Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
+    invoke-static {v4}, Lcom/android/server/PowerManagerService;->access$6300(Lcom/android/server/PowerManagerService;)Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v3
+    iget v4, v4, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mCount:I
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    aput-object v4, v2, v3
 
-    .line 2113
-    :cond_0
-    monitor-exit v2
+    invoke-static {v0, v2}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 2114
+    .line 2246
+    iget-object v0, p0, Lcom/android/server/PowerManagerService$8;->this$0:Lcom/android/server/PowerManagerService;
+
+    #getter for: Lcom/android/server/PowerManagerService;->mBroadcastWakeLock:Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
+    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$6300(Lcom/android/server/PowerManagerService;)Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->release()V
+
+    .line 2247
+    monitor-exit v1
+
+    .line 2248
     return-void
 
-    .line 2113
-    .end local v0           #action:Ljava/lang/String;
+    .line 2247
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    monitor-exit v2
+    monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw v0
 .end method

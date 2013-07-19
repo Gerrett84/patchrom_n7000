@@ -87,6 +87,14 @@
     .end annotation
 .end method
 
+.method public abstract unmountSDCardByAdmin()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract unregisterListener(Landroid/os/storage/IDirEncryptServiceListener;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -82,17 +82,15 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 9
+    .locals 8
     .parameter "c"
 
     .prologue
-    const/16 v8, 0xc0
-
     const/4 v7, 0x1
 
-    const/16 v6, 0xff
+    const/4 v6, 0x0
 
-    const/4 v5, 0x0
+    const/16 v5, 0xff
 
     .line 121
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
@@ -205,7 +203,7 @@
     .line 131
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mTextPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v2, v6, v5, v5, v5}, Landroid/graphics/Paint;->setARGB(IIII)V
+    invoke-virtual {v2, v5, v6, v6, v6}, Landroid/graphics/Paint;->setARGB(IIII)V
 
     .line 132
     new-instance v2, Landroid/graphics/Paint;
@@ -217,14 +215,12 @@
     .line 133
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mTextBackgroundPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v2, v6}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 134
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mTextBackgroundPaint:Landroid/graphics/Paint;
 
-    const/16 v3, 0x80
-
-    invoke-virtual {v2, v3, v6, v6, v6}, Landroid/graphics/Paint;->setARGB(IIII)V
+    invoke-virtual {v2, v5, v5, v5, v5}, Landroid/graphics/Paint;->setARGB(IIII)V
 
     .line 135
     new-instance v2, Landroid/graphics/Paint;
@@ -236,12 +232,12 @@
     .line 136
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mTextLevelPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v2, v6}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 137
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mTextLevelPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v2, v8, v6, v5, v5}, Landroid/graphics/Paint;->setARGB(IIII)V
+    invoke-virtual {v2, v5, v5, v6, v6}, Landroid/graphics/Paint;->setARGB(IIII)V
 
     .line 138
     new-instance v2, Landroid/graphics/Paint;
@@ -258,7 +254,7 @@
     .line 140
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v2, v6, v6, v6, v6}, Landroid/graphics/Paint;->setARGB(IIII)V
+    invoke-virtual {v2, v5, v5, v5, v5}, Landroid/graphics/Paint;->setARGB(IIII)V
 
     .line 141
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mPaint:Landroid/graphics/Paint;
@@ -284,12 +280,14 @@
     .line 144
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mTargetPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v2, v6}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 145
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mTargetPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v2, v6, v5, v5, v8}, Landroid/graphics/Paint;->setARGB(IIII)V
+    const/16 v3, 0xc0
+
+    invoke-virtual {v2, v5, v6, v6, v3}, Landroid/graphics/Paint;->setARGB(IIII)V
 
     .line 146
     new-instance v2, Landroid/graphics/Paint;
@@ -301,14 +299,14 @@
     .line 147
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mPathPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v2, v5}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {v2, v6}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 148
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mPathPaint:Landroid/graphics/Paint;
 
     const/16 v3, 0x60
 
-    invoke-virtual {v2, v6, v5, v3, v6}, Landroid/graphics/Paint;->setARGB(IIII)V
+    invoke-virtual {v2, v5, v6, v3, v5}, Landroid/graphics/Paint;->setARGB(IIII)V
 
     .line 149
     iget-object v2, p0, Lcom/android/internal/widget/PointerLocationView;->mPaint:Landroid/graphics/Paint;
@@ -336,7 +334,7 @@
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 154
-    iput v5, p0, Lcom/android/internal/widget/PointerLocationView;->mActivePointerId:I
+    iput v6, p0, Lcom/android/internal/widget/PointerLocationView;->mActivePointerId:I
 
     .line 156
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -3169,7 +3167,7 @@
 
     iget-object v2, v0, Lcom/android/internal/widget/PointerLocationView;->mPaint:Landroid/graphics/Paint;
 
-    const/16 v7, 0x80
+    const/16 v7, 0xff
 
     const/16 v10, 0x80
 
@@ -3346,7 +3344,7 @@
 
     iget-object v2, v0, Lcom/android/internal/widget/PointerLocationView;->mPaint:Landroid/graphics/Paint;
 
-    const/16 v7, 0x80
+    const/16 v7, 0xff
 
     const/4 v10, 0x0
 

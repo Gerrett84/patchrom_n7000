@@ -459,11 +459,8 @@
         <item>3</item>
     </integer-array>
     <string-array name="config_statusBarIcons">
+        <item>smart_network</item>
         <item>felica_lock</item>
-        <!-- Defines the slots for miui icons. -->
-        <item>headset</item>
-        <item>call_record</item>
-        <item>privacy_mode</item>
         <item>ime</item>
         <item>face</item>
         <item>sync_failing</item>
@@ -471,7 +468,6 @@
         <item>gps</item>
         <item>lbs</item>
         <item>bluetooth</item>
-        <item>bluetooth_handsfree_battery</item>
         <item>nfc_on</item>
         <item>nfc</item>
         <item>tty</item>
@@ -482,7 +478,6 @@
         <item>com.samsung.rcs</item>
         <item>wifi_p2p</item>
         <item>wifi</item>
-        <item>wimax</item>
         <item>wifi_ap</item>
         <item>cdma_eri</item>
         <item>data_connection</item>
@@ -501,13 +496,13 @@
     <string-array name="networkAttributes">
         <item>wifi,1,1,1,-1,true</item>
         <item>mobile,0,0,0,-1,true</item>
-        <item>mobile_mms,2,0,2,60000,true</item>
+        <item>mobile_mms,2,0,2,180000,true</item>
         <item>mobile_supl,3,0,2,60000,true</item>
         <item>mobile_dun,4,0,2,60000,true</item>
         <item>mobile_hipri,5,0,3,60000,true</item>
         <item>bluetooth,7,7,2,-1,true</item>
         <item>mobile_fota,10,0,2,60000,true</item>
-        <item>mobile_ims,11,0,2,-1,true</item>
+        <item>mobile_ims,11,0,2,60000,true</item>
         <item>mobile_cbs,12,0,2,60000,true</item>
         <item>wifi_p2p,13,1,0,-1,true</item>
     </string-array>
@@ -547,10 +542,17 @@
     <integer-array name="config_tether_upstream_types">
         <item>0</item>
         <item>1</item>
+        <item>4</item>
         <item>5</item>
+        <item>7</item>
+        <item>9</item>
     </integer-array>
     <array name="config_cdma_dun_supported_types" />
-    <array name="config_usbHostBlacklist" />
+    <string-array name="config_usbHostBlacklist">
+        <item>/dev/bus/usb/001/002</item>
+        <item>/dev/bus/usb/001/001</item>
+        <item>/dev/bus/usb/002/001</item>
+    </string-array>
     <array name="config_serialPorts" />
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
@@ -600,10 +602,10 @@
         <item>10000</item>
     </integer-array>
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>20</item>
+        <item>40</item>
         <item>80</item>
         <item>130</item>
-        <item>190</item>
+        <item>210</item>
         <item>255</item>
     </integer-array>
     <integer-array name="config_autoBrightnessButtonBacklightValues">
@@ -687,10 +689,9 @@
     </string-array>
     <array name="carrier_properties" />
     <string-array name="config_multiWindowSupportAppList">
-        <item>com.android.browser</item>
         <item>com.android.email</item>
         <item>com.android.mms</item>
-        <item>com.sec.android.gallery3d</item>
+        <item>com.sec.android.mms.kor</item>
         <item>com.sec.android.app.snotebook</item>
         <item>com.sec.chaton</item>
         <item>com.google.android.apps.maps</item>
@@ -704,6 +705,15 @@
         <item>com.kakao.talk</item>
         <item>com.twitter.android</item>
         <item>com.infraware.polarisviewer4</item>
+        <item>com.infraware.polarisoffice4</item>
+    </string-array>
+    <string-array name="config_multiWindowSupportPackageList">
+        <item>com.google.android.apps.maps</item>
+        <item>com.google.android.maps</item>
+    </string-array>
+    <string-array name="config_multiWindowSupportComponentList">
+        <item>com.google.android.apps.maps.MapsActivity</item>
+        <item>com.google.android.maps.MapsActivity</item>
     </string-array>
     <string-array name="zzz_tts_lockscreen_time_am">
         <item>It is %1$d : %2$d AM</item>

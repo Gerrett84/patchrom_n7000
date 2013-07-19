@@ -396,7 +396,7 @@
 
     move-result-object v11
 
-    iget-object v3, v11, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v3, v11, Landroid/content/pm/ComponentInfo;->metaData:Landroid/os/Bundle;
 
     .line 186
     if-nez v3, :cond_1
@@ -806,7 +806,7 @@
 
     move-object/from16 v0, v19
 
-    iget-object v7, v0, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v7, v0, Landroid/content/pm/ComponentInfo;->metaData:Landroid/os/Bundle;
 
     .line 314
     .local v7, bundle:Landroid/os/Bundle;
@@ -1379,7 +1379,7 @@
 
     move-result-object v15
 
-    iget-object v6, v15, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v6, v15, Landroid/content/pm/ComponentInfo;->metaData:Landroid/os/Bundle;
 
     .line 248
     .local v6, bundle:Landroid/os/Bundle;

@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 109
+    .line 119
     invoke-static {}, Landroid/net/wifi/SupplicantState;->values()[Landroid/net/wifi/SupplicantState;
 
     move-result-object v0
@@ -85,7 +85,7 @@
     :try_start_3
     sget-object v0, Landroid/net/wifi/SupplicantStateTracker$1;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
-    sget-object v1, Landroid/net/wifi/SupplicantState;->AUTHENTICATING:Landroid/net/wifi/SupplicantState;
+    sget-object v1, Landroid/net/wifi/SupplicantState;->ASSOCIATING:Landroid/net/wifi/SupplicantState;
 
     invoke-virtual {v1}, Landroid/net/wifi/SupplicantState;->ordinal()I
 
@@ -101,7 +101,7 @@
     :try_start_4
     sget-object v0, Landroid/net/wifi/SupplicantStateTracker$1;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
-    sget-object v1, Landroid/net/wifi/SupplicantState;->ASSOCIATING:Landroid/net/wifi/SupplicantState;
+    sget-object v1, Landroid/net/wifi/SupplicantState;->AUTHENTICATING:Landroid/net/wifi/SupplicantState;
 
     invoke-virtual {v1}, Landroid/net/wifi/SupplicantState;->ordinal()I
 

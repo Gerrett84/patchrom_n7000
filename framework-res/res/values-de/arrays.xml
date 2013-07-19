@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="emailAddressTypes">
-        <item>Homepage</item>
+        <item>Privat</item>
         <item>Arbeit</item>
         <item>Andere</item>
         <item>Benutzerdefiniert</item>
@@ -22,7 +22,7 @@
         <item>Benutzerdefiniert</item>
     </string-array>
     <string-array name="phoneTypes">
-        <item>Homepage</item>
+        <item>Privat</item>
         <item>Mobil</item>
         <item>Arbeit</item>
         <item>Fax dienstlich</item>
@@ -32,13 +32,13 @@
         <item>Benutzerdefiniert</item>
     </string-array>
     <string-array name="postalAddressTypes">
-        <item>Homepage</item>
+        <item>Privat</item>
         <item>Arbeit</item>
         <item>Andere</item>
         <item>Benutzerdefiniert</item>
     </string-array>
     <string-array name="imAddressTypes">
-        <item>Homepage</item>
+        <item>Privat</item>
         <item>Arbeit</item>
         <item>Andere</item>
         <item>Benutzerdefiniert</item>

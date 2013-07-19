@@ -34,6 +34,8 @@
 
 .field public static final TAG_CSCFEATURE_CAMERA_SHUTTERSOUNDMENU:Ljava/lang/String; = "CscFeature_Camera_ShutterSoundMenu"
 
+.field public static final TAG_CSCFEATURE_CAMERA_USESHARESHOTFOLDERAS:Ljava/lang/String; = "CscFeature_Camera_UseShareShotFolderAs"
+
 
 # direct methods
 .method public constructor <init>()V

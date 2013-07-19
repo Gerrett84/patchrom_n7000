@@ -374,11 +374,11 @@
     .line 314
     :sswitch_data_0
     .sparse-switch
-        0x10802ca -> :sswitch_0
-        0x1080325 -> :sswitch_1
-        0x1080341 -> :sswitch_2
-        0x108034c -> :sswitch_3
-        0x108034f -> :sswitch_3
+        0x10802d5 -> :sswitch_0
+        0x1080330 -> :sswitch_1
+        0x108034c -> :sswitch_2
+        0x1080357 -> :sswitch_3
+        0x108035a -> :sswitch_3
     .end sparse-switch
 .end method
 
@@ -432,7 +432,7 @@
 
     const/4 v6, 0x0
 
-    const v9, 0x10802ca
+    const v9, 0x10802d5
 
     .line 269
     iget-object v4, p0, Lcom/android/internal/policy/impl/LockScreen$GlowPadViewMethods;->this$0:Lcom/android/internal/policy/impl/LockScreen;
@@ -565,7 +565,7 @@
     .end local v1           #intent:Landroid/content/Intent;
     .end local v2           #replaced:Z
     :cond_1
-    const v7, 0x1080325
+    const v7, 0x1080330
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/LockScreen$GlowPadViewMethods;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 

@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 299
+    .line 302
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,7 +29,7 @@
     .locals 5
 
     .prologue
-    .line 330
+    .line 333
     new-instance v1, Ljava/io/File;
 
     const-string v3, "/data/system/"
@@ -38,11 +38,11 @@
 
     invoke-direct {v1, v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 331
+    .line 334
     .local v1, policy:Ljava/io/File;
     const/4 v2, 0x0
 
-    .line 333
+    .line 336
     .local v2, result:Z
     :try_start_0
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
@@ -53,15 +53,15 @@
 
     move v3, v2
 
-    .line 338
+    .line 341
     :goto_0
     return v3
 
-    .line 334
+    .line 337
     :catch_0
     move-exception v0
 
-    .line 335
+    .line 338
     .local v0, e:Ljava/lang/Exception;
     const/4 v3, 0x0
 
@@ -72,7 +72,7 @@
     .locals 5
 
     .prologue
-    .line 301
+    .line 304
     new-instance v1, Ljava/io/File;
 
     const-string v3, "/data/system/"
@@ -81,11 +81,11 @@
 
     invoke-direct {v1, v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 302
+    .line 305
     .local v1, policy:Ljava/io/File;
     const/4 v2, 0x1
 
-    .line 304
+    .line 307
     .local v2, result:Z
     :try_start_0
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
@@ -94,17 +94,17 @@
 
     if-eqz v3, :cond_0
 
-    .line 305
+    .line 308
     const/4 v2, 0x1
 
     :goto_0
     move v3, v2
 
-    .line 312
+    .line 315
     :goto_1
     return v3
 
-    .line 307
+    .line 310
     :cond_0
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
     :try_end_0
@@ -114,11 +114,11 @@
 
     goto :goto_0
 
-    .line 309
+    .line 312
     :catch_0
     move-exception v0
 
-    .line 310
+    .line 313
     .local v0, e:Ljava/lang/Exception;
     const/4 v3, 0x0
 
@@ -129,7 +129,7 @@
     .locals 5
 
     .prologue
-    .line 316
+    .line 319
     new-instance v1, Ljava/io/File;
 
     const-string v3, "/data/system/"
@@ -138,11 +138,11 @@
 
     invoke-direct {v1, v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 317
+    .line 320
     .local v1, policy:Ljava/io/File;
     const/4 v2, 0x1
 
-    .line 319
+    .line 322
     .local v2, result:Z
     :try_start_0
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
@@ -151,7 +151,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 320
+    .line 323
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -161,15 +161,15 @@
     :cond_0
     move v3, v2
 
-    .line 326
+    .line 329
     :goto_0
     return v3
 
-    .line 322
+    .line 325
     :catch_0
     move-exception v0
 
-    .line 323
+    .line 326
     .local v0, e:Ljava/lang/Exception;
     const/4 v3, 0x0
 

@@ -1,11 +1,14 @@
 .class Lcom/sec/android/app/fm/MainActivity$38;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "MainActivity.java"
+
+# interfaces
+.implements Landroid/widget/PopupMenu$OnDismissListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/fm/MainActivity;->registerRestoreReceiver()V
+    value = Lcom/sec/android/app/fm/MainActivity;->showCustomOptionMenu(Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,35 +27,35 @@
     .parameter
 
     .prologue
-    .line 12628
+    .line 7226
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$38;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
-    .parameter "context"
-    .parameter "intent"
+.method public onDismiss(Landroid/widget/PopupMenu;)V
+    .locals 2
+    .parameter "popupMenu"
 
     .prologue
-    .line 12636
-    invoke-static {}, Lcom/sec/android/app/fm/data/ChannelStore;->getInstance()Lcom/sec/android/app/fm/data/ChannelStore;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/sec/android/app/fm/data/ChannelStore;->load()V
-
-    .line 12638
+    .line 7231
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$38;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    #calls: Lcom/sec/android/app/fm/MainActivity;->myOnResume()V
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$7700(Lcom/sec/android/app/fm/MainActivity;)V
+    const-string v1, "Popup menu dismiss"
 
-    .line 12644
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
+
+    .line 7232
+    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$38;->this$0:Lcom/sec/android/app/fm/MainActivity;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->setIsShowCustomOptionMenu(Z)V
+
+    .line 7233
     return-void
 .end method

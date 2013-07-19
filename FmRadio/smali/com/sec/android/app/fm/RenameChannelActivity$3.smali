@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 217
+    .line 240
     iput-object p1, p0, Lcom/sec/android/app/fm/RenameChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,17 +49,17 @@
 
     const/high16 v5, -0x4080
 
-    .line 222
+    .line 244
     const/4 v4, -0x2
 
     if-ne p2, v4, :cond_1
 
-    .line 270
+    .line 280
     :cond_0
     :goto_0
     return-void
 
-    .line 224
+    .line 247
     :cond_1
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
@@ -68,11 +68,11 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/sec/android/app/fm/ui/RenameDialog;->getRenamedString()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/sec/android/app/fm/ui/RenameDialog;->getText()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 227
+    .line 249
     .local v3, freqRen:Ljava/lang/String;
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
@@ -83,7 +83,7 @@
 
     if-eqz v4, :cond_2
 
-    .line 228
+    .line 250
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
@@ -97,7 +97,7 @@
 
     move-result-object v2
 
-    .line 234
+    .line 255
     .local v2, freq:Ljava/lang/Float;
     :goto_1
     invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
@@ -108,7 +108,7 @@
 
     if-eqz v4, :cond_5
 
-    .line 236
+    .line 256
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
@@ -119,23 +119,23 @@
 
     move-result-object v0
 
-    .line 237
+    .line 257
     .local v0, channel:Lcom/sec/android/app/fm/data/Channel;
     if-eqz v0, :cond_4
 
     if-eqz v3, :cond_4
 
-    .line 241
+    .line 258
     iput-object v3, v0, Lcom/sec/android/app/fm/data/Channel;->mFreqName:Ljava/lang/String;
 
-    .line 243
+    .line 259
     invoke-static {}, Lcom/sec/android/app/fm/data/ChannelStore;->getInstance()Lcom/sec/android/app/fm/data/ChannelStore;
 
     move-result-object v4
 
     invoke-virtual {v4}, Lcom/sec/android/app/fm/data/ChannelStore;->store()V
 
-    .line 245
+    .line 261
     :try_start_0
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -143,7 +143,7 @@
     :try_end_0
     .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 263
+    .line 278
     .end local v0           #channel:Lcom/sec/android/app/fm/data/Channel;
     :goto_2
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
@@ -155,7 +155,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 264
+    .line 279
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -167,7 +167,7 @@
 
     goto :goto_0
 
-    .line 229
+    .line 251
     .end local v2           #freq:Ljava/lang/Float;
     :cond_2
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
@@ -181,7 +181,7 @@
 
     if-eqz v4, :cond_3
 
-    .line 230
+    .line 252
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameChannelActivity;->mSavedSelectedFreq:F
@@ -196,7 +196,7 @@
     .restart local v2       #freq:Ljava/lang/Float;
     goto :goto_1
 
-    .line 232
+    .line 254
     .end local v2           #freq:Ljava/lang/Float;
     :cond_3
     invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -206,12 +206,12 @@
     .restart local v2       #freq:Ljava/lang/Float;
     goto :goto_1
 
-    .line 246
+    .line 262
     .restart local v0       #channel:Lcom/sec/android/app/fm/data/Channel;
     :catch_0
     move-exception v1
 
-    .line 248
+    .line 264
     .local v1, e:Lcom/samsung/media/fmradio/FMPlayerException;
     :try_start_1
     invoke-virtual {v1}, Lcom/samsung/media/fmradio/FMPlayerException;->printStackTrace()V
@@ -220,13 +220,13 @@
 
     goto :goto_2
 
-    .line 249
+    .line 265
     :catch_1
     move-exception v4
 
     goto :goto_2
 
-    .line 254
+    .line 270
     .end local v1           #e:Lcom/samsung/media/fmradio/FMPlayerException;
     :cond_4
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;
@@ -239,7 +239,7 @@
 
     goto :goto_2
 
-    .line 258
+    .line 275
     .end local v0           #channel:Lcom/sec/android/app/fm/data/Channel;
     :cond_5
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RenameChannelActivity;

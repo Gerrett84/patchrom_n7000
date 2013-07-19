@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/TextView;->compressText(F)Z
+    value = Landroid/widget/TextView;->endBatchEdit()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 6229
+    .line 5982
     iput-object p1, p0, Landroid/widget/TextView$2;->this$0:Landroid/widget/TextView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,11 +41,26 @@
     .locals 1
 
     .prologue
-    .line 6231
+    .line 5984
     iget-object v0, p0, Landroid/widget/TextView$2;->this$0:Landroid/widget/TextView;
 
-    invoke-virtual {v0}, Landroid/widget/TextView;->requestLayout()V
+    #getter for: Landroid/widget/TextView;->mEditor:Landroid/widget/Editor;
+    invoke-static {v0}, Landroid/widget/TextView;->access$300(Landroid/widget/TextView;)Landroid/widget/Editor;
 
-    .line 6232
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/TextView$2;->this$0:Landroid/widget/TextView;
+
+    #getter for: Landroid/widget/TextView;->mEditor:Landroid/widget/Editor;
+    invoke-static {v0}, Landroid/widget/TextView;->access$300(Landroid/widget/TextView;)Landroid/widget/Editor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Editor;->endBatchEdit()V
+
+    .line 5985
+    :cond_0
     return-void
 .end method

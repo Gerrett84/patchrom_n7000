@@ -7,6 +7,6 @@
         </LinearLayout>
     </view>
     <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <Button android:textSize="14.0dip" android:gravity="center" android:id="@id/emergencyCallButton" android:layout_width="wrap_content" android:layout_height="37.0dip" android:drawableLeft="@drawable/zzz_ic_emergency_small" />
+        <Button android:textSize="14.0dip" android:gravity="center" android:id="@id/emergencyCallButton" android:layout_width="wrap_content" android:layout_height="37.0dip" android:shadowColor="@color/black" android:shadowDx="1.0" android:shadowDy="1.0" android:shadowRadius="0.25" android:drawableLeft="@drawable/zzz_ic_emergency_small" android:drawablePadding="7.0dip" style="@style/Widget.Holo.Button" />
     </LinearLayout>
 </LinearLayout>

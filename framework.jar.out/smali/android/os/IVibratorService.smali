@@ -39,14 +39,6 @@
     .end annotation
 .end method
 
-.method public abstract isVibrating()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract resetMagnitude()V
     .annotation system Ldalvik/annotation/Throws;
         value = {

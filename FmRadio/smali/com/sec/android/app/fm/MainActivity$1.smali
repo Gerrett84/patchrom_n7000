@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1535
+    .line 923
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$1;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,12 +41,12 @@
     .locals 1
 
     .prologue
-    .line 1539
+    .line 927
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$1;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     #calls: Lcom/sec/android/app/fm/MainActivity;->startAllChannelActivity()V
     invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$3100(Lcom/sec/android/app/fm/MainActivity;)V
 
-    .line 1541
+    .line 928
     return-void
 .end method

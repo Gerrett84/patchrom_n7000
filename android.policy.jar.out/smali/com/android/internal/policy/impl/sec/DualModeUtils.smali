@@ -67,7 +67,7 @@
     .line 29
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 640
+    .line 641
     return-void
 .end method
 
@@ -88,7 +88,7 @@
     .parameter "activate"
 
     .prologue
-    .line 477
+    .line 478
     return-void
 .end method
 
@@ -102,20 +102,20 @@
 
     const/4 v10, 0x0
 
-    .line 520
+    .line 521
     const-string v9, "0"
 
-    .line 521
+    .line 522
     .local v9, slot_number:Ljava/lang/String;
     invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v6
 
-    .line 523
+    .line 524
     .local v6, cardCheck:Ljava/lang/Boolean;
     const/4 v7, 0x0
 
-    .line 524
+    .line 525
     .local v7, cursor:Landroid/database/Cursor;
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -141,7 +141,7 @@
 
     move-result-object v3
 
-    .line 527
+    .line 528
     .local v3, where:Ljava/lang/String;
     :try_start_0
     sget-object v0, Lcom/android/internal/policy/impl/sec/DualModeUtils;->DSContext:Landroid/content/Context;
@@ -174,21 +174,21 @@
 
     move-result-object v7
 
-    .line 529
+    .line 530
     invoke-interface {v7}, Landroid/database/Cursor;->getCount()I
 
     move-result v0
 
     if-lez v0, :cond_3
 
-    .line 530
+    .line 531
     invoke-interface {v7}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 532
+    .line 533
     :cond_0
     const/4 v0, 0x0
 
@@ -196,7 +196,7 @@
 
     move-result-object v9
 
-    .line 533
+    .line 534
     invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -206,15 +206,15 @@
 
     if-nez v0, :cond_0
 
-    .line 542
+    .line 543
     :cond_1
     :goto_0
     if-eqz v7, :cond_2
 
-    .line 543
+    .line 544
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    .line 546
+    .line 547
     :cond_2
     :goto_1
     invoke-virtual {v9, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -223,12 +223,12 @@
 
     if-eqz v0, :cond_5
 
-    .line 547
+    .line 548
     invoke-static {v10}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v6
 
-    .line 551
+    .line 552
     :goto_2
     sget-object v0, Lcom/android/internal/policy/impl/sec/DualModeUtils;->TAG:Ljava/lang/String;
 
@@ -262,14 +262,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 553
+    .line 554
     invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     return v0
 
-    .line 536
+    .line 537
     :cond_3
     :try_start_1
     sget-object v0, Lcom/android/internal/policy/impl/sec/DualModeUtils;->TAG:Ljava/lang/String;
@@ -278,7 +278,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 537
+    .line 538
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -290,11 +290,11 @@
 
     goto :goto_0
 
-    .line 539
+    .line 540
     :catch_0
     move-exception v8
 
-    .line 540
+    .line 541
     .local v8, e:Landroid/database/SQLException;
     :try_start_2
     const-string v0, "SQLException"
@@ -307,28 +307,28 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 542
+    .line 543
     if-eqz v7, :cond_2
 
-    .line 543
+    .line 544
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     goto :goto_1
 
-    .line 542
+    .line 543
     .end local v8           #e:Landroid/database/SQLException;
     :catchall_0
     move-exception v0
 
     if-eqz v7, :cond_4
 
-    .line 543
+    .line 544
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     :cond_4
     throw v0
 
-    .line 549
+    .line 550
     :cond_5
     invoke-static {v11}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -341,9 +341,9 @@
     .locals 5
 
     .prologue
-    const/4 v3, 0x1
-
     const/4 v2, 0x0
+
+    const/4 v3, 0x1
 
     .line 101
     const-string v4, "gsm.sim.state"
@@ -362,11 +362,11 @@
 
     .line 105
     .local v1, mGSMstate:Ljava/lang/String;
-    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isDualDevice()Z
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isDualModeDevice()I
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-ne v4, v3, :cond_2
 
     .line 106
     const-string v4, "PIN_REQUIRED"
@@ -422,9 +422,11 @@
 .end method
 
 .method public static getPINPUKSlot()I
-    .locals 5
+    .locals 6
 
     .prologue
+    const/4 v5, 0x1
+
     .line 123
     const-string v2, "ril.ICC_TYPE"
 
@@ -467,11 +469,11 @@
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 129
-    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isDualDevice()Z
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isDualModeDevice()I
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-ne v2, v5, :cond_1
 
     .line 130
     const-string v2, "3"
@@ -492,13 +494,36 @@
 
     .line 132
     :cond_0
-    const/4 v2, 0x1
-
-    sput v2, Lcom/android/internal/policy/impl/sec/DualModeUtils;->mPINPUKSlot:I
+    sput v5, Lcom/android/internal/policy/impl/sec/DualModeUtils;->mPINPUKSlot:I
 
     .line 140
     :cond_1
     :goto_0
+    sget-object v2, Lcom/android/internal/policy/impl/sec/DualModeUtils;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "getPINPUKSlot return : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    sget v4, Lcom/android/internal/policy/impl/sec/DualModeUtils;->mPINPUKSlot:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 141
     sget v2, Lcom/android/internal/policy/impl/sec/DualModeUtils;->mPINPUKSlot:I
 
     return v2
@@ -538,10 +563,10 @@
     .parameter "cardType"
 
     .prologue
-    .line 581
+    .line 582
     const/4 v6, 0x0
 
-    .line 582
+    .line 583
     .local v6, c:Landroid/database/Cursor;
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -587,7 +612,7 @@
 
     move-result-object v3
 
-    .line 585
+    .line 586
     .local v3, where:Ljava/lang/String;
     :try_start_0
     sget-object v0, Lcom/android/internal/policy/impl/sec/DualModeUtils;->DSContext:Landroid/content/Context;
@@ -612,14 +637,14 @@
 
     move-result-object v6
 
-    .line 588
+    .line 589
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 590
+    .line 591
     :cond_0
     const-string v0, "card_name"
 
@@ -633,7 +658,7 @@
 
     iput-object v0, p2, Lcom/android/internal/policy/impl/sec/DualModeUtils$SimCardInfo;->SIMName:Ljava/lang/String;
 
-    .line 591
+    .line 592
     const-string v0, "icon_index"
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -650,7 +675,7 @@
 
     iput-object v0, p2, Lcom/android/internal/policy/impl/sec/DualModeUtils$SimCardInfo;->nIconIndex:Ljava/lang/String;
 
-    .line 592
+    .line 593
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -659,24 +684,24 @@
 
     if-nez v0, :cond_0
 
-    .line 595
+    .line 596
     :cond_1
     if-eqz v6, :cond_2
 
-    .line 596
+    .line 597
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 598
+    .line 599
     :cond_2
     return-void
 
-    .line 595
+    .line 596
     :catchall_0
     move-exception v0
 
     if-eqz v6, :cond_3
 
-    .line 596
+    .line 597
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_3
@@ -688,7 +713,7 @@
     .parameter "mContext"
 
     .prologue
-    .line 457
+    .line 458
     return-void
 .end method
 
@@ -698,23 +723,23 @@
     .parameter "sn"
 
     .prologue
-    .line 617
+    .line 618
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    .line 618
+    .line 619
     .local v0, contentValues:Landroid/content/ContentValues;
     const-string v2, "CARD_ID"
 
     invoke-virtual {v0, v2, p0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 619
+    .line 620
     const-string v2, "SLOT_NUMBER"
 
     invoke-virtual {v0, v2, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 621
+    .line 622
     sget-object v2, Lcom/android/internal/policy/impl/sec/DualModeUtils;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -747,7 +772,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 624
+    .line 625
     :try_start_0
     sget-object v2, Lcom/android/internal/policy/impl/sec/DualModeUtils;->DSContext:Landroid/content/Context;
 
@@ -765,15 +790,15 @@
     :try_end_0
     .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 628
+    .line 629
     :goto_0
     return-void
 
-    .line 625
+    .line 626
     :catch_0
     move-exception v1
 
-    .line 626
+    .line 627
     .local v1, e:Landroid/database/SQLException;
     const-string v2, "SQLException"
 
@@ -792,7 +817,7 @@
     .parameter "mSlot"
 
     .prologue
-    .line 515
+    .line 516
     const/4 v0, 0x0
 
     return v0
@@ -802,14 +827,14 @@
     .locals 5
 
     .prologue
-    .line 632
+    .line 633
     sget-object v1, Lcom/android/internal/policy/impl/sec/DualModeUtils;->TAG:Ljava/lang/String;
 
     const-string v2, "removeCardId"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 634
+    .line 635
     :try_start_0
     sget-object v1, Lcom/android/internal/policy/impl/sec/DualModeUtils;->DSContext:Landroid/content/Context;
 
@@ -831,17 +856,17 @@
     :try_end_0
     .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 638
+    .line 639
     .local v0, e:Landroid/database/SQLException;
     :goto_0
     return-void
 
-    .line 635
+    .line 636
     .end local v0           #e:Landroid/database/SQLException;
     :catch_0
     move-exception v0
 
-    .line 636
+    .line 637
     .restart local v0       #e:Landroid/database/SQLException;
     const-string v1, "SQLException"
 
@@ -860,17 +885,17 @@
     .parameter "card_id2"
 
     .prologue
-    .line 557
+    .line 558
     sget-object v0, Lcom/android/internal/policy/impl/sec/DualModeUtils;->TAG:Ljava/lang/String;
 
     const-string v1, "setNewCardID"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 558
+    .line 559
     const/4 v6, 0x0
 
-    .line 560
+    .line 561
     .local v6, cursor:Landroid/database/Cursor;
     :try_start_0
     sget-object v0, Lcom/android/internal/policy/impl/sec/DualModeUtils;->DSContext:Landroid/content/Context;
@@ -897,7 +922,7 @@
 
     move-result-object v6
 
-    .line 561
+    .line 562
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
     move-result v0
@@ -906,22 +931,22 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 562
+    .line 563
     sget-object v0, Lcom/android/internal/policy/impl/sec/DualModeUtils;->TAG:Ljava/lang/String;
 
     const-string v1, "setNewCardID getCount < 2"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 563
+    .line 564
     invoke-static {}, Lcom/android/internal/policy/impl/sec/DualModeUtils;->removeCardId()V
 
-    .line 564
+    .line 565
     const-string v0, "1"
 
     invoke-static {p0, v0}, Lcom/android/internal/policy/impl/sec/DualModeUtils;->insertCardId(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 565
+    .line 566
     const-string v0, "2"
 
     invoke-static {p1, v0}, Lcom/android/internal/policy/impl/sec/DualModeUtils;->insertCardId(Ljava/lang/String;Ljava/lang/String;)V
@@ -929,19 +954,19 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 575
+    .line 576
     :goto_0
     if-eqz v6, :cond_0
 
-    .line 576
+    .line 577
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 578
+    .line 579
     :cond_0
     :goto_1
     return-void
 
-    .line 567
+    .line 568
     :cond_1
     :try_start_1
     sget-object v0, Lcom/android/internal/policy/impl/sec/DualModeUtils;->TAG:Ljava/lang/String;
@@ -950,12 +975,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 568
+    .line 569
     const-string v0, "1"
 
     invoke-static {p0, v0}, Lcom/android/internal/policy/impl/sec/DualModeUtils;->updateCardId(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 569
+    .line 570
     const-string v0, "2"
 
     invoke-static {p1, v0}, Lcom/android/internal/policy/impl/sec/DualModeUtils;->updateCardId(Ljava/lang/String;Ljava/lang/String;)V
@@ -965,11 +990,11 @@
 
     goto :goto_0
 
-    .line 571
+    .line 572
     :catch_0
     move-exception v7
 
-    .line 573
+    .line 574
     .local v7, e:Landroid/database/SQLException;
     :try_start_2
     const-string v0, "SQLException"
@@ -982,22 +1007,22 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 575
+    .line 576
     if-eqz v6, :cond_0
 
-    .line 576
+    .line 577
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_1
 
-    .line 575
+    .line 576
     .end local v7           #e:Landroid/database/SQLException;
     :catchall_0
     move-exception v0
 
     if-eqz v6, :cond_2
 
-    .line 576
+    .line 577
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_2
@@ -1082,7 +1107,7 @@
     .parameter "sn"
 
     .prologue
-    .line 601
+    .line 602
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1107,24 +1132,24 @@
 
     move-result-object v2
 
-    .line 603
+    .line 604
     .local v2, where:Ljava/lang/String;
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
-    .line 604
+    .line 605
     .local v0, contentValues:Landroid/content/ContentValues;
     const-string v3, "CARD_ID"
 
     invoke-virtual {v0, v3, p0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 605
+    .line 606
     const-string v3, "SLOT_NUMBER"
 
     invoke-virtual {v0, v3, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 607
+    .line 608
     sget-object v3, Lcom/android/internal/policy/impl/sec/DualModeUtils;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1157,7 +1182,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 610
+    .line 611
     :try_start_0
     sget-object v3, Lcom/android/internal/policy/impl/sec/DualModeUtils;->DSContext:Landroid/content/Context;
 
@@ -1177,15 +1202,15 @@
     :try_end_0
     .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 614
+    .line 615
     :goto_0
     return-void
 
-    .line 611
+    .line 612
     :catch_0
     move-exception v1
 
-    .line 612
+    .line 613
     .local v1, e:Landroid/database/SQLException;
     const-string v3, "SQLException"
 

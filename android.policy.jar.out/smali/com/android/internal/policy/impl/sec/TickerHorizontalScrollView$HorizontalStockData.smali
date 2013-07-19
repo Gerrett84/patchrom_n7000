@@ -34,29 +34,29 @@
     .parameter "change"
 
     .prologue
-    .line 414
+    .line 415
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->this$0:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
-    .line 415
+    .line 416
     move-object/from16 v0, p2
 
     invoke-direct {p0, v0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 417
+    .line 418
     invoke-static/range {p2 .. p2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v6
 
-    .line 418
+    .line 419
     .local v6, inflater:Landroid/view/LayoutInflater;
-    const v9, 0x1090068
+    const v9, 0x109006d
 
     const/4 v10, 0x1
 
     invoke-virtual {v6, v9, p0, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 420
-    const v9, 0x1020325
+    .line 421
+    const v9, 0x1020332
 
     invoke-virtual {p0, v9}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->findViewById(I)Landroid/view/View;
 
@@ -66,8 +66,8 @@
 
     iput-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockName:Landroid/widget/TextView;
 
-    .line 421
-    const v9, 0x1020326
+    .line 422
+    const v9, 0x1020333
 
     invoke-virtual {p0, v9}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->findViewById(I)Landroid/view/View;
 
@@ -77,8 +77,8 @@
 
     iput-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockPrice:Landroid/widget/TextView;
 
-    .line 422
-    const v9, 0x1020327
+    .line 423
+    const v9, 0x1020334
 
     invoke-virtual {p0, v9}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->findViewById(I)Landroid/view/View;
 
@@ -88,34 +88,34 @@
 
     iput-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
-    .line 424
+    .line 425
     const/4 v7, 0x0
 
-    .line 426
+    .line 427
     .local v7, isNum:Z
     :try_start_0
     invoke-static/range {p4 .. p4}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
-    .line 427
+    .line 428
     invoke-static/range {p5 .. p5}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 428
+    .line 429
     const/4 v7, 0x1
 
-    .line 433
+    .line 434
     :goto_0
     if-eqz v7, :cond_9
 
-    .line 434
+    .line 435
     new-instance v8, Ljava/text/DecimalFormat;
 
     const-string v9, "#,##0.##"
 
     invoke-direct {v8, v9}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
 
-    .line 435
+    .line 436
     .local v8, priceFormat:Ljava/text/DecimalFormat;
     invoke-static/range {p4 .. p4}, Ljava/lang/Double;->valueOf(Ljava/lang/String;)Ljava/lang/Double;
 
@@ -125,7 +125,7 @@
 
     move-result-object v5
 
-    .line 437
+    .line 438
     .local v5, formattedPrice:Ljava/lang/String;
     new-instance v2, Ljava/text/DecimalFormat;
 
@@ -133,7 +133,7 @@
 
     invoke-direct {v2, v9}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
 
-    .line 438
+    .line 439
     .local v2, changePriceFormat:Ljava/text/DecimalFormat;
     invoke-static/range {p5 .. p5}, Ljava/lang/Double;->valueOf(Ljava/lang/String;)Ljava/lang/Double;
 
@@ -143,13 +143,13 @@
 
     move-result-object v4
 
-    .line 440
+    .line 441
     .local v4, formattedChangePrice:Ljava/lang/String;
     invoke-static/range {p5 .. p5}, Ljava/lang/Double;->valueOf(Ljava/lang/String;)Ljava/lang/Double;
 
     move-result-object v1
 
-    .line 441
+    .line 442
     .local v1, changePrice:Ljava/lang/Double;
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
 
@@ -157,7 +157,7 @@
 
     if-eqz v9, :cond_3
 
-    .line 442
+    .line 443
     invoke-virtual {v1}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v9
@@ -168,14 +168,14 @@
 
     if-nez v9, :cond_1
 
-    .line 443
+    .line 444
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const/4 v10, -0x1
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 444
+    .line 445
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const/4 v10, 0x0
@@ -188,7 +188,7 @@
 
     invoke-virtual {v9, v10, v11, v12, v13}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 476
+    .line 477
     :cond_0
     :goto_1
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockName:Landroid/widget/TextView;
@@ -197,17 +197,17 @@
 
     invoke-virtual {v9, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 477
+    .line 478
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockPrice:Landroid/widget/TextView;
 
     invoke-virtual {v9, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 478
+    .line 479
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     invoke-virtual {v9, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 485
+    .line 486
     .end local v1           #changePrice:Ljava/lang/Double;
     .end local v2           #changePriceFormat:Ljava/text/DecimalFormat;
     .end local v4           #formattedChangePrice:Ljava/lang/String;
@@ -216,17 +216,17 @@
     :goto_2
     return-void
 
-    .line 429
+    .line 430
     :catch_0
     move-exception v3
 
-    .line 430
+    .line 431
     .local v3, e:Ljava/lang/Exception;
     const/4 v7, 0x0
 
     goto :goto_0
 
-    .line 445
+    .line 446
     .end local v3           #e:Ljava/lang/Exception;
     .restart local v1       #changePrice:Ljava/lang/Double;
     .restart local v2       #changePriceFormat:Ljava/text/DecimalFormat;
@@ -244,17 +244,17 @@
 
     if-gez v9, :cond_2
 
-    .line 446
+    .line 447
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const v10, -0xb70100
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 447
+    .line 448
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
-    const v10, 0x1080473
+    const v10, 0x108049e
 
     const/4 v11, 0x0
 
@@ -266,7 +266,7 @@
 
     goto :goto_1
 
-    .line 448
+    .line 449
     :cond_2
     invoke-virtual {v1}, Ljava/lang/Double;->doubleValue()D
 
@@ -278,17 +278,17 @@
 
     if-lez v9, :cond_0
 
-    .line 449
+    .line 450
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const/high16 v10, -0x17
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 450
+    .line 451
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
-    const v10, 0x1080479
+    const v10, 0x10804a4
 
     const/4 v11, 0x0
 
@@ -300,7 +300,7 @@
 
     goto :goto_1
 
-    .line 452
+    .line 453
     :cond_3
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isKoreaFeature()Z
 
@@ -308,7 +308,7 @@
 
     if-eqz v9, :cond_6
 
-    .line 453
+    .line 454
     invoke-virtual {v1}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v9
@@ -319,14 +319,14 @@
 
     if-nez v9, :cond_4
 
-    .line 454
+    .line 455
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const v10, -0x5e5e5f
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 455
+    .line 456
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const/4 v10, 0x0
@@ -341,7 +341,7 @@
 
     goto :goto_1
 
-    .line 456
+    .line 457
     :cond_4
     invoke-virtual {v1}, Ljava/lang/Double;->doubleValue()D
 
@@ -353,17 +353,17 @@
 
     if-gez v9, :cond_5
 
-    .line 457
+    .line 458
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const v10, -0xb87220
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 458
+    .line 459
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
-    const v10, 0x1080472
+    const v10, 0x108049d
 
     const/4 v11, 0x0
 
@@ -375,7 +375,7 @@
 
     goto/16 :goto_1
 
-    .line 459
+    .line 460
     :cond_5
     invoke-virtual {v1}, Ljava/lang/Double;->doubleValue()D
 
@@ -387,17 +387,17 @@
 
     if-lez v9, :cond_0
 
-    .line 460
+    .line 461
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const/high16 v10, -0x17
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 461
+    .line 462
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
-    const v10, 0x1080478
+    const v10, 0x10804a3
 
     const/4 v11, 0x0
 
@@ -409,7 +409,7 @@
 
     goto/16 :goto_1
 
-    .line 464
+    .line 465
     :cond_6
     invoke-virtual {v1}, Ljava/lang/Double;->doubleValue()D
 
@@ -421,14 +421,14 @@
 
     if-nez v9, :cond_7
 
-    .line 465
+    .line 466
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const/4 v10, -0x1
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 466
+    .line 467
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const/4 v10, 0x0
@@ -443,7 +443,7 @@
 
     goto/16 :goto_1
 
-    .line 467
+    .line 468
     :cond_7
     invoke-virtual {v1}, Ljava/lang/Double;->doubleValue()D
 
@@ -455,17 +455,17 @@
 
     if-gez v9, :cond_8
 
-    .line 468
+    .line 469
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const/high16 v10, -0x17
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 469
+    .line 470
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
-    const v10, 0x1080471
+    const v10, 0x108049c
 
     const/4 v11, 0x0
 
@@ -477,7 +477,7 @@
 
     goto/16 :goto_1
 
-    .line 470
+    .line 471
     :cond_8
     invoke-virtual {v1}, Ljava/lang/Double;->doubleValue()D
 
@@ -489,17 +489,17 @@
 
     if-lez v9, :cond_0
 
-    .line 471
+    .line 472
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     const v10, -0xb70100
 
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 472
+    .line 473
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
-    const v10, 0x1080477
+    const v10, 0x10804a2
 
     const/4 v11, 0x0
 
@@ -511,7 +511,7 @@
 
     goto/16 :goto_1
 
-    .line 481
+    .line 482
     .end local v1           #changePrice:Ljava/lang/Double;
     .end local v2           #changePriceFormat:Ljava/text/DecimalFormat;
     .end local v4           #formattedChangePrice:Ljava/lang/String;
@@ -524,14 +524,14 @@
 
     invoke-virtual {v9, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 482
+    .line 483
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockPrice:Landroid/widget/TextView;
 
     move-object/from16 v0, p4
 
     invoke-virtual {v9, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 483
+    .line 484
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$HorizontalStockData;->mStockChange:Landroid/widget/TextView;
 
     move-object/from16 v0, p5

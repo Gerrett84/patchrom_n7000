@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1484
+    .line 1666
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$8;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,25 +38,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 1
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 1486
+    .line 1668
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$8;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    const/4 v1, 0x1
+    #calls: Lcom/android/internal/policy/impl/PhoneWindowManager;->handleLongPressOnHome()V
+    invoke-static {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$1100(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
 
-    iput-boolean v1, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSearchKeyShortcutPending:Z
-
-    .line 1487
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$8;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1, v2, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->performHapticFeedbackLw(Landroid/view/WindowManagerPolicy$WindowState;IZ)Z
-
-    .line 1488
+    .line 1669
     return-void
 .end method

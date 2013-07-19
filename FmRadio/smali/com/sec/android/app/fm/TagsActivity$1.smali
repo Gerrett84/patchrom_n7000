@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 387
+    .line 401
     iput-object p1, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMEventListener;-><init>()V
@@ -41,7 +41,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 391
+    .line 405
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -63,7 +63,7 @@
     #calls: Lcom/sec/android/app/fm/TagsActivity;->log(Ljava/lang/String;)V
     invoke-static {v1}, Lcom/sec/android/app/fm/TagsActivity;->access$400(Ljava/lang/String;)V
 
-    .line 393
+    .line 407
     iget-object v1, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
     #getter for: Lcom/sec/android/app/fm/TagsActivity;->tagListMgr:Lcom/sec/android/app/fm/ui/RTPTagListManager;
@@ -73,7 +73,7 @@
 
     invoke-virtual {v1}, Lcom/sec/android/app/fm/ui/RTPTagListManager;->clearCurTagList()V
 
-    .line 394
+    .line 408
     iget-object v1, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
     #getter for: Lcom/sec/android/app/fm/TagsActivity;->tagListMgr:Lcom/sec/android/app/fm/ui/RTPTagListManager;
@@ -91,7 +91,7 @@
 
     if-nez v1, :cond_0
 
-    .line 395
+    .line 409
     iget-object v1, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
     const-string v2, "localpreference"
@@ -104,16 +104,16 @@
 
     move-result-object v0
 
-    .line 396
+    .line 410
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v1, "rtplus"
 
     invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 397
+    .line 411
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 399
+    .line 413
     .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
@@ -122,7 +122,7 @@
 
     invoke-virtual {v1, v2}, Lcom/sec/android/app/fm/TagsActivity;->updateTags(Z)V
 
-    .line 400
+    .line 414
     return-void
 .end method
 
@@ -135,7 +135,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 404
+    .line 418
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -167,7 +167,7 @@
     #calls: Lcom/sec/android/app/fm/TagsActivity;->log(Ljava/lang/String;)V
     invoke-static {v1}, Lcom/sec/android/app/fm/TagsActivity;->access$400(Ljava/lang/String;)V
 
-    .line 406
+    .line 420
     iget-object v1, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
     #getter for: Lcom/sec/android/app/fm/TagsActivity;->tagListMgr:Lcom/sec/android/app/fm/ui/RTPTagListManager;
@@ -181,7 +181,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 407
+    .line 421
     iget-object v1, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
     #getter for: Lcom/sec/android/app/fm/TagsActivity;->tagListMgr:Lcom/sec/android/app/fm/ui/RTPTagListManager;
@@ -199,7 +199,7 @@
 
     if-nez v1, :cond_0
 
-    .line 408
+    .line 422
     iget-object v1, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
     const-string v2, "localpreference"
@@ -212,16 +212,16 @@
 
     move-result-object v0
 
-    .line 409
+    .line 423
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     const-string v1, "rtplus"
 
     invoke-interface {v0, v1, v3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 410
+    .line 424
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 412
+    .line 426
     .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
@@ -230,13 +230,13 @@
 
     invoke-virtual {v1, v2}, Lcom/sec/android/app/fm/TagsActivity;->updateTags(Z)V
 
-    .line 414
+    .line 428
     :cond_1
     return-void
 .end method
 
 .method public onRTPlusReceived(IIIIII)V
-    .locals 4
+    .locals 5
     .parameter "contentType1"
     .parameter "startPos1"
     .parameter "additionalLen1"
@@ -245,14 +245,16 @@
     .parameter "additionalLen2"
 
     .prologue
-    .line 417
+    const/4 v4, 0x1
+
+    .line 433
     const/4 v0, 0x0
 
-    .line 418
+    .line 434
     .local v0, neetToUpdate1:Z
     const/4 v1, 0x0
 
-    .line 420
+    .line 436
     .local v1, neetToUpdate2:Z
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -295,7 +297,7 @@
     #calls: Lcom/sec/android/app/fm/TagsActivity;->log(Ljava/lang/String;)V
     invoke-static {v2}, Lcom/sec/android/app/fm/TagsActivity;->access$400(Ljava/lang/String;)V
 
-    .line 421
+    .line 438
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -337,7 +339,7 @@
     #calls: Lcom/sec/android/app/fm/TagsActivity;->log(Ljava/lang/String;)V
     invoke-static {v2}, Lcom/sec/android/app/fm/TagsActivity;->access$400(Ljava/lang/String;)V
 
-    .line 423
+    .line 441
     iget-object v2, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
     #getter for: Lcom/sec/android/app/fm/TagsActivity;->tagListMgr:Lcom/sec/android/app/fm/ui/RTPTagListManager;
@@ -351,7 +353,7 @@
 
     move-result v0
 
-    .line 424
+    .line 443
     iget-object v2, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
     #getter for: Lcom/sec/android/app/fm/TagsActivity;->tagListMgr:Lcom/sec/android/app/fm/ui/RTPTagListManager;
@@ -365,20 +367,21 @@
 
     move-result v1
 
-    .line 425
+    .line 445
     if-nez v0, :cond_0
 
     if-eqz v1, :cond_1
 
-    .line 426
+    .line 446
     :cond_0
+    invoke-static {v4}, Lcom/sec/android/app/fm/MainActivity;->setUpdateRTWithRTP(Z)V
+
+    .line 447
     iget-object v2, p0, Lcom/sec/android/app/fm/TagsActivity$1;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
-    const/4 v3, 0x1
+    invoke-virtual {v2, v4}, Lcom/sec/android/app/fm/TagsActivity;->updateTags(Z)V
 
-    invoke-virtual {v2, v3}, Lcom/sec/android/app/fm/TagsActivity;->updateTags(Z)V
-
-    .line 427
+    .line 449
     :cond_1
     return-void
 .end method

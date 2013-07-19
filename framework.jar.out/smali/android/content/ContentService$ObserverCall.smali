@@ -30,18 +30,18 @@
     .parameter "selfChange"
 
     .prologue
-    .line 234
+    .line 237
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 235
+    .line 238
     iput-object p1, p0, Landroid/content/ContentService$ObserverCall;->mNode:Landroid/content/ContentService$ObserverNode;
 
-    .line 236
+    .line 239
     iput-object p2, p0, Landroid/content/ContentService$ObserverCall;->mObserver:Landroid/database/IContentObserver;
 
-    .line 237
+    .line 240
     iput-boolean p3, p0, Landroid/content/ContentService$ObserverCall;->mSelfChange:Z
 
-    .line 238
+    .line 241
     return-void
 .end method

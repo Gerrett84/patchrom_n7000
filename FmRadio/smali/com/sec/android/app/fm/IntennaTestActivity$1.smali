@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 245
+    .line 277
     iput-object p1, p0, Lcom/sec/android/app/fm/IntennaTestActivity$1;->this$0:Lcom/sec/android/app/fm/IntennaTestActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 4
 
     .prologue
-    .line 247
+    .line 280
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity$1;->this$0:Lcom/sec/android/app/fm/IntennaTestActivity;
 
     const/4 v1, 0x2
@@ -49,13 +49,13 @@
     #calls: Lcom/sec/android/app/fm/IntennaTestActivity;->readThreshold(I)V
     invoke-static {v0, v1}, Lcom/sec/android/app/fm/IntennaTestActivity;->access$000(Lcom/sec/android/app/fm/IntennaTestActivity;I)V
 
-    .line 248
+    .line 281
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity$1;->this$0:Lcom/sec/android/app/fm/IntennaTestActivity;
 
     #calls: Lcom/sec/android/app/fm/IntennaTestActivity;->UpdateIntennaTest()V
     invoke-static {v0}, Lcom/sec/android/app/fm/IntennaTestActivity;->access$100(Lcom/sec/android/app/fm/IntennaTestActivity;)V
 
-    .line 249
+    .line 282
     iget-object v0, p0, Lcom/sec/android/app/fm/IntennaTestActivity$1;->this$0:Lcom/sec/android/app/fm/IntennaTestActivity;
 
     #getter for: Lcom/sec/android/app/fm/IntennaTestActivity;->handler:Landroid/os/Handler;
@@ -74,6 +74,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 250
+    .line 283
     return-void
 .end method

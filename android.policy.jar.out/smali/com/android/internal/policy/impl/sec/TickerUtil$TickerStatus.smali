@@ -62,7 +62,7 @@
 
     const/4 v3, 0x0
 
-    .line 44
+    .line 45
     new-instance v0, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     const-string v1, "NewsNormal"
@@ -153,7 +153,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->FacebookNoInstalled:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
-    .line 43
+    .line 44
     const/16 v0, 0xa
 
     new-array v0, v0, [Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
@@ -224,7 +224,7 @@
     .end annotation
 
     .prologue
-    .line 43
+    .line 44
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -235,7 +235,7 @@
     .parameter "name"
 
     .prologue
-    .line 43
+    .line 44
     const-class v0, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -251,7 +251,7 @@
     .locals 1
 
     .prologue
-    .line 43
+    .line 44
     sget-object v0, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->$VALUES:[Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
     invoke-virtual {v0}, [Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->clone()Ljava/lang/Object;

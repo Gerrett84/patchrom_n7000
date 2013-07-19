@@ -27,13 +27,13 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 234
+    .line 235
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 235
+    .line 236
     iput v0, p0, Landroid/preference/VolumePreference$VolumeStore;->volume:I
 
-    .line 236
+    .line 237
     iput v0, p0, Landroid/preference/VolumePreference$VolumeStore;->originalVolume:I
 
     return-void

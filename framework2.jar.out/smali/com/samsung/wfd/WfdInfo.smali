@@ -22,6 +22,8 @@
 
 
 # instance fields
+.field public coupledDeviceAddress:Ljava/lang/String;
+
 .field public cpled_sink_status:I
 
 .field public ctrl_port:I
@@ -29,6 +31,8 @@
 .field public dev_info:I
 
 .field public deviceAddress:Ljava/lang/String;
+
+.field public deviceName:Ljava/lang/String;
 
 .field public max_tput:I
 
@@ -38,7 +42,7 @@
     .locals 1
 
     .prologue
-    .line 121
+    .line 128
     new-instance v0, Lcom/samsung/wfd/WfdInfo$1;
 
     invoke-direct {v0}, Lcom/samsung/wfd/WfdInfo$1;-><init>()V
@@ -52,10 +56,10 @@
     .locals 0
 
     .prologue
-    .line 45
+    .line 50
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
+    .line 51
     return-void
 .end method
 
@@ -64,38 +68,43 @@
     .parameter "source"
 
     .prologue
-    .line 101
+    .line 106
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 102
+    .line 107
     if-eqz p1, :cond_0
 
-    .line 103
+    .line 108
     iget-object v0, p1, Lcom/samsung/wfd/WfdInfo;->deviceAddress:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/samsung/wfd/WfdInfo;->deviceAddress:Ljava/lang/String;
 
-    .line 104
+    .line 109
     iget v0, p1, Lcom/samsung/wfd/WfdInfo;->dev_info:I
 
     iput v0, p0, Lcom/samsung/wfd/WfdInfo;->dev_info:I
 
-    .line 105
+    .line 110
     iget v0, p1, Lcom/samsung/wfd/WfdInfo;->ctrl_port:I
 
     iput v0, p0, Lcom/samsung/wfd/WfdInfo;->ctrl_port:I
 
-    .line 106
+    .line 111
     iget v0, p1, Lcom/samsung/wfd/WfdInfo;->max_tput:I
 
     iput v0, p0, Lcom/samsung/wfd/WfdInfo;->max_tput:I
 
-    .line 107
+    .line 112
     iget v0, p1, Lcom/samsung/wfd/WfdInfo;->cpled_sink_status:I
 
     iput v0, p0, Lcom/samsung/wfd/WfdInfo;->cpled_sink_status:I
 
-    .line 109
+    .line 113
+    iget-object v0, p1, Lcom/samsung/wfd/WfdInfo;->coupledDeviceAddress:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/samsung/wfd/WfdInfo;->coupledDeviceAddress:Ljava/lang/String;
+
+    .line 115
     :cond_0
     return-void
 .end method
@@ -114,23 +123,23 @@
 
     const/4 v8, 0x1
 
-    .line 48
+    .line 53
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 49
+    .line 54
     const-string v6, " "
 
     invoke-virtual {p1, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v5
 
-    .line 51
+    .line 56
     .local v5, tokens:[Ljava/lang/String;
     array-length v6, v5
 
     if-ge v6, v8, :cond_0
 
-    .line 52
+    .line 57
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     const-string v7, "Malformed wfd information"
@@ -139,7 +148,7 @@
 
     throw v6
 
-    .line 55
+    .line 60
     :cond_0
     move-object v0, v5
 
@@ -155,7 +164,7 @@
 
     aget-object v4, v0, v1
 
-    .line 56
+    .line 61
     .local v4, token:Ljava/lang/String;
     const-string v6, "="
 
@@ -163,7 +172,7 @@
 
     move-result-object v3
 
-    .line 58
+    .line 63
     .local v3, nameValue:[Ljava/lang/String;
     aget-object v6, v3, v9
 
@@ -175,19 +184,19 @@
 
     if-eqz v6, :cond_2
 
-    .line 59
+    .line 64
     aget-object v6, v3, v8
 
     iput-object v6, p0, Lcom/samsung/wfd/WfdInfo;->deviceAddress:Ljava/lang/String;
 
-    .line 55
+    .line 60
     :cond_1
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 63
+    .line 68
     :cond_2
     aget-object v6, v3, v9
 
@@ -199,7 +208,7 @@
 
     if-eqz v6, :cond_3
 
-    .line 64
+    .line 69
     aget-object v6, v3, v8
 
     invoke-direct {p0, v6}, Lcom/samsung/wfd/WfdInfo;->parseHex(Ljava/lang/String;)I
@@ -210,7 +219,7 @@
 
     goto :goto_1
 
-    .line 68
+    .line 73
     :cond_3
     aget-object v6, v3, v9
 
@@ -222,7 +231,7 @@
 
     if-eqz v6, :cond_4
 
-    .line 69
+    .line 74
     aget-object v6, v3, v8
 
     invoke-static {v6}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -233,7 +242,7 @@
 
     goto :goto_1
 
-    .line 73
+    .line 78
     :cond_4
     aget-object v6, v3, v9
 
@@ -245,7 +254,7 @@
 
     if-eqz v6, :cond_5
 
-    .line 74
+    .line 79
     aget-object v6, v3, v8
 
     invoke-static {v6}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -256,7 +265,7 @@
 
     goto :goto_1
 
-    .line 78
+    .line 83
     :cond_5
     aget-object v6, v3, v9
 
@@ -268,7 +277,7 @@
 
     if-eqz v6, :cond_1
 
-    .line 79
+    .line 84
     aget-object v6, v3, v8
 
     invoke-direct {p0, v6}, Lcom/samsung/wfd/WfdInfo;->parseHex(Ljava/lang/String;)I
@@ -279,7 +288,7 @@
 
     goto :goto_1
 
-    .line 83
+    .line 88
     .end local v3           #nameValue:[Ljava/lang/String;
     .end local v4           #token:Ljava/lang/String;
     :cond_6
@@ -291,10 +300,10 @@
     .parameter "hexString"
 
     .prologue
-    .line 140
+    .line 148
     const/4 v1, 0x0
 
-    .line 141
+    .line 149
     .local v1, num:I
     const-string v2, "0x"
 
@@ -312,7 +321,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 142
+    .line 150
     :cond_0
     const/4 v2, 0x2
 
@@ -320,7 +329,7 @@
 
     move-result-object p1
 
-    .line 146
+    .line 154
     :cond_1
     const/16 v2, 0x10
 
@@ -331,15 +340,15 @@
 
     move-result v1
 
-    .line 150
+    .line 158
     :goto_0
     return v1
 
-    .line 147
+    .line 155
     :catch_0
     move-exception v0
 
-    .line 148
+    .line 156
     .local v0, e:Ljava/lang/NumberFormatException;
     const-string v2, "WfdInfo"
 
@@ -372,7 +381,7 @@
     .locals 1
 
     .prologue
-    .line 97
+    .line 102
     const/4 v0, 0x0
 
     return v0
@@ -382,12 +391,12 @@
     .locals 3
 
     .prologue
-    .line 86
+    .line 91
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 87
+    .line 92
     .local v0, sbuf:Ljava/lang/StringBuffer;
     const-string v1, "device_address: "
 
@@ -447,7 +456,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    .line 92
+    .line 97
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -461,31 +470,36 @@
     .parameter "flags"
 
     .prologue
-    .line 113
+    .line 119
     iget-object v0, p0, Lcom/samsung/wfd/WfdInfo;->deviceAddress:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 114
+    .line 120
     iget v0, p0, Lcom/samsung/wfd/WfdInfo;->dev_info:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 115
+    .line 121
     iget v0, p0, Lcom/samsung/wfd/WfdInfo;->ctrl_port:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 116
+    .line 122
     iget v0, p0, Lcom/samsung/wfd/WfdInfo;->max_tput:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 117
+    .line 123
     iget v0, p0, Lcom/samsung/wfd/WfdInfo;->cpled_sink_status:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 118
+    .line 124
+    iget-object v0, p0, Lcom/samsung/wfd/WfdInfo;->coupledDeviceAddress:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 125
     return-void
 .end method

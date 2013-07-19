@@ -94,13 +94,13 @@ Quloqlik radio antenna sifatida ishlaydi. Quloqlikni ulash"</string>
     <string name="toast_unavailable_in_tvout_mode">TV chiqarish rejimida foydalanib bo‘lmaydi</string>
     <string name="mute">Ovozsiz</string>
     <string name="seeking">Qidirilmoqda…</string>
-    <string name="via_earphone">Quloqliklar orqali</string>
-    <string name="via_speaker">Dinamik orq.</string>
+    <string name="via_earphone">Quloq karnaylari orq. o‘ynatish</string>
+    <string name="via_speaker">Dinamik orqali o‘ynat</string>
     <string name="normal_frequency">Normal chastota</string>
     <string name="tag">Teg</string>
     <string name="stop">To‘xtatish</string>
     <string name="recording">Yozib olinmoqda…</string>
-    <string name="memory_full">Yozish to‘xtatildi. Xotira to‘la</string>
+    <string name="memory_full">Xotira to‘la</string>
     <string name="cancel_recording">Yozib olish bekor qilinsinmi?</string>
     <string name="change_frequency">Chastotani o‘zgartirish</string>
     <string name="enter_frequency">Chastota kiriting</string>
@@ -126,11 +126,14 @@ Quloqlik radio antenna sifatida ishlaydi. Quloqlikni ulash"</string>
     <string name="tags">Teglar</string>
     <string name="tags_now_broadcasting">Hozirda efirda</string>
     <string name="tags_no_information">Ma’lumot yo‘q</string>
+    <string name="tags_music_history">Musiqa jurnali</string>
     <string name="tags_music_title">Sarlavha</string>
     <string name="tags_music_album">Albom</string>
     <string name="tags_music_artist">Ijrochi</string>
+    <string name="tags_music_band">Tasma</string>
     <string name="tags_information_url">URL-manzil</string>
     <string name="tags_programme_homepage">Asosiy sahifa</string>
+    <string name="tags_interact_hotline">Aloqa uchun telefon</string>
     <string name="tags_interact_studio">Studiya</string>
     <string name="tags_interact_other">Boshqa</string>
     <string name="tags_interact_centre">Markaz</string>
@@ -176,4 +179,14 @@ Radio qayd qilingandan so‘ng, qayd qilingan fayllar ko‘rsatiladi"</string>
     <string name="dialog_one_item_deleted">Ushbu element yo‘q qilinadi</string>
     <string name="dialog_multiple_items_deleted">"%d element o'chirib tashlanadi"</string>
     <string name="dialog_all_items_deleted">"Barcha elementlar o'chirib tashlanadi"</string>
+    <string name="turning_on">Yoqilmoqda…</string>
+    <string name="not_enough_memory_recording_will_stop">Xotira yetarli emas. Yozish %d soniyada to‘xtatiladi</string>
+    <string name="low_batt_msg">Batareya quvvati kam</string>
+    <string name="no_play_during_call">Qo‘ng‘iroq mobaynida o‘ynatib bo‘lmaydi</string>
+    <string name="unable_delete">Yo‘q qilib bo‘lmaydi</string>
+    <string name="playing">"O'ynamoqda"</string>
+    <string name="tts_play_button">O‘ynatish</string>
+    <string name="tts_previous_button">Avvalgi</string>
+    <string name="tts_Next_button">Keyingi</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

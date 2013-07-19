@@ -523,7 +523,7 @@
 
     .line 167
     :pswitch_1
-    const-string v1, "modem"
+    const-string/jumbo v1, "modem"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
@@ -552,8 +552,6 @@
     goto :goto_1
 
     .line 162
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

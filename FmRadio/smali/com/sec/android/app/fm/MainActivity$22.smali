@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 7582
+    .line 4351
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$22;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,16 +44,16 @@
     .parameter "event"
 
     .prologue
-    .line 7586
+    .line 4354
     const/4 v0, 0x6
 
     if-ne p2, v0, :cond_0
 
-    .line 7588
+    .line 4355
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$22;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     #getter for: Lcom/sec/android/app/fm/MainActivity;->mChangeFreqDialog:Lcom/sec/android/app/fm/ui/FMAlertDialog;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$6800(Lcom/sec/android/app/fm/MainActivity;)Lcom/sec/android/app/fm/ui/FMAlertDialog;
+    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$7200(Lcom/sec/android/app/fm/MainActivity;)Lcom/sec/android/app/fm/ui/FMAlertDialog;
 
     move-result-object v0
 
@@ -65,10 +65,10 @@
 
     invoke-virtual {v0}, Landroid/widget/Button;->performClick()Z
 
-    .line 7590
+    .line 4356
     const/4 v0, 0x1
 
-    .line 7594
+    .line 4358
     :goto_0
     return v0
 

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 264
+    .line 257
     iput-object p1, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,95 +38,67 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 1
 
     .prologue
-    .line 266
-    iget-object v2, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
+    .line 260
+    iget-object v0, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
 
-    iget-object v2, v2, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
+    iget-object v0, v0, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
 
-    iget-object v2, v2, Landroid/widget/Editor;->mSelectionActionMode:Landroid/view/ActionMode;
+    invoke-virtual {v0}, Landroid/widget/Editor;->getInsertionController()Landroid/widget/Editor$InsertionPointCursorController;
 
-    if-eqz v2, :cond_0
+    move-result-object v0
 
-    .line 267
-    iget-object v2, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
+    if-eqz v0, :cond_0
 
-    iget-object v2, v2, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
+    iget-object v0, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-    invoke-static {v2}, Landroid/widget/Editor;->access$000(Landroid/widget/Editor;)Landroid/widget/TextView;
+    iget-object v0, v0, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
 
-    move-result-object v2
+    invoke-virtual {v0}, Landroid/widget/Editor;->getInsertionController()Landroid/widget/Editor$InsertionPointCursorController;
 
-    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    move-result-object v0
 
-    move-result-object v2
+    #calls: Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
+    invoke-static {v0}, Landroid/widget/Editor$InsertionPointCursorController;->access$200(Landroid/widget/Editor$InsertionPointCursorController;)Landroid/widget/Editor$InsertionHandleView;
 
-    check-cast v2, Landroid/text/Spannable;
+    move-result-object v0
 
-    invoke-static {v2}, Landroid/text/Selection;->getSelectionStart(Ljava/lang/CharSequence;)I
+    if-eqz v0, :cond_0
 
-    move-result v1
+    iget-object v0, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
 
-    .line 268
-    .local v1, selectionStart:I
-    iget-object v2, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
-
-    iget-object v2, v2, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
+    iget-object v0, v0, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-    invoke-static {v2}, Landroid/widget/Editor;->access$000(Landroid/widget/Editor;)Landroid/widget/TextView;
+    invoke-static {v0}, Landroid/widget/Editor;->access$000(Landroid/widget/Editor;)Landroid/widget/TextView;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/text/Spannable;
-
-    invoke-static {v2}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
+    invoke-virtual {v0}, Landroid/widget/TextView;->hasSelection()Z
 
     move-result v0
 
-    .line 269
-    .local v0, selectionEnd:I
-    iget-object v2, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
+    if-nez v0, :cond_0
 
-    iget-object v2, v2, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
+    .line 261
+    iget-object v0, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
 
-    invoke-virtual {v2}, Landroid/widget/Editor;->stopSelectionActionMode()V
+    iget-object v0, v0, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
 
-    .line 270
-    iget-object v2, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
+    invoke-virtual {v0}, Landroid/widget/Editor;->getInsertionController()Landroid/widget/Editor$InsertionPointCursorController;
 
-    iget-object v2, v2, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
+    move-result-object v0
 
-    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
-    invoke-static {v2}, Landroid/widget/Editor;->access$000(Landroid/widget/Editor;)Landroid/widget/TextView;
+    #calls: Landroid/widget/Editor$InsertionPointCursorController;->getHandle()Landroid/widget/Editor$InsertionHandleView;
+    invoke-static {v0}, Landroid/widget/Editor$InsertionPointCursorController;->access$200(Landroid/widget/Editor$InsertionPointCursorController;)Landroid/widget/Editor$InsertionHandleView;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v0}, Landroid/widget/Editor$InsertionHandleView;->hide()V
 
-    move-result-object v2
-
-    check-cast v2, Landroid/text/Spannable;
-
-    invoke-static {v2, v1, v0}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;II)V
-
-    .line 271
-    iget-object v2, p0, Landroid/widget/Editor$1$1;->this$1:Landroid/widget/Editor$1;
-
-    iget-object v2, v2, Landroid/widget/Editor$1;->this$0:Landroid/widget/Editor;
-
-    invoke-virtual {v2}, Landroid/widget/Editor;->startSelectionActionMode()Z
-
-    .line 273
-    .end local v0           #selectionEnd:I
-    .end local v1           #selectionStart:I
+    .line 264
     :cond_0
     return-void
 .end method

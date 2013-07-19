@@ -10,7 +10,7 @@
     <string name="httpErrorBadUrl">Ezin da orria ireki. URL baliogabea</string>
     <string name="httpErrorUnsupportedScheme">Protokoloa ez da onartzen</string>
     <string name="no">Ezeztatu</string>
-    <string name="ok">Ados</string>
+    <string name="ok">Onartu</string>
     <string name="paste">Itsatsi</string>
     <string name="search_go">Bilatu</string>
     <string name="selectAll">Hautatu denak</string>
@@ -269,7 +269,7 @@
     <string name="turn_on_radio">Piztu hari gabekoa</string>
     <string name="turn_off_radio">Itzali hari gabekoa</string>
     <string name="screen_lock">Pantailaren blokeoa</string>
-    <string name="power_off">Itzali</string>
+    <string name="power_off">Itzaltzeko ordua</string>
     <string name="silent_mode_vibrate">Tonu bibrazioa</string>
     <string name="shutdown_progress">Itzaltzen…</string>
     <string name="shutdown_confirm">Gailua orain itzaliko da</string>
@@ -279,10 +279,10 @@
     <string name="no_recent_tasks">Ez dago aplikazio berririk</string>
     <string name="global_actions">Gailuaren aukerak</string>
     <string name="global_action_lock">Pantailaren blokeoa</string>
-    <string name="global_action_power_off">Itzali</string>
+    <string name="global_action_power_off">Itzalita</string>
     <string name="global_action_restart">Berrekin</string>
     <string name="global_action_sound_mode_mute">Isilarazi</string>
-    <string name="global_action_sound_mode_vibrate">Bibratu</string>
+    <string name="global_action_sound_mode_vibrate">Bibrazioa</string>
     <string name="global_action_sound_mode_sound">Soinua</string>
     <string name="global_action_toggle_silent_mode">Modu isila</string>
     <string name="global_action_silent_mode_on_status">Soinua ITZALITA dago</string>
@@ -304,7 +304,7 @@
     <string name="global_action_insert_sim_card">SIM txartela sartu</string>
     <string name="global_action_insert_sim_card_message">Sartu SIM txartela sare zerbitzuetara sartzeko</string>
     <string name="globalactions_silent_mode_mute">Isilarazi</string>
-    <string name="globalactions_silent_mode_vibrate">Bibratu</string>
+    <string name="globalactions_silent_mode_vibrate">Bibrazioa</string>
     <string name="globalactions_silent_mode_sound">Soinua</string>
     <string name="safeMode">Modu segurua</string>
     <string name="permlab_mdmApplications">Kudeatu aplikazioak</string>
@@ -355,6 +355,7 @@
     <string name="permdesc_mdmKioskMode">Kontrolatu gailuaren jarrera Kiosko moduan</string>
     <string name="tether_usb_restrict">Segurtasun politikak USB ainguraketaren erabilera mugatzen du</string>
     <string name="tether_wifi_restrict">Segurtasun politikak Wi-Fi ainguraketaren erabilera mugatzen du</string>
+    <string name="data_call_restriction">Segurtasun politikak datu mugikorren erabilera mugatzen du</string>
     <string name="dpm_wifi_blocked_network">Segurtasun politikak Wi-Fi sare honen erabilera blokeatzen du</string>
     <string name="dpm_wifi_misc_wifi_disabled">Segurtasun politikak Wi-Fi erabilera mugatzen du</string>
     <string name="dpm_wifi_misc_network_insecure">Segurtasun politikak Wi-Fi sare ez-seguruen erabilera mugatzen du</string>
@@ -538,6 +539,7 @@
     <string name="permlab_readSocialStream">Irakurri zure fluxu soziala</string>
     <string name="permlab_writeSocialStream">Argitaratu zure gizarte korrontean</string>
     <string name="permlab_readCalendar">Irakurri egutegiko gertaerak eta informazio konfidentziala</string>
+    <string name="permlab_writeCalendar">Gehitu edo aldatu egutegiko gertaerak eta bidali mezu elektronikoak gonbidatuei ostalariak jakin gabe</string>
     <string name="permlab_accessMockLocation">itxurazko kokapen iturriak probatzeko</string>
     <string name="permdesc_accessMockLocation">Baimena ematen dio aplikazioari probako kokapen iturri faltsuak sortzeko. Baimena emanez gero, aplikazio maltzurrek kokapena zein egoera gainidatzi ditzakete eta egiazko kokapen iturriak eman, esaterako, GPS, eragile edo monitore bidez, eta zure kokapena edozein webguneri jakinaraziz</string>
     <string name="permlab_accessLocationExtraCommands">sartu kokapen hornitzailearen komando osagarrietara</string>
@@ -625,6 +627,7 @@
     <string name="permdesc_getAccounts">Baimena ematen dio aplikazioari kontuen zerrendan telefonoa jakinda sartzeko</string>
     <string name="permlab_authenticateAccounts">Jardun kontu egiaztatzaile gisa</string>
     <string name="permdesc_authenticateAccounts">Aplikazioei aukera ematen die Kontuen kudeatzailearen kontuak egiaztatzeko eginbidea erabiltzeko. Kontuak sortzeko eta pasahitzak kontrolatzeko aukera ere ematen du</string>
+    <string name="permlab_manageAccounts">Gehitu edo kendu kontuak</string>
     <string name="permdesc_manageAccounts">Aplikazioei aukera ematen die kontuak gehitzeko eta kentzeko eta zure pasahitza ezabatzeko</string>
     <string name="permlab_useCredentials">Erabili kontu egiaztapen kredentzialak</string>
     <string name="permdesc_useCredentials">Aukera ematen die aplikazioei egiaztapen tokenak eskatzeko</string>
@@ -644,6 +647,7 @@
     <string name="permlab_changeWifiState">aldatu Wi-Fi egoera</string>
     <string name="permdesc_changeWifiState">Baimena ematen dio aplikazioari Wi-Fi sarbideetara konektatu eta deskonektatzeko, baita konfiguratutako Wi-Fi sareetan aldaketak egiteko ere</string>
     <string name="permlab_changeWifiMulticastState">Baimendu Wi-Fi multi-emisio hartzea</string>
+    <string name="permlab_bluetoothAdmin">Bluetooth ezarpenak</string>
     <string name="permdesc_bluetoothAdmin">Aplikazioari aukera ematen dio Bluetooth telefono lokala konfiguratzeko eta urruneko gailuak aurkitu eta horiekin parekatzeko</string>
     <string name="permlab_accessWimaxState">Ikusi WiMAX egoera</string>
     <string name="permlab_changeWimaxState">Aldatu WiMAX egoera</string>
@@ -725,6 +729,7 @@
     <string name="policydesc_allow_desktopsync">Saihestu mahai gaineko sinkronizazioaren erabilera</string>
     <string name="policylab_require_storagecard_encryption">Ezarri SD txartelaren enkriptatzea</string>
     <string name="policydesc_require_storagecard_encryption">Eskatu SD txarteleko fitxategiak enkriptatzeko aplikazioa</string>
+    <string name="bluetooth_has_been_disconnected">Bluetootha deskonektatu da</string>
     <string name="bluetooth_security_mode_disable">Segurtasun politikak Bluetooth konexioaren erabilera mugatzen du</string>
     <string name="bluetooth_security_mode_handsfree">Segurtasun politikak Bluetooth konexioaren erabilera esku-libreko ezaugarrietara soilik mugatzen du</string>
     <string name="phoneTypeCustom">Pertsonalizatua</string>
@@ -796,10 +801,12 @@
     <string name="sipAddressTypeHome">Etxea</string>
     <string name="sipAddressTypeWork">Lana</string>
     <string name="sipAddressTypeOther">Besterik</string>
+    <string name="keyguard_password_enter_pin_code">Idatzi PIN kodea</string>
     <string name="keyguard_password_enter_puk_code">Sartu PUK eta PIN berria</string>
     <string name="keyguard_password_entry_touch_hint">Ukitu pasahitza sartzeko</string>
     <string name="keyguard_password_enter_password_code">Sartu pasahitza desblokeatzeko</string>
     <string name="keyguard_password_enter_pin_password_code">Adierazi PINa desblokeatzeko</string>
+    <string name="keyguard_password_wrong_pin_code">PIN kode okerra</string>
     <string name="keyguard_pin_accepted">Kodea onartuta</string>
     <string name="keyguard_label_text">Desblokeatzeko, sakatu Menua eta ondoren 0</string>
     <string name="emergency_call_dialog_number_for_display">Larrialdietarako zenbakia</string>
@@ -826,8 +833,9 @@
     <string name="lockscreen_network_locked_message">Sarea blokeatuta</string>
     <string name="lockscreen_sim_puk_locked_message">SIM txartelak PUKa blokeatuta du</string>
     <string name="lockscreen_sim_puk_locked_instructions">Begiratu mesedez Erabiltzailearen Gidan edo jarri harremanetan Bezeroentzako Arreta zerbitzuarekin</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM txartela blokeatu da</string>
+    <string name="lockscreen_sim_locked_message">SIM txartela blokeatuta dago</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">SIM txartela desblokeatzen…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Desblokeatze diseinu okerra marraztu duzu %1$d aldiz. Saiatu berriz %2$d segundo barru</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Pasahitz okerra eman duzu %1$d aldiz. Saiatu berriz %2$d segundo barru</string>
     <string name="lockscreen_sim_pin_blocked">PIN1a blokeatuta. Idatzi PUK1a PIN1a desblokeatzeko</string>
@@ -866,6 +874,7 @@
     <string name="autofill_this_form">Automatikoki bete</string>
     <string name="autofill_address_type_same_as_re">Honen berdina</string>
     <string name="autofill_billing_designator_re">Faktura</string>
+    <string name="autofill_shipping_designator_re">Ontzia</string>
     <string name="autofill_phone_suffix_re">Atzizkia</string>
     <string name="autofill_name_on_card_contextual_re">Izena</string>
     <string name="autofill_province">Probintzia</string>
@@ -879,6 +888,7 @@
     <string name="autofill_prefecture">Prefektura</string>
     <string name="autofill_parish">Parrokia</string>
     <string name="autofill_area">Azalera</string>
+    <string name="permlab_readHistoryBookmarks">Irakurri Internet historiala eta laster markak</string>
     <string name="permdesc_readHistoryBookmarks">Baimena ematen dio aplikazioari Nabigatzaileak bisitatutako URL guztiak eta Nabigatzailearen lastermarkak irakurtzeko</string>
     <string name="permdesc_writeHistoryBookmarks">Baimena ematen dio aplikazioari zure telefonoan gordetako Interneteko historia eta lastermarkak aldatzeko. Baimena emanez gero, aplikazio kaltegarriek gisa horretako datuak ezaba edo eralda ditzakete</string>
     <string name="permlab_setAlarm">Ezarri alarma bat</string>
@@ -943,10 +953,12 @@
     <string name="inputMethod">Idazkera modua</string>
     <string name="low_internal_storage_view_title">Memoria ia beteta</string>
     <string name="low_internal_storage_view_text">Baliteke zenbait sistema funtzioak ez funtzionatzea</string>
+    <string name="full_internal_storage_view_text">Baliteke errore bat gertatzea gailuaren memoria beteta dagoelako. Ezabatu elementu batzuk</string>
     <string name="loading">Kargatzen…</string>
     <string name="capital_on">Piztu</string>
     <string name="capital_off">Itzali</string>
     <string name="whichApplication">Osatu ekintzen erabilera</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Erabili besterik adierazi ezean ekintza horretarako</string>
     <string name="clearDefaultHintMsg">Garbitu lehenetsitako aplikazio ezarpenak Ezarpenak > Aplikazio kudeatzailea > Denak aukerara joanda</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1004,7 +1016,7 @@
     <string name="wifi_notification_no_network_message">Ireki Wi-Fi ezarpenak</string>
     <string name="wifi_notification_not_connected">Wi-Fi sare erabilgarriak</string>
     <string name="wifi_notification_not_connected_message">Ireki Wi-Fi sare erabilgarriak</string>
-    <string name="wifi_notification_connected">Konektatu da %1$s-(r)ekin</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Ukitu Wi-Fia konfiguratzeko</string>
     <string name="wifi_notification_connected_secure">Segurua</string>
     <string name="wifi_notification_connected_open">Ireki</string>
@@ -1031,9 +1043,9 @@
     <string name="select_character">Sartu karaktere bat</string>
     <string name="sms_control_default_app_name">Aplikazio ezezaguna</string>
     <string name="sms_control_title">SMS bidaltzen…</string>
-    <string name="sms_control_message">SMS kopuru handia bidaltzen ari zara. Sakatu Ados jarraitzeko edo utzi eteteko</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> SMS kopuru handia bidaltzen ari da. Baimendu aplikazio honek mezuak bidaltzen jarraitzea?</string>
     <string name="sms_control_yes">Onartu</string>
-    <string name="sms_control_no">Ezeztatu</string>
+    <string name="sms_control_no">Ukatu</string>
     <string name="sim_removed_title">SIM txartela kendu da</string>
     <string name="sim_removed_message">Mugikorreko sarea ezingo da erabili baliozko SIM txartela sartu eta berrabiarazten duzun arte</string>
     <string name="sim_done_button">Egina</string>
@@ -1111,7 +1123,7 @@
     <string name="activity_list_empty">Ez da ekintza bateragarririk aurkitu</string>
     <string name="permlab_pkgUsageStats">eguneratu osaeraren erabilerari buruzko estatistikak</string>
     <string name="permdesc_pkgUsageStats">Bildutako osagaien erabilera estatistikak aldatzea ahalbidetzen du. Ez da aplikazio arruntentzako</string>
-    <string name="permlab_copyProtectedData">Baimena ematen dio lehenetsitako edukitzaile zerbitzuari edukia kopiatzeko. Ez da aplikazio arruntentzako</string>
+    <string name="permlab_copyProtectedData">Kopiatu edukia</string>
     <string name="permdesc_copyProtectedData">Baimena ematen dio lehenetsitako edukitzaile zerbitzuari edukia kopiatzeko. Ez da aplikazio arruntentzako</string>
     <string name="permlab_route_media_output">Bideratu irteera multimedia</string>
     <string name="permdesc_route_media_output">Aplikazio bati irteera multimedia beste kanpo gailu batzuetara bideratzeko</string>
@@ -1242,10 +1254,11 @@ da %s konturako"</string>
     <string name="action_bar_home_description">Nabigatu etxera</string>
     <string name="action_bar_up_description">Nabigatu</string>
     <string name="action_menu_overflow_description">Aukera gehiago</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Aldatu aurreko neurrira</string>
     <string name="storage_internal">Gailuaren memoria</string>
     <string name="storage_sd_card">SD txar.</string>
     <string name="storage_usb">USB biltegia</string>
-    <string name="extract_edit_menu_button">Editatu…</string>
+    <string name="extract_edit_menu_button">Editatu</string>
     <string name="data_usage_warning_title">Datu erabileraren abisua</string>
     <string name="data_usage_warning_body">Ukitu erabilera eta ezarpenak ikusteko</string>
     <string name="data_usage_3g_limit_title">2G-3G datuak desgaituta</string>
@@ -1329,6 +1342,8 @@ da %s konturako"</string>
     <string name="lockscreen_fmapp_name">FM Irratia</string>
     <string name="lockscreen_clock_dualclock_home">Etxea</string>
     <string name="lockscreen_clock_dualclock_roaming">Ibiltaritza</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Seul</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Ibiltaritza</string>
     <string name="lockscreen_clock_dualclock_popup_title">Erloju duala</string>
     <string name="lockscreen_clock_dualclock_popup_message">Hautatu zure hiria erloju duala erakusteko blokeo pantailan. Joan Ezarpenetara?</string>
     <string name="lockscreen_ticker_no_data_to_display">Ez dago daturik</string>
@@ -1365,7 +1380,7 @@ da %s konturako"</string>
     <string name="lockscreen_2ndLock_instructions2">Adierazi babes kopia PINa desblokeatzeko</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">Ados</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Desblokeatzeko eredua %1$d aldiz oker jarri duzu. Saiatu berriro mesedez, hemendik %2$d segundotara</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Desblokeatze eredu okerra marraztu duzu %1$d aldiz. Beste %2$d saialdi gelditzen zaizkizu, gailua Google-n saioa hasita edo babes kopia PINarekin desblokeatzeko eskatu baino lehen. Saiatu berriz %3$d segundo barru</string>
     <string name="lockscreen_carrier_noservice">(Zerbitzurik ez)</string>
     <string name="rescan_network">Sare erabilgarria bilatzen</string>
     <string name="AutoUpdateOfTimeAndDate">Egun eta orduaren gaurkotze automatikoa</string>
@@ -1376,6 +1391,8 @@ da %s konturako"</string>
     <string name="capabilitymanager_managed_errortitle">Akatsa</string>
     <string name="security_policy_title">Segurtasun politikak</string>
     <string name="security_policy_summary">Enkriptatze politikak urruneko administratzailearengandik jaso dira</string>
+    <string name="sdcard_unmount_policy_noti_title">SD txartela desmuntatuta IT politikagatik</string>
+    <string name="sdcard_unmount_policy_noti_content">Ukitu SD txartela muntatzeko</string>
     <string name="sdcard_encrypt_title_notification">SD txartela enkriptatzea</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">SD txartela enkriptatzen…</string>
     <string name="sdcard_encrypt_notification">SD txartela enkriptatuta</string>
@@ -1399,7 +1416,7 @@ da %s konturako"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1441,7 +1458,7 @@ da %s konturako"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Adierazitako balioak tarte baliozkotik kanpo dago. Egiaztatu balioak eta saiatu berriz</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1463,6 +1480,8 @@ da %s konturako"</string>
     <string name="SS_USB_TETHERING_ENABLED">USB ainguraketa gaituta</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Wi-Fi ainguraketa gaituta</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Ainguraketa gaituta (Wi-Fi eta USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Gailua blokeatuta. Pasahitza emateko gehienezko saiakerak agortu dituzu. Berreskuratze pasahitza behar duzu gailua desblokeatzeko. Berreskuratze pasahitz okerra sartzen baduzu, datu guztiak ezabatuko dira</string>
+    <string name="recovery_password_required">Berrezartze pasahitza behar duzu gailua desblokeatzeko</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Telefono bidezko sareratzea gaituta</string>
@@ -1496,12 +1515,21 @@ da %s konturako"</string>
     <string name="lockscreen_ticker_logo_news_tts">Berriak</string>
     <string name="lockscreen_ticker_logo_stock_tts">Baloreak</string>
     <string name="lockscreen_ticker_refresh_tts">Eguneratu</string>
+    <string name="SS_ALWAYS_ON_TOP">Beti goian</string>
+    <string name="SS_MINIMISE">Minimizatu</string>
+    <string name="SS_MAXIMISE">Maximizatu</string>
+    <string name="SS_CLOSE_APPLICATION">Itxi aplikazioa</string>
+    <string name="spengesture_media_scanning">Ezin izan da argazkia moztu. Multimedia eskanerra abian da</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PINa blokeatuta</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Jarri harremanetan zure zerbitzu hornitzailearekin SIM txartela desblokeatzeko</string>
     <string name="resolver_guide_title">Garbitu lehenetsiak</string>
     <string name="operation_not_allowed">Eragiketa ez dago onartuta</string>
     <string name="exceeded_maxlength">Gehienezko mezu tamaina gainditua</string>
     <string name="dont_show_again_message">Ez erakutsi berriro</string>
     <string name="set_bing_as_default">Ezarri Bing lehenetsitako bilaketa motor bezala?</string>
     <string name="ms_domain_site">Microsoft domeinu gunea</string>
+    <string name="unsupported_in_popupbrowser">Onartu gabeko funtzioa Nabigatzaile Agerkarian</string>
+    <string name="find_on_page_abb">Aurkitu orrian</string>
     <string name="tw_clipboard_already_exists">Dagoeneko badago</string>
     <string name="tw_clipboard_no_items_to_paste">Ez dago elementurik itsasteko</string>
     <string name="tw_clipboard_save_in_memo">Gorde memorian</string>
@@ -1516,8 +1544,11 @@ da %s konturako"</string>
     <string name="tw_clipboard_clear">Garb.</string>
     <string name="tw_clipboard_delete_all">Dena ezabatu?</string>
     <string name="tw_clipboard_edit">Editatu</string>
-    <string name="tw_clipboard_done">Amaituta</string>
+    <string name="tw_clipboard_done">Amait</string>
     <string name="tw_clipboard_save">Gorde</string>
     <string name="tw_clipboard_no_item">Elementurik ez</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Elementu guztiak, blokeatutako elementuak izan ezik, arbeletik ezabatu dira</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Arbeletik itsatsita</string>
+    <string name="Roaming_Auto_Dialing">PINa blokeatuta</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

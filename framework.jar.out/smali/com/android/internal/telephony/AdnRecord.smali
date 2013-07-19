@@ -470,7 +470,7 @@
     and-int/lit16 v2, v3, 0xff
 
     .local v2, numberLength:I
-    goto :cond_0
+    goto :goto_0
 
     const/16 v3, 0xb
 
@@ -479,6 +479,7 @@
     const/16 v2, 0xb
 
     :cond_0
+    :goto_0
     add-int/lit8 v3, v1, 0x1
 
     invoke-static {p1, v3, v2}, Landroid/telephony/PhoneNumberUtils;->calledPartyBCDToString([BII)Ljava/lang/String;
@@ -508,7 +509,7 @@
     .line 518
     .end local v1           #footerOffset:I
     .end local v2           #numberLength:I
-    :goto_0
+    :goto_1
     return-void
 
     .line 512
@@ -536,7 +537,7 @@
     .line 516
     iput-object v5, p0, Lcom/android/internal/telephony/AdnRecord;->emails:[Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private static stringCompareNullEqualsEmpty(Ljava/lang/String;Ljava/lang/String;)Z
@@ -915,7 +916,7 @@
     invoke-static {v0, v6, v4}, Lcom/android/internal/telephony/MiuiAdnUtils;->encodeAlphaTag([BLjava/lang/String;I)Z
 
     .end local v1           #bcdNumber:[B
-    .end local v2           #byteTag:[B
+    .end local v2
     :cond_9
     move-object v6, v0
 

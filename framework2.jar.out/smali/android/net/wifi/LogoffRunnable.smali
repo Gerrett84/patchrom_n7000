@@ -26,402 +26,428 @@
     .parameter "context"
 
     .prologue
-    .line 47
+    .line 49
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
+    .line 50
     iput-object p1, p0, Landroid/net/wifi/LogoffRunnable;->mContext:Landroid/content/Context;
 
-    .line 49
+    .line 51
     return-void
 .end method
 
 
 # virtual methods
 .method public run()V
-    .locals 11
+    .locals 13
 
     .prologue
-    .line 53
-    new-instance v8, Landroid/net/wifi/AggregationHandler;
-
-    invoke-direct {v8}, Landroid/net/wifi/AggregationHandler;-><init>()V
-
-    iput-object v8, p0, Landroid/net/wifi/LogoffRunnable;->handler:Landroid/net/wifi/AggregationHandler;
-
     .line 55
+    new-instance v10, Landroid/net/wifi/AggregationHandler;
+
+    invoke-direct {v10}, Landroid/net/wifi/AggregationHandler;-><init>()V
+
+    iput-object v10, p0, Landroid/net/wifi/LogoffRunnable;->handler:Landroid/net/wifi/AggregationHandler;
+
+    .line 57
     :try_start_0
-    const-string v8, "org.ccil.cowan.tagsoup.Parser"
+    const-string v10, "org.ccil.cowan.tagsoup.Parser"
 
-    invoke-static {v8}, Lorg/xml/sax/helpers/XMLReaderFactory;->createXMLReader(Ljava/lang/String;)Lorg/xml/sax/XMLReader;
+    invoke-static {v10}, Lorg/xml/sax/helpers/XMLReaderFactory;->createXMLReader(Ljava/lang/String;)Lorg/xml/sax/XMLReader;
 
-    move-result-object v8
+    move-result-object v10
 
-    iput-object v8, p0, Landroid/net/wifi/LogoffRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
+    iput-object v10, p0, Landroid/net/wifi/LogoffRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
 
-    .line 56
-    iget-object v8, p0, Landroid/net/wifi/LogoffRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
+    .line 58
+    iget-object v10, p0, Landroid/net/wifi/LogoffRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
 
-    const-string v9, "http://xml.org/sax/properties/lexical-handler"
+    const-string v11, "http://xml.org/sax/properties/lexical-handler"
 
-    iget-object v10, p0, Landroid/net/wifi/LogoffRunnable;->handler:Landroid/net/wifi/AggregationHandler;
+    iget-object v12, p0, Landroid/net/wifi/LogoffRunnable;->handler:Landroid/net/wifi/AggregationHandler;
 
-    invoke-interface {v8, v9, v10}, Lorg/xml/sax/XMLReader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-interface {v10, v11, v12}, Lorg/xml/sax/XMLReader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
     :try_end_0
     .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 62
+    .line 64
     :goto_0
-    iget-object v8, p0, Landroid/net/wifi/LogoffRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
+    iget-object v10, p0, Landroid/net/wifi/LogoffRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
 
-    iget-object v9, p0, Landroid/net/wifi/LogoffRunnable;->handler:Landroid/net/wifi/AggregationHandler;
+    iget-object v11, p0, Landroid/net/wifi/LogoffRunnable;->handler:Landroid/net/wifi/AggregationHandler;
 
-    invoke-interface {v8, v9}, Lorg/xml/sax/XMLReader;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
-
-    .line 65
-    :try_start_1
-    const-string v8, "LogoffRunnable"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "Log off URL in logoffrunnable "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    sget-object v10, Landroid/net/wifi/WifiStateMachine;->WispLogoffUrl:Ljava/lang/String;
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-interface {v10, v11}, Lorg/xml/sax/XMLReader;->setContentHandler(Lorg/xml/sax/ContentHandler;)V
 
     .line 66
-    sget-object v8, Landroid/net/wifi/WifiStateMachine;->WispLogoffUrl:Ljava/lang/String;
+    :try_start_1
+    iget-object v10, p0, Landroid/net/wifi/LogoffRunnable;->mContext:Landroid/content/Context;
 
-    if-eqz v8, :cond_2
+    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
 
     .line 67
-    new-instance v6, Ljava/net/URL;
+    .local v1, cr:Landroid/content/ContentResolver;
+    const-string v10, "no_logoff_url"
 
-    sget-object v8, Landroid/net/wifi/WifiStateMachine;->WispLogoffUrl:Ljava/lang/String;
+    invoke-static {v1, v10}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-direct {v6, v8}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
+    move-result-object v5
 
     .line 71
-    .local v6, url:Ljava/net/URL;
-    invoke-virtual {v6}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
+    .local v5, logoffurl:Ljava/lang/String;
+    const-string v10, "LogoffRunnable"
 
-    move-result-object v7
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    check-cast v7, Ljava/net/HttpURLConnection;
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "Log off URL: "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 72
-    .local v7, urlConnection:Ljava/net/HttpURLConnection;
-    const-string v8, "GET"
+    if-eqz v5, :cond_2
 
-    invoke-virtual {v7, v8}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V
+    const-string v10, "no_logoff_url"
+
+    invoke-virtual {v5, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_2
 
     .line 73
-    invoke-virtual {v7}, Ljava/net/HttpURLConnection;->connect()V
+    new-instance v8, Ljava/net/URL;
+
+    invoke-direct {v8, v5}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
     .line 74
-    invoke-virtual {v7}, Ljava/net/HttpURLConnection;->getResponseCode()I
+    .local v8, url:Ljava/net/URL;
+    invoke-virtual {v8}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
-    move-result v5
+    move-result-object v9
+
+    check-cast v9, Ljava/net/HttpURLConnection;
+
+    .line 75
+    .local v9, urlConnection:Ljava/net/HttpURLConnection;
+    const-string v10, "GET"
+
+    invoke-virtual {v9, v10}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V
 
     .line 76
-    .local v5, responseCode:I
-    const-string v8, "LogoffRunnable"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "response code of HTTP GET on Logoff URL "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v9}, Ljava/net/HttpURLConnection;->connect()V
 
     .line 77
-    const/16 v8, 0xc8
+    invoke-virtual {v9}, Ljava/net/HttpURLConnection;->getResponseCode()I
 
-    if-ne v5, v8, :cond_3
-
-    .line 78
-    const-string v8, "LogoffRunnable"
-
-    const-string v9, " HTTP GET on Logoff URL successful*******************"
-
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v7
 
     .line 79
-    invoke-virtual {v7}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
+    .local v7, responseCode:I
+    const-string v10, "LogoffRunnable"
 
-    move-result-object v3
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "response code of HTTP GET on Logoff URL "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 80
-    .local v3, is:Ljava/io/InputStream;
-    iget-object v8, p0, Landroid/net/wifi/LogoffRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
+    const/16 v10, 0xc8
 
-    new-instance v9, Lorg/xml/sax/InputSource;
-
-    invoke-direct {v9, v3}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/InputStream;)V
-
-    invoke-interface {v8, v9}, Lorg/xml/sax/XMLReader;->parse(Lorg/xml/sax/InputSource;)V
+    if-ne v7, v10, :cond_3
 
     .line 81
-    iget-object v8, p0, Landroid/net/wifi/LogoffRunnable;->handler:Landroid/net/wifi/AggregationHandler;
+    const-string v10, "LogoffRunnable"
 
-    invoke-virtual {v8}, Landroid/net/wifi/AggregationHandler;->getMessage()Landroid/net/wifi/Message;
+    const-string v11, " HTTP GET on Logoff URL successful*******************"
 
-    move-result-object v4
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 82
-    .local v4, msg:Landroid/net/wifi/Message;
-    const-string v8, "LogoffRunnable"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, " msg has Wispr comment"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    iget-boolean v10, v4, Landroid/net/wifi/Message;->hasWispr:Z
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 83
-    iget-boolean v8, v4, Landroid/net/wifi/Message;->hasWispr:Z
-
-    if-eqz v8, :cond_0
-
-    .line 85
-    invoke-virtual {v4}, Landroid/net/wifi/Message;->getComment()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 86
-    .local v0, comment:Ljava/lang/String;
-    const-string v8, "LogoffRunnable"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "comment "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 87
-    const/16 v8, 0x3c
-
-    invoke-virtual {v0, v8}, Ljava/lang/String;->indexOf(I)I
-
-    move-result v8
-
-    invoke-virtual {v0, v8}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 88
-    iget-object v8, p0, Landroid/net/wifi/LogoffRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
-
-    new-instance v9, Lorg/xml/sax/InputSource;
-
-    new-instance v10, Ljava/io/StringReader;
-
-    invoke-direct {v10, v0}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
-
-    invoke-direct {v9, v10}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/Reader;)V
-
-    invoke-interface {v8, v9}, Lorg/xml/sax/XMLReader;->parse(Lorg/xml/sax/InputSource;)V
-
-    .line 89
-    iget-object v8, p0, Landroid/net/wifi/LogoffRunnable;->handler:Landroid/net/wifi/AggregationHandler;
-
-    invoke-virtual {v8}, Landroid/net/wifi/AggregationHandler;->getMessage()Landroid/net/wifi/Message;
+    invoke-virtual {v9}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v4
 
+    .line 83
+    .local v4, is:Ljava/io/InputStream;
+    iget-object v10, p0, Landroid/net/wifi/LogoffRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
+
+    new-instance v11, Lorg/xml/sax/InputSource;
+
+    invoke-direct {v11, v4}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/InputStream;)V
+
+    invoke-interface {v10, v11}, Lorg/xml/sax/XMLReader;->parse(Lorg/xml/sax/InputSource;)V
+
+    .line 84
+    iget-object v10, p0, Landroid/net/wifi/LogoffRunnable;->handler:Landroid/net/wifi/AggregationHandler;
+
+    invoke-virtual {v10}, Landroid/net/wifi/AggregationHandler;->getMessage()Landroid/net/wifi/Message;
+
+    move-result-object v6
+
+    .line 85
+    .local v6, msg:Landroid/net/wifi/Message;
+    const-string v10, "LogoffRunnable"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, " msg has Wispr comment"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    iget-boolean v12, v6, Landroid/net/wifi/Message;->hasWispr:Z
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 86
+    iget-boolean v10, v6, Landroid/net/wifi/Message;->hasWispr:Z
+
+    if-eqz v10, :cond_0
+
+    .line 88
+    invoke-virtual {v6}, Landroid/net/wifi/Message;->getComment()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 89
+    .local v0, comment:Ljava/lang/String;
+    const-string v10, "LogoffRunnable"
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "comment "
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 90
+    const/16 v10, 0x3c
+
+    invoke-virtual {v0, v10}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v10
+
+    invoke-virtual {v0, v10}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 91
+    iget-object v10, p0, Landroid/net/wifi/LogoffRunnable;->xmlreader:Lorg/xml/sax/XMLReader;
+
+    new-instance v11, Lorg/xml/sax/InputSource;
+
+    new-instance v12, Ljava/io/StringReader;
+
+    invoke-direct {v12, v0}, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {v11, v12}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/Reader;)V
+
+    invoke-interface {v10, v11}, Lorg/xml/sax/XMLReader;->parse(Lorg/xml/sax/InputSource;)V
+
     .line 92
+    iget-object v10, p0, Landroid/net/wifi/LogoffRunnable;->handler:Landroid/net/wifi/AggregationHandler;
+
+    invoke-virtual {v10}, Landroid/net/wifi/AggregationHandler;->getMessage()Landroid/net/wifi/Message;
+
+    move-result-object v6
+
+    .line 95
     .end local v0           #comment:Ljava/lang/String;
     :cond_0
-    iget v8, v4, Landroid/net/wifi/Message;->messageType:I
+    iget v10, v6, Landroid/net/wifi/Message;->messageType:I
 
-    const/16 v9, 0x82
+    const/16 v11, 0x82
 
-    if-ne v8, v9, :cond_1
+    if-ne v10, v11, :cond_1
 
-    .line 93
-    iget v8, v4, Landroid/net/wifi/Message;->responseCode:I
+    .line 96
+    iget v10, v6, Landroid/net/wifi/Message;->responseCode:I
 
-    sparse-switch v8, :sswitch_data_0
+    sparse-switch v10, :sswitch_data_0
 
-    .line 104
-    const-string v8, "LogoffRunnable"
+    .line 107
+    const-string v10, "LogoffRunnable"
 
-    const-string v9, "Unknown error"
+    const-string v11, "Unknown error"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 111
-    .end local v4           #msg:Landroid/net/wifi/Message;
+    .line 114
+    .end local v6           #msg:Landroid/net/wifi/Message;
     :cond_1
     :goto_1
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
 
-    .line 112
-    invoke-virtual {v7}, Ljava/net/HttpURLConnection;->disconnect()V
+    .line 115
+    invoke-virtual {v9}, Ljava/net/HttpURLConnection;->disconnect()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 119
-    .end local v3           #is:Ljava/io/InputStream;
-    .end local v5           #responseCode:I
-    .end local v6           #url:Ljava/net/URL;
-    .end local v7           #urlConnection:Ljava/net/HttpURLConnection;
+    .line 122
+    .end local v1           #cr:Landroid/content/ContentResolver;
+    .end local v4           #is:Ljava/io/InputStream;
+    .end local v5           #logoffurl:Ljava/lang/String;
+    .end local v7           #responseCode:I
+    .end local v8           #url:Ljava/net/URL;
+    .end local v9           #urlConnection:Ljava/net/HttpURLConnection;
     :cond_2
     :goto_2
     return-void
 
-    .line 57
-    :catch_0
-    move-exception v2
-
     .line 59
-    .local v2, e1:Lorg/xml/sax/SAXException;
-    invoke-virtual {v2}, Lorg/xml/sax/SAXException;->printStackTrace()V
+    :catch_0
+    move-exception v3
+
+    .line 61
+    .local v3, e1:Lorg/xml/sax/SAXException;
+    invoke-virtual {v3}, Lorg/xml/sax/SAXException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 96
-    .end local v2           #e1:Lorg/xml/sax/SAXException;
-    .restart local v3       #is:Ljava/io/InputStream;
-    .restart local v4       #msg:Landroid/net/wifi/Message;
-    .restart local v5       #responseCode:I
-    .restart local v6       #url:Ljava/net/URL;
-    .restart local v7       #urlConnection:Ljava/net/HttpURLConnection;
+    .line 99
+    .end local v3           #e1:Lorg/xml/sax/SAXException;
+    .restart local v1       #cr:Landroid/content/ContentResolver;
+    .restart local v4       #is:Ljava/io/InputStream;
+    .restart local v5       #logoffurl:Ljava/lang/String;
+    .restart local v6       #msg:Landroid/net/wifi/Message;
+    .restart local v7       #responseCode:I
+    .restart local v8       #url:Ljava/net/URL;
+    .restart local v9       #urlConnection:Ljava/net/HttpURLConnection;
     :sswitch_0
     :try_start_2
-    const-string v8, "LogoffRunnable"
+    const-string v10, "LogoffRunnable"
 
-    const-string v9, "Logoff Success"
+    const-string v11, "Logoff Success"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 97
-    const/4 v8, 0x0
+    .line 100
+    const/4 v10, 0x0
 
-    sput-object v8, Landroid/net/wifi/WifiStateMachine;->WispLogoffUrl:Ljava/lang/String;
+    sput-object v10, Landroid/net/wifi/WifiStateMachine;->WispLogoffUrl:Ljava/lang/String;
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
     goto :goto_1
 
-    .line 114
-    .end local v3           #is:Ljava/io/InputStream;
-    .end local v4           #msg:Landroid/net/wifi/Message;
-    .end local v5           #responseCode:I
-    .end local v6           #url:Ljava/net/URL;
-    .end local v7           #urlConnection:Ljava/net/HttpURLConnection;
-    :catch_1
-    move-exception v1
-
-    .line 116
-    .local v1, e:Ljava/lang/Exception;
-    const-string v8, "LogoffRunnable"
-
-    const-string v9, "on error in executting Logoff HTTPget"
-
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     .line 117
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    .end local v1           #cr:Landroid/content/ContentResolver;
+    .end local v4           #is:Ljava/io/InputStream;
+    .end local v5           #logoffurl:Ljava/lang/String;
+    .end local v6           #msg:Landroid/net/wifi/Message;
+    .end local v7           #responseCode:I
+    .end local v8           #url:Ljava/net/URL;
+    .end local v9           #urlConnection:Ljava/net/HttpURLConnection;
+    :catch_1
+    move-exception v2
+
+    .line 119
+    .local v2, e:Ljava/lang/Exception;
+    const-string v10, "LogoffRunnable"
+
+    const-string v11, "on error in executting Logoff HTTPget"
+
+    invoke-static {v10, v11}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 120
+    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_2
 
-    .line 101
-    .end local v1           #e:Ljava/lang/Exception;
-    .restart local v3       #is:Ljava/io/InputStream;
-    .restart local v4       #msg:Landroid/net/wifi/Message;
-    .restart local v5       #responseCode:I
-    .restart local v6       #url:Ljava/net/URL;
-    .restart local v7       #urlConnection:Ljava/net/HttpURLConnection;
+    .line 104
+    .end local v2           #e:Ljava/lang/Exception;
+    .restart local v1       #cr:Landroid/content/ContentResolver;
+    .restart local v4       #is:Ljava/io/InputStream;
+    .restart local v5       #logoffurl:Ljava/lang/String;
+    .restart local v6       #msg:Landroid/net/wifi/Message;
+    .restart local v7       #responseCode:I
+    .restart local v8       #url:Ljava/net/URL;
+    .restart local v9       #urlConnection:Ljava/net/HttpURLConnection;
     :sswitch_1
     :try_start_3
-    const-string v8, "LogoffRunnable"
+    const-string v10, "LogoffRunnable"
 
-    const-string v9, "Access gateway internal error"
+    const-string v11, "Access gateway internal error"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    .line 108
-    .end local v3           #is:Ljava/io/InputStream;
-    .end local v4           #msg:Landroid/net/wifi/Message;
+    .line 111
+    .end local v4           #is:Ljava/io/InputStream;
+    .end local v6           #msg:Landroid/net/wifi/Message;
     :cond_3
-    const-string v8, "LogoffRunnable"
+    const-string v10, "LogoffRunnable"
 
-    const-string v9, "Error ****************"
+    const-string v11, "Error ****************"
 
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 109
-    invoke-virtual {v7}, Ljava/net/HttpURLConnection;->getErrorStream()Ljava/io/InputStream;
+    .line 112
+    invoke-virtual {v9}, Ljava/net/HttpURLConnection;->getErrorStream()Ljava/io/InputStream;
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
 
-    move-result-object v3
+    move-result-object v4
 
-    .restart local v3       #is:Ljava/io/InputStream;
+    .restart local v4       #is:Ljava/io/InputStream;
     goto :goto_1
 
-    .line 93
+    .line 96
     :sswitch_data_0
     .sparse-switch
         0x96 -> :sswitch_0

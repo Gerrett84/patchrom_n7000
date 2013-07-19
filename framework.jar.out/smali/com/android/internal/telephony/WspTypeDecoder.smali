@@ -468,7 +468,7 @@
 
     move-result-object v1
 
-    const-string v2, "multipart/*"
+    const-string/jumbo v2, "multipart/*"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -481,7 +481,7 @@
 
     move-result-object v1
 
-    const-string v2, "multipart/mixed"
+    const-string/jumbo v2, "multipart/mixed"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -494,7 +494,7 @@
 
     move-result-object v1
 
-    const-string v2, "multipart/form-data"
+    const-string/jumbo v2, "multipart/form-data"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -507,7 +507,7 @@
 
     move-result-object v1
 
-    const-string v2, "multipart/byterantes"
+    const-string/jumbo v2, "multipart/byterantes"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -520,7 +520,7 @@
 
     move-result-object v1
 
-    const-string v2, "multipart/alternative"
+    const-string/jumbo v2, "multipart/alternative"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

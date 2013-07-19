@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 82
+    .line 76
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,11 +38,11 @@
     .locals 1
 
     .prologue
-    .line 88
+    .line 82
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;->mAngle:I
 
-    .line 89
+    .line 83
     return-void
 .end method

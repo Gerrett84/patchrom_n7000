@@ -43,6 +43,8 @@
 
 .field public numRunning:I
 
+.field public otherAppTouched:Z
+
 .field public thumbnail:Landroid/graphics/Bitmap;
 
 .field public topActivity:Landroid/content/ComponentName;
@@ -55,7 +57,7 @@
     .locals 1
 
     .prologue
-    .line 645
+    .line 663
     new-instance v0, Landroid/app/ActivityManager$RunningTaskInfo$1;
 
     invoke-direct {v0}, Landroid/app/ActivityManager$RunningTaskInfo$1;-><init>()V
@@ -69,10 +71,10 @@
     .locals 0
 
     .prologue
-    .line 600
+    .line 616
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 601
+    .line 617
     return-void
 .end method
 
@@ -81,13 +83,13 @@
     .parameter "source"
 
     .prologue
-    .line 654
+    .line 672
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 655
+    .line 673
     invoke-virtual {p0, p1}, Landroid/app/ActivityManager$RunningTaskInfo;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 656
+    .line 674
     return-void
 .end method
 
@@ -97,7 +99,7 @@
     .parameter "x1"
 
     .prologue
-    .line 553
+    .line 567
     invoke-direct {p0, p1}, Landroid/app/ActivityManager$RunningTaskInfo;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -109,46 +111,50 @@
     .locals 1
 
     .prologue
-    .line 604
+    .line 620
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 1
+    .locals 3
     .parameter "source"
 
     .prologue
-    .line 628
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 645
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->id:I
 
-    .line 629
+    .line 646
     invoke-static {p1}, Landroid/content/ComponentName;->readFromParcel(Landroid/os/Parcel;)Landroid/content/ComponentName;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
 
-    .line 630
+    .line 647
     invoke-static {p1}, Landroid/content/ComponentName;->readFromParcel(Landroid/os/Parcel;)Landroid/content/ComponentName;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
 
-    .line 631
+    .line 648
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 632
+    .line 649
     sget-object v0, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -159,7 +165,7 @@
 
     iput-object v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->thumbnail:Landroid/graphics/Bitmap;
 
-    .line 636
+    .line 653
     :goto_0
     sget-object v0, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -171,43 +177,53 @@
 
     iput-object v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->description:Ljava/lang/CharSequence;
 
-    .line 637
+    .line 654
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->numActivities:I
 
-    .line 638
+    .line 655
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->numRunning:I
 
-    .line 640
+    .line 657
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->windowMode:I
 
-    .line 641
+    .line 658
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
+    move v0, v1
 
     :goto_1
     iput-boolean v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->isHomeType:Z
 
-    .line 643
+    .line 659
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    :goto_2
+    iput-boolean v1, p0, Landroid/app/ActivityManager$RunningTaskInfo;->otherAppTouched:Z
+
+    .line 661
     return-void
 
-    .line 634
+    .line 651
     :cond_0
     const/4 v0, 0x0
 
@@ -215,11 +231,17 @@
 
     goto :goto_0
 
-    .line 641
     :cond_1
-    const/4 v0, 0x0
+    move v0, v2
 
+    .line 658
     goto :goto_1
+
+    :cond_2
+    move v1, v2
+
+    .line 659
+    goto :goto_2
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -228,79 +250,95 @@
     .parameter "flags"
 
     .prologue
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    .line 608
-    iget v2, p0, Landroid/app/ActivityManager$RunningTaskInfo;->id:I
+    .line 624
+    iget v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->id:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 609
-    iget-object v2, p0, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
-
-    invoke-static {v2, p1}, Landroid/content/ComponentName;->writeToParcel(Landroid/content/ComponentName;Landroid/os/Parcel;)V
-
-    .line 610
-    iget-object v2, p0, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
-
-    invoke-static {v2, p1}, Landroid/content/ComponentName;->writeToParcel(Landroid/content/ComponentName;Landroid/os/Parcel;)V
-
-    .line 611
-    iget-object v2, p0, Landroid/app/ActivityManager$RunningTaskInfo;->thumbnail:Landroid/graphics/Bitmap;
-
-    if-eqz v2, :cond_0
-
-    .line 612
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 613
-    iget-object v2, p0, Landroid/app/ActivityManager$RunningTaskInfo;->thumbnail:Landroid/graphics/Bitmap;
+    .line 625
+    iget-object v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
 
-    invoke-virtual {v2, p1, v1}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
+    invoke-static {v0, p1}, Landroid/content/ComponentName;->writeToParcel(Landroid/content/ComponentName;Landroid/os/Parcel;)V
 
-    .line 617
+    .line 626
+    iget-object v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
+
+    invoke-static {v0, p1}, Landroid/content/ComponentName;->writeToParcel(Landroid/content/ComponentName;Landroid/os/Parcel;)V
+
+    .line 627
+    iget-object v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->thumbnail:Landroid/graphics/Bitmap;
+
+    if-eqz v0, :cond_0
+
+    .line 628
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 629
+    iget-object v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->thumbnail:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0, p1, v2}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 633
     :goto_0
-    iget-object v2, p0, Landroid/app/ActivityManager$RunningTaskInfo;->description:Ljava/lang/CharSequence;
+    iget-object v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->description:Ljava/lang/CharSequence;
 
-    invoke-static {v2, p1, v0}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
+    invoke-static {v0, p1, v1}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
-    .line 619
-    iget v2, p0, Landroid/app/ActivityManager$RunningTaskInfo;->numActivities:I
+    .line 635
+    iget v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->numActivities:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 620
-    iget v2, p0, Landroid/app/ActivityManager$RunningTaskInfo;->numRunning:I
+    .line 636
+    iget v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->numRunning:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 622
-    iget v2, p0, Landroid/app/ActivityManager$RunningTaskInfo;->windowMode:I
+    .line 638
+    iget v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->windowMode:I
 
-    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 623
-    iget-boolean v2, p0, Landroid/app/ActivityManager$RunningTaskInfo;->isHomeType:Z
+    .line 639
+    iget-boolean v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->isHomeType:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
+
+    move v0, v1
 
     :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 625
+    .line 640
+    iget-boolean v0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->otherAppTouched:Z
+
+    if-eqz v0, :cond_2
+
+    :goto_2
+    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 642
     return-void
 
-    .line 615
+    .line 631
     :cond_0
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
     :cond_1
-    move v0, v1
+    move v0, v2
 
-    .line 623
+    .line 639
     goto :goto_1
+
+    :cond_2
+    move v1, v2
+
+    .line 640
+    goto :goto_2
 .end method

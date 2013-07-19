@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 1023
+    .line 1077
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     iput p2, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$1;->val$pIntensity:F
@@ -46,7 +46,7 @@
     .locals 5
 
     .prologue
-    .line 1027
+    .line 1081
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
@@ -68,7 +68,7 @@
     #calls: Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->ripple(FFF)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->access$000(Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;FFF)V
 
-    .line 1028
+    .line 1082
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
@@ -77,7 +77,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->stopLongPressCheck(Landroid/view/View;)V
 
-    .line 1029
+    .line 1083
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$1;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     const/4 v1, 0x0
@@ -85,6 +85,6 @@
     #setter for: Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->mLongPressRunnable:Ljava/lang/Runnable;
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->access$102(Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
-    .line 1031
+    .line 1085
     return-void
 .end method

@@ -43,6 +43,7 @@
 .field public static final FLAG_DEBUGGABLE:I = 0x2
 
 .field public static final FLAG_DISABLE_AUTOSTART:I = 0x40000000
+
 .field public static final FLAG_EXTERNAL_STORAGE:I = 0x40000
 
 .field public static final FLAG_FACTORY_TEST:I = 0x10
@@ -1102,7 +1103,7 @@
 
     move-result-object v0
 
-    const-string v1, "manageSpaceActivityName="
+    const-string/jumbo v1, "manageSpaceActivityName="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1340,7 +1341,7 @@
 
     move-result-object v0
 
-    const v1, 0x1080718
+    const v1, 0x108074f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

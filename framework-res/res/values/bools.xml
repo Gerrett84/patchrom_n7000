@@ -20,7 +20,7 @@
     <bool name="config_automatic_brightness_available">true</bool>
     <bool name="config_annoy_dianne">true</bool>
     <bool name="config_unplugTurnsOnScreen">true</bool>
-    <bool name="config_animateScreenLights">true</bool>
+    <bool name="config_animateScreenLights">false</bool>
     <bool name="config_enableScreenshotChord">true</bool>
     <bool name="config_allowAllRotations">false</bool>
     <bool name="config_reverseDefaultRotation">false</bool>
@@ -30,16 +30,17 @@
     <bool name="config_batterySdCardAccessibility">false</bool>
     <bool name="config_use_strict_phone_number_comparation">false</bool>
     <bool name="config_intrusiveNotificationLed">false</bool>
-    <bool name="config_disableMenuKeyInLockScreen">true</bool>
+    <bool name="config_disableMenuKeyInLockScreen">false</bool>
     <bool name="config_enableLockBeforeUnlockScreen">false</bool>
     <bool name="config_enableLockScreenRotation">false</bool>
     <bool name="config_enable_puk_unlock_screen">true</bool>
     <bool name="config_enable_emergency_call_while_sim_locked">true</bool>
+    <bool name="config_dynamic_automatic_brightness_available">false</bool>
     <bool name="config_siop_available">true</bool>
     <bool name="config_swipeDisambiguation">true</bool>
     <bool name="config_enableWallpaperService">true</bool>
     <bool name="config_bluetooth_sco_off_call">true</bool>
-    <bool name="config_bluetooth_wide_band_speech">true</bool>
+    <bool name="config_bluetooth_wide_band_speech">false</bool>
     <bool name="config_bluetooth_adapter_quick_switch">true</bool>
     <bool name="config_voice_capable">true</bool>
     <bool name="config_sms_capable">true</bool>
@@ -69,6 +70,7 @@
     <bool name="skip_radio_power_off_on_sim_refresh_reset">true</bool>
     <bool name="lockscreen_isPortrait">true</bool>
     <bool name="config_multiWindowControlbar">true</bool>
+    <bool name="config_multiWindowSupportMultiInstance">false</bool>
     <bool name="config_isTickerEnabled">true</bool>
     <bool name="config_isMediaWidgetEnabled">false</bool>
     <bool name="config_isWeatherWidgetEnabled">true</bool>
@@ -76,5 +78,7 @@
     <bool name="config_isHelpOverlayEnabled">true</bool>
     <bool name="config_isWhiteThemeEnabled">false</bool>
     <bool name="config_alwaysCanHideSystemNavBar">true</bool>
+    <bool name="config_enableOneTouchReportChord">false</bool>
     <bool name="config_bypass_keyguard_if_slider_open">true</bool>
+    <bool name="config_isEasyUXEnabled">false</bool>
 </resources>

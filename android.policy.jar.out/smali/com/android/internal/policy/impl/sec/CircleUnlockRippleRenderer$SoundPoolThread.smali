@@ -27,15 +27,15 @@
     .parameter "tStreamID"
 
     .prologue
-    .line 1119
+    .line 1173
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$SoundPoolThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
-    .line 1120
+    .line 1174
     iput p2, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$SoundPoolThread;->streamID:I
 
-    .line 1121
+    .line 1175
     return-void
 .end method
 
@@ -45,14 +45,14 @@
     .locals 6
 
     .prologue
-    .line 1126
+    .line 1180
     const/high16 v2, 0x3f80
 
-    .line 1127
+    .line 1181
     .local v2, leftVolume:F
     const/high16 v3, 0x3f80
 
-    .line 1128
+    .line 1182
     .local v3, rightVolume:F
     const/high16 v4, 0x3f80
 
@@ -67,7 +67,7 @@
 
     div-float v0, v4, v5
 
-    .line 1130
+    .line 1184
     .local v0, decreaseUnit:F
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$SoundPoolThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
@@ -78,11 +78,11 @@
 
     if-nez v4, :cond_1
 
-    .line 1157
+    .line 1211
     :cond_0
     return-void
 
-    .line 1133
+    .line 1187
     :cond_1
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$SoundPoolThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
@@ -93,7 +93,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 1136
+    .line 1190
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -107,7 +107,7 @@
 
     if-ge v1, v4, :cond_0
 
-    .line 1138
+    .line 1192
     const/high16 v4, 0x3fc0
 
     mul-float/2addr v4, v0
@@ -116,13 +116,13 @@
 
     if-gtz v4, :cond_2
 
-    .line 1140
+    .line 1194
     const/4 v2, 0x0
 
-    .line 1141
+    .line 1195
     const/4 v3, 0x0
 
-    .line 1150
+    .line 1204
     :goto_1
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$SoundPoolThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
@@ -133,7 +133,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 1153
+    .line 1207
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$SoundPoolThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->mSoundPool:Landroid/media/SoundPool;
@@ -145,7 +145,7 @@
 
     invoke-virtual {v4, v5, v2, v3}, Landroid/media/SoundPool;->setVolume(IFF)V
 
-    .line 1154
+    .line 1208
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$SoundPoolThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->soundTime:I
@@ -157,16 +157,16 @@
 
     invoke-static {v4, v5}, Landroid/os/SystemClock;->sleep(J)V
 
-    .line 1136
+    .line 1190
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1145
+    .line 1199
     :cond_2
     sub-float/2addr v2, v0
 
-    .line 1146
+    .line 1200
     sub-float/2addr v3, v0
 
     goto :goto_1

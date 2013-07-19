@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 72
+    .line 73
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$AccountThread;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -44,25 +44,25 @@
 
     const/4 v3, 0x0
 
-    .line 74
+    .line 75
     invoke-super/range {p0 .. p0}, Ljava/lang/Thread;->run()V
 
-    .line 75
+    .line 76
     new-instance v5, Landroid/os/Bundle;
 
     invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
-    .line 76
+    .line 77
     .local v5, addAccountOptions:Landroid/os/Bundle;
     new-instance v9, Landroid/os/Bundle;
 
     invoke-direct {v9}, Landroid/os/Bundle;-><init>()V
 
-    .line 77
+    .line 78
     .local v9, addAccountOptionsBundle:Landroid/os/Bundle;
     const-string v2, "com.facebook.auth.login"
 
-    .line 78
+    .line 79
     .local v2, accountType:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -81,13 +81,13 @@
 
     move-result-object v13
 
-    .line 79
+    .line 80
     .local v13, mPendingIntent:Landroid/app/PendingIntent;
     const-string v1, "pendingIntent"
 
     invoke-virtual {v5, v1, v13}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 81
+    .line 82
     :try_start_0
     move-object/from16 v0, p0
 
@@ -102,7 +102,7 @@
 
     move-result-object v14
 
-    .line 82
+    .line 83
     .local v14, pm:Landroid/content/pm/PackageManager;
     const-string v1, "com.facebook.katana"
 
@@ -112,7 +112,7 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 94
+    .line 95
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/TickerScrollView$AccountThread;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
@@ -138,7 +138,7 @@
 
     move-result-object v12
 
-    .line 104
+    .line 105
     .local v12, mAccountManagerFuture:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
     :try_start_1
     invoke-interface {v12}, Landroid/accounts/AccountManagerFuture;->getResult()Ljava/lang/Object;
@@ -153,7 +153,7 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 109
+    .line 110
     :goto_0
     const-string v1, "intent"
 
@@ -163,11 +163,11 @@
 
     check-cast v11, Landroid/content/Intent;
 
-    .line 110
+    .line 111
     .local v11, intent:Landroid/content/Intent;
     invoke-virtual {v11, v15}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 111
+    .line 112
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/TickerScrollView$AccountThread;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
@@ -179,18 +179,18 @@
 
     invoke-virtual {v1, v11}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 112
+    .line 113
     .end local v12           #mAccountManagerFuture:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
     .end local v14           #pm:Landroid/content/pm/PackageManager;
     :goto_1
     return-void
 
-    .line 84
+    .line 85
     .end local v11           #intent:Landroid/content/Intent;
     :catch_0
     move-exception v10
 
-    .line 86
+    .line 87
     .local v10, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     move-object/from16 v0, p0
 
@@ -203,16 +203,16 @@
 
     const-string v3, "Don\'t install FB app"
 
-    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 88
+    .line 89
     new-instance v11, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.VIEW"
 
     invoke-direct {v11, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 89
+    .line 90
     .restart local v11       #intent:Landroid/content/Intent;
     const-string v1, "market://details?id=com.facebook.katana"
 
@@ -222,10 +222,10 @@
 
     invoke-virtual {v11, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 90
+    .line 91
     invoke-virtual {v11, v15}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 91
+    .line 92
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/TickerScrollView$AccountThread;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
@@ -239,7 +239,7 @@
 
     goto :goto_1
 
-    .line 105
+    .line 106
     .end local v10           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     .end local v11           #intent:Landroid/content/Intent;
     .restart local v12       #mAccountManagerFuture:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
@@ -247,7 +247,7 @@
     :catch_1
     move-exception v10
 
-    .line 106
+    .line 107
     .local v10, e:Ljava/lang/Exception;
     move-object/from16 v0, p0
 
@@ -260,9 +260,9 @@
 
     const-string v3, "!!!!! mAccountManagerFuture error !!!!!"
 
-    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 107
+    .line 108
     invoke-virtual {v10}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0

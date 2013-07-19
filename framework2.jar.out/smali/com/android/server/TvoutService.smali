@@ -42,6 +42,8 @@
 
 .field private mHandler:Landroid/os/Handler;
 
+.field private mHandler1:Landroid/os/Handler;
+
 .field mOrientationListener:Landroid/view/OrientationEventListener;
 
 .field private final mReceiver:Landroid/content/BroadcastReceiver;
@@ -71,7 +73,7 @@
 
     const/4 v0, 0x0
 
-    .line 116
+    .line 136
     invoke-direct {p0}, Landroid/os/ITvoutService$Stub;-><init>()V
 
     .line 73
@@ -117,53 +119,60 @@
 
     iput-object v0, p0, Lcom/android/server/TvoutService;->mHandler:Landroid/os/Handler;
 
-    .line 308
-    new-instance v0, Lcom/android/server/TvoutService$3;
+    .line 117
+    new-instance v0, Lcom/android/server/TvoutService$2;
 
-    invoke-direct {v0, p0}, Lcom/android/server/TvoutService$3;-><init>(Lcom/android/server/TvoutService;)V
+    invoke-direct {v0, p0}, Lcom/android/server/TvoutService$2;-><init>(Lcom/android/server/TvoutService;)V
+
+    iput-object v0, p0, Lcom/android/server/TvoutService;->mHandler1:Landroid/os/Handler;
+
+    .line 330
+    new-instance v0, Lcom/android/server/TvoutService$4;
+
+    invoke-direct {v0, p0}, Lcom/android/server/TvoutService$4;-><init>(Lcom/android/server/TvoutService;)V
 
     iput-object v0, p0, Lcom/android/server/TvoutService;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 118
+    .line 138
     const-string v0, "TvoutService_Java"
 
     const-string v1, "TvoutService +"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 120
+    .line 140
     new-instance v0, Landroid/hardware/Tvout;
 
     invoke-direct {v0}, Landroid/hardware/Tvout;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
-    .line 121
+    .line 141
     iput-object p1, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
-    .line 123
+    .line 143
     invoke-direct {p0}, Lcom/android/server/TvoutService;->TvoutRegistIntentReceiver()V
 
-    .line 124
+    .line 144
     iget-object v0, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
     const/4 v1, 0x6
 
     invoke-direct {p0, v0, v1}, Lcom/android/server/TvoutService;->TvoutInitWakeMode(Landroid/content/Context;I)V
 
-    .line 126
+    .line 146
     iget-object v0, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
     invoke-direct {p0, v0}, Lcom/android/server/TvoutService;->setOrientationListener(Landroid/content/Context;)V
 
-    .line 132
+    .line 152
     const-string v0, "TvoutService_Java"
 
     const-string v1, "TvoutService -"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 133
+    .line 153
     return-void
 .end method
 
@@ -173,23 +182,23 @@
     .parameter "nMode"
 
     .prologue
-    .line 154
+    .line 176
     const/4 v1, 0x0
 
-    .line 155
+    .line 177
     .local v1, wakelockHeld:Z
     iget-object v2, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     if-eqz v2, :cond_1
 
-    .line 158
+    .line 180
     const-string v2, "TvoutService_Java"
 
     const-string v3, "mWakeLock is not null"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 159
+    .line 181
     iget-object v2, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
@@ -198,21 +207,21 @@
 
     if-eqz v2, :cond_0
 
-    .line 161
+    .line 183
     const/4 v1, 0x1
 
-    .line 162
+    .line 184
     iget-object v2, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 164
+    .line 186
     :cond_0
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 168
+    .line 190
     :cond_1
     const-string v2, "TvoutService_Java"
 
@@ -220,7 +229,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 170
+    .line 192
     const-string v2, "power"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -229,7 +238,7 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 171
+    .line 193
     .local v0, pm:Landroid/os/PowerManager;
     const/high16 v2, 0x2000
 
@@ -243,7 +252,7 @@
 
     iput-object v2, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 174
+    .line 196
     const-string v2, "TvoutService_Java"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -266,22 +275,22 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 176
+    .line 198
     iget-object v2, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
-    .line 178
+    .line 200
     if-eqz v1, :cond_2
 
-    .line 180
+    .line 202
     iget-object v2, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 182
+    .line 204
     :cond_2
     return-void
 .end method
@@ -290,60 +299,65 @@
     .locals 3
 
     .prologue
-    .line 137
+    .line 157
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 140
+    .line 160
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.HDMI_PLUGGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 141
+    .line 161
     const-string v1, "android.intent.action.LOCALE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 142
+    .line 162
     const-string v1, "com.sec.android.app.camera.ACTION_START_BACK_CAMERA"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 143
+    .line 163
     const-string v1, "com.sec.android.app.camera.ACTION_START_FRONT_CAMERA"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 144
+    .line 164
     const-string v1, "com.sec.android.app.camera.ACTION_STOP_CAMERA"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 145
+    .line 165
     const-string v1, "com.sec.android.allshare.intent.action.CAST_GETSTATE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 146
+    .line 166
     const-string v1, "android.intent.action.USBHID_MOUSE_EVENT"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 147
+    .line 167
     const-string v1, "android.intent.action.SCREENRECORDER_INFORMATION"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 149
+    .line 169
+    const-string v1, "android.intent.action.SCREEN_ON"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 171
     iget-object v1, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/server/TvoutService;->mReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 150
+    .line 172
     return-void
 .end method
 
@@ -352,31 +366,31 @@
     .parameter "bMode"
 
     .prologue
-    .line 296
+    .line 318
     if-eqz p1, :cond_1
 
-    .line 298
+    .line 320
     iget-object v0, p0, Lcom/android/server/TvoutService;->mOrientationListener:Landroid/view/OrientationEventListener;
 
     if-eqz v0, :cond_0
 
-    .line 299
+    .line 321
     iget-object v0, p0, Lcom/android/server/TvoutService;->mOrientationListener:Landroid/view/OrientationEventListener;
 
     invoke-virtual {v0}, Landroid/view/OrientationEventListener;->enable()V
 
-    .line 306
+    .line 328
     :cond_0
     :goto_0
     return-void
 
-    .line 303
+    .line 325
     :cond_1
     iget-object v0, p0, Lcom/android/server/TvoutService;->mOrientationListener:Landroid/view/OrientationEventListener;
 
     if-eqz v0, :cond_0
 
-    .line 304
+    .line 326
     iget-object v0, p0, Lcom/android/server/TvoutService;->mOrientationListener:Landroid/view/OrientationEventListener;
 
     invoke-virtual {v0}, Landroid/view/OrientationEventListener;->disable()V
@@ -389,12 +403,12 @@
     .parameter "bStatus"
 
     .prologue
-    .line 186
+    .line 208
     iget-object v0, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     if-eqz v0, :cond_2
 
-    .line 188
+    .line 210
     if-eqz p1, :cond_1
 
     iget-object v0, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -405,24 +419,24 @@
 
     if-nez v0, :cond_1
 
-    .line 191
+    .line 213
     const-string v0, "TvoutService_Java"
 
     const-string v1, "Acquire the lock for Wake status"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 192
+    .line 214
     iget-object v0, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 206
+    .line 228
     :cond_0
     :goto_0
     return-void
 
-    .line 194
+    .line 216
     :cond_1
     if-nez p1, :cond_0
 
@@ -434,21 +448,21 @@
 
     if-eqz v0, :cond_0
 
-    .line 197
+    .line 219
     const-string v0, "TvoutService_Java"
 
     const-string v1, "release the lock for Wake status"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 198
+    .line 220
     iget-object v0, p0, Lcom/android/server/TvoutService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     goto :goto_0
 
-    .line 204
+    .line 226
     :cond_2
     const-string v0, "TvoutService_Java"
 
@@ -561,6 +575,17 @@
     iput p1, p0, Lcom/android/server/TvoutService;->setOrientation:I
 
     return p1
+.end method
+
+.method static synthetic access$1400(Lcom/android/server/TvoutService;)Landroid/os/Handler;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 68
+    iget-object v0, p0, Lcom/android/server/TvoutService;->mHandler1:Landroid/os/Handler;
+
+    return-object v0
 .end method
 
 .method static synthetic access$200(Lcom/android/server/TvoutService;)I
@@ -740,38 +765,38 @@
     .parameter "context"
 
     .prologue
-    .line 210
+    .line 232
     iget-object v0, p0, Lcom/android/server/TvoutService;->mOrientationListener:Landroid/view/OrientationEventListener;
 
     if-nez v0, :cond_0
 
-    .line 212
-    new-instance v0, Lcom/android/server/TvoutService$2;
+    .line 234
+    new-instance v0, Lcom/android/server/TvoutService$3;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/server/TvoutService$2;-><init>(Lcom/android/server/TvoutService;Landroid/content/Context;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/server/TvoutService$3;-><init>(Lcom/android/server/TvoutService;Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/server/TvoutService;->mOrientationListener:Landroid/view/OrientationEventListener;
 
-    .line 289
+    .line 311
     :cond_0
     iget-boolean v0, p0, Lcom/android/server/TvoutService;->CAMERA_ON:Z
 
     if-nez v0, :cond_1
 
-    .line 290
+    .line 312
     const-string v0, "persist.sys.camera.transform"
 
     const-string v1, "0"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 291
+    .line 313
     :cond_1
     iget-object v0, p0, Lcom/android/server/TvoutService;->mOrientationListener:Landroid/view/OrientationEventListener;
 
     invoke-virtual {v0}, Landroid/view/OrientationEventListener;->enable()V
 
-    .line 292
+    .line 314
     return-void
 .end method
 
@@ -781,7 +806,7 @@
     .locals 1
 
     .prologue
-    .line 727
+    .line 770
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutCreateSmartDockSurface()Z
@@ -795,7 +820,7 @@
     .locals 1
 
     .prologue
-    .line 732
+    .line 775
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutDestroySmartDockSurface()Z
@@ -809,7 +834,7 @@
     .locals 1
 
     .prologue
-    .line 694
+    .line 737
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutGetAudioChannel()I
@@ -823,7 +848,7 @@
     .locals 1
 
     .prologue
-    .line 610
+    .line 651
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutGetCableStatus()Z
@@ -837,7 +862,7 @@
     .locals 1
 
     .prologue
-    .line 625
+    .line 666
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutGetResolution()I
@@ -851,7 +876,7 @@
     .locals 1
 
     .prologue
-    .line 741
+    .line 784
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutGetSmartDockSurfaceStatus()I
@@ -865,7 +890,7 @@
     .locals 1
 
     .prologue
-    .line 600
+    .line 641
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutGetStatus()Z
@@ -879,7 +904,7 @@
     .locals 1
 
     .prologue
-    .line 635
+    .line 676
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutGetSubtitleStatus()Z
@@ -893,7 +918,7 @@
     .locals 1
 
     .prologue
-    .line 650
+    .line 693
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutGetSuspendStatus()Z
@@ -907,7 +932,7 @@
     .locals 1
 
     .prologue
-    .line 718
+    .line 761
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutGetVideoMode()I
@@ -921,7 +946,7 @@
     .locals 1
 
     .prologue
-    .line 674
+    .line 717
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0}, Landroid/hardware/Tvout;->TvoutGetVideoRotation()I
@@ -937,14 +962,24 @@
     .parameter "nFontSize"
 
     .prologue
-    .line 645
+    .line 686
+    if-nez p1, :cond_0
+
+    .line 687
+    const/4 v0, 0x0
+
+    .line 688
+    :goto_0
+    return v0
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1, p2}, Landroid/hardware/Tvout;->TvoutPostSubtitle(Ljava/lang/String;I)Z
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public TvoutPostSuspend(Ljava/lang/String;)Z
@@ -952,7 +987,7 @@
     .parameter "strSuspend"
 
     .prologue
-    .line 660
+    .line 703
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutPostSuspend(Ljava/lang/String;)Z
@@ -967,7 +1002,7 @@
     .parameter "bStatus"
 
     .prologue
-    .line 615
+    .line 656
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetCableStatus(Z)Z
@@ -981,10 +1016,16 @@
     .locals 4
 
     .prologue
-    .line 666
-    const-string v0, "HDMI not available while application is running. Application will display on phone only"
+    .line 708
+    iget-object v1, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
-    .line 668
+    const v2, 0x1040566
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 711
     .local v0, strDefault:Ljava/lang/String;
     const-string v1, "TvoutService_Java"
 
@@ -1008,7 +1049,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 669
+    .line 712
     iget-object v1, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v1, v0}, Landroid/hardware/Tvout;->TvoutSetDefaultString(Ljava/lang/String;)Z
@@ -1023,7 +1064,7 @@
     .parameter "bEnable"
 
     .prologue
-    .line 699
+    .line 742
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetForceMirrorMode(Z)Z
@@ -1038,7 +1079,7 @@
     .parameter "nVideoRotation"
 
     .prologue
-    .line 689
+    .line 732
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetFrontCameraRotation(I)Z
@@ -1054,7 +1095,7 @@
     .parameter "value"
 
     .prologue
-    .line 737
+    .line 780
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1, p2}, Landroid/hardware/Tvout;->TvoutSetGpuLock(Ljava/lang/String;I)Z
@@ -1069,7 +1110,7 @@
     .parameter "nOrientation"
 
     .prologue
-    .line 714
+    .line 757
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetOrientation(I)Z
@@ -1084,7 +1125,7 @@
     .parameter "nOutputMode"
 
     .prologue
-    .line 630
+    .line 671
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetOutputMode(I)Z
@@ -1099,7 +1140,7 @@
     .parameter "nVideoRotation"
 
     .prologue
-    .line 684
+    .line 727
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetRearCameraRotation(I)Z
@@ -1114,7 +1155,7 @@
     .parameter "nResolution"
 
     .prologue
-    .line 620
+    .line 661
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetResolution(I)Z
@@ -1129,7 +1170,7 @@
     .parameter "bStatus"
 
     .prologue
-    .line 605
+    .line 646
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetStatus(Z)Z
@@ -1144,7 +1185,7 @@
     .parameter "bStatus"
 
     .prologue
-    .line 640
+    .line 681
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetSubtitleStatus(Z)Z
@@ -1159,7 +1200,7 @@
     .parameter "bStatus"
 
     .prologue
-    .line 655
+    .line 698
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetSuspendStatus(Z)Z
@@ -1174,7 +1215,7 @@
     .parameter "videomode"
 
     .prologue
-    .line 722
+    .line 765
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetVideoMode(I)Z
@@ -1189,7 +1230,7 @@
     .parameter "nVideoRotation"
 
     .prologue
-    .line 679
+    .line 722
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetVideoRotation(I)Z
@@ -1204,7 +1245,7 @@
     .parameter "bStatus"
 
     .prologue
-    .line 709
+    .line 752
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutSetWFDStatus(Z)Z
@@ -1218,21 +1259,21 @@
     .locals 3
 
     .prologue
-    .line 589
+    .line 630
     const-string v1, "TvoutService_Java"
 
     const-string v2, "WFD is running, send intent to terminate"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 590
+    .line 631
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.WIFI_DISPLAY_REQ"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 591
+    .line 632
     .local v0, resSetActionIntent:Landroid/content/Intent;
     const-string v1, "Control"
 
@@ -1240,12 +1281,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 592
+    .line 633
     iget-object v1, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 594
+    .line 635
     const/4 v1, 0x1
 
     return v1
@@ -1258,21 +1299,21 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 560
+    .line 601
     const/4 v1, 0x1
 
     if-ne p1, v1, :cond_1
 
-    .line 562
+    .line 603
     iget-object v1, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040557
+    const v2, 0x1040568
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 566
+    .line 607
     .local v0, strDefault:Ljava/lang/String;
     const-string v1, "TvoutService_Java"
 
@@ -1296,7 +1337,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 567
+    .line 608
     iget-object v1, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
     invoke-static {v1, v0, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -1305,28 +1346,28 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 585
+    .line 626
     .end local v0           #strDefault:Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
-    .line 569
+    .line 610
     :cond_1
     const/4 v1, 0x2
 
     if-ne p1, v1, :cond_2
 
-    .line 571
+    .line 612
     iget-object v1, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040558
+    const v2, 0x1040569
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 574
+    .line 615
     .restart local v0       #strDefault:Ljava/lang/String;
     const-string v1, "TvoutService_Java"
 
@@ -1350,7 +1391,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 575
+    .line 616
     iget-object v1, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
     invoke-static {v1, v0, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -1361,23 +1402,23 @@
 
     goto :goto_0
 
-    .line 577
+    .line 618
     .end local v0           #strDefault:Ljava/lang/String;
     :cond_2
     const/4 v1, 0x3
 
     if-ne p1, v1, :cond_0
 
-    .line 579
+    .line 620
     iget-object v1, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040559
+    const v2, 0x104056a
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 582
+    .line 623
     .restart local v0       #strDefault:Ljava/lang/String;
     const-string v1, "TvoutService_Java"
 
@@ -1401,7 +1442,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 583
+    .line 624
     iget-object v1, p0, Lcom/android/server/TvoutService;->mContext:Landroid/content/Context;
 
     invoke-static {v1, v0, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -1418,7 +1459,7 @@
     .parameter "status"
 
     .prologue
-    .line 704
+    .line 747
     iget-object v0, p0, Lcom/android/server/TvoutService;->mTvout:Landroid/hardware/Tvout;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Tvout;->TvoutVideoPlayingStatus(Z)Z

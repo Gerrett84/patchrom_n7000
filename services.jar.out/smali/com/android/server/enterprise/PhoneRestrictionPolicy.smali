@@ -3410,7 +3410,7 @@
 
     iget-object v5, p0, Lcom/android/server/enterprise/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
 
-    const v6, 0x10401e0
+    const v6, 0x10401e5
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

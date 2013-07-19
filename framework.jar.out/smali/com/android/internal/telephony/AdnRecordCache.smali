@@ -49,9 +49,9 @@
     .end annotation
 .end field
 
-.field private mFh:Lcom/android/internal/telephony/IccFileHandler;
-
 .field private mAdnCacheManager:Lcom/android/internal/telephony/AdnCacheManager;
+
+.field private mFh:Lcom/android/internal/telephony/IccFileHandler;
 
 .field private mUsimPhoneBookManager:Lcom/android/internal/telephony/gsm/UsimPhoneBookManager;
 
@@ -503,7 +503,7 @@
 
     packed-switch v9, :pswitch_data_0
 
-    .line 750
+    .line 758
     :cond_0
     :goto_0
     return-void
@@ -1276,7 +1276,7 @@
     .line 708
     invoke-virtual {p0, v4}, Lcom/android/internal/telephony/AdnRecordCache;->requestLoadAllAdnLikeAgain(I)V
 
-    .line 716
+    .line 724
     :cond_6
     :goto_3
     iget-object v9, p0, Lcom/android/internal/telephony/AdnRecordCache;->userWriteResponse:Landroid/util/SparseArray;
@@ -1287,33 +1287,33 @@
 
     check-cast v7, Landroid/os/Message;
 
-    .line 717
+    .line 725
     .restart local v7       #response:Landroid/os/Message;
     iget-object v9, p0, Lcom/android/internal/telephony/AdnRecordCache;->userWriteResponse:Landroid/util/SparseArray;
 
     invoke-virtual {v9, v4}, Landroid/util/SparseArray;->delete(I)V
 
-    .line 719
+    .line 727
     if-eqz v7, :cond_0
 
-    .line 721
+    .line 729
     :try_start_3
     iget-object v9, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     invoke-static {v7, v0, v9}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
-    .line 722
+    .line 730
     invoke-virtual {v7}, Landroid/os/Message;->sendToTarget()V
     :try_end_3
     .catch Ljava/lang/RuntimeException; {:try_start_3 .. :try_end_3} :catch_3
 
     goto/16 :goto_0
 
-    .line 723
+    .line 731
     :catch_3
     move-exception v5
 
-    .line 724
+    .line 732
     .restart local v5       #ex:Ljava/lang/RuntimeException;
     const-string v9, "GSM"
 
@@ -1331,7 +1331,8 @@
 
     if-lez v9, :cond_6
 
-    .line 711
+    .line 713
+    :try_start_4
     iget-object v9, p0, Lcom/android/internal/telephony/AdnRecordCache;->adnLikeFiles:Landroid/util/SparseArray;
 
     invoke-virtual {v9, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -1343,13 +1344,26 @@
     add-int/lit8 v10, v2, -0x1
 
     invoke-virtual {v9, v10}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    :try_end_4
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_4 .. :try_end_4} :catch_4
 
     goto :goto_3
 
-    .line 731
+    .line 715
+    :catch_4
+    move-exception v3
+
+    .line 716
+    .local v3, e:Ljava/lang/ArrayIndexOutOfBoundsException;
+    invoke-virtual {v3}, Ljava/lang/ArrayIndexOutOfBoundsException;->printStackTrace()V
+
+    goto :goto_3
+
+    .line 739
     .end local v0           #adn:Lcom/android/internal/telephony/AdnRecord;
     .end local v1           #ar:Landroid/os/AsyncResult;
     .end local v2           #cnt:I
+    .end local v3           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
     .end local v4           #efid:I
     :pswitch_4
     const-string v9, "GSM"
@@ -1358,29 +1372,29 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 733
+    .line 741
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
 
-    .line 734
+    .line 742
     .restart local v1       #ar:Landroid/os/AsyncResult;
     iget v4, p1, Landroid/os/Message;->arg1:I
 
-    .line 737
+    .line 745
     .restart local v4       #efid:I
     iget-object v9, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v9, :cond_8
 
-    .line 738
+    .line 746
     const-string v9, "GSM"
 
     const-string v10, "ar.exception == null"
 
     invoke-static {v9, v10}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 739
+    .line 747
     iget-object v10, p0, Lcom/android/internal/telephony/AdnRecordCache;->adnLikeFiles:Landroid/util/SparseArray;
 
     iget-object v9, v1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
@@ -1391,7 +1405,7 @@
 
     invoke-virtual {v10, v4, v9}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 743
+    .line 751
     :cond_8
     const-string v9, "GSM"
 
@@ -1402,8 +1416,6 @@
     goto/16 :goto_0
 
     .line 585
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

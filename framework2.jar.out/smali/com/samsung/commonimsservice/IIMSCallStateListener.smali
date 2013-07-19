@@ -21,6 +21,8 @@
 
 .field public static final CALL_TYPE_QVGAVIDEO:I = 0x8
 
+.field public static final CALL_TYPE_QVGA_PORTRAIT:I = 0x9
+
 .field public static final CALL_TYPE_VIDEO_CONFERENCE:I = 0x7
 
 .field public static final CALL_TYPE_VIDEO_SHARE:I = 0x3
@@ -53,6 +55,9 @@
 .method public abstract onCallResumed(I)V
 .end method
 
+.method public abstract onCallSwitched(IILcom/sec/android/internal/ims/IIMSParams;)V
+.end method
+
 .method public abstract onCalling(I)V
 .end method
 
@@ -74,7 +79,7 @@
 .method public abstract onConferenceEstablished(IILcom/sec/android/internal/ims/IIMSParams;)V
 .end method
 
-.method public abstract onEarlyMediaStart(I)V
+.method public abstract onEarlyMediaStart(IILcom/sec/android/internal/ims/IIMSParams;)V
 .end method
 
 .method public abstract onError(IILjava/lang/String;)V

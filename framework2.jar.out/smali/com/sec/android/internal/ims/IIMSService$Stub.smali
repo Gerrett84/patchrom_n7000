@@ -26,13 +26,13 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.sec.android.internal.ims.IIMSService"
 
-.field static final TRANSACTION_captureSurfaceImage:I = 0x10
+.field static final TRANSACTION_captureSurfaceImage:I = 0x11
 
-.field static final TRANSACTION_contactSvcCallFunction:I = 0x23
+.field static final TRANSACTION_contactSvcCallFunction:I = 0x24
 
-.field static final TRANSACTION_deinitSurface:I = 0x11
+.field static final TRANSACTION_deinitSurface:I = 0x12
 
-.field static final TRANSACTION_getCurrentLatchedNetwork:I = 0x25
+.field static final TRANSACTION_getCurrentLatchedNetwork:I = 0x26
 
 .field static final TRANSACTION_getImsRegStatus:I = 0x5
 
@@ -40,7 +40,9 @@
 
 .field static final TRANSACTION_isFrontCamInUse:I = 0x9
 
-.field static final TRANSACTION_isIMSEnabledOnWifi:I = 0x26
+.field static final TRANSACTION_isIMSEnabledOnWifi:I = 0x27
+
+.field static final TRANSACTION_isImsForbidden:I = 0xc
 
 .field static final TRANSACTION_isOnEHRPD:I = 0xb
 
@@ -50,57 +52,61 @@
 
 .field static final TRANSACTION_mmSS_Svc_Api:I = 0x6
 
-.field static final TRANSACTION_mmTelSvcCallFunc:I = 0x22
+.field static final TRANSACTION_mmTelSvcCallFunc:I = 0x23
 
-.field static final TRANSACTION_mmTelSvcCallFuncAsync:I = 0x21
+.field static final TRANSACTION_mmTelSvcCallFuncAsync:I = 0x22
 
-.field static final TRANSACTION_register:I = 0x1b
+.field static final TRANSACTION_register:I = 0x1c
 
 .field static final TRANSACTION_registerApp:I = 0x2
 
-.field static final TRANSACTION_registerListener:I = 0x1f
+.field static final TRANSACTION_registerListener:I = 0x20
 
 .field static final TRANSACTION_registerSSApp:I = 0x7
 
-.field static final TRANSACTION_registerWithISIMResponse:I = 0x1d
+.field static final TRANSACTION_registerWithISIMResponse:I = 0x1e
 
-.field static final TRANSACTION_resetCameraID:I = 0xd
+.field static final TRANSACTION_resetCameraID:I = 0xe
 
-.field static final TRANSACTION_sendLiveVideo:I = 0xf
+.field static final TRANSACTION_sendLiveVideo:I = 0x10
 
-.field static final TRANSACTION_sendStillImage:I = 0xe
+.field static final TRANSACTION_sendStillImage:I = 0xf
 
-.field static final TRANSACTION_setAudioTuningParameters:I = 0x24
+.field static final TRANSACTION_setAudioMode:I = 0x29
 
-.field static final TRANSACTION_setOrientation:I = 0x17
+.field static final TRANSACTION_setAudioTuningParameters:I = 0x25
 
-.field static final TRANSACTION_startAudio:I = 0x14
+.field static final TRANSACTION_setOrientation:I = 0x18
 
-.field static final TRANSACTION_startCamera:I = 0x19
+.field static final TRANSACTION_startAudio:I = 0x15
 
-.field static final TRANSACTION_startVideo:I = 0x15
+.field static final TRANSACTION_startCamera:I = 0x1a
 
-.field static final TRANSACTION_startVideoRenderer:I = 0x13
+.field static final TRANSACTION_startVideo:I = 0x16
 
-.field static final TRANSACTION_stopCamera:I = 0x1a
+.field static final TRANSACTION_startVideoRenderer:I = 0x14
 
-.field static final TRANSACTION_stopVideo:I = 0x16
+.field static final TRANSACTION_stopCamera:I = 0x1b
 
-.field static final TRANSACTION_swapVideoSurface:I = 0x12
+.field static final TRANSACTION_stopVideo:I = 0x17
 
-.field static final TRANSACTION_switchCamera:I = 0xc
+.field static final TRANSACTION_swapVideoSurface:I = 0x13
+
+.field static final TRANSACTION_switchCamera:I = 0xd
 
 .field static final TRANSACTION_unRegisterApp:I = 0x3
 
 .field static final TRANSACTION_unRegisterSSApp:I = 0x8
 
-.field static final TRANSACTION_unregister:I = 0x1c
+.field static final TRANSACTION_unregister:I = 0x1d
 
-.field static final TRANSACTION_unregisterListener:I = 0x20
+.field static final TRANSACTION_unregisterListener:I = 0x21
 
-.field static final TRANSACTION_unregisterWithISIMResponse:I = 0x1e
+.field static final TRANSACTION_unregisterWithISIMResponse:I = 0x1f
 
-.field static final TRANSACTION_voiceRecord:I = 0x18
+.field static final TRANSACTION_voiceRecord:I = 0x19
+
+.field static final TRANSACTION_writeErrorData:I = 0x28
 
 
 # direct methods
@@ -196,7 +202,7 @@
     .line 41
     sparse-switch p1, :sswitch_data_0
 
-    .line 419
+    .line 449
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v9
@@ -572,98 +578,88 @@
     .line 164
     .end local v8           #_result:Z
     :sswitch_c
-    const-string v0, "com.sec.android.internal.ims.IIMSService"
+    const-string v10, "com.sec.android.internal.ims.IIMSService"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 165
-    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->switchCamera()V
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->isImsForbidden()Z
+
+    move-result v8
+
+    .line 166
+    .restart local v8       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 167
+    if-eqz v8, :cond_5
+
+    move v0, v9
+
+    :cond_5
+    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
-    .line 170
+    .line 172
+    .end local v8           #_result:Z
     :sswitch_d
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 171
-    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->resetCameraID()V
+    .line 173
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->switchCamera()V
 
     goto/16 :goto_0
 
-    .line 176
+    .line 178
     :sswitch_e
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 178
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
     .line 179
-    .local v1, _arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->sendStillImage(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->resetCameraID()V
 
     goto/16 :goto_0
 
     .line 184
-    .end local v1           #_arg0:Ljava/lang/String;
     :sswitch_f
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 185
+    .line 186
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 187
+    .local v1, _arg0:Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->sendStillImage(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 192
+    .end local v1           #_arg0:Ljava/lang/String;
+    :sswitch_10
+    const-string v0, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 193
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->sendLiveVideo()V
 
     goto/16 :goto_0
 
-    .line 190
-    :sswitch_10
-    const-string v10, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 192
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v10
-
-    if-eqz v10, :cond_5
-
-    move v1, v9
-
-    .line 194
-    .local v1, _arg0:Z
-    :goto_2
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 195
-    .restart local v2       #_arg1:I
-    invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->captureSurfaceImage(ZI)V
-
-    goto/16 :goto_0
-
-    .end local v1           #_arg0:Z
-    .end local v2           #_arg1:I
-    :cond_5
-    move v1, v0
-
-    .line 192
-    goto :goto_2
-
-    .line 200
+    .line 198
     :sswitch_11
     const-string v10, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 202
+    .line 200
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
@@ -672,45 +668,84 @@
 
     move v1, v9
 
+    .line 202
+    .local v1, _arg0:Z
+    :goto_2
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
     .line 203
-    .restart local v1       #_arg0:Z
-    :goto_3
-    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->deinitSurface(Z)V
+    .restart local v2       #_arg1:I
+    invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->captureSurfaceImage(ZI)V
 
     goto/16 :goto_0
 
     .end local v1           #_arg0:Z
+    .end local v2           #_arg1:I
     :cond_6
     move v1, v0
 
-    .line 202
-    goto :goto_3
+    .line 200
+    goto :goto_2
 
     .line 208
     :sswitch_12
-    const-string v0, "com.sec.android.internal.ims.IIMSService"
+    const-string v10, "com.sec.android.internal.ims.IIMSService"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 209
-    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->swapVideoSurface()V
+    .line 210
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v10
+
+    if-eqz v10, :cond_7
+
+    move v1, v9
+
+    .line 211
+    .restart local v1       #_arg0:Z
+    :goto_3
+    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->deinitSurface(Z)V
+
+    .line 212
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_0
 
-    .line 214
+    .end local v1           #_arg0:Z
+    :cond_7
+    move v1, v0
+
+    .line 210
+    goto :goto_3
+
+    .line 217
     :sswitch_13
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 216
+    .line 218
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->swapVideoSurface()V
+
+    goto/16 :goto_0
+
+    .line 223
+    :sswitch_14
+    const-string v0, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 225
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    .line 217
+    .line 226
     sget-object v0, Landroid/view/Surface;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -719,126 +754,133 @@
 
     check-cast v1, Landroid/view/Surface;
 
-    .line 223
+    .line 232
     .local v1, _arg0:Landroid/view/Surface;
     :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 225
+    .line 234
     .restart local v2       #_arg1:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 226
+    .line 236
     .local v3, _arg2:I
-    invoke-virtual {p0, v1, v2, v3}, Lcom/sec/android/internal/ims/IIMSService$Stub;->startVideoRenderer(Landroid/view/Surface;II)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 237
+    .restart local v4       #_arg3:Ljava/lang/String;
+    invoke-virtual {p0, v1, v2, v3, v4}, Lcom/sec/android/internal/ims/IIMSService$Stub;->startVideoRenderer(Landroid/view/Surface;IILjava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 220
+    .line 229
     .end local v1           #_arg0:Landroid/view/Surface;
     .end local v2           #_arg1:I
     .end local v3           #_arg2:I
-    :cond_7
+    .end local v4           #_arg3:Ljava/lang/String;
+    :cond_8
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/view/Surface;
     goto :goto_4
 
-    .line 231
+    .line 242
     .end local v1           #_arg0:Landroid/view/Surface;
-    :sswitch_14
-    const-string v0, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 232
-    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->startAudio()V
-
-    goto/16 :goto_0
-
-    .line 237
     :sswitch_15
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 238
-    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->startVideo()V
+    .line 243
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->startAudio()V
 
     goto/16 :goto_0
 
-    .line 243
+    .line 248
     :sswitch_16
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 244
-    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->stopVideo()V
+    .line 249
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->startVideo()V
 
     goto/16 :goto_0
 
-    .line 249
+    .line 254
     :sswitch_17
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 251
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    .line 252
-    .local v1, _arg0:I
-    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->setOrientation(I)V
+    .line 255
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->stopVideo()V
 
     goto/16 :goto_0
 
-    .line 257
-    .end local v1           #_arg0:I
+    .line 260
     :sswitch_18
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 259
+    .line 262
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 261
+    .line 263
+    .local v1, _arg0:I
+    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->setOrientation(I)V
+
+    goto/16 :goto_0
+
+    .line 268
+    .end local v1           #_arg0:I
+    :sswitch_19
+    const-string v0, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 270
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 272
     .restart local v1       #_arg0:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 262
+    .line 273
     .local v2, _arg1:Ljava/lang/String;
     invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->voiceRecord(ILjava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 267
+    .line 278
     .end local v1           #_arg0:I
     .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_19
+    :sswitch_1a
     const-string v10, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 269
+    .line 280
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_9
 
-    .line 270
+    .line 281
     sget-object v10, Landroid/view/Surface;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v10, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -847,47 +889,47 @@
 
     check-cast v1, Landroid/view/Surface;
 
-    .line 276
+    .line 287
     .local v1, _arg0:Landroid/view/Surface;
     :goto_5
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 278
+    .line 289
     .local v2, _arg1:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 280
+    .line 291
     .restart local v3       #_arg2:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 282
+    .line 293
     .local v4, _arg3:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v10
-
-    if-eqz v10, :cond_9
-
-    move v5, v9
-
-    .line 284
-    .local v5, _arg4:Z
-    :goto_6
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
     if-eqz v10, :cond_a
 
+    move v5, v9
+
+    .line 295
+    .local v5, _arg4:Z
+    :goto_6
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v10
+
+    if-eqz v10, :cond_b
+
     move v6, v9
 
-    .line 286
+    .line 297
     .local v6, _arg5:Z
     :goto_7
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -897,12 +939,12 @@
     .local v7, _arg6:Ljava/lang/String;
     move-object v0, p0
 
-    .line 287
+    .line 298
     invoke-virtual/range {v0 .. v7}, Lcom/sec/android/internal/ims/IIMSService$Stub;->startCamera(Landroid/view/Surface;IIIZZLjava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 273
+    .line 284
     .end local v1           #_arg0:Landroid/view/Surface;
     .end local v2           #_arg1:I
     .end local v3           #_arg2:I
@@ -910,7 +952,7 @@
     .end local v5           #_arg4:Z
     .end local v6           #_arg5:Z
     .end local v7           #_arg6:Ljava/lang/String;
-    :cond_8
+    :cond_9
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/view/Surface;
@@ -919,57 +961,57 @@
     .restart local v2       #_arg1:I
     .restart local v3       #_arg2:I
     .restart local v4       #_arg3:I
-    :cond_9
+    :cond_a
     move v5, v0
 
-    .line 282
+    .line 293
     goto :goto_6
 
     .restart local v5       #_arg4:Z
-    :cond_a
+    :cond_b
     move v6, v0
 
-    .line 284
+    .line 295
     goto :goto_7
 
-    .line 292
+    .line 303
     .end local v1           #_arg0:Landroid/view/Surface;
     .end local v2           #_arg1:I
     .end local v3           #_arg2:I
     .end local v4           #_arg3:I
     .end local v5           #_arg4:Z
-    :sswitch_1a
+    :sswitch_1b
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 293
+    .line 304
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->stopCamera()V
 
     goto/16 :goto_0
 
-    .line 298
-    :sswitch_1b
+    .line 309
+    :sswitch_1c
     const-string v10, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 300
+    .line 311
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 302
+    .line 313
     .local v1, _arg0:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v10
 
-    if-eqz v10, :cond_b
+    if-eqz v10, :cond_c
 
     move v2, v9
 
-    .line 303
+    .line 314
     .local v2, _arg1:Z
     :goto_8
     invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->register(Ljava/lang/String;Z)V
@@ -977,73 +1019,48 @@
     goto/16 :goto_0
 
     .end local v2           #_arg1:Z
-    :cond_b
+    :cond_c
     move v2, v0
 
-    .line 302
+    .line 313
     goto :goto_8
 
-    .line 308
+    .line 319
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_1c
-    const-string v0, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 309
-    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->unregister()V
-
-    goto/16 :goto_0
-
-    .line 314
     :sswitch_1d
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 316
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 318
-    .restart local v1       #_arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
-
-    move-result-object v2
-
-    .line 319
-    .local v2, _arg1:[B
-    invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->registerWithISIMResponse(Ljava/lang/String;[B)V
+    .line 320
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->unregister()V
 
     goto/16 :goto_0
 
-    .line 324
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:[B
+    .line 325
     :sswitch_1e
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 326
+    .line 327
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 328
+    .line 329
     .restart local v1       #_arg0:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v2
 
-    .line 329
-    .restart local v2       #_arg1:[B
-    invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->unregisterWithISIMResponse(Ljava/lang/String;[B)V
+    .line 330
+    .local v2, _arg1:[B
+    invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->registerWithISIMResponse(Ljava/lang/String;[B)V
 
     goto/16 :goto_0
 
-    .line 334
+    .line 335
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:[B
     :sswitch_1f
@@ -1051,36 +1068,32 @@
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 336
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/sec/android/internal/ims/IIMSEventListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/sec/android/internal/ims/IIMSEventListener;
+    .line 337
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 338
-    .local v1, _arg0:Lcom/sec/android/internal/ims/IIMSEventListener;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
     .line 339
-    .local v2, _arg1:I
-    invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->registerListener(Lcom/sec/android/internal/ims/IIMSEventListener;I)V
+    .restart local v1       #_arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
+
+    move-result-object v2
+
+    .line 340
+    .restart local v2       #_arg1:[B
+    invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->unregisterWithISIMResponse(Ljava/lang/String;[B)V
 
     goto/16 :goto_0
 
-    .line 344
-    .end local v1           #_arg0:Lcom/sec/android/internal/ims/IIMSEventListener;
-    .end local v2           #_arg1:I
+    .line 345
+    .end local v1           #_arg0:Ljava/lang/String;
+    .end local v2           #_arg1:[B
     :sswitch_20
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 346
+    .line 347
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v0
@@ -1089,201 +1102,276 @@
 
     move-result-object v1
 
-    .line 347
-    .restart local v1       #_arg0:Lcom/sec/android/internal/ims/IIMSEventListener;
-    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->unregisterListener(Lcom/sec/android/internal/ims/IIMSEventListener;)V
+    .line 349
+    .local v1, _arg0:Lcom/sec/android/internal/ims/IIMSEventListener;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    .line 350
+    .local v2, _arg1:I
+    invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->registerListener(Lcom/sec/android/internal/ims/IIMSEventListener;I)V
 
     goto/16 :goto_0
 
-    .line 352
+    .line 355
     .end local v1           #_arg0:Lcom/sec/android/internal/ims/IIMSEventListener;
+    .end local v2           #_arg1:I
     :sswitch_21
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 354
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    .line 357
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result v1
+    move-result-object v0
 
-    .line 356
-    .local v1, _arg0:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-static {v0}, Lcom/sec/android/internal/ims/IIMSEventListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/sec/android/internal/ims/IIMSEventListener;
 
-    move-result v2
+    move-result-object v1
 
     .line 358
-    .restart local v2       #_arg1:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    .line 360
-    .restart local v3       #_arg2:I
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 361
-    .local v4, _arg3:Ljava/lang/String;
-    invoke-virtual {p0, v1, v2, v3, v4}, Lcom/sec/android/internal/ims/IIMSService$Stub;->mmTelSvcCallFuncAsync(IIILjava/lang/String;)V
+    .restart local v1       #_arg0:Lcom/sec/android/internal/ims/IIMSEventListener;
+    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->unregisterListener(Lcom/sec/android/internal/ims/IIMSEventListener;)V
 
     goto/16 :goto_0
 
-    .line 366
-    .end local v1           #_arg0:I
-    .end local v2           #_arg1:I
-    .end local v3           #_arg2:I
-    .end local v4           #_arg3:Ljava/lang/String;
+    .line 363
+    .end local v1           #_arg0:Lcom/sec/android/internal/ims/IIMSEventListener;
     :sswitch_22
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 368
+    .line 365
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 370
-    .restart local v1       #_arg0:I
+    .line 367
+    .local v1, _arg0:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 372
+    .line 369
     .restart local v2       #_arg1:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 374
+    .line 371
     .restart local v3       #_arg2:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 375
-    .restart local v4       #_arg3:Ljava/lang/String;
-    invoke-virtual {p0, v1, v2, v3, v4}, Lcom/sec/android/internal/ims/IIMSService$Stub;->mmTelSvcCallFunc(IIILjava/lang/String;)I
-
-    move-result v8
-
-    .line 376
-    .local v8, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 377
-    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeInt(I)V
+    .line 372
+    .local v4, _arg3:Ljava/lang/String;
+    invoke-virtual {p0, v1, v2, v3, v4}, Lcom/sec/android/internal/ims/IIMSService$Stub;->mmTelSvcCallFuncAsync(IIILjava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 382
+    .line 377
     .end local v1           #_arg0:I
     .end local v2           #_arg1:I
     .end local v3           #_arg2:I
     .end local v4           #_arg3:Ljava/lang/String;
-    .end local v8           #_result:I
     :sswitch_23
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 384
+    .line 379
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 386
+    .line 381
     .restart local v1       #_arg0:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 388
+    .line 383
     .restart local v2       #_arg1:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 390
+    .line 385
     .restart local v3       #_arg2:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 391
+    .line 386
     .restart local v4       #_arg3:Ljava/lang/String;
-    invoke-virtual {p0, v1, v2, v3, v4}, Lcom/sec/android/internal/ims/IIMSService$Stub;->contactSvcCallFunction(IIILjava/lang/String;)V
+    invoke-virtual {p0, v1, v2, v3, v4}, Lcom/sec/android/internal/ims/IIMSService$Stub;->mmTelSvcCallFunc(IIILjava/lang/String;)I
+
+    move-result v8
+
+    .line 387
+    .local v8, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 388
+    invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
-    .line 396
+    .line 393
     .end local v1           #_arg0:I
     .end local v2           #_arg1:I
     .end local v3           #_arg2:I
     .end local v4           #_arg3:Ljava/lang/String;
+    .end local v8           #_result:I
     :sswitch_24
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 398
+    .line 395
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 399
+    .line 397
     .restart local v1       #_arg0:I
-    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->setAudioTuningParameters(I)V
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    .line 399
+    .restart local v2       #_arg1:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    .line 401
+    .restart local v3       #_arg2:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 402
+    .restart local v4       #_arg3:Ljava/lang/String;
+    invoke-virtual {p0, v1, v2, v3, v4}, Lcom/sec/android/internal/ims/IIMSService$Stub;->contactSvcCallFunction(IIILjava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 404
+    .line 407
     .end local v1           #_arg0:I
+    .end local v2           #_arg1:I
+    .end local v3           #_arg2:I
+    .end local v4           #_arg3:Ljava/lang/String;
     :sswitch_25
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 405
+    .line 409
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 410
+    .restart local v1       #_arg0:I
+    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->setAudioTuningParameters(I)V
+
+    goto/16 :goto_0
+
+    .line 415
+    .end local v1           #_arg0:I
+    :sswitch_26
+    const-string v0, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 416
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->getCurrentLatchedNetwork()Ljava/lang/String;
 
     move-result-object v8
 
-    .line 406
+    .line 417
     .local v8, _result:Ljava/lang/String;
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 407
+    .line 418
     invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 412
+    .line 423
     .end local v8           #_result:Ljava/lang/String;
-    :sswitch_26
+    :sswitch_27
     const-string v10, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {p2, v10}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 413
+    .line 424
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/IIMSService$Stub;->isIMSEnabledOnWifi()Z
 
     move-result v8
 
-    .line 414
+    .line 425
     .local v8, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 415
-    if-eqz v8, :cond_c
+    .line 426
+    if-eqz v8, :cond_d
 
     move v0, v9
 
-    :cond_c
+    :cond_d
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 431
+    .end local v8           #_result:Z
+    :sswitch_28
+    const-string v0, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 433
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 435
+    .local v1, _arg0:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 436
+    .local v2, _arg1:Ljava/lang/String;
+    invoke-virtual {p0, v1, v2}, Lcom/sec/android/internal/ims/IIMSService$Stub;->writeErrorData(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 437
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_0
+
+    .line 442
+    .end local v1           #_arg0:Ljava/lang/String;
+    .end local v2           #_arg1:Ljava/lang/String;
+    :sswitch_29
+    const-string v0, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 444
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 445
+    .local v1, _arg0:I
+    invoke-virtual {p0, v1}, Lcom/sec/android/internal/ims/IIMSService$Stub;->setAudioMode(I)V
 
     goto/16 :goto_0
 
@@ -1330,6 +1418,9 @@
         0x24 -> :sswitch_24
         0x25 -> :sswitch_25
         0x26 -> :sswitch_26
+        0x27 -> :sswitch_27
+        0x28 -> :sswitch_28
+        0x29 -> :sswitch_29
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

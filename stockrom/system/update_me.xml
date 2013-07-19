@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RomConfig>
-    <RomName>VengeanceNoteTW3</RomName>
+    <RomName>VengeanceNoteTW3.1B</RomName>
     <RomVersion></RomVersion>
     <RomCheckUrl>http://roms.gerrett84.de/n7000/miui/updateme/vetw3/update_me_ckeck.xml</RomCheckUrl>
     <RomElemUrl>http://roms.gerrett84.de/n7000/miui/updateme/gapps/4.1.2/update_me_gapps.xml</RomElemUrl>
     <RomElemUrl>http://roms.gerrett84.de/n7000/miui/updateme/vetw3/update_me_apps.xml</RomElemUrl>
     <RomElemUrl>http://roms.gerrett84.de/n7000/miui/updateme/vetw3/update_me_multi.xml</RomElemUrl>
-    <RomElemUrl>http://roms.gerrett84.de/n7000/miui/updateme/vetw3/update_me_kernel.xml</RomElemUrl>
     <RomElemUrl>http://roms.gerrett84.de/n7000/miui/updateme/vetw3/update_me_storage.xml</RomElemUrl>
     <RomElemUrl>http://roms.gerrett84.de/n7000/miui/updateme/vetw3/update_me_miui.xml</RomElemUrl>
     <DisableInstalledApps>1</DisableInstalledApps>

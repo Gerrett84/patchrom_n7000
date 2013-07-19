@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 1861
+    .line 1877
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
 
     iput-object p2, p0, Lcom/android/server/WifiOffloadService$12;->val$packageName:Ljava/lang/String;
@@ -46,22 +46,22 @@
     .locals 22
 
     .prologue
-    .line 1864
+    .line 1880
     const/4 v13, 0x0
 
-    .line 1865
+    .line 1881
     .local v13, applicationInfo:Landroid/content/pm/ApplicationInfo;
     const/4 v4, -0x1
 
-    .line 1866
+    .line 1882
     .local v4, uid:I
     const-wide/16 v19, 0x0
 
-    .line 1867
+    .line 1883
     .local v19, totalDataUsage:J
     const/4 v12, 0x0
 
-    .line 1869
+    .line 1885
     .local v12, appLaunchCount:I
     move-object/from16 v0, p0
 
@@ -72,7 +72,7 @@
     #setter for: Lcom/android/server/WifiOffloadService;->doOffload:Z
     invoke-static {v2, v6}, Lcom/android/server/WifiOffloadService;->access$1702(Lcom/android/server/WifiOffloadService;Z)Z
 
-    .line 1872
+    .line 1888
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -83,7 +83,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 1873
+    .line 1889
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -92,7 +92,7 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1874
+    .line 1890
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -100,12 +100,12 @@
     #calls: Lcom/android/server/WifiOffloadService;->notifyDataUsageObject()V
     invoke-static {v2}, Lcom/android/server/WifiOffloadService;->access$1800(Lcom/android/server/WifiOffloadService;)V
 
-    .line 1980
+    .line 1996
     :cond_0
     :goto_0
     return-void
 
-    .line 1880
+    .line 1896
     :cond_1
     :try_start_0
     move-object/from16 v0, p0
@@ -127,14 +127,14 @@
 
     move-result-object v13
 
-    .line 1881
+    .line 1897
     iget v0, v13, Landroid/content/pm/ApplicationInfo;->uid:I
 
     move/from16 v21, v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_5
 
-    .line 1882
+    .line 1898
     .end local v4           #uid:I
     .local v21, uid:I
     :try_start_1
@@ -166,7 +166,7 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 1885
+    .line 1901
     :try_start_2
     move-object/from16 v0, p0
 
@@ -212,11 +212,11 @@
 
     move-result-object v14
 
-    .line 1886
+    .line 1902
     .local v14, cursor:Landroid/database/Cursor;
     if-eqz v14, :cond_4
 
-    .line 1887
+    .line 1903
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -245,24 +245,28 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1888
+    .line 1904
     invoke-interface {v14}, Landroid/database/Cursor;->getCount()I
 
     move-result v2
 
     if-nez v2, :cond_2
 
-    .line 1889
+    .line 1905
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
 
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lcom/android/server/WifiOffloadService$12;->val$packageName:Ljava/lang/String;
+
     move/from16 v0, v21
 
-    #calls: Lcom/android/server/WifiOffloadService;->insertDataUsage(I)Z
-    invoke-static {v2, v0}, Lcom/android/server/WifiOffloadService;->access$2000(Lcom/android/server/WifiOffloadService;I)Z
+    #calls: Lcom/android/server/WifiOffloadService;->insertDataUsage(ILjava/lang/String;)Z
+    invoke-static {v2, v0, v6}, Lcom/android/server/WifiOffloadService;->access$2000(Lcom/android/server/WifiOffloadService;ILjava/lang/String;)Z
 
-    .line 1891
+    .line 1907
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -271,7 +275,7 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1892
+    .line 1908
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -281,12 +285,12 @@
 
     move/from16 v4, v21
 
-    .line 1893
+    .line 1909
     .end local v21           #uid:I
     .restart local v4       #uid:I
     goto/16 :goto_0
 
-    .line 1895
+    .line 1911
     .end local v4           #uid:I
     .restart local v21       #uid:I
     :cond_2
@@ -296,14 +300,14 @@
 
     if-lez v2, :cond_3
 
-    .line 1897
+    .line 1913
     invoke-interface {v14}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
-    .line 1898
+    .line 1914
     const-string v2, "launchcount"
 
     invoke-interface {v14, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -314,7 +318,7 @@
 
     move-result v12
 
-    .line 1899
+    .line 1915
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -339,13 +343,13 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1902
+    .line 1918
     :cond_3
     invoke-interface {v14}, Landroid/database/Cursor;->close()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 1910
+    .line 1926
     .end local v14           #cursor:Landroid/database/Cursor;
     :cond_4
     :goto_1
@@ -378,7 +382,7 @@
 
     move/from16 v4, v21
 
-    .line 1917
+    .line 1933
     .end local v21           #uid:I
     .restart local v4       #uid:I
     :goto_2
@@ -401,7 +405,7 @@
 
     move-result-object v3
 
-    .line 1918
+    .line 1934
     .local v3, template:Landroid/net/NetworkTemplate;
     const-string v2, "netstats"
 
@@ -415,13 +419,13 @@
 
     move-result-object v18
 
-    .line 1920
+    .line 1936
     .local v18, mStatsService:Landroid/net/INetworkStatsService;
     if-eqz v18, :cond_6
 
     if-eqz v3, :cond_6
 
-    .line 1922
+    .line 1938
     :try_start_5
     move-object/from16 v0, p0
 
@@ -437,7 +441,7 @@
     .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_3
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
 
-    .line 1927
+    .line 1943
     :try_start_6
     move-object/from16 v0, p0
 
@@ -458,11 +462,11 @@
 
     move-result-object v5
 
-    .line 1928
+    .line 1944
     .local v5, history:Landroid/net/NetworkStatsHistory;
     if-eqz v5, :cond_5
 
-    .line 1929
+    .line 1945
     const-wide/high16 v6, -0x8000
 
     const-wide v8, 0x7fffffffffffffffL
@@ -473,11 +477,11 @@
 
     move-result-object v17
 
-    .line 1931
+    .line 1947
     .local v17, entry:Landroid/net/NetworkStatsHistory$Entry;
     if-eqz v17, :cond_5
 
-    .line 1932
+    .line 1948
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -506,7 +510,7 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1933
+    .line 1949
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -535,7 +539,7 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1935
+    .line 1951
     move-object/from16 v0, v17
 
     iget-wide v6, v0, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
@@ -546,7 +550,7 @@
 
     add-long v19, v6, v9
 
-    .line 1939
+    .line 1955
     .end local v17           #entry:Landroid/net/NetworkStatsHistory$Entry;
     :cond_5
     move-object/from16 v0, p0
@@ -575,7 +579,7 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1940
+    .line 1956
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -600,7 +604,7 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1943
+    .line 1959
     .end local v5           #history:Landroid/net/NetworkStatsHistory;
     :cond_6
     move-object/from16 v0, p0
@@ -611,7 +615,7 @@
 
     iput v6, v2, Lcom/android/server/WifiOffloadService;->DATA_USAGE_THRESHOLD:I
 
-    .line 1944
+    .line 1960
     const/high16 v2, 0x10
 
     const-string v6, "persist.offload.datausage.limit"
@@ -628,7 +632,7 @@
 
     mul-int v15, v2, v6
 
-    .line 1945
+    .line 1961
     .local v15, dataUsageThreshold:I
     move-object/from16 v0, p0
 
@@ -654,7 +658,7 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1947
+    .line 1963
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -683,7 +687,7 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1949
+    .line 1965
     int-to-long v6, v12
 
     div-long v6, v19, v6
@@ -694,7 +698,7 @@
 
     if-ltz v2, :cond_7
 
-    .line 1950
+    .line 1966
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -703,7 +707,7 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1952
+    .line 1968
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -713,17 +717,17 @@
     #setter for: Lcom/android/server/WifiOffloadService;->doOffload:Z
     invoke-static {v2, v6}, Lcom/android/server/WifiOffloadService;->access$1702(Lcom/android/server/WifiOffloadService;Z)Z
 
-    .line 1956
+    .line 1972
     :cond_7
     new-instance v8, Landroid/content/ContentValues;
 
     invoke-direct {v8}, Landroid/content/ContentValues;-><init>()V
 
-    .line 1957
+    .line 1973
     .local v8, cv:Landroid/content/ContentValues;
     add-int/lit8 v12, v12, 0x1
 
-    .line 1958
+    .line 1974
     const-string v2, "launchcount"
 
     invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -732,7 +736,7 @@
 
     invoke-virtual {v8, v2, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 1959
+    .line 1975
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -769,7 +773,7 @@
 
     invoke-virtual/range {v6 .. v11}, Lcom/android/server/wifi_offload/WifiOffloadDB;->updateWiFiDetails(Landroid/database/sqlite/SQLiteDatabase;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1962
+    .line 1978
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -781,7 +785,7 @@
 
     if-eqz v2, :cond_8
 
-    .line 1963
+    .line 1979
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -789,7 +793,7 @@
     #calls: Lcom/android/server/WifiOffloadService;->notifyDataUsageObject()V
     invoke-static {v2}, Lcom/android/server/WifiOffloadService;->access$1800(Lcom/android/server/WifiOffloadService;)V
 
-    .line 1964
+    .line 1980
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -801,7 +805,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1965
+    .line 1981
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -817,7 +821,7 @@
 
     goto/16 :goto_0
 
-    .line 1969
+    .line 1985
     .end local v3           #template:Landroid/net/NetworkTemplate;
     .end local v8           #cv:Landroid/content/ContentValues;
     .end local v15           #dataUsageThreshold:I
@@ -859,7 +863,7 @@
     #setter for: Lcom/android/server/WifiOffloadService;->doOffload:Z
     invoke-static {v2, v6}, Lcom/android/server/WifiOffloadService;->access$1702(Lcom/android/server/WifiOffloadService;Z)Z
 
-    .line 1971
+    .line 1987
     .end local v16           #e:Ljava/lang/Exception;
     :cond_8
     :try_start_7
@@ -874,7 +878,7 @@
 
     if-eqz v2, :cond_9
 
-    .line 1972
+    .line 1988
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -888,7 +892,7 @@
     :try_end_7
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_4
 
-    .line 1975
+    .line 1991
     :cond_9
     :goto_3
     move-object/from16 v0, p0
@@ -924,7 +928,7 @@
 
     invoke-virtual {v2, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1978
+    .line 1994
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/WifiOffloadService$12;->this$0:Lcom/android/server/WifiOffloadService;
@@ -934,13 +938,13 @@
 
     goto/16 :goto_0
 
-    .line 1906
+    .line 1922
     .end local v4           #uid:I
     .restart local v21       #uid:I
     :catch_1
     move-exception v16
 
-    .line 1907
+    .line 1923
     .restart local v16       #e:Ljava/lang/Exception;
     :try_start_8
     const-string v2, "WifiOffloadService"
@@ -953,7 +957,7 @@
 
     goto/16 :goto_1
 
-    .line 1913
+    .line 1929
     .end local v16           #e:Ljava/lang/Exception;
     :catch_2
     move-exception v16
@@ -990,14 +994,14 @@
 
     goto/16 :goto_2
 
-    .line 1923
+    .line 1939
     .end local v16           #e:Ljava/lang/Exception;
     .restart local v3       #template:Landroid/net/NetworkTemplate;
     .restart local v18       #mStatsService:Landroid/net/INetworkStatsService;
     :catch_3
     move-exception v16
 
-    .line 1924
+    .line 1940
     .local v16, e:Landroid/os/RemoteException;
     :try_start_9
     invoke-static {}, Lcom/android/server/WifiOffloadService;->access$2300()Z
@@ -1030,7 +1034,7 @@
 
     invoke-static {v2, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1925
+    .line 1941
     :cond_a
     new-instance v2, Ljava/lang/RuntimeException;
 
@@ -1042,7 +1046,7 @@
     :try_end_9
     .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_0
 
-    .line 1973
+    .line 1989
     .end local v3           #template:Landroid/net/NetworkTemplate;
     .end local v16           #e:Landroid/os/RemoteException;
     .end local v18           #mStatsService:Landroid/net/INetworkStatsService;
@@ -1076,7 +1080,7 @@
 
     goto/16 :goto_3
 
-    .line 1913
+    .line 1929
     .end local v16           #e:Ljava/lang/Exception;
     :catch_5
     move-exception v16

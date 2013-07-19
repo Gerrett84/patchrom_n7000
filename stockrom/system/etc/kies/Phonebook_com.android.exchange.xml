@@ -113,12 +113,5 @@
 			</Birthday>
 		</DataField>
 	</Phonebook>
-	<PhonebookGroup>
-		<Readonly value="FALSE" />
-		<MultipleAccount value="TRUE" />
-		<MaxItemCount value="65535" />
-		<DataField>
-			<Name Type="String" Charset="utf-16" MaxLength="2000" />
-		</DataField>
-	</PhonebookGroup>
+
 </SDP>

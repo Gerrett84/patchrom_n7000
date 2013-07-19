@@ -359,7 +359,7 @@
 
     iput-object v1, v0, Lcom/android/internal/telephony/CallerInfo;->phoneNumber:Ljava/lang/String;
 
-    goto :goto_1
+    goto/16 :goto_1
 
     .line 301
     :cond_b

@@ -34,25 +34,25 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 544
+    .line 538
     iput-object p1, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->this$0:Landroid/view/GestureDetector;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 546
+    .line 540
     const/16 v0, 0xc8
 
     iput v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mPalmSizeTH1:I
 
-    .line 547
+    .line 541
     const/16 v0, 0x50
 
     iput v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mPalmSizeTH2:I
 
-    .line 548
+    .line 542
     iput v1, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mValidCnt:I
 
-    .line 550
+    .line 544
     iput-boolean v1, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mPalmDown:Z
 
     return-void
@@ -64,7 +64,7 @@
     .parameter "x1"
 
     .prologue
-    .line 544
+    .line 538
     invoke-direct {p0, p1}, Landroid/view/GestureDetector$PalmTouchRecognizer;-><init>(Landroid/view/GestureDetector;)V
 
     return-void
@@ -78,13 +78,13 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 586
+    .line 580
     iput-boolean v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mPalmDown:Z
 
-    .line 587
+    .line 581
     iput v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mValidCnt:I
 
-    .line 588
+    .line 582
     return-void
 .end method
 
@@ -99,12 +99,12 @@
 
     const/4 v2, 0x1
 
-    .line 553
+    .line 547
     iget-boolean v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mPalmDown:Z
 
     if-nez v0, :cond_2
 
-    .line 554
+    .line 548
     iget v0, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
 
     const/high16 v1, 0x4348
@@ -113,22 +113,22 @@
 
     if-lez v0, :cond_0
 
-    .line 555
+    .line 549
     iget v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mValidCnt:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mValidCnt:I
 
-    .line 556
+    .line 550
     iget v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mValidCnt:I
 
     if-lt v0, v4, :cond_0
 
-    .line 558
+    .line 552
     iput-boolean v2, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mPalmDown:Z
 
-    .line 562
+    .line 556
     :cond_0
     iget-object v0, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Nd:[I
 
@@ -148,7 +148,7 @@
 
     if-lez v0, :cond_1
 
-    .line 563
+    .line 557
     iget v0, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SvarX:F
 
     cmpl-float v0, v0, v3
@@ -161,42 +161,42 @@
 
     if-lez v0, :cond_1
 
-    .line 564
+    .line 558
     iget v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mValidCnt:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mValidCnt:I
 
-    .line 565
+    .line 559
     iget v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mValidCnt:I
 
     if-lt v0, v4, :cond_1
 
-    .line 567
+    .line 561
     iput-boolean v2, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mPalmDown:Z
 
-    .line 572
+    .line 566
     :cond_1
     iget-boolean v0, p0, Landroid/view/GestureDetector$PalmTouchRecognizer;->mPalmDown:Z
 
     if-ne v0, v2, :cond_2
 
-    .line 573
+    .line 567
     const-string v0, "GestureDetector"
 
     const-string v1, "[Surface Touch Event] Palm touch Down"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 574
+    .line 568
     iget-object v0, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mShapeListener:Landroid/view/GestureDetector$OnShapeGestureListener;
 
     iget-object v1, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mMotionEvent:Landroid/view/MotionEvent;
 
     invoke-interface {v0, v1}, Landroid/view/GestureDetector$OnShapeGestureListener;->onPalm(Landroid/view/MotionEvent;)Z
 
-    .line 579
+    .line 573
     :cond_2
     iget v0, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mAction:I
 
@@ -206,21 +206,21 @@
 
     if-ne v0, v2, :cond_3
 
-    .line 580
+    .line 574
     const-string v0, "GestureDetector"
 
     const-string v1, "[Surface Touch Event] Palm touch UP"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 581
+    .line 575
     iget-object v0, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mShapeListener:Landroid/view/GestureDetector$OnShapeGestureListener;
 
     iget-object v1, p1, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mMotionEvent:Landroid/view/MotionEvent;
 
     invoke-interface {v0, v1}, Landroid/view/GestureDetector$OnShapeGestureListener;->onPalm(Landroid/view/MotionEvent;)Z
 
-    .line 583
+    .line 577
     :cond_3
     return-void
 .end method

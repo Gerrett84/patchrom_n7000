@@ -39,10 +39,10 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 13
+    .line 14
     sput-object v0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
-    .line 14
+    .line 16
     sput-object v0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->instance:Lcom/sec/android/app/fm/ui/RTPTagListManager;
 
     return-void
@@ -53,24 +53,24 @@
     .parameter "context"
 
     .prologue
-    .line 40
+    .line 46
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
+    .line 47
     new-instance v0, Lcom/sec/android/app/fm/ui/RTPTagList;
 
     invoke-direct {v0}, Lcom/sec/android/app/fm/ui/RTPTagList;-><init>()V
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->curTagList:Lcom/sec/android/app/fm/ui/RTPTagList;
 
-    .line 42
+    .line 48
     invoke-static {p1}, Lcom/sec/android/app/fm/data/RTPTagDBAdapter;->getInstance(Landroid/content/Context;)Lcom/sec/android/app/fm/data/RTPTagDBAdapter;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->dbAdapter:Lcom/sec/android/app/fm/data/RTPTagDBAdapter;
 
-    .line 44
+    .line 50
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->dbAdapter:Lcom/sec/android/app/fm/data/RTPTagDBAdapter;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/data/RTPTagDBAdapter;->getMusicTags()Ljava/util/ArrayList;
@@ -79,22 +79,22 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->tagListArray:Ljava/util/ArrayList;
 
-    .line 45
+    .line 51
     const-string v0, ""
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->curRadioText:Ljava/lang/String;
 
-    .line 46
+    .line 52
     const-string v0, ""
 
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->preRadioText:Ljava/lang/String;
 
-    .line 47
+    .line 53
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->newMusic:Z
 
-    .line 48
+    .line 54
     return-void
 .end method
 
@@ -107,24 +107,24 @@
 
     const/4 v2, 0x1
 
-    .line 98
+    .line 107
     const-string v1, "addTagListArray"
 
     invoke-static {v1}, Lcom/sec/android/app/fm/ui/RTPTagListManager;->log(Ljava/lang/String;)V
 
-    .line 99
+    .line 108
     invoke-virtual {p1, v2}, Lcom/sec/android/app/fm/ui/RTPTagList;->haveTag(I)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 100
+    .line 109
     new-instance v0, Lcom/sec/android/app/fm/ui/RTPTagList;
 
     invoke-direct {v0, v2, p1}, Lcom/sec/android/app/fm/ui/RTPTagList;-><init>(ILcom/sec/android/app/fm/ui/RTPTagList;)V
 
-    .line 101
+    .line 110
     .local v0, newTagList:Lcom/sec/android/app/fm/ui/RTPTagList;
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->tagListArray:Ljava/util/ArrayList;
 
@@ -134,12 +134,12 @@
 
     if-eqz v1, :cond_2
 
-    .line 102
+    .line 111
     const-string v1, "curTagList is removed from history array"
 
     invoke-static {v1}, Lcom/sec/android/app/fm/ui/RTPTagListManager;->log(Ljava/lang/String;)V
 
-    .line 103
+    .line 112
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->dbAdapter:Lcom/sec/android/app/fm/data/RTPTagDBAdapter;
 
     invoke-virtual {v1, v0}, Lcom/sec/android/app/fm/data/RTPTagDBAdapter;->delete(Lcom/sec/android/app/fm/ui/RTPTagList;)I
@@ -148,17 +148,17 @@
 
     if-lez v1, :cond_1
 
-    .line 104
+    .line 113
     const-string v1, "curTagList is removed from DB"
 
     invoke-static {v1}, Lcom/sec/android/app/fm/ui/RTPTagListManager;->log(Ljava/lang/String;)V
 
-    .line 105
+    .line 114
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->dbAdapter:Lcom/sec/android/app/fm/data/RTPTagDBAdapter;
 
     invoke-virtual {v1, v0}, Lcom/sec/android/app/fm/data/RTPTagDBAdapter;->append(Lcom/sec/android/app/fm/ui/RTPTagList;)V
 
-    .line 112
+    .line 121
     :goto_0
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->tagListArray:Ljava/util/ArrayList;
 
@@ -166,7 +166,7 @@
 
     invoke-virtual {v1, v2, v0}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    .line 113
+    .line 122
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->tagListArray:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -175,17 +175,17 @@
 
     if-le v1, v3, :cond_0
 
-    .line 114
+    .line 123
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->tagListArray:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 116
+    .line 125
     .end local v0           #newTagList:Lcom/sec/android/app/fm/ui/RTPTagList;
     :cond_0
     return-void
 
-    .line 107
+    .line 116
     .restart local v0       #newTagList:Lcom/sec/android/app/fm/ui/RTPTagList;
     :cond_1
     const-string v1, "curTagList is not in DB. Something is wrong!!!"
@@ -194,7 +194,7 @@
 
     goto :goto_0
 
-    .line 110
+    .line 119
     :cond_2
     const-string v1, "New list. Nothing is removed."
 
@@ -208,7 +208,7 @@
     .parameter "context"
 
     .prologue
-    .line 19
+    .line 23
     const-class v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;
 
     monitor-enter v1
@@ -218,17 +218,17 @@
 
     if-nez v0, :cond_0
 
-    .line 20
+    .line 24
     new-instance v0, Lcom/sec/android/app/fm/ui/RTPTagListManager;
 
     invoke-direct {v0, p0}, Lcom/sec/android/app/fm/ui/RTPTagListManager;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->instance:Lcom/sec/android/app/fm/ui/RTPTagListManager;
 
-    .line 21
+    .line 25
     sput-object p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
-    .line 23
+    .line 27
     :cond_0
     sget-object v0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->instance:Lcom/sec/android/app/fm/ui/RTPTagListManager;
     :try_end_0
@@ -238,7 +238,7 @@
 
     return-object v0
 
-    .line 19
+    .line 23
     :catchall_0
     move-exception v0
 
@@ -252,12 +252,12 @@
     .parameter "msg"
 
     .prologue
-    .line 27
+    .line 31
     const-string v0, "RTPTagListManager"
 
-    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 28
+    .line 32
     return-void
 .end method
 
@@ -266,10 +266,10 @@
     .parameter "context"
 
     .prologue
-    .line 191
+    .line 190
     sput-object p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
-    .line 192
+    .line 191
     return-void
 .end method
 
@@ -283,24 +283,24 @@
     .parameter "additionalLen"
 
     .prologue
-    .line 51
+    .line 58
     monitor-enter p0
 
     const/4 v2, 0x0
 
-    .line 52
+    .line 59
     .local v2, ret:Z
     :try_start_0
     const-string v4, "addCurTagList"
 
     invoke-static {v4}, Lcom/sec/android/app/fm/ui/RTPTagListManager;->log(Ljava/lang/String;)V
 
-    .line 54
+    .line 61
     sget-object v4, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
     if-ne v4, p1, :cond_2
 
-    .line 55
+    .line 62
     iget-object v4, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->curRadioText:Ljava/lang/String;
 
     invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
@@ -309,14 +309,14 @@
 
     if-nez v4, :cond_0
 
-    .line 56
+    .line 63
     invoke-virtual {p0, p2}, Lcom/sec/android/app/fm/ui/RTPTagListManager;->getTagName(I)Ljava/lang/String;
 
     move-result-object v4
 
     if-eqz v4, :cond_0
 
-    .line 57
+    .line 64
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -367,7 +367,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 59
+    .line 67
     :try_start_1
     iget-object v4, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->curRadioText:Ljava/lang/String;
 
@@ -379,13 +379,13 @@
 
     move-result-object v1
 
-    .line 61
+    .line 70
     .local v1, info:Ljava/lang/String;
     new-instance v3, Lcom/sec/android/app/fm/ui/RTPTag;
 
     invoke-direct {v3, p2, v1}, Lcom/sec/android/app/fm/ui/RTPTag;-><init>(ILjava/lang/String;)V
 
-    .line 62
+    .line 71
     .local v3, tag:Lcom/sec/android/app/fm/ui/RTPTag;
     iget-object v4, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->curTagList:Lcom/sec/android/app/fm/ui/RTPTagList;
 
@@ -393,7 +393,7 @@
 
     move-result v2
 
-    .line 64
+    .line 73
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -414,7 +414,7 @@
 
     invoke-static {v4}, Lcom/sec/android/app/fm/ui/RTPTagListManager;->log(Ljava/lang/String;)V
 
-    .line 66
+    .line 75
     if-eqz v2, :cond_0
 
     invoke-static {v3}, Lcom/sec/android/app/fm/ui/RTPTagList;->isMusicTag(Lcom/sec/android/app/fm/ui/RTPTag;)Z
@@ -423,24 +423,24 @@
 
     if-eqz v4, :cond_0
 
-    .line 77
+    .line 86
     iget-boolean v4, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->newMusic:Z
 
     if-eqz v4, :cond_1
 
-    .line 78
+    .line 87
     iget-object v4, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->dbAdapter:Lcom/sec/android/app/fm/data/RTPTagDBAdapter;
 
     iget-object v5, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->curTagList:Lcom/sec/android/app/fm/ui/RTPTagList;
 
     invoke-virtual {v4, v5}, Lcom/sec/android/app/fm/data/RTPTagDBAdapter;->append(Lcom/sec/android/app/fm/ui/RTPTagList;)V
 
-    .line 79
+    .line 88
     const/4 v4, 0x0
 
     iput-boolean v4, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->newMusic:Z
 
-    .line 80
+    .line 89
     iget-object v4, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->dbAdapter:Lcom/sec/android/app/fm/data/RTPTagDBAdapter;
 
     invoke-virtual {v4}, Lcom/sec/android/app/fm/data/RTPTagDBAdapter;->count()I
@@ -451,7 +451,7 @@
 
     if-le v4, v5, :cond_0
 
-    .line 81
+    .line 90
     iget-object v4, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->dbAdapter:Lcom/sec/android/app/fm/data/RTPTagDBAdapter;
 
     invoke-virtual {v4}, Lcom/sec/android/app/fm/data/RTPTagDBAdapter;->deleteLast()V
@@ -459,7 +459,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 94
+    .line 103
     .end local v1           #info:Ljava/lang/String;
     .end local v3           #tag:Lcom/sec/android/app/fm/ui/RTPTag;
     :cond_0
@@ -468,7 +468,7 @@
 
     return v2
 
-    .line 83
+    .line 92
     .restart local v1       #info:Ljava/lang/String;
     .restart local v3       #tag:Lcom/sec/android/app/fm/ui/RTPTag;
     :cond_1
@@ -484,13 +484,13 @@
 
     goto :goto_0
 
-    .line 86
+    .line 95
     .end local v1           #info:Ljava/lang/String;
     .end local v3           #tag:Lcom/sec/android/app/fm/ui/RTPTag;
     :catch_0
     move-exception v0
 
-    .line 87
+    .line 96
     .local v0, e:Ljava/lang/Exception;
     :try_start_3
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
@@ -499,7 +499,7 @@
 
     goto :goto_0
 
-    .line 51
+    .line 58
     .end local v0           #e:Ljava/lang/Exception;
     :catchall_0
     move-exception v4
@@ -508,7 +508,7 @@
 
     throw v4
 
-    .line 92
+    .line 101
     :cond_2
     :try_start_4
     const-string v4, "Context is different. so it\'s skipped"
@@ -524,22 +524,22 @@
     .locals 1
 
     .prologue
-    .line 119
+    .line 128
     const-string v0, "clearCurTagList"
 
     invoke-static {v0}, Lcom/sec/android/app/fm/ui/RTPTagListManager;->log(Ljava/lang/String;)V
 
-    .line 120
+    .line 129
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->curTagList:Lcom/sec/android/app/fm/ui/RTPTagList;
 
     invoke-direct {p0, v0}, Lcom/sec/android/app/fm/ui/RTPTagListManager;->addTagListArray(Lcom/sec/android/app/fm/ui/RTPTagList;)V
 
-    .line 121
+    .line 130
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->curTagList:Lcom/sec/android/app/fm/ui/RTPTagList;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/ui/RTPTagList;->clear()V
 
-    .line 122
+    .line 131
     return-void
 .end method
 
@@ -547,7 +547,7 @@
     .locals 1
 
     .prologue
-    .line 125
+    .line 134
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->curTagList:Lcom/sec/android/app/fm/ui/RTPTagList;
 
     return-object v0
@@ -566,7 +566,7 @@
     .end annotation
 
     .prologue
-    .line 129
+    .line 138
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->tagListArray:Ljava/util/ArrayList;
 
     return-object v0
@@ -577,24 +577,24 @@
     .parameter "tagCode"
 
     .prologue
-    .line 133
+    .line 142
     const/4 v0, 0x0
 
-    .line 134
+    .line 143
     .local v0, name:Ljava/lang/String;
     sget-object v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
     if-eqz v1, :cond_0
 
-    .line 135
+    .line 144
     sparse-switch p1, :sswitch_data_0
 
-    .line 187
+    .line 186
     :cond_0
     :goto_0
     return-object v0
 
-    .line 137
+    .line 146
     :sswitch_0
     sget-object v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
@@ -608,10 +608,10 @@
 
     move-result-object v0
 
-    .line 139
+    .line 147
     goto :goto_0
 
-    .line 141
+    .line 149
     :sswitch_1
     sget-object v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
@@ -625,10 +625,10 @@
 
     move-result-object v0
 
-    .line 143
+    .line 150
     goto :goto_0
 
-    .line 145
+    .line 152
     :sswitch_2
     sget-object v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
@@ -642,10 +642,10 @@
 
     move-result-object v0
 
-    .line 147
+    .line 153
     goto :goto_0
 
-    .line 149
+    .line 155
     :sswitch_3
     sget-object v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
@@ -659,10 +659,10 @@
 
     move-result-object v0
 
-    .line 151
+    .line 156
     goto :goto_0
 
-    .line 153
+    .line 158
     :sswitch_4
     sget-object v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
@@ -676,10 +676,10 @@
 
     move-result-object v0
 
-    .line 155
+    .line 159
     goto :goto_0
 
-    .line 157
+    .line 161
     :sswitch_5
     sget-object v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
@@ -693,10 +693,10 @@
 
     move-result-object v0
 
-    .line 159
+    .line 162
     goto :goto_0
 
-    .line 162
+    .line 165
     :sswitch_6
     sget-object v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
@@ -710,10 +710,10 @@
 
     move-result-object v0
 
-    .line 164
+    .line 166
     goto :goto_0
 
-    .line 168
+    .line 170
     :sswitch_7
     sget-object v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
@@ -727,10 +727,10 @@
 
     move-result-object v0
 
-    .line 170
+    .line 171
     goto :goto_0
 
-    .line 175
+    .line 176
     :sswitch_8
     sget-object v1, Lcom/sec/android/app/fm/ui/RTPTagListManager;->context:Landroid/content/Context;
 
@@ -761,10 +761,10 @@
 
     move-result-object v0
 
-    .line 182
+    .line 181
     goto/16 :goto_0
 
-    .line 135
+    .line 144
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0
@@ -796,19 +796,19 @@
 
     const/4 v0, 0x1
 
-    .line 195
+    .line 194
     monitor-enter p0
 
     const/4 v1, 0x0
 
-    .line 196
+    .line 195
     .local v1, ret:Z
     :try_start_0
     const-string v3, "setRadioText"
 
     invoke-static {v3}, Lcom/sec/android/app/fm/ui/RTPTagListManager;->log(Ljava/lang/String;)V
 
-    .line 198
+    .line 197
     if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
@@ -817,7 +817,7 @@
 
     if-nez v3, :cond_1
 
-    .line 199
+    .line 198
     iget-object v3, p0, Lcom/sec/android/app/fm/ui/RTPTagListManager;->curRadioText:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
@@ -834,13 +834,13 @@
 
     if-nez v3, :cond_2
 
-    .line 201
+    .line 200
     .local v0, isNewRT:Z
     :cond_0
     :goto_0
     if-eqz v0, :cond_4
 
-    .line 202
+    .line 201
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -923,7 +923,7 @@
     :cond_2
     move v0, v2
 
-    .line 199
+    .line 198
     goto :goto_0
 
     :cond_3
@@ -951,7 +951,7 @@
 
     goto :goto_1
 
-    .line 195
+    .line 194
     .end local v0           #isNewRT:Z
     :catchall_0
     move-exception v2

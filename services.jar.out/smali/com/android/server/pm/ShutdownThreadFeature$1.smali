@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/pm/ShutdownThreadFeature;->shutdownRadios(ILandroid/content/Context;)V
+    value = Lcom/android/server/pm/ShutdownThreadFeature;->shutdownRadios(ILandroid/content/Context;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 151
+    .line 113
     iput-object p1, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->this$0:Lcom/android/server/pm/ShutdownThreadFeature;
 
     iput-object p2, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->val$mWifiManager:Landroid/net/wifi/WifiManager;
@@ -59,32 +59,131 @@
 
     const/4 v4, 0x1
 
-    .line 153
+    .line 115
     const/16 v0, 0x1f4
 
-    .line 155
+    .line 118
     .local v0, PHONE_STATE_POLL_SLEEP_MSEC:I
+    const-string v3, "sys.radio.shutdown"
+
+    const-string v6, "true"
+
+    invoke-static {v3, v6}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 124
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->this$0:Lcom/android/server/pm/ShutdownThreadFeature;
+
+    #getter for: Lcom/android/server/pm/ShutdownThreadFeature;->phone:Lcom/android/internal/telephony/ITelephony;
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$100(Lcom/android/server/pm/ShutdownThreadFeature;)Lcom/android/internal/telephony/ITelephony;
+
+    move-result-object v3
+
+    if-nez v3, :cond_8
+
+    move v3, v4
+
+    :goto_0
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$002(Z)Z
+
+    .line 125
+    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$000()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 126
+    const-string v3, "ShutdownThread"
+
+    const-string v6, "!@Turning off radio..."
+
+    invoke-static {v3, v6}, Lcom/android/server/pm/ShutdownThread$Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 127
+    iget-object v3, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->this$0:Lcom/android/server/pm/ShutdownThreadFeature;
+
+    #getter for: Lcom/android/server/pm/ShutdownThreadFeature;->phone:Lcom/android/internal/telephony/ITelephony;
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$100(Lcom/android/server/pm/ShutdownThreadFeature;)Lcom/android/internal/telephony/ITelephony;
+
+    move-result-object v3
+
+    const/4 v6, 0x0
+
+    invoke-interface {v3, v6}, Lcom/android/internal/telephony/ITelephony;->setRadio(Z)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 148
+    :cond_0
+    :goto_1
+    :try_start_1
+    iget-object v3, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->this$0:Lcom/android/server/pm/ShutdownThreadFeature;
+
+    #getter for: Lcom/android/server/pm/ShutdownThreadFeature;->phone2:Lcom/android/internal/telephony/ITelephony;
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$300(Lcom/android/server/pm/ShutdownThreadFeature;)Lcom/android/internal/telephony/ITelephony;
+
+    move-result-object v3
+
+    if-nez v3, :cond_9
+
+    move v3, v4
+
+    :goto_2
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$202(Z)Z
+
+    .line 149
+    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$200()Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    .line 150
+    const-string v3, "ShutdownThread"
+
+    const-string v6, "Turning off radio2..."
+
+    invoke-static {v3, v6}, Lcom/android/server/pm/ShutdownThread$Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 151
+    iget-object v3, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->this$0:Lcom/android/server/pm/ShutdownThreadFeature;
+
+    #getter for: Lcom/android/server/pm/ShutdownThreadFeature;->phone2:Lcom/android/internal/telephony/ITelephony;
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$300(Lcom/android/server/pm/ShutdownThreadFeature;)Lcom/android/internal/telephony/ITelephony;
+
+    move-result-object v3
+
+    const/4 v6, 0x0
+
+    invoke-interface {v3, v6}, Lcom/android/internal/telephony/ITelephony;->setRadio(Z)Z
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+
+    .line 159
+    :cond_1
+    :goto_3
     const-string v3, "ShutdownThread"
 
     const-string v6, "!@before Bluetooth"
 
     invoke-static {v3, v6}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 157
-    :try_start_0
+    .line 161
+    :try_start_2
     iget-object v3, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->this$0:Lcom/android/server/pm/ShutdownThreadFeature;
 
     #getter for: Lcom/android/server/pm/ShutdownThreadFeature;->bluetooth:Landroid/bluetooth/IBluetooth;
-    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$100(Lcom/android/server/pm/ShutdownThreadFeature;)Landroid/bluetooth/IBluetooth;
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$500(Lcom/android/server/pm/ShutdownThreadFeature;)Landroid/bluetooth/IBluetooth;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
     iget-object v3, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->this$0:Lcom/android/server/pm/ShutdownThreadFeature;
 
     #getter for: Lcom/android/server/pm/ShutdownThreadFeature;->bluetooth:Landroid/bluetooth/IBluetooth;
-    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$100(Lcom/android/server/pm/ShutdownThreadFeature;)Landroid/bluetooth/IBluetooth;
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$500(Lcom/android/server/pm/ShutdownThreadFeature;)Landroid/bluetooth/IBluetooth;
 
     move-result-object v3
 
@@ -92,53 +191,53 @@
 
     move-result v3
 
-    if-ne v3, v10, :cond_6
+    if-ne v3, v10, :cond_a
 
-    :cond_0
+    :cond_2
     move v3, v4
 
-    :goto_0
-    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$002(Z)Z
+    :goto_4
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$402(Z)Z
 
-    .line 159
-    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$000()Z
+    .line 163
+    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$400()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_3
 
-    .line 160
+    .line 164
     const-string v3, "ShutdownThread"
 
     const-string v6, "!@Disabling Bluetooth..."
 
     invoke-static {v3, v6}, Lcom/android/server/pm/ShutdownThread$Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 161
+    .line 165
     iget-object v3, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->this$0:Lcom/android/server/pm/ShutdownThreadFeature;
 
     #getter for: Lcom/android/server/pm/ShutdownThreadFeature;->bluetooth:Landroid/bluetooth/IBluetooth;
-    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$100(Lcom/android/server/pm/ShutdownThreadFeature;)Landroid/bluetooth/IBluetooth;
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$500(Lcom/android/server/pm/ShutdownThreadFeature;)Landroid/bluetooth/IBluetooth;
 
     move-result-object v3
 
     const/4 v6, 0x0
 
     invoke-interface {v3, v6}, Landroid/bluetooth/IBluetooth;->disable(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 178
-    :cond_1
-    :goto_1
+    .line 182
+    :cond_3
+    :goto_5
     const-string v3, "ShutdownThread"
 
     const-string v6, "!@Waiting for NFC, Bluetooth and Radio..."
 
     invoke-static {v3, v6}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 180
-    :goto_2
+    .line 184
+    :goto_6
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v6
@@ -147,21 +246,21 @@
 
     cmp-long v3, v6, v8
 
-    if-gez v3, :cond_5
+    if-gez v3, :cond_7
 
-    .line 181
-    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$000()Z
+    .line 185
+    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$400()Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_4
 
-    .line 183
-    :try_start_1
+    .line 187
+    :try_start_3
     iget-object v3, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->this$0:Lcom/android/server/pm/ShutdownThreadFeature;
 
     #getter for: Lcom/android/server/pm/ShutdownThreadFeature;->bluetooth:Landroid/bluetooth/IBluetooth;
-    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$100(Lcom/android/server/pm/ShutdownThreadFeature;)Landroid/bluetooth/IBluetooth;
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$500(Lcom/android/server/pm/ShutdownThreadFeature;)Landroid/bluetooth/IBluetooth;
 
     move-result-object v3
 
@@ -169,30 +268,30 @@
 
     move-result v3
 
-    if-ne v3, v10, :cond_7
+    if-ne v3, v10, :cond_b
 
     move v3, v4
 
-    :goto_3
-    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$002(Z)Z
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+    :goto_7
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$402(Z)Z
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_3
 
-    .line 198
-    :cond_2
-    :goto_4
-    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$200()Z
+    .line 202
+    :cond_4
+    :goto_8
+    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$600()Z
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_5
 
-    .line 200
-    :try_start_2
+    .line 204
+    :try_start_4
     iget-object v3, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->this$0:Lcom/android/server/pm/ShutdownThreadFeature;
 
     #getter for: Lcom/android/server/pm/ShutdownThreadFeature;->nfc:Landroid/nfc/INfcAdapter;
-    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$300(Lcom/android/server/pm/ShutdownThreadFeature;)Landroid/nfc/INfcAdapter;
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$700(Lcom/android/server/pm/ShutdownThreadFeature;)Landroid/nfc/INfcAdapter;
 
     move-result-object v3
 
@@ -200,21 +299,21 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_8
+    if-ne v3, v4, :cond_c
 
     move v3, v4
 
-    :goto_5
-    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$202(Z)Z
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
+    :goto_9
+    invoke-static {v3}, Lcom/android/server/pm/ShutdownThreadFeature;->access$602(Z)Z
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_4
 
-    .line 211
-    :cond_3
-    :goto_6
+    .line 215
+    :cond_5
+    :goto_a
     const-string v2, ""
 
-    .line 212
+    .line 216
     .local v2, repPhoneOff:Ljava/lang/String;
     const-string v3, "ril.deviceOffRes"
 
@@ -222,8 +321,8 @@
 
     move-result-object v2
 
-    .line 214
-    if-eqz v2, :cond_4
+    .line 218
+    if-eqz v2, :cond_6
 
     const-string v3, "1"
 
@@ -231,90 +330,114 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_6
 
-    .line 216
+    .line 220
     const-string v3, "ShutdownThread"
 
     const-string v6, "!@PhoneOff req resp"
 
     invoke-static {v3, v6}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 217
-    invoke-static {v4}, Lcom/android/server/pm/ShutdownThreadFeature;->access$402(Z)Z
+    .line 221
+    invoke-static {v4}, Lcom/android/server/pm/ShutdownThreadFeature;->access$002(Z)Z
 
-    .line 246
-    :cond_4
-    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$400()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_9
-
+    .line 250
+    :cond_6
     invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$000()Z
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_d
 
-    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$200()Z
+    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$400()Z
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_d
 
-    .line 247
+    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$600()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_d
+
+    .line 251
     const-string v3, "ShutdownThread"
 
     const-string v6, "!@NFC, Radio and Bluetooth shutdown complete."
 
     invoke-static {v3, v6}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 248
+    .line 252
     iget-object v3, p0, Lcom/android/server/pm/ShutdownThreadFeature$1;->val$done:[Z
 
     aput-boolean v4, v3, v5
 
-    .line 257
+    .line 261
     .end local v2           #repPhoneOff:Ljava/lang/String;
-    :cond_5
+    :cond_7
     return-void
 
-    :cond_6
+    :cond_8
     move v3, v5
 
-    .line 157
+    .line 124
     goto/16 :goto_0
 
-    .line 163
+    .line 129
     :catch_0
     move-exception v1
 
-    .line 164
+    .line 130
     .local v1, ex:Landroid/os/RemoteException;
     const-string v3, "ShutdownThread"
 
-    const-string v6, "!@RemoteException during bluetooth shutdown"
+    const-string v6, "!@RemoteException during radio shutdown"
 
     invoke-static {v3, v6, v1}, Lcom/android/server/pm/ShutdownThread$Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
 
-    .line 165
+    .line 131
     invoke-static {v4}, Lcom/android/server/pm/ShutdownThreadFeature;->access$002(Z)Z
 
     goto/16 :goto_1
 
     .end local v1           #ex:Landroid/os/RemoteException;
-    :cond_7
+    :cond_9
     move v3, v5
 
-    .line 183
-    goto :goto_3
+    .line 148
+    goto/16 :goto_2
 
-    .line 185
+    .line 153
     :catch_1
     move-exception v1
 
-    .line 186
+    .line 154
+    .restart local v1       #ex:Landroid/os/RemoteException;
+    const-string v3, "ShutdownThread"
+
+    const-string v6, "RemoteException during radio shutdown"
+
+    invoke-static {v3, v6, v1}, Lcom/android/server/pm/ShutdownThread$Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
+
+    .line 155
+    invoke-static {v4}, Lcom/android/server/pm/ShutdownThreadFeature;->access$202(Z)Z
+
+    goto/16 :goto_3
+
+    .end local v1           #ex:Landroid/os/RemoteException;
+    :cond_a
+    move v3, v5
+
+    .line 161
+    goto/16 :goto_4
+
+    .line 167
+    :catch_2
+    move-exception v1
+
+    .line 168
     .restart local v1       #ex:Landroid/os/RemoteException;
     const-string v3, "ShutdownThread"
 
@@ -322,23 +445,47 @@
 
     invoke-static {v3, v6, v1}, Lcom/android/server/pm/ShutdownThread$Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
 
-    .line 187
-    invoke-static {v4}, Lcom/android/server/pm/ShutdownThreadFeature;->access$002(Z)Z
+    .line 169
+    invoke-static {v4}, Lcom/android/server/pm/ShutdownThreadFeature;->access$402(Z)Z
 
-    goto :goto_4
+    goto/16 :goto_5
 
     .end local v1           #ex:Landroid/os/RemoteException;
-    :cond_8
+    :cond_b
     move v3, v5
 
-    .line 200
-    goto :goto_5
+    .line 187
+    goto/16 :goto_7
 
-    .line 201
-    :catch_2
+    .line 189
+    :catch_3
     move-exception v1
 
-    .line 202
+    .line 190
+    .restart local v1       #ex:Landroid/os/RemoteException;
+    const-string v3, "ShutdownThread"
+
+    const-string v6, "!@RemoteException during bluetooth shutdown"
+
+    invoke-static {v3, v6, v1}, Lcom/android/server/pm/ShutdownThread$Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
+
+    .line 191
+    invoke-static {v4}, Lcom/android/server/pm/ShutdownThreadFeature;->access$402(Z)Z
+
+    goto/16 :goto_8
+
+    .end local v1           #ex:Landroid/os/RemoteException;
+    :cond_c
+    move v3, v5
+
+    .line 204
+    goto :goto_9
+
+    .line 205
+    :catch_4
+    move-exception v1
+
+    .line 206
     .restart local v1       #ex:Landroid/os/RemoteException;
     const-string v3, "ShutdownThread"
 
@@ -346,34 +493,34 @@
 
     invoke-static {v3, v6, v1}, Lcom/android/server/pm/ShutdownThread$Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)I
 
-    .line 203
-    invoke-static {v4}, Lcom/android/server/pm/ShutdownThreadFeature;->access$202(Z)Z
+    .line 207
+    invoke-static {v4}, Lcom/android/server/pm/ShutdownThreadFeature;->access$602(Z)Z
 
-    goto :goto_6
+    goto/16 :goto_a
 
-    .line 252
+    .line 256
     .end local v1           #ex:Landroid/os/RemoteException;
     .restart local v2       #repPhoneOff:Ljava/lang/String;
-    :cond_9
+    :cond_d
     const-string v3, "ShutdownThread"
 
     const-string v6, "!@before SystemClock.sleep(PHONE_STATE_POLL_SLEEP_MSEC)"
 
     invoke-static {v3, v6}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 253
+    .line 257
     const-wide/16 v6, 0x1f4
 
     invoke-static {v6, v7}, Landroid/os/SystemClock;->sleep(J)V
 
-    .line 254
+    .line 258
     const-string v3, "ShutdownThread"
 
     const-string v6, "!@after SystemClock.sleep(PHONE_STATE_POLL_SLEEP_MSEC)"
 
     invoke-static {v3, v6}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 255
+    .line 259
     const-string v3, "ShutdownThread"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -412,7 +559,7 @@
 
     move-result-object v6
 
-    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$400()Z
+    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$000()Z
 
     move-result v7
 
@@ -426,7 +573,7 @@
 
     move-result-object v6
 
-    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$000()Z
+    invoke-static {}, Lcom/android/server/pm/ShutdownThreadFeature;->access$400()Z
 
     move-result v7
 
@@ -440,5 +587,5 @@
 
     invoke-static {v3, v6}, Lcom/android/server/pm/ShutdownThread$Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_2
+    goto/16 :goto_6
 .end method

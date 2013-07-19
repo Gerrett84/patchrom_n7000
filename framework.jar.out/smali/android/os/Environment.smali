@@ -181,7 +181,7 @@
 
     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    const-string v2, "media"
+    const-string/jumbo v2, "media"
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
@@ -480,7 +480,7 @@
     .prologue
     .line 442
     :try_start_0
-    const-string v2, "mount"
+    const-string/jumbo v2, "mount"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -555,7 +555,7 @@
 
     .line 46
     :try_start_1
-    const-string v3, "mount"
+    const-string/jumbo v3, "mount"
 
     invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

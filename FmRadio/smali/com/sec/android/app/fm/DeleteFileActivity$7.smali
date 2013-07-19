@@ -27,7 +27,7 @@
     .parameter "x2"
 
     .prologue
-    .line 414
+    .line 429
     iput-object p1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$7;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     invoke-direct {p0, p2, p3, p4}, Landroid/widget/CursorAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;Z)V
@@ -44,8 +44,8 @@
     .parameter "c"
 
     .prologue
-    .line 418
-    const v6, 0x7f07007d
+    .line 433
+    const v6, 0x7f07008e
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -53,7 +53,7 @@
 
     check-cast v5, Landroid/widget/TextView;
 
-    .line 419
+    .line 434
     .local v5, name:Landroid/widget/TextView;
     const-string v6, "title"
 
@@ -67,8 +67,8 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 421
-    const v6, 0x7f07007e
+    .line 436
+    const v6, 0x7f07008f
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -76,7 +76,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 422
+    .line 437
     .local v1, date:Landroid/widget/TextView;
     iget-object v6, p0, Lcom/sec/android/app/fm/DeleteFileActivity$7;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
@@ -96,8 +96,8 @@
 
     invoke-virtual {v1, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 424
-    const v6, 0x7f07007f
+    .line 440
+    const v6, 0x7f070090
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -105,7 +105,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    .line 425
+    .line 441
     .local v2, duration:Landroid/widget/TextView;
     iget-object v6, p0, Lcom/sec/android/app/fm/DeleteFileActivity$7;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
@@ -125,8 +125,8 @@
 
     invoke-virtual {v2, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 427
-    const v6, 0x7f070080
+    .line 444
+    const v6, 0x7f070091
 
     invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -134,7 +134,7 @@
 
     check-cast v0, Landroid/widget/CheckBox;
 
-    .line 429
+    .line 446
     .local v0, checkBox:Landroid/widget/CheckBox;
     const-string v6, "_id"
 
@@ -146,7 +146,7 @@
 
     move-result-wide v3
 
-    .line 430
+    .line 447
     .local v3, id:J
     const-string v6, "_data"
 
@@ -160,7 +160,7 @@
 
     invoke-virtual {p1, v6}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 432
+    .line 449
     iget-object v6, p0, Lcom/sec/android/app/fm/DeleteFileActivity$7;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mSelectedItems:Ljava/util/HashMap;
@@ -183,15 +183,15 @@
     :goto_0
     invoke-virtual {v0, v6}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    .line 434
+    .line 451
     iget-object v6, p0, Lcom/sec/android/app/fm/DeleteFileActivity$7;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     invoke-virtual {v6}, Lcom/sec/android/app/fm/DeleteFileActivity;->invalidateOptionsMenu()V
 
-    .line 435
+    .line 452
     return-void
 
-    .line 432
+    .line 449
     :cond_0
     const/4 v6, 0x0
 
@@ -207,22 +207,22 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 439
+    .line 456
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v1
 
-    .line 440
+    .line 457
     .local v1, inflater:Landroid/view/LayoutInflater;
-    const v3, 0x7f03000f
+    const v3, 0x7f030016
 
     invoke-virtual {v1, v3, p3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v2
 
-    .line 441
+    .line 458
     .local v2, v:Landroid/view/View;
-    const v3, 0x7f070080
+    const v3, 0x7f070091
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -230,10 +230,10 @@
 
     check-cast v0, Landroid/widget/CheckBox;
 
-    .line 442
+    .line 459
     .local v0, checkBox:Landroid/widget/CheckBox;
     invoke-virtual {v0, v4}, Landroid/widget/CheckBox;->setVisibility(I)V
 
-    .line 443
+    .line 460
     return-object v2
 .end method

@@ -16,6 +16,8 @@
 
 .field public static final FUNC_MMTEL_DISCONNECT_CALL:I = 0x3
 
+.field public static final FUNC_MMTEL_ENABLE_CP_VOLTE:I = 0x16
+
 .field public static final FUNC_MMTEL_GET_MUTE_STATE:I = 0xa
 
 .field public static final FUNC_MMTEL_MAKE_CALL:I = 0x2

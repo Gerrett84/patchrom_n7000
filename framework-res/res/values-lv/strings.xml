@@ -322,7 +322,7 @@
     <string name="turn_on_radio">Ieslēgt bezvadu režīmu</string>
     <string name="turn_off_radio">Izslēgt bezvadu režīmu</string>
     <string name="screen_lock">Ekrāna bloķēšana</string>
-    <string name="power_off">Izslēgts</string>
+    <string name="power_off">Izslēgšanās laiks</string>
     <string name="silent_mode_silent">Zvanītājs izslēgts</string>
     <string name="silent_mode_vibrate">Zvana signāla vibrācija</string>
     <string name="silent_mode_ring">Zvanītājs ieslēgts</string>
@@ -337,9 +337,9 @@
     <string name="no_recent_tasks">Nav nesen lietotu programmu</string>
     <string name="global_actions">Ierīces iespējas</string>
     <string name="global_action_lock">Ekrāna bloķēšana</string>
-    <string name="global_action_power_off">Izslēgts</string>
+    <string name="global_action_power_off">Izslēgt</string>
     <string name="global_action_restart">Restartēt</string>
-    <string name="global_action_sound_mode_mute">Bez skaņas</string>
+    <string name="global_action_sound_mode_mute">Izsl. sk.</string>
     <string name="global_action_sound_mode_vibrate">Vibrēt</string>
     <string name="global_action_sound_mode_sound">Skaņa</string>
     <string name="global_action_toggle_silent_mode">Klusuma režīms</string>
@@ -361,7 +361,7 @@
     <string name="data_usage_disable_mobile">Vai deaktivizēt mobilo datu savienojumu?</string>
     <string name="global_action_insert_sim_card">Ievietojiet SIM karti</string>
     <string name="global_action_insert_sim_card_message">Lai piekļūtu tīkla pakalpojumiem, ievietojiet SIM karti</string>
-    <string name="globalactions_silent_mode_mute">Bez skaņas</string>
+    <string name="globalactions_silent_mode_mute">Izsl. sk.</string>
     <string name="globalactions_silent_mode_vibrate">Vibrēt</string>
     <string name="globalactions_silent_mode_sound">Skaņa</string>
     <string name="safeMode">Drošs režīms</string>
@@ -413,6 +413,7 @@
     <string name="permdesc_mdmKioskMode">Vadīt ierīces uzvedību kioska režīmā</string>
     <string name="tether_usb_restrict">Drošības politika ierobežo USB piesaistes lietošanu</string>
     <string name="tether_wifi_restrict">Drošības politika ierobežo Wi-Fi piesaistes lietošanu</string>
+    <string name="data_call_restriction">Drošības politika ierobežo mobilo datu lietošanu</string>
     <string name="dpm_wifi_blocked_network">Drošības politika bloķē šī Wi-Fi tīkla lietošanu</string>
     <string name="dpm_wifi_misc_wifi_disabled">Drošības politika ierobežo Wi-Fi lietošanu</string>
     <string name="dpm_wifi_misc_network_insecure">Drošības politika ierobežo nedrošu Wi-Fi tīklu lietošanu</string>
@@ -624,7 +625,7 @@
     <string name="permdesc_writeSocialStream">Ļauj lietotnei parādīt jūsu draugu atjauninājumus sociālajos tīklos. Esiet piesardzīgs, kad kopīgojat informāciju, — šādi lietotne var veidot ziņojumus, kas šķietami saņemti no drauga. Piezīme: šo atļauju nevar piemērot visiem sociālajiem tīkliem.</string>
     <string name="permlab_readCalendar">Lasīt kalendāra notikumus un konfidenciālo informāciju</string>
     <string name="permdesc_readCalendar">Ļauj lietotnei lasīt visus tālrunī saglabātos kalendāra notikumus, tostarp draugu vai kolēģu notikumus. Tas var ļaut lietotnei kopīgot vai saglabāt jūsu kalendāra datus, neraugoties uz to konfidencialitāti vai sensitivitāti.</string>
-    <string name="permlab_writeCalendar">pievienot vai pārveidot kalendāra pasākumus un sūtīt e-pasta ziņojumus viesiem bez īpašnieku ziņas</string>
+    <string name="permlab_writeCalendar">Pievienojiet vai mainiet kalendāra notikumus un sūtiet e-pasta ziņas bez vadītāja ziņas</string>
     <string name="permdesc_writeCalendar">Ļauj lietotnei pievienot, noņemt, mainīt notikumus, kurus varat pārveidot tālrunī, tostarp draugu vai kolēģu notikumus. Tas var ļaut lietotnei sūtīt ziņojumus, norādot, ka tos sūta kalendāru īpašnieki, vai pārveidot notikumus bez īpašnieka atļaujas.</string>
     <string name="permlab_accessMockLocation">izveidot viltotus atrašanās vietas avotus testēšanas nolūkiem.</string>
     <string name="permdesc_accessMockLocation">Ļauj programmai testēšanas nolūkos izveidot neīstas atrašanās vietas avotus. Ja atļauts, ļaunprātīgas programmas var ignorēt īstās atrašanās vietas avotu, piemēram, GPS, tīkla operatora vai pārrauga uzrādīto atrašanās vietu un/vai statusu, un ziņot par jūsu atrašanās vietu dažādām tīmekļa vietnēm</string>
@@ -714,7 +715,7 @@
     <string name="permdesc_getAccounts">Ļauj programmai piekļūt tālrunim zināmo kontu sarakstam</string>
     <string name="permlab_authenticateAccounts">Darboties kā konta autentificētājam</string>
     <string name="permdesc_authenticateAccounts">Ļauj programmai lietot konta pārvaldnieka konta autentificētāja funkciju. Šī funkcija ietver kontu izveidi un paroļu pārraudzību</string>
-    <string name="permlab_manageAccounts">pievienot vai noņemt kontus</string>
+    <string name="permlab_manageAccounts">Pievienojiet vai noņemiet kontus</string>
     <string name="permdesc_manageAccounts">Ļauj programmai pievienot un noņemt kontus, kā arī dzēst jūsu paroli</string>
     <string name="permlab_useCredentials">Konta autentifikācijas akreditācijas datu lietošana</string>
     <string name="permdesc_useCredentials">Ļauj programmai pieprasīt autentifikācijas pilnvaras</string>
@@ -736,7 +737,7 @@
     <string name="permdesc_changeWifiState">Ļauj programmai izveidot savienojumu un pārtraukt savienojumu ar Wi-Fi piekļuves punktiem, kā arī veikt izmaiņas konfigurētajos Wi-Fi tīklos</string>
     <string name="permlab_changeWifiMulticastState">Wi-Fi multiraides uztveršanas atļaušana</string>
     <string name="permdesc_changeWifiMulticastState">Ļauj lietotnei saņemt sūtījumus, kas sūtīti uz visām ierīcēm Wi-Fi tīklā, izmantojot multiraides adreses, nevis tikai jūsu tālruni. Tādējādi tiek patērēts vairāk enerģijas nekā režīmā, kas nav multiraide.</string>
-    <string name="permlab_bluetoothAdmin">piekļūt Bluetooth iestatījumiem</string>
+    <string name="permlab_bluetoothAdmin">Bluetooth iestatījumi</string>
     <string name="permdesc_bluetoothAdmin">Ļauj programmai konfigurēt vietējo Bluetooth tālruni un uztvert, kā arī savienot pārī attālas ierīces</string>
     <string name="permlab_accessWimaxState">WiMAX statusa apskate</string>
     <string name="permdesc_accessWimaxState">Ļauj lietotnei noteikt, vai WiMAX ir iespējots, un sniedz informāciju par visiem WiMAX tīkliem, ar kuriem ir izveidots savienojums.</string>
@@ -826,6 +827,7 @@
     <string name="policydesc_allow_desktopsync">Neļaut darbvirsmas sinhronizācijas izmantošanu</string>
     <string name="policylab_require_storagecard_encryption">Iestatīt SD kartes šifrēšanu</string>
     <string name="policydesc_require_storagecard_encryption">Pieprasīt SD kartē esošas programmas šifrēšanu</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth ir atvienots</string>
     <string name="bluetooth_security_mode_disable">Drošības politika ierobežo Bluetooth savienojuma lietošanu</string>
     <string name="bluetooth_security_mode_handsfree">Drošības politika ļauj lietot Bluetooth savienojumu, izmantojot tikai brīvroku funkcijas</string>
     <string name="phoneTypeCustom">Pielāgot</string>
@@ -898,14 +900,14 @@
     <string name="sipAddressTypeHome">Mājas</string>
     <string name="sipAddressTypeWork">Darbā</string>
     <string name="sipAddressTypeOther">Cits</string>
-    <string name="keyguard_password_enter_pin_code">Ievadiet PIN kodu.</string>
+    <string name="keyguard_password_enter_pin_code">Ierakstiet PIN kodu</string>
     <string name="keyguard_password_enter_puk_code">Ievadiet PUK kodu un jauno PIN kodu</string>
     <string name="keyguard_password_enter_puk_prompt">PUK kods</string>
     <string name="keyguard_password_enter_pin_prompt">Jauns PIN kods</string>
     <string name="keyguard_password_entry_touch_hint">Pieskarieties, lai ievadītu paroli</string>
     <string name="keyguard_password_enter_password_code">Lai atbloķētu, ievadiet paroli</string>
     <string name="keyguard_password_enter_pin_password_code">Lai atbloķētu, ievadiet PIN kodu</string>
-    <string name="keyguard_password_wrong_pin_code">PIN kods nav pareizs.</string>
+    <string name="keyguard_password_wrong_pin_code">Nepareizs PIN kods</string>
     <string name="keyguard_pin_accepted">Kods pieņemts</string>
     <string name="keyguard_label_text">Lai atbloķētu, nospiediet Izvēlne un pēc tam 0</string>
     <string name="emergency_call_dialog_number_for_display">Ārkārtas numurs</string>
@@ -942,8 +944,9 @@ Sazinieties ar savu bezvadu pakalpojumu sniedzēju, lai iegūtu citu SIM karti.
     <string name="lockscreen_network_locked_message">Tīkls bloķēts</string>
     <string name="lockscreen_sim_puk_locked_message">SIM karti bloķē PUK kods</string>
     <string name="lockscreen_sim_puk_locked_instructions">Lūdzu, skatiet lietotāja rokasgrāmatu vai sazinieties ar klientu apkalpošanas centru</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM karte ir bloķēta</string>
+    <string name="lockscreen_sim_locked_message">SIM karte ir bloķēta</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">Atbloķē SIM karti…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Nepareiza atbloķēšanas figūra uzzīmēta %1$d reizes. Mēģiniet vēlreiz pēc %2$d sekundēm</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">%1$d reizes ievadīta nepareiza parole. Mēģiniet vēlreiz pēc %2$d sekundēm</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 kods ir bloķēts. Lai atbloķētu PIN1 kodu, ievadiet PUK1 kodu</string>
@@ -996,6 +999,7 @@ Sazinieties ar savu bezvadu pakalpojumu sniedzēju, lai iegūtu citu SIM karti.
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">Tāds pats kā</string>
     <string name="autofill_billing_designator_re">Rēķins</string>
+    <string name="autofill_shipping_designator_re">Kuģis</string>
     <string name="autofill_phone_suffix_re">Piedēklis</string>
     <string name="autofill_name_on_card_contextual_re">Nosaukums</string>
     <string name="autofill_province">Province</string>
@@ -1010,7 +1014,7 @@ Sazinieties ar savu bezvadu pakalpojumu sniedzēju, lai iegūtu citu SIM karti.
     <string name="autofill_parish">Pagasts</string>
     <string name="autofill_area">Laukums</string>
     <string name="autofill_emirate">Emirāts</string>
-    <string name="permlab_readHistoryBookmarks">lasīt tīmekļa grāmatzīmes un vēsturi</string>
+    <string name="permlab_readHistoryBookmarks">Izlasiet interneta vēsturi un grāmatzīmes</string>
     <string name="permdesc_readHistoryBookmarks">Ļauj programmai lasīt visus pārlūka apmeklētos vietrāžus URL un visas pārlūka grāmatzīmes</string>
     <string name="permlab_writeHistoryBookmarks">rakstīt tīmekļa grāmatzīmes un vēsturi</string>
     <string name="permdesc_writeHistoryBookmarks">Ļauj programmai mainīt interneta vēsturi un grāmatzīmes, kas saglabātas tālrunī. Ja atļauts, ļaunprātīgas programmas var dzēst vai mainīt šādus datus</string>
@@ -1089,10 +1093,12 @@ Sazinieties ar savu bezvadu pakalpojumu sniedzēju, lai iegūtu citu SIM karti.
     <string name="editTextMenuTitle">Teksta darbības</string>
     <string name="low_internal_storage_view_title">Atmiņa gandrīz pilna</string>
     <string name="low_internal_storage_view_text">Dažas sistēmas funkcijas var nedarboties</string>
+    <string name="full_internal_storage_view_text">Radās kļūda, jo ierīces atmiņa ir pilna. Izdzēsiet dažus objektus</string>
     <string name="loading">Ielādē…</string>
     <string name="capital_on">Iesl.</string>
     <string name="capital_off">Izsl.</string>
     <string name="whichApplication">Pabeigt darbību, izmantojot</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Šai darbībai izmantot pēc noklusējuma</string>
     <string name="clearDefaultHintMsg">Notīriet noklusējuma programmas iestatījumus, izvēloties Iestatījumi > Programmu pārvaldnieks > Viss</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1161,7 +1167,7 @@ Vai vēlaties to aizvērt?"</string>
     <string name="wifi_notification_no_network_message">Atvērt Wi-Fi iestatījumus</string>
     <string name="wifi_notification_not_connected">Pieejami Wi-Fi tīkli</string>
     <string name="wifi_notification_not_connected_message">Atvērt pieejamos Wi-Fi tīklus</string>
-    <string name="wifi_notification_connected">Savienojums ar %1$s izveidots</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Pieskarieties, lai konfigurētu Wi-Fi</string>
     <string name="wifi_notification_connected_secure">Drošs</string>
     <string name="wifi_notification_connected_open">Atvērt</string>
@@ -1183,7 +1189,7 @@ Vai vēlaties to aizvērt?"</string>
     <string name="wifi_p2p_enter_pin_message">Ievadiet PIN kodu</string>
     <string name="wifi_p2p_show_pin_message">PIN:</string>
     <string name="wifi_p2p_connected_notification_title">Izmantojot Wi-Fi Direct, ir izveidots savienojums ar %d ierīcēm</string>
-    <string name="wifi_p2p_incoming_request_confirmation">Pēc %1$d sek. izv. savien. ar %2$s</string>
+    <string name="wifi_p2p_incoming_request_confirmation">Pēc %2$d sek. izv. savien. ar %1$s</string>
     <string name="wifi_p2p_auto_disabling_confirmation">Kopš Wi-Fi Direct aktivizēšanas %d minūtes nav veikta neviena darbība. Lai pagarinātu akumulatora darbības laiku, Wi-Fi Direct tika deaktivizēts</string>
     <string name="wifi_p2p_connection_limit">Vienlaikus varat izveidot savienojumu ar %d ierīcēm</string>
     <string name="wifi_p2p_disable_notification_title">Deakt. Wi-Fi Direct pēc lietošanas</string>
@@ -1191,9 +1197,9 @@ Vai vēlaties to aizvērt?"</string>
     <string name="select_character">Ievietot rakstzīmi</string>
     <string name="sms_control_default_app_name">Nezināma programma</string>
     <string name="sms_control_title">Sūta īsziņu…</string>
-    <string name="sms_control_message">Tiek sūtīts liels īsziņu skaits. Pieskarieties pie Labi, lai turpinātu, vai pie Atcelt, lai apturētu sūtīšanu</string>
-    <string name="sms_control_yes">Labi</string>
-    <string name="sms_control_no">Atcelt</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> sūta daudz īsziņu. Vai atļaut šai programmai turpināt ziņu sūtīšanu?</string>
+    <string name="sms_control_yes">Atļaut</string>
+    <string name="sms_control_no">Atteikt</string>
     <string name="sim_removed_title">SIM karte ir izņemta</string>
     <string name="sim_removed_message">Mobilais tīkls nebūs pieejams, kamēr ierīce netiks restartēta un nebūs ievietota derīga SIM karte</string>
     <string name="sim_done_button">Gatavs</string>
@@ -1287,7 +1293,7 @@ Vai vēlaties to aizvērt?"</string>
     <string name="activity_list_empty">Nav atrasta neviena atbilstoša darbība</string>
     <string name="permlab_pkgUsageStats">atjaunināt komponenta lietošanas statistiku</string>
     <string name="permdesc_pkgUsageStats">Ļauj pārveidot apkopoto komponenšu lietošanas statistiku. Nav paredzēti lietošanai parastās programmās</string>
-    <string name="permlab_copyProtectedData">Ļauj noklusējuma konteinera pakalpojumam kopēt saturu. Nav paredzēts parastām programmām</string>
+    <string name="permlab_copyProtectedData">Kopēt saturu</string>
     <string name="permdesc_copyProtectedData">Ļauj noklusējuma konteinera pakalpojumam kopēt saturu. Nav paredzēts parastām programmām</string>
     <string name="permlab_route_media_output">Izveidot multivides izvades maršrutu</string>
     <string name="permdesc_route_media_output">Ļauj programmai izveidot multivides izvades maršrutu uz citām ārējām ierīcēm</string>
@@ -1399,7 +1405,7 @@ par kontu %s"</string>
     <string name="radiobutton_selected">Izvēlēts</string>
     <string name="radiobutton_not_selected">Nav atlasīti kontakti</string>
     <string name="switch_on">Iesl.</string>
-    <string name="switch_off">Izslēgts</string>
+    <string name="switch_off">Izsl.</string>
     <string name="togglebutton_pressed">Nosp.</string>
     <string name="keyboardview_keycode_alt">ALT</string>
     <string name="keyboardview_keycode_cancel">Atcelt</string>
@@ -1427,10 +1433,11 @@ par kontu %s"</string>
     <string name="action_bar_home_description">Doties uz mājām</string>
     <string name="action_bar_up_description">Naviģēt uz augšu</string>
     <string name="action_menu_overflow_description">Citas iespējas</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Pārslēgties uz iepriekšējo lielumu</string>
     <string name="storage_internal">Ierīces atmiņa</string>
     <string name="storage_sd_card">SD karte</string>
     <string name="storage_usb">Tālruņa iekšējā atmiņa</string>
-    <string name="extract_edit_menu_button">Rediģēt…</string>
+    <string name="extract_edit_menu_button">Rediģēt</string>
     <string name="data_usage_warning_title">Brīdinājums par datu lietojumu</string>
     <string name="data_usage_warning_body">Pieskarieties, lai skatītu lietojumu un iestatījumus</string>
     <string name="data_usage_3g_limit_title">2G-3G dati ir deaktivizēti</string>
@@ -1460,7 +1467,7 @@ par kontu %s"</string>
     <string name="fingerprints">Pirkstu nospiedumi</string>
     <string name="sha256_fingerprint">SHA-256 pirkstu nospiedums:</string>
     <string name="sha1_fingerprint">SHA-1 pirkstu nospiedums:</string>
-    <string name="activity_chooser_view_see_all">Sk.visu</string>
+    <string name="activity_chooser_view_see_all">Skatīt visu</string>
     <string name="activity_chooser_view_dialog_title_default">Darbības izvēle</string>
     <string name="share_action_provider_share_with">Koplietot ar</string>
     <string name="status_bar_device_locked">Ierīce ir bloķēta</string>
@@ -1516,6 +1523,8 @@ par kontu %s"</string>
     <string name="lockscreen_fmapp_name">FM radio</string>
     <string name="lockscreen_clock_dualclock_home">Mājas</string>
     <string name="lockscreen_clock_dualclock_roaming">Viesabonēšana</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Seula</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Viesabonēšana</string>
     <string name="lockscreen_clock_dualclock_popup_title">Duālais pulkstenis</string>
     <string name="lockscreen_clock_dualclock_popup_message">Izvēlieties savu pilsētu, lai bloķētajā ekrānā rādītu dubulto pulksteni. Vai doties uz sadaļu Iestatījumi?</string>
     <string name="lockscreen_ticker_no_data_to_display">Nav datu, ko parādīt</string>
@@ -1552,7 +1561,7 @@ par kontu %s"</string>
     <string name="lockscreen_2ndLock_instructions2">Lai atbloķētu, ievadiet rezerves PIN kodu</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">Labi</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">%1$d reizes esat nepareizi uzzīmējis atbloķēšanas figūru. Mēģiniet vēlreiz pēc %2$d sekundēm.</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Nepareiza atbloķēšanas figūra uzzīmēta %1$d reizes. Atlikuši %2$d mēģinājumi; pēc tam jums būs jāatbloķē ierīce, izmantojot jūsu Google pierakstīšanās datus vai rezerves PIN kodu. Mēģiniet vēlreiz pēc %3$d sekundēm</string>
     <string name="lockscreen_carrier_noservice">(Nav pakalpojuma)</string>
     <string name="rescan_network">Meklē pieejamu tīklu</string>
     <string name="AutoUpdateOfTimeAndDate">Automātiska laika un datuma atjaunināšana</string>
@@ -1563,6 +1572,8 @@ par kontu %s"</string>
     <string name="capabilitymanager_managed_errortitle">Kļūda</string>
     <string name="security_policy_title">Drošības politikas</string>
     <string name="security_policy_summary">Saņemtas šifrēšanas politikas no attālā administratora</string>
+    <string name="sdcard_unmount_policy_noti_title">SD karte ir atvienota IT politikas dēļ</string>
+    <string name="sdcard_unmount_policy_noti_content">Pieskarieties, lai pievienotu SD karti</string>
     <string name="sdcard_encrypt_title_notification">SD kartes šifrēšana</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">Šifrē SD karti…</string>
     <string name="sdcard_encrypt_notification">SD karte ir šifrēta</string>
@@ -1586,7 +1597,7 @@ par kontu %s"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1628,7 +1639,7 @@ par kontu %s"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Ievadītās vērtības ir ārpus derīgā diapazona. Pārbaudiet vērtības un mēģiniet vēlreiz</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1650,6 +1661,8 @@ par kontu %s"</string>
     <string name="SS_USB_TETHERING_ENABLED">USB piesaiste aktivizēta</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Wi-Fi piesaiste aktivizēta</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Piesaiste aktivizēta (Wi-Fi un USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Ierīce ir bloķēta. Sasniegts maksimālais paroļu ievadīšanas mēģinājumu skaits. Lai atbloķētu ierīci, ir nepieciešama atkopšanas parole. Ja ievadīsit nepareizu atkopšanas paroli, visi dati tiks noslaucīti</string>
+    <string name="recovery_password_required">Lai atbloķētu ierīci, ir nepieciešama atkopšanas parole</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Aktivizēts iezvanes tīkls</string>
@@ -1683,12 +1696,21 @@ par kontu %s"</string>
     <string name="lockscreen_ticker_logo_news_tts">Jaunumi</string>
     <string name="lockscreen_ticker_logo_stock_tts">Akcijas</string>
     <string name="lockscreen_ticker_refresh_tts">Atsvaidzināt</string>
+    <string name="SS_ALWAYS_ON_TOP">Vienmēr augšpusē</string>
+    <string name="SS_MINIMISE">Minimizēt</string>
+    <string name="SS_MAXIMISE">Maksimizēt</string>
+    <string name="SS_CLOSE_APPLICATION">Aizvērt programmu</string>
+    <string name="spengesture_media_scanning">Nevar apgriezt attēlu. Darbojas multivides meklētājs</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN kods bloķēts</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Lai atbloķētu SIM karti, sazinieties ar savu pakalpojuma sniedzēju</string>
     <string name="resolver_guide_title">Notīrīt noklusējumus</string>
     <string name="operation_not_allowed">Darbība nav atļauta</string>
     <string name="exceeded_maxlength">Pārsniegts maksimālais ziņas lielums</string>
     <string name="dont_show_again_message">Nerādīt vēlreiz</string>
     <string name="set_bing_as_default">Vai iestatīt Bing kā noklusējuma meklēšanas programmu?</string>
     <string name="ms_domain_site">Microsoft domēna vietne</string>
+    <string name="unsupported_in_popupbrowser">Neatbalstīta funkcija uznirstošajā pārlūkā</string>
+    <string name="find_on_page_abb">Meklēt lapā</string>
     <string name="tw_clipboard_already_exists">Jau pastāv</string>
     <string name="tw_clipboard_no_items_to_paste">Nav ielīmējamu objektu</string>
     <string name="tw_clipboard_save_in_memo">Saglabāt kā piezīmi</string>
@@ -1703,8 +1725,11 @@ par kontu %s"</string>
     <string name="tw_clipboard_clear">Notīr.</string>
     <string name="tw_clipboard_delete_all">Vai dzēst visu?</string>
     <string name="tw_clipboard_edit">Rediģēt</string>
-    <string name="tw_clipboard_done">Gatavs</string>
-    <string name="tw_clipboard_save">Saglabāt</string>
+    <string name="tw_clipboard_done">Gat.</string>
+    <string name="tw_clipboard_save">Sagl.</string>
     <string name="tw_clipboard_no_item">Nav vienumu</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Visi objekti, izņemot bloķētos objektus, tika izdzēsti no starpliktuves</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Ielīmēts no starpliktuves</string>
+    <string name="Roaming_Auto_Dialing">PIN kods bloķēts</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

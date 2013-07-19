@@ -28,12 +28,12 @@
     .parameter
 
     .prologue
-    .line 87
+    .line 90
     iput-object p1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     invoke-direct {p0}, Lcom/samsung/bluetoothle/IBluetoothLEClientCallBack$Stub;-><init>()V
 
-    .line 89
+    .line 92
     return-void
 .end method
 
@@ -44,7 +44,7 @@
     .parameter "deviceAddress"
 
     .prologue
-    .line 92
+    .line 95
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     const-string v6, "BluetoothLEClientCallback"
@@ -54,12 +54,12 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v5, v6, v7}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$100(Lcom/samsung/bluetoothle/BluetoothLEClientProfile;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 93
+    .line 96
     const/4 v5, 0x2
 
     invoke-static {v5}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$202(I)I
 
-    .line 95
+    .line 98
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->mDevice:Landroid/bluetooth/BluetoothDevice;
@@ -71,18 +71,18 @@
 
     move-result-object v3
 
-    .line 96
+    .line 99
     .local v3, servicePaths:[Ljava/lang/String;
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
-    new-instance v6, Ljava/util/ArrayList;
+    #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->mRequiredServices:Ljava/util/ArrayList;
+    invoke-static {v5}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$400(Lcom/samsung/bluetoothle/BluetoothLEClientProfile;)Ljava/util/ArrayList;
 
-    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+    move-result-object v5
 
-    #setter for: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->mRequiredServices:Ljava/util/ArrayList;
-    invoke-static {v5, v6}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$402(Lcom/samsung/bluetoothle/BluetoothLEClientProfile;Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    invoke-virtual {v5}, Ljava/util/ArrayList;->clear()V
 
-    .line 97
+    .line 100
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -91,7 +91,7 @@
 
     if-ge v1, v5, :cond_3
 
-    .line 98
+    .line 101
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->mDevice:Landroid/bluetooth/BluetoothDevice;
@@ -105,7 +105,7 @@
 
     move-result-object v4
 
-    .line 100
+    .line 103
     .local v4, uuidString:Ljava/lang/String;
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
@@ -115,7 +115,7 @@
 
     if-ne v5, v6, :cond_0
 
-    .line 101
+    .line 104
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -140,7 +140,7 @@
 
     move-result-object v4
 
-    .line 103
+    .line 106
     :cond_0
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
@@ -167,7 +167,7 @@
 
     check-cast v0, Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
-    .line 104
+    .line 107
     .local v0, bLEClientservice:Lcom/samsung/bluetoothle/BluetoothLEClientService;
     invoke-virtual {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->getServiceUUID()Ljava/lang/String;
 
@@ -179,7 +179,7 @@
 
     if-eqz v5, :cond_1
 
-    .line 105
+    .line 108
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->mRequiredServices:Ljava/util/ArrayList;
@@ -189,7 +189,7 @@
 
     invoke-virtual {v5, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 106
+    .line 109
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     const-string v6, "BluetoothLEClientCallback"
@@ -199,14 +199,14 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v5, v6, v7}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$100(Lcom/samsung/bluetoothle/BluetoothLEClientProfile;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 97
+    .line 100
     .end local v0           #bLEClientservice:Lcom/samsung/bluetoothle/BluetoothLEClientService;
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 112
+    .line 115
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v4           #uuidString:Ljava/lang/String;
     :cond_3
@@ -226,7 +226,7 @@
 
     if-ge v1, v5, :cond_4
 
-    .line 114
+    .line 117
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->mRequiredServices:Ljava/util/ArrayList;
@@ -251,12 +251,12 @@
 
     invoke-virtual {v5, v6, v7}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->init(Landroid/bluetooth/BluetoothDevice;Lcom/samsung/bluetoothle/BluetoothLEClientProfile;)V
 
-    .line 112
+    .line 115
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 116
+    .line 119
     :cond_4
     iget-object v5, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
@@ -269,7 +269,7 @@
 
     invoke-virtual {v5, v6}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->onLEDeviceConnected(Landroid/bluetooth/BluetoothDevice;)V
 
-    .line 117
+    .line 120
     return-void
 .end method
 
@@ -280,7 +280,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 120
+    .line 123
     iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     const-string v2, "BluetoothLEClientCallback"
@@ -290,14 +290,36 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v1, v2, v3}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$100(Lcom/samsung/bluetoothle/BluetoothLEClientProfile;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 121
+    .line 124
+    invoke-static {}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$200()I
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 125
+    iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
+
+    const-string v2, "BluetoothLEClientCallback"
+
+    const-string v3, "already disconnected state, so ignore the signal"
+
+    #calls: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->LogD(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2, v3}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$100(Lcom/samsung/bluetoothle/BluetoothLEClientProfile;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 137
+    :goto_0
+    return-void
+
+    .line 128
+    :cond_0
     invoke-static {v4}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$202(I)I
 
-    .line 124
+    .line 131
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->mRequiredServices:Ljava/util/ArrayList;
@@ -309,9 +331,9 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2
 
-    .line 125
+    .line 132
     iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->mRequiredServices:Ljava/util/ArrayList;
@@ -329,9 +351,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 126
+    .line 133
     iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->mRequiredServices:Ljava/util/ArrayList;
@@ -347,14 +369,17 @@
 
     invoke-virtual {v1, v4}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->setCharDiscoveryProgress(Z)V
 
-    .line 124
-    :cond_0
+    .line 131
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 128
-    :cond_1
+    .line 135
+    :cond_2
+    invoke-static {v4}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$602(Z)Z
+
+    .line 136
     iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
@@ -366,8 +391,7 @@
 
     invoke-virtual {v1, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->onLEDeviceDisconnected(Landroid/bluetooth/BluetoothDevice;)V
 
-    .line 129
-    return-void
+    goto :goto_0
 .end method
 
 .method public onGetRssiValue(Ljava/lang/String;)V
@@ -375,7 +399,7 @@
     .parameter "rssival"
 
     .prologue
-    .line 137
+    .line 149
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     const-string v1, "BluetoothLEClientCallback"
@@ -385,7 +409,7 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$100(Lcom/samsung/bluetoothle/BluetoothLEClientProfile;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 138
+    .line 150
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
@@ -397,7 +421,7 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->onGetRssiValue(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;)V
 
-    .line 139
+    .line 151
     return-void
 .end method
 
@@ -405,7 +429,7 @@
     .locals 3
 
     .prologue
-    .line 132
+    .line 140
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     const-string v1, "BluetoothLEClientCallback"
@@ -415,7 +439,29 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$100(Lcom/samsung/bluetoothle/BluetoothLEClientProfile;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 133
+    .line 141
+    invoke-static {}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$200()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 142
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
+
+    const-string v1, "BluetoothLEClientCallback"
+
+    const-string v2, "already in disconnected state, so ignore the signal"
+
+    #calls: Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->LogD(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->access$100(Lcom/samsung/bluetoothle/BluetoothLEClientProfile;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 146
+    :goto_0
+    return-void
+
+    .line 145
+    :cond_0
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
 
     iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientProfile$BluetoothLEClientCallback;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
@@ -427,6 +473,5 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->onLELinkLoss(Landroid/bluetooth/BluetoothDevice;)V
 
-    .line 134
-    return-void
+    goto :goto_0
 .end method

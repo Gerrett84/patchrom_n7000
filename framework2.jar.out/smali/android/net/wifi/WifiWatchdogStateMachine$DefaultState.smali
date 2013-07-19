@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 550
+    .line 554
     iput-object p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 553
+    .line 557
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
     move-result v0
@@ -70,7 +70,7 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$300(Ljava/lang/String;)V
 
-    .line 554
+    .line 558
     :cond_0
     return-void
 .end method
@@ -80,12 +80,12 @@
     .parameter "msg"
 
     .prologue
-    .line 558
+    .line 562
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 579
+    .line 583
     :pswitch_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -129,7 +129,7 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$300(Ljava/lang/String;)V
 
-    .line 582
+    .line 586
     :cond_0
     :goto_0
     :pswitch_1
@@ -137,21 +137,21 @@
 
     return v0
 
-    .line 560
+    .line 564
     :pswitch_2
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->updateSettings()V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$400(Landroid/net/wifi/WifiWatchdogStateMachine;)V
 
-    .line 561
+    .line 565
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 562
+    .line 566
     const-string v0, "Updating wifi-watchdog secure settings"
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
@@ -159,7 +159,7 @@
 
     goto :goto_0
 
-    .line 566
+    .line 570
     :pswitch_3
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -177,7 +177,7 @@
 
     goto :goto_0
 
-    .line 558
+    .line 562
     :pswitch_data_0
     .packed-switch 0x21002
         :pswitch_1

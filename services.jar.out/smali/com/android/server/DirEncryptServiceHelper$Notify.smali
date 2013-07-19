@@ -31,13 +31,15 @@
 
 .field public static final SECURITY_NOTIFICATION:I = 0x6
 
+.field public static final UNMOUNT_POLICY_NEED:I = 0x8
+
 
 # direct methods
 .method private constructor <init>()V
     .locals 0
 
     .prologue
-    .line 274
+    .line 276
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -10,7 +10,7 @@
     <string name="httpErrorBadUrl">Səhifəni açmaq mümkün deyil. URL səhvdir</string>
     <string name="httpErrorUnsupportedScheme">Protokol dəstəklənmir</string>
     <string name="no">Ləğv et</string>
-    <string name="ok">OK</string>
+    <string name="ok">Oldu</string>
     <string name="paste">Yapışdır</string>
     <string name="search_go">Axtar</string>
     <string name="selectAll">Hamısını seç</string>
@@ -269,7 +269,7 @@
     <string name="turn_on_radio">Simsizi yandırın</string>
     <string name="turn_off_radio">Simsizi söndürün</string>
     <string name="screen_lock">Ekranın kilidlənməsi</string>
-    <string name="power_off">Söndür</string>
+    <string name="power_off">Söndürülmə vaxtı</string>
     <string name="silent_mode_vibrate">Zəng melodiyası titrəməsi</string>
     <string name="shutdown_progress">Söndürülür…</string>
     <string name="shutdown_confirm">Cihaz indi sönəcək</string>
@@ -355,6 +355,7 @@
     <string name="permdesc_mdmKioskMode">İnteraktiv terminal rejimində davranışı idarə et</string>
     <string name="tether_usb_restrict">Təhlükəsizlik siyasəti USB bağlamadan istifadəni məhdudlaşdırır</string>
     <string name="tether_wifi_restrict">Təhlükəsizlik siyasəti Wi-Fi bağlamasından istifadəni məhdudlaşdırır</string>
+    <string name="data_call_restriction">Təhlükəsizlik siyasəti mobil məlumatlardan istifadəni məhdudlaşdırır</string>
     <string name="dpm_wifi_blocked_network">Təhlükəsizlik siyasəti bu Wi-Fi şəbəkəsindən istifadəni məhdudlaşdırır</string>
     <string name="dpm_wifi_misc_wifi_disabled">Təhlükəsizlik siyasəti Wi-Fi-dan istifadəni məhdudlaşdırır</string>
     <string name="dpm_wifi_misc_network_insecure">Təhlükəsizlik siyasəti qorunmayan Wi-Fi şəbəkələrindən istifadəni məhdudlaşdırır</string>
@@ -538,6 +539,7 @@
     <string name="permlab_readSocialStream">Sosial axını oxuyun</string>
     <string name="permlab_writeSocialStream">Sosial axınınızda dərc edin</string>
     <string name="permlab_readCalendar">Təqvim hadisələrini və məxfi məlumatları oxuyun</string>
+    <string name="permlab_writeCalendar">Ev sahibinin xəbəri olmadan təqvim hadisələri əlavə et və ya dəyişdir və qonaqlara e-poçt göndər</string>
     <string name="permlab_accessMockLocation">sınaq üçün yalançı yer təyini mənbələri</string>
     <string name="permdesc_accessMockLocation">Proqrama sınaq üçün saxta məkan mənbələri yaratmağa imkan verir. İcazə verilərsə, zərərli proqramlar GPS və ya operatorlar kimi real məkan mənbələri tərəfindən göndərilmiş məkan və ya vəziyyəti nəzərə almaya və ya sizin məkanınızı müşahidə edib təsadüfi veb-saytlara bildirə bilər</string>
     <string name="permlab_accessLocationExtraCommands">əlavə yer təyin edən provayder əmrlərinə daxil olun</string>
@@ -625,6 +627,7 @@
     <string name="permdesc_getAccounts">Proqrama telefona məlum olan hesab siyahısına daxil olmağa imkan verir</string>
     <string name="permlab_authenticateAccounts">Hesab sahibi kimi davran</string>
     <string name="permdesc_authenticateAccounts">Proqrama Hesab menecerinin hesab eyniləşdirmə funksiyasına daxil olmağa imkan verir. Bura hesablarn yaradılması və parolların idarəsi daxildr</string>
+    <string name="permlab_manageAccounts">Hesabları əlavə et və ya sil</string>
     <string name="permdesc_manageAccounts">Proqrama hesab əlavə etməyə və silməyə və parolunuzu silməyə imkan verir</string>
     <string name="permlab_useCredentials">Hesab eyniləşdirilməsi məlumatlarından istifadə et</string>
     <string name="permdesc_useCredentials">Proqrama eyniləşdirmə sorğuları göndərməyə imkan verir</string>
@@ -644,6 +647,7 @@
     <string name="permlab_changeWifiState">Wi-Fi vəziyyətini dəyişin</string>
     <string name="permdesc_changeWifiState">Proqrama Wi-Fi giriş nöqtələri ilə qoşulmağa və ya əlaqəni kəsməyə və konfiqurasiya edilmiş Wi-Fi şəbəkələrinə dəyişikliklər etməyə imkan verir</string>
     <string name="permlab_changeWifiMulticastState">Wi-Fi çoxötürməli qəbula icazə ver</string>
+    <string name="permlab_bluetoothAdmin">Bluetooth parametrləri</string>
     <string name="permdesc_bluetoothAdmin">Proqramın yerli Bluetooth telefonu quraşdırmasına və uzaq cihazları taparaq, onlara qoşulmasına imkan verir</string>
     <string name="permlab_accessWimaxState">WiMAX statusuna bax</string>
     <string name="permlab_changeWimaxState">WiMAX statusunu dəyiş</string>
@@ -725,6 +729,7 @@
     <string name="policydesc_allow_desktopsync">İş masası sinxronlaşmasından istifadənin qarşısını al</string>
     <string name="policylab_require_storagecard_encryption">SD kart şifrlənməsini qur</string>
     <string name="policydesc_require_storagecard_encryption">SD kartdakı proqramın şifrlənməsini tələb et</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth ilə əlaqə kəsildi</string>
     <string name="bluetooth_security_mode_disable">Təhlükəsizlik siyasəti Bluetooth bağlantısından istifadəni məhdudlaşdırır</string>
     <string name="bluetooth_security_mode_handsfree">Təhlükəsizlik siyasəti yalnız səsucaldan xüsusiyyətləri üçün Bluetooth bağlantısından istifadəni məhdudlaşdırır</string>
     <string name="phoneTypeCustom">Adi</string>
@@ -796,10 +801,12 @@
     <string name="sipAddressTypeHome">Ev</string>
     <string name="sipAddressTypeWork">İş</string>
     <string name="sipAddressTypeOther">Başqa</string>
+    <string name="keyguard_password_enter_pin_code">PIN kodu daxil et</string>
     <string name="keyguard_password_enter_puk_code">PUK və yeni PIN kodu daxil edin</string>
     <string name="keyguard_password_entry_touch_hint">Parolu daxil etmək üçün vurun</string>
     <string name="keyguard_password_enter_password_code">Kilidi açmaq üçün parolu daxil edin</string>
     <string name="keyguard_password_enter_pin_password_code">Kilidi açmaq üçün PIN daxil et</string>
+    <string name="keyguard_password_wrong_pin_code">PIN kod səhvdir</string>
     <string name="keyguard_pin_accepted">Kod qəbul edildi</string>
     <string name="keyguard_label_text">Kilidi açmaq üçün, Menyunu sonra 0 basın</string>
     <string name="emergency_call_dialog_number_for_display">Təcili yardım nömrəsi</string>
@@ -826,8 +833,9 @@
     <string name="lockscreen_network_locked_message">Şəbəkə kilidlənmişdir</string>
     <string name="lockscreen_sim_puk_locked_message">SIM kart PUK ilə kilidlənmişdir</string>
     <string name="lockscreen_sim_puk_locked_instructions">Zəhmət olmasa, İstifadəçi Təlimatlarını oxuyun və ya İstehlakçı Xidməti ilə əlaqə saxlayın</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM kartı kilidlənib</string>
+    <string name="lockscreen_sim_locked_message">SIM kart kilidlənmişdir</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">SIM kartın kilidi açılır…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Yanlış kilidaçma nümunəsi %1$d dəfə yazıldı. %2$d saniyəyə yenidən cəhd et</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Parol %1$d dəfə səhv daxil edildi. %2$d saniyəyə yenidən cəhd edin</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 bloklanmışdır. PIN1-in blokunu açmaq üçün PUK1-i daxil edin</string>
@@ -866,6 +874,7 @@
     <string name="autofill_this_form">Avtomatik doldurma</string>
     <string name="autofill_address_type_same_as_re">Eynidir</string>
     <string name="autofill_billing_designator_re">Hesab</string>
+    <string name="autofill_shipping_designator_re">Gəmi</string>
     <string name="autofill_phone_suffix_re">Suffiks</string>
     <string name="autofill_name_on_card_contextual_re">Ad</string>
     <string name="autofill_province">Rayon</string>
@@ -879,6 +888,7 @@
     <string name="autofill_prefecture">Prefekt</string>
     <string name="autofill_parish">Prixod</string>
     <string name="autofill_area">Sahə</string>
+    <string name="permlab_readHistoryBookmarks">İnternet tarixçəsi və əlfəcinləri oxu</string>
     <string name="permdesc_readHistoryBookmarks">Proqrama Brauzerin daxil olduğu bütün URL-ləri və Brauzerin bütün əlfəcinlərini oxumağa imkan verir</string>
     <string name="permdesc_writeHistoryBookmarks">Proqrama telefonunuzda saxlanmış İnternet tarixçəsini və əlfəcinləri dəyişdirməyə imkan verir. İcazə verilərsə, zərərli proqramlar belə məlumatları silə və ya dəyişdirə bilər</string>
     <string name="permlab_setAlarm">Xəbərdarlıq qur</string>
@@ -943,10 +953,12 @@
     <string name="inputMethod">Daxil etmə metodu</string>
     <string name="low_internal_storage_view_title">Yaddaş dolmaq üzrədir</string>
     <string name="low_internal_storage_view_text">Bəzi sistem funksiyaları işləməyə bilər</string>
+    <string name="full_internal_storage_view_text">Cihazın yaddaşı dolu olduğundan səhv baş verə bilər. Bəzi elementləri sil</string>
     <string name="loading">Yüklənir…</string>
     <string name="capital_on">Yandırılmışdır</string>
     <string name="capital_off">Söndürülmüşdür</string>
     <string name="whichApplication">Bundan istifadə edərək fəaliyyəti tamamlayın</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Bu fəaliyyət üçün standart istifadə edin</string>
     <string name="clearDefaultHintMsg">Parametrlər > Proqramlar meneceri > Hamısı-na keçməklə susmaya görə proqram parametrlərini təmizləyin</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1004,7 +1016,7 @@
     <string name="wifi_notification_no_network_message">Wi-Fi parametrlərini aç</string>
     <string name="wifi_notification_not_connected">Wi-Fi şəbəkələri mövcuddur</string>
     <string name="wifi_notification_not_connected_message">Mümkün Wi-Fi şəbəkələrini aç</string>
-    <string name="wifi_notification_connected">%1$s-a qoşulmuşdur</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Wi-Fi konfiqurasiyası üçün vur</string>
     <string name="wifi_notification_connected_secure">Qorunan</string>
     <string name="wifi_notification_connected_open">Aç</string>
@@ -1023,7 +1035,7 @@
     <string name="wifi_p2p_to_message">Kimə:</string>
     <string name="wifi_p2p_enter_pin_message">PIN daxil et</string>
     <string name="wifi_p2p_connected_notification_title">Wi-Fi Direct vasitəsilə %d cihazla qoşulub</string>
-    <string name="wifi_p2p_incoming_request_confirmation">%1$d saniyəyə %2$s ilə qoşul</string>
+    <string name="wifi_p2p_incoming_request_confirmation">%2$d saniyəyə %1$s ilə qoşul</string>
     <string name="wifi_p2p_auto_disabling_confirmation">Wi-Fi Direct aktivləşdiriləndən %d dəqiqə ərzində fəaliyyət olmamışdır. Batareyanın istifadə müddətini uzatmaq üçün Wi-Fi Direct qeyri-aktiv edilmişdir</string>
     <string name="wifi_p2p_connection_limit">Siz eyni zamanda maksimum %d cihaza qoşula bilərsiniz</string>
     <string name="wifi_p2p_disable_notification_title">İst.dən sonra Wi-Fi Direct-i söndür</string>
@@ -1031,9 +1043,9 @@
     <string name="select_character">Simvol daxil edin</string>
     <string name="sms_control_default_app_name">Naməlum proqram</string>
     <string name="sms_control_title">SMS göndərilir…</string>
-    <string name="sms_control_message">Böyük sayda SMS mesajları göndərilir. Davam etmək üçün OK və ya göndərməni dayandırmaq üçün İmtina vurun</string>
-    <string name="sms_control_yes">Oldu</string>
-    <string name="sms_control_no">Ləğv et</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> xeyli sayda SMS mesajları göndərir. Bu proqrama mesajları göndərməyi davam etdirmək icazəsi verilsin?</string>
+    <string name="sms_control_yes">İcazə ver</string>
+    <string name="sms_control_no">İmtina et</string>
     <string name="sim_removed_title">SIM kart çıxarılmışdır</string>
     <string name="sim_removed_message">Düzgün SIM kartı daxil edərək yenidən başladana kimi mobil şəbəkə mümkün olmayacaq</string>
     <string name="sim_done_button">Tamam</string>
@@ -1111,7 +1123,7 @@
     <string name="activity_list_empty">Uyğun fəaliyyət tapılmamışdır</string>
     <string name="permlab_pkgUsageStats">komponentdən istifadə statistikalarını yeniləyin</string>
     <string name="permdesc_pkgUsageStats">Toplanan komponent istifadəsi statistikalarının dəyişməsinə imkan verir. Normal proqramlar tərəfindəm istifadə oluna bilməz</string>
-    <string name="permlab_copyProtectedData">Susmaya görə konteyner xidmətinə məzmunu köçürməyə icazə verir. Normal proqramlar tərəfindən istifadə üçün deyil</string>
+    <string name="permlab_copyProtectedData">Məzmunu köçür</string>
     <string name="permdesc_copyProtectedData">Susmaya görə konteyner xidmətinə məzmunu köçürməyə icazə verir. Normal proqramlar tərəfindən istifadə üçün deyil</string>
     <string name="permlab_route_media_output">Media məhsulunu yönləndir</string>
     <string name="permdesc_route_media_output">Proqrama media məhsulunu digər xarici qurğulara yönləndirmək icazəsi verir</string>
@@ -1242,10 +1254,11 @@ icazə sorğusu"</string>
     <string name="action_bar_home_description">Evə naviqasiya et</string>
     <string name="action_bar_up_description">Yuxarı keç</string>
     <string name="action_menu_overflow_description">Daha çox seçim</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Əvvəlki ölçüyə keç</string>
     <string name="storage_internal">Cihaz yaddaşı</string>
     <string name="storage_sd_card">SD kartı</string>
     <string name="storage_usb">USB yaddaşı</string>
-    <string name="extract_edit_menu_button">Redaktə et…</string>
+    <string name="extract_edit_menu_button">Redaktə et</string>
     <string name="data_usage_warning_title">Məlumat istifadəsi xəbərdarlığı</string>
     <string name="data_usage_warning_body">İstifadə və parametrlərə baxmaq üçün vurun</string>
     <string name="data_usage_3g_limit_title">2G-3G məlumatı qeyri-aktiv edildi</string>
@@ -1274,7 +1287,7 @@ icazə sorğusu"</string>
     <string name="fingerprints">Barmaq izləri</string>
     <string name="sha256_fingerprint">SHA-256 barmaq izi:</string>
     <string name="sha1_fingerprint">SHA-1 barmaq izi:</string>
-    <string name="activity_chooser_view_see_all">Hamsıni bax</string>
+    <string name="activity_chooser_view_see_all">Hamısına bax</string>
     <string name="activity_chooser_view_dialog_title_default">Fəaliyyəti seç</string>
     <string name="share_action_provider_share_with">Paylaş</string>
     <string name="status_bar_device_locked">Cihaz kilidlənib</string>
@@ -1329,6 +1342,8 @@ icazə sorğusu"</string>
     <string name="lockscreen_fmapp_name">FM radio</string>
     <string name="lockscreen_clock_dualclock_home">Ev</string>
     <string name="lockscreen_clock_dualclock_roaming">Rouminq</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Seul</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Rouminq</string>
     <string name="lockscreen_clock_dualclock_popup_title">İkili saat</string>
     <string name="lockscreen_clock_dualclock_popup_message">Kilid ekranında ikili saatı göstərmək üçün şəhərinizi seçin. Parametrlərə keçsin?</string>
     <string name="lockscreen_ticker_no_data_to_display">Nümayiş etdirmək üçün heç bir məlumat yoxdur</string>
@@ -1365,7 +1380,7 @@ icazə sorğusu"</string>
     <string name="lockscreen_2ndLock_instructions2">Kilidi açmaq üçün ehtiyat nüsxə PIN-ni daxil edin</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Siz %1$d dəfə kilidin açılması üçün simvolu səhv çəkmisiniz. Zəhmət olmasa, %2$d saniyəyə yenidən cəhd edin.</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Yanlış kilidaçma nümunəsi %1$d dəfə yazıldı. Sizdən Google qeydiyyat və ya ehtiyat nüsxə PIN-nizdən istifadə etməklə cihazın kilidini açmaq xahiş edilməmişdən əvvəl %2$d cəhdiniz qalır. %3$d saniyəyə yenidən cəhd et</string>
     <string name="lockscreen_carrier_noservice">(Xidmət yoxdur)</string>
     <string name="rescan_network">Mümkün şəbəkə axtarılır</string>
     <string name="AutoUpdateOfTimeAndDate">Vaxt və tarixin avtomatik olaraq yenilənməsi</string>
@@ -1376,6 +1391,8 @@ icazə sorğusu"</string>
     <string name="capabilitymanager_managed_errortitle">Xəta</string>
     <string name="security_policy_title">Təhlükəsizlik siyasətləri</string>
     <string name="security_policy_summary">Kənardan inzibatçının göndərdiyi şifrləmə siyasətləri</string>
+    <string name="sdcard_unmount_policy_noti_title">IT siyasəti ilə əlaqədar SD kart çıxarıldı</string>
+    <string name="sdcard_unmount_policy_noti_content">SD kartı daxil etmək üçün vur</string>
     <string name="sdcard_encrypt_title_notification">SD kart şifrlənməsi</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">SD kart şifrlənir…</string>
     <string name="sdcard_encrypt_notification">SD kart şifrləndi</string>
@@ -1399,7 +1416,7 @@ icazə sorğusu"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1441,7 +1458,7 @@ icazə sorğusu"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Daxil edilmiş dəyərlər müvafiq miqyas xaricindədir. Göstəriciləri yoxlayın və yenidən cəhd edin</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1463,6 +1480,8 @@ icazə sorğusu"</string>
     <string name="SS_USB_TETHERING_ENABLED">USB bağlanma aktivdir</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Wi-Fi bağlanma aktivdir</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Bağlanma aktivdir (Wi-Fi və USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Cihaz bloklanıb. Parol daxil edilməsi cəhdlərinin sayı maksimuma çatıb. Cihazın blokunu açmaq üçün bərpa parolu tələb olunur. Səhv bərpa parolunu daxil etsəniz, bütün məlumatlar silinəcək</string>
+    <string name="recovery_password_required">Cihazın blokunu açmaq üçün bərpa parolu tələb olunur</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Zəng edilən şəbəkə aktiv edilib</string>
@@ -1496,12 +1515,21 @@ icazə sorğusu"</string>
     <string name="lockscreen_ticker_logo_news_tts">Xəbərlər</string>
     <string name="lockscreen_ticker_logo_stock_tts">Birja</string>
     <string name="lockscreen_ticker_refresh_tts">Təzələ</string>
+    <string name="SS_ALWAYS_ON_TOP">Həmişə yuxarıda</string>
+    <string name="SS_MINIMISE">Kiçilt</string>
+    <string name="SS_MAXIMISE">Maksimallaşdır</string>
+    <string name="SS_CLOSE_APPLICATION">Proqramı bağla</string>
+    <string name="spengesture_media_scanning">Şəkli kəsmək mümkün deyil. Media skaner işləyir</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN blok edildi</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">SIM kartın kilidini açmaq üçün xidmət təminatçınızla əlaqə saxlayın</string>
     <string name="resolver_guide_title">Standarları silin</string>
     <string name="operation_not_allowed">Əməliyyata icazə verilmir</string>
     <string name="exceeded_maxlength">Mesajın maksimum ölçüsünə çatıldı</string>
     <string name="dont_show_again_message">Bir daha göstərmə</string>
     <string name="set_bing_as_default">Bing susmaya görə axtarış mexanizmi kimi qurulsun?</string>
     <string name="ms_domain_site">Microsoft domen saytı</string>
+    <string name="unsupported_in_popupbrowser">Peyda olan Baxış proqramında dəstəklənməyən format</string>
+    <string name="find_on_page_abb">Səhifədə tapın</string>
     <string name="tw_clipboard_already_exists">Artıq var</string>
     <string name="tw_clipboard_no_items_to_paste">Əlavə etmək üçün element yoxdur</string>
     <string name="tw_clipboard_save_in_memo">Yaddaşda saxlayın</string>
@@ -1515,9 +1543,12 @@ icazə sorğusu"</string>
     <string name="tw_ids_com_body_unlock_in_clipboard">Mübadilə buferindən çıxart</string>
     <string name="tw_clipboard_clear">Sil</string>
     <string name="tw_clipboard_delete_all">Hamısı silinsin?</string>
-    <string name="tw_clipboard_edit">Redaktə et</string>
-    <string name="tw_clipboard_done">Yerinə yetirildi</string>
+    <string name="tw_clipboard_edit">Rdk. et</string>
+    <string name="tw_clipboard_done">Bitdi</string>
     <string name="tw_clipboard_save">Saxla</string>
     <string name="tw_clipboard_no_item">Elementlər yoxdur</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Kilidlənmiş elementlər istisna olmaqla bütün elementlər mübadilə buferindən silinib</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Mübadilə buferindən əlavə edilib</string>
+    <string name="Roaming_Auto_Dialing">PIN blok edildi</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

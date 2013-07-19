@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 772
+    .line 826
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver$1;->this$1:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver;
 
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver$1;->val$timezoneChanged:Z
@@ -56,12 +56,12 @@
     .locals 3
 
     .prologue
-    .line 774
+    .line 828
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver$1;->val$timezoneChanged:Z
 
     if-eqz v1, :cond_0
 
-    .line 776
+    .line 830
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver$1;->val$tmpIntent:Landroid/content/Intent;
 
     const-string v2, "time-zone"
@@ -70,7 +70,7 @@
 
     move-result-object v0
 
-    .line 777
+    .line 831
     .local v0, tz:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver$1;->val$clock:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
 
@@ -83,9 +83,9 @@
     move-result-object v2
 
     #setter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->mCalendar:Ljava/util/Calendar;
-    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$1002(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;Ljava/util/Calendar;)Ljava/util/Calendar;
+    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$1202(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;Ljava/util/Calendar;)Ljava/util/Calendar;
 
-    .line 778
+    .line 832
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver$1;->val$clock:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
 
     invoke-static {v0}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
@@ -97,22 +97,22 @@
     move-result-object v2
 
     #setter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->mRoamingCalendar:Ljava/util/Calendar;
-    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$1102(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;Ljava/util/Calendar;)Ljava/util/Calendar;
+    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$1302(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;Ljava/util/Calendar;)Ljava/util/Calendar;
 
-    .line 779
+    .line 833
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver$1;->this$1:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->chooseClockType()V
 
-    .line 781
+    .line 835
     .end local v0           #tz:Ljava/lang/String;
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$TimeChangedReceiver$1;->val$clock:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->refreshTime()V
 
-    .line 782
+    .line 836
     return-void
 .end method

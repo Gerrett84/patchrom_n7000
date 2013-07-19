@@ -3,7 +3,7 @@
 <keyboard
   primaryId="7"
   secondaryId="7"
-  keyWidth="8.18%"
+  keyWidth="9.1%"
   keyHeight="21.171%"
   verticalGap="4.054%"
   horizontalGap="1%"
@@ -21,11 +21,6 @@
     <key keyType="regional" keyLabel="I" keyCodes="0x69" />
     <key keyType="regional" keyLabel="O" keyCodes="0x6F" />
     <key keyType="regional" keyLabel="P" keyCodes="0x70" />
-    <key
-      keyType="function"
-      keyLabel="del"
-      keyName="ET9KEY_CLEAR"
-      />
   </row>
   <row>
   	<void />
@@ -38,19 +33,16 @@
     <key keyType="regional" keyLabel="J" keyCodes="0x6A" />
     <key keyType="regional" keyLabel="K" keyCodes="0x6B" />
     <key keyType="regional" keyLabel="L" keyCodes="0x6C" />
-    <key
-      keyType="function"
-      keyLabel="enter"
-      keyName="ET9KEY_RETURN"
-      keyWidth="13.5%"
-      />
+    <void />
   </row>
   <row>
     <key
       keyType="function"
       keyLabel="shift"
       keyName="ET9KEY_SHIFT"
+      keyWidth="12.7%"
       />
+    <void />
     <key keyType="regional" keyLabel="Y" keyCodes="0x79" />
     <key keyType="regional" keyLabel="X" keyCodes="0x78" />
     <key keyType="regional" keyLabel="C" keyCodes="0x63" />
@@ -58,20 +50,12 @@
     <key keyType="regional" keyLabel="B" keyCodes="0x62" />
     <key keyType="regional" keyLabel="N" keyCodes="0x6E" />
     <key keyType="regional" keyLabel="M" keyCodes="0x6D" />
+    <void />
     <key
       keyType="function"
-      keyLabel=","
-      keyName="ET9KEY_OEM_01"
-      />
-      <key
-      keyType="function"
-      keyLabel="."
-      keyName="ET9KEY_OEM_02"
-      />
-    <key
-      keyType="function"
-      keyLabel="shift"
-      keyName="ET9KEY_SHIFT"
+      keyLabel="del"
+      keyName="ET9KEY_CLEAR"
+      keyWidth="12.7%"
       />
   </row>
 </keyboard >

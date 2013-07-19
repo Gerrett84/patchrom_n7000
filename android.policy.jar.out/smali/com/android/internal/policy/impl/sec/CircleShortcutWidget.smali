@@ -34,8 +34,6 @@
 
 .field private static final mHolographicPaint:Landroid/graphics/Paint;
 
-.field private static mItemCount:I
-
 .field private static mOuterGlowColor:I
 
 .field private static final mSaturationPaint:Landroid/graphics/Paint;
@@ -100,6 +98,8 @@
 
 .field private mIsTouchExplorationEnabled:Z
 
+.field private mItemCount:I
+
 .field private mOldBounds:Landroid/graphics/Rect;
 
 .field private mOrientation:I
@@ -139,9 +139,6 @@
 
     .prologue
     const/4 v2, 0x0
-
-    .line 117
-    sput v2, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
     .line 122
     new-instance v0, Landroid/graphics/Paint;
@@ -210,7 +207,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Landroid/content/res/Configuration;ZLcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
-    .locals 13
+    .locals 14
     .parameter "context"
     .parameter "callback"
     .parameter "circleUnlockWidget"
@@ -223,90 +220,97 @@
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     .line 84
-    const-string v9, "CircleShortcutWidget"
+    const-string v10, "CircleShortcutWidget"
 
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     .line 85
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
-    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
+    iput-boolean v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
 
     .line 98
-    const/4 v9, 0x0
-
-    iput v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconWidth:I
-
-    .line 99
-    const/4 v9, 0x0
-
-    iput v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconHeight:I
-
-    .line 106
-    new-instance v9, Landroid/view/animation/AlphaAnimation;
-
     const/4 v10, 0x0
 
-    const/high16 v11, 0x3f80
+    iput v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconWidth:I
 
-    invoke-direct {v9, v10, v11}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
+    .line 99
+    const/4 v10, 0x0
 
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeInAnimation:Landroid/view/animation/AlphaAnimation;
+    iput v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconHeight:I
 
-    .line 107
-    new-instance v9, Landroid/view/animation/AlphaAnimation;
-
-    const/high16 v10, 0x3f80
+    .line 106
+    new-instance v10, Landroid/view/animation/AlphaAnimation;
 
     const/4 v11, 0x0
 
-    invoke-direct {v9, v10, v11}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
+    const/high16 v12, 0x3f80
 
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeOutAnimation:Landroid/view/animation/AlphaAnimation;
+    invoke-direct {v10, v11, v12}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
+
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeInAnimation:Landroid/view/animation/AlphaAnimation;
+
+    .line 107
+    new-instance v10, Landroid/view/animation/AlphaAnimation;
+
+    const/high16 v11, 0x3f80
+
+    const/4 v12, 0x0
+
+    invoke-direct {v10, v11, v12}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
+
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeOutAnimation:Landroid/view/animation/AlphaAnimation;
 
     .line 108
-    const/16 v9, 0x12c
+    const/16 v10, 0x12c
 
-    iput v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->FADE_IN_OUT_ANIMATION_DURATION:I
+    iput v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->FADE_IN_OUT_ANIMATION_DURATION:I
 
     .line 112
-    const-string v9, "com.sec.android.app.camera"
+    const-string v10, "com.sec.android.app.camera"
 
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->CAMERA_PACKAGE_NAME:Ljava/lang/String;
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->CAMERA_PACKAGE_NAME:Ljava/lang/String;
 
     .line 113
-    const-string v9, "com.sec.android.app.camera.Camera"
+    const-string v10, "com.sec.android.app.camera.Camera"
 
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->CAMERA_ACTIVITY_NAME:Ljava/lang/String;
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->CAMERA_ACTIVITY_NAME:Ljava/lang/String;
+
+    .line 117
+    const/4 v10, 0x0
+
+    iput v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
     .line 146
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
-    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIsTouchExplorationEnabled:Z
+    iput-boolean v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIsTouchExplorationEnabled:Z
 
     .line 159
-    const/16 v9, 0x12c2
+    const/16 v10, 0x12c2
 
-    iput v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->MISSED_EVENT_UPDATE:I
+    iput v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->MISSED_EVENT_UPDATE:I
 
     .line 160
-    new-instance v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$1;
+    new-instance v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$1;
 
-    invoke-direct {v9, p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$1;-><init>(Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;)V
+    invoke-direct {v10, p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$1;-><init>(Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;)V
 
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mHandler:Landroid/os/Handler;
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mHandler:Landroid/os/Handler;
 
     .line 170
-    new-instance v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$2;
+    new-instance v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$2;
 
-    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mHandler:Landroid/os/Handler;
+    iget-object v11, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mHandler:Landroid/os/Handler;
 
-    invoke-direct {v9, p0, v10}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$2;-><init>(Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;Landroid/os/Handler;)V
+    invoke-direct {v10, p0, v11}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$2;-><init>(Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;Landroid/os/Handler;)V
 
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mBadgeObserver:Landroid/database/ContentObserver;
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mBadgeObserver:Landroid/database/ContentObserver;
 
     .line 184
-    iput-object p2, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+    move-object/from16 v0, p2
+
+    iput-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     .line 185
     move-object/from16 v0, p3
@@ -316,9 +320,9 @@
     .line 186
     move-object/from16 v0, p4
 
-    iget v9, v0, Landroid/content/res/Configuration;->orientation:I
+    iget v10, v0, Landroid/content/res/Configuration;->orientation:I
 
-    iput v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOrientation:I
+    iput v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOrientation:I
 
     .line 187
     move/from16 v0, p5
@@ -331,54 +335,54 @@
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     .line 190
-    iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeInAnimation:Landroid/view/animation/AlphaAnimation;
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeInAnimation:Landroid/view/animation/AlphaAnimation;
 
-    const/4 v10, 0x1
+    const/4 v11, 0x1
 
-    invoke-virtual {v9, v10}, Landroid/view/animation/AlphaAnimation;->setFillAfter(Z)V
+    invoke-virtual {v10, v11}, Landroid/view/animation/AlphaAnimation;->setFillAfter(Z)V
 
     .line 191
-    iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeInAnimation:Landroid/view/animation/AlphaAnimation;
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeInAnimation:Landroid/view/animation/AlphaAnimation;
 
-    const-wide/16 v10, 0x12c
+    const-wide/16 v11, 0x12c
 
-    invoke-virtual {v9, v10, v11}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
+    invoke-virtual {v10, v11, v12}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
     .line 193
-    iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeOutAnimation:Landroid/view/animation/AlphaAnimation;
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeOutAnimation:Landroid/view/animation/AlphaAnimation;
 
-    const/4 v10, 0x1
+    const/4 v11, 0x1
 
-    invoke-virtual {v9, v10}, Landroid/view/animation/AlphaAnimation;->setFillAfter(Z)V
+    invoke-virtual {v10, v11}, Landroid/view/animation/AlphaAnimation;->setFillAfter(Z)V
 
     .line 194
-    iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeOutAnimation:Landroid/view/animation/AlphaAnimation;
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeOutAnimation:Landroid/view/animation/AlphaAnimation;
 
-    const-wide/16 v10, 0x12c
+    const-wide/16 v11, 0x12c
 
-    invoke-virtual {v9, v10, v11}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
+    invoke-virtual {v10, v11, v12}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
     .line 198
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "lock_screen_shortcut"
+    const-string v11, "lock_screen_shortcut"
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
-    invoke-static {v9, v10, v11}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v9
+    move-result v10
 
-    if-nez v9, :cond_0
+    if-nez v10, :cond_0
 
     .line 201
-    const/16 v9, 0x8
+    const/16 v10, 0x8
 
-    invoke-virtual {p0, v9}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setVisibility(I)V
+    invoke-virtual {p0, v10}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setVisibility(I)V
 
-    .line 387
+    .line 398
     :goto_0
     return-void
 
@@ -386,495 +390,561 @@
     :cond_0
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isShortcutApplied()Z
 
-    move-result v9
+    move-result v10
 
-    if-nez v9, :cond_1
+    if-nez v10, :cond_1
 
     .line 206
-    const/16 v9, 0x8
+    const/16 v10, 0x8
 
-    invoke-virtual {p0, v9}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setVisibility(I)V
+    invoke-virtual {p0, v10}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 221
+    .line 213
     :cond_1
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v10
+
+    const-string v11, "easy_mode_switch"
+
+    const/4 v12, 0x1
+
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v10
+
+    const/4 v11, 0x1
+
+    if-ne v10, v11, :cond_2
+
+    const/4 v7, 0x0
+
+    .line 214
+    .local v7, isEasyUxOn:Z
+    :goto_1
+    if-eqz v7, :cond_3
+
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const v11, 0x1110050
+
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_3
+
+    const/4 v7, 0x1
+
+    .line 216
+    :goto_2
+    if-eqz v7, :cond_4
+
+    .line 217
+    const/16 v10, 0x8
+
+    invoke-virtual {p0, v10}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setVisibility(I)V
+
+    goto :goto_0
+
+    .line 213
+    .end local v7           #isEasyUxOn:Z
+    :cond_2
+    const/4 v7, 0x1
+
+    goto :goto_1
+
+    .line 214
+    .restart local v7       #isEasyUxOn:Z
+    :cond_3
+    const/4 v7, 0x0
+
+    goto :goto_2
+
+    .line 232
+    :cond_4
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isTabletDevice()Z
 
-    move-result v9
+    move-result v10
 
-    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIsTablet:Z
-
-    .line 228
-    new-instance v9, Landroid/graphics/Rect;
-
-    invoke-direct {v9}, Landroid/graphics/Rect;-><init>()V
-
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOldBounds:Landroid/graphics/Rect;
-
-    .line 229
-    new-instance v9, Landroid/graphics/Canvas;
-
-    invoke-direct {v9}, Landroid/graphics/Canvas;-><init>()V
-
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCanvas:Landroid/graphics/Canvas;
-
-    .line 230
-    iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCanvas:Landroid/graphics/Canvas;
-
-    new-instance v10, Landroid/graphics/PaintFlagsDrawFilter;
-
-    const/4 v11, 0x4
-
-    const/4 v12, 0x2
-
-    invoke-direct {v10, v11, v12}, Landroid/graphics/PaintFlagsDrawFilter;-><init>(II)V
-
-    invoke-virtual {v9, v10}, Landroid/graphics/Canvas;->setDrawFilter(Landroid/graphics/DrawFilter;)V
-
-    .line 233
-    new-instance v9, Landroid/graphics/Canvas;
-
-    invoke-direct {v9}, Landroid/graphics/Canvas;-><init>()V
-
-    sput-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mGlowCanvas:Landroid/graphics/Canvas;
-
-    .line 234
-    sget-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mGlowCanvas:Landroid/graphics/Canvas;
-
-    new-instance v10, Landroid/graphics/PaintFlagsDrawFilter;
-
-    const/4 v11, 0x4
-
-    const/4 v12, 0x2
-
-    invoke-direct {v10, v11, v12}, Landroid/graphics/PaintFlagsDrawFilter;-><init>(II)V
-
-    invoke-virtual {v9, v10}, Landroid/graphics/Canvas;->setDrawFilter(Landroid/graphics/DrawFilter;)V
-
-    .line 236
-    sget-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mHolographicPaint:Landroid/graphics/Paint;
-
-    const/4 v10, 0x1
-
-    invoke-virtual {v9, v10}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
-
-    .line 237
-    sget-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mHolographicPaint:Landroid/graphics/Paint;
-
-    const/4 v10, 0x1
-
-    invoke-virtual {v9, v10}, Landroid/graphics/Paint;->setAntiAlias(Z)V
-
-    .line 238
-    new-instance v9, Landroid/graphics/BlurMaskFilter;
-
-    const/high16 v10, 0x40c0
-
-    sget-object v11, Landroid/graphics/BlurMaskFilter$Blur;->OUTER:Landroid/graphics/BlurMaskFilter$Blur;
-
-    invoke-direct {v9, v10, v11}, Landroid/graphics/BlurMaskFilter;-><init>(FLandroid/graphics/BlurMaskFilter$Blur;)V
-
-    sput-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sMediumOuterBlurMaskFilter:Landroid/graphics/BlurMaskFilter;
+    iput-boolean v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIsTablet:Z
 
     .line 239
-    sget-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mBlurPaint:Landroid/graphics/Paint;
+    new-instance v10, Landroid/graphics/Rect;
 
-    const/4 v10, 0x1
+    invoke-direct {v10}, Landroid/graphics/Rect;-><init>()V
 
-    invoke-virtual {v9, v10}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOldBounds:Landroid/graphics/Rect;
 
     .line 240
-    sget-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mBlurPaint:Landroid/graphics/Paint;
+    new-instance v10, Landroid/graphics/Canvas;
 
-    const/4 v10, 0x1
+    invoke-direct {v10}, Landroid/graphics/Canvas;-><init>()V
 
-    invoke-virtual {v9, v10}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCanvas:Landroid/graphics/Canvas;
 
     .line 241
-    sget-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mBlurPaint:Landroid/graphics/Paint;
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCanvas:Landroid/graphics/Canvas;
 
-    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sMediumOuterBlurMaskFilter:Landroid/graphics/BlurMaskFilter;
+    new-instance v11, Landroid/graphics/PaintFlagsDrawFilter;
 
-    invoke-virtual {v9, v10}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
+    const/4 v12, 0x4
 
-    .line 242
-    const/4 v9, -0x1
+    const/4 v13, 0x2
 
-    sput v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOuterGlowColor:I
+    invoke-direct {v11, v12, v13}, Landroid/graphics/PaintFlagsDrawFilter;-><init>(II)V
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Canvas;->setDrawFilter(Landroid/graphics/DrawFilter;)V
 
     .line 244
+    new-instance v10, Landroid/graphics/Canvas;
+
+    invoke-direct {v10}, Landroid/graphics/Canvas;-><init>()V
+
+    sput-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mGlowCanvas:Landroid/graphics/Canvas;
+
+    .line 245
+    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mGlowCanvas:Landroid/graphics/Canvas;
+
+    new-instance v11, Landroid/graphics/PaintFlagsDrawFilter;
+
+    const/4 v12, 0x4
+
+    const/4 v13, 0x2
+
+    invoke-direct {v11, v12, v13}, Landroid/graphics/PaintFlagsDrawFilter;-><init>(II)V
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Canvas;->setDrawFilter(Landroid/graphics/DrawFilter;)V
+
+    .line 247
+    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mHolographicPaint:Landroid/graphics/Paint;
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+
+    .line 248
+    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mHolographicPaint:Landroid/graphics/Paint;
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    .line 249
+    new-instance v10, Landroid/graphics/BlurMaskFilter;
+
+    const/high16 v11, 0x40c0
+
+    sget-object v12, Landroid/graphics/BlurMaskFilter$Blur;->OUTER:Landroid/graphics/BlurMaskFilter$Blur;
+
+    invoke-direct {v10, v11, v12}, Landroid/graphics/BlurMaskFilter;-><init>(FLandroid/graphics/BlurMaskFilter$Blur;)V
+
+    sput-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sMediumOuterBlurMaskFilter:Landroid/graphics/BlurMaskFilter;
+
+    .line 250
+    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mBlurPaint:Landroid/graphics/Paint;
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+
+    .line 251
+    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mBlurPaint:Landroid/graphics/Paint;
+
+    const/4 v11, 0x1
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    .line 252
+    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mBlurPaint:Landroid/graphics/Paint;
+
+    sget-object v11, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sMediumOuterBlurMaskFilter:Landroid/graphics/BlurMaskFilter;
+
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
+
+    .line 253
+    const/4 v10, -0x1
+
+    sput v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOuterGlowColor:I
+
+    .line 255
     new-instance v2, Landroid/graphics/ColorMatrix;
 
     invoke-direct {v2}, Landroid/graphics/ColorMatrix;-><init>()V
 
-    .line 245
+    .line 256
     .local v2, cm:Landroid/graphics/ColorMatrix;
-    const/high16 v9, 0x3f00
-
     const/high16 v10, 0x3f00
 
-    invoke-static {v2, v9, v10}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setContrastSaturation(Landroid/graphics/ColorMatrix;FF)V
+    const/high16 v11, 0x3f00
 
-    .line 248
-    sget-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mSaturationPaint:Landroid/graphics/Paint;
+    invoke-static {v2, v10, v11}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setContrastSaturation(Landroid/graphics/ColorMatrix;FF)V
 
-    const/4 v10, 0x1
+    .line 259
+    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mSaturationPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v9, v10}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+    const/4 v11, 0x1
 
-    .line 249
-    sget-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mSaturationPaint:Landroid/graphics/Paint;
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
 
-    const/4 v10, 0x1
+    .line 260
+    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mSaturationPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v9, v10}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    const/4 v11, 0x1
 
-    .line 250
-    sget-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mSaturationPaint:Landroid/graphics/Paint;
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    new-instance v10, Landroid/graphics/ColorMatrixColorFilter;
+    .line 261
+    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mSaturationPaint:Landroid/graphics/Paint;
 
-    invoke-direct {v10, v2}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
+    new-instance v11, Landroid/graphics/ColorMatrixColorFilter;
 
-    invoke-virtual {v9, v10}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+    invoke-direct {v11, v2}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
 
-    .line 252
+    invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+
+    .line 263
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v9
+    move-result-object v10
 
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mPm:Landroid/content/pm/PackageManager;
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mPm:Landroid/content/pm/PackageManager;
 
-    .line 254
-    new-instance v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;
+    .line 265
+    new-instance v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;
 
-    invoke-direct {v9, p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;-><init>(Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;)V
+    invoke-direct {v10, p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;-><init>(Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;)V
 
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mShortcutListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleUnlockListener;
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mShortcutListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleUnlockListener;
 
-    .line 295
+    .line 306
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getLauncherLargeIconDensity()I
 
-    move-result v9
+    move-result v10
 
-    iput v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconDpi:I
+    iput v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconDpi:I
 
-    .line 297
-    iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
+    .line 308
+    iget-boolean v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
 
-    if-eqz v9, :cond_2
+    if-eqz v10, :cond_5
 
-    .line 298
-    iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
+    .line 309
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "density = "
+    const-string v12, "density = "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    iget v11, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconDpi:I
+    iget v12, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconDpi:I
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 301
-    :cond_2
+    .line 312
+    :cond_5
     move-object/from16 v0, p6
 
     invoke-virtual {v0, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->registerShortcutWidgetUpdateForContextCallbacks(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ShortcutWidgetUpdateForContextCallback;)V
 
-    .line 304
-    iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIsTouchExplorationEnabled:Z
+    .line 315
+    iget-boolean v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIsTouchExplorationEnabled:Z
 
-    if-nez v9, :cond_3
+    if-nez v10, :cond_6
 
-    .line 305
-    iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mContext:Landroid/content/Context;
+    .line 316
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v9}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "touch_exploration_enabled"
+    const-string v11, "touch_exploration_enabled"
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
-    invoke-static {v9, v10, v11}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v10, v11, v12}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v5
 
-    .line 307
-    .local v5, exploreByTouchMode:I
-    const/4 v9, 0x1
-
-    if-ne v5, v9, :cond_4
-
-    .line 308
-    const/4 v9, 0x1
-
-    iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIsTouchExplorationEnabled:Z
-
-    .line 309
-    iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
-
-    const-string v10, "explore by touch mode on"
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 316
-    .end local v5           #exploreByTouchMode:I
-    :cond_3
-    :goto_1
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x1050065
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v9
-
-    float-to-int v9, v9
-
-    sput v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mShortcutImageViewWidth:I
-
-    .line 317
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x1050066
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v9
-
-    float-to-int v9, v9
-
-    sput v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mShortcutImageViewHeight:I
-
     .line 318
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getContext()Landroid/content/Context;
+    .local v5, exploreByTouchMode:I
+    const/4 v10, 0x1
 
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v9
-
-    const v10, 0x10802b3
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v9
-
-    sput-object v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sBadgeDrawable:Landroid/graphics/drawable/Drawable;
+    if-ne v5, v10, :cond_7
 
     .line 319
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const/4 v10, 0x1
 
-    move-result-object v9
-
-    const v10, 0x1050067
-
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v9
-
-    float-to-int v9, v9
-
-    sput v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sFontSizeDefault:I
+    iput-boolean v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIsTouchExplorationEnabled:Z
 
     .line 320
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
+
+    const-string v11, "explore by touch mode on"
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 327
+    .end local v5           #exploreByTouchMode:I
+    :cond_6
+    :goto_3
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v9
+    move-result-object v10
 
-    const v10, 0x1050068
+    const v11, 0x105006f
 
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v9
+    move-result v10
 
-    float-to-int v9, v9
+    float-to-int v10, v10
 
-    sput v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sFontSizeSmall:I
+    sput v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mShortcutImageViewWidth:I
 
-    .line 321
+    .line 328
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v9
+    move-result-object v10
 
-    const v10, 0x1050069
+    const v11, 0x1050070
 
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v9
+    move-result v10
 
-    float-to-int v9, v9
+    float-to-int v10, v10
 
-    sput v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sIconCenterXOffset:I
+    sput v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mShortcutImageViewHeight:I
 
-    .line 322
+    .line 329
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getContext()Landroid/content/Context;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const v11, 0x10802bc
+
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v10
+
+    sput-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sBadgeDrawable:Landroid/graphics/drawable/Drawable;
+
+    .line 330
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v9
+    move-result-object v10
 
-    const v10, 0x105006a
+    const v11, 0x1050071
 
-    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v9
+    move-result v10
 
-    float-to-int v9, v9
+    float-to-int v10, v10
 
-    sput v9, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sIconTopToTopOffset:I
+    sput v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sFontSizeDefault:I
 
-    .line 324
+    .line 331
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const v11, 0x1050072
+
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v10
+
+    float-to-int v10, v10
+
+    sput v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sFontSizeSmall:I
+
+    .line 332
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const v11, 0x1050073
+
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v10
+
+    float-to-int v10, v10
+
+    sput v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sIconCenterXOffset:I
+
+    .line 333
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const v11, 0x1050074
+
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v10
+
+    float-to-int v10, v10
+
+    sput v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->sIconTopToTopOffset:I
+
+    .line 335
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    sget-object v10, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->BADGE_URI:Landroid/net/Uri;
+    sget-object v11, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->BADGE_URI:Landroid/net/Uri;
 
-    const/4 v11, 0x1
+    const/4 v12, 0x1
 
-    iget-object v12, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mBadgeObserver:Landroid/database/ContentObserver;
+    iget-object v13, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mBadgeObserver:Landroid/database/ContentObserver;
 
-    invoke-virtual {v9, v10, v11, v12}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+    invoke-virtual {v10, v11, v12, v13}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 334
+    .line 345
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v9
+    move-result-object v10
 
-    const-string v10, "lock_screen_shortcut_app_list"
+    const-string v11, "lock_screen_shortcut_app_list"
 
-    invoke-static {v9, v10}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v10, v11}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 339
+    .line 350
     .local v1, activityList:Ljava/lang/String;
-    if-eqz v1, :cond_6
-
-    .line 343
-    const/4 v4, 0x0
-
-    .line 346
-    .local v4, dummyItem:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
-    new-instance v9, Ljava/util/ArrayList;
-
-    invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->shortcutItemName:Ljava/util/ArrayList;
-
-    .line 347
-    new-instance v9, Ljava/util/ArrayList;
-
-    invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->totalItemList:Ljava/util/ArrayList;
-
-    .line 351
-    new-instance v8, Landroid/text/TextUtils$SimpleStringSplitter;
-
-    const/16 v9, 0x3b
-
-    invoke-direct {v8, v9}, Landroid/text/TextUtils$SimpleStringSplitter;-><init>(C)V
-
-    .line 352
-    .local v8, splitter:Landroid/text/TextUtils$StringSplitter;
-    invoke-interface {v8, v1}, Landroid/text/TextUtils$StringSplitter;->setString(Ljava/lang/String;)V
-
-    .line 353
-    const/4 v3, 0x0
+    if-eqz v1, :cond_9
 
     .line 354
+    const/4 v4, 0x0
+
+    .line 357
+    .local v4, dummyItem:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
+    new-instance v10, Ljava/util/ArrayList;
+
+    invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->shortcutItemName:Ljava/util/ArrayList;
+
+    .line 358
+    new-instance v10, Ljava/util/ArrayList;
+
+    invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->totalItemList:Ljava/util/ArrayList;
+
+    .line 362
+    new-instance v9, Landroid/text/TextUtils$SimpleStringSplitter;
+
+    const/16 v10, 0x3b
+
+    invoke-direct {v9, v10}, Landroid/text/TextUtils$SimpleStringSplitter;-><init>(C)V
+
+    .line 363
+    .local v9, splitter:Landroid/text/TextUtils$StringSplitter;
+    invoke-interface {v9, v1}, Landroid/text/TextUtils$StringSplitter;->setString(Ljava/lang/String;)V
+
+    .line 364
+    const/4 v3, 0x0
+
+    .line 365
     .local v3, count:I
-    invoke-interface {v8}, Landroid/text/TextUtils$StringSplitter;->iterator()Ljava/util/Iterator;
+    invoke-interface {v9}, Landroid/text/TextUtils$StringSplitter;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
     .local v6, i$:Ljava/util/Iterator;
-    :goto_2
+    :goto_4
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_5
+    if-eqz v10, :cond_8
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Ljava/lang/String;
+    check-cast v8, Ljava/lang/String;
 
-    .line 355
-    .local v7, pkgActivity:Ljava/lang/String;
-    iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->shortcutItemName:Ljava/util/ArrayList;
+    .line 366
+    .local v8, pkgActivity:Ljava/lang/String;
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->shortcutItemName:Ljava/util/ArrayList;
 
-    invoke-virtual {v9, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 356
-    invoke-direct {p0, p1, v7, v3}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setEachItem(Landroid/content/Context;Ljava/lang/String;I)I
+    .line 367
+    invoke-direct {p0, p1, v8, v3}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setEachItem(Landroid/content/Context;Ljava/lang/String;I)I
 
     move-result v3
 
-    goto :goto_2
+    goto :goto_4
 
-    .line 311
+    .line 322
     .end local v1           #activityList:Ljava/lang/String;
     .end local v3           #count:I
     .end local v4           #dummyItem:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
     .end local v6           #i$:Ljava/util/Iterator;
-    .end local v7           #pkgActivity:Ljava/lang/String;
-    .end local v8           #splitter:Landroid/text/TextUtils$StringSplitter;
+    .end local v8           #pkgActivity:Ljava/lang/String;
+    .end local v9           #splitter:Landroid/text/TextUtils$StringSplitter;
     .restart local v5       #exploreByTouchMode:I
-    :cond_4
-    iget-object v9, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
+    :cond_7
+    iget-object v10, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
-    const-string v10, "explore by touch mode off"
+    const-string v11, "explore by touch mode off"
 
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_3
 
-    .line 374
+    .line 385
     .end local v5           #exploreByTouchMode:I
     .restart local v1       #activityList:Ljava/lang/String;
     .restart local v3       #count:I
     .restart local v4       #dummyItem:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
     .restart local v6       #i$:Ljava/util/Iterator;
-    .restart local v8       #splitter:Landroid/text/TextUtils$StringSplitter;
-    :cond_5
-    sput v3, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
+    .restart local v9       #splitter:Landroid/text/TextUtils$StringSplitter;
+    :cond_8
+    iput v3, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
     goto/16 :goto_0
 
-    .line 385
+    .line 396
     .end local v3           #count:I
     .end local v4           #dummyItem:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
     .end local v6           #i$:Ljava/util/Iterator;
-    .end local v8           #splitter:Landroid/text/TextUtils$StringSplitter;
-    :cond_6
-    const/16 v9, 0x8
+    .end local v9           #splitter:Landroid/text/TextUtils$StringSplitter;
+    :cond_9
+    const/16 v10, 0x8
 
-    invoke-virtual {p0, v9}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setVisibility(I)V
+    invoke-virtual {p0, v10}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setVisibility(I)V
 
     goto/16 :goto_0
 .end method
@@ -1234,7 +1304,7 @@
     .parameter "count"
 
     .prologue
-    .line 549
+    .line 560
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mContext:Landroid/content/Context;
@@ -1257,7 +1327,7 @@
 
     move-result-object v11
 
-    .line 551
+    .line 562
     .local v11, cursor:Landroid/database/Cursor;
     if-eqz v11, :cond_4
 
@@ -1267,7 +1337,7 @@
 
     if-eqz v3, :cond_4
 
-    .line 552
+    .line 563
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
@@ -1276,23 +1346,23 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 555
+    .line 566
     invoke-interface {v11}, Landroid/database/Cursor;->getCount()I
 
     move-result v16
 
-    .line 556
+    .line 567
     .local v16, rowcount:I
     invoke-interface {v11}, Landroid/database/Cursor;->getColumnCount()I
 
     move-result v9
 
-    .line 560
+    .line 571
     .local v9, columncount:I
     :cond_0
     const/4 v15, 0x0
 
-    .line 561
+    .line 572
     .local v15, isDuplicateItem:Z
     const-string v3, "package_name"
 
@@ -1300,7 +1370,7 @@
 
     move-result v14
 
-    .line 562
+    .line 573
     .local v14, idxOfPkg:I
     const-string v3, "class_name"
 
@@ -1308,7 +1378,7 @@
 
     move-result v13
 
-    .line 564
+    .line 575
     .local v13, idxOfActivity:I
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1340,7 +1410,7 @@
 
     move-result-object v10
 
-    .line 566
+    .line 577
     .local v10, contextualItemName:Ljava/lang/String;
     const/4 v12, 0x0
 
@@ -1350,7 +1420,7 @@
 
     if-ge v12, v0, :cond_2
 
-    .line 567
+    .line 578
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->shortcutItemName:Ljava/util/ArrayList;
@@ -1365,20 +1435,20 @@
 
     if-eqz v3, :cond_1
 
-    .line 568
+    .line 579
     const/4 v15, 0x1
 
-    .line 566
+    .line 577
     :cond_1
     add-int/lit8 v12, v12, 0x1
 
     goto :goto_0
 
-    .line 572
+    .line 583
     :cond_2
     if-nez v15, :cond_3
 
-    .line 573
+    .line 584
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
@@ -1387,10 +1457,10 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 574
+    .line 585
     invoke-interface {v11}, Landroid/database/Cursor;->close()V
 
-    .line 592
+    .line 603
     .end local v9           #columncount:I
     .end local v10           #contextualItemName:Ljava/lang/String;
     .end local v12           #i:I
@@ -1401,7 +1471,7 @@
     :goto_1
     return-object v10
 
-    .line 577
+    .line 588
     .restart local v9       #columncount:I
     .restart local v10       #contextualItemName:Ljava/lang/String;
     .restart local v12       #i:I
@@ -1416,13 +1486,13 @@
 
     if-nez v3, :cond_0
 
-    .line 579
+    .line 590
     invoke-interface {v11}, Landroid/database/Cursor;->close()V
 
-    .line 581
+    .line 592
     if-eqz v15, :cond_6
 
-    .line 582
+    .line 593
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
@@ -1431,7 +1501,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 583
+    .line 594
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
@@ -1444,7 +1514,7 @@
 
     goto :goto_1
 
-    .line 586
+    .line 597
     .end local v9           #columncount:I
     .end local v10           #contextualItemName:Ljava/lang/String;
     .end local v12           #i:I
@@ -1461,13 +1531,13 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 587
+    .line 598
     if-eqz v11, :cond_5
 
-    .line 588
+    .line 599
     invoke-interface {v11}, Landroid/database/Cursor;->close()V
 
-    .line 589
+    .line 600
     :cond_5
     move-object/from16 v0, p0
 
@@ -1481,7 +1551,7 @@
 
     goto :goto_1
 
-    .line 591
+    .line 602
     .restart local v9       #columncount:I
     .restart local v10       #contextualItemName:Ljava/lang/String;
     .restart local v12       #i:I
@@ -1492,7 +1562,7 @@
     :cond_6
     invoke-interface {v11}, Landroid/database/Cursor;->close()V
 
-    .line 592
+    .line 603
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
@@ -1512,7 +1582,7 @@
     .parameter "context"
 
     .prologue
-    .line 867
+    .line 872
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCanvas:Landroid/graphics/Canvas;
@@ -1521,7 +1591,7 @@
 
     monitor-enter v20
 
-    .line 869
+    .line 874
     :try_start_0
     move-object/from16 v0, p0
 
@@ -1529,13 +1599,13 @@
 
     move/from16 v16, v0
 
-    .line 870
+    .line 875
     .local v16, width:I
     move-object/from16 v0, p0
 
     iget v9, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconHeight:I
 
-    .line 872
+    .line 877
     .local v9, height:I
     move-object/from16 v0, p1
 
@@ -1545,7 +1615,7 @@
 
     if-eqz v19, :cond_6
 
-    .line 873
+    .line 878
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
@@ -1554,7 +1624,7 @@
 
     if-eqz v19, :cond_0
 
-    .line 874
+    .line 879
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
@@ -1569,7 +1639,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 875
+    .line 880
     :cond_0
     move-object/from16 v0, p1
 
@@ -1577,16 +1647,16 @@
 
     move-object v13, v0
 
-    .line 876
+    .line 881
     .local v13, painter:Landroid/graphics/drawable/PaintDrawable;
     move/from16 v0, v16
 
     invoke-virtual {v13, v0}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicWidth(I)V
 
-    .line 877
+    .line 882
     invoke-virtual {v13, v9}, Landroid/graphics/drawable/PaintDrawable;->setIntrinsicHeight(I)V
 
-    .line 888
+    .line 893
     .end local v13           #painter:Landroid/graphics/drawable/PaintDrawable;
     :cond_1
     :goto_0
@@ -1594,26 +1664,26 @@
 
     move-result v12
 
-    .line 889
+    .line 894
     .local v12, iconWidth:I
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v11
 
-    .line 891
+    .line 896
     .local v11, iconHeight:I
     if-lez v16, :cond_5
 
     if-lez v9, :cond_5
 
-    .line 892
+    .line 897
     move/from16 v0, v16
 
     if-lt v0, v12, :cond_2
 
     if-ge v9, v11, :cond_a
 
-    .line 893
+    .line 898
     :cond_2
     move-object/from16 v0, p0
 
@@ -1623,7 +1693,7 @@
 
     if-eqz v19, :cond_3
 
-    .line 894
+    .line 899
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
@@ -1638,7 +1708,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 895
+    .line 900
     :cond_3
     int-to-float v0, v12
 
@@ -1650,11 +1720,11 @@
 
     div-float v14, v19, v21
 
-    .line 897
+    .line 902
     .local v14, ratio:F
     if-le v12, v11, :cond_8
 
-    .line 898
+    .line 903
     move/from16 v0, v16
 
     int-to-float v0, v0
@@ -1667,7 +1737,7 @@
 
     float-to-int v9, v0
 
-    .line 903
+    .line 908
     :cond_4
     :goto_1
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/drawable/Drawable;->getOpacity()I
@@ -1684,7 +1754,7 @@
 
     sget-object v7, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 904
+    .line 909
     .local v7, c:Landroid/graphics/Bitmap$Config;
     :goto_2
     move-object/from16 v0, p0
@@ -1707,17 +1777,17 @@
 
     move-result-object v15
 
-    .line 905
+    .line 910
     .local v15, thumb:Landroid/graphics/Bitmap;
     move-object/from16 v0, p0
 
     iget-object v8, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 906
+    .line 911
     .local v8, canvas:Landroid/graphics/Canvas;
     invoke-virtual {v8, v15}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 912
+    .line 917
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOldBounds:Landroid/graphics/Rect;
@@ -1734,7 +1804,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 913
+    .line 918
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconWidth:I
@@ -1745,7 +1815,7 @@
 
     div-int/lit8 v17, v19, 0x2
 
-    .line 914
+    .line 919
     .local v17, x:I
     move-object/from16 v0, p0
 
@@ -1757,7 +1827,7 @@
 
     div-int/lit8 v18, v19, 0x2
 
-    .line 915
+    .line 920
     .local v18, y:I
     add-int v19, v17, v16
 
@@ -1775,12 +1845,12 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 916
+    .line 921
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v8}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 917
+    .line 922
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOldBounds:Landroid/graphics/Rect;
@@ -1793,7 +1863,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 919
+    .line 924
     new-instance v10, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -1808,7 +1878,7 @@
     .local v10, icon:Landroid/graphics/drawable/Drawable;
     move-object/from16 p1, v10
 
-    .line 938
+    .line 943
     .end local v7           #c:Landroid/graphics/Bitmap$Config;
     .end local v8           #canvas:Landroid/graphics/Canvas;
     .end local v10           #icon:Landroid/graphics/drawable/Drawable;
@@ -1821,10 +1891,10 @@
     :goto_3
     monitor-exit v20
 
-    .line 940
+    .line 945
     return-object p1
 
-    .line 878
+    .line 883
     .end local v11           #iconHeight:I
     .end local v12           #iconWidth:I
     :cond_6
@@ -1836,7 +1906,7 @@
 
     if-eqz v19, :cond_1
 
-    .line 879
+    .line 884
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
@@ -1845,7 +1915,7 @@
 
     if-eqz v19, :cond_7
 
-    .line 880
+    .line 885
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
@@ -1860,7 +1930,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 882
+    .line 887
     :cond_7
     move-object/from16 v0, p1
 
@@ -1868,13 +1938,13 @@
 
     move-object v6, v0
 
-    .line 883
+    .line 888
     .local v6, bitmapDrawable:Landroid/graphics/drawable/BitmapDrawable;
     invoke-virtual {v6}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v5
 
-    .line 884
+    .line 889
     .local v5, bitmap:Landroid/graphics/Bitmap;
     invoke-virtual {v5}, Landroid/graphics/Bitmap;->getDensity()I
 
@@ -1882,7 +1952,7 @@
 
     if-nez v19, :cond_1
 
-    .line 885
+    .line 890
     invoke-virtual/range {p2 .. p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v19
@@ -1897,7 +1967,7 @@
 
     goto/16 :goto_0
 
-    .line 938
+    .line 943
     .end local v5           #bitmap:Landroid/graphics/Bitmap;
     .end local v6           #bitmapDrawable:Landroid/graphics/drawable/BitmapDrawable;
     .end local v9           #height:I
@@ -1911,7 +1981,7 @@
 
     throw v19
 
-    .line 899
+    .line 904
     .restart local v9       #height:I
     .restart local v11       #iconHeight:I
     .restart local v12       #iconWidth:I
@@ -1920,7 +1990,7 @@
     :cond_8
     if-le v11, v12, :cond_4
 
-    .line 900
+    .line 905
     int-to-float v0, v9
 
     move/from16 v19, v0
@@ -1935,14 +2005,14 @@
 
     goto/16 :goto_1
 
-    .line 903
+    .line 908
     :cond_9
     :try_start_1
     sget-object v7, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
 
     goto/16 :goto_2
 
-    .line 921
+    .line 926
     .end local v14           #ratio:F
     :cond_a
     move/from16 v0, v16
@@ -1951,7 +2021,7 @@
 
     if-ge v11, v9, :cond_5
 
-    .line 922
+    .line 927
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
@@ -1960,7 +2030,7 @@
 
     if-eqz v19, :cond_b
 
-    .line 923
+    .line 928
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
@@ -1975,11 +2045,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 924
+    .line 929
     :cond_b
     sget-object v7, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 925
+    .line 930
     .restart local v7       #c:Landroid/graphics/Bitmap$Config;
     move-object/from16 v0, p0
 
@@ -2001,17 +2071,17 @@
 
     move-result-object v15
 
-    .line 926
+    .line 931
     .restart local v15       #thumb:Landroid/graphics/Bitmap;
     move-object/from16 v0, p0
 
     iget-object v8, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 927
+    .line 932
     .restart local v8       #canvas:Landroid/graphics/Canvas;
     invoke-virtual {v8, v15}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 928
+    .line 933
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOldBounds:Landroid/graphics/Rect;
@@ -2028,18 +2098,18 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 929
+    .line 934
     sub-int v19, v16, v12
 
     div-int/lit8 v17, v19, 0x2
 
-    .line 930
+    .line 935
     .restart local v17       #x:I
     sub-int v19, v9, v11
 
     div-int/lit8 v18, v19, 0x2
 
-    .line 931
+    .line 936
     .restart local v18       #y:I
     add-int v19, v17, v12
 
@@ -2057,12 +2127,12 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 932
+    .line 937
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v8}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 933
+    .line 938
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOldBounds:Landroid/graphics/Rect;
@@ -2075,7 +2145,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 934
+    .line 939
     new-instance v10, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -2102,14 +2172,14 @@
     .parameter "cn"
 
     .prologue
-    .line 848
+    .line 853
     const/4 v0, 0x0
 
-    .line 849
+    .line 854
     .local v0, intent:Landroid/content/Intent;
     if-eqz p1, :cond_0
 
-    .line 850
+    .line 855
     new-instance v0, Landroid/content/Intent;
 
     .end local v0           #intent:Landroid/content/Intent;
@@ -2117,21 +2187,21 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 851
+    .line 856
     .restart local v0       #intent:Landroid/content/Intent;
     const-string v1, "android.intent.category.LAUNCHER"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 852
+    .line 857
     invoke-virtual {v0, p1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 853
+    .line 858
     const/high16 v1, 0x1020
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 855
+    .line 860
     :cond_0
     return-object v0
 .end method
@@ -2142,7 +2212,7 @@
     .parameter "hide"
 
     .prologue
-    .line 659
+    .line 667
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getChildCount()I
 
     move-result v0
@@ -2151,12 +2221,12 @@
     :goto_0
     if-ltz v0, :cond_2
 
-    .line 660
+    .line 668
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 661
+    .line 669
     .local v1, tmpView:Landroid/view/View;
     instance-of v2, v1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
@@ -2164,7 +2234,7 @@
 
     if-eq p1, v1, :cond_0
 
-    .line 662
+    .line 670
     if-eqz p2, :cond_1
 
     move-object v2, v1
@@ -2177,12 +2247,12 @@
 
     if-nez v2, :cond_1
 
-    .line 663
+    .line 671
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeOutAnimation:Landroid/view/animation/AlphaAnimation;
 
     invoke-virtual {v1, v2}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 659
+    .line 667
     :cond_0
     :goto_1
     add-int/lit8 v0, v0, -0x1
@@ -2192,7 +2262,7 @@
     :cond_1
     move-object v2, v1
 
-    .line 664
+    .line 672
     check-cast v2, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
     invoke-virtual {v2}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->isDummy()Z
@@ -2201,14 +2271,14 @@
 
     if-nez v2, :cond_0
 
-    .line 665
+    .line 673
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mFadeInAnimation:Landroid/view/animation/AlphaAnimation;
 
     invoke-virtual {v1, v2}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
     goto :goto_1
 
-    .line 668
+    .line 676
     .end local v1           #tmpView:Landroid/view/View;
     :cond_2
     return-void
@@ -2218,7 +2288,7 @@
     .locals 2
 
     .prologue
-    .line 944
+    .line 949
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -2231,7 +2301,7 @@
 
     and-int/lit8 v0, v1, 0xf
 
-    .line 945
+    .line 950
     .local v0, screenSize:I
     const/4 v1, 0x3
 
@@ -2259,7 +2329,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 685
+    .line 693
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getChildCount()I
 
     move-result v0
@@ -2268,12 +2338,12 @@
     :goto_0
     if-ltz v0, :cond_1
 
-    .line 686
+    .line 694
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 687
+    .line 695
     .local v1, tmpView:Landroid/view/View;
     instance-of v2, v1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
@@ -2281,12 +2351,12 @@
 
     move-object v2, v1
 
-    .line 688
+    .line 696
     check-cast v2, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
     invoke-virtual {v2, v4}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->onPressed(Z)V
 
-    .line 689
+    .line 697
     check-cast v1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
     .end local v1           #tmpView:Landroid/view/View;
@@ -2294,29 +2364,31 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->setOpacity(D)V
 
-    .line 685
+    .line 693
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 692
+    .line 700
     :cond_1
     const/4 v2, 0x0
 
     invoke-direct {p0, v2, v4}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->hideOtherShortcuts(Landroid/view/View;Z)V
 
-    .line 693
+    .line 701
     return-void
 .end method
 
 .method private reloadBadges()V
-    .locals 9
+    .locals 10
 
     .prologue
     const/4 v4, 0x0
 
-    .line 632
+    const/4 v9, 0x0
+
+    .line 643
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getChildCount()I
 
     move-result v7
@@ -2325,12 +2397,12 @@
     :goto_0
     if-ltz v7, :cond_2
 
-    .line 633
+    .line 644
     invoke-virtual {p0, v7}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getChildAt(I)Landroid/view/View;
 
     move-result-object v8
 
-    .line 634
+    .line 645
     .local v8, tmpView:Landroid/view/View;
     instance-of v0, v8, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
@@ -2346,7 +2418,7 @@
 
     if-nez v0, :cond_1
 
-    .line 635
+    .line 646
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2413,63 +2485,73 @@
 
     move-result-object v6
 
-    .line 637
+    .line 648
     .local v6, c:Landroid/database/Cursor;
     if-eqz v6, :cond_1
 
-    .line 638
+    .line 649
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 639
-    :goto_1
-    invoke-interface {v6}, Landroid/database/Cursor;->isAfterLast()Z
+    .line 650
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
-    move-result v0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    if-nez v0, :cond_0
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "count="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-interface {v6, v9}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object v0, v8
 
-    .line 641
+    .line 651
     check-cast v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
-    const/4 v1, 0x0
-
-    invoke-interface {v6, v1}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v6, v9}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->setBadgeCount(I)V
 
-    move-object v0, v8
+    .line 652
+    check-cast v8, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
-    .line 642
-    check-cast v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
+    .end local v8           #tmpView:Landroid/view/View;
+    invoke-virtual {v8}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->refreshBadgeCount()V
 
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->refreshBadgeCount()V
-
-    .line 643
-    invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
-
-    goto :goto_1
-
-    .line 646
+    .line 654
     :cond_0
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 632
+    .line 643
     .end local v6           #c:Landroid/database/Cursor;
     :cond_1
     add-int/lit8 v7, v7, -0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 650
-    .end local v8           #tmpView:Landroid/view/View;
+    .line 658
     :cond_2
     return-void
 .end method
@@ -2480,38 +2562,38 @@
     .parameter "count"
 
     .prologue
-    .line 596
+    .line 607
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    .line 597
+    .line 608
     .local v5, resources:Landroid/content/res/Resources;
     const/4 v1, 0x0
 
-    .line 598
+    .line 609
     .local v1, candidateApp:[Ljava/lang/String;
     const/4 v0, 0x5
 
-    .line 600
+    .line 611
     .local v0, DEFAULT_APPS_COUNT:I
     sget-object v6, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_SPEN:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     if-ne p1, v6, :cond_2
 
-    .line 601
-    const v6, 0x107004d
+    .line 612
+    const v6, 0x107004f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 610
+    .line 621
     :cond_0
     :goto_0
     const/4 v3, 0x0
 
-    .line 612
+    .line 623
     .local v3, isDuplicateItem:Z
     const/4 v2, 0x0
 
@@ -2521,17 +2603,17 @@
 
     if-ge v2, v6, :cond_7
 
-    .line 613
+    .line 624
     const/4 v3, 0x0
 
-    .line 614
+    .line 625
     const/4 v4, 0x0
 
     .local v4, j:I
     :goto_2
     if-ge v4, p2, :cond_5
 
-    .line 615
+    .line 626
     aget-object v6, v1, v2
 
     iget-object v7, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->shortcutItemName:Ljava/util/ArrayList;
@@ -2546,16 +2628,16 @@
 
     if-eqz v6, :cond_1
 
-    .line 616
+    .line 627
     const/4 v3, 0x1
 
-    .line 614
+    .line 625
     :cond_1
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_2
 
-    .line 602
+    .line 613
     .end local v2           #i:I
     .end local v3           #isDuplicateItem:Z
     .end local v4           #j:I
@@ -2564,37 +2646,7 @@
 
     if-ne p1, v6, :cond_3
 
-    .line 603
-    const v6, 0x107004e
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    .line 604
-    :cond_3
-    sget-object v6, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_CARCRADLE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
-
-    if-ne p1, v6, :cond_4
-
-    .line 605
-    const v6, 0x107004f
-
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    .line 606
-    :cond_4
-    sget-object v6, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_DESKCRADLE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
-
-    if-ne p1, v6, :cond_0
-
-    .line 607
+    .line 614
     const v6, 0x1070050
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
@@ -2603,14 +2655,44 @@
 
     goto :goto_0
 
-    .line 620
+    .line 615
+    :cond_3
+    sget-object v6, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_CARCRADLE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
+
+    if-ne p1, v6, :cond_4
+
+    .line 616
+    const v6, 0x1070051
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    .line 617
+    :cond_4
+    sget-object v6, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_DESKCRADLE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
+
+    if-ne p1, v6, :cond_0
+
+    .line 618
+    const v6, 0x1070052
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    .line 631
     .restart local v2       #i:I
     .restart local v3       #isDuplicateItem:Z
     .restart local v4       #j:I
     :cond_5
     if-nez v3, :cond_6
 
-    .line 621
+    .line 632
     iget-object v6, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -2635,22 +2717,22 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 622
+    .line 633
     aget-object v6, v1, v2
 
-    .line 626
+    .line 637
     .end local v4           #j:I
     :goto_3
     return-object v6
 
-    .line 612
+    .line 623
     .restart local v4       #j:I
     :cond_6
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 625
+    .line 636
     .end local v4           #j:I
     :cond_7
     iget-object v6, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
@@ -2659,7 +2741,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 626
+    .line 637
     const/4 v6, 0x0
 
     aget-object v6, v1, v6
@@ -2673,7 +2755,7 @@
     .parameter "count"
 
     .prologue
-    .line 545
+    .line 556
     return p2
 .end method
 
@@ -2688,10 +2770,10 @@
 
     const/4 v9, 0x0
 
-    .line 1179
+    .line 1186
     add-float v4, p1, v10
 
-    .line 1180
+    .line 1187
     .local v4, scale:F
     const/high16 v6, -0x4100
 
@@ -2705,29 +2787,29 @@
 
     mul-float v5, v6, v7
 
-    .line 1181
+    .line 1188
     .local v5, translate:F
     sub-float v3, v10, p2
 
-    .line 1182
+    .line 1189
     .local v3, invSat:F
     const v6, 0x3e5a1cac
 
     mul-float v2, v6, v3
 
-    .line 1183
+    .line 1190
     .local v2, R:F
     const v6, 0x3f370a3d
 
     mul-float v1, v6, v3
 
-    .line 1184
+    .line 1191
     .local v1, G:F
     const v6, 0x3d9374bc
 
     mul-float v0, v6, v3
 
-    .line 1186
+    .line 1193
     .local v0, B:F
     const/16 v6, 0x14
 
@@ -2821,7 +2903,7 @@
 
     invoke-virtual {p0, v6}, Landroid/graphics/ColorMatrix;->set([F)V
 
-    .line 1192
+    .line 1199
     return-void
 .end method
 
@@ -2832,17 +2914,17 @@
     .parameter "count"
 
     .prologue
-    .line 391
+    .line 402
     add-int/lit8 p3, p3, 0x1
 
-    .line 393
+    .line 404
     const/16 v5, 0x2f
 
     invoke-virtual {p2, v5}, Ljava/lang/String;->indexOf(I)I
 
     move-result v2
 
-    .line 394
+    .line 405
     .local v2, commaIndex:I
     const/4 v5, 0x0
 
@@ -2850,7 +2932,7 @@
 
     move-result-object v3
 
-    .line 395
+    .line 406
     .local v3, pkgName:Ljava/lang/String;
     add-int/lit8 v5, v2, 0x1
 
@@ -2858,13 +2940,13 @@
 
     move-result-object v0
 
-    .line 396
+    .line 407
     .local v0, activityName:Ljava/lang/String;
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
 
     if-eqz v5, :cond_0
 
-    .line 397
+    .line 408
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2897,18 +2979,18 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 410
+    .line 421
     :cond_0
     const/4 v1, 0x0
 
-    .line 411
+    .line 422
     .local v1, cn:Landroid/content/ComponentName;
     new-instance v1, Landroid/content/ComponentName;
 
     .end local v1           #cn:Landroid/content/ComponentName;
     invoke-direct {v1, v3, v0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 412
+    .line 423
     .restart local v1       #cn:Landroid/content/ComponentName;
     new-instance v4, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
@@ -2916,7 +2998,7 @@
 
     invoke-direct {v4, p0, p1, v1, v5}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;-><init>(Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;Landroid/content/Context;Landroid/content/ComponentName;Z)V
 
-    .line 415
+    .line 426
     .local v4, testItem:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
     #getter for: Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->mIntent:Landroid/content/Intent;
     invoke-static {v4}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->access$400(Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;)Landroid/content/Intent;
@@ -2925,45 +3007,45 @@
 
     if-eqz v5, :cond_1
 
-    .line 416
+    .line 427
     new-instance v5, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$4;
 
     invoke-direct {v5, p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$4;-><init>(Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;)V
 
     invoke-virtual {v4, v5}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 480
+    .line 491
     invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->addView(Landroid/view/View;)V
 
-    .line 481
+    .line 492
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->totalItemList:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 513
+    .line 524
     :goto_0
     const/4 v1, 0x0
 
-    .line 514
+    .line 525
     const/4 v4, 0x0
 
-    .line 516
+    .line 527
     return p3
 
-    .line 507
+    .line 518
     :cond_1
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
 
     if-eqz v5, :cond_2
 
-    .line 508
+    .line 519
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     const-string v6, "mIntent=null"
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 510
+    .line 521
     :cond_2
     add-int/lit8 p3, p3, -0x1
 
@@ -2980,24 +3062,24 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1199
+    .line 1206
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     const-string v2, "Enter callback method to update shortcut widget."
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1200
+    .line 1207
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     if-nez v1, :cond_1
 
-    .line 1244
+    .line 1251
     :cond_0
     :goto_0
     return-void
 
-    .line 1205
+    .line 1212
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
@@ -3011,30 +3093,30 @@
 
     if-ne p1, v3, :cond_2
 
-    .line 1206
+    .line 1213
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v1, p2}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->pushContextMode(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;)V
 
-    .line 1207
+    .line 1214
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
+    iget v2, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
     invoke-direct {p0, v1, v2}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setContextualItem(Landroid/content/Context;I)I
 
     move-result v1
 
-    sput v1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
+    iput v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
-    .line 1208
+    .line 1215
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     const-string v2, "Add contextual shortcut item."
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1238
+    .line 1245
     :goto_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
@@ -3042,7 +3124,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1239
+    .line 1246
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3087,7 +3169,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1241
+    .line 1248
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->isShowingAndNotHidden()Z
@@ -3096,12 +3178,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 1242
+    .line 1249
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->invalidate()V
 
     goto :goto_0
 
-    .line 1210
+    .line 1217
     :cond_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
@@ -3115,50 +3197,50 @@
 
     if-nez p1, :cond_4
 
-    .line 1211
+    .line 1218
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v1, p2}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->popContextMode(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;)V
 
-    .line 1212
+    .line 1219
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_CARCRADLE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     if-ne p2, v1, :cond_3
 
-    .line 1213
+    .line 1220
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     sget-object v2, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_DESKCRADLE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->popContextMode(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;)V
 
-    .line 1215
+    .line 1222
     :cond_3
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getChildCount()I
 
     move-result v0
 
-    .line 1216
+    .line 1223
     .local v0, index:I
     add-int/lit8 v1, v0, -0x1
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->removeViewAt(I)V
 
-    .line 1217
+    .line 1224
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->totalItemList:Ljava/util/ArrayList;
 
     add-int/lit8 v2, v0, -0x1
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 1218
-    sget v1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
+    .line 1225
+    iget v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
     add-int/lit8 v1, v1, -0x1
 
-    sput v1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
+    iput v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
-    .line 1219
+    .line 1226
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     const-string v2, "Remove last contextual shortcut item."
@@ -3167,55 +3249,55 @@
 
     goto :goto_1
 
-    .line 1221
+    .line 1228
     .end local v0           #index:I
     :cond_4
     if-ne p1, v3, :cond_6
 
-    .line 1222
+    .line 1229
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v1, p2}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->pushContextMode(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;)V
 
-    .line 1229
+    .line 1236
     :cond_5
     :goto_2
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getChildCount()I
 
     move-result v0
 
-    .line 1230
+    .line 1237
     .restart local v0       #index:I
     add-int/lit8 v1, v0, -0x1
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->removeViewAt(I)V
 
-    .line 1231
+    .line 1238
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->totalItemList:Ljava/util/ArrayList;
 
     add-int/lit8 v2, v0, -0x1
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 1232
-    sget v1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
+    .line 1239
+    iget v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
     add-int/lit8 v1, v1, -0x1
 
-    sput v1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
+    iput v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
-    .line 1234
+    .line 1241
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
+    iget v2, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
     invoke-direct {p0, v1, v2}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->setContextualItem(Landroid/content/Context;I)I
 
     move-result v1
 
-    sput v1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
+    iput v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
-    .line 1235
+    .line 1242
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     const-string v2, "Remove last contextual shortcut item and add new item."
@@ -3224,19 +3306,19 @@
 
     goto/16 :goto_1
 
-    .line 1224
+    .line 1231
     .end local v0           #index:I
     :cond_6
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v1, p2}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->popContextMode(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;)V
 
-    .line 1225
+    .line 1232
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_CARCRADLE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
 
     if-ne p2, v1, :cond_5
 
-    .line 1226
+    .line 1233
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     sget-object v2, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;->CONTEXT_MODE_DESKCRADLE:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$ContextMode;
@@ -3252,19 +3334,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 696
+    .line 704
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
 
     if-eqz v0, :cond_0
 
-    .line 697
+    .line 705
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     const-string v1, "cleanUp()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 699
+    .line 707
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mContext:Landroid/content/Context;
 
@@ -3276,24 +3358,24 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 700
+    .line 708
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->removeCallback(Ljava/lang/Object;)V
 
-    .line 701
+    .line 709
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 702
+    .line 710
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mShortcutListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleUnlockListener;
 
-    .line 703
+    .line 711
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mOldBounds:Landroid/graphics/Rect;
 
-    .line 704
+    .line 712
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 705
+    .line 713
     return-void
 .end method
 
@@ -3301,7 +3383,7 @@
     .locals 2
 
     .prologue
-    .line 986
+    .line 991
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -3320,10 +3402,10 @@
     .parameter "info"
 
     .prologue
-    .line 961
+    .line 966
     const/4 v1, 0x0
 
-    .line 963
+    .line 968
     .local v1, icon:Landroid/graphics/drawable/Drawable;
     :try_start_0
     iget-object v4, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -3332,15 +3414,15 @@
 
     if-nez v4, :cond_0
 
-    .line 964
+    .line 969
     const/4 v3, 0x0
 
-    .line 970
+    .line 975
     .local v3, resources:Landroid/content/res/Resources;
     :goto_0
     if-eqz v3, :cond_3
 
-    .line 971
+    .line 976
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mPm:Landroid/content/pm/PackageManager;
 
     iget-object v4, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -3358,16 +3440,16 @@
 
     move-result-object v1
 
-    .line 973
+    .line 978
     if-eqz v1, :cond_2
 
     move-object v4, v1
 
-    .line 982
+    .line 987
     :goto_2
     return-object v4
 
-    .line 966
+    .line 971
     .end local v3           #resources:Landroid/content/res/Resources;
     :cond_0
     :try_start_1
@@ -3386,19 +3468,19 @@
     .restart local v3       #resources:Landroid/content/res/Resources;
     goto :goto_0
 
-    .line 967
+    .line 972
     .end local v3           #resources:Landroid/content/res/Resources;
     :catch_0
     move-exception v0
 
-    .line 968
+    .line 973
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const/4 v3, 0x0
 
     .restart local v3       #resources:Landroid/content/res/Resources;
     goto :goto_0
 
-    .line 971
+    .line 976
     .end local v0           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :cond_1
     iget-object v4, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -3407,7 +3489,7 @@
 
     goto :goto_1
 
-    .line 977
+    .line 982
     :cond_2
     iget-object v4, p1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
@@ -3415,18 +3497,18 @@
 
     move-result v2
 
-    .line 978
+    .line 983
     .local v2, iconId:I
     if-eqz v2, :cond_3
 
-    .line 979
+    .line 984
     invoke-virtual {p0, v3, v2}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getFullResIcon(Landroid/content/res/Resources;I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
     goto :goto_2
 
-    .line 982
+    .line 987
     .end local v2           #iconId:I
     :cond_3
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getFullResDefaultActivityIcon()Landroid/graphics/drawable/Drawable;
@@ -3442,7 +3524,7 @@
     .parameter "iconId"
 
     .prologue
-    .line 951
+    .line 956
     :try_start_0
     iget v2, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mIconDpi:I
 
@@ -3452,7 +3534,7 @@
 
     move-result-object v0
 
-    .line 956
+    .line 961
     .local v0, d:Landroid/graphics/drawable/Drawable;
     :goto_0
     if-eqz v0, :cond_0
@@ -3461,18 +3543,18 @@
     :goto_1
     return-object v0
 
-    .line 952
+    .line 957
     :catch_0
     move-exception v1
 
-    .line 953
+    .line 958
     .local v1, e:Landroid/content/res/Resources$NotFoundException;
     const/4 v0, 0x0
 
     .restart local v0       #d:Landroid/graphics/drawable/Drawable;
     goto :goto_0
 
-    .line 956
+    .line 961
     .end local v1           #e:Landroid/content/res/Resources$NotFoundException;
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getFullResDefaultActivityIcon()Landroid/graphics/drawable/Drawable;
@@ -3486,8 +3568,8 @@
     .locals 1
 
     .prologue
-    .line 654
-    sget v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
+    .line 662
+    iget v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mItemCount:I
 
     return v0
 .end method
@@ -3498,14 +3580,14 @@
     .prologue
     const/16 v3, 0x140
 
-    .line 1260
+    .line 1267
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 1261
+    .line 1268
     .local v1, res:Landroid/content/res/Resources;
     invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
@@ -3513,7 +3595,7 @@
 
     iget v0, v4, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    .line 1262
+    .line 1269
     .local v0, density:I
     invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
@@ -3521,23 +3603,23 @@
 
     iget v2, v4, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
 
-    .line 1264
+    .line 1271
     .local v2, sw:I
     const/16 v4, 0x258
 
     if-ge v2, v4, :cond_0
 
-    .line 1285
+    .line 1292
     .end local v0           #density:I
     :goto_0
     return v0
 
-    .line 1269
+    .line 1276
     .restart local v0       #density:I
     :cond_0
     sparse-switch v0, :sswitch_data_0
 
-    .line 1285
+    .line 1292
     int-to-float v3, v0
 
     const/high16 v4, 0x3fc0
@@ -3552,13 +3634,13 @@
 
     goto :goto_0
 
-    .line 1271
+    .line 1278
     :sswitch_0
     const/16 v0, 0xa0
 
     goto :goto_0
 
-    .line 1273
+    .line 1280
     :sswitch_1
     const/16 v0, 0xf0
 
@@ -3567,28 +3649,28 @@
     :sswitch_2
     move v0, v3
 
-    .line 1275
+    .line 1282
     goto :goto_0
 
     :sswitch_3
     move v0, v3
 
-    .line 1277
+    .line 1284
     goto :goto_0
 
-    .line 1279
+    .line 1286
     :sswitch_4
     const/16 v0, 0x1e0
 
     goto :goto_0
 
-    .line 1281
+    .line 1288
     :sswitch_5
     const/16 v0, 0x280
 
     goto :goto_0
 
-    .line 1269
+    .line 1276
     nop
 
     :sswitch_data_0
@@ -3606,23 +3688,23 @@
     .locals 2
 
     .prologue
-    .line 671
+    .line 679
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
 
     if-eqz v0, :cond_0
 
-    .line 672
+    .line 680
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     const-string v1, "onPause()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 674
+    .line 682
     :cond_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->refreshShortcutItems()V
 
-    .line 675
+    .line 683
     return-void
 .end method
 
@@ -3630,23 +3712,23 @@
     .locals 2
 
     .prologue
-    .line 678
+    .line 686
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->DBG:Z
 
     if-eqz v0, :cond_0
 
-    .line 679
+    .line 687
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
 
     const-string v1, "onResume()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 681
+    .line 689
     :cond_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->refreshShortcutItems()V
 
-    .line 682
+    .line 690
     return-void
 .end method
 
@@ -3659,12 +3741,12 @@
 
     const/4 v1, 0x1
 
-    .line 1247
+    .line 1254
     new-instance v9, Landroid/view/animation/AnimationSet;
 
     invoke-direct {v9, v1}, Landroid/view/animation/AnimationSet;-><init>(Z)V
 
-    .line 1249
+    .line 1256
     .local v9, set:Landroid/view/animation/AnimationSet;
     new-instance v0, Landroid/view/animation/TranslateAnimation;
 
@@ -3682,16 +3764,16 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/view/animation/TranslateAnimation;-><init>(IFIFIFIF)V
 
-    .line 1252
+    .line 1259
     .local v0, ani:Landroid/view/animation/TranslateAnimation;
     const-wide/16 v1, 0x12c
 
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
 
-    .line 1253
+    .line 1260
     invoke-virtual {v9, v0}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 1255
+    .line 1262
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->totalItemList:Ljava/util/ArrayList;
 
     add-int/lit8 v2, p1, -0x1
@@ -3704,6 +3786,6 @@
 
     invoke-virtual {v1, v9}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->setAnimation(Landroid/view/animation/Animation;)V
 
-    .line 1256
+    .line 1263
     return-void
 .end method

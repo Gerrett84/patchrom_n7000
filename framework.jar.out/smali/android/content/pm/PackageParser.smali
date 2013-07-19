@@ -940,6 +940,82 @@
     goto :goto_1
 .end method
 
+.method private enableMultiWindow(Landroid/content/pm/PackageParser$IntentInfo;)V
+    .locals 2
+    .parameter "outInfo"
+
+    .prologue
+    const-string v0, "android.intent.category.MULTIWINDOW_LAUNCHER"
+
+    .local v0, CATEGORY_WM:Ljava/lang/String;
+    const-string v1, "android.intent.category.LAUNCHER"
+
+    invoke-virtual {p1, v1}, Landroid/content/pm/PackageParser$IntentInfo;->hasCategory(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string v1, "android.intent.category.MULTIWINDOW_LAUNCHER"
+
+    invoke-virtual {p1, v1}, Landroid/content/pm/PackageParser$IntentInfo;->hasCategory(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "android.intent.category.MULTIWINDOW_LAUNCHER"
+
+    invoke-virtual {p1, v1}, Landroid/content/pm/PackageParser$IntentInfo;->addCategory(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private enableWM(Landroid/content/pm/PackageParser$Package;)V
+    .locals 3
+    .parameter "owner"
+
+    .prologue
+    iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->activities:Ljava/util/ArrayList;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->activities:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->mAppMetaData:Landroid/os/Bundle;
+
+    if-nez v0, :cond_2
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    iput-object v0, p1, Landroid/content/pm/PackageParser$Package;->mAppMetaData:Landroid/os/Bundle;
+
+    :cond_2
+    iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->mAppMetaData:Landroid/os/Bundle;
+
+    const-string v1, "com.sec.android.support.multiwindow"
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    goto :goto_0
+.end method
+
 .method public static final generateActivityInfo(Landroid/content/pm/PackageParser$Activity;IZII)Landroid/content/pm/ActivityInfo;
     .locals 3
     .parameter "a"
@@ -3957,7 +4033,7 @@
 
     move-result-object v2
 
-    const-string v3, "meta-data"
+    const-string/jumbo v3, "meta-data"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4997,7 +5073,7 @@
 
     move-result-object v2
 
-    const-string v3, "meta-data"
+    const-string/jumbo v3, "meta-data"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -5179,7 +5255,7 @@
 
     move-result-object v0
 
-    const-string v1, "meta-data"
+    const-string/jumbo v1, "meta-data"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -6434,7 +6510,7 @@
 
     move-result-object v3
 
-    const-string v4, "meta-data"
+    const-string/jumbo v4, "meta-data"
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -7093,7 +7169,7 @@
     .line 3007
     const-string v13, "http://schemas.android.com/apk/res/android"
 
-    const-string v14, "name"
+    const-string/jumbo v14, "name"
 
     move-object/from16 v0, p3
 
@@ -7153,7 +7229,7 @@
     .line 3017
     const-string v13, "http://schemas.android.com/apk/res/android"
 
-    const-string v14, "name"
+    const-string/jumbo v14, "name"
 
     move-object/from16 v0, p3
 
@@ -7454,13 +7530,13 @@
 
     iput-boolean v13, v0, Landroid/content/pm/PackageParser$IntentInfo;->hasDefault:Z
 
-    .line 3105
     move-object/from16 v0, p0
 
     move-object/from16 v1, p5
 
     invoke-direct {v0, v1}, Landroid/content/pm/PackageParser;->enableMultiWindow(Landroid/content/pm/PackageParser$IntentInfo;)V
 
+    .line 3105
     const/4 v13, 0x1
 
     goto/16 :goto_1
@@ -10293,7 +10369,7 @@
 
     move-result-object v9
 
-    const-string v10, "manifest"
+    const-string/jumbo v10, "manifest"
 
     invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -10963,7 +11039,7 @@
 
     move-result-object v4
 
-    const-string v5, "manifest"
+    const-string/jumbo v5, "manifest"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -12198,7 +12274,7 @@
 
     move-result-object v2
 
-    const-string v3, "meta-data"
+    const-string/jumbo v3, "meta-data"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -13393,7 +13469,7 @@
 
     move-result-object v2
 
-    const-string v3, "meta-data"
+    const-string/jumbo v3, "meta-data"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -13975,7 +14051,7 @@
     goto :goto_2
 
     :cond_9
-    const-string v5, "must have at least one \'.\' separator"
+    const-string/jumbo v5, "must have at least one \'.\' separator"
 
     goto :goto_2
 .end method
@@ -15474,89 +15550,4 @@
 
     .line 238
     return-void
-.end method
-
-.method private enableMultiWindow(Landroid/content/pm/PackageParser$IntentInfo;)V
-    .locals 2
-    .parameter "outInfo"
-
-    .prologue
-    .line 3119
-    const-string v0, "android.intent.category.MULTIWINDOW_LAUNCHER"
-
-    .line 3121
-    .local v0, CATEGORY_WM:Ljava/lang/String;
-    const-string v1, "android.intent.category.LAUNCHER"
-
-    invoke-virtual {p1, v1}, Landroid/content/pm/PackageParser$IntentInfo;->hasCategory(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string v1, "android.intent.category.MULTIWINDOW_LAUNCHER"
-
-    invoke-virtual {p1, v1}, Landroid/content/pm/PackageParser$IntentInfo;->hasCategory(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    .line 3122
-    const-string v1, "android.intent.category.MULTIWINDOW_LAUNCHER"
-
-    invoke-virtual {p1, v1}, Landroid/content/pm/PackageParser$IntentInfo;->addCategory(Ljava/lang/String;)V
-
-    .line 3124
-    :cond_0
-    return-void
-.end method
-
-.method private enableWM(Landroid/content/pm/PackageParser$Package;)V
-    .locals 3
-    .parameter "owner"
-
-    .prologue
-    .line 2013
-    iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->activities:Ljava/util/ArrayList;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->activities:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 2020
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 2016
-    :cond_1
-    iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->mAppMetaData:Landroid/os/Bundle;
-
-    if-nez v0, :cond_2
-
-    .line 2017
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    iput-object v0, p1, Landroid/content/pm/PackageParser$Package;->mAppMetaData:Landroid/os/Bundle;
-
-    .line 2019
-    :cond_2
-    iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->mAppMetaData:Landroid/os/Bundle;
-
-    const-string v1, "com.sec.android.support.multiwindow"
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    goto :goto_0
 .end method

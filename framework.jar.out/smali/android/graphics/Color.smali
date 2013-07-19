@@ -194,7 +194,7 @@
     .line 387
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
-    const-string v1, "magenta"
+    const-string/jumbo v1, "magenta"
 
     const v2, -0xff01
 

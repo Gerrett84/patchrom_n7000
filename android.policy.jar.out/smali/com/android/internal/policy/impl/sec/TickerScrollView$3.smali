@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 183
+    .line 195
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$3;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 187
+    .line 199
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
 
@@ -62,7 +62,7 @@
 
     check-cast v0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;
 
-    .line 188
+    .line 200
     .local v0, facebookData:Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -96,7 +96,7 @@
 
     move-result-object v2
 
-    .line 189
+    .line 201
     .local v2, uri:Landroid/net/Uri;
     new-instance v1, Landroid/content/Intent;
 
@@ -104,13 +104,13 @@
 
     invoke-direct {v1, v3, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 190
+    .line 202
     .local v1, intent:Landroid/content/Intent;
     const/high16 v3, 0x1000
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 191
+    .line 203
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$3;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mContext:Landroid/content/Context;
@@ -120,7 +120,7 @@
 
     invoke-virtual {v3, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 192
+    .line 204
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$3;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
@@ -130,7 +130,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 193
+    .line 205
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$3;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerScrollView;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
@@ -140,7 +140,7 @@
 
     invoke-interface {v3}, Lcom/android/internal/policy/impl/sec/TickerCallback;->goToUnlockScreen()V
 
-    .line 195
+    .line 207
     :cond_0
     return-void
 .end method

@@ -48,6 +48,8 @@
 
 .field public static final CscFeatureTagWeb_EnableEmoji:Ljava/lang/String; = "CscFeature_Web_Bool_EnableEmoji"
 
+.field public static final CscFeatureTagWeb_EnableGesturePopup:Ljava/lang/String; = "CscFeature_Web_Bool_EnableGesturePopup"
+
 .field public static final CscFeatureTagWeb_EnableHomepageOption:Ljava/lang/String; = "CscFeature_Web_EnableHomepageOption"
 
 .field public static final CscFeatureTagWeb_EnableMultipleApn4:Ljava/lang/String; = "CscFeature_Web_EnableMultipleApn4"
@@ -65,6 +67,8 @@
 .field public static final CscFeatureTagWeb_EnableSecDrmConverter4ExternalApk:Ljava/lang/String; = "CscFeature_Web_EnableSecDrmConverter4ExternalApk"
 
 .field public static final CscFeatureTagWeb_ParseXHtmlToHtml:Ljava/lang/String; = "CscFeature_Web_ParseXHtmlToHtml"
+
+.field public static final CscFeatureTagWeb_RemoveBrowserIconInBookmarkThumbnailWidget:Ljava/lang/String; = "CscFeature_Web_RemoveBrowserIconInBookmarkThumbnailWidget"
 
 .field public static final CscFeatureTagWeb_SetDownloadFolderNameByMimeType:Ljava/lang/String; = "CscFeature_Web_SetDownloadFolderNameByMimeType"
 

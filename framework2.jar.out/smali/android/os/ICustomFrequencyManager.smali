@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract checkCPUCoreRange(I)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract checkFrameRateRange(I)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -55,6 +63,14 @@
     .end annotation
 .end method
 
+.method public abstract releaseCPUCore(Landroid/os/IBinder;Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract releaseGPU(Landroid/os/IBinder;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -64,6 +80,14 @@
 .end method
 
 .method public abstract releaseSysBus(Landroid/os/IBinder;Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract requestCPUCore(ILandroid/os/IBinder;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

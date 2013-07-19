@@ -124,7 +124,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignServiceRunningLock:Ljava/lang/Object;
 
-    .line 379
+    .line 387
     new-instance v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$1;-><init>(Lcom/android/internal/policy/impl/sec/SignatureLockScreen;)V
@@ -173,13 +173,13 @@
     if-eq v0, v1, :cond_1
 
     .line 110
-    const v0, 0x1090089
+    const v0, 0x109008e
 
     invoke-virtual {v7, v0, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     .line 120
     :goto_0
-    const v0, 0x1020376
+    const v0, 0x1020386
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->findViewById(I)Landroid/view/View;
 
@@ -218,7 +218,7 @@
 
     move-result-object v0
 
-    const v1, 0x10406db
+    const v1, 0x10406f1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -228,7 +228,7 @@
 
     .line 130
     :goto_2
-    const v0, 0x102037a
+    const v0, 0x102038a
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->findViewById(I)Landroid/view/View;
 
@@ -282,7 +282,7 @@
     invoke-virtual {v0, v9}, Lcom/android/internal/policy/impl/sec/ClockWidget;->setGravity(I)V
 
     .line 143
-    const v0, 0x1020377
+    const v0, 0x1020387
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->findViewById(I)Landroid/view/View;
 
@@ -333,7 +333,7 @@
     .line 113
     .end local v6           #helpTextEnabled:Z
     :cond_1
-    const v0, 0x109008a
+    const v0, 0x109008f
 
     invoke-virtual {v7, v0, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -558,7 +558,7 @@
     sput-object v1, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mState:Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
     .line 168
-    const v1, 0x1020378
+    const v1, 0x1020388
 
     move-object/from16 v0, p0
 
@@ -655,7 +655,7 @@
 
     goto :goto_0
 
-    .line 184
+    .line 185
     .end local v14           #index:I
     :cond_0
     move-object/from16 v0, p0
@@ -664,7 +664,7 @@
 
     invoke-virtual {v1}, Lcom/android/internal/widget/SignView;->setVerifySign()V
 
-    .line 187
+    .line 188
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mContext:Landroid/content/Context;
@@ -685,7 +685,7 @@
 
     iput v1, v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mVerificationLevel:I
 
-    .line 189
+    .line 190
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -696,7 +696,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/SignView;->setVerificationLevel(I)V
 
-    .line 192
+    .line 193
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -707,7 +707,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/SignView;->setSettingInputType(I)V
 
-    .line 195
+    .line 196
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -718,7 +718,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/SignView;->setStrokeCount(I)V
 
-    .line 196
+    .line 197
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -733,7 +733,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/SignView;->setSignatureVisible(Z)V
 
-    .line 197
+    .line 198
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -748,7 +748,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/SignView;->setOnSignatureListener(Lcom/android/internal/widget/SignView$OnSignatureListener;)V
 
-    .line 200
+    .line 201
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -766,7 +766,7 @@
     :goto_1
     invoke-virtual {v2, v1}, Lcom/android/internal/widget/SignView;->enableBezierCurve(Z)V
 
-    .line 203
+    .line 204
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -784,7 +784,7 @@
     :goto_2
     invoke-virtual {v2, v1}, Lcom/android/internal/widget/SignView;->enableBezierCurve(Z)V
 
-    .line 206
+    .line 207
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -839,16 +839,16 @@
 
     invoke-virtual/range {v1 .. v13}, Lcom/android/internal/widget/SignView;->setThresholdValues(IIIIIIIIIIII)V
 
-    .line 210
+    .line 211
     return-void
 
-    .line 200
+    .line 201
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_1
 
-    .line 203
+    .line 204
     :cond_2
     const/4 v1, 0x0
 
@@ -861,7 +861,7 @@
     .locals 4
 
     .prologue
-    .line 375
+    .line 383
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mContext:Landroid/content/Context;
 
     new-instance v1, Landroid/content/Intent;
@@ -880,7 +880,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
-    .line 377
+    .line 385
     return-void
 .end method
 
@@ -890,50 +890,50 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 286
+    .line 287
     const-string v0, "SignatureLockScreen"
 
     const-string v1, "cleanUp()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 288
+    .line 289
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mContext:Landroid/content/Context;
 
-    .line 289
+    .line 290
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    .line 291
+    .line 292
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->reportClockVisible(Z)V
 
-    .line 292
+    .line 293
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->removeCallback(Ljava/lang/Object;)V
 
-    .line 293
+    .line 294
     iput-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 294
+    .line 295
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget;->cleanUp()V
 
-    .line 296
+    .line 297
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
 
     if-eqz v0, :cond_0
 
-    .line 297
+    .line 298
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/SignView;->setOnSignatureListener(Lcom/android/internal/widget/SignView$OnSignatureListener;)V
 
-    .line 299
+    .line 300
     :cond_0
     return-void
 .end method
@@ -947,25 +947,25 @@
 
     const/4 v1, 0x0
 
-    .line 214
+    .line 215
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
 
-    .line 215
+    .line 216
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->isShown()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 227
+    .line 228
     :goto_0
     return v1
 
-    .line 219
+    .line 220
     :cond_0
     const-string v0, ""
 
-    .line 220
+    .line 221
     .local v0, text:Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -989,17 +989,17 @@
 
     move-result-object v0
 
-    .line 223
+    .line 224
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v2
 
     if-le v2, v4, :cond_1
 
-    .line 224
+    .line 225
     invoke-virtual {v0, v1, v4}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;
 
-    .line 226
+    .line 227
     :cond_1
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 
@@ -1007,7 +1007,7 @@
 
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 227
+    .line 228
     const/4 v1, 0x1
 
     goto :goto_0
@@ -1017,7 +1017,7 @@
     .locals 2
 
     .prologue
-    .line 423
+    .line 431
     sget-object v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;->FAIL:Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
     sget-object v1, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mState:Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
@@ -1039,7 +1039,7 @@
     .locals 1
 
     .prologue
-    .line 341
+    .line 342
     const/4 v0, 0x0
 
     return v0
@@ -1049,7 +1049,16 @@
     .locals 0
 
     .prologue
-    .line 354
+    .line 355
+    return-void
+.end method
+
+.method public onCsSimStateChanged(I)V
+    .locals 0
+    .parameter "simId"
+
+    .prologue
+    .line 378
     return-void
 .end method
 
@@ -1057,7 +1066,7 @@
     .locals 0
 
     .prologue
-    .line 365
+    .line 366
     return-void
 .end method
 
@@ -1065,7 +1074,7 @@
     .locals 0
 
     .prologue
-    .line 359
+    .line 360
     return-void
 .end method
 
@@ -1073,7 +1082,7 @@
     .locals 3
 
     .prologue
-    .line 256
+    .line 257
     const-string v0, "SignatureLockScreen"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1116,36 +1125,36 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 259
+    .line 260
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget;->onPause()V
 
-    .line 260
+    .line 261
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mKeyguardStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->onPause()V
 
-    .line 262
+    .line 263
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mBoundToSignService:Z
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 263
+    .line 264
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mServiceConnection:Landroid/content/ServiceConnection;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    .line 264
+    .line 265
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mBoundToSignService:Z
 
-    .line 266
+    .line 267
     :cond_0
     return-void
 .end method
@@ -1155,7 +1164,7 @@
     .parameter "phoneState"
 
     .prologue
-    .line 348
+    .line 349
     return-void
 .end method
 
@@ -1166,7 +1175,7 @@
     .parameter "batteryLevel"
 
     .prologue
-    .line 305
+    .line 306
     const-string v0, "SignatureLockScreen"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1209,12 +1218,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 307
+    .line 308
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/internal/policy/impl/sec/ClockWidget;->refreshBatteryInfo(ZZI)V
 
-    .line 308
+    .line 309
     return-void
 .end method
 
@@ -1224,12 +1233,12 @@
     .parameter "spn"
 
     .prologue
-    .line 318
+    .line 319
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/policy/impl/sec/ClockWidget;->onRefreshCarrierInfo(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 319
+    .line 320
     return-void
 .end method
 
@@ -1240,7 +1249,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 323
+    .line 324
     return-void
 .end method
 
@@ -1248,7 +1257,7 @@
     .locals 3
 
     .prologue
-    .line 271
+    .line 272
     const-string v0, "SignatureLockScreen"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1291,30 +1300,30 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 274
+    .line 275
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget;->onResume()V
 
-    .line 275
+    .line 276
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mKeyguardStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->onResume()V
 
-    .line 277
+    .line 278
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mBoundToSignService:Z
 
     if-nez v0, :cond_0
 
-    .line 278
+    .line 279
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->bindToSignatureLock()V
 
-    .line 279
+    .line 280
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mBoundToSignService:Z
 
-    .line 281
+    .line 282
     :cond_0
     return-void
 .end method
@@ -1324,7 +1333,7 @@
     .parameter "state"
 
     .prologue
-    .line 337
+    .line 338
     return-void
 .end method
 
@@ -1333,12 +1342,12 @@
     .parameter "simState"
 
     .prologue
-    .line 327
+    .line 328
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mClockWidget:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/sec/ClockWidget;->onSimStateChanged(Lcom/android/internal/telephony/IccCard$State;)V
 
-    .line 328
+    .line 329
     return-void
 .end method
 
@@ -1348,7 +1357,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 332
+    .line 333
     return-void
 .end method
 
@@ -1356,7 +1365,7 @@
     .locals 0
 
     .prologue
-    .line 314
+    .line 315
     return-void
 .end method
 
@@ -1365,14 +1374,14 @@
     .parameter "event"
 
     .prologue
-    .line 235
+    .line 236
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 250
+    .line 251
     :cond_0
     :goto_0
     :pswitch_0
@@ -1380,7 +1389,7 @@
 
     return v0
 
-    .line 237
+    .line 238
     :pswitch_1
     sget-boolean v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->DBG_TOUCH:Z
 
@@ -1416,7 +1425,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 239
+    .line 240
     :cond_1
     sget-object v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;->FAIL:Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
@@ -1424,14 +1433,14 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 240
+    .line 241
     sget-object v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;->INIT:Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
     sput-object v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mState:Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
     goto :goto_0
 
-    .line 246
+    .line 247
     :pswitch_2
     sget-boolean v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->DBG_TOUCH:Z
 
@@ -1463,7 +1472,7 @@
 
     goto :goto_0
 
-    .line 235
+    .line 236
     nop
 
     :pswitch_data_0
@@ -1480,6 +1489,6 @@
     .parameter "userId"
 
     .prologue
-    .line 371
+    .line 372
     return-void
 .end method

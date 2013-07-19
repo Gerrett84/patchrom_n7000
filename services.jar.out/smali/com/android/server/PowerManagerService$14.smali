@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/PowerManagerService;->shutdown(Ljava/lang/String;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/PowerManagerService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,15 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/server/PowerManagerService;
 
-.field final synthetic val$finalReason:Ljava/lang/String;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/server/PowerManagerService;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/server/PowerManagerService;)V
     .locals 0
-    .parameter
     .parameter
 
     .prologue
-    .line 4023
+    .line 4100
     iput-object p1, p0, Lcom/android/server/PowerManagerService$14;->this$0:Lcom/android/server/PowerManagerService;
-
-    iput-object p2, p0, Lcom/android/server/PowerManagerService$14;->val$finalReason:Ljava/lang/String;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,23 +38,20 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 1
 
     .prologue
-    .line 4026
+    .line 4102
     iget-object v0, p0, Lcom/android/server/PowerManagerService$14;->this$0:Lcom/android/server/PowerManagerService;
 
-    #getter for: Lcom/android/server/PowerManagerService;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$2300(Lcom/android/server/PowerManagerService;)Landroid/content/Context;
+    #getter for: Lcom/android/server/PowerManagerService;->mIsTablet:Z
+    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$9800(Lcom/android/server/PowerManagerService;)Z
 
-    move-result-object v0
+    move-result v0
 
-    iget-object v1, p0, Lcom/android/server/PowerManagerService$14;->val$finalReason:Ljava/lang/String;
+    if-eqz v0, :cond_0
 
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Lcom/android/server/pm/ShutdownThread;->fakeShutdown(Landroid/content/Context;Ljava/lang/String;Z)V
-
-    .line 4027
+    .line 4105
+    :cond_0
     return-void
 .end method

@@ -20,8 +20,6 @@
 # instance fields
 .field protected mApproach:I
 
-.field protected mTimestamp:J
-
 
 # direct methods
 .method protected constructor <init>()V
@@ -37,19 +35,14 @@
 
 # virtual methods
 .method public clear()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 26
+    .line 24
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;->mApproach:I
 
-    .line 27
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;->mTimestamp:J
-
-    .line 28
+    .line 25
     return-void
 .end method

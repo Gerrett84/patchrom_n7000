@@ -994,7 +994,7 @@
     .line 743
     const/16 v4, 0x2002
 
-    const-string v5, "mouse"
+    const-string/jumbo v5, "mouse"
 
     invoke-direct {p0, v0, v4, v5}, Landroid/view/InputDevice;->appendSourceDescriptionIfApplicable(Ljava/lang/StringBuilder;ILjava/lang/String;)V
 
@@ -1209,6 +1209,8 @@
     return-object v4
 
     .line 724
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

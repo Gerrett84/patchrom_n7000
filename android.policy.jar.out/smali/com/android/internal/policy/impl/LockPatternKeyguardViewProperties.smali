@@ -19,16 +19,16 @@
     .parameter "updateMonitor"
 
     .prologue
-    .line 42
+    .line 43
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
+    .line 44
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    .line 44
+    .line 45
     iput-object p2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
-    .line 45
+    .line 46
     return-void
 .end method
 
@@ -36,54 +36,69 @@
     .locals 2
 
     .prologue
-    .line 60
+    .line 61
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isDualDevice()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 61
+    .line 62
     invoke-static {}, Lcom/android/internal/policy/impl/sec/DualModeUtils;->getPINPUKRequest()Z
 
     move-result v1
 
-    .line 65
+    .line 71
     :goto_0
     return v1
 
-    .line 64
+    .line 65
     :cond_0
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/MultiSimUtils;->isMultiSIMDevice()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 67
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/MultiSimUtils;->getPINPUKRequest()Z
+
+    move-result v1
+
+    goto :goto_0
+
+    .line 70
+    :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getSimState()Lcom/android/internal/telephony/IccCard$State;
 
     move-result-object v0
 
-    .line 65
+    .line 71
     .local v0, simState:Lcom/android/internal/telephony/IccCard$State;
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PIN_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_2
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PUK_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_2
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PERSO_LOCKED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_2
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PERM_DISABLED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_3
 
-    :cond_1
+    :cond_2
     const/4 v1, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const/4 v1, 0x0
 
     goto :goto_0
@@ -99,7 +114,7 @@
     .parameter "controller"
 
     .prologue
-    .line 51
+    .line 52
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -121,7 +136,7 @@
     .locals 1
 
     .prologue
-    .line 56
+    .line 57
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->isSecure()Z

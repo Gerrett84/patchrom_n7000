@@ -27,13 +27,13 @@
     .parameter "remote"
 
     .prologue
-    .line 563
+    .line 593
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 564
+    .line 594
     iput-object p1, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    .line 565
+    .line 595
     return-void
 .end method
 
@@ -48,25 +48,25 @@
     .end annotation
 
     .prologue
-    .line 1066
+    .line 1096
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1067
+    .line 1097
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1069
+    .line 1099
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1070
+    .line 1100
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x20
@@ -75,27 +75,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1071
+    .line 1101
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1074
+    .line 1104
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1075
+    .line 1105
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1077
+    .line 1107
     return-void
 
-    .line 1074
+    .line 1104
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1075
+    .line 1105
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -105,7 +105,7 @@
     .locals 1
 
     .prologue
-    .line 568
+    .line 598
     iget-object v0, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     return-object v0
@@ -120,25 +120,25 @@
     .end annotation
 
     .prologue
-    .line 992
+    .line 1022
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 993
+    .line 1023
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 995
+    .line 1025
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 996
+    .line 1026
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x1b
@@ -147,27 +147,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 997
+    .line 1027
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1000
+    .line 1030
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1001
+    .line 1031
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1003
+    .line 1033
     return-void
 
-    .line 1000
+    .line 1030
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1001
+    .line 1031
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -184,25 +184,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 753
+    .line 783
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 754
+    .line 784
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 757
+    .line 787
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 758
+    .line 788
     iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xc
@@ -211,10 +211,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 759
+    .line 789
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 760
+    .line 790
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -225,25 +225,25 @@
 
     const/4 v2, 0x1
 
-    .line 763
+    .line 793
     .local v2, _result:Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 764
+    .line 794
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 766
+    .line 796
     return v2
 
-    .line 763
+    .line 793
     .end local v2           #_result:Z
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 764
+    .line 794
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v3
@@ -258,25 +258,25 @@
     .end annotation
 
     .prologue
-    .line 708
+    .line 738
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 709
+    .line 739
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 711
+    .line 741
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 712
+    .line 742
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x9
@@ -285,27 +285,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 713
+    .line 743
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 716
+    .line 746
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 717
+    .line 747
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 719
+    .line 749
     return-void
 
-    .line 716
+    .line 746
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 717
+    .line 747
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -320,2852 +320,28 @@
     .end annotation
 
     .prologue
-    .line 897
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 898
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 900
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 901
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x15
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 902
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 905
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 906
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 908
-    return-void
-
-    .line 905
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 906
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public disableRDS()V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 869
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 870
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 872
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 873
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x13
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 874
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 877
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 878
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 880
-    return-void
-
-    .line 877
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 878
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public enableAF()V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 883
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 884
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 886
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 887
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x14
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 888
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 891
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 892
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 894
-    return-void
-
-    .line 891
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 892
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public enableRDS()V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 855
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 856
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 858
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 859
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x12
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 860
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 863
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 864
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 866
-    return-void
-
-    .line 863
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 864
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public getAFValid_th()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1532
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1533
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1536
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1537
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x3d
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1538
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1539
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 1542
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1543
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1545
-    return v2
-
-    .line 1542
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1543
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getAF_th()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1500
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1501
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1504
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1505
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x3b
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1506
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1507
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 1510
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1511
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1513
-    return v2
-
-    .line 1510
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1511
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getCnt_th()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1381
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1382
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1385
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1386
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x34
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1387
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1388
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 1391
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1392
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1394
-    return v2
-
-    .line 1391
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1392
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getCnt_th_2()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1432
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1433
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1436
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1437
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x37
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1438
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1439
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 1442
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1443
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1445
-    return v2
-
-    .line 1442
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1443
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getCurrentChannel()J
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 722
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 723
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 726
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 727
-    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0xa
-
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 728
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 729
-    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-wide v2
-
-    .line 732
-    .local v2, _result:J
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 733
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 735
-    return-wide v2
-
-    .line 732
-    .end local v2           #_result:J
-    :catchall_0
-    move-exception v4
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 733
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v4
-.end method
-
-.method public getCurrentRSSI()J
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1210
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1211
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1214
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1215
-    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0x29
-
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1216
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1217
-    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-wide v2
-
-    .line 1220
-    .local v2, _result:J
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1221
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1223
-    return-wide v2
-
-    .line 1220
-    .end local v2           #_result:J
-    :catchall_0
-    move-exception v4
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1221
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v4
-.end method
-
-.method public getInterfaceDescriptor()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 572
-    const-string v0, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    return-object v0
-.end method
-
-.method public getLastScanResult()[J
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1006
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1007
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1010
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1011
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x1c
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1012
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1013
-    invoke-virtual {v1}, Landroid/os/Parcel;->createLongArray()[J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-object v2
-
-    .line 1016
-    .local v2, _result:[J
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1017
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1019
-    return-object v2
-
-    .line 1016
-    .end local v2           #_result:[J
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1017
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getMaxVolume()J
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1161
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1162
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1165
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1166
-    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0x26
-
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1167
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1168
-    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-wide v2
-
-    .line 1171
-    .local v2, _result:J
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1172
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1174
-    return-wide v2
-
-    .line 1171
-    .end local v2           #_result:J
-    :catchall_0
-    move-exception v4
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1172
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v4
-.end method
-
-.method public getRSSI_th()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1347
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1348
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1351
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1352
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x32
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1353
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1354
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 1357
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1358
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1360
-    return v2
-
-    .line 1357
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1358
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getRSSI_th_2()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1398
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1399
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1402
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1403
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x35
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1404
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1405
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 1408
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1409
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1411
-    return v2
-
-    .line 1408
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1409
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getSNR_th()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1364
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1365
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1368
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1369
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x33
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1370
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1371
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 1374
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1375
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1377
-    return v2
-
-    .line 1374
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1375
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getSNR_th_2()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1415
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1416
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1419
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1420
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x36
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1421
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1422
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 1425
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1426
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1428
-    return v2
-
-    .line 1425
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1426
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public getVolume()J
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1080
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1081
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1084
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1085
-    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0x21
-
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1086
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1087
-    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-wide v2
-
-    .line 1090
-    .local v2, _result:J
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1091
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1093
-    return-wide v2
-
-    .line 1090
-    .end local v2           #_result:J
-    :catchall_0
-    move-exception v4
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1091
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v4
-.end method
-
-.method public isAFEnable()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 975
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 976
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 979
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 980
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x1a
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 981
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 982
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 985
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 986
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 988
-    return v2
-
-    .line 985
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 986
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isAirPlaneMode()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 1178
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1179
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1182
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1183
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x27
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1184
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1185
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 1188
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1189
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1191
-    return v2
-
-    .line 1188
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1189
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isBatteryLow()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 1466
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1467
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1470
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1471
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x39
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1472
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1473
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 1476
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1477
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1479
-    return v2
-
-    .line 1476
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1477
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isBusy()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 941
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 942
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 945
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 946
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x18
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 947
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 948
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 951
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 952
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 954
-    return v2
-
-    .line 951
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 952
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isHeadsetPlugged()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 1097
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1098
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1101
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1102
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x22
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1103
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1104
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 1107
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1108
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1110
-    return v2
-
-    .line 1107
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1108
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isOn()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 657
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 658
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 661
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 662
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v4, 0x6
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 663
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 664
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 667
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 668
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 670
-    return v2
-
-    .line 667
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 668
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isRDSEnable()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 958
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 959
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 962
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 963
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x19
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 964
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 965
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 968
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 969
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 971
-    return v2
-
-    .line 968
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 969
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isScanning()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 770
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 771
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 774
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 775
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0xd
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 776
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 777
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 780
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 781
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 783
-    return v2
-
-    .line 780
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 781
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isSeeking()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 787
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 788
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 791
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 792
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0xe
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 793
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 794
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 797
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 798
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 800
-    return v2
-
-    .line 797
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 798
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isTvOutPlugged()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 1114
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1115
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1118
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1119
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x23
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1120
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1121
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 1124
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1125
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1127
-    return v2
-
-    .line 1124
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1125
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public off()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 640
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 641
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 644
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 645
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v4, 0x5
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 646
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 647
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 650
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 651
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 653
-    return v2
-
-    .line 650
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 651
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public on()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 623
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 624
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 627
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 628
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v4, 0x4
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 629
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 630
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 633
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 634
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 636
-    return v2
-
-    .line 633
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 634
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public on_in_testmode()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 1449
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1450
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1453
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1454
-    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x38
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1455
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 1456
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 1459
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1460
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1462
-    return v2
-
-    .line 1459
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1460
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public removeListener(Lcom/samsung/media/fmradio/internal/IFMEventListener;)V
-    .locals 5
-    .parameter "listener"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 591
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 592
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 594
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 595
-    if-eqz p1, :cond_0
-
-    invoke-interface {p1}, Lcom/samsung/media/fmradio/internal/IFMEventListener;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 596
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v3, 0x2
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 597
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 600
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 601
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 603
-    return-void
-
-    .line 595
-    :cond_0
-    const/4 v2, 0x0
-
-    goto :goto_0
-
-    .line 600
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 601
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public scan()V
-    .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 739
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 740
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 742
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 743
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0xb
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 744
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 747
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 748
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 750
-    return-void
-
-    .line 747
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 748
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public searchAll()J
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 838
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 839
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 842
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 843
-    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0x11
-
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 844
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 845
-    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-wide v2
-
-    .line 848
-    .local v2, _result:J
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 849
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 851
-    return-wide v2
-
-    .line 848
-    .end local v2           #_result:J
-    :catchall_0
-    move-exception v4
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 849
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v4
-.end method
-
-.method public searchDown()J
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 804
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 805
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 808
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 809
-    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0xf
-
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 810
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 811
-    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-wide v2
-
-    .line 814
-    .local v2, _result:J
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 815
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 817
-    return-wide v2
-
-    .line 814
-    .end local v2           #_result:J
-    :catchall_0
-    move-exception v4
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 815
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v4
-.end method
-
-.method public searchUp()J
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 821
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 822
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 825
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 826
-    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0x10
-
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 827
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 828
-    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-wide v2
-
-    .line 831
-    .local v2, _result:J
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 832
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 834
-    return-wide v2
-
-    .line 831
-    .end local v2           #_result:J
-    :catchall_0
-    move-exception v4
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 832
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v4
-.end method
-
-.method public seekDown()J
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 691
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 692
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 695
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 696
-    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v5, 0x8
-
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 697
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 698
-    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-wide v2
-
-    .line 701
-    .local v2, _result:J
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 702
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 704
-    return-wide v2
-
-    .line 701
-    .end local v2           #_result:J
-    :catchall_0
-    move-exception v4
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 702
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v4
-.end method
-
-.method public seekUp()J
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 674
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 675
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 678
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 679
-    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v5, 0x7
-
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 680
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 681
-    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result-wide v2
-
-    .line 684
-    .local v2, _result:J
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 685
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 687
-    return-wide v2
-
-    .line 684
-    .end local v2           #_result:J
-    :catchall_0
-    move-exception v4
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 685
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v4
-.end method
-
-.method public setAFValid_th(I)V
-    .locals 5
-    .parameter "val"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1517
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1518
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1520
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1521
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 1522
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x3c
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1523
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 1526
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1527
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1529
-    return-void
-
-    .line 1526
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1527
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public setAF_th(I)V
-    .locals 5
-    .parameter "val"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 1485
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 1486
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 1488
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 1489
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 1490
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x3a
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1491
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 1494
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1495
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 1497
-    return-void
-
-    .line 1494
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 1495
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public setBand(I)V
-    .locals 5
-    .parameter "band"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 911
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 912
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 914
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 915
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 916
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x16
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 917
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 920
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 921
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 923
-    return-void
-
-    .line 920
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 921
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v2
-.end method
-
-.method public setChannelSpacing(I)V
-    .locals 5
-    .parameter "spacing"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 926
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
     .line 927
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 928
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
-
-    .line 929
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 930
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 931
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x17
+    const/16 v3, 0x15
 
     const/4 v4, 0x0
 
@@ -3197,9 +373,8 @@
     throw v2
 .end method
 
-.method public setCnt_th(I)V
+.method public disableRDS()V
     .locals 5
-    .parameter "val"
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3207,65 +382,61 @@
     .end annotation
 
     .prologue
-    .line 1287
+    .line 899
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1288
+    .line 900
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1290
+    .line 902
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1291
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 1292
+    .line 903
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2e
+    const/16 v3, 0x13
 
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1293
+    .line 904
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1296
+    .line 907
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1297
+    .line 908
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1299
+    .line 910
     return-void
 
-    .line 1296
+    .line 907
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1297
+    .line 908
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
 .end method
 
-.method public setCnt_th_2(I)V
+.method public enableAF()V
     .locals 5
-    .parameter "val"
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3273,65 +444,61 @@
     .end annotation
 
     .prologue
-    .line 1332
+    .line 913
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1333
+    .line 914
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1335
+    .line 916
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1336
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 1337
+    .line 917
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x31
+    const/16 v3, 0x14
 
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1338
+    .line 918
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1341
+    .line 921
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1342
+    .line 922
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1344
+    .line 924
     return-void
 
-    .line 1341
+    .line 921
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1342
+    .line 922
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
 .end method
 
-.method public setDEConstant(J)V
+.method public enableRDS()V
     .locals 5
-    .parameter "val"
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3339,65 +506,899 @@
     .end annotation
 
     .prologue
+    .line 885
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 886
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 888
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 889
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x12
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 890
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 893
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 894
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 896
+    return-void
+
+    .line 893
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 894
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public getAFValid_th()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1562
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1563
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1566
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1567
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x3d
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1568
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1569
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 1572
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1573
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1575
+    return v2
+
+    .line 1572
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1573
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getAF_th()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1530
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1531
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1534
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1535
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x3b
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1536
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1537
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 1540
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1541
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1543
+    return v2
+
+    .line 1540
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1541
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getCnt_th()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1411
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1412
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1415
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1416
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x34
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1417
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1418
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 1421
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1422
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1424
+    return v2
+
+    .line 1421
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1422
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getCnt_th_2()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1462
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1463
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1466
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1467
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x37
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1468
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1469
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 1472
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1473
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1475
+    return v2
+
+    .line 1472
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1473
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getCurrentChannel()J
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 752
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 753
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 756
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 757
+    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v5, 0xa
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 758
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 759
+    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v2
+
+    .line 762
+    .local v2, _result:J
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 763
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 765
+    return-wide v2
+
+    .line 762
+    .end local v2           #_result:J
+    :catchall_0
+    move-exception v4
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 763
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v4
+.end method
+
+.method public getCurrentRSSI()J
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1240
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1241
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1244
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1245
+    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v5, 0x29
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1246
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1247
+    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v2
+
+    .line 1250
+    .local v2, _result:J
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1251
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1253
+    return-wide v2
+
+    .line 1250
+    .end local v2           #_result:J
+    :catchall_0
+    move-exception v4
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1251
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v4
+.end method
+
+.method public getInterfaceDescriptor()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 602
+    const-string v0, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    return-object v0
+.end method
+
+.method public getLastScanResult()[J
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1036
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1037
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1040
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1041
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x1c
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1042
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1043
+    invoke-virtual {v1}, Landroid/os/Parcel;->createLongArray()[J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    .line 1046
+    .local v2, _result:[J
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1047
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1049
+    return-object v2
+
+    .line 1046
+    .end local v2           #_result:[J
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1047
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getMaxVolume()J
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1191
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1192
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
     .line 1195
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    move-result-object v0
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1196
+    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v5, 0x26
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1197
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1198
+    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v2
+
+    .line 1201
+    .local v2, _result:J
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1202
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1204
+    return-wide v2
+
+    .line 1201
+    .end local v2           #_result:J
+    :catchall_0
+    move-exception v4
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1202
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v4
+.end method
+
+.method public getRSSI_th()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1377
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1378
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1198
+    .line 1381
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
-    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1199
-    invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
+    .line 1382
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    .line 1200
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    const/16 v4, 0x32
 
-    const/16 v3, 0x28
+    const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1201
+    .line 1383
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1384
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1204
+    move-result v2
+
+    .line 1387
+    .local v2, _result:I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1205
+    .line 1388
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1207
-    return-void
+    .line 1390
+    return v2
 
-    .line 1204
+    .line 1387
+    .end local v2           #_result:I
     :catchall_0
-    move-exception v2
+    move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1205
+    .line 1388
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v3
 .end method
 
-.method public setFMIntenna(Z)V
-    .locals 5
-    .parameter "setFMIntenna"
+.method public getRSSI_th_2()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1428
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1429
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1432
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1433
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x35
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1434
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1435
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 1438
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1439
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1441
+    return v2
+
+    .line 1438
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1439
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getSNR_th()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1394
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1395
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1398
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1399
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x33
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1400
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1401
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 1404
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1405
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1407
+    return v2
+
+    .line 1404
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1405
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getSNR_th_2()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1445
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1446
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1449
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1450
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x36
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1451
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1452
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 1455
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1456
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1458
+    return v2
+
+    .line 1455
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1456
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getSoftMuteMode()Z
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3407,68 +1408,1122 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1551
+    .line 1611
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1552
+    .line 1612
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1554
+    .line 1615
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1555
-    if-eqz p1, :cond_0
+    .line 1616
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v2, 0x1
+    const/16 v4, 0x40
 
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+    const/4 v5, 0x0
 
-    .line 1556
-    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    const/16 v3, 0x3e
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 1557
+    .line 1617
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1618
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1560
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 1621
+    .local v2, _result:Z
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1561
+    .line 1622
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1563
-    return-void
+    .line 1624
+    return v2
 
-    .line 1560
+    .line 1621
+    .end local v2           #_result:Z
     :catchall_0
-    move-exception v2
+    move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1561
+    .line 1622
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v2
+    throw v3
 .end method
 
-.method public setListener(Lcom/samsung/media/fmradio/internal/IFMEventListener;)V
+.method public getVolume()J
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1110
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1111
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1114
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1115
+    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v5, 0x21
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1116
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1117
+    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v2
+
+    .line 1120
+    .local v2, _result:J
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1121
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1123
+    return-wide v2
+
+    .line 1120
+    .end local v2           #_result:J
+    :catchall_0
+    move-exception v4
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1121
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v4
+.end method
+
+.method public isAFEnable()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 1005
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1006
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1009
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1010
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x1a
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1011
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1012
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 1015
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1016
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1018
+    return v2
+
+    .line 1015
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1016
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isAirPlaneMode()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 1208
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1209
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1212
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1213
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x27
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1214
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1215
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 1218
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1219
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1221
+    return v2
+
+    .line 1218
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1219
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isBatteryLow()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 1496
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1497
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1500
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1501
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x39
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1502
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1503
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 1506
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1507
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1509
+    return v2
+
+    .line 1506
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1507
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isBusy()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 971
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 972
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 975
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 976
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x18
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 977
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 978
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 981
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 982
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 984
+    return v2
+
+    .line 981
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 982
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isHeadsetPlugged()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 1127
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1128
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1131
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1132
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x22
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1133
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1134
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 1137
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1138
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1140
+    return v2
+
+    .line 1137
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1138
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isOn()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 687
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 688
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 691
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 692
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v4, 0x6
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 693
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 694
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 697
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 698
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 700
+    return v2
+
+    .line 697
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 698
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isRDSEnable()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 988
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 989
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 992
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 993
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x19
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 994
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 995
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 998
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 999
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1001
+    return v2
+
+    .line 998
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 999
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isScanning()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 800
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 801
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 804
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 805
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0xd
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 806
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 807
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 810
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 811
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 813
+    return v2
+
+    .line 810
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 811
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isSeeking()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 817
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 818
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 821
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 822
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0xe
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 823
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 824
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 827
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 828
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 830
+    return v2
+
+    .line 827
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 828
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isTvOutPlugged()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 1144
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1145
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1148
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1149
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x23
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1150
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1151
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 1154
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1155
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1157
+    return v2
+
+    .line 1154
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1155
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public off()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 670
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 671
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 674
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 675
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v4, 0x5
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 676
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 677
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 680
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 681
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 683
+    return v2
+
+    .line 680
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 681
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public on()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 653
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 654
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 657
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 658
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v4, 0x4
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 659
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 660
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 663
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 664
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 666
+    return v2
+
+    .line 663
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 664
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public on_in_testmode()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 1479
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1480
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1483
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1484
+    iget-object v3, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x38
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1485
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1486
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 1489
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1490
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1492
+    return v2
+
+    .line 1489
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1490
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public removeListener(Lcom/samsung/media/fmradio/internal/IFMEventListener;)V
     .locals 5
     .parameter "listener"
     .annotation system Ldalvik/annotation/Throws;
@@ -3478,25 +2533,25 @@
     .end annotation
 
     .prologue
-    .line 576
+    .line 621
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 577
+    .line 622
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 579
+    .line 624
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 580
+    .line 625
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Lcom/samsung/media/fmradio/internal/IFMEventListener;->asBinder()Landroid/os/IBinder;
@@ -3506,48 +2561,48 @@
     :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 581
+    .line 626
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x1
+    const/4 v3, 0x2
 
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 582
+    .line 627
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 585
+    .line 630
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 586
+    .line 631
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 588
+    .line 633
     return-void
 
-    .line 580
+    .line 625
     :cond_0
     const/4 v2, 0x0
 
     goto :goto_0
 
-    .line 585
+    .line 630
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 586
+    .line 631
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
 .end method
 
-.method public setMono()V
+.method public scan()V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3556,60 +2611,405 @@
     .end annotation
 
     .prologue
-    .line 1037
+    .line 769
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1038
+    .line 770
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1040
+    .line 772
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1041
+    .line 773
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x1e
+    const/16 v3, 0xb
 
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1042
+    .line 774
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1045
+    .line 777
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1046
+    .line 778
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1048
+    .line 780
     return-void
 
-    .line 1045
+    .line 777
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1046
+    .line 778
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
 .end method
 
-.method public setRSSI_th(I)V
+.method public searchAll()J
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 868
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 869
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 872
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 873
+    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v5, 0x11
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 874
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 875
+    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v2
+
+    .line 878
+    .local v2, _result:J
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 879
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 881
+    return-wide v2
+
+    .line 878
+    .end local v2           #_result:J
+    :catchall_0
+    move-exception v4
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 879
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v4
+.end method
+
+.method public searchDown()J
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 834
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 835
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 838
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 839
+    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v5, 0xf
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 840
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 841
+    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v2
+
+    .line 844
+    .local v2, _result:J
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 845
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 847
+    return-wide v2
+
+    .line 844
+    .end local v2           #_result:J
+    :catchall_0
+    move-exception v4
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 845
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v4
+.end method
+
+.method public searchUp()J
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 851
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 852
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 855
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 856
+    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v5, 0x10
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 857
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 858
+    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v2
+
+    .line 861
+    .local v2, _result:J
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 862
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 864
+    return-wide v2
+
+    .line 861
+    .end local v2           #_result:J
+    :catchall_0
+    move-exception v4
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 862
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v4
+.end method
+
+.method public seekDown()J
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 721
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 722
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 725
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 726
+    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v5, 0x8
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 727
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 728
+    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v2
+
+    .line 731
+    .local v2, _result:J
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 732
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 734
+    return-wide v2
+
+    .line 731
+    .end local v2           #_result:J
+    :catchall_0
+    move-exception v4
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 732
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v4
+.end method
+
+.method public seekUp()J
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 704
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 705
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 708
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 709
+    iget-object v4, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v5, 0x7
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 710
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 711
+    invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v2
+
+    .line 714
+    .local v2, _result:J
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 715
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 717
+    return-wide v2
+
+    .line 714
+    .end local v2           #_result:J
+    :catchall_0
+    move-exception v4
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 715
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v4
+.end method
+
+.method public setAFValid_th(I)V
     .locals 5
     .parameter "val"
     .annotation system Ldalvik/annotation/Throws;
@@ -3619,63 +3019,63 @@
     .end annotation
 
     .prologue
-    .line 1257
+    .line 1547
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1258
+    .line 1548
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1260
+    .line 1550
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1261
+    .line 1551
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1262
+    .line 1552
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2c
+    const/16 v3, 0x3c
 
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1263
+    .line 1553
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1266
+    .line 1556
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1267
+    .line 1557
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1269
+    .line 1559
     return-void
 
-    .line 1266
+    .line 1556
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1267
+    .line 1557
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
 .end method
 
-.method public setRSSI_th_2(I)V
+.method public setAF_th(I)V
     .locals 5
     .parameter "val"
     .annotation system Ldalvik/annotation/Throws;
@@ -3685,65 +3085,65 @@
     .end annotation
 
     .prologue
-    .line 1302
+    .line 1515
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1303
+    .line 1516
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1305
+    .line 1518
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1306
+    .line 1519
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1307
+    .line 1520
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2f
+    const/16 v3, 0x3a
 
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1308
+    .line 1521
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1311
+    .line 1524
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1312
+    .line 1525
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1314
+    .line 1527
     return-void
 
-    .line 1311
+    .line 1524
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1312
+    .line 1525
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
 .end method
 
-.method public setRecordMode(I)V
+.method public setBand(I)V
     .locals 5
-    .parameter "is_record"
+    .parameter "band"
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3751,65 +3151,65 @@
     .end annotation
 
     .prologue
-    .line 1146
+    .line 941
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1147
+    .line 942
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1149
+    .line 944
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1150
+    .line 945
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1151
+    .line 946
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x25
+    const/16 v3, 0x16
 
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1152
+    .line 947
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1155
+    .line 950
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1156
+    .line 951
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1158
+    .line 953
     return-void
 
-    .line 1155
+    .line 950
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1156
+    .line 951
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
 .end method
 
-.method public setSNR_th(I)V
+.method public setChannelSpacing(I)V
     .locals 5
-    .parameter "val"
+    .parameter "spacing"
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3817,63 +3217,63 @@
     .end annotation
 
     .prologue
-    .line 1272
+    .line 956
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1273
+    .line 957
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1275
+    .line 959
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1276
+    .line 960
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1277
+    .line 961
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x2d
+    const/16 v3, 0x17
 
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1278
+    .line 962
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1281
+    .line 965
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1282
+    .line 966
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1284
+    .line 968
     return-void
 
-    .line 1281
+    .line 965
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1282
+    .line 966
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
 .end method
 
-.method public setSNR_th_2(I)V
+.method public setCnt_th(I)V
     .locals 5
     .parameter "val"
     .annotation system Ldalvik/annotation/Throws;
@@ -3907,7 +3307,7 @@
     .line 1322
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0x30
+    const/16 v3, 0x2e
 
     const/4 v4, 0x0
 
@@ -3939,6 +3339,682 @@
     throw v2
 .end method
 
+.method public setCnt_th_2(I)V
+    .locals 5
+    .parameter "val"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1362
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1363
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1365
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1366
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1367
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x31
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1368
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1371
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1372
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1374
+    return-void
+
+    .line 1371
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1372
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setDEConstant(J)V
+    .locals 5
+    .parameter "val"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1225
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1226
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1228
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1229
+    invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
+
+    .line 1230
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x28
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1231
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1234
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1235
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1237
+    return-void
+
+    .line 1234
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1235
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setFMIntenna(Z)V
+    .locals 5
+    .parameter "setFMIntenna"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 1581
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1582
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1584
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1585
+    if-eqz p1, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1586
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x3e
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1587
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1590
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1591
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1593
+    return-void
+
+    .line 1590
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1591
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setListener(Lcom/samsung/media/fmradio/internal/IFMEventListener;)V
+    .locals 5
+    .parameter "listener"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 606
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 607
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 609
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 610
+    if-eqz p1, :cond_0
+
+    invoke-interface {p1}, Lcom/samsung/media/fmradio/internal/IFMEventListener;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 611
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 612
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 615
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 616
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 618
+    return-void
+
+    .line 610
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    .line 615
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 616
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setMono()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1067
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1068
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1070
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1071
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x1e
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1072
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1075
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1076
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1078
+    return-void
+
+    .line 1075
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1076
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setRSSI_th(I)V
+    .locals 5
+    .parameter "val"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1287
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1288
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1290
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1291
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1292
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x2c
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1293
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1296
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1297
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1299
+    return-void
+
+    .line 1296
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1297
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setRSSI_th_2(I)V
+    .locals 5
+    .parameter "val"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1332
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1333
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1335
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1336
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1337
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x2f
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1338
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1341
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1342
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1344
+    return-void
+
+    .line 1341
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1342
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setRecordMode(I)V
+    .locals 5
+    .parameter "is_record"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1176
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1177
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1179
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1180
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1181
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x25
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1182
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1185
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1186
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1188
+    return-void
+
+    .line 1185
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1186
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setSNR_th(I)V
+    .locals 5
+    .parameter "val"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1302
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1303
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1305
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1306
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1307
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x2d
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1308
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1311
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1312
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1314
+    return-void
+
+    .line 1311
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1312
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setSNR_th_2(I)V
+    .locals 5
+    .parameter "val"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1347
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1348
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1350
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1351
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1352
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x30
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1353
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1356
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1357
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1359
+    return-void
+
+    .line 1356
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1357
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
 .method public setSeekRSSI(J)V
     .locals 5
     .parameter "val"
@@ -3949,28 +4025,28 @@
     .end annotation
 
     .prologue
-    .line 1227
+    .line 1257
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1228
+    .line 1258
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1230
+    .line 1260
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1231
+    .line 1261
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 1232
+    .line 1262
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x2a
@@ -3979,27 +4055,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1233
+    .line 1263
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1236
+    .line 1266
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1237
+    .line 1267
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1239
+    .line 1269
     return-void
 
-    .line 1236
+    .line 1266
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1237
+    .line 1267
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -4015,28 +4091,28 @@
     .end annotation
 
     .prologue
-    .line 1242
+    .line 1272
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1243
+    .line 1273
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1245
+    .line 1275
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1246
+    .line 1276
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 1247
+    .line 1277
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x2b
@@ -4045,27 +4121,174 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1248
+    .line 1278
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1251
+    .line 1281
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1252
+    .line 1282
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1254
+    .line 1284
     return-void
 
-    .line 1251
+    .line 1281
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1252
+    .line 1282
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setSoftMuteControl(III)V
+    .locals 5
+    .parameter "min_RSSI"
+    .parameter "max_RSSI"
+    .parameter "max_attenuation"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1628
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1629
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1631
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1632
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1633
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1634
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1635
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x41
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1636
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1639
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1640
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1642
+    return-void
+
+    .line 1639
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1640
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setSoftmute(Z)V
+    .locals 5
+    .parameter "state"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 1596
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1597
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1599
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1600
+    if-eqz p1, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1601
+    iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x3f
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1602
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1605
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1606
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1608
+    return-void
+
+    .line 1605
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1606
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -4083,25 +4306,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1131
+    .line 1161
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1132
+    .line 1162
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1134
+    .line 1164
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1135
+    .line 1165
     if-eqz p1, :cond_0
 
     const/4 v2, 0x1
@@ -4109,7 +4332,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1136
+    .line 1166
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x24
@@ -4118,27 +4341,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1137
+    .line 1167
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1140
+    .line 1170
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1141
+    .line 1171
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1143
+    .line 1173
     return-void
 
-    .line 1140
+    .line 1170
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1141
+    .line 1171
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -4153,25 +4376,25 @@
     .end annotation
 
     .prologue
-    .line 1023
+    .line 1053
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1024
+    .line 1054
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1026
+    .line 1056
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1027
+    .line 1057
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x1d
@@ -4180,27 +4403,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1028
+    .line 1058
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1031
+    .line 1061
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1032
+    .line 1062
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1034
+    .line 1064
     return-void
 
-    .line 1031
+    .line 1061
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1032
+    .line 1062
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -4216,28 +4439,28 @@
     .end annotation
 
     .prologue
-    .line 1051
+    .line 1081
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 1052
+    .line 1082
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 1054
+    .line 1084
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 1055
+    .line 1085
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 1056
+    .line 1086
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x1f
@@ -4246,27 +4469,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 1057
+    .line 1087
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1060
+    .line 1090
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1061
+    .line 1091
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 1063
+    .line 1093
     return-void
 
-    .line 1060
+    .line 1090
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1061
+    .line 1091
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -4282,28 +4505,28 @@
     .end annotation
 
     .prologue
-    .line 608
+    .line 638
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 609
+    .line 639
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 611
+    .line 641
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 612
+    .line 642
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 613
+    .line 643
     iget-object v2, p0, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x3
@@ -4312,27 +4535,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 614
+    .line 644
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 617
+    .line 647
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 618
+    .line 648
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 620
+    .line 650
     return-void
 
-    .line 617
+    .line 647
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 618
+    .line 648
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2

@@ -27,25 +27,25 @@
     .parameter "index"
 
     .prologue
-    .line 645
+    .line 646
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 641
+    .line 642
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/DualModeUtils$SimCardInfo;->SIMName:Ljava/lang/String;
 
-    .line 642
+    .line 643
     const-string v0, "0"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/DualModeUtils$SimCardInfo;->nIconIndex:Ljava/lang/String;
 
-    .line 646
+    .line 647
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/DualModeUtils$SimCardInfo;->SIMName:Ljava/lang/String;
 
-    .line 647
+    .line 648
     iput-object p2, p0, Lcom/android/internal/policy/impl/sec/DualModeUtils$SimCardInfo;->nIconIndex:Ljava/lang/String;
 
-    .line 648
+    .line 649
     return-void
 .end method

@@ -26,6 +26,8 @@
 # static fields
 .field private static final synthetic $VALUES:[Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
+.field public static final enum ACTIVATE:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
+
 .field public static final enum CLOSE_CHANNEL:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
 .field public static final enum DISPLAY_TEXT:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -108,7 +110,7 @@
 
     const/4 v4, 0x1
 
-    .line 56
+    .line 60
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "DISPLAY_TEXT"
@@ -121,7 +123,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->DISPLAY_TEXT:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 57
+    .line 61
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "GET_INKEY"
@@ -132,7 +134,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->GET_INKEY:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 58
+    .line 62
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "GET_INPUT"
@@ -143,7 +145,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->GET_INPUT:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 59
+    .line 63
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "LAUNCH_BROWSER"
@@ -154,7 +156,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->LAUNCH_BROWSER:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 60
+    .line 64
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "PLAY_TONE"
@@ -165,7 +167,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->PLAY_TONE:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 61
+    .line 65
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "REFRESH"
@@ -174,7 +176,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->REFRESH:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 62
+    .line 66
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "SELECT_ITEM"
@@ -187,7 +189,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SELECT_ITEM:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 63
+    .line 67
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "SEND_SS"
@@ -200,7 +202,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SEND_SS:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 64
+    .line 68
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "SEND_USSD"
@@ -213,7 +215,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SEND_USSD:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 65
+    .line 69
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "SEND_SMS"
@@ -226,7 +228,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SEND_SMS:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 66
+    .line 70
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "SEND_DTMF"
@@ -239,7 +241,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SEND_DTMF:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 67
+    .line 71
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "SET_UP_EVENT_LIST"
@@ -250,7 +252,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SET_UP_EVENT_LIST:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 68
+    .line 72
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "SET_UP_IDLE_MODE_TEXT"
@@ -263,7 +265,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SET_UP_IDLE_MODE_TEXT:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 69
+    .line 73
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "SET_UP_MENU"
@@ -276,7 +278,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SET_UP_MENU:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 70
+    .line 74
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "SET_UP_CALL"
@@ -289,7 +291,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SET_UP_CALL:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 71
+    .line 75
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "PROVIDE_LOCAL_INFORMATION"
@@ -302,7 +304,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->PROVIDE_LOCAL_INFORMATION:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 72
+    .line 76
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "MORE_TIME"
@@ -313,7 +315,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->MORE_TIME:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 73
+    .line 77
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "POLL_INTERVAL"
@@ -324,7 +326,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->POLL_INTERVAL:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 74
+    .line 78
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "POLLING_OFF"
@@ -335,7 +337,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->POLLING_OFF:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 75
+    .line 79
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "TIMER_MANAGEMENT"
@@ -348,7 +350,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->TIMER_MANAGEMENT:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 76
+    .line 80
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "PERFORM_CARD_APDU"
@@ -361,7 +363,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->PERFORM_CARD_APDU:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 77
+    .line 81
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "POWER_ON_CARD"
@@ -374,7 +376,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->POWER_ON_CARD:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 78
+    .line 82
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "POWER_OFF_CARD"
@@ -387,7 +389,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->POWER_OFF_CARD:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 79
+    .line 83
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "GET_READER_STATUS"
@@ -400,7 +402,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->GET_READER_STATUS:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 80
+    .line 84
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "RUN_AT_COMMAND"
@@ -413,7 +415,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->RUN_AT_COMMAND:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 81
+    .line 85
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "LANGUAGE_NOTIFICATION"
@@ -426,7 +428,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->LANGUAGE_NOTIFICATION:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 82
+    .line 86
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "OPEN_CHANNEL"
@@ -439,7 +441,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->OPEN_CHANNEL:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 83
+    .line 87
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "CLOSE_CHANNEL"
@@ -452,7 +454,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->CLOSE_CHANNEL:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 84
+    .line 88
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "RECEIVE_DATA"
@@ -465,7 +467,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->RECEIVE_DATA:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 85
+    .line 89
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "SEND_DATA"
@@ -478,7 +480,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SEND_DATA:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 86
+    .line 90
     new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     const-string v1, "GET_CHANNEL_STATUS"
@@ -491,8 +493,21 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->GET_CHANNEL_STATUS:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
-    .line 55
-    const/16 v0, 0x1f
+    .line 91
+    new-instance v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
+
+    const-string v1, "ACTIVATE"
+
+    const/16 v2, 0x1f
+
+    const/16 v3, 0x70
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/internal/telephony/cat/AppInterface$CommandType;-><init>(Ljava/lang/String;II)V
+
+    sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->ACTIVATE:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
+
+    .line 59
+    const/16 v0, 0x20
 
     new-array v0, v0, [Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
@@ -672,6 +687,12 @@
 
     aput-object v2, v0, v1
 
+    const/16 v1, 0x1f
+
+    sget-object v2, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->ACTIVATE:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
+
+    aput-object v2, v0, v1
+
     sput-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->$VALUES:[Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     return-void
@@ -689,13 +710,13 @@
     .end annotation
 
     .prologue
-    .line 90
+    .line 95
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 91
+    .line 96
     iput p3, p0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->mValue:I
 
-    .line 92
+    .line 97
     return-void
 .end method
 
@@ -704,7 +725,7 @@
     .parameter "value"
 
     .prologue
-    .line 107
+    .line 112
     invoke-static {}, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->values()[Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     move-result-object v0
@@ -721,25 +742,25 @@
 
     aget-object v1, v0, v2
 
-    .line 108
+    .line 113
     .local v1, e:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     iget v4, v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->mValue:I
 
     if-ne v4, p0, :cond_0
 
-    .line 112
+    .line 117
     .end local v1           #e:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     :goto_1
     return-object v1
 
-    .line 107
+    .line 112
     .restart local v1       #e:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 112
+    .line 117
     .end local v1           #e:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
     :cond_1
     const/4 v1, 0x0
@@ -752,7 +773,7 @@
     .parameter "name"
 
     .prologue
-    .line 55
+    .line 59
     const-class v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -768,7 +789,7 @@
     .locals 1
 
     .prologue
-    .line 55
+    .line 59
     sget-object v0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->$VALUES:[Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     invoke-virtual {v0}, [Lcom/android/internal/telephony/cat/AppInterface$CommandType;->clone()Ljava/lang/Object;
@@ -786,7 +807,7 @@
     .locals 1
 
     .prologue
-    .line 95
+    .line 100
     iget v0, p0, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->mValue:I
 
     return v0

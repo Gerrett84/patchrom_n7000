@@ -223,7 +223,7 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 857
-    const-string v1, "maroon"
+    const-string/jumbo v1, "maroon"
 
     const/high16 v2, 0x80
 
@@ -1101,7 +1101,7 @@
 
     new-instance v2, Landroid/text/style/TypefaceSpan;
 
-    const-string v3, "monospace"
+    const-string/jumbo v3, "monospace"
 
     invoke-direct {v2, v3}, Landroid/text/style/TypefaceSpan;-><init>(Ljava/lang/String;)V
 
@@ -1935,7 +1935,7 @@
 
     move-result-object v3
 
-    const v4, 0x10809dc
+    const v4, 0x1080a5a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

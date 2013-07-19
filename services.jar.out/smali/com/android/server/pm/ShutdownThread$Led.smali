@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 828
+    .line 827
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,12 +29,12 @@
     .locals 1
 
     .prologue
-    .line 834
+    .line 833
     sget v0, Lcom/android/server/pm/ShutdownThreadFeature;->LedOffValue:I
 
     invoke-static {v0}, Lcom/android/server/pm/ShutdownThread$Led;->fileWriteInt(I)V
 
-    .line 835
+    .line 834
     return-void
 .end method
 
@@ -42,12 +42,12 @@
     .locals 1
 
     .prologue
-    .line 830
+    .line 829
     sget v0, Lcom/android/server/pm/ShutdownThreadFeature;->LedOnValue:I
 
     invoke-static {v0}, Lcom/android/server/pm/ShutdownThread$Led;->fileWriteInt(I)V
 
-    .line 831
+    .line 830
     return-void
 .end method
 
@@ -55,7 +55,7 @@
     .locals 0
 
     .prologue
-    .line 828
+    .line 827
     invoke-static {}, Lcom/android/server/pm/ShutdownThread$Led;->On()V
 
     return-void
@@ -65,7 +65,7 @@
     .locals 0
 
     .prologue
-    .line 828
+    .line 827
     invoke-static {}, Lcom/android/server/pm/ShutdownThread$Led;->Off()V
 
     return-void
@@ -76,14 +76,14 @@
     .parameter "value"
 
     .prologue
-    .line 838
+    .line 837
     new-instance v1, Ljava/io/File;
 
     const-string v4, "/sys/class/sec/led/led_pattern"
 
     invoke-direct {v1, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 839
+    .line 838
     .local v1, file:Ljava/io/File;
     if-eqz v1, :cond_0
 
@@ -93,7 +93,7 @@
 
     if-nez v4, :cond_2
 
-    .line 840
+    .line 839
     :cond_0
     const-string v4, "LED"
 
@@ -101,16 +101,16 @@
 
     invoke-static {v4, v5}, Lcom/android/server/pm/ShutdownThread$Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 859
+    .line 858
     :cond_1
     :goto_0
     return-void
 
-    .line 844
+    .line 843
     :cond_2
     const/4 v2, 0x0
 
-    .line 846
+    .line 845
     .local v2, out:Ljava/io/FileOutputStream;
     :try_start_0
     new-instance v3, Ljava/io/FileOutputStream;
@@ -120,7 +120,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 847
+    .line 846
     .end local v2           #out:Ljava/io/FileOutputStream;
     .local v3, out:Ljava/io/FileOutputStream;
     :try_start_1
@@ -137,10 +137,10 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
 
-    .line 854
+    .line 853
     if-eqz v3, :cond_3
 
-    .line 855
+    .line 854
     :try_start_2
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
     :try_end_2
@@ -150,16 +150,16 @@
     :goto_1
     move-object v2, v3
 
-    .line 858
+    .line 857
     .end local v3           #out:Ljava/io/FileOutputStream;
     .restart local v2       #out:Ljava/io/FileOutputStream;
     goto :goto_0
 
-    .line 849
+    .line 848
     :catch_0
     move-exception v0
 
-    .line 850
+    .line 849
     .local v0, e:Ljava/io/IOException;
     :goto_2
     :try_start_3
@@ -171,10 +171,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 854
+    .line 853
     if-eqz v2, :cond_1
 
-    .line 855
+    .line 854
     :try_start_4
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_4
@@ -182,33 +182,33 @@
 
     goto :goto_0
 
-    .line 857
+    .line 856
     :catch_1
     move-exception v4
 
     goto :goto_0
 
-    .line 853
+    .line 852
     .end local v0           #e:Ljava/io/IOException;
     :catchall_0
     move-exception v4
 
-    .line 854
+    .line 853
     :goto_3
     if-eqz v2, :cond_4
 
-    .line 855
+    .line 854
     :try_start_5
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
-    .line 853
+    .line 852
     :cond_4
     :goto_4
     throw v4
 
-    .line 857
+    .line 856
     :catch_2
     move-exception v5
 
@@ -221,7 +221,7 @@
 
     goto :goto_1
 
-    .line 853
+    .line 852
     :catchall_1
     move-exception v4
 
@@ -231,7 +231,7 @@
     .restart local v2       #out:Ljava/io/FileOutputStream;
     goto :goto_3
 
-    .line 849
+    .line 848
     .end local v2           #out:Ljava/io/FileOutputStream;
     .restart local v3       #out:Ljava/io/FileOutputStream;
     :catch_4

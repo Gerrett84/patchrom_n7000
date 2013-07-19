@@ -10,9 +10,15 @@
 
 .field public static final Str_NoTag:Ljava/lang/String; = ""
 
+.field public static final TAG_CSCFEATURE_COMMON_ADDEXTMOBILEPRINT:Ljava/lang/String; = "CscFeature_Common_AddExtMobilePrint"
+
 .field public static final TAG_CSCFEATURE_COMMON_ADDPREFIX4INTERNATIONALCALL:Ljava/lang/String; = "CscFeature_Common_AddPrefix4InternationalCall"
 
+.field public static final TAG_CSCFEATURE_COMMON_ALLOWEXTERNALAPKUSAGE:Ljava/lang/String; = "CscFeature_Common_AllowExternalApkUsage"
+
 .field public static final TAG_CSCFEATURE_COMMON_BLOCKPINCHZOOM:Ljava/lang/String; = "CscFeature_Common_BlockPinchZoom"
+
+.field public static final TAG_CSCFEATURE_COMMON_DISABLEAPPSYNC:Ljava/lang/String; = "CscFeature_Common_DisableAppSync"
 
 .field public static final TAG_CSCFEATURE_COMMON_DISABLEGOOGLE:Ljava/lang/String; = "CscFeature_Common_DisableGoogle"
 
@@ -28,6 +34,8 @@
 
 .field public static final TAG_CSCFEATURE_COMMON_ENABLEONDEVICEHELP:Ljava/lang/String; = "CscFeature_Common_EnableOnDeviceHelp"
 
+.field public static final TAG_CSCFEATURE_COMMON_ENABLEREGIONALDEVICE:Ljava/lang/String; = "CscFeature_Common_EnableRegionalDevice"
+
 .field public static final TAG_CSCFEATURE_COMMON_ENABLERINGTONEFROMMUSICLIBRARY:Ljava/lang/String; = "CscFeature_Common_EnableRingtoneFromMusicLibrary"
 
 .field public static final TAG_CSCFEATURE_COMMON_ENABLESUA:Ljava/lang/String; = "CscFeature_Common_EnableSUA"
@@ -39,6 +47,8 @@
 .field public static final TAG_CSCFEATURE_COMMON_ENABLE_NOTIFICATIONWHENDEVICEMOMORYFULL:Ljava/lang/String; = "CscFeature_Common_EnableNotificationWhenDeviceMemoryFull"
 
 .field public static final TAG_CSCFEATURE_COMMON_MYPHONEBOOKBRANDNAME:Ljava/lang/String; = "CscFeature_Common_MyPhonebookBrandName"
+
+.field public static final TAG_CSCFEATURE_COMMON_PARAMAPPSYNC:Ljava/lang/String; = "CscFeature_Common_ParamAppSync"
 
 .field public static final TAG_CSCFEATURE_COMMON_USECHAMELEON:Ljava/lang/String; = "CscFeature_Common_UseChameleon"
 

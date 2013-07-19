@@ -40,7 +40,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 386
+    .line 398
     const/4 v0, 0x2
 
     return v0
@@ -52,7 +52,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 402
+    .line 414
     const/4 v0, 0x0
 
     return v0
@@ -64,7 +64,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 374
+    .line 386
     const/4 v0, 0x0
 
     return v0
@@ -77,7 +77,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 378
+    .line 390
     const/4 v0, 0x0
 
     return v0
@@ -100,7 +100,7 @@
     .end annotation
 
     .prologue
-    .line 390
+    .line 402
     const/4 v0, 0x0
 
     return-object v0
@@ -124,7 +124,7 @@
     .end annotation
 
     .prologue
-    .line 394
+    .line 406
     const/4 v0, 0x0
 
     return-object v0
@@ -136,7 +136,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 366
+    .line 378
     const/4 v0, 0x0
 
     return v0
@@ -149,7 +149,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 370
+    .line 382
     const/4 v0, 0x0
 
     return v0
@@ -161,7 +161,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 343
+    .line 355
     const/4 v0, 0x0
 
     return-object v0
@@ -173,7 +173,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 347
+    .line 359
     const/4 v0, -0x1
 
     return v0
@@ -194,7 +194,7 @@
     .end annotation
 
     .prologue
-    .line 339
+    .line 351
     const/4 v0, 0x0
 
     return-object v0
@@ -206,7 +206,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 335
+    .line 347
     const/4 v0, 0x0
 
     return-object v0
@@ -217,7 +217,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 357
+    .line 369
     const/4 v0, 0x0
 
     return-object v0
@@ -237,7 +237,7 @@
     .end annotation
 
     .prologue
-    .line 398
+    .line 410
     const/4 v0, 0x0
 
     return-object v0
@@ -248,7 +248,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 120
+    .line 124
     const/4 v0, -0x1
 
     return v0
@@ -261,7 +261,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 116
+    .line 120
     const/4 v0, 0x0
 
     return-object v0
@@ -272,7 +272,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 410
+    .line 422
     const/4 v0, 0x0
 
     return-object v0
@@ -283,7 +283,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 253
+    .line 257
     const/4 v0, 0x0
 
     return-object v0
@@ -294,17 +294,28 @@
     .parameter "simSlot"
 
     .prologue
-    .line 155
+    .line 159
     const/4 v0, 0x0
 
     return-object v0
+.end method
+
+.method public getDataRoamingEnabled(I)Z
+    .locals 1
+    .parameter "simSlot"
+
+    .prologue
+    .line 284
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public getDataSimSlot()I
     .locals 1
 
     .prologue
-    .line 276
+    .line 280
     const/4 v0, 0x0
 
     return v0
@@ -314,7 +325,7 @@
     .locals 1
 
     .prologue
-    .line 264
+    .line 268
     const/4 v0, 0x0
 
     return v0
@@ -325,7 +336,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 268
+    .line 272
     const/4 v0, 0x0
 
     return v0
@@ -335,7 +346,7 @@
     .locals 1
 
     .prologue
-    .line 272
+    .line 276
     const/4 v0, 0x0
 
     return v0
@@ -345,7 +356,7 @@
     .locals 1
 
     .prologue
-    .line 181
+    .line 185
     const/4 v0, 0x0
 
     return-object v0
@@ -356,7 +367,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 185
+    .line 189
     const/4 v0, 0x0
 
     return-object v0
@@ -376,7 +387,7 @@
     .locals 1
 
     .prologue
-    .line 170
+    .line 174
     const/4 v0, 0x0
 
     return v0
@@ -387,7 +398,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 136
+    .line 140
     const/4 v0, 0x0
 
     return-object v0
@@ -398,7 +409,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 140
+    .line 144
     const/4 v0, 0x0
 
     return-object v0
@@ -409,7 +420,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 363
+    .line 375
     const/4 v0, 0x0
 
     return-object v0
@@ -420,7 +431,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 97
+    .line 101
     const/4 v0, 0x0
 
     return v0
@@ -441,7 +452,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 147
+    .line 151
     const/4 v0, 0x0
 
     return-object v0
@@ -452,7 +463,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 132
+    .line 136
     const/4 v0, 0x0
 
     return-object v0
@@ -463,7 +474,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 233
+    .line 237
     const/4 v0, -0x1
 
     return v0
@@ -474,7 +485,7 @@
     .parameter "networkType"
 
     .prologue
-    .line 310
+    .line 322
     const/4 v0, 0x0
 
     return-object v0
@@ -485,7 +496,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 104
+    .line 108
     const/4 v0, 0x0
 
     return-object v0
@@ -496,7 +507,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 189
+    .line 193
     const/4 v0, -0x1
 
     return v0
@@ -507,7 +518,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 213
+    .line 217
     const/4 v0, -0x1
 
     return v0
@@ -519,7 +530,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 225
+    .line 229
     const/4 v0, -0x1
 
     return v0
@@ -530,7 +541,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 209
+    .line 213
     const/4 v0, -0x1
 
     return v0
@@ -540,7 +551,7 @@
     .locals 1
 
     .prologue
-    .line 284
+    .line 296
     const/4 v0, 0x0
 
     return v0
@@ -551,7 +562,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 221
+    .line 225
     const/4 v0, -0x1
 
     return v0
@@ -562,7 +573,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 217
+    .line 221
     const/4 v0, -0x1
 
     return v0
@@ -573,7 +584,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 382
+    .line 394
     const/4 v0, 0x0
 
     return v0
@@ -584,7 +595,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 360
+    .line 372
     const/4 v0, 0x0
 
     return-object v0
@@ -595,7 +606,7 @@
     .parameter "simId"
 
     .prologue
-    .line 418
+    .line 430
     const/4 v0, 0x0
 
     return-object v0
@@ -606,7 +617,18 @@
     .parameter "simId"
 
     .prologue
-    .line 414
+    .line 426
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public getSimOperator(I)Ljava/lang/String;
+    .locals 1
+    .parameter "simSlot"
+
+    .prologue
+    .line 93
     const/4 v0, 0x0
 
     return-object v0
@@ -617,7 +639,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 162
+    .line 166
     const/4 v0, 0x0
 
     return-object v0
@@ -649,7 +671,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 143
+    .line 147
     const/4 v0, 0x0
 
     return-object v0
@@ -660,7 +682,7 @@
     .parameter "phone"
 
     .prologue
-    .line 93
+    .line 97
     const/4 v0, 0x0
 
     return v0
@@ -671,7 +693,7 @@
     .parameter "context"
 
     .prologue
-    .line 260
+    .line 264
     const/4 v0, 0x0
 
     return-object v0
@@ -682,7 +704,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 350
+    .line 362
     const/4 v0, 0x0
 
     return-object v0
@@ -693,7 +715,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 158
+    .line 162
     const/4 v0, 0x0
 
     return-object v0
@@ -704,7 +726,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 151
+    .line 155
     const/4 v0, 0x0
 
     return-object v0
@@ -715,7 +737,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 205
+    .line 209
     const/4 v0, -0x1
 
     return v0
@@ -725,7 +747,7 @@
     .locals 1
 
     .prologue
-    .line 174
+    .line 178
     const/4 v0, 0x0
 
     return v0
@@ -735,7 +757,7 @@
     .locals 1
 
     .prologue
-    .line 124
+    .line 128
     const/4 v0, 0x0
 
     return v0
@@ -746,7 +768,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 128
+    .line 132
     const/4 v0, 0x0
 
     return v0
@@ -780,7 +802,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 108
+    .line 112
     const/4 v0, 0x0
 
     return v0
@@ -801,7 +823,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 237
+    .line 241
     const/4 v0, 0x0
 
     return v0
@@ -822,7 +844,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 245
+    .line 249
     const/4 v0, 0x0
 
     return v0
@@ -835,7 +857,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 112
+    .line 116
     const/4 v0, 0x0
 
     return v0
@@ -846,7 +868,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 241
+    .line 245
     const/4 v0, 0x0
 
     return v0
@@ -857,7 +879,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 193
+    .line 197
     const/4 v0, 0x0
 
     return v0
@@ -868,7 +890,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 229
+    .line 233
     const/4 v0, 0x0
 
     return v0
@@ -879,7 +901,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 166
+    .line 170
     const/4 v0, 0x0
 
     return v0
@@ -891,7 +913,7 @@
     .parameter "events"
 
     .prologue
-    .line 354
+    .line 366
     return-void
 .end method
 
@@ -900,7 +922,7 @@
     .parameter "context"
 
     .prologue
-    .line 178
+    .line 182
     return-void
 .end method
 
@@ -910,7 +932,7 @@
     .parameter "hostAddress"
 
     .prologue
-    .line 322
+    .line 334
     const/4 v0, 0x0
 
     return v0
@@ -920,7 +942,7 @@
     .locals 1
 
     .prologue
-    .line 298
+    .line 310
     const/4 v0, 0x0
 
     return v0
@@ -955,7 +977,7 @@
     .end annotation
 
     .prologue
-    .line 424
+    .line 436
     .local p3, parts:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     .local p4, sentIntents:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/PendingIntent;>;"
     .local p5, deliveryIntents:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/PendingIntent;>;"
@@ -995,7 +1017,7 @@
     .end annotation
 
     .prologue
-    .line 430
+    .line 442
     .local p3, parts:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     .local p4, sentIntents:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/PendingIntent;>;"
     .local p5, deliveryIntents:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/PendingIntent;>;"
@@ -1035,7 +1057,7 @@
     .end annotation
 
     .prologue
-    .line 435
+    .line 447
     .local p3, parts:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     .local p4, sentIntents:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/PendingIntent;>;"
     .local p5, deliveryIntents:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/PendingIntent;>;"
@@ -1059,8 +1081,19 @@
     .parameter "value"
 
     .prologue
-    .line 257
+    .line 261
     return-void
+.end method
+
+.method public setDataRoamingEnabled(I)Z
+    .locals 1
+    .parameter "simSlot"
+
+    .prologue
+    .line 288
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public setDataSubscription(I)Z
@@ -1068,7 +1101,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 280
+    .line 292
     const/4 v0, 0x0
 
     return v0
@@ -1090,7 +1123,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 288
+    .line 300
     const/4 v0, 0x0
 
     return v0
@@ -1102,7 +1135,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 101
+    .line 105
     return-void
 .end method
 
@@ -1110,7 +1143,7 @@
     .locals 1
 
     .prologue
-    .line 249
+    .line 253
     const/4 v0, 0x0
 
     return v0
@@ -1122,7 +1155,7 @@
     .parameter "feature"
 
     .prologue
-    .line 314
+    .line 326
     const/4 v0, 0x0
 
     return v0
@@ -1134,7 +1167,7 @@
     .parameter "feature"
 
     .prologue
-    .line 318
+    .line 330
     const/4 v0, 0x0
 
     return v0
@@ -1146,7 +1179,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 197
+    .line 201
     const/4 v0, 0x0
 
     return v0
@@ -1159,7 +1192,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 201
+    .line 205
     const/4 v0, 0x0
 
     return v0
@@ -1170,7 +1203,7 @@
     .parameter "networkType"
 
     .prologue
-    .line 302
+    .line 314
     const/4 v0, 0x0
 
     return v0
@@ -1181,7 +1214,7 @@
     .parameter "networkType"
 
     .prologue
-    .line 306
+    .line 318
     const/4 v0, 0x0
 
     return v0
@@ -1191,7 +1224,7 @@
     .locals 0
 
     .prologue
-    .line 292
+    .line 304
     return-void
 .end method
 
@@ -1199,7 +1232,7 @@
     .locals 0
 
     .prologue
-    .line 295
+    .line 307
     return-void
 .end method
 
@@ -1213,7 +1246,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 331
+    .line 343
     const/4 v0, 0x0
 
     return v0
@@ -1230,7 +1263,7 @@
     .parameter "simSlot"
 
     .prologue
-    .line 327
+    .line 339
     const/4 v0, 0x0
 
     return v0
@@ -1242,7 +1275,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 406
+    .line 418
     const/4 v0, 0x0
 
     return v0

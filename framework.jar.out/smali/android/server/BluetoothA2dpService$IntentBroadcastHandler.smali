@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 658
+    .line 652
     iput-object p1, p0, Landroid/server/BluetoothA2dpService$IntentBroadcastHandler;->this$0:Landroid/server/BluetoothA2dpService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 658
+    .line 652
     invoke-direct {p0, p1}, Landroid/server/BluetoothA2dpService$IntentBroadcastHandler;-><init>(Landroid/server/BluetoothA2dpService;)V
 
     return-void
@@ -51,35 +51,35 @@
     .parameter "state"
 
     .prologue
-    .line 661
+    .line 655
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 662
+    .line 656
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "android.bluetooth.device.extra.DEVICE"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 663
+    .line 657
     const-string v1, "android.bluetooth.profile.extra.PREVIOUS_STATE"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 664
+    .line 658
     const-string v1, "android.bluetooth.profile.extra.STATE"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 665
+    .line 659
     const/high16 v1, 0x800
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 666
+    .line 660
     iget-object v1, p0, Landroid/server/BluetoothA2dpService$IntentBroadcastHandler;->this$0:Landroid/server/BluetoothA2dpService;
 
     #getter for: Landroid/server/BluetoothA2dpService;->mContext:Landroid/content/Context;
@@ -91,7 +91,7 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
-    .line 668
+    .line 662
     invoke-static {}, Landroid/server/BluetoothA2dpService;->access$1000()Z
 
     move-result v1
@@ -139,7 +139,7 @@
     #calls: Landroid/server/BluetoothA2dpService;->log(Ljava/lang/String;)V
     invoke-static {v1}, Landroid/server/BluetoothA2dpService;->access$1100(Ljava/lang/String;)V
 
-    .line 670
+    .line 664
     :cond_0
     iget-object v1, p0, Landroid/server/BluetoothA2dpService$IntentBroadcastHandler;->this$0:Landroid/server/BluetoothA2dpService;
 
@@ -152,7 +152,7 @@
 
     invoke-virtual {v1, p1, v2, p3, p2}, Landroid/server/BluetoothService;->sendConnectionStateChange(Landroid/bluetooth/BluetoothDevice;III)V
 
-    .line 672
+    .line 666
     return-void
 .end method
 
@@ -163,16 +163,16 @@
     .parameter "msg"
 
     .prologue
-    .line 676
+    .line 670
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 682
+    .line 676
     :goto_0
     return-void
 
-    .line 678
+    .line 672
     :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -184,7 +184,7 @@
 
     invoke-direct {p0, v0, v1, v2}, Landroid/server/BluetoothA2dpService$IntentBroadcastHandler;->onConnectionStateChanged(Landroid/bluetooth/BluetoothDevice;II)V
 
-    .line 679
+    .line 673
     iget-object v0, p0, Landroid/server/BluetoothA2dpService$IntentBroadcastHandler;->this$0:Landroid/server/BluetoothA2dpService;
 
     #getter for: Landroid/server/BluetoothA2dpService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -196,7 +196,7 @@
 
     goto :goto_0
 
-    .line 676
+    .line 670
     nop
 
     :pswitch_data_0

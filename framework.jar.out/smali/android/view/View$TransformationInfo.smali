@@ -99,67 +99,67 @@
 
     const/4 v1, 0x0
 
-    .line 2745
+    .line 2751
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2753
+    .line 2759
     new-instance v0, Landroid/graphics/Matrix;
 
     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$TransformationInfo;->mMatrix:Landroid/graphics/Matrix;
 
-    .line 2769
+    .line 2775
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/view/View$TransformationInfo;->mMatrixDirty:Z
 
-    .line 2776
+    .line 2782
     iput-boolean v4, p0, Landroid/view/View$TransformationInfo;->mInverseMatrixDirty:Z
 
-    .line 2785
+    .line 2791
     iput-boolean v4, p0, Landroid/view/View$TransformationInfo;->mMatrixIsIdentity:Z
 
-    .line 2790
+    .line 2796
     iput-object v5, p0, Landroid/view/View$TransformationInfo;->mCamera:Landroid/graphics/Camera;
 
-    .line 2795
+    .line 2801
     iput-object v5, p0, Landroid/view/View$TransformationInfo;->matrix3D:Landroid/graphics/Matrix;
 
-    .line 2802
+    .line 2808
     iput v3, p0, Landroid/view/View$TransformationInfo;->mPrevWidth:I
 
-    .line 2803
+    .line 2809
     iput v3, p0, Landroid/view/View$TransformationInfo;->mPrevHeight:I
 
-    .line 2808
+    .line 2814
     iput v1, p0, Landroid/view/View$TransformationInfo;->mRotationY:F
 
-    .line 2814
+    .line 2820
     iput v1, p0, Landroid/view/View$TransformationInfo;->mRotationX:F
 
-    .line 2820
+    .line 2826
     iput v1, p0, Landroid/view/View$TransformationInfo;->mRotation:F
 
-    .line 2826
+    .line 2832
     iput v1, p0, Landroid/view/View$TransformationInfo;->mTranslationX:F
 
-    .line 2832
+    .line 2838
     iput v1, p0, Landroid/view/View$TransformationInfo;->mTranslationY:F
 
-    .line 2839
+    .line 2845
     iput v2, p0, Landroid/view/View$TransformationInfo;->mScaleX:F
 
-    .line 2846
+    .line 2852
     iput v2, p0, Landroid/view/View$TransformationInfo;->mScaleY:F
 
-    .line 2852
+    .line 2858
     iput v1, p0, Landroid/view/View$TransformationInfo;->mPivotX:F
 
-    .line 2858
+    .line 2864
     iput v1, p0, Landroid/view/View$TransformationInfo;->mPivotY:F
 
-    .line 2865
+    .line 2871
     iput v2, p0, Landroid/view/View$TransformationInfo;->mAlpha:F
 
     return-void
@@ -170,7 +170,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2745
+    .line 2751
     iget-object v0, p0, Landroid/view/View$TransformationInfo;->mMatrix:Landroid/graphics/Matrix;
 
     return-object v0
@@ -181,7 +181,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2745
+    .line 2751
     iget-boolean v0, p0, Landroid/view/View$TransformationInfo;->mMatrixIsIdentity:Z
 
     return v0
@@ -193,7 +193,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2745
+    .line 2751
     iput-boolean p1, p0, Landroid/view/View$TransformationInfo;->mMatrixIsIdentity:Z
 
     return p1
@@ -204,7 +204,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2745
+    .line 2751
     iget v0, p0, Landroid/view/View$TransformationInfo;->mPrevWidth:I
 
     return v0
@@ -216,7 +216,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2745
+    .line 2751
     iput p1, p0, Landroid/view/View$TransformationInfo;->mPrevWidth:I
 
     return p1
@@ -227,7 +227,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2745
+    .line 2751
     iget v0, p0, Landroid/view/View$TransformationInfo;->mPrevHeight:I
 
     return v0
@@ -239,7 +239,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2745
+    .line 2751
     iput p1, p0, Landroid/view/View$TransformationInfo;->mPrevHeight:I
 
     return p1
@@ -250,7 +250,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2745
+    .line 2751
     iget-object v0, p0, Landroid/view/View$TransformationInfo;->mCamera:Landroid/graphics/Camera;
 
     return-object v0
@@ -262,7 +262,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2745
+    .line 2751
     iput-object p1, p0, Landroid/view/View$TransformationInfo;->mCamera:Landroid/graphics/Camera;
 
     return-object p1
@@ -273,7 +273,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2745
+    .line 2751
     iget-object v0, p0, Landroid/view/View$TransformationInfo;->matrix3D:Landroid/graphics/Matrix;
 
     return-object v0
@@ -285,7 +285,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2745
+    .line 2751
     iput-object p1, p0, Landroid/view/View$TransformationInfo;->matrix3D:Landroid/graphics/Matrix;
 
     return-object p1
@@ -296,7 +296,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2745
+    .line 2751
     iget-boolean v0, p0, Landroid/view/View$TransformationInfo;->mInverseMatrixDirty:Z
 
     return v0
@@ -308,7 +308,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2745
+    .line 2751
     iput-boolean p1, p0, Landroid/view/View$TransformationInfo;->mInverseMatrixDirty:Z
 
     return p1
@@ -319,7 +319,7 @@
     .parameter "x0"
 
     .prologue
-    .line 2745
+    .line 2751
     iget-object v0, p0, Landroid/view/View$TransformationInfo;->mInverseMatrix:Landroid/graphics/Matrix;
 
     return-object v0
@@ -331,7 +331,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2745
+    .line 2751
     iput-object p1, p0, Landroid/view/View$TransformationInfo;->mInverseMatrix:Landroid/graphics/Matrix;
 
     return-object p1

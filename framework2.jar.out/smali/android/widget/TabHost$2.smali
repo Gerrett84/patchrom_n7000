@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 148
+    .line 155
     iput-object p1, p0, Landroid/widget/TabHost$2;->this$0:Landroid/widget/TabHost;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,19 +43,19 @@
     .parameter "clicked"
 
     .prologue
-    .line 150
+    .line 157
     iget-object v0, p0, Landroid/widget/TabHost$2;->this$0:Landroid/widget/TabHost;
 
     invoke-virtual {v0, p1}, Landroid/widget/TabHost;->setCurrentTab(I)V
 
-    .line 151
+    .line 158
     if-eqz p2, :cond_0
 
-    .line 152
+    .line 159
     iget-object v0, p0, Landroid/widget/TabHost$2;->this$0:Landroid/widget/TabHost;
 
     #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
-    invoke-static {v0}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
+    invoke-static {v0}, Landroid/widget/TabHost;->access$200(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v0
 
@@ -63,7 +63,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->requestFocus(I)Z
 
-    .line 154
+    .line 161
     :cond_0
     return-void
 .end method

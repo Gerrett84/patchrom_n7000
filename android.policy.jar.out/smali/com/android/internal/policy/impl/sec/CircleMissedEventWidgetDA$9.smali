@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
+    value = Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Landroid/content/res/Configuration;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 499
+    .line 501
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$9;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,7 +40,7 @@
     .parameter "selfChange"
 
     .prologue
-    .line 504
+    .line 506
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$9;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;->mHandler:Landroid/os/Handler;
@@ -54,7 +54,7 @@
 
     move-result-object v0
 
-    .line 505
+    .line 507
     .local v0, msg:Landroid/os/Message;
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$9;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
@@ -65,6 +65,6 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 506
+    .line 508
     return-void
 .end method

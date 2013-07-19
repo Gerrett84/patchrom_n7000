@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 205
+    .line 206
     iput-object p1, p0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest$1;->this$1:Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,11 +41,11 @@
     .locals 1
 
     .prologue
-    .line 208
+    .line 209
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest$1;->this$1:Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;
 
     invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;->cancelFrequencyRequest()V
 
-    .line 209
+    .line 210
     return-void
 .end method

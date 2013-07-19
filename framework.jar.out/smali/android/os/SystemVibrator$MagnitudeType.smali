@@ -28,6 +28,8 @@
 
 .field public static final enum CallMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
+.field public static final enum MaxMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
+
 .field public static final enum NotificationMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
 .field public static final enum TouchMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
@@ -35,9 +37,11 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .locals 6
 
     .prologue
+    const/4 v5, 0x3
+
     const/4 v4, 0x2
 
     const/4 v3, 0x1
@@ -71,8 +75,17 @@
 
     sput-object v0, Landroid/os/SystemVibrator$MagnitudeType;->CallMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
+    .line 45
+    new-instance v0, Landroid/os/SystemVibrator$MagnitudeType;
+
+    const-string v1, "MaxMagnitude"
+
+    invoke-direct {v0, v1, v5}, Landroid/os/SystemVibrator$MagnitudeType;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Landroid/os/SystemVibrator$MagnitudeType;->MaxMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
+
     .line 41
-    const/4 v0, 0x3
+    const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/os/SystemVibrator$MagnitudeType;
 
@@ -87,6 +100,10 @@
     sget-object v1, Landroid/os/SystemVibrator$MagnitudeType;->CallMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
     aput-object v1, v0, v4
+
+    sget-object v1, Landroid/os/SystemVibrator$MagnitudeType;->MaxMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
+
+    aput-object v1, v0, v5
 
     sput-object v0, Landroid/os/SystemVibrator$MagnitudeType;->$VALUES:[Landroid/os/SystemVibrator$MagnitudeType;
 

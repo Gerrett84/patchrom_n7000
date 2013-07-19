@@ -60,27 +60,27 @@
     .parameter "name"
 
     .prologue
-    .line 608
+    .line 611
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 605
+    .line 608
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
 
-    .line 606
+    .line 609
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
-    .line 609
+    .line 612
     iput-object p1, p0, Landroid/content/ContentService$ObserverNode;->mName:Ljava/lang/String;
 
-    .line 610
+    .line 613
     return-void
 .end method
 
@@ -89,7 +89,7 @@
     .parameter "x0"
 
     .prologue
-    .line 561
+    .line 564
     iget-object v0, p0, Landroid/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
     return-object v0
@@ -106,14 +106,14 @@
     .parameter "pid"
 
     .prologue
-    .line 670
+    .line 673
     invoke-direct {p0, p1}, Landroid/content/ContentService$ObserverNode;->countUriSegments(Landroid/net/Uri;)I
 
     move-result v1
 
     if-ne p2, v1, :cond_0
 
-    .line 671
+    .line 674
     iget-object v7, p0, Landroid/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
     new-instance v0, Landroid/content/ContentService$ObserverNode$ObserverEntry;
@@ -134,21 +134,21 @@
 
     invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 696
+    .line 699
     :goto_0
     return-void
 
-    .line 677
+    .line 680
     :cond_0
     invoke-direct {p0, p1, p2}, Landroid/content/ContentService$ObserverNode;->getUriSegment(Landroid/net/Uri;I)Ljava/lang/String;
 
     move-result-object v10
 
-    .line 678
+    .line 681
     .local v10, segment:Ljava/lang/String;
     if-nez v10, :cond_1
 
-    .line 679
+    .line 682
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -179,7 +179,7 @@
 
     throw v1
 
-    .line 681
+    .line 684
     :cond_1
     iget-object v1, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
 
@@ -187,7 +187,7 @@
 
     move-result v8
 
-    .line 682
+    .line 685
     .local v8, N:I
     const/4 v9, 0x0
 
@@ -195,7 +195,7 @@
     :goto_1
     if-ge v9, v8, :cond_3
 
-    .line 683
+    .line 686
     iget-object v1, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -204,7 +204,7 @@
 
     check-cast v0, Landroid/content/ContentService$ObserverNode;
 
-    .line 684
+    .line 687
     .local v0, node:Landroid/content/ContentService$ObserverNode;
     iget-object v1, v0, Landroid/content/ContentService$ObserverNode;->mName:Ljava/lang/String;
 
@@ -214,7 +214,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 685
+    .line 688
     add-int/lit8 v2, p2, 0x1
 
     move-object v1, p1
@@ -233,26 +233,26 @@
 
     goto :goto_0
 
-    .line 682
+    .line 685
     :cond_2
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
-    .line 692
+    .line 695
     .end local v0           #node:Landroid/content/ContentService$ObserverNode;
     :cond_3
     new-instance v0, Landroid/content/ContentService$ObserverNode;
 
     invoke-direct {v0, v10}, Landroid/content/ContentService$ObserverNode;-><init>(Ljava/lang/String;)V
 
-    .line 693
+    .line 696
     .restart local v0       #node:Landroid/content/ContentService$ObserverNode;
     iget-object v1, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 694
+    .line 697
     add-int/lit8 v2, p2, 0x1
 
     move-object v1, p1
@@ -291,7 +291,7 @@
     .end annotation
 
     .prologue
-    .line 729
+    .line 732
     .local p4, calls:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/ContentService$ObserverCall;>;"
     iget-object v5, p0, Landroid/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
@@ -299,13 +299,13 @@
 
     move-result v0
 
-    .line 730
+    .line 733
     .local v0, N:I
     if-nez p2, :cond_1
 
     const/4 v3, 0x0
 
-    .line 731
+    .line 734
     .local v3, observerBinder:Landroid/os/IBinder;
     :goto_0
     const/4 v2, 0x0
@@ -314,7 +314,7 @@
     :goto_1
     if-ge v2, v0, :cond_5
 
-    .line 732
+    .line 735
     iget-object v5, p0, Landroid/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -323,7 +323,7 @@
 
     check-cast v1, Landroid/content/ContentService$ObserverNode$ObserverEntry;
 
-    .line 736
+    .line 739
     .local v1, entry:Landroid/content/ContentService$ObserverNode$ObserverEntry;
     iget-object v5, v1, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
@@ -335,21 +335,21 @@
 
     const/4 v4, 0x1
 
-    .line 737
+    .line 740
     .local v4, selfChange:Z
     :goto_2
     if-eqz v4, :cond_3
 
     if-nez p3, :cond_3
 
-    .line 731
+    .line 734
     :cond_0
     :goto_3
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 730
+    .line 733
     .end local v1           #entry:Landroid/content/ContentService$ObserverNode$ObserverEntry;
     .end local v2           #i:I
     .end local v3           #observerBinder:Landroid/os/IBinder;
@@ -361,7 +361,7 @@
 
     goto :goto_0
 
-    .line 736
+    .line 739
     .restart local v1       #entry:Landroid/content/ContentService$ObserverNode$ObserverEntry;
     .restart local v2       #i:I
     .restart local v3       #observerBinder:Landroid/os/IBinder;
@@ -370,7 +370,7 @@
 
     goto :goto_2
 
-    .line 742
+    .line 745
     .restart local v4       #selfChange:Z
     :cond_3
     if-nez p1, :cond_4
@@ -381,7 +381,7 @@
 
     if-eqz v5, :cond_0
 
-    .line 743
+    .line 746
     :cond_4
     new-instance v5, Landroid/content/ContentService$ObserverCall;
 
@@ -393,7 +393,7 @@
 
     goto :goto_3
 
-    .line 746
+    .line 749
     .end local v1           #entry:Landroid/content/ContentService$ObserverNode$ObserverEntry;
     .end local v4           #selfChange:Z
     :cond_5
@@ -405,13 +405,13 @@
     .parameter "uri"
 
     .prologue
-    .line 656
+    .line 659
     if-nez p1, :cond_0
 
-    .line 657
+    .line 660
     const/4 v0, 0x0
 
-    .line 659
+    .line 662
     :goto_0
     return v0
 
@@ -435,22 +435,22 @@
     .parameter "index"
 
     .prologue
-    .line 644
+    .line 647
     if-eqz p1, :cond_1
 
-    .line 645
+    .line 648
     if-nez p2, :cond_0
 
-    .line 646
+    .line 649
     invoke-virtual {p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 651
+    .line 654
     :goto_0
     return-object v0
 
-    .line 648
+    .line 651
     :cond_0
     invoke-virtual {p1}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
 
@@ -466,7 +466,7 @@
 
     goto :goto_0
 
-    .line 651
+    .line 654
     :cond_1
     const/4 v0, 0x0
 
@@ -485,7 +485,7 @@
     .parameter "pid"
 
     .prologue
-    .line 664
+    .line 667
     const/4 v2, 0x0
 
     move-object v0, p0
@@ -504,7 +504,7 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/content/ContentService$ObserverNode;->addObserverLocked(Landroid/net/Uri;ILandroid/database/IContentObserver;ZLjava/lang/Object;II)V
 
-    .line 665
+    .line 668
     return-void
 .end method
 
@@ -530,26 +530,26 @@
     .end annotation
 
     .prologue
-    .line 750
+    .line 753
     .local p5, calls:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/ContentService$ObserverCall;>;"
     const/4 v8, 0x0
 
-    .line 751
+    .line 754
     .local v8, segment:Ljava/lang/String;
     invoke-direct {p0, p1}, Landroid/content/ContentService$ObserverNode;->countUriSegments(Landroid/net/Uri;)I
 
     move-result v9
 
-    .line 752
+    .line 755
     .local v9, segmentCount:I
     if-lt p2, v9, :cond_3
 
-    .line 754
+    .line 757
     const/4 v1, 0x1
 
     invoke-direct {p0, v1, p3, p4, p5}, Landroid/content/ContentService$ObserverNode;->collectMyObserversLocked(ZLandroid/database/IContentObserver;ZLjava/util/ArrayList;)V
 
-    .line 761
+    .line 764
     :cond_0
     :goto_0
     iget-object v1, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
@@ -558,7 +558,7 @@
 
     move-result v6
 
-    .line 762
+    .line 765
     .local v6, N:I
     const/4 v7, 0x0
 
@@ -566,7 +566,7 @@
     :goto_1
     if-ge v7, v6, :cond_2
 
-    .line 763
+    .line 766
     iget-object v1, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -575,7 +575,7 @@
 
     check-cast v0, Landroid/content/ContentService$ObserverNode;
 
-    .line 764
+    .line 767
     .local v0, node:Landroid/content/ContentService$ObserverNode;
     if-eqz v8, :cond_1
 
@@ -587,7 +587,7 @@
 
     if-eqz v1, :cond_4
 
-    .line 766
+    .line 769
     :cond_1
     add-int/lit8 v2, p2, 0x1
 
@@ -601,33 +601,33 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentService$ObserverNode;->collectObserversLocked(Landroid/net/Uri;ILandroid/database/IContentObserver;ZLjava/util/ArrayList;)V
 
-    .line 768
+    .line 771
     if-eqz v8, :cond_4
 
-    .line 773
+    .line 776
     .end local v0           #node:Landroid/content/ContentService$ObserverNode;
     :cond_2
     return-void
 
-    .line 755
+    .line 758
     .end local v6           #N:I
     .end local v7           #i:I
     :cond_3
     if-ge p2, v9, :cond_0
 
-    .line 756
+    .line 759
     invoke-direct {p0, p1, p2}, Landroid/content/ContentService$ObserverNode;->getUriSegment(Landroid/net/Uri;I)Ljava/lang/String;
 
     move-result-object v8
 
-    .line 758
+    .line 761
     const/4 v1, 0x0
 
     invoke-direct {p0, v1, p3, p4, p5}, Landroid/content/ContentService$ObserverNode;->collectMyObserversLocked(ZLandroid/database/IContentObserver;ZLjava/util/ArrayList;)V
 
     goto :goto_0
 
-    .line 762
+    .line 765
     .restart local v0       #node:Landroid/content/ContentService$ObserverNode;
     .restart local v6       #N:I
     .restart local v7       #i:I
@@ -648,10 +648,10 @@
     .parameter "pidCounts"
 
     .prologue
-    .line 614
+    .line 617
     const/4 v4, 0x0
 
-    .line 615
+    .line 618
     .local v4, innerName:Ljava/lang/String;
     iget-object v0, p0, Landroid/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
@@ -661,7 +661,7 @@
 
     if-lez v0, :cond_1
 
-    .line 616
+    .line 619
     const-string v0, ""
 
     invoke-virtual {v0, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -670,10 +670,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 617
+    .line 620
     iget-object v4, p0, Landroid/content/ContentService$ObserverNode;->mName:Ljava/lang/String;
 
-    .line 621
+    .line 624
     :goto_0
     const/4 v8, 0x0
 
@@ -687,7 +687,7 @@
 
     if-ge v8, v0, :cond_1
 
-    .line 622
+    .line 625
     const/4 v0, 0x1
 
     aget v1, p6, v0
@@ -696,7 +696,7 @@
 
     aput v1, p6, v0
 
-    .line 623
+    .line 626
     iget-object v0, p0, Landroid/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -717,12 +717,12 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/content/ContentService$ObserverNode$ObserverEntry;->dumpLocked(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/util/SparseIntArray;)V
 
-    .line 621
+    .line 624
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
-    .line 619
+    .line 622
     .end local v8           #i:I
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
@@ -751,7 +751,7 @@
 
     goto :goto_0
 
-    .line 627
+    .line 630
     :cond_1
     iget-object v0, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
 
@@ -761,10 +761,10 @@
 
     if-lez v0, :cond_4
 
-    .line 628
+    .line 631
     if-nez v4, :cond_2
 
-    .line 629
+    .line 632
     const-string v0, ""
 
     invoke-virtual {v0, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -773,10 +773,10 @@
 
     if-eqz v0, :cond_3
 
-    .line 630
+    .line 633
     iget-object v4, p0, Landroid/content/ContentService$ObserverNode;->mName:Ljava/lang/String;
 
-    .line 635
+    .line 638
     :cond_2
     :goto_2
     const/4 v8, 0x0
@@ -791,7 +791,7 @@
 
     if-ge v8, v0, :cond_4
 
-    .line 636
+    .line 639
     const/4 v0, 0x0
 
     aget v1, p6, v0
@@ -800,7 +800,7 @@
 
     aput v1, p6, v0
 
-    .line 637
+    .line 640
     iget-object v0, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -823,12 +823,12 @@
 
     invoke-virtual/range {v0 .. v7}, Landroid/content/ContentService$ObserverNode;->dumpLocked(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[ILandroid/util/SparseIntArray;)V
 
-    .line 635
+    .line 638
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_3
 
-    .line 632
+    .line 635
     .end local v8           #i:I
     :cond_3
     new-instance v0, Ljava/lang/StringBuilder;
@@ -857,7 +857,7 @@
 
     goto :goto_2
 
-    .line 641
+    .line 644
     :cond_4
     return-void
 .end method
@@ -869,14 +869,14 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 699
+    .line 702
     iget-object v5, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    .line 700
+    .line 703
     .local v4, size:I
     const/4 v2, 0x0
 
@@ -884,7 +884,7 @@
     :goto_0
     if-ge v2, v4, :cond_1
 
-    .line 701
+    .line 704
     iget-object v5, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -897,35 +897,35 @@
 
     move-result v0
 
-    .line 702
+    .line 705
     .local v0, empty:Z
     if-eqz v0, :cond_0
 
-    .line 703
+    .line 706
     iget-object v5, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 704
+    .line 707
     add-int/lit8 v2, v2, -0x1
 
-    .line 705
+    .line 708
     add-int/lit8 v4, v4, -0x1
 
-    .line 700
+    .line 703
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 709
+    .line 712
     .end local v0           #empty:Z
     :cond_1
     invoke-interface {p1}, Landroid/database/IContentObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    .line 710
+    .line 713
     .local v3, observerBinder:Landroid/os/IBinder;
     iget-object v5, p0, Landroid/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
@@ -933,13 +933,13 @@
 
     move-result v4
 
-    .line 711
+    .line 714
     const/4 v2, 0x0
 
     :goto_1
     if-ge v2, v4, :cond_2
 
-    .line 712
+    .line 715
     iget-object v5, p0, Landroid/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -948,7 +948,7 @@
 
     check-cast v1, Landroid/content/ContentService$ObserverNode$ObserverEntry;
 
-    .line 713
+    .line 716
     .local v1, entry:Landroid/content/ContentService$ObserverNode$ObserverEntry;
     iget-object v5, v1, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
@@ -958,15 +958,15 @@
 
     if-ne v5, v3, :cond_3
 
-    .line 714
+    .line 717
     iget-object v5, p0, Landroid/content/ContentService$ObserverNode;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 716
+    .line 719
     invoke-interface {v3, v1, v6}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 721
+    .line 724
     .end local v1           #entry:Landroid/content/ContentService$ObserverNode$ObserverEntry;
     :cond_2
     iget-object v5, p0, Landroid/content/ContentService$ObserverNode;->mChildren:Ljava/util/ArrayList;
@@ -985,14 +985,14 @@
 
     if-nez v5, :cond_4
 
-    .line 722
+    .line 725
     const/4 v5, 0x1
 
-    .line 724
+    .line 727
     :goto_2
     return v5
 
-    .line 711
+    .line 714
     .restart local v1       #entry:Landroid/content/ContentService$ObserverNode$ObserverEntry;
     :cond_3
     add-int/lit8 v2, v2, 0x1
@@ -1003,6 +1003,6 @@
     :cond_4
     move v5, v6
 
-    .line 724
+    .line 727
     goto :goto_2
 .end method

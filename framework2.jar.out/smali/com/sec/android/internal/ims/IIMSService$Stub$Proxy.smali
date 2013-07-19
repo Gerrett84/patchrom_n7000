@@ -27,13 +27,13 @@
     .parameter "remote"
 
     .prologue
-    .line 425
+    .line 455
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 426
+    .line 456
     iput-object p1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    .line 427
+    .line 457
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 430
+    .line 460
     iget-object v0, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     return-object v0
@@ -62,31 +62,31 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 673
+    .line 720
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 675
+    .line 722
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 676
+    .line 723
     if-eqz p1, :cond_0
 
     :goto_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 677
+    .line 724
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 678
+    .line 725
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x10
+    const/16 v2, 0x11
 
     const/4 v3, 0x0
 
@@ -96,19 +96,19 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 681
+    .line 728
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 683
+    .line 730
     return-void
 
-    .line 676
+    .line 723
     :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 681
+    .line 728
     :catchall_0
     move-exception v1
 
@@ -130,34 +130,34 @@
     .end annotation
 
     .prologue
-    .line 935
+    .line 986
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 937
+    .line 988
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 938
+    .line 989
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 939
+    .line 990
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 940
+    .line 991
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 941
+    .line 992
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 942
+    .line 993
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x23
+    const/16 v2, 0x24
 
     const/4 v3, 0x0
 
@@ -167,13 +167,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 945
+    .line 996
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 947
+    .line 998
     return-void
 
-    .line 945
+    .line 996
     :catchall_0
     move-exception v1
 
@@ -192,58 +192,67 @@
     .end annotation
 
     .prologue
-    const/4 v1, 0x1
+    const/4 v2, 0x0
 
-    .line 686
+    .line 733
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 688
+    .line 734
     .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 736
+    .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
-    const-string v2, "com.sec.android.internal.ims.IIMSService"
+    const-string v3, "com.sec.android.internal.ims.IIMSService"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 689
+    .line 737
     if-eqz p1, :cond_0
 
-    :goto_0
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+    const/4 v2, 0x1
 
-    .line 690
-    iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    :cond_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    const/16 v2, 0x11
+    .line 738
+    iget-object v2, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v3, 0x0
+    const/16 v3, 0x12
 
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
-    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 739
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 693
+    .line 742
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 743
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 695
+    .line 745
     return-void
 
-    .line 689
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    .line 693
+    .line 742
     :catchall_0
-    move-exception v1
+    move-exception v2
 
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 743
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    throw v1
+    throw v2
 .end method
 
 .method public getCurrentLatchedNetwork()Ljava/lang/String;
@@ -255,61 +264,61 @@
     .end annotation
 
     .prologue
-    .line 964
+    .line 1015
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 965
+    .line 1016
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 968
+    .line 1019
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 969
+    .line 1020
     iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x25
+    const/16 v4, 0x26
 
     const/4 v5, 0x0
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 970
+    .line 1021
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 971
+    .line 1022
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
-    .line 974
+    .line 1025
     .local v2, _result:Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 975
+    .line 1026
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 977
+    .line 1028
     return-object v2
 
-    .line 974
+    .line 1025
     .end local v2           #_result:Ljava/lang/String;
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 975
+    .line 1026
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v3
@@ -326,25 +335,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 505
+    .line 535
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 506
+    .line 536
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 509
+    .line 539
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 510
+    .line 540
     iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x5
@@ -353,10 +362,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 511
+    .line 541
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 512
+    .line 542
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -367,25 +376,25 @@
 
     const/4 v2, 0x1
 
-    .line 515
+    .line 545
     .local v2, _result:Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 516
+    .line 546
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 518
+    .line 548
     return v2
 
-    .line 515
+    .line 545
     .end local v2           #_result:Z
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 516
+    .line 546
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v3
@@ -395,7 +404,7 @@
     .locals 1
 
     .prologue
-    .line 434
+    .line 464
     const-string v0, "com.sec.android.internal.ims.IIMSService"
 
     return-object v0
@@ -410,25 +419,25 @@
     .end annotation
 
     .prologue
-    .line 488
+    .line 518
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 489
+    .line 519
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 492
+    .line 522
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 493
+    .line 523
     iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x4
@@ -437,10 +446,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 494
+    .line 524
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 495
+    .line 525
     invoke-virtual {v1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v3
@@ -451,24 +460,24 @@
 
     move-result-object v2
 
-    .line 498
+    .line 528
     .local v2, _result:Lcom/sec/android/ims/message/IMessageEnabler;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 499
+    .line 529
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 501
+    .line 531
     return-object v2
 
-    .line 498
+    .line 528
     .end local v2           #_result:Lcom/sec/android/ims/message/IMessageEnabler;
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 499
+    .line 529
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v3
@@ -483,28 +492,969 @@
     .end annotation
 
     .prologue
-    .line 577
+    .line 607
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 578
+    .line 608
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 581
+    .line 611
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 582
+    .line 612
     iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x9
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 613
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 614
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 617
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 618
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 620
+    return v2
+
+    .line 617
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 618
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isIMSEnabledOnWifi()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 1032
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1033
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1036
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1037
+    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x27
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1038
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 1039
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 1042
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1043
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1045
+    return v2
+
+    .line 1042
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1043
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isImsForbidden()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 658
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 659
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 662
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 663
+    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0xc
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 664
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 665
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 668
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 669
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 671
+    return v2
+
+    .line 668
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 669
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isOnEHRPD()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 641
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 642
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 645
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 646
+    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0xb
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 647
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 648
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 651
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 652
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 654
+    return v2
+
+    .line 651
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 652
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isOnLTE()Z
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 624
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 625
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 628
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 629
+    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0xa
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 630
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 631
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .line 634
+    .local v2, _result:Z
+    :cond_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 635
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 637
+    return v2
+
+    .line 634
+    .end local v2           #_result:Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 635
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isRegistered()Z
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    .line 468
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 469
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 472
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v4, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 473
+    iget-object v4, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 474
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 475
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 478
+    .local v2, _result:Z
+    :goto_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 479
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 481
+    return v2
+
+    .end local v2           #_result:Z
+    :cond_0
+    move v2, v3
+
+    .line 475
+    goto :goto_0
+
+    .line 478
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 479
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public mmSS_Svc_Api(IIILjava/lang/String;Ljava/lang/String;)I
+    .locals 6
+    .parameter "funcId"
+    .parameter "param1"
+    .parameter "param2"
+    .parameter "param3"
+    .parameter "param4"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 552
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 553
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 556
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 557
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 558
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 559
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 560
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 561
+    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 562
+    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v4, 0x6
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 563
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 564
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 567
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 568
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 570
+    return v2
+
+    .line 567
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 568
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public mmTelSvcCallFunc(IIILjava/lang/String;)I
+    .locals 6
+    .parameter "funcId"
+    .parameter "param1"
+    .parameter "param2"
+    .parameter "params"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 965
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 966
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 969
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 970
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 971
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 972
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 973
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 974
+    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x23
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 975
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 976
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 979
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 980
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 982
+    return v2
+
+    .line 979
+    .end local v2           #_result:I
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 980
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public mmTelSvcCallFuncAsync(IIILjava/lang/String;)V
+    .locals 5
+    .parameter "funcId"
+    .parameter "param1"
+    .parameter "param2"
+    .parameter "params"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 948
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 950
+    .local v0, _data:Landroid/os/Parcel;
+    :try_start_0
+    const-string v1, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 951
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 952
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 953
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 954
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 955
+    iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x22
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 958
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 960
+    return-void
+
+    .line 958
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
+.end method
+
+.method public register(Ljava/lang/String;Z)V
+    .locals 5
+    .parameter "pcscfAddr"
+    .parameter "isIt3gNetwork"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v1, 0x1
+
+    .line 873
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 875
+    .local v0, _data:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 876
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 877
+    if-eqz p2, :cond_0
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 878
+    iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x1c
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 881
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 883
+    return-void
+
+    .line 877
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    .line 881
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
+.end method
+
+.method public registerApp(ILjava/lang/String;Lcom/sec/android/ims/IImsServiceCallback;)I
+    .locals 6
+    .parameter "appType"
+    .parameter "params"
+    .parameter "cb"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 485
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 486
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 489
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 490
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 491
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 492
+    if-eqz p3, :cond_0
+
+    invoke-interface {p3}, Lcom/sec/android/ims/IImsServiceCallback;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 493
+    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v4, 0x2
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 494
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    .line 495
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v2
+
+    .line 498
+    .local v2, _result:I
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 499
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 501
+    return v2
+
+    .line 492
+    .end local v2           #_result:I
+    :cond_0
+    const/4 v3, 0x0
+
+    goto :goto_0
+
+    .line 498
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 499
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public registerListener(Lcom/sec/android/internal/ims/IIMSEventListener;I)V
+    .locals 5
+    .parameter "imsListener"
+    .parameter "events"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 923
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 925
+    .local v0, _data:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 926
+    if-eqz p1, :cond_0
+
+    invoke-interface {p1}, Lcom/sec/android/internal/ims/IIMSEventListener;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 927
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 928
+    iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x20
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 931
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 933
+    return-void
+
+    .line 931
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
+.end method
+
+.method public registerSSApp(ILjava/lang/String;Lcom/sec/android/ims/IImsServiceCallback;)I
+    .locals 6
+    .parameter "appType"
+    .parameter "params"
+    .parameter "cb"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 574
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 575
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 578
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 579
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 580
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 581
+    if-eqz p3, :cond_0
+
+    invoke-interface {p3}, Lcom/sec/android/ims/IImsServiceCallback;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 582
+    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v4, 0x7
 
     const/4 v5, 0x0
 
@@ -530,8 +1480,14 @@
     .line 590
     return v2
 
-    .line 587
+    .line 581
     .end local v2           #_result:I
+    :cond_0
+    const/4 v3, 0x0
+
+    goto :goto_0
+
+    .line 587
     :catchall_0
     move-exception v3
 
@@ -543,496 +1499,10 @@
     throw v3
 .end method
 
-.method public isIMSEnabledOnWifi()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 981
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 982
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 985
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 986
-    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x26
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 987
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 988
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 991
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 992
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 994
-    return v2
-
-    .line 991
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 992
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isOnEHRPD()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 611
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 612
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 615
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 616
-    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0xb
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 617
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 618
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 621
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 622
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 624
-    return v2
-
-    .line 621
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 622
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isOnLTE()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 594
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 595
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 598
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 599
-    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0xa
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 600
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 601
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 604
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 605
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 607
-    return v2
-
-    .line 604
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 605
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isRegistered()Z
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    .line 438
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 439
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 442
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v4, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 443
-    iget-object v4, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v5, 0x1
-
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 444
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 445
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    .line 448
-    .local v2, _result:Z
-    :goto_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 449
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 451
-    return v2
-
-    .end local v2           #_result:Z
-    :cond_0
-    move v2, v3
-
-    .line 445
-    goto :goto_0
-
-    .line 448
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 449
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public mmSS_Svc_Api(IIILjava/lang/String;Ljava/lang/String;)I
-    .locals 6
-    .parameter "funcId"
-    .parameter "param1"
-    .parameter "param2"
-    .parameter "param3"
-    .parameter "param4"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 522
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 523
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 526
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 527
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 528
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 529
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 530
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 531
-    invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 532
-    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v4, 0x6
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 533
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 534
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 537
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 538
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 540
-    return v2
-
-    .line 537
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 538
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public mmTelSvcCallFunc(IIILjava/lang/String;)I
-    .locals 6
-    .parameter "funcId"
-    .parameter "param1"
-    .parameter "param2"
-    .parameter "params"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 914
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 915
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 918
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 919
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 920
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 921
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 922
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 923
-    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x22
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 924
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 925
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 928
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 929
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 931
-    return v2
-
-    .line 928
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 929
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public mmTelSvcCallFuncAsync(IIILjava/lang/String;)V
+.method public registerWithISIMResponse(Ljava/lang/String;[B)V
     .locals 5
-    .parameter "funcId"
-    .parameter "param1"
-    .parameter "param2"
-    .parameter "params"
+    .parameter "pcscfAddr"
+    .parameter "isimResponse"
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1053,400 +1523,15 @@
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 900
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 901
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 902
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 903
-    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 904
-    iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v2, 0x21
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 907
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 909
-    return-void
-
-    .line 907
-    :catchall_0
-    move-exception v1
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v1
-.end method
-
-.method public register(Ljava/lang/String;Z)V
-    .locals 5
-    .parameter "pcscfAddr"
-    .parameter "isIt3gNetwork"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v1, 0x1
-
-    .line 822
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 824
-    .local v0, _data:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 825
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 826
-    if-eqz p2, :cond_0
-
-    :goto_0
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 827
-    iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v2, 0x1b
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 830
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 832
-    return-void
-
-    .line 826
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    .line 830
-    :catchall_0
-    move-exception v1
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v1
-.end method
-
-.method public registerApp(ILjava/lang/String;Lcom/sec/android/ims/IImsServiceCallback;)I
-    .locals 6
-    .parameter "appType"
-    .parameter "params"
-    .parameter "cb"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 455
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 456
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 459
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 460
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 461
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 462
-    if-eqz p3, :cond_0
-
-    invoke-interface {p3}, Lcom/sec/android/ims/IImsServiceCallback;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v3
-
-    :goto_0
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 463
-    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v4, 0x2
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 464
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 465
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 468
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 469
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 471
-    return v2
-
-    .line 462
-    .end local v2           #_result:I
-    :cond_0
-    const/4 v3, 0x0
-
-    goto :goto_0
-
-    .line 468
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 469
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public registerListener(Lcom/sec/android/internal/ims/IIMSEventListener;I)V
-    .locals 5
-    .parameter "imsListener"
-    .parameter "events"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 872
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 874
-    .local v0, _data:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 875
-    if-eqz p1, :cond_0
-
-    invoke-interface {p1}, Lcom/sec/android/internal/ims/IIMSEventListener;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v1
-
-    :cond_0
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 876
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 877
-    iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v2, 0x1f
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 880
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 882
-    return-void
-
-    .line 880
-    :catchall_0
-    move-exception v1
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v1
-.end method
-
-.method public registerSSApp(ILjava/lang/String;Lcom/sec/android/ims/IImsServiceCallback;)I
-    .locals 6
-    .parameter "appType"
-    .parameter "params"
-    .parameter "cb"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 544
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 545
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 548
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 549
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 550
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 551
-    if-eqz p3, :cond_0
-
-    invoke-interface {p3}, Lcom/sec/android/ims/IImsServiceCallback;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v3
-
-    :goto_0
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 552
-    iget-object v3, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/4 v4, 0x7
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 553
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 554
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 557
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 558
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 560
-    return v2
-
-    .line 551
-    .end local v2           #_result:I
-    :cond_0
-    const/4 v3, 0x0
-
-    goto :goto_0
-
-    .line 557
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 558
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public registerWithISIMResponse(Ljava/lang/String;[B)V
-    .locals 5
-    .parameter "pcscfAddr"
-    .parameter "isimResponse"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 846
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 848
-    .local v0, _data:Landroid/os/Parcel;
-    :try_start_0
-    const-string v1, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 849
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    .line 850
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    .line 851
+    .line 902
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x1d
+    const/16 v2, 0x1e
 
     const/4 v3, 0x0
 
@@ -1456,13 +1541,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 854
+    .line 905
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 856
+    .line 907
     return-void
 
-    .line 854
+    .line 905
     :catchall_0
     move-exception v1
 
@@ -1480,22 +1565,22 @@
     .end annotation
 
     .prologue
-    .line 639
+    .line 686
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 641
+    .line 688
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 642
+    .line 689
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0xd
+    const/16 v2, 0xe
 
     const/4 v3, 0x0
 
@@ -1505,13 +1590,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 645
+    .line 692
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 647
+    .line 694
     return-void
 
-    .line 645
+    .line 692
     :catchall_0
     move-exception v1
 
@@ -1529,22 +1614,22 @@
     .end annotation
 
     .prologue
-    .line 662
+    .line 709
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 664
+    .line 711
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 665
+    .line 712
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0xf
+    const/16 v2, 0x10
 
     const/4 v3, 0x0
 
@@ -1554,13 +1639,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 668
+    .line 715
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 670
+    .line 717
     return-void
 
-    .line 668
+    .line 715
     :catchall_0
     move-exception v1
 
@@ -1579,25 +1664,25 @@
     .end annotation
 
     .prologue
-    .line 650
+    .line 697
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 652
+    .line 699
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 653
+    .line 700
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 654
+    .line 701
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0xe
+    const/16 v2, 0xf
 
     const/4 v3, 0x0
 
@@ -1607,13 +1692,66 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 657
+    .line 704
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 659
+    .line 706
     return-void
 
-    .line 657
+    .line 704
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
+.end method
+
+.method public setAudioMode(I)V
+    .locals 5
+    .parameter "mode"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1065
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1067
+    .local v0, _data:Landroid/os/Parcel;
+    :try_start_0
+    const-string v1, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1068
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 1069
+    iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x29
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1072
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1074
+    return-void
+
+    .line 1072
     :catchall_0
     move-exception v1
 
@@ -1632,25 +1770,25 @@
     .end annotation
 
     .prologue
-    .line 950
+    .line 1001
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 952
+    .line 1003
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 953
+    .line 1004
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 954
+    .line 1005
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x24
+    const/16 v2, 0x25
 
     const/4 v3, 0x0
 
@@ -1660,13 +1798,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 957
+    .line 1008
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 959
+    .line 1010
     return-void
 
-    .line 957
+    .line 1008
     :catchall_0
     move-exception v1
 
@@ -1685,25 +1823,25 @@
     .end annotation
 
     .prologue
-    .line 762
+    .line 813
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 764
+    .line 815
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 765
+    .line 816
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 766
+    .line 817
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x17
+    const/16 v2, 0x18
 
     const/4 v3, 0x0
 
@@ -1713,13 +1851,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 769
+    .line 820
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 771
+    .line 822
     return-void
 
-    .line 769
+    .line 820
     :catchall_0
     move-exception v1
 
@@ -1737,22 +1875,22 @@
     .end annotation
 
     .prologue
-    .line 729
+    .line 780
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 731
+    .line 782
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 732
+    .line 783
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x14
+    const/16 v2, 0x15
 
     const/4 v3, 0x0
 
@@ -1762,13 +1900,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 735
+    .line 786
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 737
+    .line 788
     return-void
 
-    .line 735
+    .line 786
     :catchall_0
     move-exception v1
 
@@ -1797,42 +1935,42 @@
 
     const/4 v2, 0x0
 
-    .line 787
+    .line 838
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 789
+    .line 840
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 790
+    .line 841
     if-eqz p1, :cond_0
 
-    .line 791
+    .line 842
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 792
+    .line 843
     const/4 v3, 0x0
 
     invoke-virtual {p1, v0, v3}, Landroid/view/Surface;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 797
+    .line 848
     :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 798
+    .line 849
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 799
+    .line 850
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 800
+    .line 851
     if-eqz p5, :cond_1
 
     move v3, v1
@@ -1840,19 +1978,19 @@
     :goto_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 801
+    .line 852
     if-eqz p6, :cond_2
 
     :goto_2
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 802
+    .line 853
     invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 803
+    .line 854
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x19
+    const/16 v2, 0x1a
 
     const/4 v3, 0x0
 
@@ -1862,13 +2000,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 806
+    .line 857
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 808
+    .line 859
     return-void
 
-    .line 795
+    .line 846
     :cond_0
     const/4 v3, 0x0
 
@@ -1879,7 +2017,7 @@
 
     goto :goto_0
 
-    .line 806
+    .line 857
     :catchall_0
     move-exception v1
 
@@ -1890,13 +2028,13 @@
     :cond_1
     move v3, v2
 
-    .line 800
+    .line 851
     goto :goto_1
 
     :cond_2
     move v1, v2
 
-    .line 801
+    .line 852
     goto :goto_2
 .end method
 
@@ -1909,22 +2047,22 @@
     .end annotation
 
     .prologue
-    .line 740
+    .line 791
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 742
+    .line 793
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 743
+    .line 794
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x15
+    const/16 v2, 0x16
 
     const/4 v3, 0x0
 
@@ -1934,13 +2072,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 746
+    .line 797
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 748
+    .line 799
     return-void
 
-    .line 746
+    .line 797
     :catchall_0
     move-exception v1
 
@@ -1949,11 +2087,12 @@
     throw v1
 .end method
 
-.method public startVideoRenderer(Landroid/view/Surface;II)V
+.method public startVideoRenderer(Landroid/view/Surface;IILjava/lang/String;)V
     .locals 5
     .parameter "surface"
     .parameter "width"
     .parameter "height"
+    .parameter "frameSize"
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1961,42 +2100,45 @@
     .end annotation
 
     .prologue
-    .line 709
+    .line 759
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 711
+    .line 761
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 712
+    .line 762
     if-eqz p1, :cond_0
 
-    .line 713
+    .line 763
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 714
+    .line 764
     const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1}, Landroid/view/Surface;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 719
+    .line 769
     :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 720
+    .line 770
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 721
+    .line 771
+    invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 772
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x13
+    const/16 v2, 0x14
 
     const/4 v3, 0x0
 
@@ -2006,13 +2148,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 724
+    .line 775
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 726
+    .line 777
     return-void
 
-    .line 717
+    .line 767
     :cond_0
     const/4 v1, 0x0
 
@@ -2023,7 +2165,7 @@
 
     goto :goto_0
 
-    .line 724
+    .line 775
     :catchall_0
     move-exception v1
 
@@ -2041,22 +2183,22 @@
     .end annotation
 
     .prologue
-    .line 811
+    .line 862
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 813
+    .line 864
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 814
+    .line 865
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x1a
+    const/16 v2, 0x1b
 
     const/4 v3, 0x0
 
@@ -2066,13 +2208,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 817
+    .line 868
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 819
+    .line 870
     return-void
 
-    .line 817
+    .line 868
     :catchall_0
     move-exception v1
 
@@ -2090,22 +2232,22 @@
     .end annotation
 
     .prologue
-    .line 751
+    .line 802
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 753
+    .line 804
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 754
+    .line 805
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x16
+    const/16 v2, 0x17
 
     const/4 v3, 0x0
 
@@ -2115,13 +2257,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 757
+    .line 808
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 759
+    .line 810
     return-void
 
-    .line 757
+    .line 808
     :catchall_0
     move-exception v1
 
@@ -2139,22 +2281,22 @@
     .end annotation
 
     .prologue
-    .line 698
+    .line 748
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 700
+    .line 750
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 701
+    .line 751
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x12
+    const/16 v2, 0x13
 
     const/4 v3, 0x0
 
@@ -2164,13 +2306,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 704
+    .line 754
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 706
+    .line 756
     return-void
 
-    .line 704
+    .line 754
     :catchall_0
     move-exception v1
 
@@ -2188,22 +2330,22 @@
     .end annotation
 
     .prologue
-    .line 628
+    .line 675
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 630
+    .line 677
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 631
+    .line 678
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0xc
+    const/16 v2, 0xd
 
     const/4 v3, 0x0
 
@@ -2213,13 +2355,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 634
+    .line 681
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 636
+    .line 683
     return-void
 
-    .line 634
+    .line 681
     :catchall_0
     move-exception v1
 
@@ -2239,25 +2381,25 @@
     .end annotation
 
     .prologue
-    .line 475
+    .line 505
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 477
+    .line 507
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 478
+    .line 508
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 479
+    .line 509
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 480
+    .line 510
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x3
@@ -2270,13 +2412,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 483
+    .line 513
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 485
+    .line 515
     return-void
 
-    .line 483
+    .line 513
     :catchall_0
     move-exception v1
 
@@ -2296,25 +2438,25 @@
     .end annotation
 
     .prologue
-    .line 564
+    .line 594
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 566
+    .line 596
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 567
+    .line 597
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 568
+    .line 598
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 569
+    .line 599
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v2, 0x8
@@ -2327,13 +2469,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 572
+    .line 602
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 574
+    .line 604
     return-void
 
-    .line 572
+    .line 602
     :catchall_0
     move-exception v1
 
@@ -2351,84 +2493,22 @@
     .end annotation
 
     .prologue
-    .line 835
+    .line 886
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 837
+    .line 888
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 838
-    iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v2, 0x1c
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 841
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 843
-    return-void
-
-    .line 841
-    :catchall_0
-    move-exception v1
-
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v1
-.end method
-
-.method public unregisterListener(Lcom/sec/android/internal/ims/IIMSEventListener;)V
-    .locals 5
-    .parameter "imsListener"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 885
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 887
-    .local v0, _data:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.sec.android.internal.ims.IIMSService"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 888
-    if-eqz p1, :cond_0
-
-    invoke-interface {p1}, Lcom/sec/android/internal/ims/IIMSEventListener;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v1
-
-    :cond_0
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
     .line 889
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x20
+    const/16 v2, 0x1d
 
     const/4 v3, 0x0
 
@@ -2453,6 +2533,68 @@
     throw v1
 .end method
 
+.method public unregisterListener(Lcom/sec/android/internal/ims/IIMSEventListener;)V
+    .locals 5
+    .parameter "imsListener"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 936
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 938
+    .local v0, _data:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 939
+    if-eqz p1, :cond_0
+
+    invoke-interface {p1}, Lcom/sec/android/internal/ims/IIMSEventListener;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    .line 940
+    iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v2, 0x21
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 943
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 945
+    return-void
+
+    .line 943
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v1
+.end method
+
 .method public unregisterWithISIMResponse(Ljava/lang/String;[B)V
     .locals 5
     .parameter "pcscfAddr"
@@ -2464,28 +2606,28 @@
     .end annotation
 
     .prologue
-    .line 859
+    .line 910
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 861
+    .line 912
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 862
+    .line 913
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 863
+    .line 914
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    .line 864
+    .line 915
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x1e
+    const/16 v2, 0x1f
 
     const/4 v3, 0x0
 
@@ -2495,13 +2637,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 867
+    .line 918
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 869
+    .line 920
     return-void
 
-    .line 867
+    .line 918
     :catchall_0
     move-exception v1
 
@@ -2521,28 +2663,28 @@
     .end annotation
 
     .prologue
-    .line 774
+    .line 825
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 776
+    .line 827
     .local v0, _data:Landroid/os/Parcel;
     :try_start_0
     const-string v1, "com.sec.android.internal.ims.IIMSService"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 777
+    .line 828
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 778
+    .line 829
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 779
+    .line 830
     iget-object v1, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v2, 0x18
+    const/16 v2, 0x19
 
     const/4 v3, 0x0
 
@@ -2552,17 +2694,87 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 782
+    .line 833
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 784
+    .line 835
     return-void
 
-    .line 782
+    .line 833
     :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v1
+.end method
+
+.method public writeErrorData(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 5
+    .parameter "errorCode"
+    .parameter "errorString"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 1049
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .line 1050
+    .local v0, _data:Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .line 1052
+    .local v1, _reply:Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "com.sec.android.internal.ims.IIMSService"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    .line 1053
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 1054
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 1055
+    iget-object v2, p0, Lcom/sec/android/internal/ims/IIMSService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x28
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    .line 1056
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 1059
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1060
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    .line 1062
+    return-void
+
+    .line 1059
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    .line 1060
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
 .end method

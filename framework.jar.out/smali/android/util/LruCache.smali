@@ -57,7 +57,7 @@
     .line 82
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "maxSize <= 0"
+    const-string/jumbo v1, "maxSize <= 0"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -890,7 +890,7 @@
     .line 96
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "maxSize <= 0"
+    const-string/jumbo v1, "maxSize <= 0"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

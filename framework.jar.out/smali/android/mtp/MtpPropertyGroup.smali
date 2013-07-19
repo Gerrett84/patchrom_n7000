@@ -705,7 +705,7 @@
 
     const/4 v3, 0x1
 
-    const-string v4, "name"
+    const-string/jumbo v4, "name"
 
     aput-object v4, v2, v3
 
@@ -1571,7 +1571,7 @@
     if-nez v25, :cond_d
 
     .line 369
-    const-string v2, "name"
+    const-string/jumbo v2, "name"
 
     move-object/from16 v0, p0
 
@@ -1644,7 +1644,7 @@
 
     invoke-virtual {v7, v0, v9, v2}, Landroid/mtp/MtpPropertyList;->append(IILjava/lang/String;)V
 
-    goto :goto_5
+    goto/16 :goto_5
 
     .line 391
     :sswitch_4

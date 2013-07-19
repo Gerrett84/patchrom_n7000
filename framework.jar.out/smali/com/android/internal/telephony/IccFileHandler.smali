@@ -268,7 +268,7 @@
     .line 1101
     sparse-switch p1, :sswitch_data_0
 
-    .line 1126
+    .line 1127
     const/4 v0, 0x0
 
     :goto_0
@@ -292,7 +292,7 @@
 
     goto :goto_0
 
-    .line 1123
+    .line 1124
     :sswitch_3
     const-string v0, "3F00"
 
@@ -304,6 +304,7 @@
     :sswitch_data_0
     .sparse-switch
         0x2f05 -> :sswitch_1
+        0x2f40 -> :sswitch_3
         0x2f41 -> :sswitch_3
         0x2f42 -> :sswitch_3
         0x2f43 -> :sswitch_3
@@ -4075,10 +4076,10 @@
     .parameter "aid"
 
     .prologue
-    .line 1134
+    .line 1135
     iput-object p1, p0, Lcom/android/internal/telephony/IccFileHandler;->mAid:Ljava/lang/String;
 
-    .line 1135
+    .line 1136
     return-void
 .end method
 

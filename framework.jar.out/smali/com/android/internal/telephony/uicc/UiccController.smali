@@ -18,6 +18,8 @@
 
 .field private mIsCurrentCard3gpp:Z
 
+.field private mPrevPhone:Lcom/android/internal/telephony/PhoneBase;
+
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/PhoneBase;)V
@@ -25,18 +27,26 @@
     .parameter "phone"
 
     .prologue
-    .line 54
+    const/4 v0, 0x0
+
+    .line 59
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 55
+    .line 40
+    iput-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mPrevPhone:Lcom/android/internal/telephony/PhoneBase;
+
+    .line 42
+    iput-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mCurrentPhone:Lcom/android/internal/telephony/PhoneBase;
+
+    .line 60
     const-string v0, "Creating UiccController"
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/uicc/UiccController;->log(Ljava/lang/String;)V
 
-    .line 56
+    .line 61
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/uicc/UiccController;->setNewPhone(Lcom/android/internal/telephony/PhoneBase;)V
 
-    .line 57
+    .line 62
     return-void
 .end method
 
@@ -45,7 +55,7 @@
     .parameter "phone"
 
     .prologue
-    .line 42
+    .line 47
     const-class v1, Lcom/android/internal/telephony/uicc/UiccController;
 
     monitor-enter v1
@@ -55,14 +65,14 @@
 
     if-nez v0, :cond_0
 
-    .line 43
+    .line 48
     new-instance v0, Lcom/android/internal/telephony/uicc/UiccController;
 
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/uicc/UiccController;-><init>(Lcom/android/internal/telephony/PhoneBase;)V
 
     sput-object v0, Lcom/android/internal/telephony/uicc/UiccController;->mInstance:Lcom/android/internal/telephony/uicc/UiccController;
 
-    .line 47
+    .line 52
     :goto_0
     sget-object v0, Lcom/android/internal/telephony/uicc/UiccController;->mInstance:Lcom/android/internal/telephony/uicc/UiccController;
     :try_end_0
@@ -72,7 +82,7 @@
 
     return-object v0
 
-    .line 45
+    .line 50
     :cond_0
     :try_start_1
     sget-object v0, Lcom/android/internal/telephony/uicc/UiccController;->mInstance:Lcom/android/internal/telephony/uicc/UiccController;
@@ -83,7 +93,7 @@
 
     goto :goto_0
 
-    .line 42
+    .line 47
     :catchall_0
     move-exception v0
 
@@ -97,12 +107,12 @@
     .parameter "string"
 
     .prologue
-    .line 91
+    .line 106
     const-string v0, "RIL_UiccController"
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 92
+    .line 107
     return-void
 .end method
 
@@ -113,61 +123,61 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 60
+    .line 68
     iput-object p1, p0, Lcom/android/internal/telephony/uicc/UiccController;->mCurrentPhone:Lcom/android/internal/telephony/PhoneBase;
 
-    .line 61
+    .line 69
     instance-of v0, p1, Lcom/android/internal/telephony/gsm/GSMPhone;
 
     if-eqz v0, :cond_0
 
-    .line 62
+    .line 70
     const-string v0, "New phone is GSMPhone"
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/uicc/UiccController;->log(Ljava/lang/String;)V
 
-    .line 63
+    .line 71
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/uicc/UiccController;->updateCurrentCard(Z)V
 
-    .line 73
+    .line 81
     :goto_0
     return-void
 
-    .line 64
+    .line 72
     :cond_0
     instance-of v0, p1, Lcom/android/internal/telephony/cdma/CDMALTEPhone;
 
     if-eqz v0, :cond_1
 
-    .line 65
+    .line 73
     const-string v0, "New phone type is CDMALTEPhone"
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/uicc/UiccController;->log(Ljava/lang/String;)V
 
-    .line 66
+    .line 74
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/uicc/UiccController;->updateCurrentCard(Z)V
 
     goto :goto_0
 
-    .line 67
+    .line 75
     :cond_1
     instance-of v0, p1, Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     if-eqz v0, :cond_2
 
-    .line 68
+    .line 76
     const-string v0, "New phone type is CDMAPhone"
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/uicc/UiccController;->log(Ljava/lang/String;)V
 
-    .line 69
+    .line 77
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/uicc/UiccController;->updateCurrentCard(Z)V
 
     goto :goto_0
 
-    .line 71
+    .line 79
     :cond_2
     const-string v0, "RIL_UiccController"
 
@@ -183,7 +193,7 @@
     .parameter "isNewCard3gpp"
 
     .prologue
-    .line 76
+    .line 84
     iget-boolean v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIsCurrentCard3gpp:Z
 
     if-ne v0, p1, :cond_0
@@ -192,31 +202,31 @@
 
     if-eqz v0, :cond_0
 
-    .line 88
+    .line 103
     :goto_0
     return-void
 
-    .line 80
+    .line 95
     :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccCard:Lcom/android/internal/telephony/IccCard;
 
     if-eqz v0, :cond_1
 
-    .line 81
+    .line 96
     iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccCard:Lcom/android/internal/telephony/IccCard;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/IccCard;->dispose()V
 
-    .line 82
+    .line 97
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccCard:Lcom/android/internal/telephony/IccCard;
 
-    .line 85
+    .line 100
     :cond_1
     iput-boolean p1, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIsCurrentCard3gpp:Z
 
-    .line 86
+    .line 101
     new-instance v0, Lcom/android/internal/telephony/IccCard;
 
     iget-object v1, p0, Lcom/android/internal/telephony/uicc/UiccController;->mCurrentPhone:Lcom/android/internal/telephony/PhoneBase;
@@ -250,7 +260,7 @@
     .locals 1
 
     .prologue
-    .line 51
+    .line 56
     iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccCard:Lcom/android/internal/telephony/IccCard;
 
     return-object v0

@@ -48,7 +48,15 @@
 
 .field static final TRANSACTION_isShowHoveringPointer:I = 0x13
 
+.field static final TRANSACTION_registerHoveringSpenCustomIcon:I = 0x14
+
 .field static final TRANSACTION_registerInputDevicesChangedListener:I = 0xd
+
+.field static final TRANSACTION_reloadPointerIcon:I = 0x16
+
+.field static final TRANSACTION_reloadPointerIconForBitmap:I = 0x17
+
+.field static final TRANSACTION_removeHoveringSpenCustomIcon:I = 0x15
 
 .field static final TRANSACTION_removeKeyboardLayoutForInputDevice:I = 0xc
 
@@ -158,7 +166,7 @@
     .line 39
     sparse-switch p1, :sswitch_data_0
 
-    .line 277
+    .line 351
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v8
@@ -864,6 +872,241 @@
 
     goto/16 :goto_0
 
+    .line 278
+    .end local v7           #_result:Z
+    :sswitch_14
+    const-string v0, "android.hardware.input.IInputManager"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 280
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    .line 281
+    sget-object v0, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/graphics/Bitmap;
+
+    .line 286
+    .local v1, _arg0:Landroid/graphics/Bitmap;
+    :goto_7
+    invoke-virtual {p0, v1}, Landroid/hardware/input/IInputManager$Stub;->registerHoveringSpenCustomIcon(Landroid/graphics/Bitmap;)I
+
+    move-result v7
+
+    .line 287
+    .local v7, _result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 288
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 284
+    .end local v1           #_arg0:Landroid/graphics/Bitmap;
+    .end local v7           #_result:I
+    :cond_b
+    const/4 v1, 0x0
+
+    .restart local v1       #_arg0:Landroid/graphics/Bitmap;
+    goto :goto_7
+
+    .line 293
+    .end local v1           #_arg0:Landroid/graphics/Bitmap;
+    :sswitch_15
+    const-string v0, "android.hardware.input.IInputManager"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 295
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 296
+    .local v1, _arg0:I
+    invoke-virtual {p0, v1}, Landroid/hardware/input/IInputManager$Stub;->removeHoveringSpenCustomIcon(I)V
+
+    .line 297
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_0
+
+    .line 302
+    .end local v1           #_arg0:I
+    :sswitch_16
+    const-string v0, "android.hardware.input.IInputManager"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 304
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 306
+    .restart local v1       #_arg0:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    .line 308
+    .restart local v2       #_arg1:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    .line 310
+    .restart local v3       #_arg2:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_c
+
+    .line 311
+    sget-object v0, Landroid/graphics/Point;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/graphics/Point;
+
+    .line 317
+    .local v4, _arg3:Landroid/graphics/Point;
+    :goto_8
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    .restart local v5       #_arg4:I
+    move-object v0, p0
+
+    .line 318
+    invoke-virtual/range {v0 .. v5}, Landroid/hardware/input/IInputManager$Stub;->reloadPointerIcon(IIILandroid/graphics/Point;I)V
+
+    .line 319
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_0
+
+    .line 314
+    .end local v4           #_arg3:Landroid/graphics/Point;
+    .end local v5           #_arg4:I
+    :cond_c
+    const/4 v4, 0x0
+
+    .restart local v4       #_arg3:Landroid/graphics/Point;
+    goto :goto_8
+
+    .line 324
+    .end local v1           #_arg0:I
+    .end local v2           #_arg1:I
+    .end local v3           #_arg2:I
+    .end local v4           #_arg3:Landroid/graphics/Point;
+    :sswitch_17
+    const-string v0, "android.hardware.input.IInputManager"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 326
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v1
+
+    .line 328
+    .restart local v1       #_arg0:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    .line 330
+    .restart local v2       #_arg1:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_d
+
+    .line 331
+    sget-object v0, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/graphics/Bitmap;
+
+    .line 337
+    .local v3, _arg2:Landroid/graphics/Bitmap;
+    :goto_9
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
+    .line 338
+    sget-object v0, Landroid/graphics/Point;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v0, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/graphics/Point;
+
+    .line 344
+    .restart local v4       #_arg3:Landroid/graphics/Point;
+    :goto_a
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v5
+
+    .restart local v5       #_arg4:I
+    move-object v0, p0
+
+    .line 345
+    invoke-virtual/range {v0 .. v5}, Landroid/hardware/input/IInputManager$Stub;->reloadPointerIconForBitmap(IILandroid/graphics/Bitmap;Landroid/graphics/Point;I)I
+
+    move-result v7
+
+    .line 346
+    .restart local v7       #_result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 347
+    invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 334
+    .end local v3           #_arg2:Landroid/graphics/Bitmap;
+    .end local v4           #_arg3:Landroid/graphics/Point;
+    .end local v5           #_arg4:I
+    .end local v7           #_result:I
+    :cond_d
+    const/4 v3, 0x0
+
+    .restart local v3       #_arg2:Landroid/graphics/Bitmap;
+    goto :goto_9
+
+    .line 341
+    :cond_e
+    const/4 v4, 0x0
+
+    .restart local v4       #_arg3:Landroid/graphics/Point;
+    goto :goto_a
+
     .line 39
     nop
 
@@ -888,6 +1131,10 @@
         0x11 -> :sswitch_11
         0x12 -> :sswitch_12
         0x13 -> :sswitch_13
+        0x14 -> :sswitch_14
+        0x15 -> :sswitch_15
+        0x16 -> :sswitch_16
+        0x17 -> :sswitch_17
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

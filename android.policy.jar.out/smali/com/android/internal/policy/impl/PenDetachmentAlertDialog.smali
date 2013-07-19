@@ -193,7 +193,7 @@
 
     move-result-object v0
 
-    const v1, 0x10900b1
+    const v1, 0x10900b6
 
     const/4 v2, 0x0
 
@@ -219,7 +219,7 @@
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/PenDetachmentAlertDialog;->setTitle(I)V
 
     .line 50
-    const v0, 0x1080301
+    const v0, 0x108030c
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/PenDetachmentAlertDialog;->setIcon(I)V
 

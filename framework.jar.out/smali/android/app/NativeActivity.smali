@@ -295,7 +295,7 @@
 
     .prologue
     .line 145
-    const-string v13, "main"
+    const-string/jumbo v13, "main"
 
     .line 146
     .local v13, libname:Ljava/lang/String;

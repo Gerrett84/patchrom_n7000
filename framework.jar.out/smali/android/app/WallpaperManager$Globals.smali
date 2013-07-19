@@ -573,7 +573,7 @@
 
     move-result-object v21
 
-    const v22, 0x1080232
+    const v22, 0x108023a
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
 

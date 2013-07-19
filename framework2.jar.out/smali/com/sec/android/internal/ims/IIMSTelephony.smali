@@ -79,6 +79,14 @@
     .end annotation
 .end method
 
+.method public abstract isVideoCall()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract showCallScreen()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

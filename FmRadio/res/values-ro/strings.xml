@@ -74,8 +74,8 @@
     <string name="number_30">30</string>
     <string name="number_1">1</string>
     <string name="number_2">2</string>
-    <string name="alrm_15_min_past">Avertizare Radio FM</string>
-    <string name="alrm_30_min_past">Avertizare Radio FM</string>
+    <string name="alrm_15_min_past">Oprire automată radio FM. Au trecut %d minute</string>
+    <string name="alrm_30_min_past">Oprire automată radio FM. Au trecut %d minute</string>
     <string name="alrm_1_hr_past">Pornire automată a Radio FM dezactivată. A trecut 1 oră</string>
     <string name="alrm_2_hrs_past">Oprire automată Radio FM. Au trecut %d ore</string>
     <string name="scan_channels">Căutare posturi</string>
@@ -100,13 +100,13 @@
     <string name="toast_unavailable_in_tvout_mode">Indisponibil în modul ieşire TV</string>
     <string name="mute">Silenţios</string>
     <string name="seeking">Căutare…</string>
-    <string name="via_earphone">Prin căşti</string>
-    <string name="via_speaker">Prin difuzor</string>
+    <string name="via_earphone">Redare prin căşti</string>
+    <string name="via_speaker">Redare prin difuzor</string>
     <string name="normal_frequency">Frecvenţă normală</string>
     <string name="tag">Et.</string>
     <string name="stop">Oprire</string>
     <string name="recording">Se înregistrează</string>
-    <string name="memory_full">Înregistrare oprită. Memorie insuficientă</string>
+    <string name="memory_full">Memorie plină</string>
     <string name="cancel_recording">Anulaţi înregistrarea?</string>
     <string name="change_frequency">Schimbare frecvenţă</string>
     <string name="enter_frequency">Introducere frecvenţă</string>
@@ -132,11 +132,14 @@
     <string name="tags">Etichete</string>
     <string name="tags_now_broadcasting">Se transmite acum</string>
     <string name="tags_no_information">Fără informaţii</string>
+    <string name="tags_music_history">Istoric muzică</string>
     <string name="tags_music_title">Titlu</string>
     <string name="tags_music_album">Album</string>
     <string name="tags_music_artist">Artist</string>
+    <string name="tags_music_band">Formaţie</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Pag. de pornire</string>
+    <string name="tags_interact_hotline">Hotline</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Alte</string>
     <string name="tags_interact_centre">Centru</string>
@@ -182,4 +185,14 @@ După înregistrarea emisiunii radio, fişierele înregistrate vor fi afişate"<
     <string name="dialog_one_item_deleted">Acest element va fi şters</string>
     <string name="dialog_multiple_items_deleted">%d elemente vor fi şterse</string>
     <string name="dialog_all_items_deleted">Toate elementele vor fi şterse</string>
+    <string name="turning_on">Se porneşte…</string>
+    <string name="not_enough_memory_recording_will_stop">Memorie insuficientă. Înregistrarea se va opri în %d secunde</string>
+    <string name="low_batt_msg">Baterie descărcată</string>
+    <string name="no_play_during_call">Imposibil de redat în timpul unui apel</string>
+    <string name="unable_delete">Imposibil de şters</string>
+    <string name="playing">Se redă…</string>
+    <string name="tts_play_button">Redare</string>
+    <string name="tts_previous_button">Anterior</string>
+    <string name="tts_Next_button">Următorul</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

@@ -39,7 +39,7 @@
     .parameter
 
     .prologue
-    .line 627
+    .line 631
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$1$3;->this$0:Lcom/android/server/pm/PackageManagerService$1;
 
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$1$3;->val$files:[Ljava/lang/String;
@@ -61,7 +61,7 @@
     .locals 8
 
     .prologue
-    .line 630
+    .line 634
     :try_start_0
     sget v6, Lcom/android/server/pm/PackageManagerService;->mPrefetchThreadRunning:I
 
@@ -69,7 +69,7 @@
 
     sput v6, Lcom/android/server/pm/PackageManagerService;->mPrefetchThreadRunning:I
 
-    .line 631
+    .line 635
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$3;->val$files:[Ljava/lang/String;
 
     array-length v6, v6
@@ -94,7 +94,7 @@
 
     if-nez v6, :cond_2
 
-    .line 632
+    .line 636
     new-instance v1, Ljava/io/File;
 
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$3;->val$dir:Ljava/io/File;
@@ -105,7 +105,7 @@
 
     invoke-direct {v1, v6, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 633
+    .line 637
     .local v1, file:Ljava/io/File;
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$3;->val$files:[Ljava/lang/String;
 
@@ -118,14 +118,14 @@
 
     if-nez v6, :cond_1
 
-    .line 631
+    .line 635
     :cond_0
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 638
+    .line 642
     :cond_1
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$3;->val$files:[Ljava/lang/String;
 
@@ -139,7 +139,7 @@
 
     if-nez v6, :cond_0
 
-    .line 640
+    .line 644
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$3;->val$files:[Ljava/lang/String;
 
     aget-object v6, v6, v2
@@ -152,7 +152,7 @@
 
     if-nez v6, :cond_0
 
-    .line 642
+    .line 646
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$3;->val$files:[Ljava/lang/String;
 
     aget-object v6, v6, v2
@@ -165,7 +165,7 @@
 
     if-nez v6, :cond_0
 
-    .line 644
+    .line 648
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$3;->val$files:[Ljava/lang/String;
 
     aget-object v6, v6, v2
@@ -178,24 +178,24 @@
 
     if-nez v6, :cond_0
 
-    .line 647
+    .line 651
     invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 648
+    .line 652
     .local v5, scanPath:Ljava/lang/String;
     new-instance v4, Landroid/content/pm/PackageParser;
 
     invoke-direct {v4, v5}, Landroid/content/pm/PackageParser;-><init>(Ljava/lang/String;)V
 
-    .line 649
+    .line 653
     .local v4, pp:Landroid/content/pm/PackageParser;
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$1$3;->val$nSeparateProcessesInner:[Ljava/lang/String;
 
     invoke-virtual {v4, v6}, Landroid/content/pm/PackageParser;->setSeparateProcesses([Ljava/lang/String;)V
 
-    .line 650
+    .line 654
     const/4 v6, 0x0
 
     iget v7, p0, Lcom/android/server/pm/PackageManagerService$1$3;->val$parseFlags:I
@@ -204,7 +204,7 @@
 
     move-result-object v3
 
-    .line 652
+    .line 656
     .local v3, pkg:Landroid/content/pm/PackageParser$Package;
     sget-object v6, Lcom/android/server/pm/PackageManagerService;->pom:Lcom/android/server/pm/PackageManagerService$PackageObjectMap;
 
@@ -216,7 +216,7 @@
 
     goto :goto_1
 
-    .line 655
+    .line 659
     .end local v1           #file:Ljava/io/File;
     .end local v2           #i:I
     .end local v3           #pkg:Landroid/content/pm/PackageParser$Package;
@@ -225,25 +225,25 @@
     :catch_0
     move-exception v0
 
-    .line 656
+    .line 660
     .local v0, e:Ljava/lang/Exception;
     const/4 v6, 0x1
 
     sput-boolean v6, Lcom/android/server/pm/PackageManagerService;->isError:Z
 
-    .line 657
+    .line 661
     const-string v6, "BootTime"
 
     const-string v7, "Exception in Thread"
 
     invoke-static {v6, v7, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 659
+    .line 663
     .end local v0           #e:Ljava/lang/Exception;
     :goto_2
     return-void
 
-    .line 654
+    .line 658
     .restart local v2       #i:I
     :cond_2
     :try_start_1

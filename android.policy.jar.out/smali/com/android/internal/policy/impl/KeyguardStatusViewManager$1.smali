@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 221
+    .line 229
     iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$1;->this$0:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "event"
 
     .prologue
-    .line 224
+    .line 232
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$1;->this$0:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     #getter for: Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->mCircleUnlockView:Lcom/android/internal/policy/impl/sec/CircleUnlockView;

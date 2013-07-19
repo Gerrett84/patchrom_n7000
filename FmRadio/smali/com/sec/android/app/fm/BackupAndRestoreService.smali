@@ -188,13 +188,13 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 72
+    .line 71
     :cond_1
     if-eqz v2, :cond_2
 
-    .line 74
+    .line 73
     :try_start_4
-    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
@@ -209,7 +209,7 @@
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
 
-    .line 83
+    .line 84
     .end local v1           #e:Ljava/io/IOException;
     :cond_3
     :goto_3
@@ -219,10 +219,10 @@
 
     if-eqz v10, :cond_4
 
-    .line 84
+    .line 85
     invoke-virtual {v9}, Ljava/io/File;->delete()Z
 
-    .line 86
+    .line 87
     :cond_4
     const/4 v10, 0x1
 
@@ -230,27 +230,27 @@
 
     invoke-virtual {v7, v10, v11}, Ljava/io/File;->setReadable(ZZ)Z
 
-    .line 87
+    .line 88
     const/4 v10, 0x1
 
     const/4 v11, 0x0
 
     invoke-virtual {v7, v10, v11}, Ljava/io/File;->setWritable(ZZ)Z
 
-    .line 88
+    .line 89
     const/4 v10, 0x1
 
     const/4 v11, 0x0
 
     invoke-virtual {v7, v10, v11}, Ljava/io/File;->setExecutable(ZZ)Z
 
-    .line 91
+    .line 92
     .end local v0           #buffer:[B
     .end local v4           #nRead:I
     :goto_4
     return-void
 
-    .line 72
+    .line 71
     .end local v2           #in:Ljava/io/InputStream;
     .end local v5           #out:Ljava/io/OutputStream;
     .restart local v0       #buffer:[B
@@ -260,9 +260,9 @@
     :cond_5
     if-eqz v3, :cond_6
 
-    .line 74
+    .line 73
     :try_start_6
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
 
@@ -283,11 +283,12 @@
     .restart local v5       #out:Ljava/io/OutputStream;
     move-object v2, v3
 
-    .line 80
+    .line 81
     .end local v3           #in:Ljava/io/InputStream;
     .restart local v2       #in:Ljava/io/InputStream;
     goto :goto_3
 
+    .line 80
     .end local v2           #in:Ljava/io/InputStream;
     .end local v5           #out:Ljava/io/OutputStream;
     .restart local v3       #in:Ljava/io/InputStream;
@@ -301,20 +302,21 @@
     .restart local v5       #out:Ljava/io/OutputStream;
     move-object v2, v3
 
+    .line 81
     .end local v3           #in:Ljava/io/InputStream;
     .restart local v2       #in:Ljava/io/InputStream;
     goto :goto_3
 
-    .line 72
+    .line 71
     :catchall_0
     move-exception v10
 
     :goto_6
     if-eqz v2, :cond_7
 
-    .line 74
+    .line 73
     :try_start_8
-    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_5
 
@@ -329,12 +331,12 @@
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
 
-    .line 80
+    .line 81
     :cond_8
     :goto_8
     throw v10
 
-    .line 90
+    .line 91
     .end local v0           #buffer:[B
     .end local v4           #nRead:I
     :cond_9
@@ -342,11 +344,11 @@
 
     const-string v11, "targetFile targetfile not exist"
 
-    invoke-static {v10, v11}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v11}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_4
 
-    .line 75
+    .line 74
     .end local v2           #in:Ljava/io/InputStream;
     .end local v5           #out:Ljava/io/OutputStream;
     .restart local v0       #buffer:[B
@@ -374,7 +376,7 @@
 
     goto :goto_3
 
-    .line 75
+    .line 74
     .end local v1           #e:Ljava/io/IOException;
     :catch_5
     move-exception v11
@@ -387,7 +389,7 @@
 
     goto :goto_8
 
-    .line 72
+    .line 71
     .end local v2           #in:Ljava/io/InputStream;
     .restart local v3       #in:Ljava/io/InputStream;
     :catchall_1
@@ -456,32 +458,32 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 141
+    .line 142
     const-string v6, "SettingsPreference"
 
     invoke-virtual {p1, v6, v7}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v5
 
-    .line 142
+    .line 144
     .local v5, sharedPreferences:Landroid/content/SharedPreferences;
     invoke-interface {v5}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 143
+    .line 145
     .local v2, editor:Landroid/content/SharedPreferences$Editor;
     const-string v6, "TEMP"
 
     invoke-interface {v2, v6, v7}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 144
+    .line 146
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 146
+    .line 148
     const/4 v3, 0x0
 
-    .line 148
+    .line 150
     .local v3, outputStream:Ljava/io/ObjectOutputStream;
     :try_start_0
     new-instance v4, Ljava/io/ObjectOutputStream;
@@ -499,7 +501,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 150
+    .line 152
     .end local v3           #outputStream:Ljava/io/ObjectOutputStream;
     .local v4, outputStream:Ljava/io/ObjectOutputStream;
     :try_start_1
@@ -509,16 +511,16 @@
 
     invoke-virtual {v4, v6}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 151
+    .line 153
     invoke-virtual {v4}, Ljava/io/ObjectOutputStream;->flush()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
 
-    .line 155
+    .line 157
     if-eqz v4, :cond_2
 
-    .line 157
+    .line 159
     :try_start_2
     invoke-virtual {v4}, Ljava/io/ObjectOutputStream;->close()V
     :try_end_2
@@ -526,36 +528,36 @@
 
     move-object v3, v4
 
-    .line 163
+    .line 165
     .end local v4           #outputStream:Ljava/io/ObjectOutputStream;
     .restart local v3       #outputStream:Ljava/io/ObjectOutputStream;
     :cond_0
     :goto_0
     return-void
 
-    .line 158
+    .line 160
     .end local v3           #outputStream:Ljava/io/ObjectOutputStream;
     .restart local v4       #outputStream:Ljava/io/ObjectOutputStream;
     :catch_0
     move-exception v1
 
-    .line 159
+    .line 161
     .local v1, e1:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     move-object v3, v4
 
-    .line 160
+    .line 162
     .end local v4           #outputStream:Ljava/io/ObjectOutputStream;
     .restart local v3       #outputStream:Ljava/io/ObjectOutputStream;
     goto :goto_0
 
-    .line 152
+    .line 154
     .end local v1           #e1:Ljava/io/IOException;
     :catch_1
     move-exception v0
 
-    .line 153
+    .line 155
     .local v0, e:Ljava/io/IOException;
     :goto_1
     :try_start_3
@@ -563,10 +565,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 155
+    .line 157
     if-eqz v3, :cond_0
 
-    .line 157
+    .line 159
     :try_start_4
     invoke-virtual {v3}, Ljava/io/ObjectOutputStream;->close()V
     :try_end_4
@@ -574,17 +576,17 @@
 
     goto :goto_0
 
-    .line 158
+    .line 160
     :catch_2
     move-exception v1
 
-    .line 159
+    .line 161
     .restart local v1       #e1:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 155
+    .line 157
     .end local v0           #e:Ljava/io/IOException;
     .end local v1           #e1:Ljava/io/IOException;
     :catchall_0
@@ -593,28 +595,28 @@
     :goto_2
     if-eqz v3, :cond_1
 
-    .line 157
+    .line 159
     :try_start_5
     invoke-virtual {v3}, Ljava/io/ObjectOutputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
-    .line 160
+    .line 162
     :cond_1
     :goto_3
     throw v6
 
-    .line 158
+    .line 160
     :catch_3
     move-exception v1
 
-    .line 159
+    .line 161
     .restart local v1       #e1:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_3
 
-    .line 155
+    .line 157
     .end local v1           #e1:Ljava/io/IOException;
     .end local v3           #outputStream:Ljava/io/ObjectOutputStream;
     .restart local v4       #outputStream:Ljava/io/ObjectOutputStream;
@@ -627,7 +629,7 @@
     .restart local v3       #outputStream:Ljava/io/ObjectOutputStream;
     goto :goto_2
 
-    .line 152
+    .line 154
     .end local v3           #outputStream:Ljava/io/ObjectOutputStream;
     .restart local v4       #outputStream:Ljava/io/ObjectOutputStream;
     :catch_4
@@ -659,14 +661,14 @@
     .prologue
     const/4 v11, 0x0
 
-    .line 97
+    .line 98
     const-string v8, "backup_Or_Restore"
 
     invoke-virtual {p2, v8, v11}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v1
 
-    .line 104
+    .line 105
     .local v1, backupOrRestore:Z
     const-string v8, "backup_Path"
 
@@ -674,7 +676,7 @@
 
     move-result-object v4
 
-    .line 106
+    .line 107
     .local v4, intentPath:Ljava/lang/String;
     const-string v8, "FmRadio"
 
@@ -696,15 +698,15 @@
 
     move-result-object v9
 
-    invoke-static {v8, v9}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 108
+    .line 109
     if-eqz v1, :cond_0
 
-    .line 110
+    .line 111
     invoke-direct {p0, p1}, Lcom/sec/android/app/fm/BackupAndRestoreService;->initFilePath(Landroid/content/Context;)V
 
-    .line 113
+    .line 114
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -723,11 +725,11 @@
 
     move-result-object v7
 
-    .line 114
+    .line 115
     .local v7, targetfile:Ljava/lang/String;
     const-string v6, "./data/data/com.sec.android.app.fm/shared_prefs/localpreference.xml"
 
-    .line 115
+    .line 116
     .local v6, restoreOrBackup:Ljava/lang/String;
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -747,39 +749,39 @@
 
     move-result-object v3
 
-    .line 116
+    .line 117
     .local v3, channleStore:Ljava/lang/String;
     const-string v2, "./data/data/com.sec.android.app.fm/files/ChannelStorage"
 
-    .line 118
+    .line 119
     .local v2, channelRestorePath:Ljava/lang/String;
     const-string v8, "localpreference.xml"
 
     invoke-virtual {p1, v8, v11}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    .line 120
+    .line 121
     new-instance v5, Landroid/content/Intent;
 
     const-string v8, "com.sec.android.app.fm.RESTORE_FINISH"
 
     invoke-direct {v5, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 121
+    .line 122
     .local v5, restore:Landroid/content/Intent;
     invoke-virtual {p1, v5}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 134
+    .line 135
     .end local v5           #restore:Landroid/content/Intent;
     :goto_0
     invoke-static {v7, v6}, Lcom/sec/android/app/fm/BackupAndRestoreService;->copy(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 135
+    .line 136
     invoke-static {v3, v2}, Lcom/sec/android/app/fm/BackupAndRestoreService;->copy(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 137
+    .line 138
     return-void
 
-    .line 124
+    .line 125
     .end local v2           #channelRestorePath:Ljava/lang/String;
     .end local v3           #channleStore:Ljava/lang/String;
     .end local v6           #restoreOrBackup:Ljava/lang/String;
@@ -787,7 +789,7 @@
     :cond_0
     const-string v7, "./data/data/com.sec.android.app.fm/shared_prefs/localpreference.xml"
 
-    .line 125
+    .line 126
     .restart local v7       #targetfile:Ljava/lang/String;
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -807,11 +809,11 @@
 
     move-result-object v6
 
-    .line 126
+    .line 127
     .restart local v6       #restoreOrBackup:Ljava/lang/String;
     const-string v3, "./data/data/com.sec.android.app.fm/files/ChannelStorage"
 
-    .line 127
+    .line 128
     .restart local v3       #channleStore:Ljava/lang/String;
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -831,7 +833,7 @@
 
     move-result-object v2
 
-    .line 129
+    .line 130
     .restart local v2       #channelRestorePath:Ljava/lang/String;
     new-instance v0, Landroid/content/Intent;
 
@@ -839,7 +841,7 @@
 
     invoke-direct {v0, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 130
+    .line 131
     .local v0, backup:Landroid/content/Intent;
     invoke-virtual {p1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 

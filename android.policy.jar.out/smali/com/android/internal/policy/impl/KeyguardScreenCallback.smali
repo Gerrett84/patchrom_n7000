@@ -49,5 +49,8 @@
 .method public abstract takeEmergencyCallAction()V
 .end method
 
+.method public abstract takeEmergencyCallDial()V
+.end method
+
 .method public abstract takeEmergencyCallList()V
 .end method

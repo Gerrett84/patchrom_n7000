@@ -175,7 +175,7 @@
     .locals 4
 
     .prologue
-    .line 472
+    .line 477
     const-string v2, "CurrentSimSerialNumber"
 
     const-string v3, "/data/system/SimCard.dat"
@@ -184,14 +184,14 @@
 
     move-result-object v1
 
-    .line 473
+    .line 478
     .local v1, storedSN:Ljava/lang/String;
     if-nez v1, :cond_0
 
-    .line 474
+    .line 479
     const-string v1, ""
 
-    .line 475
+    .line 480
     :cond_0
     iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -199,7 +199,7 @@
 
     move-result-object v0
 
-    .line 476
+    .line 481
     .local v0, currentSN:Ljava/lang/String;
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -207,10 +207,10 @@
 
     if-nez v2, :cond_1
 
-    .line 477
+    .line 482
     const/4 v2, 0x1
 
-    .line 479
+    .line 484
     :goto_0
     return v2
 
@@ -224,7 +224,7 @@
     .locals 4
 
     .prologue
-    .line 484
+    .line 489
     const-string v2, "CurrentSimSerialNumber"
 
     const-string v3, "/data/system/SimCard.dat"
@@ -233,7 +233,7 @@
 
     move-result-object v1
 
-    .line 485
+    .line 490
     .local v1, storedSN:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -241,16 +241,16 @@
 
     move-result-object v0
 
-    .line 486
+    .line 491
     .local v0, currentSN:Ljava/lang/String;
     if-nez v1, :cond_0
 
     if-eqz v0, :cond_0
 
-    .line 487
+    .line 492
     const/4 v2, 0x1
 
-    .line 489
+    .line 494
     :goto_0
     return v2
 
@@ -264,14 +264,14 @@
     .locals 5
 
     .prologue
-    .line 458
+    .line 463
     iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimState()I
 
     move-result v1
 
-    .line 460
+    .line 465
     .local v1, simState:I
     const-string v3, "CurrentSimSerialNumber"
 
@@ -281,7 +281,7 @@
 
     move-result-object v2
 
-    .line 461
+    .line 466
     .local v2, storedSN:Ljava/lang/String;
     iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -289,16 +289,16 @@
 
     move-result-object v0
 
-    .line 463
+    .line 468
     .local v0, currentSN:Ljava/lang/String;
     if-eqz v2, :cond_0
 
     if-nez v0, :cond_0
 
-    .line 464
+    .line 469
     const/4 v3, 0x1
 
-    .line 467
+    .line 472
     :goto_0
     return v3
 
@@ -309,229 +309,248 @@
 .end method
 
 .method private saveSimState(I)V
-    .locals 5
+    .locals 7
     .parameter "operation"
 
     .prologue
+    const/4 v6, -0x1
+
     .line 422
-    const-string v1, "PreviousSimCountryIso"
+    const-string v2, "PreviousSimCountryIso"
 
-    const-string v2, "CurrentSimCountryIso"
+    const-string v3, "CurrentSimCountryIso"
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 424
-    const-string v1, "PreviousSimOperator"
+    const-string v2, "PreviousSimOperator"
 
-    const-string v2, "CurrentSimOperator"
+    const-string v3, "CurrentSimOperator"
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 426
-    const-string v1, "PreviousSimOperatorName"
+    const-string v2, "PreviousSimOperatorName"
 
-    const-string v2, "CurrentSimOperatorName"
+    const-string v3, "CurrentSimOperatorName"
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 429
-    const-string v1, "PreviousSimSerialNumber"
+    const-string v2, "PreviousSimSerialNumber"
 
-    const-string v2, "CurrentSimSerialNumber"
+    const-string v3, "CurrentSimSerialNumber"
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 432
-    const-string v1, "PreviousSimPhoneNumber"
+    const-string v2, "PreviousSimPhoneNumber"
 
-    const-string v2, "CurrentSimPhoneNumber"
+    const-string v3, "CurrentSimPhoneNumber"
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v2, v3}, Lcom/android/server/enterprise/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v4}, Lcom/android/server/enterprise/Utils;->readPropertyValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 436
-    const-string v1, "CurrentSimCountryIso"
+    const-string v2, "CurrentSimCountryIso"
 
-    iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSimCountryIso()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimCountryIso()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 438
-    const-string v1, "CurrentSimOperator"
+    const-string v2, "CurrentSimOperator"
 
-    iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSimOperator()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimOperator()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 440
-    const-string v1, "CurrentSimOperatorName"
+    const-string v2, "CurrentSimOperatorName"
 
-    iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSimOperatorName()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimOperatorName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 442
-    const-string v1, "CurrentSimSerialNumber"
+    const-string v2, "CurrentSimSerialNumber"
 
-    iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSimSerialNumber()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimSerialNumber()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 444
-    const-string v1, "CurrentSimPhoneNumber"
+    const-string v2, "CurrentSimPhoneNumber"
 
-    iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+    iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getLine1Number()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getLine1Number()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 447
-    const-string v1, "SimChangeTime"
+    const-string v2, "SimChangeTime"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v3
+    move-result-wide v4
 
-    invoke-virtual {v2, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, ""
+    const-string v4, ""
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 449
-    const-string v1, "SimChangeOperation"
+    const-string v2, "SimChangeOperation"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, ""
+    const-string v4, ""
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "/data/system/SimCard.dat"
+    const-string v4, "/data/system/SimCard.dat"
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-
-    .line 451
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "android.intent.action.sec.SIM_CARD_CHANGED"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-static {v2, v3, v4}, Lcom/android/server/enterprise/Utils;->writePropertyValue(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
     .line 452
-    .local v0, i:Landroid/content/Intent;
-    const-string v1, "simChangeInfo"
+    new-instance v1, Ljava/io/File;
 
-    iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->this$0:Lcom/android/server/enterprise/MiscPolicy;
+    const-string v2, "/data/system/SimCard.dat"
 
-    invoke-virtual {v2}, Lcom/android/server/enterprise/MiscPolicy;->getLastSimChangeInfo()Landroid/app/enterprise/SimChangeInfo;
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 453
+    .local v1, lFile:Ljava/io/File;
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    const/16 v3, 0x1a0
 
-    .line 454
-    iget-object v1, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mCtxt:Landroid/content/Context;
+    invoke-static {v2, v3, v6, v6}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
 
-    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    .line 456
+    new-instance v0, Landroid/content/Intent;
 
-    .line 455
+    const-string v2, "android.intent.action.sec.SIM_CARD_CHANGED"
+
+    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 457
+    .local v0, i:Landroid/content/Intent;
+    const-string v2, "simChangeInfo"
+
+    iget-object v3, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->this$0:Lcom/android/server/enterprise/MiscPolicy;
+
+    invoke-virtual {v3}, Lcom/android/server/enterprise/MiscPolicy;->getLastSimChangeInfo()Landroid/app/enterprise/SimChangeInfo;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    .line 459
+    iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mCtxt:Landroid/content/Context;
+
+    invoke-virtual {v2, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 460
     return-void
 .end method
 
@@ -539,25 +558,25 @@
     .locals 3
 
     .prologue
-    .line 493
+    .line 498
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 494
+    .line 499
     .local v0, intentFilter:Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.SIM_STATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 495
+    .line 500
     iget-object v1, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mCtxt:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 496
+    .line 501
     return-void
 .end method
 
@@ -565,13 +584,13 @@
     .locals 2
 
     .prologue
-    .line 499
+    .line 504
     iget-object v0, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mCtxt:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/enterprise/MiscPolicy$SIMCardUpdateMonitor;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 500
+    .line 505
     return-void
 .end method

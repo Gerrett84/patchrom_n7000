@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardScreenCallback;)V
+    value = Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Landroid/content/res/Configuration;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 284
+    .line 289
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 286
+    .line 291
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 287
+    .line 292
     .local v0, action:Ljava/lang/String;
     const-string v2, "com.android.server.NotificationManagerService.NotificationArrived"
 
@@ -63,7 +63,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 290
+    .line 295
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget;
 
@@ -78,7 +78,7 @@
 
     move-result-object v1
 
-    .line 291
+    .line 296
     .local v1, msg:Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidget;
 
@@ -89,7 +89,7 @@
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 293
+    .line 298
     .end local v1           #msg:Landroid/os/Message;
     :cond_1
     return-void

@@ -473,12 +473,12 @@
     .parameter "msg"
 
     .prologue
-    .line 249
+    .line 256
     const-string v0, "BT Audio Gateway"
 
     invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 250
+    .line 257
     return-void
 .end method
 
@@ -502,19 +502,19 @@
     .end annotation
 
     .prologue
-    .line 235
+    .line 242
     :try_start_0
     invoke-direct {p0}, Landroid/bluetooth/BluetoothAudioGateway;->cleanupNativeDataNative()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 237
+    .line 244
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 239
+    .line 246
     return-void
 
-    .line 237
+    .line 244
     :catchall_0
     move-exception v0
 
@@ -553,14 +553,14 @@
 
     iput-object v1, p0, Landroid/bluetooth/BluetoothAudioGateway;->mConnectThead:Ljava/lang/Thread;
 
-    .line 204
+    .line 211
     invoke-direct {p0}, Landroid/bluetooth/BluetoothAudioGateway;->setUpListeningSocketsNative()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 205
+    .line 212
     const-string v1, "BT Audio Gateway"
 
     const-string v2, "Could not set up listening socket, exiting"
@@ -569,27 +569,27 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 213
+    .line 220
     :goto_0
     monitor-exit p0
 
     return v0
 
-    .line 209
+    .line 216
     :cond_0
     const/4 v0, 0x0
 
     :try_start_1
     iput-boolean v0, p0, Landroid/bluetooth/BluetoothAudioGateway;->mInterrupted:Z
 
-    .line 210
+    .line 217
     iget-object v0, p0, Landroid/bluetooth/BluetoothAudioGateway;->mConnectThead:Ljava/lang/Thread;
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 213
+    .line 220
     :cond_1
     const/4 v0, 0x1
 
@@ -608,7 +608,7 @@
     .locals 3
 
     .prologue
-    .line 217
+    .line 224
     monitor-enter p0
 
     :try_start_0
@@ -616,52 +616,52 @@
 
     if-eqz v1, :cond_0
 
-    .line 219
+    .line 226
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/bluetooth/BluetoothAudioGateway;->mInterrupted:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 221
+    .line 228
     :try_start_1
     iget-object v1, p0, Landroid/bluetooth/BluetoothAudioGateway;->mConnectThead:Ljava/lang/Thread;
 
     invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
 
-    .line 223
+    .line 230
     iget-object v1, p0, Landroid/bluetooth/BluetoothAudioGateway;->mConnectThead:Ljava/lang/Thread;
 
     invoke-virtual {v1}, Ljava/lang/Thread;->join()V
 
-    .line 224
+    .line 231
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/bluetooth/BluetoothAudioGateway;->mConnectThead:Ljava/lang/Thread;
 
-    .line 225
+    .line 232
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/bluetooth/BluetoothAudioGateway;->mCallback:Landroid/os/Handler;
 
-    .line 226
+    .line 233
     invoke-direct {p0}, Landroid/bluetooth/BluetoothAudioGateway;->tearDownListeningSocketsNative()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 231
+    .line 238
     :cond_0
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 227
+    .line 234
     :catch_0
     move-exception v0
 
-    .line 228
+    .line 235
     .local v0, e:Ljava/lang/InterruptedException;
     :try_start_2
     const-string v1, "BT Audio Gateway"
@@ -674,7 +674,7 @@
 
     goto :goto_0
 
-    .line 217
+    .line 224
     .end local v0           #e:Ljava/lang/InterruptedException;
     :catchall_0
     move-exception v1

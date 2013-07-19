@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1989
+    .line 1773
     iput-object p1, p0, Lcom/samsung/wfd/WfdService$3;->this$0:Lcom/samsung/wfd/WfdService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "service"
 
     .prologue
-    .line 1992
+    .line 1776
     iget-object v0, p0, Lcom/samsung/wfd/WfdService$3;->this$0:Lcom/samsung/wfd/WfdService;
 
     invoke-static {p2}, Lcom/samsung/ScreenCapture/IScreenCaptureRemoteService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/ScreenCapture/IScreenCaptureRemoteService;
@@ -52,7 +52,7 @@
 
     iput-object v1, v0, Lcom/samsung/wfd/WfdService;->mSCRemoteService:Lcom/samsung/ScreenCapture/IScreenCaptureRemoteService;
 
-    .line 1993
+    .line 1777
     return-void
 .end method
 
@@ -61,13 +61,13 @@
     .parameter "className"
 
     .prologue
-    .line 1996
+    .line 1780
     iget-object v0, p0, Lcom/samsung/wfd/WfdService$3;->this$0:Lcom/samsung/wfd/WfdService;
 
     const/4 v1, 0x0
 
     iput-object v1, v0, Lcom/samsung/wfd/WfdService;->mSCRemoteService:Lcom/samsung/ScreenCapture/IScreenCaptureRemoteService;
 
-    .line 1997
+    .line 1781
     return-void
 .end method

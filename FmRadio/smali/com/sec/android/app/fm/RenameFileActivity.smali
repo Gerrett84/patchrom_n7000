@@ -22,7 +22,7 @@
     .locals 1
 
     .prologue
-    .line 31
+    .line 32
     const-class v0, Lcom/sec/android/app/fm/RenameFileActivity;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -38,17 +38,17 @@
     .locals 1
 
     .prologue
-    .line 27
+    .line 28
     invoke-direct {p0}, Lcom/sec/android/app/fm/RecordedFileListActivity;-><init>()V
 
-    .line 39
+    .line 42
     new-instance v0, Lcom/sec/android/app/fm/RenameFileActivity$1;
 
     invoke-direct {v0, p0}, Lcom/sec/android/app/fm/RenameFileActivity$1;-><init>(Lcom/sec/android/app/fm/RenameFileActivity;)V
 
     iput-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mRenameListener:Landroid/widget/AdapterView$OnItemClickListener;
 
-    .line 27
+    .line 28
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .locals 1
 
     .prologue
-    .line 27
+    .line 28
     sget-object v0, Lcom/sec/android/app/fm/RenameFileActivity;->TAG:Ljava/lang/String;
 
     return-object v0
@@ -67,7 +67,7 @@
     .parameter "x0"
 
     .prologue
-    .line 27
+    .line 28
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
 
     return-object v0
@@ -79,7 +79,7 @@
     .parameter "x1"
 
     .prologue
-    .line 27
+    .line 28
     iput-object p1, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
 
     return-object p1
@@ -90,7 +90,7 @@
     .parameter "x0"
 
     .prologue
-    .line 27
+    .line 28
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSavedSelectedFilePath:Ljava/lang/String;
 
     return-object v0
@@ -101,7 +101,7 @@
     .parameter "x0"
 
     .prologue
-    .line 27
+    .line 28
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mToast:Landroid/widget/Toast;
 
     return-object v0
@@ -116,27 +116,27 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 60
+    .line 65
     sget-object v0, Lcom/sec/android/app/fm/RenameFileActivity;->TAG:Ljava/lang/String;
 
     const-string v1, "onCreate()"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 61
+    .line 66
     invoke-super {p0, p1}, Lcom/sec/android/app/fm/RecordedFileListActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 64
+    .line 69
     if-eqz p1, :cond_0
 
-    .line 65
+    .line 70
     sget-object v0, Lcom/sec/android/app/fm/RenameFileActivity;->TAG:Ljava/lang/String;
 
     const-string v1, "onCreate savedInstanceState"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 66
+    .line 71
     const-string v0, "selected_filepath"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -145,7 +145,7 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSavedSelectedFilePath:Ljava/lang/String;
 
-    .line 69
+    .line 74
     :cond_0
     const-string v0, ""
 
@@ -157,21 +157,21 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mToast:Landroid/widget/Toast;
 
-    .line 71
+    .line 76
     invoke-virtual {p0}, Lcom/sec/android/app/fm/RenameFileActivity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
     invoke-virtual {v0, v2}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
 
-    .line 73
+    .line 78
     invoke-virtual {p0}, Lcom/sec/android/app/fm/RenameFileActivity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v0
 
     invoke-virtual {v0, v2}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
-    .line 74
+    .line 79
     return-void
 .end method
 
@@ -182,7 +182,7 @@
     .parameter "menuInfo"
 
     .prologue
-    .line 91
+    .line 97
     return-void
 .end method
 
@@ -192,24 +192,33 @@
     .parameter "args"
 
     .prologue
-    .line 95
+    .line 101
     sget-object v1, Lcom/sec/android/app/fm/RenameFileActivity;->TAG:Ljava/lang/String;
 
     const-string v2, "onCreateDialog()"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 96
-    new-instance v0, Lcom/sec/android/app/fm/ui/RenameFileDialog;
+    .line 102
+    new-instance v0, Lcom/sec/android/app/fm/ui/RenameDialog;
 
-    new-instance v1, Lcom/sec/android/app/fm/RenameFileActivity$2;
+    const/4 v1, 0x1
 
-    invoke-direct {v1, p0}, Lcom/sec/android/app/fm/RenameFileActivity$2;-><init>(Lcom/sec/android/app/fm/RenameFileActivity;)V
+    new-instance v2, Lcom/sec/android/app/fm/RenameFileActivity$2;
 
-    invoke-direct {v0, p0, v1}, Lcom/sec/android/app/fm/ui/RenameFileDialog;-><init>(Landroid/content/Context;Landroid/content/DialogInterface$OnClickListener;)V
+    invoke-direct {v2, p0}, Lcom/sec/android/app/fm/RenameFileActivity$2;-><init>(Lcom/sec/android/app/fm/RenameFileActivity;)V
 
-    .line 161
-    .local v0, dialog:Lcom/sec/android/app/fm/ui/RenameFileDialog;
+    invoke-direct {v0, p0, v1, v2}, Lcom/sec/android/app/fm/ui/RenameDialog;-><init>(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;)V
+
+    .line 175
+    .local v0, dialog:Lcom/sec/android/app/fm/ui/RenameDialog;
+    new-instance v1, Lcom/sec/android/app/fm/RenameFileActivity$3;
+
+    invoke-direct {v1, p0}, Lcom/sec/android/app/fm/RenameFileActivity$3;-><init>(Lcom/sec/android/app/fm/RenameFileActivity;)V
+
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/ui/RenameDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
+    .line 182
     return-object v0
 .end method
 
@@ -218,14 +227,14 @@
     .parameter "menu"
 
     .prologue
-    .line 166
+    .line 187
     sget-object v0, Lcom/sec/android/app/fm/RenameFileActivity;->TAG:Ljava/lang/String;
 
     const-string v1, "onCreateOptionsMenu()"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 167
+    .line 188
     const/4 v0, 0x0
 
     return v0
@@ -236,7 +245,7 @@
     .parameter "item"
 
     .prologue
-    .line 172
+    .line 193
     sget-object v0, Lcom/sec/android/app/fm/RenameFileActivity;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -261,16 +270,16 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 173
+    .line 194
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 178
+    .line 199
     :goto_0
     invoke-super {p0, p1}, Lcom/sec/android/app/fm/RecordedFileListActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
@@ -278,13 +287,13 @@
 
     return v0
 
-    .line 175
+    .line 196
     :pswitch_0
     invoke-virtual {p0}, Lcom/sec/android/app/fm/RenameFileActivity;->finish()V
 
     goto :goto_0
 
-    .line 173
+    .line 194
     :pswitch_data_0
     .packed-switch 0x102002c
         :pswitch_0
@@ -297,30 +306,30 @@
     .parameter "dialog"
 
     .prologue
-    .line 184
+    .line 205
     sget-object v4, Lcom/sec/android/app/fm/RenameFileActivity;->TAG:Ljava/lang/String;
 
     const-string v5, "onPrepareDialog()"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 187
+    .line 208
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
 
     if-nez v4, :cond_0
 
-    .line 188
+    .line 209
     sget-object v4, Lcom/sec/android/app/fm/RenameFileActivity;->TAG:Ljava/lang/String;
 
     const-string v5, "File not selected"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 201
+    .line 223
     :goto_0
     return-void
 
-    .line 193
+    .line 214
     :cond_0
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
 
@@ -328,7 +337,7 @@
 
     move-result v2
 
-    .line 194
+    .line 215
     .local v2, len:I
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
 
@@ -340,7 +349,7 @@
 
     add-int/lit8 v1, v4, 0x1
 
-    .line 195
+    .line 216
     .local v1, fileNameStart:I
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
 
@@ -350,7 +359,7 @@
 
     move-result v0
 
-    .line 196
+    .line 217
     .local v0, fileNameEnd:I
     if-ltz v1, :cond_1
 
@@ -360,7 +369,7 @@
 
     if-gt v0, v2, :cond_1
 
-    .line 197
+    .line 219
     iget-object v4, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
 
     invoke-virtual {v4, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -370,12 +379,12 @@
     .local v3, oldFileName:Ljava/lang/String;
     move-object v4, p2
 
-    .line 198
-    check-cast v4, Lcom/sec/android/app/fm/ui/RenameFileDialog;
+    .line 220
+    check-cast v4, Lcom/sec/android/app/fm/ui/RenameDialog;
 
-    invoke-virtual {v4, v3}, Lcom/sec/android/app/fm/ui/RenameFileDialog;->setFileName(Ljava/lang/String;)V
+    invoke-virtual {v4, v3}, Lcom/sec/android/app/fm/ui/RenameDialog;->setText(Ljava/lang/String;)V
 
-    .line 200
+    .line 222
     .end local v3           #oldFileName:Ljava/lang/String;
     :cond_1
     invoke-super {p0, p1, p2}, Lcom/sec/android/app/fm/RecordedFileListActivity;->onPrepareDialog(ILandroid/app/Dialog;)V
@@ -388,17 +397,17 @@
     .parameter "outState"
 
     .prologue
-    .line 79
+    .line 84
     invoke-super {p0, p1}, Lcom/sec/android/app/fm/RecordedFileListActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 80
+    .line 85
     sget-object v1, Lcom/sec/android/app/fm/RenameFileActivity;->TAG:Ljava/lang/String;
 
     const-string v2, "onSaveInstanceState"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 81
+    .line 86
     iget-object v1, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
 
     if-nez v1, :cond_0
@@ -407,7 +416,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 82
+    .line 87
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
 
@@ -415,19 +424,19 @@
 
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
 
-    .line 83
+    .line 89
     .local v0, filepath:Ljava/lang/String;
     :goto_0
     const-string v1, "selected_filepath"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 85
+    .line 91
     .end local v0           #filepath:Ljava/lang/String;
     :cond_1
     return-void
 
-    .line 82
+    .line 87
     :cond_2
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mSavedSelectedFilePath:Ljava/lang/String;
 
@@ -438,18 +447,18 @@
     .locals 2
 
     .prologue
-    .line 205
+    .line 227
     sget-object v0, Lcom/sec/android/app/fm/RenameFileActivity;->TAG:Ljava/lang/String;
 
     const-string v1, "setOnItemClickListener()"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 206
+    .line 228
     iget-object v0, p0, Lcom/sec/android/app/fm/RenameFileActivity;->mRenameListener:Landroid/widget/AdapterView$OnItemClickListener;
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/RenameFileActivity;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 207
+    .line 229
     return-void
 .end method

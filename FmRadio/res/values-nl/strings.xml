@@ -101,13 +101,13 @@ Headset werkt als de radio-antenne en moet worden aangesloten"</string>
     <string name="toast_unavailable_in_tvout_mode">Niet beschikbaar in TV uit-modus</string>
     <string name="mute">Stil</string>
     <string name="seeking">Zoeken…</string>
-    <string name="via_earphone">Via headset</string>
-    <string name="via_speaker">Via luidspreker</string>
+    <string name="via_earphone">Afspelen via headset</string>
+    <string name="via_speaker">Afsp. via luidspreker</string>
     <string name="normal_frequency">Normale frequentie</string>
     <string name="tag">Tag</string>
     <string name="stop">Stop</string>
     <string name="recording">Opnemen…</string>
-    <string name="memory_full">Opname gestopt. Geheugen vol</string>
+    <string name="memory_full">Geheugen vol</string>
     <string name="cancel_recording">Opnemen annuleren?</string>
     <string name="change_frequency">Frequentie wijzigen</string>
     <string name="enter_frequency">Frequentie invoeren</string>
@@ -118,7 +118,7 @@ Headset werkt als de radio-antenne en moet worden aangesloten"</string>
     <string name="recording_error">Bestandsfout</string>
     <string name="desc_record">Opnemen</string>
     <string name="desc_volume">Volume</string>
-    <string name="desc_power">Kracht</string>
+    <string name="desc_power">Power</string>
     <string name="desc_prev">Vorige zender</string>
     <string name="desc_next">Volgende zender</string>
     <string name="desc_add_favorite">Favoriet toev.</string>
@@ -133,11 +133,14 @@ Headset werkt als de radio-antenne en moet worden aangesloten"</string>
     <string name="tags">Tags</string>
     <string name="tags_now_broadcasting">Nu uitzenden</string>
     <string name="tags_no_information">Geen informatie</string>
+    <string name="tags_music_history">Muziekgeschiedenis</string>
     <string name="tags_music_title">Titel</string>
     <string name="tags_music_album">Album</string>
     <string name="tags_music_artist">Artiest</string>
+    <string name="tags_music_band">Band</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Start- pag.</string>
+    <string name="tags_interact_hotline">Hotline</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Overige</string>
     <string name="tags_interact_centre">Centreren</string>
@@ -183,4 +186,14 @@ Na het opnemen van de radio worden de opgenomen bestanden weergegeven"</string>
     <string name="dialog_one_item_deleted">Dit item wordt verwijderd</string>
     <string name="dialog_multiple_items_deleted">%d items worden verwijderd</string>
     <string name="dialog_all_items_deleted">Alle items worden verwijderd</string>
+    <string name="turning_on">Inschakelen…</string>
+    <string name="not_enough_memory_recording_will_stop">Onvoldoende geheugen. Opname stopt over %d seconden</string>
+    <string name="low_batt_msg">Batterij bijna leeg</string>
+    <string name="no_play_during_call">Niet mogelijk tijdens gesprek</string>
+    <string name="unable_delete">Kan niet verwijderen</string>
+    <string name="playing">Afspelen…</string>
+    <string name="tts_play_button">Afspelen</string>
+    <string name="tts_previous_button">Vorige</string>
+    <string name="tts_Next_button">Volgende</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

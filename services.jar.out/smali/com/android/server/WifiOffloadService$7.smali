@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1113
+    .line 1129
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 1116
+    .line 1132
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1117
+    .line 1133
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.net.wifi.SCAN_RESULTS"
 
@@ -55,7 +55,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1118
+    .line 1134
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     #getter for: Lcom/android/server/WifiOffloadService;->scanResultAvailable:Landroid/content/BroadcastReceiver;
@@ -65,12 +65,12 @@
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 1120
+    .line 1136
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v1}, Lcom/android/server/WifiOffloadService;->showAPDialog()Z
 
-    .line 1122
+    .line 1138
     :cond_0
     return-void
 .end method

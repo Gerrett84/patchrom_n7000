@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 417
+    .line 438
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$3;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,27 +38,103 @@
 
 # virtual methods
 .method public onDrawerClosed()V
-    .locals 2
+    .locals 5
 
     .prologue
-    .line 419
-    sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
+    const/high16 v4, 0x200
 
-    if-eqz v0, :cond_0
+    .line 440
+    sget-boolean v2, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
-    const-string v0, "ClipboardServiceEx"
+    if-eqz v2, :cond_0
 
-    const-string v1, "called setOnDrawerCloseListener.onDrawerClosed()"
+    const-string v2, "ClipboardServiceEx"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v3, "called setOnDrawerCloseListener.onDrawerClosed()"
 
-    .line 421
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 443
     :cond_0
-    iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$3;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$3;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    invoke-virtual {v2}, Lcom/android/server/sec/ClippedDataPickerDialog;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    const-string v3, "activity"
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager;
+
+    .line 444
+    .local v0, am:Landroid/app/ActivityManager;
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v2}, Landroid/app/ActivityManager;->getRunningTasks(I)Ljava/util/List;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/ActivityManager$RunningTaskInfo;
+
+    iget v2, v2, Landroid/app/ActivityManager$RunningTaskInfo;->windowMode:I
+
+    and-int/2addr v2, v4
+
+    if-ne v2, v4, :cond_1
+
+    .line 445
+    iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$3;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     #calls: Lcom/android/server/sec/ClippedDataPickerDialog;->dismissDialog()V
-    invoke-static {v0}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$600(Lcom/android/server/sec/ClippedDataPickerDialog;)V
+    invoke-static {v2}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$500(Lcom/android/server/sec/ClippedDataPickerDialog;)V
 
-    .line 422
+    .line 454
+    .end local v0           #am:Landroid/app/ActivityManager;
+    :goto_0
     return-void
+
+    .line 447
+    .restart local v0       #am:Landroid/app/ActivityManager;
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$3;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    invoke-virtual {v2}, Lcom/android/server/sec/ClippedDataPickerDialog;->dismiss()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    .line 449
+    .end local v0           #am:Landroid/app/ActivityManager;
+    :catch_0
+    move-exception v1
+
+    .line 450
+    .local v1, e:Ljava/lang/Exception;
+    const-string v2, "ClipboardServiceEx"
+
+    const-string v3, "Failed to check multiwindow style:"
+
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 451
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 452
+    iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$3;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    invoke-virtual {v2}, Lcom/android/server/sec/ClippedDataPickerDialog;->dismiss()V
+
+    goto :goto_0
 .end method

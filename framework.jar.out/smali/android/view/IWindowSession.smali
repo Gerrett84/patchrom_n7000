@@ -95,6 +95,14 @@
     .end annotation
 .end method
 
+.method public abstract performDragAlpha(Landroid/view/IWindow;Landroid/os/IBinder;FFFFLandroid/content/ClipData;F)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract performHapticFeedback(Landroid/view/IWindow;IZ)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {

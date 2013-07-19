@@ -5,6 +5,7 @@
 # interfaces
 .implements Landroid/view/View$OnTouchListener;
 .implements Landroid/view/View$OnLongClickListener;
+.implements Landroid/view/View$OnHoverListener;
 
 
 # annotations
@@ -27,15 +28,15 @@
 
 .field private PrevY:I
 
-.field private fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
-
-.field private hasGuideLayout:Z
-
 .field private longDownX:I
 
 .field private longDownY:I
 
 .field mDoubleTapListener:Landroid/view/View$OnTouchListener;
+
+.field private rawX:I
+
+.field private rawY:I
 
 .field final synthetic this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
@@ -50,33 +51,36 @@
 
     const/4 v0, 0x0
 
-    .line 601
+    .line 931
     iput-object p1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 592
+    .line 922
     iput-object v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->mDoubleTapListener:Landroid/view/View$OnTouchListener;
 
-    .line 594
+    .line 924
     iput v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownX:I
 
-    .line 595
+    .line 925
     iput v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownY:I
 
-    .line 596
+    .line 926
     iput v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevX:I
 
-    .line 597
+    .line 927
     iput v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevY:I
 
-    .line 599
-    iput-boolean v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->hasGuideLayout:Z
+    .line 928
+    iput v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->rawX:I
 
-    .line 602
+    .line 929
+    iput v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->rawY:I
+
+    .line 932
     iput-object v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->mDoubleTapListener:Landroid/view/View$OnTouchListener;
 
-    .line 603
+    .line 933
     return-void
 .end method
 
@@ -88,595 +92,1226 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 605
+    .line 935
     iput-object p1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 592
+    .line 922
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->mDoubleTapListener:Landroid/view/View$OnTouchListener;
 
-    .line 594
+    .line 924
     iput v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownX:I
 
-    .line 595
+    .line 925
     iput v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownY:I
 
-    .line 596
+    .line 926
     iput v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevX:I
 
-    .line 597
+    .line 927
     iput v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevY:I
 
-    .line 599
-    iput-boolean v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->hasGuideLayout:Z
+    .line 928
+    iput v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->rawX:I
 
-    .line 606
+    .line 929
+    iput v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->rawY:I
+
+    .line 936
     iput-object p2, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->mDoubleTapListener:Landroid/view/View$OnTouchListener;
 
-    .line 607
+    .line 937
     return-void
-.end method
-
-.method private createGhostView(II)Z
-    .locals 12
-    .parameter "startX"
-    .parameter "startY"
-
-    .prologue
-    const/4 v9, 0x1
-
-    .line 610
-    iget-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
-
-    if-eqz v0, :cond_0
-
-    .line 612
-    iget-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;->dismissGuideRelayoutWindow()V
-
-    .line 614
-    :cond_0
-    iget-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mOwner:Landroid/view/Window;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$300(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/Window;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/Window;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    .line 616
-    .local v1, context:Landroid/content/Context;
-    iget-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/Activity;->getWindowMode()I
-
-    move-result v7
-
-    .line 617
-    .local v7, windowMode:I
-    invoke-static {v7}, Landroid/view/WindowManagerPolicy$WindowModeHelper;->mode(I)I
-
-    move-result v0
-
-    const/high16 v3, 0x200
-
-    and-int/2addr v0, v3
-
-    if-nez v0, :cond_1
-
-    .line 618
-    const/4 v0, 0x0
-
-    .line 632
-    :goto_0
-    return v0
-
-    .line 621
-    :cond_1
-    iget-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mOwner:Landroid/view/Window;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$300(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/Window;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v6
-
-    .line 623
-    .local v6, par:Landroid/view/WindowManager$LayoutParams;
-    iget-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mOwner:Landroid/view/Window;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$300(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/Window;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v8
-
-    .line 624
-    .local v8, windowParm:Landroid/view/WindowManager$LayoutParams;
-    new-instance v2, Landroid/graphics/Rect;
-
-    iget v0, v8, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    iget v3, v8, Landroid/view/WindowManager$LayoutParams;->y:I
-
-    iget v5, v8, Landroid/view/WindowManager$LayoutParams;->x:I
-
-    iget v10, v8, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    add-int/2addr v5, v10
-
-    iget v10, v8, Landroid/view/WindowManager$LayoutParams;->y:I
-
-    iget v11, v8, Landroid/view/WindowManager$LayoutParams;->height:I
-
-    add-int/2addr v10, v11
-
-    invoke-direct {v2, v0, v3, v5, v10}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    .line 625
-    .local v2, windowRect:Landroid/graphics/Rect;
-    new-instance v4, Landroid/graphics/Point;
-
-    iget v0, v8, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    iget-object v3, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mContentRoot:Landroid/view/ViewGroup;
-    invoke-static {v3}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/ViewGroup;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/view/ViewGroup;->getWidth()I
-
-    move-result v3
-
-    sub-int/2addr v0, v3
-
-    iget v3, v8, Landroid/view/WindowManager$LayoutParams;->height:I
-
-    iget-object v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mContentRoot:Landroid/view/ViewGroup;
-    invoke-static {v5}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/ViewGroup;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/view/ViewGroup;->getHeight()I
-
-    move-result v5
-
-    sub-int/2addr v3, v5
-
-    invoke-direct {v4, v0, v3}, Landroid/graphics/Point;-><init>(II)V
-
-    .line 627
-    .local v4, delta:Landroid/graphics/Point;
-    new-instance v0, Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
-
-    new-instance v3, Landroid/graphics/Point;
-
-    invoke-direct {v3, p1, p2}, Landroid/graphics/Point;-><init>(II)V
-
-    const/16 v5, 0x8
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;-><init>(Landroid/content/Context;Landroid/graphics/Rect;Landroid/graphics/Point;Landroid/graphics/Point;I)V
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
-
-    .line 628
-    iget-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
-
-    invoke-static {}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$500()I
-
-    move-result v3
-
-    invoke-virtual {v0, v3}, Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;->setStatusBarHeight(I)V
-
-    .line 629
-    iput-boolean v9, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->hasGuideLayout:Z
-
-    .line 631
-    iget-object v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
-
-    iget-object v3, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mLeftBorderPadding:I
-    invoke-static {v3}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$600(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)I
-
-    move-result v3
-
-    iget-object v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mTopBorderPadding:I
-    invoke-static {v5}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$700(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)I
-
-    move-result v5
-
-    iget-object v10, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mRightBorderPadding:I
-    invoke-static {v10}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$800(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)I
-
-    move-result v10
-
-    iget-object v11, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mBottomBorderPadding:I
-    invoke-static {v11}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$900(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)I
-
-    move-result v11
-
-    invoke-virtual {v0, v3, v5, v10, v11}, Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;->setBackgroundPadding(IIII)V
-
-    move v0, v9
-
-    .line 632
-    goto :goto_0
 .end method
 
 
 # virtual methods
-.method public onLongClick(Landroid/view/View;)Z
-    .locals 3
+.method public onHover(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 5
     .parameter "v"
+    .parameter "event"
 
     .prologue
-    const/4 v1, 0x0
+    const/16 v4, 0xa
 
-    .line 637
-    iget-object v2, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+    const/16 v3, 0x9
 
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+    .line 1075
+    const/4 v1, -0x1
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/app/Activity;->getWindowMode()I
-
-    move-result v0
-
-    .line 639
-    .local v0, windowMode:I
-    invoke-static {v0}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->isMinimized(I)Z
+    .line 1077
+    .local v1, hoverIcon:I
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    packed-switch v2, :pswitch_data_0
 
-    .line 648
+    .line 1091
+    :pswitch_0
+    iget-object v2, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mWindowTitleBar:Landroid/view/View;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/View;
+
+    move-result-object v2
+
+    if-ne p1, v2, :cond_0
+
+    .line 1092
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v2
+
+    if-ne v2, v3, :cond_3
+
+    .line 1093
+    const/4 v1, 0x5
+
+    .line 1101
     :cond_0
     :goto_0
-    return v1
+    if-lez v1, :cond_1
 
-    .line 643
+    const/4 v2, -0x1
+
+    :try_start_0
+    invoke-static {v1, v2}, Landroid/view/PointerIcon;->setHoveringSpenIcon(II)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 1105
     :cond_1
-    iget-boolean v2, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->hasGuideLayout:Z
+    :goto_1
+    const/4 v2, 0x0
 
-    if-nez v2, :cond_0
+    return v2
 
-    iget-object v2, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+    .line 1083
+    :pswitch_1
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
-    if-nez v2, :cond_0
+    move-result v2
 
-    .line 644
-    const-string v1, "PhoneWindowListener"
+    if-ne v2, v3, :cond_2
 
-    const-string v2, "onTouch - Create GhostView by touch move"
+    .line 1084
+    const/16 v1, 0xa
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .line 1085
+    const/4 v2, 0x1
 
-    .line 645
-    iget v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownX:I
+    invoke-virtual {p1, v2}, Landroid/view/View;->setHoverPopupType(I)V
 
-    iget v2, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownY:I
+    goto :goto_0
 
-    invoke-direct {p0, v1, v2}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->createGhostView(II)Z
+    .line 1086
+    :cond_2
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v2
+
+    if-ne v2, v4, :cond_0
+
+    .line 1087
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    .line 1094
+    :cond_3
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v2
+
+    if-ne v2, v4, :cond_0
+
+    .line 1095
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    .line 1102
+    :catch_0
+    move-exception v0
+
+    .line 1103
+    .local v0, e:Landroid/os/RemoteException;
+    const-string v2, "PhoneWindowListener"
+
+    const-string v3, "Failed to change Pen Point to HOVERING_SPENICON_DEFAULT"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 1077
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x10203b9
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+    .end packed-switch
+.end method
+
+.method public onLongClick(Landroid/view/View;)Z
+    .locals 5
+    .parameter "v"
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 941
+    iget-object v3, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
+    invoke-static {v3}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/app/Activity;->getWindowMode()I
 
     move-result v1
+
+    .line 942
+    .local v1, windowMode:I
+    iget-object v3, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mOwner:Landroid/view/Window;
+    invoke-static {v3}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$800(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/Window;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/view/Window;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v3
+
+    iget v3, v3, Landroid/content/res/Configuration;->arrange:I
+
+    and-int/lit16 v0, v3, -0x401
+
+    .line 944
+    .local v0, currentLaunchMode:I
+    invoke-static {v1}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->isMinimized(I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 957
+    :cond_0
+    :goto_0
+    return v2
+
+    .line 948
+    :cond_1
+    const/4 v3, 0x2
+
+    if-eq v0, v3, :cond_0
+
+    const/4 v3, 0x1
+
+    if-eq v0, v3, :cond_0
+
+    invoke-static {v1}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->isPinup(I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 952
+    iget-object v3, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->hasGuideLayout:Z
+    invoke-static {v3}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$900(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+    invoke-static {v3}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+
+    move-result-object v3
+
+    if-nez v3, :cond_0
+
+    .line 953
+    const-string v2, "PhoneWindowListener"
+
+    const-string v3, "Create GhostView by onLongClick"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 954
+    iget-object v2, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    iget v3, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownX:I
+
+    iget v4, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownY:I
+
+    #calls: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->createGhostView(II)Z
+    invoke-static {v2, v3, v4}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1000(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;II)Z
+
+    move-result v2
 
     goto :goto_0
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 10
+    .locals 23
     .parameter "v"
     .parameter "event"
 
     .prologue
-    const/4 v7, 0x1
+    .line 962
+    move-object/from16 v0, p0
 
-    const/high16 v9, 0x4000
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
-    const/4 v6, 0x0
-
-    .line 653
-    iget-object v8, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+    move-object/from16 v18, v0
 
     #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
-    invoke-static {v8}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
 
-    move-result-object v8
+    move-result-object v18
 
-    invoke-virtual {v8}, Landroid/app/Activity;->getWindowMode()I
+    invoke-virtual/range {v18 .. v18}, Landroid/app/Activity;->getWindowMode()I
 
-    move-result v5
+    move-result v17
 
-    .line 655
-    .local v5, windowMode:I
-    invoke-static {v5}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->isMinimized(I)Z
+    .line 963
+    .local v17, windowMode:I
+    move-object/from16 v0, p0
 
-    move-result v8
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
-    if-eqz v8, :cond_1
+    move-object/from16 v18, v0
 
-    .line 709
-    :cond_0
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/app/Activity;->getWindowInfo()Landroid/os/Bundle;
+
+    move-result-object v16
+
+    .line 964
+    .local v16, winInfo:Landroid/os/Bundle;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v12
+
+    .line 965
+    .local v12, p:Landroid/view/WindowManager$LayoutParams;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mOwner:Landroid/view/Window;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$800(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/Window;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/view/Window;->getContext()Landroid/content/Context;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    iget v0, v0, Landroid/content/res/Configuration;->arrange:I
+
+    move/from16 v18, v0
+
+    move/from16 v0, v18
+
+    and-int/lit16 v5, v0, -0x401
+
+    .line 968
+    .local v5, currentLaunchMode:I
+    invoke-static/range {v17 .. v17}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->isMinimized(I)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_0
+
+    .line 969
+    const/16 v18, 0x0
+
+    .line 1070
     :goto_0
-    return v6
+    return v18
 
-    .line 659
-    :cond_1
-    iget-object v8, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->mDoubleTapListener:Landroid/view/View$OnTouchListener;
+    .line 972
+    :cond_0
+    move-object/from16 v0, p0
 
-    if-eqz v8, :cond_2
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->mDoubleTapListener:Landroid/view/View$OnTouchListener;
 
-    iget-object v8, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->mDoubleTapListener:Landroid/view/View$OnTouchListener;
+    move-object/from16 v18, v0
 
-    invoke-interface {v8, p1, p2}, Landroid/view/View$OnTouchListener;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    if-eqz v18, :cond_1
 
-    move-result v8
+    move-object/from16 v0, p0
 
-    if-eqz v8, :cond_2
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->mDoubleTapListener:Landroid/view/View$OnTouchListener;
 
-    move v6, v7
+    move-object/from16 v18, v0
 
-    .line 660
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p1
+
+    move-object/from16 v2, p2
+
+    invoke-interface {v0, v1, v2}, Landroid/view/View$OnTouchListener;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_1
+
+    .line 973
+    const/16 v18, 0x1
+
     goto :goto_0
 
-    .line 663
+    .line 976
+    :cond_1
+    invoke-static/range {v17 .. v17}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->isNormalWindow(I)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_2
+
+    .line 977
+    const/16 v18, 0x0
+
+    goto :goto_0
+
+    .line 980
     :cond_2
-    invoke-static {v5}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->isNormalWindow(I)Z
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v8
+    move-result v4
 
-    if-nez v8, :cond_0
+    .line 981
+    .local v4, action:I
+    packed-switch v4, :pswitch_data_0
 
-    .line 667
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    .line 668
-    .local v0, action:I
-    packed-switch v0, :pswitch_data_0
-
-    .line 705
+    .line 1066
     :cond_3
     :goto_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->hasGuideLayout:Z
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$900(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_c
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+
+    move-result-object v18
+
+    if-eqz v18, :cond_c
+
+    .line 1067
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;->onTouchEvent(Landroid/view/MotionEvent;)Z
+
+    move-result v18
+
+    goto :goto_0
+
+    .line 983
     :pswitch_0
-    iget-boolean v7, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->hasGuideLayout:Z
+    move-object/from16 v0, p0
 
-    if-eqz v7, :cond_0
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
-    iget-object v7, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+    move-object/from16 v18, v0
 
-    if-eqz v7, :cond_0
+    const/16 v19, 0x0
 
-    .line 706
-    iget-object v6, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+    #setter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->hasGuideLayout:Z
+    invoke-static/range {v18 .. v19}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$902(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;Z)Z
 
-    invoke-virtual {v6, p2}, Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;->onTouchEvent(Landroid/view/MotionEvent;)Z
+    .line 984
+    move-object/from16 v0, p0
 
-    move-result v6
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
-    goto :goto_0
+    move-object/from16 v18, v0
 
-    .line 671
-    :pswitch_1
-    iput-boolean v6, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->hasGuideLayout:Z
+    const/16 v19, 0x0
 
-    .line 672
-    const/4 v7, 0x0
+    #setter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+    invoke-static/range {v18 .. v19}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$102(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;)Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
 
-    iput-object v7, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+    .line 985
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getX()F
 
-    .line 673
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
+    move-result v18
 
-    move-result v7
+    move/from16 v0, v18
 
-    float-to-int v7, v7
+    float-to-int v0, v0
 
-    iput v7, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownX:I
+    move/from16 v18, v0
 
-    iput v7, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevX:I
+    move/from16 v0, v18
 
-    .line 674
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
+    move-object/from16 v1, p0
 
-    move-result v7
+    iput v0, v1, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownX:I
 
-    float-to-int v7, v7
+    move/from16 v0, v18
 
-    iput v7, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownY:I
+    move-object/from16 v1, p0
 
-    iput v7, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevY:I
+    iput v0, v1, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevX:I
 
-    goto :goto_1
+    .line 986
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getY()F
 
-    .line 678
-    :pswitch_2
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
+    move-result v18
 
-    move-result v8
+    move/from16 v0, v18
 
-    float-to-int v1, v8
+    float-to-int v0, v0
 
-    .line 679
-    .local v1, newX:I
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
+    move/from16 v18, v0
 
-    move-result v8
+    move/from16 v0, v18
 
-    float-to-int v2, v8
+    move-object/from16 v1, p0
 
-    .line 680
-    .local v2, newY:I
-    const/4 v3, 0x0
+    iput v0, v1, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownY:I
 
-    .line 681
-    .local v3, tx:I
-    const/4 v4, 0x0
+    move/from16 v0, v18
 
-    .line 683
-    .local v4, ty:I
-    iget v8, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevX:I
+    move-object/from16 v1, p0
 
-    sub-int v8, v1, v8
+    iput v0, v1, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevY:I
 
-    int-to-float v8, v8
+    .line 987
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getRawX()F
 
-    invoke-static {v8}, Landroid/util/MathUtils;->abs(F)F
+    move-result v18
 
-    move-result v8
+    move/from16 v0, v18
 
-    cmpl-float v8, v8, v9
+    float-to-int v0, v0
 
-    if-lez v8, :cond_4
+    move/from16 v18, v0
 
-    .line 684
-    iget v8, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownX:I
+    move/from16 v0, v18
 
-    sub-int v3, v1, v8
+    move-object/from16 v1, p0
 
-    .line 685
-    iput v1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevX:I
+    iput v0, v1, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->rawX:I
 
-    .line 687
-    :cond_4
-    iget v8, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevY:I
+    .line 988
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getRawY()F
 
-    sub-int v8, v2, v8
+    move-result v18
 
-    int-to-float v8, v8
+    move/from16 v0, v18
 
-    invoke-static {v8}, Landroid/util/MathUtils;->abs(F)F
+    float-to-int v0, v0
 
-    move-result v8
+    move/from16 v18, v0
 
-    cmpl-float v8, v8, v9
+    move/from16 v0, v18
 
-    if-lez v8, :cond_5
+    move-object/from16 v1, p0
 
-    .line 688
-    iget v8, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownY:I
+    iput v0, v1, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->rawY:I
 
-    sub-int v4, v2, v8
+    .line 989
+    const/16 v18, 0x2
 
-    .line 689
-    iput v2, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevY:I
+    move/from16 v0, v18
 
-    .line 692
-    :cond_5
-    if-nez v3, :cond_6
+    if-eq v5, v0, :cond_3
 
-    if-nez v4, :cond_6
+    const/16 v18, 0x1
 
-    move v6, v7
+    move/from16 v0, v18
 
-    .line 693
-    goto :goto_0
+    if-eq v5, v0, :cond_3
 
-    .line 696
-    :cond_6
-    iget-boolean v7, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->hasGuideLayout:Z
+    invoke-static/range {v17 .. v17}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->isPinup(I)Z
 
-    if-nez v7, :cond_3
+    move-result v18
 
-    iget-object v7, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+    if-nez v18, :cond_3
 
-    if-nez v7, :cond_3
+    .line 992
+    new-instance v6, Landroid/content/Intent;
 
-    .line 697
-    iget v6, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownX:I
+    const-string v18, "com.sec.android.multiwindow.TITLEBAR_DRAG_START"
 
-    iget v7, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownY:I
+    move-object/from16 v0, v18
 
-    invoke-direct {p0, v6, v7}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->createGhostView(II)Z
+    invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move-result v6
+    .line 993
+    .local v6, intentForTitleBar:Landroid/content/Intent;
+    move-object/from16 v0, p0
 
-    goto/16 :goto_0
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
-    .line 702
-    .end local v1           #newX:I
-    .end local v2           #newY:I
-    .end local v3           #tx:I
-    .end local v4           #ty:I
-    :pswitch_3
-    const-string v7, "Hello"
+    move-object/from16 v18, v0
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mContext:Landroid/content/Context;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$200(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/content/Context;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v18
 
-    const-string v9, "ACTION_POINTER_DOWN in "
+    move-object/from16 v0, v18
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-object v9, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
-
-    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
-    invoke-static {v9}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v6}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     goto/16 :goto_1
 
-    .line 668
+    .line 998
+    .end local v6           #intentForTitleBar:Landroid/content/Intent;
+    :pswitch_1
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getRawX()F
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    float-to-int v10, v0
+
+    .line 999
+    .local v10, newX:I
+    invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getRawY()F
+
+    move-result v18
+
+    move/from16 v0, v18
+
+    float-to-int v11, v0
+
+    .line 1000
+    .local v11, newY:I
+    const/4 v14, 0x0
+
+    .line 1001
+    .local v14, tx:I
+    const/4 v15, 0x0
+
+    .line 1003
+    .local v15, ty:I
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->rawX:I
+
+    move/from16 v18, v0
+
+    sub-int v8, v10, v18
+
+    .line 1004
+    .local v8, moveX:I
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->rawY:I
+
+    move/from16 v18, v0
+
+    sub-int v9, v11, v18
+
+    .line 1006
+    .local v9, moveY:I
+    const/16 v18, 0x2
+
+    move/from16 v0, v18
+
+    if-eq v5, v0, :cond_4
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v18
+
+    if-eq v5, v0, :cond_4
+
+    invoke-static/range {v17 .. v17}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->isPinup(I)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_6
+
+    .line 1008
+    :cond_4
+    int-to-float v0, v8
+
+    move/from16 v18, v0
+
+    invoke-static/range {v18 .. v18}, Landroid/util/MathUtils;->abs(F)F
+
+    move-result v18
+
+    const/high16 v19, 0x4000
+
+    cmpl-float v18, v18, v19
+
+    if-gtz v18, :cond_5
+
+    int-to-float v0, v9
+
+    move/from16 v18, v0
+
+    invoke-static/range {v18 .. v18}, Landroid/util/MathUtils;->abs(F)F
+
+    move-result v18
+
+    const/high16 v19, 0x4000
+
+    cmpl-float v18, v18, v19
+
+    if-lez v18, :cond_3
+
+    .line 1010
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mWindowTitleBar:Landroid/view/View;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/View;
+
+    move-result-object v18
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v18
+
+    if-ne v0, v1, :cond_3
+
+    .line 1011
+    iget v0, v12, Landroid/view/WindowManager$LayoutParams;->x:I
+
+    move/from16 v18, v0
+
+    add-int v18, v18, v8
+
+    move/from16 v0, v18
+
+    iput v0, v12, Landroid/view/WindowManager$LayoutParams;->x:I
+
+    .line 1012
+    iget v0, v12, Landroid/view/WindowManager$LayoutParams;->y:I
+
+    move/from16 v18, v0
+
+    add-int v18, v18, v9
+
+    move/from16 v0, v18
+
+    iput v0, v12, Landroid/view/WindowManager$LayoutParams;->y:I
+
+    .line 1014
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v12}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
+
+    .line 1016
+    move-object/from16 v0, p0
+
+    iput v10, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->rawX:I
+
+    .line 1017
+    move-object/from16 v0, p0
+
+    iput v11, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->rawY:I
+
+    goto/16 :goto_1
+
+    .line 1021
+    :cond_6
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevX:I
+
+    move/from16 v18, v0
+
+    sub-int v18, v10, v18
+
+    move/from16 v0, v18
+
+    int-to-float v0, v0
+
+    move/from16 v18, v0
+
+    invoke-static/range {v18 .. v18}, Landroid/util/MathUtils;->abs(F)F
+
+    move-result v18
+
+    const/high16 v19, 0x4000
+
+    cmpl-float v18, v18, v19
+
+    if-gtz v18, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevY:I
+
+    move/from16 v18, v0
+
+    sub-int v18, v11, v18
+
+    move/from16 v0, v18
+
+    int-to-float v0, v0
+
+    move/from16 v18, v0
+
+    invoke-static/range {v18 .. v18}, Landroid/util/MathUtils;->abs(F)F
+
+    move-result v18
+
+    const/high16 v19, 0x4000
+
+    cmpl-float v18, v18, v19
+
+    if-lez v18, :cond_8
+
+    .line 1023
+    :cond_7
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownX:I
+
+    move/from16 v18, v0
+
+    sub-int v14, v10, v18
+
+    .line 1024
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownY:I
+
+    move/from16 v18, v0
+
+    sub-int v15, v11, v18
+
+    .line 1025
+    move-object/from16 v0, p0
+
+    iput v10, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevX:I
+
+    .line 1026
+    move-object/from16 v0, p0
+
+    iput v11, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->PrevY:I
+
+    .line 1029
+    :cond_8
+    if-nez v14, :cond_9
+
+    if-nez v15, :cond_9
+
+    .line 1030
+    const/16 v18, 0x1
+
+    goto/16 :goto_0
+
+    .line 1033
+    :cond_9
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->hasGuideLayout:Z
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$900(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Z
+
+    move-result v18
+
+    if-nez v18, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->fd:Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Lcom/android/internal/policy/impl/multiwindow/GuideRelayoutWindow;
+
+    move-result-object v18
+
+    if-nez v18, :cond_3
+
+    .line 1034
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mWindowTitleBar:Landroid/view/View;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/View;
+
+    move-result-object v18
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v18
+
+    if-ne v0, v1, :cond_3
+
+    .line 1035
+    const-string v18, "PhoneWindowListener"
+
+    const-string v19, "Create GhostView by ACTION_MOVE"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1036
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownX:I
+
+    move/from16 v19, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->longDownY:I
+
+    move/from16 v20, v0
+
+    #calls: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->createGhostView(II)Z
+    invoke-static/range {v18 .. v20}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1000(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;II)Z
+
+    move-result v18
+
+    goto/16 :goto_0
+
+    .line 1044
+    .end local v8           #moveX:I
+    .end local v9           #moveY:I
+    .end local v10           #newX:I
+    .end local v11           #newY:I
+    .end local v14           #tx:I
+    .end local v15           #ty:I
+    :pswitch_2
+    if-eqz v16, :cond_3
+
+    .line 1045
+    const/16 v18, 0x2
+
+    move/from16 v0, v18
+
+    if-eq v5, v0, :cond_a
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v18
+
+    if-eq v5, v0, :cond_a
+
+    invoke-static/range {v17 .. v17}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->isPinup(I)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_b
+
+    .line 1048
+    :cond_a
+    new-instance v13, Landroid/graphics/Rect;
+
+    invoke-direct {v13}, Landroid/graphics/Rect;-><init>()V
+
+    .line 1049
+    .local v13, rect:Landroid/graphics/Rect;
+    if-eqz v13, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+
+    move-result-object v18
+
+    if-eqz v18, :cond_3
+
+    .line 1050
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v7
+
+    .line 1052
+    .local v7, lp:Landroid/view/WindowManager$LayoutParams;
+    iget v0, v7, Landroid/view/WindowManager$LayoutParams;->x:I
+
+    move/from16 v18, v0
+
+    iget v0, v7, Landroid/view/WindowManager$LayoutParams;->y:I
+
+    move/from16 v19, v0
+
+    iget v0, v7, Landroid/view/WindowManager$LayoutParams;->x:I
+
+    move/from16 v20, v0
+
+    iget v0, v7, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    move/from16 v21, v0
+
+    add-int v20, v20, v21
+
+    iget v0, v7, Landroid/view/WindowManager$LayoutParams;->y:I
+
+    move/from16 v21, v0
+
+    iget v0, v7, Landroid/view/WindowManager$LayoutParams;->height:I
+
+    move/from16 v22, v0
+
+    add-int v21, v21, v22
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    move/from16 v2, v20
+
+    move/from16 v3, v21
+
+    invoke-virtual {v13, v0, v1, v2, v3}, Landroid/graphics/Rect;->set(IIII)V
+
+    .line 1053
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v19, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mMaxSize:Landroid/graphics/Point;
+    invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1200(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/graphics/Point;
+
+    move-result-object v19
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v19
+
+    #calls: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->reviseWindowPosition(Landroid/graphics/Rect;Landroid/graphics/Point;)V
+    invoke-static {v0, v13, v1}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1300(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;Landroid/graphics/Rect;Landroid/graphics/Point;)V
+
+    .line 1054
+    const-string v18, "android.intent.extra.WINDOW_LAST_SIZE"
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1, v13}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    .line 1055
+    const-string v18, "android.intent.extra.WINDOW_OUT_OF_ARRANGE"
+
+    const/16 v19, 0x1
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v18
+
+    move/from16 v2, v19
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    .line 1056
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->setWindowInfo(Landroid/os/Bundle;)V
+
+    goto/16 :goto_1
+
+    .line 1059
+    .end local v7           #lp:Landroid/view/WindowManager$LayoutParams;
+    .end local v13           #rect:Landroid/graphics/Rect;
+    :cond_b
+    new-instance v6, Landroid/content/Intent;
+
+    const-string v18, "com.sec.android.multiwindow.TITLEBAR_DRAG_STOP"
+
+    move-object/from16 v0, v18
+
+    invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 1060
+    .restart local v6       #intentForTitleBar:Landroid/content/Intent;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$PhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
+
+    move-object/from16 v18, v0
+
+    #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mContext:Landroid/content/Context;
+    invoke-static/range {v18 .. v18}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$200(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/content/Context;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v6}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    goto/16 :goto_1
+
+    .line 1070
+    .end local v6           #intentForTitleBar:Landroid/content/Intent;
+    :cond_c
+    const/16 v18, 0x0
+
+    goto/16 :goto_0
+
+    .line 981
     nop
 
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_1
         :pswitch_0
         :pswitch_2
-        :pswitch_0
-        :pswitch_0
-        :pswitch_3
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

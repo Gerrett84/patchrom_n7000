@@ -20,6 +20,8 @@
 # static fields
 .field public static final EXTRA_ATTR_KEY_INPUT_TIMING:Ljava/lang/String; = "inputTiming"
 
+.field public static final EXTRA_ATTR_KEY_IS_ARRAY:Ljava/lang/String; = "isArray"
+
 .field public static final EXTRA_ATTR_KEY_IS_MANDATORY:Ljava/lang/String; = "isMandatory"
 
 .field public static final EXTRA_ATTR_KEY_IS_SINGLE_ARRAY:Ljava/lang/String; = "isSingleArray"
@@ -27,6 +29,8 @@
 .field public static final EXTRA_ATTR_KEY_SCREEN_TYPE:Ljava/lang/String; = "screenType"
 
 .field public static final EXTRA_ATTR_KEY_TEXT_VALIDATOR:Ljava/lang/String; = "textValidator"
+
+.field public static final EXTRA_ATTR_KEY_VALUE_DELIMITER:Ljava/lang/String; = "valueDelimiter"
 
 
 # instance fields
@@ -52,17 +56,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 748
+    .line 749
     invoke-direct {p0}, Landroid/app/ExtraAttr$Owner;-><init>()V
 
-    .line 749
+    .line 750
     sget-object v1, Lcom/android/internal/R$styleable;->Ingredient:[I
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 752
+    .line 753
     .local v0, ta:Landroid/content/res/TypedArray;
     const/4 v1, 0x1
 
@@ -72,14 +76,14 @@
 
     iput-object v1, p0, Landroid/app/SpellScroll$Ingredient;->mName:Ljava/lang/String;
 
-    .line 753
+    .line 754
     invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
 
     iput v1, p0, Landroid/app/SpellScroll$Ingredient;->mLabelId:I
 
-    .line 754
+    .line 755
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -88,7 +92,7 @@
 
     iput v1, p0, Landroid/app/SpellScroll$Ingredient;->mLabelForId:I
 
-    .line 755
+    .line 756
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -97,7 +101,7 @@
 
     iput v1, p0, Landroid/app/SpellScroll$Ingredient;->mInputType:I
 
-    .line 756
+    .line 757
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -106,15 +110,15 @@
 
     iput-object v1, p0, Landroid/app/SpellScroll$Ingredient;->mDefaultValue:Ljava/lang/String;
 
-    .line 758
+    .line 759
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 761
+    .line 762
     iget v1, p0, Landroid/app/SpellScroll$Ingredient;->mLabelId:I
 
     if-nez v1, :cond_0
 
-    .line 762
+    .line 763
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Ingredient label must be a resource reference."
@@ -123,7 +127,7 @@
 
     throw v1
 
-    .line 765
+    .line 766
     :cond_0
     iget-object v1, p0, Landroid/app/SpellScroll$Ingredient;->mName:Ljava/lang/String;
 
@@ -137,7 +141,7 @@
 
     if-nez v1, :cond_2
 
-    .line 766
+    .line 767
     :cond_1
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -147,7 +151,7 @@
 
     throw v1
 
-    .line 769
+    .line 770
     :cond_2
     invoke-direct {p0}, Landroid/app/SpellScroll$Ingredient;->calculateLocalHash()I
 
@@ -155,7 +159,7 @@
 
     iput v1, p0, Landroid/app/SpellScroll$Ingredient;->mLocalHash:I
 
-    .line 770
+    .line 771
     return-void
 .end method
 
@@ -164,57 +168,57 @@
     .parameter "in"
 
     .prologue
-    .line 772
+    .line 773
     invoke-direct {p0}, Landroid/app/ExtraAttr$Owner;-><init>()V
 
-    .line 773
+    .line 774
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/app/SpellScroll$Ingredient;->mName:Ljava/lang/String;
 
-    .line 774
+    .line 775
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/app/SpellScroll$Ingredient;->mLabelId:I
 
-    .line 775
+    .line 776
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/app/SpellScroll$Ingredient;->mLabelForId:I
 
-    .line 776
+    .line 777
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/app/SpellScroll$Ingredient;->mInputType:I
 
-    .line 777
+    .line 778
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/app/SpellScroll$Ingredient;->mDefaultValue:Ljava/lang/String;
 
-    .line 779
+    .line 780
     iget-object v0, p0, Landroid/app/ExtraAttr$Owner;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 781
+    .line 782
     invoke-direct {p0}, Landroid/app/SpellScroll$Ingredient;->calculateLocalHash()I
 
     move-result v0
 
     iput v0, p0, Landroid/app/SpellScroll$Ingredient;->mLocalHash:I
 
-    .line 782
+    .line 783
     return-void
 .end method
 
@@ -222,26 +226,26 @@
     .locals 2
 
     .prologue
-    .line 859
+    .line 880
     iget v0, p0, Landroid/app/SpellScroll$Ingredient;->mLabelId:I
 
-    .line 861
+    .line 882
     .local v0, result:I
     iget v1, p0, Landroid/app/SpellScroll$Ingredient;->mLabelForId:I
 
     xor-int/2addr v0, v1
 
-    .line 862
+    .line 883
     iget v1, p0, Landroid/app/SpellScroll$Ingredient;->mInputType:I
 
     xor-int/2addr v0, v1
 
-    .line 864
+    .line 885
     iget-object v1, p0, Landroid/app/SpellScroll$Ingredient;->mName:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
-    .line 865
+    .line 886
     iget-object v1, p0, Landroid/app/SpellScroll$Ingredient;->mName:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
@@ -250,13 +254,13 @@
 
     xor-int/2addr v0, v1
 
-    .line 868
+    .line 889
     :cond_0
     iget-object v1, p0, Landroid/app/SpellScroll$Ingredient;->mDefaultValue:Ljava/lang/String;
 
     if-eqz v1, :cond_1
 
-    .line 869
+    .line 890
     iget-object v1, p0, Landroid/app/SpellScroll$Ingredient;->mDefaultValue:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
@@ -265,7 +269,7 @@
 
     xor-int/2addr v0, v1
 
-    .line 872
+    .line 893
     :cond_1
     return v0
 .end method
@@ -276,7 +280,7 @@
     .locals 1
 
     .prologue
-    .line 787
+    .line 788
     const/4 v0, 0x0
 
     return v0
@@ -287,7 +291,7 @@
     .parameter "pw"
 
     .prologue
-    .line 842
+    .line 861
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -354,7 +358,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 846
+    .line 865
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -417,7 +421,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 850
+    .line 869
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -450,13 +454,41 @@
 
     move-result-object v0
 
+    const-string v1, ", isArray="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/app/SpellScroll$Ingredient;->isArray()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", valueDelimiter="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/app/SpellScroll$Ingredient;->getValueDelimiter()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 853
+    .line 874
     invoke-virtual {p0}, Landroid/app/SpellScroll$Ingredient;->getExtraAttrsString()Ljava/lang/String;
 
     move-result-object v0
@@ -467,7 +499,7 @@
 
     if-lez v0, :cond_0
 
-    .line 854
+    .line 875
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -492,7 +524,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 856
+    .line 877
     :cond_0
     return-void
 .end method
@@ -504,12 +536,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 882
+    .line 903
     instance-of v2, p1, Landroid/app/SpellScroll$Ingredient;
 
     if-nez v2, :cond_1
 
-    .line 910
+    .line 931
     :cond_0
     :goto_0
     return v1
@@ -517,10 +549,10 @@
     :cond_1
     move-object v0, p1
 
-    .line 886
+    .line 907
     check-cast v0, Landroid/app/SpellScroll$Ingredient;
 
-    .line 888
+    .line 909
     .local v0, other:Landroid/app/SpellScroll$Ingredient;
     invoke-virtual {p0}, Landroid/app/SpellScroll$Ingredient;->hashCode()I
 
@@ -532,7 +564,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 892
+    .line 913
     iget v2, p0, Landroid/app/SpellScroll$Ingredient;->mLabelId:I
 
     iget v3, v0, Landroid/app/SpellScroll$Ingredient;->mLabelId:I
@@ -551,7 +583,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 898
+    .line 919
     iget-object v2, p0, Landroid/app/SpellScroll$Ingredient;->mName:Ljava/lang/String;
 
     if-eqz v2, :cond_2
@@ -584,7 +616,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 904
+    .line 925
     :cond_4
     iget-object v2, p0, Landroid/app/SpellScroll$Ingredient;->mDefaultValue:Ljava/lang/String;
 
@@ -618,7 +650,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 910
+    .line 931
     :cond_7
     invoke-super {p0, p1}, Landroid/app/ExtraAttr$Owner;->equals(Ljava/lang/Object;)Z
 
@@ -631,7 +663,7 @@
     .locals 1
 
     .prologue
-    .line 818
+    .line 819
     iget-object v0, p0, Landroid/app/SpellScroll$Ingredient;->mDefaultValue:Ljava/lang/String;
 
     return-object v0
@@ -641,7 +673,7 @@
     .locals 2
 
     .prologue
-    .line 838
+    .line 857
     iget-object v0, p0, Landroid/app/ExtraAttr$Owner;->mBundle:Landroid/os/Bundle;
 
     const-string v1, "inputTiming"
@@ -657,7 +689,7 @@
     .locals 1
 
     .prologue
-    .line 814
+    .line 815
     iget v0, p0, Landroid/app/SpellScroll$Ingredient;->mInputType:I
 
     return v0
@@ -667,7 +699,7 @@
     .locals 1
 
     .prologue
-    .line 810
+    .line 811
     iget v0, p0, Landroid/app/SpellScroll$Ingredient;->mLabelForId:I
 
     return v0
@@ -677,7 +709,7 @@
     .locals 1
 
     .prologue
-    .line 806
+    .line 807
     iget v0, p0, Landroid/app/SpellScroll$Ingredient;->mLabelId:I
 
     return v0
@@ -687,7 +719,7 @@
     .locals 1
 
     .prologue
-    .line 802
+    .line 803
     iget-object v0, p0, Landroid/app/SpellScroll$Ingredient;->mName:Ljava/lang/String;
 
     return-object v0
@@ -697,7 +729,7 @@
     .locals 2
 
     .prologue
-    .line 830
+    .line 831
     iget-object v0, p0, Landroid/app/ExtraAttr$Owner;->mBundle:Landroid/os/Bundle;
 
     const-string v1, "screenType"
@@ -713,7 +745,7 @@
     .locals 2
 
     .prologue
-    .line 822
+    .line 823
     iget-object v0, p0, Landroid/app/ExtraAttr$Owner;->mBundle:Landroid/os/Bundle;
 
     const-string v1, "textValidator"
@@ -725,11 +757,29 @@
     return-object v0
 .end method
 
+.method public getValueDelimiter()Ljava/lang/String;
+    .locals 3
+
+    .prologue
+    .line 853
+    iget-object v0, p0, Landroid/app/ExtraAttr$Owner;->mBundle:Landroid/os/Bundle;
+
+    const-string v1, "valueDelimiter"
+
+    const-string v2, ""
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public hashCode()I
     .locals 2
 
     .prologue
-    .line 877
+    .line 898
     iget v0, p0, Landroid/app/SpellScroll$Ingredient;->mLocalHash:I
 
     invoke-super {p0}, Landroid/app/ExtraAttr$Owner;->hashCode()I
@@ -741,11 +791,51 @@
     return v0
 .end method
 
+.method public isArray()Z
+    .locals 3
+
+    .prologue
+    .line 845
+    :try_start_0
+    iget-object v0, p0, Landroid/app/ExtraAttr$Owner;->mBundle:Landroid/os/Bundle;
+
+    const-string v1, "isArray"
+
+    const-string v2, "false"
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    .line 849
+    :goto_0
+    return v0
+
+    .line 846
+    :catch_0
+    move-exception v0
+
+    .line 849
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public isMandatory()Z
     .locals 3
 
     .prologue
-    .line 826
+    .line 827
     iget-object v0, p0, Landroid/app/ExtraAttr$Owner;->mBundle:Landroid/os/Bundle;
 
     const-string v1, "isMandatory"
@@ -771,7 +861,8 @@
     .locals 3
 
     .prologue
-    .line 834
+    .line 836
+    :try_start_0
     iget-object v0, p0, Landroid/app/ExtraAttr$Owner;->mBundle:Landroid/os/Bundle;
 
     const-string v1, "isSingleArray"
@@ -787,10 +878,23 @@
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
+    .line 840
+    :goto_0
     return v0
+
+    .line 837
+    :catch_0
+    move-exception v0
+
+    .line 840
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -799,36 +903,36 @@
     .parameter "flags"
 
     .prologue
-    .line 792
+    .line 793
     iget-object v0, p0, Landroid/app/SpellScroll$Ingredient;->mName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 793
+    .line 794
     iget v0, p0, Landroid/app/SpellScroll$Ingredient;->mLabelId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 794
+    .line 795
     iget v0, p0, Landroid/app/SpellScroll$Ingredient;->mLabelForId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 795
+    .line 796
     iget v0, p0, Landroid/app/SpellScroll$Ingredient;->mInputType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 796
+    .line 797
     iget-object v0, p0, Landroid/app/SpellScroll$Ingredient;->mDefaultValue:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 798
+    .line 799
     iget-object v0, p0, Landroid/app/ExtraAttr$Owner;->mBundle:Landroid/os/Bundle;
 
     invoke-virtual {v0, p1, p2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 799
+    .line 800
     return-void
 .end method

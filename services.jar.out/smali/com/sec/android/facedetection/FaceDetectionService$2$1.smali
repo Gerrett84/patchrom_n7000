@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 617
+    .line 639
     iput-object p1, p0, Lcom/sec/android/facedetection/FaceDetectionService$2$1;->this$1:Lcom/sec/android/facedetection/FaceDetectionService$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 1
 
     .prologue
-    .line 620
+    .line 642
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService$2$1;->this$1:Lcom/sec/android/facedetection/FaceDetectionService$2;
 
     iget-object v0, v0, Lcom/sec/android/facedetection/FaceDetectionService$2;->this$0:Lcom/sec/android/facedetection/FaceDetectionService;
@@ -64,7 +64,7 @@
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
 
-    .line 621
+    .line 643
     :cond_0
     return-void
 .end method

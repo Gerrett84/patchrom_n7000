@@ -183,7 +183,7 @@
 
     const/4 v5, 0x3
 
-    const v6, 0x104049e
+    const v6, 0x10404a7
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -196,7 +196,7 @@
 
     const/4 v5, 0x4
 
-    const v6, 0x104049f
+    const v6, 0x10404a8
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

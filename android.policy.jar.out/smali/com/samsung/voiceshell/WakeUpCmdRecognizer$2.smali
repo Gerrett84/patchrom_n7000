@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 188
+    .line 190
     iput-object p1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 
     const/4 v8, -0x1
 
-    .line 191
+    .line 193
     :goto_0
     :try_start_0
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
@@ -59,7 +59,7 @@
 
     if-eqz v4, :cond_7
 
-    .line 192
+    .line 194
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     #getter for: Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->isRunning_enroll:Z
@@ -67,12 +67,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_c
 
-    .line 194
+    .line 196
     const/4 v1, 0x0
 
-    .line 197
+    .line 199
     .local v1, iResult:I
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
@@ -88,12 +88,12 @@
 
     invoke-virtual {v4, v5, v6, v7}, Lcom/samsung/voiceshell/VoiceEngine;->checkFileExistence(Ljava/lang/String;I[I)I
 
-    .line 199
+    .line 201
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     invoke-virtual {v4}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->InitializeEnroll()I
 
-    .line 201
+    .line 203
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     const/16 v5, 0x65
@@ -104,21 +104,21 @@
 
     invoke-virtual {v4, v5, v6, v7}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->SendHandlerMessage(III)V
 
-    .line 203
+    .line 205
     const/4 v0, 0x0
 
     .local v0, i:I
     :goto_1
     if-ge v0, v9, :cond_6
 
-    .line 205
+    .line 207
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     invoke-virtual {v4}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->ProcessEnroll()I
 
     move-result v1
 
-    .line 207
+    .line 209
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     #getter for: Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
@@ -146,10 +146,10 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 209
+    .line 211
     if-ne v1, v9, :cond_3
 
-    .line 211
+    .line 213
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     const/16 v5, 0x66
@@ -160,7 +160,7 @@
 
     invoke-virtual {v4, v5, v6, v7}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->SendHandlerMessage(III)V
 
-    .line 213
+    .line 215
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     iget-object v4, v4, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
@@ -175,7 +175,7 @@
 
     move-result v2
 
-    .line 215
+    .line 217
     .local v2, ii:I
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
@@ -204,10 +204,10 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 217
+    .line 219
     if-ne v2, v9, :cond_0
 
-    .line 219
+    .line 221
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     iget-object v4, v4, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mVElib:Lcom/samsung/voiceshell/VoiceEngine;
@@ -222,7 +222,7 @@
 
     invoke-virtual {v4, v5, v6, v7}, Lcom/samsung/voiceshell/VoiceEngine;->setModelStatus(Ljava/lang/String;IS)I
 
-    .line 220
+    .line 222
     sget-object v4, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->mExist:[I
 
     iget-object v5, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
@@ -233,25 +233,25 @@
 
     aput v6, v4, v5
 
-    .line 225
+    .line 227
     :cond_0
     const/4 v4, 0x5
 
     if-ne v2, v4, :cond_1
 
-    .line 229
+    .line 231
     add-int/lit8 v0, v0, -0x1
 
-    .line 231
+    .line 233
     :cond_1
     const/4 v4, 0x6
 
     if-ne v2, v4, :cond_2
 
-    .line 235
+    .line 237
     const/4 v0, -0x1
 
-    .line 238
+    .line 240
     :cond_2
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
@@ -261,14 +261,14 @@
 
     invoke-virtual {v4, v5, v6, v2}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->SendHandlerMessage(III)V
 
-    .line 241
+    .line 243
     .end local v2           #ii:I
     :cond_3
     if-ne v1, v8, :cond_4
 
     add-int/lit8 v0, v0, -0x1
 
-    .line 243
+    .line 245
     :cond_4
     const/4 v4, -0x2
 
@@ -276,16 +276,16 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    .line 245
+    .line 247
     :cond_5
     if-ne v1, v10, :cond_8
 
-    .line 258
+    .line 266
     :cond_6
     :goto_2
-    if-ne v1, v10, :cond_a
+    if-ne v1, v10, :cond_b
 
-    .line 260
+    .line 268
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     const/4 v5, 0x0
@@ -297,13 +297,13 @@
 
     goto/16 :goto_0
 
-    .line 270
+    .line 278
     .end local v0           #i:I
     .end local v1           #iResult:I
     :catch_0
     move-exception v3
 
-    .line 271
+    .line 279
     .local v3, t:Ljava/lang/Throwable;
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
@@ -316,12 +316,12 @@
 
     invoke-static {v4, v5, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 273
+    .line 281
     .end local v3           #t:Ljava/lang/Throwable;
     :cond_7
     return-void
 
-    .line 247
+    .line 249
     .restart local v0       #i:I
     .restart local v1       #iResult:I
     :cond_8
@@ -329,7 +329,7 @@
 
     if-ne v1, v4, :cond_9
 
-    .line 249
+    .line 251
     :try_start_1
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
@@ -349,8 +349,27 @@
 
     goto :goto_2
 
-    .line 253
+    .line 255
     :cond_9
+    const/4 v4, -0x5
+
+    if-ne v1, v4, :cond_a
+
+    .line 257
+    iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
+
+    const/16 v5, 0x69
+
+    const/4 v6, 0x0
+
+    const/4 v7, -0x1
+
+    invoke-virtual {v4, v5, v6, v7}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->SendHandlerMessage(III)V
+
+    goto :goto_2
+
+    .line 261
+    :cond_a
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     const/16 v5, 0x65
@@ -361,23 +380,23 @@
 
     invoke-virtual {v4, v5, v6, v7}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->SendHandlerMessage(III)V
 
-    .line 255
+    .line 263
     const-wide/16 v4, 0x64
 
     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
 
-    .line 203
+    .line 205
     add-int/lit8 v0, v0, 0x1
 
     goto/16 :goto_1
 
-    .line 263
-    :cond_a
+    .line 271
+    :cond_b
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     invoke-virtual {v4}, Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TerminateEnroll()I
 
-    .line 265
+    .line 273
     iget-object v4, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$2;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     const/4 v5, 0x0
@@ -387,10 +406,10 @@
 
     goto/16 :goto_0
 
-    .line 267
+    .line 275
     .end local v0           #i:I
     .end local v1           #iResult:I
-    :cond_b
+    :cond_c
     const-wide/16 v4, 0xa
 
     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V

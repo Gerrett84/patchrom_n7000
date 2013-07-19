@@ -31,7 +31,7 @@
     .locals 1
 
     .prologue
-    .line 565
+    .line 569
     const-string v0, "content://com.sec.android.app.sns3.sp.sinaweibo/feed_list"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -47,7 +47,7 @@
     .locals 0
 
     .prologue
-    .line 562
+    .line 566
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void

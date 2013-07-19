@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 4352
+    .line 4388
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$14;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,11 +42,11 @@
     .parameter "dialog"
 
     .prologue
-    .line 4354
+    .line 4390
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$14;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/InputMethodManagerService;->hideSIPInformationDialog()V
 
-    .line 4355
+    .line 4391
     return-void
 .end method

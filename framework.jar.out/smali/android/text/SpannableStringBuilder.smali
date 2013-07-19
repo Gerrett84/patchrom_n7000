@@ -5085,7 +5085,7 @@
     const/4 v3, 0x0
 
     .line 1156
-    const-string v2, "measureText"
+    const-string/jumbo v2, "measureText"
 
     invoke-direct {p0, v2, p1, p2}, Landroid/text/SpannableStringBuilder;->checkRange(Ljava/lang/String;II)V
 

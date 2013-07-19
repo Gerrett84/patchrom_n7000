@@ -166,7 +166,7 @@
 
     move-result-object v3
 
-    const-string v4, "mobile_data"
+    const-string/jumbo v4, "mobile_data"
 
     invoke-static {v3, v4, v0}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -220,7 +220,7 @@
     if-nez v0, :cond_2
 
     .line 182
-    const-string v1, "mmsonly.sktelecom.com"
+    const-string/jumbo v1, "mmsonly.sktelecom.com"
 
     .line 188
     :goto_2
@@ -512,7 +512,7 @@
 
     aget-object v2, v2, v0
 
-    const-string v3, "mms"
+    const-string/jumbo v3, "mms"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -546,7 +546,7 @@
 
     aput-object v4, v3, v0
 
-    const-string v4, "mms"
+    const-string/jumbo v4, "mms"
 
     aput-object v4, v3, v1
 
@@ -792,7 +792,7 @@
 
     move-result-object v10
 
-    .line 111
+    .line 113
     .local v10, operator:Ljava/lang/String;
     const-string v0, "45005"
 
@@ -802,7 +802,7 @@
 
     if-eqz v0, :cond_3
 
-    .line 112
+    .line 114
     iget-object v0, p0, Lcom/android/internal/telephony/DataConnection;->mApn:Lcom/android/internal/telephony/ApnSetting;
 
     iget-object v0, v0, Lcom/android/internal/telephony/ApnSetting;->apn:Ljava/lang/String;

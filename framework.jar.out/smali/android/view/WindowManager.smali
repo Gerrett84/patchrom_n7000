@@ -19,6 +19,9 @@
 .method public abstract getDefaultDisplay()Landroid/view/Display;
 .end method
 
+.method public abstract getGlobalSystemUiVisibility()I
+.end method
+
 .method public abstract isHardwareAccelerated()Z
 .end method
 

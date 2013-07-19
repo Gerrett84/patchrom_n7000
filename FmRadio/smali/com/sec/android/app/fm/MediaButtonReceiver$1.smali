@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 33
+    .line 36
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
@@ -36,36 +36,36 @@
 
     const/4 v4, 0x0
 
-    .line 35
+    .line 39
     invoke-static {}, Lcom/sec/android/app/fm/MediaButtonReceiver;->access$000()Ljava/lang/String;
 
     move-result-object v2
 
     const-string v3, "handleMessage"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 36
+    .line 40
     invoke-static {}, Lcom/sec/android/app/fm/MediaButtonReceiver;->access$100()Landroid/content/Context;
 
     move-result-object v2
 
     if-nez v2, :cond_0
 
-    .line 37
+    .line 41
     invoke-static {}, Lcom/sec/android/app/fm/MediaButtonReceiver;->access$000()Ljava/lang/String;
 
     move-result-object v2
 
     const-string v3, "Cant handle Message cause mContext"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 64
+    .line 68
     :goto_0
     return-void
 
-    .line 40
+    .line 44
     :cond_0
     invoke-static {}, Lcom/sec/android/app/fm/MediaButtonReceiver;->access$100()Landroid/content/Context;
 
@@ -79,22 +79,22 @@
 
     check-cast v1, Lcom/samsung/media/fmradio/FMPlayer;
 
-    .line 41
+    .line 45
     .local v1, player:Lcom/samsung/media/fmradio/FMPlayer;
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 61
+    .line 65
     invoke-static {v4}, Lcom/sec/android/app/fm/MediaButtonReceiver;->access$202(I)I
 
     goto :goto_0
 
-    .line 43
+    .line 47
     :pswitch_0
     invoke-static {v4}, Lcom/sec/android/app/fm/MediaButtonReceiver;->access$202(I)I
 
-    .line 45
+    .line 49
     :try_start_0
     invoke-virtual {v1}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
 
@@ -102,7 +102,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 46
+    .line 50
     invoke-static {}, Lcom/sec/android/app/fm/MediaButtonReceiver;->access$100()Landroid/content/Context;
 
     move-result-object v2
@@ -119,17 +119,17 @@
 
     goto :goto_0
 
-    .line 50
+    .line 54
     :catch_0
     move-exception v0
 
-    .line 51
+    .line 55
     .local v0, e:Lcom/samsung/media/fmradio/FMPlayerException;
     invoke-virtual {v0}, Lcom/samsung/media/fmradio/FMPlayerException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 48
+    .line 52
     .end local v0           #e:Lcom/samsung/media/fmradio/FMPlayerException;
     :cond_1
     :try_start_1
@@ -149,7 +149,7 @@
 
     goto :goto_0
 
-    .line 55
+    .line 59
     :pswitch_1
     invoke-static {}, Lcom/sec/android/app/fm/MediaButtonReceiver;->access$300()Landroid/os/Handler;
 
@@ -161,14 +161,14 @@
 
     if-eqz v2, :cond_2
 
-    .line 56
+    .line 60
     invoke-virtual {p0, v5}, Lcom/sec/android/app/fm/MediaButtonReceiver$1;->removeMessages(I)V
 
-    .line 57
+    .line 61
     :cond_2
     invoke-static {v4}, Lcom/sec/android/app/fm/MediaButtonReceiver;->access$202(I)I
 
-    .line 58
+    .line 62
     invoke-static {}, Lcom/sec/android/app/fm/MediaButtonReceiver;->access$100()Landroid/content/Context;
 
     move-result-object v2
@@ -183,7 +183,7 @@
 
     goto :goto_0
 
-    .line 41
+    .line 45
     nop
 
     :pswitch_data_0

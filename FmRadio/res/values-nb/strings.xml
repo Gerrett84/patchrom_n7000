@@ -81,7 +81,7 @@
     <string name="scan_channels">Søk etter stasj.</string>
     <string name="selectall">Merk alt</string>
     <string name="no_channel_selected">Velg minst ett element</string>
-    <string name="toast_airplane_mode">Kan ikke bruke FM-Radio når Offlineprofil er aktiv</string>
+    <string name="toast_airplane_mode">Kan ikke bruke FM-Radio når Offlineprofil er aktivert</string>
     <string name="dialog_tts_confirm">Installasjon av taledata nødvendig for talesyntese</string>
     <string name="RSSI">Set Seek RSSI (long)</string>
     <string name="SNR">Set Seek SNR(long)</string>
@@ -100,13 +100,13 @@
     <string name="toast_unavailable_in_tvout_mode">Utilgjengelig i TV-utgangsmodus</string>
     <string name="mute">Lydløs</string>
     <string name="seeking">Søker…</string>
-    <string name="via_earphone">Via høretelefoner</string>
-    <string name="via_speaker">Via høyttaler</string>
+    <string name="via_earphone">Spill av via høretelefoner</string>
+    <string name="via_speaker">Spill av via høyttaler</string>
     <string name="normal_frequency">Normal frekvens</string>
     <string name="tag">Tag</string>
     <string name="stop">Stopp</string>
     <string name="recording">Spiller inn …</string>
-    <string name="memory_full">Innspilling stanset. Minnet er fullt</string>
+    <string name="memory_full">Minnet er fullt</string>
     <string name="cancel_recording">Avbryte innspilling?</string>
     <string name="change_frequency">Endre frekvens</string>
     <string name="enter_frequency">Angi frekvens</string>
@@ -132,11 +132,14 @@
     <string name="tags">Tagger</string>
     <string name="tags_now_broadcasting">Sender nå</string>
     <string name="tags_no_information">Ingen opplysninger</string>
+    <string name="tags_music_history">Musikkhistorikk</string>
     <string name="tags_music_title">Tittel</string>
     <string name="tags_music_album">Album</string>
     <string name="tags_music_artist">Artist</string>
+    <string name="tags_music_band">Gruppe</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Hjemmeside</string>
+    <string name="tags_interact_hotline">Hotline</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Annet</string>
     <string name="tags_interact_centre">Midten</string>
@@ -182,4 +185,14 @@ Når du har spilt inn radio, vises innspilte filer"</string>
     <string name="dialog_one_item_deleted">Dette elementet vil bli slettet</string>
     <string name="dialog_multiple_items_deleted">%d elementer vil bli slettet</string>
     <string name="dialog_all_items_deleted">Alle elementer vil bli slettet</string>
+    <string name="turning_on">Slår på…</string>
+    <string name="not_enough_memory_recording_will_stop">Ikke nok minne. Innspilling stanser om %d sekunder</string>
+    <string name="low_batt_msg">Lavt batterinivå</string>
+    <string name="no_play_during_call">Kan ikke spille av under samtale</string>
+    <string name="unable_delete">Kan ikke slette</string>
+    <string name="playing">Spiller…</string>
+    <string name="tts_play_button">Spill</string>
+    <string name="tts_previous_button">Forrige</string>
+    <string name="tts_Next_button">Neste</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

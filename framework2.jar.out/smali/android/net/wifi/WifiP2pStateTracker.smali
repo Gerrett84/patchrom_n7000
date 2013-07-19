@@ -205,12 +205,12 @@
     .parameter "enabled"
 
     .prologue
-    .line 198
+    .line 229
     iget-object v0, p0, Landroid/net/wifi/WifiP2pStateTracker;->mDefaultRouteSet:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 199
+    .line 230
     return-void
 .end method
 
@@ -218,7 +218,7 @@
     .locals 2
 
     .prologue
-    .line 184
+    .line 215
     new-instance v0, Landroid/net/LinkCapabilities;
 
     iget-object v1, p0, Landroid/net/wifi/WifiP2pStateTracker;->mLinkCapabilities:Landroid/net/LinkCapabilities;
@@ -232,7 +232,7 @@
     .locals 2
 
     .prologue
-    .line 174
+    .line 205
     new-instance v0, Landroid/net/LinkProperties;
 
     iget-object v1, p0, Landroid/net/wifi/WifiP2pStateTracker;->mLinkProperties:Landroid/net/LinkProperties;
@@ -246,7 +246,7 @@
     .locals 3
 
     .prologue
-    .line 166
+    .line 197
     const-string v0, "WifiP2pStateTracker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -275,7 +275,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 167
+    .line 198
     new-instance v0, Landroid/net/NetworkInfo;
 
     iget-object v1, p0, Landroid/net/wifi/WifiP2pStateTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
@@ -289,7 +289,7 @@
     .locals 1
 
     .prologue
-    .line 206
+    .line 237
     const-string v0, "net.tcp.buffersize.wifi"
 
     return-object v0
@@ -299,7 +299,7 @@
     .locals 1
 
     .prologue
-    .line 135
+    .line 156
     iget-object v0, p0, Landroid/net/wifi/WifiP2pStateTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
 
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isAvailable()Z
@@ -313,7 +313,7 @@
     .locals 1
 
     .prologue
-    .line 191
+    .line 222
     iget-object v0, p0, Landroid/net/wifi/WifiP2pStateTracker;->mDefaultRouteSet:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -327,7 +327,7 @@
     .locals 1
 
     .prologue
-    .line 152
+    .line 183
     iget-object v0, p0, Landroid/net/wifi/WifiP2pStateTracker;->mPrivateDnsRouteSet:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -356,12 +356,12 @@
     .parameter "enabled"
 
     .prologue
-    .line 159
+    .line 190
     iget-object v0, p0, Landroid/net/wifi/WifiP2pStateTracker;->mPrivateDnsRouteSet:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 160
+    .line 191
     return-void
 .end method
 
@@ -369,15 +369,26 @@
     .locals 2
 
     .prologue
-    .line 111
+    .line 122
     iget-object v0, p0, Landroid/net/wifi/WifiP2pStateTracker;->mTeardownRequested:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 113
+    .line 124
     const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public reconnectDualMMS(I)Z
+    .locals 1
+    .parameter "usingNetworkType"
+
+    .prologue
+    .line 133
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -387,7 +398,7 @@
     .parameter "met"
 
     .prologue
-    .line 241
+    .line 272
     return-void
 .end method
 
@@ -396,7 +407,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 145
+    .line 166
     const-string v0, "WifiP2pStateTracker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -425,7 +436,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 146
+    .line 167
+    return-void
+.end method
+
+.method public setPolicyDataEnableSecondary(Z)V
+    .locals 0
+    .parameter "enabled"
+
+    .prologue
+    .line 176
     return-void
 .end method
 
@@ -434,7 +454,7 @@
     .parameter "turnOn"
 
     .prologue
-    .line 122
+    .line 143
     const/4 v0, 0x1
 
     return v0
@@ -459,7 +479,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 140
+    .line 161
     const-string v0, "WifiP2pStateTracker"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -488,7 +508,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 141
+    .line 162
+    return-void
+.end method
+
+.method public setUserDataEnableSecondary(Z)V
+    .locals 0
+    .parameter "enabled"
+
+    .prologue
+    .line 172
     return-void
 .end method
 
@@ -553,4 +582,15 @@
 
     .line 104
     return v1
+.end method
+
+.method public teardownDualMMS(I)Z
+    .locals 1
+    .parameter "usingNetworkType"
+
+    .prologue
+    .line 114
+    const/4 v0, 0x0
+
+    return v0
 .end method

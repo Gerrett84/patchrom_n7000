@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 556
+    .line 572
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,19 +40,19 @@
     .parameter "intent"
 
     .prologue
-    .line 560
+    .line 576
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v2, "onReceive -- WiFiTimerReceiver"
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 561
+    .line 577
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 562
+    .line 578
     .local v0, action:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -76,7 +76,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 564
+    .line 580
     const-string v1, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -85,7 +85,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 566
+    .line 582
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     const/4 v2, 0x1
@@ -93,7 +93,7 @@
     #setter for: Lcom/android/server/WifiOffloadService;->isBootCompleted:Z
     invoke-static {v1, v2}, Lcom/android/server/WifiOffloadService;->access$302(Lcom/android/server/WifiOffloadService;Z)Z
 
-    .line 567
+    .line 583
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v1}, Lcom/android/server/WifiOffloadService;->getIntelligentWifiEnabled()Z
@@ -102,12 +102,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 568
+    .line 584
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v1}, Lcom/android/server/WifiOffloadService;->startDataActivityTimer()V
 
-    .line 570
+    .line 586
     :cond_0
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -118,7 +118,7 @@
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 573
+    .line 589
     :cond_1
     return-void
 .end method

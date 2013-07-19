@@ -101,13 +101,13 @@ Eyrnartól virkar sem útvarpsloftnet og það þarf að tengja"</string>
     <string name="toast_unavailable_in_tvout_mode">Ekki tiltækt í sjónvarpsham út</string>
     <string name="mute">Þögn</string>
     <string name="seeking">Verið er að leita…</string>
-    <string name="via_earphone">Um eyrnatæki</string>
-    <string name="via_speaker">Í hátalara</string>
+    <string name="via_earphone">Spila í heyrnartólum</string>
+    <string name="via_speaker">Spila í hátalara</string>
     <string name="normal_frequency">Venjuleg tíðni</string>
     <string name="tag">Merki</string>
     <string name="stop">Stöðva</string>
     <string name="recording">Upptaka stendur yfir…</string>
-    <string name="memory_full">Upptakan var stöðvuð. Minni er fullt</string>
+    <string name="memory_full">Minni er fullt</string>
     <string name="cancel_recording">Hætta við upptöku?</string>
     <string name="change_frequency">Breyta tíðni</string>
     <string name="enter_frequency">Slá inn tíðni</string>
@@ -133,11 +133,14 @@ Eyrnartól virkar sem útvarpsloftnet og það þarf að tengja"</string>
     <string name="tags">Merki</string>
     <string name="tags_now_broadcasting">Útsending í gangi</string>
     <string name="tags_no_information">Engar upplýsingar</string>
+    <string name="tags_music_history">Tónlistarferill</string>
     <string name="tags_music_title">Titill</string>
     <string name="tags_music_album">Albúm</string>
     <string name="tags_music_artist">Listamaður</string>
+    <string name="tags_music_band">Hljómsveit</string>
     <string name="tags_information_url">Vefslóð</string>
     <string name="tags_programme_homepage">Heimasíða</string>
+    <string name="tags_interact_hotline">Símalína</string>
     <string name="tags_interact_studio">Stúdíó</string>
     <string name="tags_interact_other">Annað</string>
     <string name="tags_interact_centre">Miðja</string>
@@ -153,7 +156,7 @@ Eyrnartól virkar sem útvarpsloftnet og það þarf að tengja"</string>
     <string name="setting_mono">Mónó</string>
     <string name="no_stations_tap_button_to_scan">Pikkaðu á Leita efst á skjánum til að leita að stöðvum</string>
     <string name="toast_saved">Vistað</string>
-    <string name="recorded_files">Skráðar skrá</string>
+    <string name="recorded_files">Skráðar skrár</string>
     <string name="no_recorded_files_guide">Eftir að tekið hefur verið upp úr útvarpi birtast skrárnar</string>
     <string name="no_recorded_files_msg">Engar upptökuskrár</string>
     <string name="no_recorded_files">"Engar upptökur.
@@ -183,4 +186,14 @@ Eftir að tekið hefur verið upp úr útvarpi birtast skrárnar"</string>
     <string name="dialog_one_item_deleted">Þessum hlut verður eytt</string>
     <string name="dialog_multiple_items_deleted">%d hlutum verður eytt</string>
     <string name="dialog_all_items_deleted">Öllum hlutum verður eytt</string>
+    <string name="turning_on">Ræsi…</string>
+    <string name="not_enough_memory_recording_will_stop">Of lítið minni. Upptaka stöðvast eftir %d sekúndur</string>
+    <string name="low_batt_msg">Rafhlaðan er að tæmast</string>
+    <string name="no_play_during_call">Ekki er hægt að spila á meðan símtal stendur yfir</string>
+    <string name="unable_delete">Það er ekki hægt að eyða</string>
+    <string name="playing">Spila…</string>
+    <string name="tts_play_button">Spila</string>
+    <string name="tts_previous_button">Fyrri</string>
+    <string name="tts_Next_button">Næsta</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

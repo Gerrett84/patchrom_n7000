@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 346
+    .line 363
     iput-object p1, p0, Lcom/android/internal/widget/SPenGestureView$1;->this$0:Lcom/android/internal/widget/SPenGestureView;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 348
+    .line 365
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 349
+    .line 366
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.intent.action.SINGLE_SCREEN_CAPTURE_ON"
 
@@ -55,19 +55,19 @@
 
     if-eqz v1, :cond_1
 
-    .line 350
+    .line 367
     iget-object v1, p0, Lcom/android/internal/widget/SPenGestureView$1;->this$0:Lcom/android/internal/widget/SPenGestureView;
 
     const/4 v2, 0x1
 
     iput-boolean v2, v1, Lcom/android/internal/widget/SPenGestureView;->mScreenCaptureOn:Z
 
-    .line 355
+    .line 372
     :cond_0
     :goto_0
     return-void
 
-    .line 351
+    .line 368
     :cond_1
     const-string v1, "android.intent.action.SINGLE_SCREEN_CAPTURE_OFF"
 
@@ -77,7 +77,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 352
+    .line 369
     iget-object v1, p0, Lcom/android/internal/widget/SPenGestureView$1;->this$0:Lcom/android/internal/widget/SPenGestureView;
 
     const/4 v2, 0x0

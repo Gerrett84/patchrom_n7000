@@ -4,14 +4,9 @@
 	<PublicName>GT-N7000</PublicName>
 	</MobileData>
 	<CustomerDataSet>
-	<CSCName>N7000OXA</CSCName>
-	<CSCVersion>LS2</CSCVersion>
-	<NbCustomer>6</NbCustomer>
-	<CustomerData src="/Customer/BTU/customer.xml" />
-	<CustomerData src="/Customer/DBT/customer.xml" />
-	<CustomerData src="/Customer/ITV/customer.xml" />
-	<CustomerData src="/Customer/XEO/customer.xml" />
-	<CustomerData src="/Customer/XEF/customer.xml" />
-	<CustomerData src="/Customer/KOR/customer.xml" />
+	<CSCName>N7000XSA</CSCName>
+	<CSCVersion>LS8</CSCVersion>
+	<NbCustomer>1</NbCustomer>
+	<CustomerData src="/Customer/XSA/customer.xml" />
 	</CustomerDataSet>
 </SW-Configuration>

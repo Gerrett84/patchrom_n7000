@@ -5,5 +5,6 @@
     <bool name="config_allowAllRotations">true</bool>
     <bool name="config_enableLockScreenRotation">true</bool>
     <bool name="config_multiWindowControlbar">true</bool>
+    <bool name="config_isHelpOverlayEnabled">false</bool>
     <bool name="config_isWhiteThemeEnabled">true</bool>
 </resources>

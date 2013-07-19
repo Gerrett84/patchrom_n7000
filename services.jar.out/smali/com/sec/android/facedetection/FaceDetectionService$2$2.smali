@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 625
+    .line 647
     iput-object p1, p0, Lcom/sec/android/facedetection/FaceDetectionService$2$2;->this$1:Lcom/sec/android/facedetection/FaceDetectionService$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .prologue
     const/high16 v4, 0x2
 
-    .line 628
+    .line 650
     iget-object v2, p0, Lcom/sec/android/facedetection/FaceDetectionService$2$2;->this$1:Lcom/sec/android/facedetection/FaceDetectionService$2;
 
     iget-object v2, v2, Lcom/sec/android/facedetection/FaceDetectionService$2;->this$0:Lcom/sec/android/facedetection/FaceDetectionService;
@@ -66,7 +66,7 @@
 
     invoke-virtual {v2}, Landroid/app/ProgressDialog;->dismiss()V
 
-    .line 630
+    .line 652
     :cond_0
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
@@ -81,28 +81,28 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 632
+    .line 654
     .local v1, dialog:Landroid/app/AlertDialog$Builder;
     const-string v2, "System Error!"
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 633
+    .line 655
     const v2, 0x1080027
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
 
-    .line 634
+    .line 656
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 635
+    .line 657
     const-string v2, "Fatal System Error!!!!\nDumpstate done.\nRun *#9900# and copy log now!!!!!!"
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 636
+    .line 658
     const-string v2, "OK"
 
     new-instance v3, Lcom/sec/android/facedetection/FaceDetectionService$2$2$1;
@@ -111,12 +111,12 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 640
+    .line 662
     invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
-    .line 641
+    .line 663
     .local v0, d:Landroid/app/AlertDialog;
     invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
@@ -126,16 +126,16 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
 
-    .line 642
+    .line 664
     invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
     invoke-virtual {v2, v4, v4}, Landroid/view/Window;->setFlags(II)V
 
-    .line 644
+    .line 666
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    .line 645
+    .line 667
     return-void
 .end method

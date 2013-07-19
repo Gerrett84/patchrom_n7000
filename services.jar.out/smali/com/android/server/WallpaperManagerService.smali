@@ -1870,7 +1870,7 @@
     :cond_c
     const-string v13, "android.intent.extra.client_label"
 
-    const v14, 0x10405aa
+    const v14, 0x10405bb
 
     invoke-virtual {v5, v13, v14}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -1895,7 +1895,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x10405ab
+    const v18, 0x10405bc
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

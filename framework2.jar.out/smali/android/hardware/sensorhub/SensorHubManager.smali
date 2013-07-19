@@ -129,62 +129,62 @@
     .parameter "mainLooper"
 
     .prologue
-    .line 275
+    .line 274
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 276
+    .line 275
     iput-object p1, p0, Landroid/hardware/sensorhub/SensorHubManager;->mMainLooper:Landroid/os/Looper;
 
-    .line 279
+    .line 278
     sget-object v4, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
     monitor-enter v4
 
-    .line 280
+    .line 279
     :try_start_0
     sget-boolean v3, Landroid/hardware/sensorhub/SensorHubManager;->sSensorHubModuleInitialized:Z
 
     if-nez v3, :cond_2
 
-    .line 281
+    .line 280
     const/4 v3, 0x1
 
     sput-boolean v3, Landroid/hardware/sensorhub/SensorHubManager;->sSensorHubModuleInitialized:Z
 
-    .line 283
+    .line 282
     invoke-static {}, Landroid/hardware/sensorhub/SensorHubManager;->nativeClassInit()V
 
-    .line 285
+    .line 284
     invoke-static {}, Landroid/hardware/sensorhub/SensorHubManager;->sensorhubs_module_init()I
 
-    .line 286
+    .line 285
     const-string v3, "SensorHubManager"
 
     const-string v5, " ----------> sensorhubs_module_init(); <---------- "
 
     invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 287
+    .line 286
     sget-object v0, Landroid/hardware/sensorhub/SensorHubManager;->sFullSensorHubsList:Ljava/util/ArrayList;
 
-    .line 288
+    .line 287
     .local v0, fullList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/sensorhub/SensorHub;>;"
     const/4 v1, 0x0
 
-    .line 290
+    .line 289
     .local v1, i:I
     :cond_0
     new-instance v2, Landroid/hardware/sensorhub/SensorHub;
 
     invoke-direct {v2}, Landroid/hardware/sensorhub/SensorHub;-><init>()V
 
-    .line 291
+    .line 290
     .local v2, sensorhub:Landroid/hardware/sensorhub/SensorHub;
     invoke-static {v2, v1}, Landroid/hardware/sensorhub/SensorHubManager;->sensorhubs_get_next_module(Landroid/hardware/sensorhub/SensorHub;I)I
 
     move-result v1
 
-    .line 292
+    .line 291
     const-string v3, "SensorHubManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -207,10 +207,10 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 293
+    .line 292
     if-ltz v1, :cond_1
 
-    .line 294
+    .line 293
     const-string v3, "SensorHubManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -251,10 +251,10 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 295
+    .line 294
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 296
+    .line 295
     sget-object v3, Landroid/hardware/sensorhub/SensorHubManager;->sHandleToSensorHub:Landroid/util/SparseArray;
 
     invoke-virtual {v2}, Landroid/hardware/sensorhub/SensorHub;->getHandle()I
@@ -263,11 +263,11 @@
 
     invoke-virtual {v3, v5, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
-    .line 298
+    .line 297
     :cond_1
     if-gtz v1, :cond_0
 
-    .line 300
+    .line 299
     new-instance v3, Landroid/hardware/sensorhub/SensorHubManager$SensorHubEventPool;
 
     sget-object v5, Landroid/hardware/sensorhub/SensorHubManager;->sFullSensorHubsList:Ljava/util/ArrayList;
@@ -282,24 +282,24 @@
 
     sput-object v3, Landroid/hardware/sensorhub/SensorHubManager;->sPool:Landroid/hardware/sensorhub/SensorHubManager$SensorHubEventPool;
 
-    .line 301
+    .line 300
     new-instance v3, Landroid/hardware/sensorhub/SensorHubManager$SensorHubThread;
 
     invoke-direct {v3}, Landroid/hardware/sensorhub/SensorHubManager$SensorHubThread;-><init>()V
 
     sput-object v3, Landroid/hardware/sensorhub/SensorHubManager;->sSensorHubThread:Landroid/hardware/sensorhub/SensorHubManager$SensorHubThread;
 
-    .line 303
+    .line 302
     .end local v0           #fullList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/sensorhub/SensorHub;>;"
     .end local v1           #i:I
     .end local v2           #sensorhub:Landroid/hardware/sensorhub/SensorHub;
     :cond_2
     monitor-exit v4
 
-    .line 304
+    .line 303
     return-void
 
-    .line 303
+    .line 302
     :catchall_0
     move-exception v3
 
@@ -348,12 +348,12 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 354
+    .line 353
     invoke-virtual {p1}, Landroid/hardware/sensorhub/SensorHub;->getHandle()I
 
     move-result v0
 
-    .line 356
+    .line 355
     .local v0, handle:I
     sget v1, Landroid/hardware/sensorhub/SensorHubManager;->sQueue:I
 
@@ -370,10 +370,10 @@
     .parameter "delay"
 
     .prologue
-    .line 342
+    .line 341
     const/4 v3, 0x0
 
-    .line 343
+    .line 342
     .local v3, result:Z
     sget-object v4, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
@@ -395,7 +395,7 @@
 
     check-cast v1, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
 
-    .line 344
+    .line 343
     .local v1, i:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     invoke-virtual {v1, p1}, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;->hasSensorHub(Landroid/hardware/sensorhub/SensorHub;)Z
 
@@ -403,12 +403,12 @@
 
     if-eqz v4, :cond_0
 
-    .line 345
+    .line 344
     invoke-virtual {p1}, Landroid/hardware/sensorhub/SensorHub;->getHandle()I
 
     move-result v0
 
-    .line 346
+    .line 345
     .local v0, handle:I
     sget v4, Landroid/hardware/sensorhub/SensorHubManager;->sQueue:I
 
@@ -418,7 +418,7 @@
 
     move-result v3
 
-    .line 350
+    .line 349
     .end local v0           #handle:I
     .end local v1           #i:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     :cond_1
@@ -457,20 +457,20 @@
     .parameter "listener"
 
     .prologue
-    .line 454
+    .line 453
     if-nez p1, :cond_0
 
-    .line 471
+    .line 470
     :goto_0
     return-void
 
-    .line 457
+    .line 456
     :cond_0
     sget-object v6, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
     monitor-enter v6
 
-    .line 458
+    .line 457
     :try_start_0
     sget-object v5, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
@@ -478,7 +478,7 @@
 
     move-result v4
 
-    .line 459
+    .line 458
     .local v4, size:I
     const/4 v0, 0x0
 
@@ -486,7 +486,7 @@
     :goto_1
     if-ge v0, v4, :cond_2
 
-    .line 460
+    .line 459
     sget-object v5, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -495,7 +495,7 @@
 
     check-cast v2, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
 
-    .line 461
+    .line 460
     .local v2, l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     invoke-virtual {v2}, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;->getListener()Ljava/lang/Object;
 
@@ -503,12 +503,12 @@
 
     if-ne v5, p1, :cond_1
 
-    .line 462
+    .line 461
     sget-object v5, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 463
+    .line 462
     invoke-virtual {v2}, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;->getSensorHubs()Ljava/util/List;
 
     move-result-object v5
@@ -531,11 +531,11 @@
 
     check-cast v3, Landroid/hardware/sensorhub/SensorHub;
 
-    .line 464
+    .line 463
     .local v3, sensorhub:Landroid/hardware/sensorhub/SensorHub;
     invoke-direct {p0, v3}, Landroid/hardware/sensorhub/SensorHubManager;->disableSensorHubLocked(Landroid/hardware/sensorhub/SensorHub;)Z
 
-    .line 465
+    .line 464
     const-string v5, "SensorHubManager"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -560,7 +560,7 @@
 
     goto :goto_2
 
-    .line 470
+    .line 469
     .end local v0           #i:I
     .end local v1           #i$:Ljava/util/Iterator;
     .end local v2           #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
@@ -575,7 +575,7 @@
 
     throw v5
 
-    .line 459
+    .line 458
     .restart local v0       #i:I
     .restart local v2       #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     .restart local v4       #size:I
@@ -584,7 +584,7 @@
 
     goto :goto_1
 
-    .line 470
+    .line 469
     .end local v2           #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     :cond_2
     :try_start_1
@@ -601,23 +601,23 @@
     .parameter "sensorhub"
 
     .prologue
-    .line 433
+    .line 432
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
-    .line 451
+    .line 450
     :cond_0
     :goto_0
     return-void
 
-    .line 436
+    .line 435
     :cond_1
     sget-object v4, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
     monitor-enter v4
 
-    .line 437
+    .line 436
     :try_start_0
     sget-object v3, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
@@ -625,7 +625,7 @@
 
     move-result v2
 
-    .line 438
+    .line 437
     .local v2, size:I
     const/4 v0, 0x0
 
@@ -633,7 +633,7 @@
     :goto_1
     if-ge v0, v2, :cond_2
 
-    .line 439
+    .line 438
     sget-object v3, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -642,7 +642,7 @@
 
     check-cast v1, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
 
-    .line 440
+    .line 439
     .local v1, l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     invoke-virtual {v1}, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;->getListener()Ljava/lang/Object;
 
@@ -650,24 +650,24 @@
 
     if-ne v3, p1, :cond_3
 
-    .line 441
+    .line 440
     invoke-virtual {v1, p2}, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;->removeSensorHub(Landroid/hardware/sensorhub/SensorHub;)I
 
     move-result v3
 
     if-nez v3, :cond_2
 
-    .line 442
+    .line 441
     sget-object v3, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 447
+    .line 446
     .end local v1           #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     :cond_2
     invoke-direct {p0, p2}, Landroid/hardware/sensorhub/SensorHubManager;->disableSensorHubLocked(Landroid/hardware/sensorhub/SensorHub;)Z
 
-    .line 449
+    .line 448
     const-string v3, "SensorHubManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -704,7 +704,7 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 450
+    .line 449
     monitor-exit v4
 
     goto :goto_0
@@ -720,7 +720,7 @@
 
     throw v3
 
-    .line 438
+    .line 437
     .restart local v0       #i:I
     .restart local v1       #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     .restart local v2       #size:I
@@ -739,14 +739,24 @@
     .parameter "data"
 
     .prologue
+    .line 474
+    const/4 v1, 0x0
+
     .line 475
+    .local v1, res:I
+    invoke-virtual {p1}, Landroid/hardware/sensorhub/SensorHub;->getHandle()I
+
+    move-result v0
+
+    .line 477
+    .local v0, handle:I
     const-string v2, "SensorHubManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "SendSensorHubData:: datasize = "
+    const-string v4, "SendSensorHubData: length = "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -762,24 +772,47 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 476
-    const/4 v1, 0x0
-
-    .line 477
-    .local v1, res:I
-    invoke-virtual {p1}, Landroid/hardware/sensorhub/SensorHub;->getHandle()I
-
-    move-result v0
-
-    .line 482
-    .local v0, handle:I
+    .line 478
     sget v2, Landroid/hardware/sensorhub/SensorHubManager;->sQueue:I
 
     invoke-static {v2, v0, p2, p3}, Landroid/hardware/sensorhub/SensorHubManager;->sensorhubs_send_data(III[B)I
 
     move-result v1
 
-    .line 484
+    .line 479
+    if-gez v1, :cond_0
+
+    .line 480
+    const-string v2, "SensorHubManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "SendSensorHubData: error("
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, ")"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 483
+    :cond_0
     return v1
 .end method
 
@@ -788,12 +821,12 @@
     .parameter "type"
 
     .prologue
-    .line 325
+    .line 324
     invoke-virtual {p0, p1}, Landroid/hardware/sensorhub/SensorHubManager;->getSensorHubList(I)Ljava/util/List;
 
     move-result-object v0
 
-    .line 326
+    .line 325
     .local v0, l:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/sensorhub/SensorHub;>;"
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
@@ -832,14 +865,14 @@
     .end annotation
 
     .prologue
-    .line 308
+    .line 307
     sget-object v0, Landroid/hardware/sensorhub/SensorHubManager;->sFullSensorHubsList:Ljava/util/ArrayList;
 
-    .line 309
+    .line 308
     .local v0, fullList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/sensorhub/SensorHub;>;"
     monitor-enter v0
 
-    .line 310
+    .line 309
     :try_start_0
     sget-object v4, Landroid/hardware/sensorhub/SensorHubManager;->sSensorHubListByType:Landroid/util/SparseArray;
 
@@ -849,17 +882,17 @@
 
     check-cast v3, Ljava/util/List;
 
-    .line 311
+    .line 310
     .local v3, list:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/sensorhub/SensorHub;>;"
     if-nez v3, :cond_2
 
-    .line 312
+    .line 311
     new-instance v3, Ljava/util/ArrayList;
 
     .end local v3           #list:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/sensorhub/SensorHub;>;"
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 313
+    .line 312
     .restart local v3       #list:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/sensorhub/SensorHub;>;"
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -880,7 +913,7 @@
 
     check-cast v1, Landroid/hardware/sensorhub/SensorHub;
 
-    .line 314
+    .line 313
     .local v1, i:Landroid/hardware/sensorhub/SensorHub;
     invoke-virtual {v1}, Landroid/hardware/sensorhub/SensorHub;->getType()I
 
@@ -888,12 +921,12 @@
 
     if-ne v4, p1, :cond_0
 
-    .line 315
+    .line 314
     invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 320
+    .line 319
     .end local v1           #i:Landroid/hardware/sensorhub/SensorHub;
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v3           #list:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/sensorhub/SensorHub;>;"
@@ -906,7 +939,7 @@
 
     throw v4
 
-    .line 317
+    .line 316
     .restart local v2       #i$:Ljava/util/Iterator;
     .restart local v3       #list:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/sensorhub/SensorHub;>;"
     :cond_1
@@ -915,19 +948,19 @@
 
     move-result-object v3
 
-    .line 318
+    .line 317
     sget-object v4, Landroid/hardware/sensorhub/SensorHubManager;->sSensorHubListByType:Landroid/util/SparseArray;
 
     invoke-virtual {v4, p1, v3}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
-    .line 320
+    .line 319
     .end local v2           #i$:Ljava/util/Iterator;
     :cond_2
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 321
+    .line 320
     return-object v3
 .end method
 
@@ -938,7 +971,7 @@
     .parameter "rate"
 
     .prologue
-    .line 338
+    .line 337
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Landroid/hardware/sensorhub/SensorHubManager;->registerListener(Landroid/hardware/sensorhub/SensorHubEventListener;Landroid/hardware/sensorhub/SensorHub;ILandroid/os/Handler;)Z
@@ -956,10 +989,10 @@
     .parameter "handler"
 
     .prologue
-    .line 361
+    .line 360
     if-gez p3, :cond_0
 
-    .line 363
+    .line 362
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "rate must be >=0"
@@ -968,7 +1001,7 @@
 
     throw v0
 
-    .line 365
+    .line 364
     :cond_0
     const/4 v5, 0x0
 
@@ -998,24 +1031,24 @@
     .parameter "temp"
 
     .prologue
-    .line 370
+    .line 369
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
-    .line 371
+    .line 370
     :cond_0
     const/4 v5, 0x0
 
-    .line 429
+    .line 428
     :goto_0
     return v5
 
-    .line 374
+    .line 373
     :cond_1
     if-gez p3, :cond_2
 
-    .line 376
+    .line 375
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     const-string v7, "rate must be >=0"
@@ -1024,31 +1057,31 @@
 
     throw v6
 
-    .line 379
+    .line 378
     :cond_2
     const/4 v5, 0x1
 
-    .line 380
+    .line 379
     .local v5, result:Z
     const/4 v0, -0x1
 
-    .line 381
+    .line 380
     .local v0, delay:I
     packed-switch p3, :pswitch_data_0
 
-    .line 386
+    .line 385
     move v0, p3
 
-    .line 389
+    .line 388
     :goto_1
     sget-object v7, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
     monitor-enter v7
 
-    .line 390
+    .line 389
     const/4 v3, 0x0
 
-    .line 391
+    .line 390
     .local v3, l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     :try_start_0
     sget-object v6, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
@@ -1071,7 +1104,7 @@
 
     check-cast v1, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
 
-    .line 392
+    .line 391
     .local v1, i:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     invoke-virtual {v1}, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;->getListener()Ljava/lang/Object;
     :try_end_0
@@ -1081,12 +1114,12 @@
 
     if-ne v6, p1, :cond_3
 
-    .line 393
+    .line 392
     move-object v3, v1
 
     move-object v4, v3
 
-    .line 398
+    .line 397
     .end local v1           #i:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     .end local v3           #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     .local v4, l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
@@ -1128,17 +1161,17 @@
 
     invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 400
+    .line 399
     if-nez v4, :cond_7
 
-    .line 402
+    .line 401
     new-instance v3, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
 
     invoke-direct {v3, p0, p1, p2, p4}, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;-><init>(Landroid/hardware/sensorhub/SensorHubManager;Landroid/hardware/sensorhub/SensorHubEventListener;Landroid/hardware/sensorhub/SensorHub;Landroid/os/Handler;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 403
+    .line 402
     .end local v4           #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     .restart local v3       #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     :try_start_2
@@ -1146,7 +1179,7 @@
 
     invoke-virtual {v6, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 405
+    .line 404
     sget-object v6, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->isEmpty()Z
@@ -1155,7 +1188,7 @@
 
     if-nez v6, :cond_6
 
-    .line 406
+    .line 405
     sget-object v6, Landroid/hardware/sensorhub/SensorHubManager;->sSensorHubThread:Landroid/hardware/sensorhub/SensorHubManager$SensorHubThread;
 
     invoke-virtual {v6}, Landroid/hardware/sensorhub/SensorHubManager$SensorHubThread;->startLocked()Z
@@ -1164,29 +1197,29 @@
 
     if-eqz v6, :cond_5
 
-    .line 407
+    .line 406
     invoke-direct {p0, p2, v0}, Landroid/hardware/sensorhub/SensorHubManager;->enableSensorHubLocked(Landroid/hardware/sensorhub/SensorHub;I)Z
 
     move-result v6
 
     if-nez v6, :cond_4
 
-    .line 408
+    .line 407
     sget-object v6, Landroid/hardware/sensorhub/SensorHubManager;->sListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 409
+    .line 408
     const/4 v5, 0x0
 
-    .line 410
+    .line 409
     const-string v6, "SensorHubManager"
 
     const-string v8, "---->enableSensorHubLocked fail 1"
 
     invoke-static {v6, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 427
+    .line 426
     :cond_4
     :goto_3
     monitor-exit v7
@@ -1204,15 +1237,15 @@
 
     throw v6
 
-    .line 383
+    .line 382
     .end local v3           #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     :pswitch_0
     const/4 v0, 0x0
 
-    .line 384
+    .line 383
     goto :goto_1
 
-    .line 413
+    .line 412
     .restart local v2       #i$:Ljava/util/Iterator;
     .restart local v3       #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     :cond_5
@@ -1223,38 +1256,38 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 414
+    .line 413
     const/4 v5, 0x0
 
     goto :goto_3
 
-    .line 417
+    .line 416
     :cond_6
     const/4 v5, 0x0
 
     goto :goto_3
 
-    .line 420
+    .line 419
     .end local v3           #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     .restart local v4       #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     :cond_7
     :try_start_4
     invoke-virtual {v4, p2}, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;->addSensorHub(Landroid/hardware/sensorhub/SensorHub;)V
 
-    .line 421
+    .line 420
     invoke-direct {p0, p2, v0}, Landroid/hardware/sensorhub/SensorHubManager;->enableSensorHubLocked(Landroid/hardware/sensorhub/SensorHub;I)Z
 
     move-result v6
 
     if-nez v6, :cond_8
 
-    .line 422
+    .line 421
     invoke-virtual {v4, p2}, Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;->removeSensorHub(Landroid/hardware/sensorhub/SensorHub;)I
 
-    .line 423
+    .line 422
     const/4 v5, 0x0
 
-    .line 424
+    .line 423
     const-string v6, "SensorHubManager"
 
     const-string v8, "---->enableSensorHubLocked fail 2"
@@ -1270,7 +1303,7 @@
     .restart local v3       #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     goto :goto_3
 
-    .line 427
+    .line 426
     .end local v3           #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     .restart local v4       #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     :catchall_1
@@ -1289,7 +1322,7 @@
     .restart local v4       #l:Landroid/hardware/sensorhub/SensorHubManager$ListenerDelegate;
     goto :goto_2
 
-    .line 381
+    .line 380
     nop
 
     :pswitch_data_0
@@ -1303,10 +1336,10 @@
     .parameter "listener"
 
     .prologue
-    .line 334
+    .line 333
     invoke-direct {p0, p1}, Landroid/hardware/sensorhub/SensorHubManager;->unregisterListener(Ljava/lang/Object;)V
 
-    .line 335
+    .line 334
     return-void
 .end method
 
@@ -1316,9 +1349,9 @@
     .parameter "sensorhub"
 
     .prologue
-    .line 330
+    .line 329
     invoke-direct {p0, p1, p2}, Landroid/hardware/sensorhub/SensorHubManager;->unregisterListener(Ljava/lang/Object;Landroid/hardware/sensorhub/SensorHub;)V
 
-    .line 331
+    .line 330
     return-void
 .end method

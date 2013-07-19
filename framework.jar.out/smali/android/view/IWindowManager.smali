@@ -127,6 +127,14 @@
     .end annotation
 .end method
 
+.method public abstract getGlobalSystemUiVisibility()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getMaximumSizeDimension()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -192,6 +200,14 @@
 .end method
 
 .method public abstract inputMethodClientHasFocus(Lcom/android/internal/view/IInputMethodClient;)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract isCoverOpen()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -347,39 +363,7 @@
     .end annotation
 .end method
 
-.method public abstract registerHoveringSpenCustomIcon(Landroid/graphics/Bitmap;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract reloadPointerIcon(IIILandroid/graphics/Point;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract reloadPointerIconForBitmap(IILandroid/graphics/Bitmap;Landroid/graphics/Point;)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract removeAppToken(Landroid/os/IBinder;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract removeHoveringSpenCustomIcon(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

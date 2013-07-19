@@ -7,6 +7,6 @@
             <CheckBox android:layout_gravity="center_vertical" android:id="@id/cbSelectAll" android:focusable="false" android:clickable="false" android:duplicateParentState="true" android:layout_width="38.0dip" android:layout_height="48.0dip" />
         </TableRow>
     </TableLayout>
-    <ListView android:id="@id/channelList" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0"
+    <ListView android:id="@id/channelList" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0"
       xmlns:android="http://schemas.android.com/apk/res/android" />
 </LinearLayout>

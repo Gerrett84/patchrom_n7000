@@ -30,31 +30,31 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 656
+    .line 733
     iput-object p1, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
-    .line 657
+    .line 734
     const/4 v0, 0x0
 
     const v1, 0x10102f6
 
     invoke-direct {p0, p2, v0, v1}, Landroid/widget/ImageButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 659
+    .line 736
     invoke-virtual {p0, v2}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->setClickable(Z)V
 
-    .line 660
+    .line 737
     invoke-virtual {p0, v2}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->setFocusable(Z)V
 
-    .line 661
+    .line 738
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->setVisibility(I)V
 
-    .line 662
+    .line 739
     invoke-virtual {p0, v2}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->setEnabled(Z)V
 
-    .line 665
+    .line 742
     #getter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mIsParentThemeDeviceDefault:Z
     invoke-static {p1}, Lcom/android/internal/view/menu/ActionMenuPresenter;->access$100(Lcom/android/internal/view/menu/ActionMenuPresenter;)Z
 
@@ -62,13 +62,13 @@
 
     if-eqz v0, :cond_0
 
-    .line 666
+    .line 743
     invoke-virtual {p0, v2}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->setHoverPopupType(I)V
 
-    .line 668
+    .line 745
     invoke-virtual {p0, v2}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->setLongClickable(Z)V
 
-    .line 671
+    .line 748
     :cond_0
     return-void
 .end method
@@ -79,7 +79,7 @@
     .locals 1
 
     .prologue
-    .line 748
+    .line 825
     const/4 v0, 0x0
 
     return v0
@@ -89,7 +89,7 @@
     .locals 1
 
     .prologue
-    .line 744
+    .line 821
     const/4 v0, 0x0
 
     return v0
@@ -101,24 +101,24 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 675
+    .line 752
     invoke-super {p0}, Landroid/widget/ImageButton;->performClick()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 681
+    .line 758
     :goto_0
     return v1
 
-    .line 679
+    .line 756
     :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->playSoundEffect(I)V
 
-    .line 680
+    .line 757
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/ActionMenuPresenter;->showOverflowMenu()Z
@@ -130,21 +130,21 @@
     .locals 17
 
     .prologue
-    .line 687
+    .line 764
     invoke-super/range {p0 .. p0}, Landroid/widget/ImageButton;->performLongClick()Z
 
     move-result v13
 
     if-eqz v13, :cond_0
 
-    .line 688
+    .line 765
     const/4 v13, 0x1
 
-    .line 739
+    .line 816
     :goto_0
     return v13
 
-    .line 691
+    .line 768
     :cond_0
     move-object/from16 v0, p0
 
@@ -157,46 +157,46 @@
 
     if-eqz v13, :cond_6
 
-    .line 692
+    .line 769
     const/4 v13, 0x2
 
     new-array v8, v13, [I
 
-    .line 693
+    .line 770
     .local v8, screenPos:[I
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
-    .line 694
+    .line 771
     .local v3, displayFrame:Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v8}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->getLocationOnScreen([I)V
 
-    .line 695
+    .line 772
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->getWindowVisibleDisplayFrame(Landroid/graphics/Rect;)V
 
-    .line 697
+    .line 774
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    .line 698
+    .line 775
     .local v2, context:Landroid/content/Context;
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->getWidth()I
 
     move-result v11
 
-    .line 699
+    .line 776
     .local v11, width:I
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->getHeight()I
 
     move-result v4
 
-    .line 700
+    .line 777
     .local v4, height:I
     const/4 v13, 0x1
 
@@ -206,7 +206,7 @@
 
     add-int v6, v13, v14
 
-    .line 701
+    .line 778
     .local v6, midy:I
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -218,23 +218,23 @@
 
     iget v9, v13, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    .line 704
+    .line 781
     .local v9, screenWidth:I
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->getRootView()Landroid/view/View;
 
     move-result-object v7
 
-    .line 705
+    .line 782
     .local v7, root:Landroid/view/View;
     invoke-virtual {v7}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v10
 
-    .line 706
+    .line 783
     .local v10, vlp:Landroid/view/ViewGroup$LayoutParams;
     const/4 v12, 0x0
 
-    .line 708
+    .line 785
     .local v12, wlp:Landroid/view/WindowManager$LayoutParams;
     instance-of v13, v10, Landroid/view/WindowManager$LayoutParams;
 
@@ -242,10 +242,10 @@
 
     move-object v12, v10
 
-    .line 709
+    .line 786
     check-cast v12, Landroid/view/WindowManager$LayoutParams;
 
-    .line 710
+    .line 787
     iget v13, v12, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     and-int/lit16 v13, v13, 0x200
@@ -254,7 +254,7 @@
 
     const/4 v5, 0x0
 
-    .line 711
+    .line 788
     .local v5, isMultiWindowPopup:Z
     :goto_1
     if-eqz v5, :cond_2
@@ -267,7 +267,7 @@
 
     if-gez v13, :cond_2
 
-    .line 712
+    .line 789
     :cond_1
     move-object/from16 v0, p0
 
@@ -278,7 +278,7 @@
     #calls: Lcom/android/internal/view/menu/ActionMenuPresenter;->getVisibleDisplayRect(Landroid/view/View;Landroid/graphics/Rect;)V
     invoke-static {v13, v0, v3}, Lcom/android/internal/view/menu/ActionMenuPresenter;->access$200(Lcom/android/internal/view/menu/ActionMenuPresenter;Landroid/view/View;Landroid/graphics/Rect;)V
 
-    .line 717
+    .line 794
     .end local v5           #isMultiWindowPopup:Z
     :cond_2
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->getContentDescription()Ljava/lang/CharSequence;
@@ -291,7 +291,7 @@
 
     move-result-object v1
 
-    .line 718
+    .line 795
     .local v1, cheatSheet:Landroid/widget/Toast;
     const/4 v13, 0x1
 
@@ -305,7 +305,7 @@
 
     if-ge v13, v14, :cond_5
 
-    .line 720
+    .line 797
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v13
@@ -320,7 +320,7 @@
 
     if-lt v13, v14, :cond_4
 
-    .line 721
+    .line 798
     const/16 v13, 0x35
 
     const/4 v14, 0x0
@@ -341,30 +341,30 @@
 
     invoke-virtual {v1, v13, v14, v15}, Landroid/widget/Toast;->setGravity(III)V
 
-    .line 734
+    .line 811
     :goto_2
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 735
+    .line 812
     const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v13}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->performHapticFeedback(I)Z
 
-    .line 737
+    .line 814
     const/4 v13, 0x1
 
     goto/16 :goto_0
 
-    .line 710
+    .line 787
     .end local v1           #cheatSheet:Landroid/widget/Toast;
     :cond_3
     const/4 v5, 0x1
 
     goto :goto_1
 
-    .line 725
+    .line 802
     .restart local v1       #cheatSheet:Landroid/widget/Toast;
     :cond_4
     const/16 v13, 0x35
@@ -395,7 +395,7 @@
 
     goto :goto_2
 
-    .line 731
+    .line 808
     :cond_5
     const/16 v13, 0x51
 
@@ -405,7 +405,7 @@
 
     goto :goto_2
 
-    .line 739
+    .line 816
     .end local v1           #cheatSheet:Landroid/widget/Toast;
     .end local v2           #context:Landroid/content/Context;
     .end local v3           #displayFrame:Landroid/graphics/Rect;

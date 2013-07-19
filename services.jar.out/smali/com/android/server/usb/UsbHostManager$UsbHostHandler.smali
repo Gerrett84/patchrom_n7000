@@ -25,13 +25,13 @@
     .parameter "l"
 
     .prologue
-    .line 806
+    .line 813
     iput-object p1, p0, Lcom/android/server/usb/UsbHostManager$UsbHostHandler;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    .line 807
+    .line 814
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 808
+    .line 815
     return-void
 .end method
 
@@ -44,20 +44,20 @@
     .prologue
     const/4 v6, 0x0
 
-    const v3, 0x10806ba
+    const v3, 0x10806f2
 
     const/4 v1, 0x0
 
-    .line 811
+    .line 818
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 822
+    .line 829
     :goto_0
     return-void
 
-    .line 813
+    .line 820
     :pswitch_0
     invoke-static {}, Lcom/android/server/usb/UsbHostManager;->access$100()Ljava/lang/String;
 
@@ -67,7 +67,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 814
+    .line 821
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$UsbHostHandler;->this$0:Lcom/android/server/usb/UsbHostManager;
 
     new-instance v7, Ljava/lang/String;
@@ -87,7 +87,7 @@
 
     goto :goto_0
 
-    .line 818
+    .line 825
     :pswitch_1
     invoke-static {}, Lcom/android/server/usb/UsbHostManager;->access$100()Ljava/lang/String;
 
@@ -97,7 +97,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 819
+    .line 826
     iget-object v0, p0, Lcom/android/server/usb/UsbHostManager$UsbHostHandler;->this$0:Lcom/android/server/usb/UsbHostManager;
 
     new-instance v7, Ljava/lang/String;
@@ -117,7 +117,7 @@
 
     goto :goto_0
 
-    .line 811
+    .line 818
     nop
 
     :pswitch_data_0

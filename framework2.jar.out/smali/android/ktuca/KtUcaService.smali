@@ -23,8 +23,6 @@
     .parameter "context"
 
     .prologue
-    const/4 v3, 0x1
-
     .line 16
     invoke-direct {p0}, Landroid/ktuca/IKtUcaIF$Stub;-><init>()V
 
@@ -39,12 +37,16 @@
     iput v2, p0, Landroid/ktuca/KtUcaService;->referenceCount:I
 
     .line 11
-    new-array v2, v3, [B
+    const/16 v2, 0xa
+
+    new-array v2, v2, [B
 
     iput-object v2, p0, Landroid/ktuca/KtUcaService;->mChannel:[B
 
     .line 12
-    new-array v2, v3, [I
+    const/4 v2, 0x1
+
+    new-array v2, v2, [I
 
     iput-object v2, p0, Landroid/ktuca/KtUcaService;->mChannelLen:[I
 

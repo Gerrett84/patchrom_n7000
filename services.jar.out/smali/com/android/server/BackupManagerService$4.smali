@@ -27,7 +27,7 @@
     .locals 3
 
     .prologue
-    .line 4291
+    .line 4314
     invoke-static {}, Lcom/android/server/BackupManagerService$RestoreState;->values()[Lcom/android/server/BackupManagerService$RestoreState;
 
     move-result-object v0
@@ -117,7 +117,7 @@
     :try_end_4
     .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_6
 
-    .line 3302
+    .line 3317
     :goto_4
     invoke-static {}, Lcom/android/server/BackupManagerService$RestorePolicy;->values()[Lcom/android/server/BackupManagerService$RestorePolicy;
 
@@ -253,7 +253,7 @@
 
     goto :goto_8
 
-    .line 3302
+    .line 3317
     :catch_3
     move-exception v0
 
@@ -269,7 +269,7 @@
 
     goto :goto_5
 
-    .line 4291
+    .line 4314
     :catch_6
     move-exception v0
 

@@ -1,11 +1,11 @@
 .class Lcom/android/server/PowerManagerService$3;
-.super Landroid/database/ContentObserver;
+.super Landroid/os/HandlerThread;
 .source "PowerManagerService.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/PowerManagerService;->initInThread()V
+    value = Lcom/android/server/PowerManagerService;->init(Landroid/content/Context;Lcom/android/server/LightsService;Landroid/app/IActivityManager;Lcom/android/server/BatteryService;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,33 +19,34 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/PowerManagerService;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/server/PowerManagerService;Ljava/lang/String;)V
     .locals 0
     .parameter
     .parameter "x0"
 
     .prologue
-    .line 985
+    .line 882
     iput-object p1, p0, Lcom/android/server/PowerManagerService$3;->this$0:Lcom/android/server/PowerManagerService;
 
-    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0, p2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChange(Z)V
+.method protected onLooperPrepared()V
     .locals 1
-    .parameter "selfChange"
 
     .prologue
-    .line 987
+    .line 885
+    invoke-super {p0}, Landroid/os/HandlerThread;->onLooperPrepared()V
+
+    .line 886
     iget-object v0, p0, Lcom/android/server/PowerManagerService$3;->this$0:Lcom/android/server/PowerManagerService;
 
-    #calls: Lcom/android/server/PowerManagerService;->updateSettingsValues()V
-    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$5100(Lcom/android/server/PowerManagerService;)V
+    invoke-virtual {v0}, Lcom/android/server/PowerManagerService;->initInThread()V
 
-    .line 988
+    .line 887
     return-void
 .end method

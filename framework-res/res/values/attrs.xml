@@ -1694,6 +1694,9 @@
     <attr name="actionBarTitleShadowColor" format="reference|color" />
     <attr name="actionBarTitleShadowDx" format="float" />
     <attr name="actionBarTitleShadowDy" format="float" />
+    <attr name="actionMultiWindowButtonStyle" format="reference" />
+    <attr name="actionMultiWindowButtonDrawable" format="reference" />
+    <attr name="actionMultiWindowButtonBackground" format="reference" />
     <attr name="actionModeShareDrawable" format="reference" />
     <attr name="actionModeFindDrawable" format="reference" />
     <attr name="actionModeWebSearchDrawable" format="reference" />
@@ -1707,9 +1710,6 @@
     <attr name="dialogTitleIconsDecorLayout" format="reference" />
     <attr name="dialogCustomTitleDecorLayout" format="reference" />
     <attr name="dialogTitleDecorLayout" format="reference" />
-    <attr name="toastFrameBackground" format="reference" />
-    <attr name="toastTextColor" format="reference|color" />
-    <attr name="toastTextShadowColor" format="reference|color" />
     <attr name="actionModeClipboardDrawable" format="reference" />
     <attr name="textSelectHandleLeftTop" format="reference" />
     <attr name="textSelectHandleRightTop" format="reference" />
@@ -1740,6 +1740,9 @@
         <enum name="widgetDefault" value="2" />
         <enum name="userCustom" value="3" />
     </attr>
+    <attr name="toastFrameBackground" format="reference" />
+    <attr name="toastTextColor" format="reference|color" />
+    <attr name="toastTextShadowColor" format="reference|color" />
     <attr name="searchDropdownBackground" format="reference" />
     <attr name="searchViewSearchFieldIcon" format="reference" />
     <attr name="searchDialogTheme" format="reference" />
@@ -1756,14 +1759,16 @@
     <attr name="appPermsNormalIcon" format="reference" />
     <attr name="appPermsDangerIcon" format="reference" />
     <attr name="parentIsDeviceDefault" format="boolean" />
+    <attr name="multiWindowButtonStyle" format="reference" />
+    <attr name="state_finger_hovered" format="boolean" />
     <attr name="windowFixedWidthMajor" format="dimension|fraction" />
     <attr name="windowFixedHeightMinor" format="dimension|fraction" />
+    <attr name="tabLayout" format="reference" />
     <attr name="windowFixedWidthMinor" format="dimension|fraction" />
     <attr name="windowFixedHeightMajor" format="dimension|fraction" />
     <attr name="listLayout" format="reference" />
     <attr name="multiChoiceItemLayout" format="reference" />
     <attr name="singleChoiceItemLayout" format="reference" />
-    <attr name="tabLayout" format="reference" />
     <attr name="listItemLayout" format="reference" />
     <attr name="progressLayout" format="reference" />
     <attr name="horizontalProgressLayout" format="reference" />

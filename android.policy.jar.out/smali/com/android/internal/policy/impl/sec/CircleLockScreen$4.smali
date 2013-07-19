@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 819
+    .line 849
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -44,17 +44,17 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 821
+    .line 851
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 841
+    .line 871
     :cond_0
     :goto_0
     return v2
 
-    .line 823
+    .line 853
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
@@ -65,13 +65,13 @@
 
     if-eqz v0, :cond_1
 
-    .line 825
+    .line 855
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #calls: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->refreshDefaultHelpText(Z)V
     invoke-static {v0, v2}, Lcom/android/internal/policy/impl/sec/CircleLockScreen;->access$2200(Lcom/android/internal/policy/impl/sec/CircleLockScreen;Z)V
 
-    .line 826
+    .line 856
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
@@ -88,7 +88,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 827
+    .line 857
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mHelpText:Landroid/widget/TextView;
@@ -105,7 +105,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 828
+    .line 858
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mVoiceHelpText:Landroid/widget/TextView;
@@ -117,7 +117,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 829
+    .line 859
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mVoiceHelpText:Landroid/widget/TextView;
@@ -125,11 +125,11 @@
 
     move-result-object v0
 
-    const v1, 0x10406ed
+    const v1, 0x1040703
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 830
+    .line 860
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mVoiceHelpText:Landroid/widget/TextView;
@@ -146,7 +146,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 832
+    .line 862
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
@@ -157,7 +157,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 833
+    .line 863
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mVoiceIcon:Landroid/widget/ImageView;
@@ -165,13 +165,13 @@
 
     move-result-object v0
 
-    const v1, 0x1080421
+    const v1, 0x108044a
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_0
 
-    .line 837
+    .line 867
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
@@ -182,7 +182,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 838
+    .line 868
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -194,7 +194,7 @@
 
     goto :goto_0
 
-    .line 821
+    .line 851
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

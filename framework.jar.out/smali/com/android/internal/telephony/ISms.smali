@@ -81,6 +81,14 @@
     .end annotation
 .end method
 
+.method public abstract getMessagesFromIccEf(I)[B
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getSMSAvailable()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -98,6 +106,14 @@
 .end method
 
 .method public abstract getSimFullStatus()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract resetSimFullStatus()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -248,6 +264,14 @@
 .end method
 
 .method public abstract sendscptResult(Ljava/lang/String;IIIILandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setCDMASmsReassembly(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -3,7 +3,7 @@
 .source "GsmServiceStateTracker.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnCancelListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 3414
+    .line 3583
     iput-object p1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$8;->this$0:Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,16 +37,16 @@
 
 
 # virtual methods
-.method public onCancel(Landroid/content/DialogInterface;)V
+.method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 1
     .parameter "dialog"
 
     .prologue
-    .line 3416
+    .line 3586
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->access$502(Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
-    .line 3417
+    .line 3587
     return-void
 .end method

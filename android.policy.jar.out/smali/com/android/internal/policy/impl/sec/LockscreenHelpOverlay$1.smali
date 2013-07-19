@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 110
+    .line 111
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay$1;->this$0:Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 113
+    .line 114
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 118
+    .line 119
     :goto_0
     return-void
 
-    .line 115
+    .line 116
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay$1;->this$0:Lcom/android/internal/policy/impl/sec/LockscreenHelpOverlay;
 
@@ -57,7 +57,7 @@
 
     goto :goto_0
 
-    .line 113
+    .line 114
     :pswitch_data_0
     .packed-switch 0x12c2
         :pswitch_0

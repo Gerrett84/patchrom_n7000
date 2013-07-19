@@ -249,7 +249,7 @@
     <string name="fcComplete">Feature code complete.</string>
     <string name="fcError">Connection problem or invalid feature code.</string>
     <string name="httpErrorOk">OK</string>
-    <string name="httpError">There was a network error.</string>
+    <string name="httpError">There was a network error</string>
     <string name="httpErrorLookup">"Couldn't find the URL."</string>
     <string name="httpErrorUnsupportedAuthScheme">"The site authentication scheme isn't supported."</string>
     <string name="httpErrorAuth">"Couldn't authenticate."</string>
@@ -265,7 +265,7 @@
     <string name="notification_title">Sign-in error for %1$s</string>
     <string name="contentServiceSync">Sync</string>
     <string name="contentServiceSyncNotificationTitle">Sync</string>
-    <string name="contentServiceTooManyDeletesNotificationDesc">Too many %s deletions.</string>
+    <string name="contentServiceTooManyDeletesNotificationDesc">Too many %s deletions</string>
     <string name="low_memory">Phone storage is full. Delete some files to free space.</string>
     <string name="me">Me</string>
     <string name="power_dialog">Device options</string>
@@ -278,7 +278,7 @@
     <string name="silent_mode_vibrate">Ringer vibrate</string>
     <string name="silent_mode_ring">Ringer on</string>
     <string name="shutdown_progress">Shutting down…</string>
-    <string name="shutdown_confirm">Your Device will shut down</string>
+    <string name="shutdown_confirm">Your device will shut down</string>
     <string name="shutdown_confirm_question">Do you want to shut down?</string>
     <string name="reboot_safemode_title">Reboot to safe mode</string>
     <string name="reboot_safemode_confirm">Do you want to reboot into safe mode? This will disable all third-party applications that you have installed. They will be restored when you reboot again.</string>
@@ -927,7 +927,7 @@ Touch OK to continue or Cancel to stay on the current page."</string>
     <string name="clearDefaultHintMsg">Clear default app settings by going to Settings > Applications manager > All</string>
     <string name="chooseActivity">Choose an action</string>
     <string name="chooseUsbActivity">Choose an app for the USB device</string>
-    <string name="noApplications">No apps can perform this action</string>
+    <string name="noApplications">Unable to find application to perform this action</string>
     <string name="aerr_title" />
     <string name="aerr_application">Unfortunately, %1$s has stopped.</string>
     <string name="aerr_process">Unfortunately, the process %1$s has stopped.</string>
@@ -1133,7 +1133,7 @@ for account %s."</string>
     <string name="car_mode_disable_notification_title">Car mode enabled</string>
     <string name="car_mode_disable_notification_message">Touch to exit car mode.</string>
     <string name="tethered_notification_title">Tethering or hotspot active</string>
-    <string name="tethered_notification_message">Touch to set up.</string>
+    <string name="tethered_notification_message">Tap to configure</string>
     <string name="back_button_label">Back</string>
     <string name="next_button_label">Next</string>
     <string name="skip_button_label">Skip</string>
@@ -1230,7 +1230,7 @@ for account %s."</string>
     <string name="data_usage_4g_limit_snoozed_title">4G data limit exceeded</string>
     <string name="data_usage_mobile_limit_snoozed_title">Mobile data limit exceeded</string>
     <string name="data_usage_wifi_limit_snoozed_title">Wi-Fi data limit exceeded</string>
-    <string name="data_usage_limit_snoozed_body">%s over specified limit.</string>
+    <string name="data_usage_limit_snoozed_body">%s over specified limit</string>
     <string name="data_usage_restricted_title">Background data restricted</string>
     <string name="data_usage_restricted_body">Touch to remove restriction.</string>
     <string name="ssl_certificate">Security certificate</string>
@@ -1254,7 +1254,7 @@ for account %s."</string>
     <string name="list_delimeter">", "</string>
     <string name="sending">Sending…</string>
     <string name="launchBrowserDefault">Launch Browser?</string>
-    <string name="SetupCallDefault">Accept call?</string>
+    <string name="SetupCallDefault">Call?</string>
     <string name="activity_resolver_use_always">Always</string>
     <string name="activity_resolver_use_once">Just once</string>
     <string name="default_audio_route_name">Phones</string>

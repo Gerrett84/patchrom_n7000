@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 5363
+    .line 5561
     iput-object p1, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,14 +43,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 5365
+    .line 5563
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
     iget-boolean v0, v0, Landroid/widget/AbsListView;->mCachingStarted:Z
 
     if-eqz v0, :cond_1
 
-    .line 5366
+    .line 5564
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
     iget-object v1, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
@@ -59,13 +59,13 @@
 
     iput-boolean v2, v0, Landroid/widget/AbsListView;->mCachingStarted:Z
 
-    .line 5367
+    .line 5565
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
     #calls: Landroid/widget/AbsListView;->setChildrenDrawnWithCacheEnabled(Z)V
     invoke-static {v0, v2}, Landroid/widget/AbsListView;->access$3300(Landroid/widget/AbsListView;Z)V
 
-    .line 5368
+    .line 5566
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mPersistentDrawingCache:I
@@ -77,13 +77,13 @@
 
     if-nez v0, :cond_0
 
-    .line 5369
+    .line 5567
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
     #calls: Landroid/widget/AbsListView;->setChildrenDrawingCacheEnabled(Z)V
     invoke-static {v0, v2}, Landroid/widget/AbsListView;->access$3500(Landroid/widget/AbsListView;Z)V
 
-    .line 5371
+    .line 5569
     :cond_0
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
@@ -93,12 +93,12 @@
 
     if-nez v0, :cond_1
 
-    .line 5372
+    .line 5570
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v0}, Landroid/widget/AbsListView;->invalidate()V
 
-    .line 5375
+    .line 5573
     :cond_1
     return-void
 .end method

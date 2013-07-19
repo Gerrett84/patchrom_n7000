@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 129
+    .line 139
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,241 +35,405 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 5
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 133
+    .line 144
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerStatus:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->NetworkUnavailable:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+
+    if-ne v2, v3, :cond_0
+
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string v1, "com.sec.android.daemonapp.stockclock.ACTION_UPDATE_STOCK_DATA_SYNC"
+    const-string v3, "android.intent.action.ANY_DATA_STATE"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    .line 146
+    const-string v2, "state"
 
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsStockRefreshFailed:Z
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+    invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result v0
+    move-result-object v1
 
-    if-nez v0, :cond_0
+    .line 148
+    .local v1, phoneStatus:Ljava/lang/String;
+    const-string v2, "TickerWidget"
 
-    .line 135
-    const-string v0, "TickerWidget"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v1, "Receive : ACTION_UPDATE_STOCK_DATA_SYNC"
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v4, "Receive : ACTION_ANY_DATA_CONNECTION_STATE_CHANGED phoneStatus = "
 
-    .line 136
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 149
+    if-eqz v1, :cond_0
+
+    const-string v2, "CONNECTED"
+
+    if-ne v1, v2, :cond_0
+
+    .line 150
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object v2
 
-    new-instance v1, Lcom/android/internal/policy/impl/sec/TickerWidget$2$1;
+    new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$2$1;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$1;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$1;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 151
+    .line 158
+    .end local v1           #phoneStatus:Ljava/lang/String;
     :cond_0
-    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
-    move-result v0
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerStatus:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
 
-    if-eqz v0, :cond_4
+    move-result-object v2
 
-    .line 152
+    sget-object v3, Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;->NetworkUnavailable:Lcom/android/internal/policy/impl/sec/TickerUtil$TickerStatus;
+
+    if-ne v2, v3, :cond_1
+
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
+    move-result-object v2
+
+    const-string v3, "android.net.wifi.STATE_CHANGE"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 159
+    const-string v2, "networkInfo"
+
+    invoke-virtual {p2, v2}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
     move-result-object v0
 
-    const-string v1, "com.sec.android.daemonapp.ap.sinanews.intent.action.SNEWS_DATE_SYNC"
+    check-cast v0, Landroid/net/NetworkInfo;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 161
+    .local v0, networkInfo:Landroid/net/NetworkInfo;
+    const-string v2, "TickerWidget"
 
-    move-result v0
+    new-instance v3, Ljava/lang/StringBuilder;
 
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Receive : NETWORK_STATE_CHANGED_ACTION NetworkInfo isConnected = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 162
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z
 
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsNewsRefreshFailed:Z
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1300(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+    move-result v2
 
-    move-result v0
+    if-eqz v2, :cond_1
 
-    if-nez v0, :cond_1
-
-    .line 153
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    .line 163
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object v2
 
-    new-instance v1, Lcom/android/internal/policy/impl/sec/TickerWidget$2$2;
+    new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$2$2;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$2;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$2;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 166
-    const-string v0, "TickerWidget"
-
-    const-string v1, "Receive : ACTION_SNNEWS_DATE_SYNC"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 170
+    .line 171
+    .end local v0           #networkInfo:Landroid/net/NetworkInfo;
     :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string v1, "com.android.internal.policy.impl.intent.action.ACTION_SINAWEIBO_DATE_UPDATED"
+    const-string v3, "com.sec.android.daemonapp.stockclock.ACTION_UPDATE_STOCK_DATA_SYNC"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookRefreshFailed:Z
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1400(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsStockRefreshFailed:Z
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_2
+    if-nez v2, :cond_2
 
-    .line 171
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    .line 173
+    const-string v2, "TickerWidget"
+
+    const-string v3, "Receive : ACTION_UPDATE_STOCK_DATA_SYNC"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 174
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object v2
 
-    new-instance v1, Lcom/android/internal/policy/impl/sec/TickerWidget$2$3;
+    new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$2$3;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$3;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$3;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 184
-    const-string v0, "TickerWidget"
-
-    const-string v1, "Receive : ACTION_SINAWEIBO_DATE_UPDATED"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 206
+    .line 189
     :cond_2
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isSinaEnable()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    .line 190
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "com.sec.android.daemonapp.ap.sinanews.intent.action.SNEWS_DATE_SYNC"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsNewsRefreshFailed:Z
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1400(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    .line 191
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$2$4;
+
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$4;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
+
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    .line 204
+    const-string v2, "TickerWidget"
+
+    const-string v3, "Receive : ACTION_SNNEWS_DATE_SYNC"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 208
+    :cond_3
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "com.android.internal.policy.impl.intent.action.ACTION_SINAWEIBO_DATE_UPDATED"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookRefreshFailed:Z
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1500(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    .line 209
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;
+
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
+
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    .line 222
+    const-string v2, "TickerWidget"
+
+    const-string v3, "Receive : ACTION_SINAWEIBO_DATE_UPDATED"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 244
+    :cond_4
     :goto_0
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string v1, "com.android.internal.policy.impl.intent.action.ACTION_FACEBOOK_DATE_UPDATED"
+    const-string v3, "com.android.internal.policy.impl.intent.action.ACTION_FACEBOOK_DATE_UPDATED"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_3
+    if-eqz v2, :cond_5
 
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsFacebookRefreshFailed:Z
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1400(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1500(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_3
+    if-nez v2, :cond_5
 
-    .line 207
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    .line 245
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object v2
 
-    new-instance v1, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;
+    new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$2$7;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$7;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 220
-    const-string v0, "TickerWidget"
+    .line 257
+    const-string v2, "TickerWidget"
 
-    const-string v1, "Receive : ACTION_FACEBOOK_DATE_UPDATED"
+    const-string v3, "Receive : ACTION_FACEBOOK_DATE_UPDATED"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 222
-    :cond_3
+    .line 259
+    :cond_5
     return-void
 
-    .line 188
-    :cond_4
+    .line 226
+    :cond_6
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string v1, "com.sec.android.daemonapp.ap.yahoonews.intent.action.YNEWS_DATE_SYNC"
+    const-string v3, "com.sec.android.daemonapp.ap.yahoonews.intent.action.YNEWS_DATE_SYNC"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_4
 
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsNewsRefreshFailed:Z
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1300(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1400(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_2
+    if-nez v2, :cond_4
 
-    .line 189
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    .line 227
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object v2
 
-    new-instance v1, Lcom/android/internal/policy/impl/sec/TickerWidget$2$4;
+    new-instance v3, Lcom/android/internal/policy/impl/sec/TickerWidget$2$6;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$4;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$2$6;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$2;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 202
-    const-string v0, "TickerWidget"
+    .line 240
+    const-string v2, "TickerWidget"
 
-    const-string v1, "Receive : ACTION_YHNEWS_DATE_SYNC"
+    const-string v3, "Receive : ACTION_YHNEWS_DATE_SYNC"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

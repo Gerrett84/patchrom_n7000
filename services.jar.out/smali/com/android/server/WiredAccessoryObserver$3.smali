@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 613
+    .line 624
     iput-object p1, p0, Lcom/android/server/WiredAccessoryObserver$3;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "msg"
 
     .prologue
-    .line 616
+    .line 627
     iget-object v1, p0, Lcom/android/server/WiredAccessoryObserver$3;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -49,7 +49,7 @@
     #calls: Lcom/android/server/WiredAccessoryObserver;->sendUSBAudioIntent(Lcom/android/server/WiredAccessoryObserver$UsbAudioData;)V
     invoke-static {v1, v0}, Lcom/android/server/WiredAccessoryObserver;->access$900(Lcom/android/server/WiredAccessoryObserver;Lcom/android/server/WiredAccessoryObserver$UsbAudioData;)V
 
-    .line 617
+    .line 628
     iget-object v0, p0, Lcom/android/server/WiredAccessoryObserver$3;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     #getter for: Lcom/android/server/WiredAccessoryObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -59,6 +59,6 @@
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 618
+    .line 629
     return-void
 .end method

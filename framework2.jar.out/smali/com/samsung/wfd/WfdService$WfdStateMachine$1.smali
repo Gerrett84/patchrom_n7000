@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1940
+    .line 1735
     iput-object p1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$1;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,8 +42,10 @@
     .parameter "reason"
 
     .prologue
-    .line 1955
-    const-string v0, "WfdService"
+    .line 1747
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$1;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+
+    iget-object v0, v0, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -63,9 +65,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    .line 1959
+    .line 1748
     iget-object v0, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$1;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     iget-object v0, v0, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
@@ -75,7 +77,7 @@
     iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     #getter for: Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/samsung/wfd/WfdService;->access$3700(Lcom/samsung/wfd/WfdService;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/samsung/wfd/WfdService;->access$3800(Lcom/samsung/wfd/WfdService;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -85,13 +87,13 @@
 
     if-nez v0, :cond_0
 
-    .line 1960
+    .line 1749
     iget-object v0, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$1;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     iget-object v0, v0, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     #getter for: Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-    invoke-static {v0}, Lcom/samsung/wfd/WfdService;->access$1600(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager;
+    invoke-static {v0}, Lcom/samsung/wfd/WfdService;->access$1500(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager;
 
     move-result-object v0
 
@@ -100,13 +102,13 @@
     iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     #getter for: Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-    invoke-static {v1}, Lcom/samsung/wfd/WfdService;->access$4800(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+    invoke-static {v1}, Lcom/samsung/wfd/WfdService;->access$1400(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/p2p/WifiP2pManager;->disableP2p(Landroid/net/wifi/p2p/WifiP2pManager$Channel;)V
 
-    .line 1963
+    .line 1750
     :cond_0
     return-void
 .end method
@@ -115,43 +117,47 @@
     .locals 2
 
     .prologue
-    .line 1942
-    const-string v0, "WfdService"
+    .line 1737
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$1;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+
+    iget-object v0, v0, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     const-string v1, " remove group success"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    .line 1943
+    .line 1738
     iget-object v0, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$1;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     iget-object v0, v0, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     #getter for: Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
-    invoke-static {v0}, Lcom/samsung/wfd/WfdService;->access$400(Lcom/samsung/wfd/WfdService;)Z
+    invoke-static {v0}, Lcom/samsung/wfd/WfdService;->access$700(Lcom/samsung/wfd/WfdService;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 1944
-    const-string v0, "WfdService"
+    .line 1739
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$1;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+
+    iget-object v0, v0, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     const-string v1, " only remove group && restart! do not disable @ JB!!!"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    .line 1945
+    .line 1740
     iget-object v0, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$1;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     invoke-virtual {v0}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->sendWfdPickerStartBroadCast()V
 
-    .line 1953
+    .line 1745
     :cond_0
     :goto_0
     return-void
 
-    .line 1949
+    .line 1742
     :cond_1
     iget-object v0, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$1;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
@@ -162,7 +168,7 @@
     iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     #getter for: Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/samsung/wfd/WfdService;->access$3700(Lcom/samsung/wfd/WfdService;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/samsung/wfd/WfdService;->access$3800(Lcom/samsung/wfd/WfdService;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -172,13 +178,13 @@
 
     if-nez v0, :cond_0
 
-    .line 1950
+    .line 1743
     iget-object v0, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$1;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     iget-object v0, v0, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     #getter for: Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
-    invoke-static {v0}, Lcom/samsung/wfd/WfdService;->access$1600(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager;
+    invoke-static {v0}, Lcom/samsung/wfd/WfdService;->access$1500(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager;
 
     move-result-object v0
 
@@ -187,7 +193,7 @@
     iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     #getter for: Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-    invoke-static {v1}, Lcom/samsung/wfd/WfdService;->access$4800(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+    invoke-static {v1}, Lcom/samsung/wfd/WfdService;->access$1400(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     move-result-object v1
 

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1788
+    .line 1939
     iput-object p1, p0, Lcom/android/server/PowerManagerService$SmartSleepNotificationTask;->this$0:Lcom/android/server/PowerManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1788
+    .line 1939
     invoke-direct {p0, p1}, Lcom/android/server/PowerManagerService$SmartSleepNotificationTask;-><init>(Lcom/android/server/PowerManagerService;)V
 
     return-void
@@ -53,19 +53,19 @@
     .locals 2
 
     .prologue
-    .line 1792
+    .line 1943
     iget-object v0, p0, Lcom/android/server/PowerManagerService$SmartSleepNotificationTask;->this$0:Lcom/android/server/PowerManagerService;
 
     const/4 v1, 0x0
 
     #setter for: Lcom/android/server/PowerManagerService;->mFaceDetected:Z
-    invoke-static {v0, v1}, Lcom/android/server/PowerManagerService;->access$5202(Lcom/android/server/PowerManagerService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/PowerManagerService;->access$5102(Lcom/android/server/PowerManagerService;Z)Z
 
-    .line 1793
+    .line 1944
     iget-object v0, p0, Lcom/android/server/PowerManagerService$SmartSleepNotificationTask;->this$0:Lcom/android/server/PowerManagerService;
 
     #getter for: Lcom/android/server/PowerManagerService;->mUserActivityAllowed:Z
-    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$5300(Lcom/android/server/PowerManagerService;)Z
+    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$5200(Lcom/android/server/PowerManagerService;)Z
 
     move-result v0
 
@@ -82,7 +82,7 @@
     iget-object v0, p0, Lcom/android/server/PowerManagerService$SmartSleepNotificationTask;->this$0:Lcom/android/server/PowerManagerService;
 
     #getter for: Lcom/android/server/PowerManagerService;->mWakeLockState:I
-    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$5400(Lcom/android/server/PowerManagerService;)I
+    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$5300(Lcom/android/server/PowerManagerService;)I
 
     move-result v0
 
@@ -90,54 +90,54 @@
 
     if-nez v0, :cond_0
 
-    .line 1794
+    .line 1945
     iget-object v0, p0, Lcom/android/server/PowerManagerService$SmartSleepNotificationTask;->this$0:Lcom/android/server/PowerManagerService;
 
     iget-object v1, p0, Lcom/android/server/PowerManagerService$SmartSleepNotificationTask;->this$0:Lcom/android/server/PowerManagerService;
 
     #calls: Lcom/android/server/PowerManagerService;->checkIntelligentSleep()Z
-    invoke-static {v1}, Lcom/android/server/PowerManagerService;->access$5500(Lcom/android/server/PowerManagerService;)Z
+    invoke-static {v1}, Lcom/android/server/PowerManagerService;->access$5400(Lcom/android/server/PowerManagerService;)Z
 
     move-result v1
 
     #setter for: Lcom/android/server/PowerManagerService;->mFaceDetected:Z
-    invoke-static {v0, v1}, Lcom/android/server/PowerManagerService;->access$5202(Lcom/android/server/PowerManagerService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/PowerManagerService;->access$5102(Lcom/android/server/PowerManagerService;Z)Z
 
-    .line 1795
+    .line 1946
     iget-object v0, p0, Lcom/android/server/PowerManagerService$SmartSleepNotificationTask;->this$0:Lcom/android/server/PowerManagerService;
 
     #getter for: Lcom/android/server/PowerManagerService;->mFaceDetected:Z
-    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$5200(Lcom/android/server/PowerManagerService;)Z
+    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$5100(Lcom/android/server/PowerManagerService;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1796
+    .line 1947
     iget-object v0, p0, Lcom/android/server/PowerManagerService$SmartSleepNotificationTask;->this$0:Lcom/android/server/PowerManagerService;
 
     #getter for: Lcom/android/server/PowerManagerService;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$2300(Lcom/android/server/PowerManagerService;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$2700(Lcom/android/server/PowerManagerService;)Landroid/content/Context;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/PowerManagerService$SmartSleepNotificationTask;->this$0:Lcom/android/server/PowerManagerService;
 
     #getter for: Lcom/android/server/PowerManagerService;->mSmartSleepIntent:Landroid/content/Intent;
-    invoke-static {v1}, Lcom/android/server/PowerManagerService;->access$5600(Lcom/android/server/PowerManagerService;)Landroid/content/Intent;
+    invoke-static {v1}, Lcom/android/server/PowerManagerService;->access$5500(Lcom/android/server/PowerManagerService;)Landroid/content/Intent;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1797
+    .line 1948
     const-string v0, "PowerManagerService"
 
     const-string v1, "SmartSleepNotificationTask::SmartSleepNotification : sendBroadcast done."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1800
+    .line 1951
     :cond_0
     return-void
 .end method

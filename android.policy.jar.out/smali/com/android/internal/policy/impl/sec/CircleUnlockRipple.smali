@@ -51,32 +51,32 @@
 
     const/4 v6, 0x0
 
-    .line 55
+    .line 56
     invoke-direct {p0, p1}, Landroid/opengl/GLSurfaceView;-><init>(Landroid/content/Context;)V
 
-    .line 38
+    .line 39
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->DBG:Z
 
-    .line 39
+    .line 40
     const-string v0, "CircleUnlockRipple"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->TAG:Ljava/lang/String;
 
-    .line 48
+    .line 49
     iput-boolean v6, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mIsFirst:Z
 
-    .line 49
+    .line 50
     const-wide/16 v2, 0x0
 
     iput-wide v2, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mResumedTimeMillis:J
 
-    .line 56
+    .line 57
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mContext:Landroid/content/Context;
 
-    .line 57
+    .line 58
     iput-object p2, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 59
+    .line 60
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mContext:Landroid/content/Context;
 
     const-string v2, "power"
@@ -89,14 +89,14 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mPowerManager:Landroid/os/PowerManager;
 
-    .line 63
+    .line 64
     new-instance v0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-direct {v0, p1, p0, p2}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;-><init>(Landroid/content/Context;Landroid/view/View;Lcom/android/internal/policy/impl/KeyguardScreenCallback;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
-    .line 64
+    .line 65
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     const v2, 0x1100001
@@ -105,19 +105,19 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->setSoundRID(II)V
 
-    .line 67
+    .line 68
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->detectOpenGLES20()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 68
+    .line 69
     const/4 v0, 0x2
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->setEGLContextClientVersion(I)V
 
-    .line 69
+    .line 70
     const/16 v5, 0x10
 
     move-object v0, p0
@@ -130,15 +130,15 @@
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->setEGLConfigChooser(IIIIII)V
 
-    .line 70
+    .line 71
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->setRenderer(Landroid/opengl/GLSurfaceView$Renderer;)V
 
-    .line 71
+    .line 72
     invoke-virtual {p0, v6}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->setRenderMode(I)V
 
-    .line 72
+    .line 73
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
@@ -147,7 +147,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/SurfaceHolder;->setFormat(I)V
 
-    .line 77
+    .line 78
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->sSetDrawingOnWindowResizeMethod:Ljava/lang/reflect/Method;
 
@@ -157,12 +157,12 @@
 
     if-nez v0, :cond_0
 
-    .line 78
+    .line 79
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->sWasTriedToFindCustomMethod:Z
 
-    .line 79
+    .line 80
     const-class v0, Landroid/opengl/GLSurfaceView;
 
     const-string v1, "setDrawingOnWindowResize"
@@ -183,13 +183,13 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->sSetDrawingOnWindowResizeMethod:Ljava/lang/reflect/Method;
 
-    .line 81
+    .line 82
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->sSetDrawingOnWindowResizeMethod:Ljava/lang/reflect/Method;
 
     if-eqz v0, :cond_1
 
-    .line 82
+    .line 83
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->sSetDrawingOnWindowResizeMethod:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x1
@@ -212,7 +212,7 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 95
+    .line 96
     :cond_1
     :goto_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -221,42 +221,42 @@
 
     iput-wide v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mResumedTimeMillis:J
 
-    .line 96
+    .line 97
     return-void
 
-    .line 86
+    .line 87
     :catch_0
     move-exception v7
 
-    .line 87
+    .line 88
     .local v7, e:Ljava/lang/IllegalAccessException;
     invoke-virtual {v7}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 88
+    .line 89
     .end local v7           #e:Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v7
 
-    .line 89
+    .line 90
     .local v7, e:Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v7}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 92
+    .line 93
     .end local v7           #e:Ljava/lang/reflect/InvocationTargetException;
     :cond_2
     const-string v0, "WaterEffect"
 
     const-string v1, "this machine does not support OpenGL ES2.0"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 84
+    .line 85
     :catch_2
     move-exception v0
 
@@ -267,7 +267,7 @@
     .locals 4
 
     .prologue
-    .line 99
+    .line 100
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mContext:Landroid/content/Context;
 
     const-string v3, "activity"
@@ -278,13 +278,13 @@
 
     check-cast v0, Landroid/app/ActivityManager;
 
-    .line 100
+    .line 101
     .local v0, am:Landroid/app/ActivityManager;
     invoke-virtual {v0}, Landroid/app/ActivityManager;->getDeviceConfigurationInfo()Landroid/content/pm/ConfigurationInfo;
 
     move-result-object v1
 
-    .line 101
+    .line 102
     .local v1, info:Landroid/content/pm/ConfigurationInfo;
     iget v2, v1, Landroid/content/pm/ConfigurationInfo;->reqGlEsVersion:I
 
@@ -311,18 +311,18 @@
 
     const-wide/16 v7, 0x4e20
 
-    .line 152
+    .line 153
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
-    .line 153
+    .line 154
     .local v2, now:J
     iget-wide v4, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mResumedTimeMillis:J
 
     sub-long v0, v2, v4
 
-    .line 154
+    .line 155
     .local v0, diff:J
     const-string v4, "CircleUnlockRipple"
 
@@ -344,32 +344,32 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 156
+    .line 157
     cmp-long v4, v0, v7
 
     if-gtz v4, :cond_0
 
-    .line 157
+    .line 158
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     const/16 v5, 0x2710
 
     invoke-interface {v4, v5}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock(I)V
 
-    .line 158
+    .line 159
     const-string v4, "CircleUnlockRipple"
 
     const-string v5, "pokeWakelockWithTimeCheck mCallback.pokeWakelock(AWAKE_INTERVAL_DEFAULT_MS)"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 166
+    .line 167
     :goto_0
     return-void
 
-    .line 159
+    .line 160
     :cond_0
     cmp-long v4, v0, v7
 
@@ -379,7 +379,7 @@
 
     if-gez v4, :cond_1
 
-    .line 160
+    .line 161
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     long-to-int v5, v0
@@ -388,7 +388,7 @@
 
     invoke-interface {v4, v5}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock(I)V
 
-    .line 161
+    .line 162
     const-string v4, "CircleUnlockRipple"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -417,17 +417,17 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 164
+    .line 165
     :cond_1
     const-string v4, "CircleUnlockRipple"
 
     const-string v5, "pokeWakelockWithTimeCheck do nothing"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -438,12 +438,12 @@
     .locals 1
 
     .prologue
-    .line 228
+    .line 229
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->cleanUp()V
 
-    .line 229
+    .line 230
     return-void
 .end method
 
@@ -452,7 +452,7 @@
     .parameter "region"
 
     .prologue
-    .line 223
+    .line 224
     const/4 v0, 0x0
 
     return v0
@@ -463,18 +463,18 @@
     .parameter "event"
 
     .prologue
-    .line 181
+    .line 182
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 200
+    .line 201
     :goto_0
     return-void
 
-    .line 183
+    .line 184
     :pswitch_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->getRenderMode()I
 
@@ -482,18 +482,18 @@
 
     if-nez v0, :cond_0
 
-    .line 184
+    .line 185
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->setRenderMode(I)V
 
-    .line 185
+    .line 186
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 186
+    .line 187
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
@@ -504,13 +504,13 @@
 
     goto :goto_0
 
-    .line 189
+    .line 190
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 190
+    .line 191
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
@@ -521,7 +521,7 @@
 
     goto :goto_0
 
-    .line 194
+    .line 195
     :pswitch_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
@@ -529,7 +529,7 @@
 
     goto :goto_0
 
-    .line 181
+    .line 182
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -547,7 +547,7 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 107
+    .line 108
     const-string v1, "CircleUnlockRipple"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -572,16 +572,16 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 108
+    .line 109
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 137
+    .line 138
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
@@ -590,91 +590,91 @@
 
     move-result v0
 
-    .line 138
+    .line 139
     .local v0, result:Z
     if-eqz v0, :cond_1
 
-    .line 139
+    .line 140
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mIsFirst:Z
 
     if-eqz v1, :cond_1
 
-    .line 140
+    .line 141
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mIsFirst:Z
 
-    .line 141
+    .line 142
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mOnCircleUnlockListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleUnlockListener;
 
     if-eqz v1, :cond_1
 
-    .line 142
+    .line 143
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mOnCircleUnlockListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleUnlockListener;
 
     invoke-interface {v1, p1}, Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleUnlockListener;->onCircleUnlocked(Landroid/view/View;)V
 
-    .line 145
+    .line 146
     :cond_1
     return v4
 
-    .line 110
+    .line 111
     .end local v0           #result:Z
     :pswitch_0
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mIsFirst:Z
 
-    .line 111
+    .line 112
     invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->setRenderMode(I)V
 
-    .line 112
+    .line 113
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->pokeWakelockWithTimeCheck()V
 
-    .line 114
+    .line 115
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleTouchListener;
 
     if-eqz v1, :cond_0
 
-    .line 115
+    .line 116
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleTouchListener;
 
     invoke-interface {v1, p1}, Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleTouchListener;->onCircleTouchDown(Landroid/view/View;)V
 
     goto :goto_0
 
-    .line 119
+    .line 120
     :pswitch_1
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->pokeWakelockWithTimeCheck()V
 
-    .line 121
+    .line 122
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleTouchListener;
 
     if-eqz v1, :cond_0
 
-    .line 122
+    .line 123
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleTouchListener;
 
     invoke-interface {v1, p1}, Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleTouchListener;->onCircleTouchMove(Landroid/view/View;)V
 
     goto :goto_0
 
-    .line 126
+    .line 127
     :pswitch_2
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->pokeWakelockWithTimeCheck()V
 
-    .line 129
+    .line 130
     :pswitch_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleTouchListener;
 
     if-eqz v1, :cond_0
 
-    .line 130
+    .line 131
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleTouchListener;
 
     invoke-interface {v1, p1}, Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleTouchListener;->onCircleTouchUp(Landroid/view/View;)V
 
     goto :goto_0
 
-    .line 108
+    .line 109
     nop
 
     :pswitch_data_0
@@ -690,17 +690,17 @@
     .locals 1
 
     .prologue
-    .line 233
+    .line 234
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->setRenderMode(I)V
 
-    .line 234
+    .line 235
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->onPause()V
 
-    .line 235
+    .line 236
     return-void
 .end method
 
@@ -708,19 +708,19 @@
     .locals 2
 
     .prologue
-    .line 239
+    .line 240
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->onResume()V
 
-    .line 241
+    .line 242
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mResumedTimeMillis:J
 
-    .line 242
+    .line 243
     return-void
 .end method
 
@@ -729,13 +729,13 @@
     .parameter "visibility"
 
     .prologue
-    .line 247
+    .line 248
     if-nez p1, :cond_0
 
-    .line 248
+    .line 249
     invoke-super {p0, p1}, Landroid/opengl/GLSurfaceView;->onWindowVisibilityChanged(I)V
 
-    .line 250
+    .line 251
     :cond_0
     return-void
 .end method
@@ -745,10 +745,10 @@
     .parameter "onCircleTouchListener"
 
     .prologue
-    .line 210
+    .line 211
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mOnCircleTouchListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleTouchListener;
 
-    .line 212
+    .line 213
     return-void
 .end method
 
@@ -757,10 +757,33 @@
     .parameter "onCircleUnlockListener"
 
     .prologue
-    .line 217
+    .line 218
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mOnCircleUnlockListener:Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleUnlockListener;
 
-    .line 219
+    .line 220
+    return-void
+.end method
+
+.method public setRippleBackground()V
+    .locals 2
+
+    .prologue
+    .line 255
+    const-string v0, "CircleUnlockRipple"
+
+    const-string v1, "setRippleBackground"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 256
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->setRippleBackground()V
+
+    .line 257
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->requestRender()V
+
+    .line 258
     return-void
 .end method
 
@@ -769,7 +792,7 @@
     .parameter "startLocation"
 
     .prologue
-    .line 203
+    .line 204
     const-string v0, "CircleUnlockRipple"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -790,14 +813,14 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 204
+    .line 205
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->setStartLocation(I)V
 
-    .line 205
+    .line 206
     return-void
 .end method
 
@@ -805,25 +828,25 @@
     .locals 1
 
     .prologue
-    .line 175
+    .line 176
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->getRenderMode()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 176
+    .line 177
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->setRenderMode(I)V
 
-    .line 177
+    .line 178
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->tikerRippleForClose()V
 
-    .line 178
+    .line 179
     return-void
 .end method
 
@@ -831,24 +854,24 @@
     .locals 1
 
     .prologue
-    .line 169
+    .line 170
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->getRenderMode()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 170
+    .line 171
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->setRenderMode(I)V
 
-    .line 171
+    .line 172
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->mRenderer:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->tikerRippleForOpen()V
 
-    .line 172
+    .line 173
     return-void
 .end method

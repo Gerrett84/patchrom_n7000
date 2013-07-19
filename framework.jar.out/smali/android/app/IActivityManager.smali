@@ -215,6 +215,10 @@
 
 .field public static final REPORT_THUMBNAIL_TRANSACTION:I = 0x1c
 
+.field public static final REQUEST_ENSURE_ACTIVITIES_VISIBLE_TRANSACTION:I = 0x7d2
+
+.field public static final REQUEST_FAKE_OPAQUE_FULL_TRANSACTION:I = 0x7d3
+
 .field public static final RESIZE_ARRANGED_WINDOW_TRANSACTION:I = 0x3ef
 
 .field public static final RESUME_APP_SWITCHES_TRANSACTION:I = 0x59
@@ -1169,6 +1173,22 @@
 .end method
 
 .method public abstract reportThumbnail(Landroid/os/IBinder;Landroid/graphics/Bitmap;Ljava/lang/CharSequence;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract requestEnsureActivitiesVisible()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract requestFakeOpaqueFull(Landroid/os/IBinder;Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

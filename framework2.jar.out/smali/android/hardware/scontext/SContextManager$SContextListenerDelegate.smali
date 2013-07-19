@@ -19,17 +19,6 @@
 
 .field private final mListener:Landroid/hardware/scontext/SContextListener;
 
-.field private final mService:Ljava/util/HashSet;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashSet",
-            "<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field final synthetic this$0:Landroid/hardware/scontext/SContextManager;
 
 
@@ -42,29 +31,22 @@
     .parameter "handler"
 
     .prologue
-    .line 196
+    .line 209
     iput-object p1, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;->this$0:Landroid/hardware/scontext/SContextManager;
 
     invoke-direct {p0}, Landroid/hardware/scontext/ISContextCallback$Stub;-><init>()V
 
-    .line 198
+    .line 211
     iput-object p2, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;->mListener:Landroid/hardware/scontext/SContextListener;
 
-    .line 200
-    new-instance v1, Ljava/util/HashSet;
-
-    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
-
-    iput-object v1, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;->mService:Ljava/util/HashSet;
-
-    .line 202
+    .line 213
     if-eqz p4, :cond_0
 
     invoke-virtual {p4}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    .line 204
+    .line 215
     .local v0, looper:Landroid/os/Looper;
     :goto_0
     new-instance v1, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate$1;
@@ -73,10 +55,10 @@
 
     iput-object v1, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;->mHandler:Landroid/os/Handler;
 
-    .line 214
+    .line 225
     return-void
 
-    .line 202
+    .line 213
     .end local v0           #looper:Landroid/os/Looper;
     :cond_0
     iget-object v0, p1, Landroid/hardware/scontext/SContextManager;->mMainLooper:Landroid/os/Looper;
@@ -89,7 +71,7 @@
     .parameter "x0"
 
     .prologue
-    .line 188
+    .line 203
     iget-object v0, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;->mListener:Landroid/hardware/scontext/SContextListener;
 
     return-object v0
@@ -101,7 +83,7 @@
     .locals 1
 
     .prologue
-    .line 217
+    .line 228
     iget-object v0, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;->mListener:Landroid/hardware/scontext/SContextListener;
 
     return-object v0
@@ -111,31 +93,12 @@
     .locals 1
 
     .prologue
-    .line 232
+    .line 239
     iget-object v0, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;->mListener:Landroid/hardware/scontext/SContextListener;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getService()Ljava/util/HashSet;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/HashSet",
-            "<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 221
-    iget-object v0, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;->mService:Ljava/util/HashSet;
 
     return-object v0
 .end method
@@ -150,25 +113,25 @@
     .end annotation
 
     .prologue
-    .line 225
+    .line 232
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 226
+    .line 233
     .local v0, msg:Landroid/os/Message;
     const/4 v1, 0x0
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 227
+    .line 234
     iput-object p1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 228
+    .line 235
     iget-object v1, p0, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 229
+    .line 236
     return-void
 .end method

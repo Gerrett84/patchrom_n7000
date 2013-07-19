@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1479
+    .line 1604
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,17 +35,19 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 5
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 1481
+    const/16 v4, 0x12c2
+
+    .line 1606
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1482
+    .line 1607
     .local v0, action:Ljava/lang/String;
     const-string v2, "com.android.server.NotificationManagerService.NotificationArrived"
 
@@ -63,40 +65,48 @@
 
     if-eqz v2, :cond_1
 
-    .line 1483
+    .line 1608
     :cond_0
     const-string v2, "ClockWidget"
 
     const-string v3, "received MISSED_EVENT intent !! "
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1484
+    .line 1609
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->mHandler:Landroid/os/Handler;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->access$2300(Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->access$2700(Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;)Landroid/os/Handler;
 
     move-result-object v2
 
-    const/16 v3, 0x12c2
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v2, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v1
 
-    .line 1485
+    .line 1610
     .local v1, msg:Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->mHandler:Landroid/os/Handler;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->access$2300(Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;)Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->access$2700(Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 1611
+    iget-object v2, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->mHandler:Landroid/os/Handler;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->access$2700(Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;)Landroid/os/Handler;
 
     move-result-object v2
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 1487
+    .line 1613
     .end local v1           #msg:Landroid/os/Message;
     :cond_1
     return-void

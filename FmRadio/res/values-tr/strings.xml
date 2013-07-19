@@ -101,13 +101,13 @@ Kulaklık radyo anteni işlevi gördüğü için takılmalıdır"</string>
     <string name="toast_unavailable_in_tvout_mode">TV çıkışı modunda kullanılamaz</string>
     <string name="mute">Sessiz</string>
     <string name="seeking">Aranıyor…</string>
-    <string name="via_earphone">Kulaklık ile</string>
-    <string name="via_speaker">Hoparlör ile</string>
+    <string name="via_earphone">Kulaklık ile çal</string>
+    <string name="via_speaker">Hoparlör üzerinden çal</string>
     <string name="normal_frequency">Normal frekans</string>
     <string name="tag">İm</string>
     <string name="stop">Durdur</string>
     <string name="recording">Kaydediyor…</string>
-    <string name="memory_full">Kayıt durduruldu. Bellek dolu</string>
+    <string name="memory_full">Bellek dolu</string>
     <string name="cancel_recording">Kaydetme iptal edilsin mi?</string>
     <string name="change_frequency">Frekansı değiştirin</string>
     <string name="enter_frequency">Frekansı girin</string>
@@ -133,11 +133,14 @@ Kulaklık radyo anteni işlevi gördüğü için takılmalıdır"</string>
     <string name="tags">Etiketler</string>
     <string name="tags_now_broadcasting">Şimdi yayınlanıyor</string>
     <string name="tags_no_information">Bilgi yok</string>
+    <string name="tags_music_history">Müzik geçmişi</string>
     <string name="tags_music_title">Başlık</string>
     <string name="tags_music_album">Albüm</string>
     <string name="tags_music_artist">Sanatçı</string>
+    <string name="tags_music_band">Grup</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Anasayfa</string>
+    <string name="tags_interact_hotline">Destek hattı</string>
     <string name="tags_interact_studio">Stüdyo</string>
     <string name="tags_interact_other">Diğer</string>
     <string name="tags_interact_centre">Orta</string>
@@ -183,4 +186,14 @@ Radyoyu kaydettikten sonra, kayıtlı dosyalar görüntülenecek"</string>
     <string name="dialog_one_item_deleted">Bu öğe silinecek</string>
     <string name="dialog_multiple_items_deleted">%d öğe silinecek</string>
     <string name="dialog_all_items_deleted">Tüm öğeler silinecek</string>
+    <string name="turning_on">Açılıyor…</string>
+    <string name="not_enough_memory_recording_will_stop">Yeterli bellek yok. Kayıt %d saniye içinde duracak</string>
+    <string name="low_batt_msg">Düşük pil</string>
+    <string name="no_play_during_call">Görüşme sırasında çalınamaz</string>
+    <string name="unable_delete">Silinemiyor</string>
+    <string name="playing">Yürütülüyor</string>
+    <string name="tts_play_button">Çal</string>
+    <string name="tts_previous_button">Önceki</string>
+    <string name="tts_Next_button">Sonraki</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

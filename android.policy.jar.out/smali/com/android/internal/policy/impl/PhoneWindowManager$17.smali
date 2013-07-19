@@ -3,12 +3,12 @@
 .source "PhoneWindowManager.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/InputEventReceiver$Factory;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/PhoneWindowManager;->finishAnimationLw()I
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/internal/policy/impl/PhoneWindowManager;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 4637
+    .line 4194
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$17;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,19 +37,18 @@
 
 
 # virtual methods
-.method public run()V
+.method public createInputEventReceiver(Landroid/view/InputChannel;Landroid/os/Looper;)Landroid/view/InputEventReceiver;
     .locals 2
+    .parameter "inputChannel"
+    .parameter "looper"
 
     .prologue
-    const/4 v1, 0x0
+    .line 4198
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindowManager$HideNavInputEventReceiver;
 
-    .line 4639
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$17;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$17;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
+    invoke-direct {v0, v1, p1, p2}, Lcom/android/internal/policy/impl/PhoneWindowManager$HideNavInputEventReceiver;-><init>(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/InputChannel;Landroid/os/Looper;)V
 
-    invoke-virtual {v0, v1, v1}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->keyguardDone(ZZ)V
-
-    .line 4640
-    return-void
+    return-object v0
 .end method

@@ -32,7 +32,7 @@
     .parameter
 
     .prologue
-    .line 180
+    .line 182
     iput-object p1, p0, Lcom/android/server/WiredAccessoryObserver$UsbAudioData;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
     .parameter "x1"
 
     .prologue
-    .line 180
+    .line 182
     invoke-direct {p0, p1}, Lcom/android/server/WiredAccessoryObserver$UsbAudioData;-><init>(Lcom/android/server/WiredAccessoryObserver;)V
 
     return-void
@@ -58,7 +58,7 @@
     .locals 1
 
     .prologue
-    .line 198
+    .line 200
     iget-object v0, p0, Lcom/android/server/WiredAccessoryObserver$UsbAudioData;->cardNumber:Ljava/lang/String;
 
     return-object v0
@@ -68,7 +68,7 @@
     .locals 1
 
     .prologue
-    .line 195
+    .line 197
     iget-object v0, p0, Lcom/android/server/WiredAccessoryObserver$UsbAudioData;->channels:Ljava/lang/String;
 
     return-object v0
@@ -78,7 +78,7 @@
     .locals 1
 
     .prologue
-    .line 201
+    .line 203
     iget-object v0, p0, Lcom/android/server/WiredAccessoryObserver$UsbAudioData;->deviceNumber:Ljava/lang/String;
 
     return-object v0
@@ -88,7 +88,7 @@
     .locals 1
 
     .prologue
-    .line 192
+    .line 194
     iget v0, p0, Lcom/android/server/WiredAccessoryObserver$UsbAudioData;->state:I
 
     return v0
@@ -102,18 +102,18 @@
     .parameter "deviceNumber"
 
     .prologue
-    .line 186
+    .line 188
     iput p1, p0, Lcom/android/server/WiredAccessoryObserver$UsbAudioData;->state:I
 
-    .line 187
+    .line 189
     iput-object p2, p0, Lcom/android/server/WiredAccessoryObserver$UsbAudioData;->channels:Ljava/lang/String;
 
-    .line 188
+    .line 190
     iput-object p3, p0, Lcom/android/server/WiredAccessoryObserver$UsbAudioData;->cardNumber:Ljava/lang/String;
 
-    .line 189
+    .line 191
     iput-object p4, p0, Lcom/android/server/WiredAccessoryObserver$UsbAudioData;->deviceNumber:Ljava/lang/String;
 
-    .line 190
+    .line 192
     return-void
 .end method

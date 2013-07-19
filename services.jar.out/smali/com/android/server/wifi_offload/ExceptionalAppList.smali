@@ -73,7 +73,7 @@
 
     const/16 v1, 0x8
 
-    const-string v2, "com.vx2_7vznavigator.Generic"
+    const-string v2, "com.vznavigator.SCHI605"
 
     aput-object v2, v0, v1
 
@@ -524,7 +524,7 @@
     sput-object v0, Lcom/android/server/wifi_offload/ExceptionalAppList;->wifiAppList:[Ljava/lang/String;
 
     .line 138
-    const/16 v0, 0xf
+    const/16 v0, 0x11
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -532,77 +532,89 @@
 
     aput-object v1, v0, v3
 
-    const-string v1, "com.google.android.youtube"
+    const-string v1, "com.android.chrome"
 
     aput-object v1, v0, v4
 
-    const-string v1, "com.android.vending"
+    const-string v1, "com.google.android.youtube"
 
     aput-object v1, v0, v5
 
-    const-string v1, "com.google.android.apps.books"
+    const-string v1, "com.android.vending"
 
     aput-object v1, v0, v6
 
-    const-string v1, "com.android.email"
+    const-string v1, "com.google.android.apps.books"
 
     aput-object v1, v0, v7
 
     const/4 v1, 0x5
 
-    const-string v2, "com.google.android.gm"
+    const-string v2, "com.android.email"
 
     aput-object v2, v0, v1
 
     const/4 v1, 0x6
 
-    const-string v2, "com.google.android.videos"
+    const-string v2, "com.google.android.gm"
 
     aput-object v2, v0, v1
 
     const/4 v1, 0x7
 
-    const-string v2, "com.amazon.kindle"
+    const-string v2, "com.google.android.videos"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x8
 
-    const-string v2, "com.samsung.mediahub"
+    const-string v2, "com.amazon.kindle"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x9
 
-    const-string v2, "com.samsung.mediahub.ics"
+    const-string v2, "com.samsung.mediahub"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa
 
-    const-string v2, "com.vzw.hss.myverizontabletlte"
+    const-string v2, "com.samsung.mediahub.ics"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xb
 
-    const-string v2, "com.netflix.mediaclient"
+    const-string v2, "com.samsung.mediahub.vzw"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xc
 
-    const-string v2, "com.sec.android.socialhub"
+    const-string v2, "com.vzw.hss.myverizontabletlte"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xd
 
-    const-string v2, "com.thedaily.phone"
+    const-string v2, "com.netflix.mediaclient"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xe
+
+    const-string v2, "com.sec.android.socialhub"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xf
+
+    const-string v2, "com.thedaily.phone"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x10
 
     const-string v2, "com.gravitymobile.app.hornbill"
 

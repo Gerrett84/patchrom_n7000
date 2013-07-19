@@ -28,18 +28,18 @@
     .parameter "overflowOnly"
 
     .prologue
-    .line 754
+    .line 831
     iput-object p1, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
-    .line 755
+    .line 832
     invoke-direct {p0, p2, p3, p4, p5}, Lcom/android/internal/view/menu/MenuPopupHelper;-><init>(Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/View;Z)V
 
-    .line 756
+    .line 833
     iget-object v4, p1, Lcom/android/internal/view/menu/ActionMenuPresenter;->mPopupPresenterCallback:Lcom/android/internal/view/menu/ActionMenuPresenter$PopupPresenterCallback;
 
     invoke-virtual {p0, v4}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;->setCallback(Lcom/android/internal/view/menu/MenuPresenter$Callback;)V
 
-    .line 759
+    .line 836
     #getter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mIsParentThemeDeviceDefault:Z
     invoke-static {p1}, Lcom/android/internal/view/menu/ActionMenuPresenter;->access$100(Lcom/android/internal/view/menu/ActionMenuPresenter;)Z
 
@@ -47,16 +47,16 @@
 
     if-eqz v4, :cond_1
 
-    .line 760
+    .line 837
     const/4 v3, 0x0
 
-    .line 761
+    .line 838
     .local v3, preserveIconSpacing:Z
     invoke-virtual {p3}, Lcom/android/internal/view/menu/MenuBuilder;->size()I
 
     move-result v1
 
-    .line 762
+    .line 839
     .local v1, count:I
     const/4 v2, 0x0
 
@@ -64,12 +64,12 @@
     :goto_0
     if-ge v2, v1, :cond_0
 
-    .line 763
+    .line 840
     invoke-virtual {p3, v2}, Lcom/android/internal/view/menu/MenuBuilder;->getItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 764
+    .line 841
     .local v0, childItem:Landroid/view/MenuItem;
     invoke-interface {v0}, Landroid/view/MenuItem;->isVisible()Z
 
@@ -83,22 +83,22 @@
 
     if-eqz v4, :cond_2
 
-    .line 765
+    .line 842
     const/4 v3, 0x1
 
-    .line 769
+    .line 846
     .end local v0           #childItem:Landroid/view/MenuItem;
     :cond_0
     invoke-virtual {p0, v3}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;->setForceShowIcon(Z)V
 
-    .line 772
+    .line 849
     .end local v1           #count:I
     .end local v2           #i:I
     .end local v3           #preserveIconSpacing:Z
     :cond_1
     return-void
 
-    .line 762
+    .line 839
     .restart local v0       #childItem:Landroid/view/MenuItem;
     .restart local v1       #count:I
     .restart local v2       #i:I
@@ -115,24 +115,24 @@
     .locals 2
 
     .prologue
-    .line 776
+    .line 853
     invoke-super {p0}, Lcom/android/internal/view/menu/MenuPopupHelper;->onDismiss()V
 
-    .line 778
+    .line 855
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     iget-object v0, v0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     if-eqz v0, :cond_0
 
-    .line 780
+    .line 857
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     iget-object v0, v0, Lcom/android/internal/view/menu/BaseMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuBuilder;->close()V
 
-    .line 781
+    .line 858
     :cond_0
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
@@ -141,6 +141,6 @@
     #setter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowPopup:Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
     invoke-static {v0, v1}, Lcom/android/internal/view/menu/ActionMenuPresenter;->access$302(Lcom/android/internal/view/menu/ActionMenuPresenter;Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;)Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
 
-    .line 782
+    .line 859
     return-void
 .end method

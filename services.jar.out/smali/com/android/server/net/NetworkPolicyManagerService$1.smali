@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 394
+    .line 397
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     invoke-direct {p0}, Landroid/app/IProcessObserver$Stub;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "foregroundActivities"
 
     .prologue
-    .line 397
+    .line 400
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
@@ -61,7 +61,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 399
+    .line 402
     return-void
 .end method
 
@@ -72,7 +72,7 @@
     .parameter "importance"
 
     .prologue
-    .line 403
+    .line 406
     return-void
 .end method
 
@@ -82,7 +82,7 @@
     .parameter "uid"
 
     .prologue
-    .line 407
+    .line 410
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
@@ -98,6 +98,6 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 408
+    .line 411
     return-void
 .end method

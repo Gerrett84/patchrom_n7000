@@ -1269,7 +1269,7 @@
     :cond_1
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
-    const-string v4, "name must be non-null and non-empty"
+    const-string/jumbo v4, "name must be non-null and non-empty"
 
     invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -1563,7 +1563,7 @@
     .end annotation
 
     .prologue
-    const-string v0, "userdebug"
+    const-string/jumbo v0, "userdebug"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1571,7 +1571,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string p0, "user"
+    const-string/jumbo p0, "user"
 
     .end local p0
     :cond_0

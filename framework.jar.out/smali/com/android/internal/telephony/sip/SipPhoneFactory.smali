@@ -52,7 +52,7 @@
     .local v0, e:Ljava/text/ParseException;
     const-string v2, "SipPhoneFactory"
 
-    const-string v3, "makePhone"
+    const-string/jumbo v3, "makePhone"
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

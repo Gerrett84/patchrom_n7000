@@ -31,15 +31,15 @@
     .parameter "tag"
 
     .prologue
-    .line 451
+    .line 458
     iput-object p1, p0, Landroid/widget/TabHost$TabSpec;->this$0:Landroid/widget/TabHost;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 452
+    .line 459
     iput-object p2, p0, Landroid/widget/TabHost$TabSpec;->mTag:Ljava/lang/String;
 
-    .line 453
+    .line 460
     return-void
 .end method
 
@@ -50,29 +50,29 @@
     .parameter "x2"
 
     .prologue
-    .line 444
+    .line 451
     invoke-direct {p0, p1, p2}, Landroid/widget/TabHost$TabSpec;-><init>(Landroid/widget/TabHost;Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method static synthetic access$200(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$IndicatorStrategy;
+.method static synthetic access$300(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$IndicatorStrategy;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 444
+    .line 451
     iget-object v0, p0, Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
 
     return-object v0
 .end method
 
-.method static synthetic access$300(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$ContentStrategy;
+.method static synthetic access$400(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$ContentStrategy;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 444
+    .line 451
     iget-object v0, p0, Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;
 
     return-object v0
@@ -84,7 +84,7 @@
     .locals 1
 
     .prologue
-    .line 507
+    .line 514
     iget-object v0, p0, Landroid/widget/TabHost$TabSpec;->mTag:Ljava/lang/String;
 
     return-object v0
@@ -95,7 +95,7 @@
     .parameter "viewId"
 
     .prologue
-    .line 484
+    .line 491
     new-instance v0, Landroid/widget/TabHost$ViewIdContentStrategy;
 
     iget-object v1, p0, Landroid/widget/TabHost$TabSpec;->this$0:Landroid/widget/TabHost;
@@ -106,7 +106,7 @@
 
     iput-object v0, p0, Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;
 
-    .line 485
+    .line 492
     return-object p0
 .end method
 
@@ -115,7 +115,7 @@
     .parameter "intent"
 
     .prologue
-    .line 501
+    .line 508
     new-instance v0, Landroid/widget/TabHost$IntentContentStrategy;
 
     iget-object v1, p0, Landroid/widget/TabHost$TabSpec;->this$0:Landroid/widget/TabHost;
@@ -128,7 +128,7 @@
 
     iput-object v0, p0, Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;
 
-    .line 502
+    .line 509
     return-object p0
 .end method
 
@@ -137,7 +137,7 @@
     .parameter "contentFactory"
 
     .prologue
-    .line 493
+    .line 500
     new-instance v0, Landroid/widget/TabHost$FactoryContentStrategy;
 
     iget-object v1, p0, Landroid/widget/TabHost$TabSpec;->this$0:Landroid/widget/TabHost;
@@ -148,7 +148,7 @@
 
     iput-object v0, p0, Landroid/widget/TabHost$TabSpec;->mContentStrategy:Landroid/widget/TabHost$ContentStrategy;
 
-    .line 494
+    .line 501
     return-object p0
 .end method
 
@@ -157,7 +157,7 @@
     .parameter "view"
 
     .prologue
-    .line 475
+    .line 482
     new-instance v0, Landroid/widget/TabHost$ViewIndicatorStrategy;
 
     iget-object v1, p0, Landroid/widget/TabHost$TabSpec;->this$0:Landroid/widget/TabHost;
@@ -168,7 +168,7 @@
 
     iput-object v0, p0, Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
 
-    .line 476
+    .line 483
     return-object p0
 .end method
 
@@ -177,7 +177,7 @@
     .parameter "label"
 
     .prologue
-    .line 459
+    .line 466
     new-instance v0, Landroid/widget/TabHost$LabelIndicatorStrategy;
 
     iget-object v1, p0, Landroid/widget/TabHost$TabSpec;->this$0:Landroid/widget/TabHost;
@@ -188,7 +188,7 @@
 
     iput-object v0, p0, Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
 
-    .line 460
+    .line 467
     return-object p0
 .end method
 
@@ -198,7 +198,7 @@
     .parameter "icon"
 
     .prologue
-    .line 467
+    .line 474
     new-instance v0, Landroid/widget/TabHost$LabelAndIconIndicatorStrategy;
 
     iget-object v1, p0, Landroid/widget/TabHost$TabSpec;->this$0:Landroid/widget/TabHost;
@@ -209,6 +209,6 @@
 
     iput-object v0, p0, Landroid/widget/TabHost$TabSpec;->mIndicatorStrategy:Landroid/widget/TabHost$IndicatorStrategy;
 
-    .line 468
+    .line 475
     return-object p0
 .end method

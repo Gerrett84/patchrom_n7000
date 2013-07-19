@@ -22,7 +22,7 @@
     .locals 0
 
     .prologue
-    .line 543
+    .line 695
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,8 +36,8 @@
     .parameter "state"
 
     .prologue
-    .line 546
-    invoke-static {}, Lcom/android/server/pm/FakeShutdown;->access$300()Landroid/content/Context;
+    .line 698
+    invoke-static {}, Lcom/android/server/pm/FakeShutdown;->access$400()Landroid/content/Context;
 
     move-result-object v0
 
@@ -54,10 +54,10 @@
     :goto_0
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 547
+    .line 699
     return-void
 
-    .line 546
+    .line 698
     :cond_0
     const/4 v0, 0x0
 

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 999
+    .line 1052
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallbackImpl;-><init>()V
@@ -38,7 +38,7 @@
     .locals 4
 
     .prologue
-    .line 1021
+    .line 1074
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->getSystemUiVisibility()I
@@ -67,7 +67,7 @@
     :goto_0
     or-int v0, v2, v1
 
-    .line 1023
+    .line 1076
     .local v0, visFlags:I
     const-string v1, "LockPatternKeyguardView"
 
@@ -101,20 +101,93 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1024
+    .line 1077
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     invoke-virtual {v1, v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->setSystemUiVisibility(I)V
 
-    .line 1025
+    .line 1078
     return-void
 
-    .line 1021
+    .line 1074
     .end local v0           #visFlags:I
     :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method public onCsSimStateChanged(I)V
+    .locals 3
+    .parameter "simId"
+
+    .prologue
+    .line 1103
+    const-string v0, "LockPatternKeyguardView"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onCsSimStateChanged: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1104
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/MultiSimUtils;->isMultiSIMDevice()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/MultiSimUtils;->isChangedVoiceCall()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1105
+    const-string v0, "LockPatternKeyguardView"
+
+    const-string v1, "onCsSimStateChanged"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1106
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
+
+    #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mWallpaperWidget:Lcom/android/internal/policy/impl/sec/WallpaperWidget;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$2900(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)Lcom/android/internal/policy/impl/sec/WallpaperWidget;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 1107
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
+
+    #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mWallpaperWidget:Lcom/android/internal/policy/impl/sec/WallpaperWidget;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$2900(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)Lcom/android/internal/policy/impl/sec/WallpaperWidget;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->changeWallpaperBySimId(I)V
+
+    .line 1109
+    :cond_0
+    return-void
 .end method
 
 .method public onPhoneStateChanged(I)V
@@ -124,7 +197,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1030
+    .line 1083
     const-string v0, "LockPatternKeyguardView"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -147,7 +220,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1031
+    .line 1084
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mBiometricUnlock:Lcom/android/internal/policy/impl/BiometricSensorUnlock;
@@ -159,13 +232,13 @@
 
     if-ne p1, v3, :cond_0
 
-    .line 1032
+    .line 1085
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #setter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mSuppressBiometricUnlock:Z
     invoke-static {v0, v3}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$1502(Lcom/android/internal/policy/impl/LockPatternKeyguardView;Z)Z
 
-    .line 1033
+    .line 1086
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mBiometricUnlock:Lcom/android/internal/policy/impl/BiometricSensorUnlock;
@@ -175,7 +248,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/BiometricSensorUnlock;->stop()Z
 
-    .line 1034
+    .line 1087
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mBiometricUnlock:Lcom/android/internal/policy/impl/BiometricSensorUnlock;
@@ -185,7 +258,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/BiometricSensorUnlock;->hide()V
 
-    .line 1036
+    .line 1089
     :cond_0
     return-void
 .end method
@@ -197,7 +270,7 @@
     .parameter "batteryLevel"
 
     .prologue
-    .line 1010
+    .line 1063
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mBiometricUnlock:Lcom/android/internal/policy/impl/BiometricSensorUnlock;
@@ -229,7 +302,7 @@
 
     if-nez v0, :cond_0
 
-    .line 1012
+    .line 1065
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mBiometricUnlock:Lcom/android/internal/policy/impl/BiometricSensorUnlock;
@@ -239,7 +312,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/BiometricSensorUnlock;->stop()Z
 
-    .line 1013
+    .line 1066
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mBiometricUnlock:Lcom/android/internal/policy/impl/BiometricSensorUnlock;
@@ -249,7 +322,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/BiometricSensorUnlock;->hide()V
 
-    .line 1014
+    .line 1067
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     const/4 v1, 0x1
@@ -257,14 +330,14 @@
     #setter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mSuppressBiometricUnlock:Z
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$1502(Lcom/android/internal/policy/impl/LockPatternKeyguardView;Z)Z
 
-    .line 1016
+    .line 1069
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #setter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mPluggedIn:Z
     invoke-static {v0, p2}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$2802(Lcom/android/internal/policy/impl/LockPatternKeyguardView;Z)Z
 
-    .line 1017
+    .line 1070
     return-void
 .end method
 
@@ -273,7 +346,7 @@
     .parameter "userId"
 
     .prologue
-    .line 1040
+    .line 1093
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mBiometricUnlock:Lcom/android/internal/policy/impl/BiometricSensorUnlock;
@@ -283,7 +356,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1041
+    .line 1094
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mBiometricUnlock:Lcom/android/internal/policy/impl/BiometricSensorUnlock;
@@ -293,7 +366,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/BiometricSensorUnlock;->stop()Z
 
-    .line 1043
+    .line 1096
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
@@ -304,7 +377,7 @@
 
     invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->setCurrentUser(I)V
 
-    .line 1044
+    .line 1097
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
@@ -319,6 +392,6 @@
     #calls: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->updateScreen(Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;Z)V
     invoke-static {v0, v1, v2}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$400(Lcom/android/internal/policy/impl/LockPatternKeyguardView;Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;Z)V
 
-    .line 1045
+    .line 1098
     return-void
 .end method

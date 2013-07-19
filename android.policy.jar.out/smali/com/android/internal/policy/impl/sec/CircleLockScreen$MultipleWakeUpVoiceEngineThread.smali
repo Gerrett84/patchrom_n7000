@@ -62,65 +62,65 @@
 
     const/4 v1, 0x0
 
-    .line 143
+    .line 148
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
-    .line 144
+    .line 149
     const-string v0, "MultipleWakeUpVoiceEngineThread"
 
     invoke-direct {p0, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
-    .line 126
+    .line 131
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVoiceVerifyStarted:Z
 
-    .line 127
+    .line 132
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mIsSupportMultipleWakeUp:Z
 
-    .line 128
+    .line 133
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mIsRunning:Z
 
-    .line 134
+    .line 139
     iput v2, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->MSG_CREATE_WAKEUP_CMD:I
 
-    .line 135
+    .line 140
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->MSG_INIT_WAKEUP_CMD:I
 
-    .line 136
+    .line 141
     const/4 v0, 0x3
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->MSG_START_VERIFY_CMD:I
 
-    .line 137
+    .line 142
     const/4 v0, 0x4
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->MSG_TERMINATE_VERIFY_CMD:I
 
-    .line 138
+    .line 143
     const/4 v0, 0x5
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->MSG_DESTROY_WAKEUP_CMD:I
 
-    .line 139
+    .line 144
     const/4 v0, 0x6
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->MSG_QUIT_LOOPER:I
 
-    .line 140
+    .line 145
     const/4 v0, 0x7
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->MSG_LAUNCH_CMD:I
 
-    .line 141
+    .line 146
     const/16 v0, 0x8
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->MSG_SET_VOICE_RECOGNITION_FAIL_CMD:I
 
-    .line 145
+    .line 150
     iput-object p2, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mContext:Landroid/content/Context;
 
-    .line 146
+    .line 151
     const-string v0, "power"
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -131,7 +131,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVEPowerManager:Landroid/os/PowerManager;
 
-    .line 147
+    .line 152
     return-void
 .end method
 
@@ -140,7 +140,7 @@
     .parameter "x0"
 
     .prologue
-    .line 123
+    .line 128
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mWakeUpCmdRecognizer:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     return-object v0
@@ -152,7 +152,7 @@
     .parameter "x1"
 
     .prologue
-    .line 123
+    .line 128
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mWakeUpCmdRecognizer:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     return-object p1
@@ -163,7 +163,7 @@
     .parameter "x0"
 
     .prologue
-    .line 123
+    .line 128
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mIsSupportMultipleWakeUp:Z
 
     return v0
@@ -175,7 +175,7 @@
     .parameter "x1"
 
     .prologue
-    .line 123
+    .line 128
     iput-boolean p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mIsSupportMultipleWakeUp:Z
 
     return p1
@@ -186,7 +186,7 @@
     .parameter "x0"
 
     .prologue
-    .line 123
+    .line 128
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVoiceVerifyStarted:Z
 
     return v0
@@ -198,7 +198,7 @@
     .parameter "x1"
 
     .prologue
-    .line 123
+    .line 128
     iput-boolean p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVoiceVerifyStarted:Z
 
     return p1
@@ -209,7 +209,7 @@
     .parameter "x0"
 
     .prologue
-    .line 123
+    .line 128
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVEPowerManager:Landroid/os/PowerManager;
 
     return-object v0
@@ -221,7 +221,7 @@
     .parameter "x1"
 
     .prologue
-    .line 123
+    .line 128
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVEPowerManager:Landroid/os/PowerManager;
 
     return-object p1
@@ -233,7 +233,7 @@
     .parameter "x1"
 
     .prologue
-    .line 123
+    .line 128
     iput-boolean p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mIsRunning:Z
 
     return p1
@@ -244,7 +244,7 @@
     .parameter "x0"
 
     .prologue
-    .line 123
+    .line 128
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -256,7 +256,7 @@
     .parameter "x1"
 
     .prologue
-    .line 123
+    .line 128
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mContext:Landroid/content/Context;
 
     return-object p1
@@ -267,7 +267,7 @@
     .parameter "x0"
 
     .prologue
-    .line 123
+    .line 128
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->dismissLockScreen()V
 
     return-void
@@ -277,12 +277,12 @@
     .locals 1
 
     .prologue
-    .line 334
+    .line 345
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleLockScreen;->goToUnlockScreen()V
 
-    .line 335
+    .line 346
     return-void
 .end method
 
@@ -295,7 +295,7 @@
     .parameter "check"
 
     .prologue
-    .line 367
+    .line 378
     return-void
 .end method
 
@@ -304,7 +304,7 @@
     .parameter "value"
 
     .prologue
-    .line 372
+    .line 383
     return-void
 .end method
 
@@ -314,7 +314,7 @@
     .parameter "commandResult"
 
     .prologue
-    .line 339
+    .line 350
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->TAG:Ljava/lang/String;
@@ -340,14 +340,14 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 341
+    .line 352
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mIsRunning:Z
 
     if-nez v0, :cond_1
 
-    .line 342
+    .line 353
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->TAG:Ljava/lang/String;
@@ -357,23 +357,23 @@
 
     const-string v1, "mIsRunning is false"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 362
+    .line 373
     :cond_0
     :goto_0
     return-void
 
-    .line 346
+    .line 357
     :cond_1
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->wakeUpTerminateVerify()V
 
-    .line 349
+    .line 360
     const/4 v0, -0x3
 
     if-ne p1, v0, :cond_2
 
-    .line 350
+    .line 361
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->TAG:Ljava/lang/String;
@@ -383,11 +383,11 @@
 
     const-string v1, "OnVerifyResult() verify cancel result returned"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 352
+    .line 363
     :cond_2
     const/16 v0, -0xa
 
@@ -397,7 +397,7 @@
 
     if-ne p1, v0, :cond_4
 
-    .line 353
+    .line 364
     :cond_3
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
@@ -408,17 +408,17 @@
 
     const-string v1, "OnVerifyResult() failed due to data file exception"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 355
+    .line 366
     :cond_4
     const/16 v0, -0xc
 
     if-ne p1, v0, :cond_5
 
-    .line 356
+    .line 367
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleLockScreen;->TAG:Ljava/lang/String;
@@ -428,20 +428,20 @@
 
     const-string v1, "OnVerifyResult() voice recognition failed"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 357
+    .line 368
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->setVoiceRecognitionFailCue()V
 
     goto :goto_0
 
-    .line 359
+    .line 370
     :cond_5
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_0
 
-    .line 360
+    .line 371
     invoke-virtual {p0, p2}, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->launch(S)V
 
     goto :goto_0
@@ -451,7 +451,7 @@
     .locals 1
 
     .prologue
-    .line 286
+    .line 297
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mIsSupportMultipleWakeUp:Z
 
     return v0
@@ -462,7 +462,7 @@
     .parameter "cmd"
 
     .prologue
-    .line 319
+    .line 330
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v2, 0x7
@@ -471,16 +471,16 @@
 
     move-result-object v0
 
-    .line 320
+    .line 331
     .local v0, msg:Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->arg1:I
 
-    .line 321
+    .line 332
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 322
+    .line 333
     return-void
 .end method
 
@@ -488,14 +488,14 @@
     .locals 2
 
     .prologue
-    .line 315
+    .line 326
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x6
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 316
+    .line 327
     return-void
 .end method
 
@@ -503,63 +503,63 @@
     .locals 2
 
     .prologue
-    .line 274
+    .line 285
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 275
+    .line 286
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 276
+    .line 287
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 277
+    .line 288
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 278
+    .line 289
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x5
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 279
+    .line 290
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x6
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 280
+    .line 291
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x7
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 281
+    .line 292
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 283
+    .line 294
     return-void
 .end method
 
@@ -567,23 +567,23 @@
     .locals 1
 
     .prologue
-    .line 151
+    .line 156
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
-    .line 153
+    .line 158
     new-instance v0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread$1;-><init>(Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
-    .line 267
+    .line 278
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->wakeUpCreate()V
 
-    .line 269
+    .line 280
     invoke-static {}, Landroid/os/Looper;->loop()V
 
-    .line 271
+    .line 282
     return-void
 .end method
 
@@ -591,12 +591,12 @@
     .locals 1
 
     .prologue
-    .line 327
+    .line 338
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreen;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/CircleLockScreen;->setVoiceRecognitionFailed()V
 
-    .line 329
+    .line 340
     return-void
 .end method
 
@@ -604,14 +604,14 @@
     .locals 2
 
     .prologue
-    .line 290
+    .line 301
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 291
+    .line 302
     return-void
 .end method
 
@@ -619,14 +619,14 @@
     .locals 2
 
     .prologue
-    .line 311
+    .line 322
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x5
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 312
+    .line 323
     return-void
 .end method
 
@@ -634,14 +634,14 @@
     .locals 2
 
     .prologue
-    .line 294
+    .line 305
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 295
+    .line 306
     return-void
 .end method
 
@@ -649,14 +649,14 @@
     .locals 2
 
     .prologue
-    .line 298
+    .line 309
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 299
+    .line 310
     return-void
 .end method
 
@@ -664,14 +664,14 @@
     .locals 2
 
     .prologue
-    .line 302
+    .line 313
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 303
+    .line 314
     return-void
 .end method
 
@@ -680,14 +680,14 @@
     .parameter "delayMillis"
 
     .prologue
-    .line 306
+    .line 317
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1, p1, p2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 307
+    .line 318
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreen$MultipleWakeUpVoiceEngineThread;->mVThreadHandler:Landroid/os/Handler;
 
     const/16 v1, 0x8
@@ -698,6 +698,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 308
+    .line 319
     return-void
 .end method

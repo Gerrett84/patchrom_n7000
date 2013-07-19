@@ -82,7 +82,7 @@
     .parameter "inst"
 
     .prologue
-    .line 250
+    .line 258
     invoke-static {}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;->values()[Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;
 
     move-result-object v0
@@ -99,28 +99,28 @@
 
     aget-object v1, v0, v2
 
-    .line 251
+    .line 259
     .local v1, i:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;
     iget-byte v4, v1, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;->value:B
 
     if-ne v4, p1, :cond_0
 
-    .line 252
+    .line 260
     const/4 v4, 0x1
 
-    .line 256
+    .line 264
     .end local v1           #i:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;
     :goto_1
     return v4
 
-    .line 250
+    .line 258
     .restart local v1       #i:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 256
+    .line 264
     .end local v1           #i:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;
     :cond_1
     const/4 v4, 0x0
@@ -133,7 +133,7 @@
     .parameter "type"
 
     .prologue
-    .line 267
+    .line 275
     invoke-static {}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$LIB_TYPE;->values()[Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$LIB_TYPE;
 
     move-result-object v0
@@ -150,28 +150,28 @@
 
     aget-object v1, v0, v2
 
-    .line 268
+    .line 276
     .local v1, i:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$LIB_TYPE;
     iget-byte v4, v1, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$LIB_TYPE;->value:B
 
     if-ne v4, p1, :cond_0
 
-    .line 269
+    .line 277
     const/4 v4, 0x1
 
-    .line 273
+    .line 281
     .end local v1           #i:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$LIB_TYPE;
     :goto_1
     return v4
 
-    .line 267
+    .line 275
     .restart local v1       #i:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$LIB_TYPE;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 273
+    .line 281
     .end local v1           #i:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$LIB_TYPE;
     :cond_1
     const/4 v4, 0x0
@@ -186,21 +186,21 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 195
+    .line 203
     array-length v1, p1
 
     if-gtz v1, :cond_0
 
-    .line 196
+    .line 204
     const-string v1, "Packet array length is zero"
 
     invoke-static {v1}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
 
-    .line 202
+    .line 210
     :goto_0
     return v0
 
-    .line 198
+    .line 206
     :cond_0
     array-length v1, p1
 
@@ -208,14 +208,14 @@
 
     if-le v1, v2, :cond_1
 
-    .line 199
+    .line 207
     const-string v1, "Packet size overflow"
 
     invoke-static {v1}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 202
+    .line 210
     :cond_1
     const/4 v0, 0x1
 
@@ -272,53 +272,37 @@
     .parameter "packet"
 
     .prologue
-    const/4 v7, 0x0
-
-    .line 137
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "buffer size = "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    array-length v9, p1
-
-    invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v8}, Landroid/hardware/contextaware/utilbundle/CALogger;->info(Ljava/lang/String;)V
+    const/4 v8, 0x0
 
     .line 139
     invoke-direct {p0, p1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProvider;->checkPacketSize([B)Z
 
-    move-result v8
+    move-result v9
 
-    if-nez v8, :cond_0
+    if-nez v9, :cond_0
 
     .line 140
-    const-string v8, "Packet length error"
+    const-string v9, "Packet length error"
 
-    invoke-static {v8}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
+    invoke-static {v9}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
 
-    .line 173
+    .line 181
     :goto_0
-    return v7
+    return v8
 
     .line 144
     :cond_0
+    new-instance v6, Ljava/lang/StringBuffer;
+
+    invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
+
+    .line 145
+    .local v6, str:Ljava/lang/StringBuffer;
+    const-string v9, "input = "
+
+    invoke-virtual {v6, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .line 146
     move-object v0, p1
 
     .local v0, arr$:[B
@@ -333,131 +317,121 @@
 
     aget-byte v4, v0, v2
 
-    .line 145
+    .line 147
     .local v4, k:B
-    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    .line 148
+    const-string v9, ", "
 
-    const-string v9, "input : "
+    invoke-virtual {v6, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v8}, Landroid/hardware/contextaware/utilbundle/CALogger;->info(Ljava/lang/String;)V
-
-    .line 144
+    .line 146
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 148
+    .line 150
     .end local v4           #k:B
     :cond_1
+    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v9}, Landroid/hardware/contextaware/utilbundle/CALogger;->info(Ljava/lang/String;)V
+
+    .line 156
     const/4 v1, 0x0
 
     .local v1, i:I
     :cond_2
-    array-length v8, p1
+    array-length v9, p1
 
-    if-ge v1, v8, :cond_6
+    if-ge v1, v9, :cond_6
 
-    .line 149
-    array-length v8, p1
+    .line 157
+    array-length v9, p1
 
-    sub-int/2addr v8, v1
+    sub-int/2addr v9, v1
 
-    add-int/lit8 v8, v8, -0x2
+    add-int/lit8 v9, v9, -0x2
 
-    if-gez v8, :cond_3
-
-    .line 150
-    const-string v8, "Header length error"
-
-    invoke-static {v8}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 154
-    :cond_3
-    aget-byte v8, p1, v1
-
-    invoke-direct {p0, v8}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProvider;->checkInstruction(B)Z
-
-    move-result v8
-
-    if-nez v8, :cond_4
-
-    .line 155
-    const-string v8, "Instuction parsing error"
-
-    invoke-static {v8}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
-
-    goto :goto_0
+    if-gez v9, :cond_3
 
     .line 158
+    const-string v9, "Header length error"
+
+    invoke-static {v9}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 162
+    :cond_3
+    aget-byte v9, p1, v1
+
+    invoke-direct {p0, v9}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProvider;->checkInstruction(B)Z
+
+    move-result v9
+
+    if-nez v9, :cond_4
+
+    .line 163
+    const-string v9, "Instuction parsing error"
+
+    invoke-static {v9}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 166
     :cond_4
     aget-byte v3, p1, v1
 
-    .line 160
+    .line 168
     .local v3, inst:B
     add-int/lit8 v1, v1, 0x1
 
-    aget-byte v8, p1, v1
+    aget-byte v9, p1, v1
 
-    invoke-direct {p0, v8}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProvider;->checkLibType(B)Z
+    invoke-direct {p0, v9}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProvider;->checkLibType(B)Z
 
-    move-result v8
+    move-result v9
 
-    if-nez v8, :cond_5
+    if-nez v9, :cond_5
 
-    .line 161
-    const-string v8, "Type parsing error"
+    .line 169
+    const-string v9, "Type parsing error"
 
-    invoke-static {v8}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
+    invoke-static {v9}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 164
+    .line 172
     :cond_5
-    aget-byte v6, p1, v1
+    aget-byte v7, p1, v1
 
-    .line 166
-    .local v6, type:B
+    .line 174
+    .local v7, type:B
     add-int/lit8 v1, v1, 0x1
 
-    invoke-direct {p0, v3, v6, p1, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProvider;->parseData(BB[BI)I
+    invoke-direct {p0, v3, v7, p1, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProvider;->parseData(BB[BI)I
 
     move-result v1
 
-    .line 167
+    .line 175
     if-gez v1, :cond_2
 
-    .line 168
-    const-string v8, "Data parsing error"
+    .line 176
+    const-string v9, "Data parsing error"
 
-    invoke-static {v8}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
+    invoke-static {v9}, Landroid/hardware/contextaware/utilbundle/CALogger;->error(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 173
+    .line 181
     .end local v3           #inst:B
-    .end local v6           #type:B
+    .end local v7           #type:B
     :cond_6
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     goto :goto_0
 .end method
@@ -472,10 +446,10 @@
     .prologue
     const/4 v5, -0x1
 
-    .line 219
+    .line 227
     move v4, p4
 
-    .line 221
+    .line 229
     .local v4, tmpNext:I
     sget-object v6, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;->INST_NOTI:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;
 
@@ -503,7 +477,7 @@
 
     if-eqz v6, :cond_1
 
-    .line 224
+    .line 232
     iget-object v5, p0, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProvider;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     sget-object v6, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$LIB_TYPE;->TYPE_NOTI_POWER:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$LIB_TYPE;
@@ -522,12 +496,12 @@
 
     move-result v5
 
-    .line 239
+    .line 247
     :cond_0
     :goto_0
     return v5
 
-    .line 228
+    .line 236
     :cond_1
     sget-object v6, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;->INST_LIBRARY:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$INSTRUCTION;
 
@@ -535,7 +509,7 @@
 
     if-ne p1, v6, :cond_0
 
-    .line 232
+    .line 240
     invoke-static {}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->values()[Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
     move-result-object v0
@@ -552,7 +526,7 @@
 
     aget-object v1, v0, v2
 
-    .line 233
+    .line 241
     .local v1, i:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
     aget-byte v6, p3, v4
 
@@ -572,7 +546,7 @@
 
     if-eqz v6, :cond_2
 
-    .line 235
+    .line 243
     iget-object v5, p0, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProvider;->mParserMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->toString()Ljava/lang/String;
@@ -593,7 +567,7 @@
 
     goto :goto_0
 
-    .line 232
+    .line 240
     :cond_2
     add-int/lit8 v2, v2, 0x1
 
@@ -650,7 +624,7 @@
     .parameter "packet"
 
     .prologue
-    .line 184
+    .line 192
     invoke-direct {p0, p1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProvider;->parse([B)Z
 
     move-result v0

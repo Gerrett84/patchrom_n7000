@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 191
+    .line 198
     iput-object p1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$3;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 195
+    .line 202
     invoke-static {}, Lcom/sec/android/app/fm/DeleteFileActivity;->access$200()Ljava/lang/String;
 
     move-result-object v4
@@ -76,9 +76,9 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 196
+    .line 203
     iget-object v4, p0, Lcom/sec/android/app/fm/DeleteFileActivity$3;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mCheckBoxSelectAll:Landroid/widget/CheckBox;
@@ -92,7 +92,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 197
+    .line 204
     iget-object v4, p0, Lcom/sec/android/app/fm/DeleteFileActivity$3;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mSelectedItems:Ljava/util/HashMap;
@@ -102,7 +102,7 @@
 
     invoke-virtual {v4}, Ljava/util/HashMap;->clear()V
 
-    .line 213
+    .line 220
     :goto_0
     iget-object v4, p0, Lcom/sec/android/app/fm/DeleteFileActivity$3;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
@@ -113,22 +113,22 @@
 
     invoke-virtual {v4}, Landroid/widget/CheckBox;->performClick()Z
 
-    .line 214
+    .line 221
     iget-object v4, p0, Lcom/sec/android/app/fm/DeleteFileActivity$3;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     iget-object v4, v4, Lcom/sec/android/app/fm/RecordedFileListActivity;->mAdapter:Landroid/widget/CursorAdapter;
 
     invoke-virtual {v4}, Landroid/widget/CursorAdapter;->notifyDataSetChanged()V
 
-    .line 215
+    .line 222
     iget-object v4, p0, Lcom/sec/android/app/fm/DeleteFileActivity$3;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     invoke-virtual {v4}, Lcom/sec/android/app/fm/DeleteFileActivity;->invalidateOptionsMenu()V
 
-    .line 216
+    .line 223
     return-void
 
-    .line 199
+    .line 206
     :cond_0
     iget-object v4, p0, Lcom/sec/android/app/fm/DeleteFileActivity$3;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
@@ -136,11 +136,11 @@
 
     move-result-object v0
 
-    .line 201
+    .line 208
     .local v0, c:Landroid/database/Cursor;
     const-wide/16 v1, -0x1
 
-    .line 203
+    .line 210
     .local v1, id:J
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -148,7 +148,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 204
+    .line 211
     :goto_1
     invoke-interface {v0}, Landroid/database/Cursor;->isAfterLast()Z
 
@@ -156,7 +156,7 @@
 
     if-nez v4, :cond_1
 
-    .line 205
+    .line 212
     const-string v4, "_id"
 
     invoke-interface {v0, v4}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -167,7 +167,7 @@
 
     move-result-wide v1
 
-    .line 206
+    .line 213
     const-string v4, "_data"
 
     invoke-interface {v0, v4}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -178,7 +178,7 @@
 
     move-result-object v3
 
-    .line 207
+    .line 214
     .local v3, tag:Ljava/lang/String;
     iget-object v4, p0, Lcom/sec/android/app/fm/DeleteFileActivity$3;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
@@ -193,12 +193,12 @@
 
     invoke-virtual {v4, v5, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 208
+    .line 215
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
     goto :goto_1
 
-    .line 211
+    .line 218
     .end local v3           #tag:Ljava/lang/String;
     :cond_1
     invoke-interface {v0}, Landroid/database/Cursor;->close()V

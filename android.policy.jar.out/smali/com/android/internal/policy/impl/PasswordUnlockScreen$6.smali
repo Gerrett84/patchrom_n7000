@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 276
+    .line 291
     iput-object p1, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen$6;->this$0:Lcom/android/internal/policy/impl/PasswordUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 278
+    .line 293
     iget-object v0, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen$6;->this$0:Lcom/android/internal/policy/impl/PasswordUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/PasswordUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -52,7 +52,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 279
+    .line 294
     iget-object v0, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen$6;->this$0:Lcom/android/internal/policy/impl/PasswordUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/PasswordUnlockScreen;->imm:Landroid/view/inputmethod/InputMethodManager;
@@ -62,6 +62,6 @@
 
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->showInputMethodPicker()V
 
-    .line 280
+    .line 295
     return-void
 .end method

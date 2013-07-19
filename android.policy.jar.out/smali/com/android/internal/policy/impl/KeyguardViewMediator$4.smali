@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1214
+    .line 1252
     iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -43,16 +43,16 @@
 
     const/4 v0, 0x1
 
-    .line 1217
+    .line 1255
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 1260
+    .line 1298
     :goto_0
     return-void
 
-    .line 1219
+    .line 1257
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -63,7 +63,7 @@
 
     goto :goto_0
 
-    .line 1222
+    .line 1260
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -72,7 +72,7 @@
 
     goto :goto_0
 
-    .line 1225
+    .line 1263
     :pswitch_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -81,7 +81,7 @@
 
     goto :goto_0
 
-    .line 1228
+    .line 1266
     :pswitch_3
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -90,7 +90,7 @@
 
     goto :goto_0
 
-    .line 1231
+    .line 1269
     :pswitch_4
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -99,7 +99,7 @@
 
     goto :goto_0
 
-    .line 1234
+    .line 1272
     :pswitch_5
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -108,7 +108,7 @@
 
     goto :goto_0
 
-    .line 1237
+    .line 1275
     :pswitch_6
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -121,7 +121,7 @@
 
     goto :goto_0
 
-    .line 1240
+    .line 1278
     :pswitch_7
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -132,7 +132,7 @@
 
     goto :goto_0
 
-    .line 1243
+    .line 1281
     :pswitch_8
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -151,7 +151,7 @@
 
     goto :goto_1
 
-    .line 1246
+    .line 1284
     :pswitch_9
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -160,7 +160,7 @@
 
     goto :goto_0
 
-    .line 1249
+    .line 1287
     :pswitch_a
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -168,7 +168,7 @@
 
     goto :goto_0
 
-    .line 1252
+    .line 1290
     :pswitch_b
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -187,20 +187,20 @@
 
     goto :goto_2
 
-    .line 1255
+    .line 1293
     :pswitch_c
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     monitor-enter v1
 
-    .line 1256
+    .line 1294
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->doKeyguardLocked()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$700(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
 
-    .line 1257
+    .line 1295
     monitor-exit v1
 
     goto :goto_0
@@ -214,7 +214,7 @@
 
     throw v0
 
-    .line 1217
+    .line 1255
     nop
 
     :pswitch_data_0

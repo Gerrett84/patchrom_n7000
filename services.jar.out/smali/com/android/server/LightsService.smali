@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/LightsService$SvcLEDReceiver;,
+        Lcom/android/server/LightsService$ForcedSvcLEDOnTask;,
         Lcom/android/server/LightsService$SvcLEDTask;,
         Lcom/android/server/LightsService$Light;
     }
@@ -112,6 +113,8 @@
 
 .field private static mSvcLedState:I
 
+.field private static final model:Ljava/lang/String;
+
 
 # instance fields
 .field private isHappyNight:Z
@@ -121,6 +124,8 @@
 .field private mAlarmManagerForSvcLED:Landroid/app/AlarmManager;
 
 .field private final mContext:Landroid/content/Context;
+
+.field private final mForcedSvcLEDOnTask:Lcom/android/server/LightsService$ForcedSvcLEDOnTask;
 
 .field private mH:Landroid/os/Handler;
 
@@ -160,33 +165,52 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 114
+    .line 116
     const/4 v0, 0x4
 
     new-array v0, v0, [I
 
     sput-object v0, Lcom/android/server/LightsService;->mSVCLEDPattern:[I
 
-    .line 119
+    .line 121
     sput v1, Lcom/android/server/LightsService;->mSvcLedState:I
 
-    .line 120
+    .line 122
     sput v1, Lcom/android/server/LightsService;->mPrevSvcLedState:I
 
-    .line 121
+    .line 123
     sput v1, Lcom/android/server/LightsService;->mSvcLedColor:I
 
-    .line 122
+    .line 124
     sput v1, Lcom/android/server/LightsService;->mSvcLedMode:I
 
-    .line 123
+    .line 125
     sput v1, Lcom/android/server/LightsService;->mSvcLedOnMS:I
 
-    .line 124
+    .line 126
     sput v1, Lcom/android/server/LightsService;->mSvcLedOffMS:I
 
-    .line 125
+    .line 127
     sput-boolean v1, Lcom/android/server/LightsService;->mForceMode:Z
+
+    .line 140
+    const-string v0, "ro.product.model"
+
+    const-string v1, "NONE"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/server/LightsService;->model:Ljava/lang/String;
 
     return-void
 .end method
@@ -202,84 +226,91 @@
 
     const/4 v4, 0x0
 
-    .line 283
+    .line 294
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 73
+    .line 74
     new-instance v2, Lcom/android/server/LightsService$SvcLEDTask;
 
     invoke-direct {v2, p0, v5}, Lcom/android/server/LightsService$SvcLEDTask;-><init>(Lcom/android/server/LightsService;Lcom/android/server/LightsService$1;)V
 
     iput-object v2, p0, Lcom/android/server/LightsService;->mSvcLEDTask:Lcom/android/server/LightsService$SvcLEDTask;
 
-    .line 74
+    .line 75
+    new-instance v2, Lcom/android/server/LightsService$ForcedSvcLEDOnTask;
+
+    invoke-direct {v2, p0, v5}, Lcom/android/server/LightsService$ForcedSvcLEDOnTask;-><init>(Lcom/android/server/LightsService;Lcom/android/server/LightsService$1;)V
+
+    iput-object v2, p0, Lcom/android/server/LightsService;->mForcedSvcLEDOnTask:Lcom/android/server/LightsService$ForcedSvcLEDOnTask;
+
+    .line 76
     iput-boolean v4, p0, Lcom/android/server/LightsService;->mInitCompleteForSvcLED:Z
 
-    .line 77
+    .line 79
     iput-boolean v4, p0, Lcom/android/server/LightsService;->mUseLEDAutoBrightnessEnabled:Z
 
-    .line 78
+    .line 80
     iput-boolean v4, p0, Lcom/android/server/LightsService;->isHappyNight:Z
 
-    .line 82
+    .line 84
     const v2, 0x927c0
 
     iput v2, p0, Lcom/android/server/LightsService;->mUpdateSvcLEDDelay:I
 
-    .line 138
+    .line 142
     new-array v2, v6, [Lcom/android/server/LightsService$Light;
 
     iput-object v2, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
 
-    .line 248
+    .line 259
     new-instance v2, Lcom/android/server/LightsService$1;
 
     invoke-direct {v2, p0}, Lcom/android/server/LightsService$1;-><init>(Lcom/android/server/LightsService;)V
 
     iput-object v2, p0, Lcom/android/server/LightsService;->mLegacyFlashlightHack:Landroid/os/IHardwareService$Stub;
 
-    .line 339
+    .line 350
     new-instance v2, Lcom/android/server/LightsService$3;
 
     invoke-direct {v2, p0}, Lcom/android/server/LightsService$3;-><init>(Lcom/android/server/LightsService;)V
 
     iput-object v2, p0, Lcom/android/server/LightsService;->mH:Landroid/os/Handler;
 
-    .line 361
+    .line 372
     iput-boolean v4, p0, Lcom/android/server/LightsService;->isLightSensorEnabled:Z
 
-    .line 376
+    .line 387
     new-instance v2, Lcom/android/server/LightsService$4;
 
     invoke-direct {v2, p0}, Lcom/android/server/LightsService$4;-><init>(Lcom/android/server/LightsService;)V
 
     iput-object v2, p0, Lcom/android/server/LightsService;->mLightListener:Landroid/hardware/SensorEventListener;
 
-    .line 285
+    .line 296
     invoke-static {}, Lcom/android/server/LightsService;->init_native()I
 
     move-result v2
 
     iput v2, p0, Lcom/android/server/LightsService;->mNativePointer:I
 
-    .line 286
+    .line 297
     iput-object p1, p0, Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
 
-    .line 288
+    .line 299
     const-string v2, "hardware"
 
     iget-object v3, p0, Lcom/android/server/LightsService;->mLegacyFlashlightHack:Landroid/os/IHardwareService$Stub;
 
     invoke-static {v2, v3}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    .line 290
+    .line 301
     const/4 v1, 0x0
 
     .local v1, i:I
     :goto_0
     if-ge v1, v6, :cond_0
 
-    .line 291
+    .line 302
     iget-object v2, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
 
     new-instance v3, Lcom/android/server/LightsService$Light;
@@ -288,16 +319,16 @@
 
     aput-object v3, v2, v1
 
-    .line 290
+    .line 301
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 295
+    .line 306
     :cond_0
     iput-boolean v4, p0, Lcom/android/server/LightsService;->mInitCompleteForSvcLED:Z
 
-    .line 296
+    .line 307
     new-instance v2, Lcom/android/server/LightsService$2;
 
     const-string v3, "mSvcLEDThread"
@@ -306,17 +337,17 @@
 
     iput-object v2, p0, Lcom/android/server/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
 
-    .line 313
+    .line 324
     iget-object v2, p0, Lcom/android/server/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v2}, Landroid/os/HandlerThread;->start()V
 
-    .line 314
+    .line 325
     iget-object v3, p0, Lcom/android/server/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
 
     monitor-enter v3
 
-    .line 315
+    .line 326
     :goto_1
     :try_start_0
     iget-boolean v2, p0, Lcom/android/server/LightsService;->mInitCompleteForSvcLED:Z
@@ -325,7 +356,7 @@
 
     if-nez v2, :cond_1
 
-    .line 317
+    .line 328
     :try_start_1
     iget-object v2, p0, Lcom/android/server/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
 
@@ -336,31 +367,31 @@
 
     goto :goto_1
 
-    .line 318
+    .line 329
     :catch_0
     move-exception v2
 
     goto :goto_1
 
-    .line 322
+    .line 333
     :cond_1
     :try_start_2
     monitor-exit v3
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 325
+    .line 336
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 326
+    .line 337
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v2, "com.android.server.LightsService.action.UPDATE_SVC_LED"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 327
+    .line 338
     iget-object v2, p0, Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
 
     new-instance v3, Lcom/android/server/LightsService$SvcLEDReceiver;
@@ -369,10 +400,10 @@
 
     invoke-virtual {v2, v3, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 328
+    .line 339
     return-void
 
-    .line 322
+    .line 333
     .end local v0           #filter:Landroid/content/IntentFilter;
     :catchall_0
     move-exception v2
@@ -385,41 +416,50 @@
     throw v2
 .end method
 
-.method static synthetic access$100(Lcom/android/server/LightsService;)Z
-    .locals 1
+.method static synthetic access$1000(Lcom/android/server/LightsService;I)V
+    .locals 0
     .parameter "x0"
+    .parameter "x1"
 
     .prologue
-    .line 52
-    iget-boolean v0, p0, Lcom/android/server/LightsService;->mUseLEDAutoBrightnessEnabled:Z
+    .line 53
+    invoke-direct {p0, p1}, Lcom/android/server/LightsService;->clearSvcLedStateLocked(I)V
+
+    return-void
+.end method
+
+.method static synthetic access$1100()I
+    .locals 1
+
+    .prologue
+    .line 53
+    sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
     return v0
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/LightsService;)I
+.method static synthetic access$1200()Z
+    .locals 1
+
+    .prologue
+    .line 53
+    sget-boolean v0, Lcom/android/server/LightsService;->mForceMode:Z
+
+    return v0
+.end method
+
+.method static synthetic access$1300(Lcom/android/server/LightsService;)I
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 52
+    .line 53
     iget v0, p0, Lcom/android/server/LightsService;->mNativePointer:I
 
     return v0
 .end method
 
-.method static synthetic access$102(Lcom/android/server/LightsService;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 52
-    iput-boolean p1, p0, Lcom/android/server/LightsService;->mUseLEDAutoBrightnessEnabled:Z
-
-    return p1
-.end method
-
-.method static synthetic access$1100(IIIIIII)V
+.method static synthetic access$1400(IIIIIII)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -430,198 +470,191 @@
     .parameter "x6"
 
     .prologue
-    .line 52
+    .line 53
     invoke-static/range {p0 .. p6}, Lcom/android/server/LightsService;->setLight_native(IIIIIII)V
 
     return-void
 .end method
 
-.method static synthetic access$1200(Lcom/android/server/LightsService;)Landroid/content/Context;
+.method static synthetic access$1500(Lcom/android/server/LightsService;)Landroid/content/Context;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 52
+    .line 53
     iget-object v0, p0, Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$1402(Lcom/android/server/LightsService;Z)Z
+.method static synthetic access$1702(Lcom/android/server/LightsService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 52
+    .line 53
     iput-boolean p1, p0, Lcom/android/server/LightsService;->mInitCompleteForSvcLED:Z
 
     return p1
 .end method
 
-.method static synthetic access$1500(Lcom/android/server/LightsService;)Z
+.method static synthetic access$1800(Lcom/android/server/LightsService;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 52
+    .line 53
     iget-boolean v0, p0, Lcom/android/server/LightsService;->mUseSoftwareAutoBrightness:Z
 
     return v0
 .end method
 
-.method static synthetic access$1502(Lcom/android/server/LightsService;Z)Z
+.method static synthetic access$1802(Lcom/android/server/LightsService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 52
+    .line 53
     iput-boolean p1, p0, Lcom/android/server/LightsService;->mUseSoftwareAutoBrightness:Z
 
     return p1
 .end method
 
-.method static synthetic access$1800(Lcom/android/server/LightsService;Z)V
+.method static synthetic access$200(Lcom/android/server/LightsService;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 53
+    iget-boolean v0, p0, Lcom/android/server/LightsService;->mUseLEDAutoBrightnessEnabled:Z
+
+    return v0
+.end method
+
+.method static synthetic access$202(Lcom/android/server/LightsService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 52
+    .line 53
+    iput-boolean p1, p0, Lcom/android/server/LightsService;->mUseLEDAutoBrightnessEnabled:Z
+
+    return p1
+.end method
+
+.method static synthetic access$2100(Lcom/android/server/LightsService;Z)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 53
     invoke-direct {p0, p1}, Lcom/android/server/LightsService;->enableSvcLEDLightSensorLocked(Z)V
 
     return-void
 .end method
 
-.method static synthetic access$1900(Lcom/android/server/LightsService;I)V
+.method static synthetic access$2200(Lcom/android/server/LightsService;I)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 52
+    .line 53
     invoke-direct {p0, p1}, Lcom/android/server/LightsService;->setSvcLEDBrightnessLocked(I)V
 
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/server/LightsService;)Landroid/os/HandlerThread;
+.method static synthetic access$2300(Lcom/android/server/LightsService;)Landroid/app/AlarmManager;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 52
-    iget-object v0, p0, Lcom/android/server/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2000(Lcom/android/server/LightsService;)Landroid/app/AlarmManager;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 52
+    .line 53
     iget-object v0, p0, Lcom/android/server/LightsService;->mAlarmManagerForSvcLED:Landroid/app/AlarmManager;
 
     return-object v0
 .end method
 
-.method static synthetic access$2100(Lcom/android/server/LightsService;)Landroid/app/PendingIntent;
+.method static synthetic access$2400(Lcom/android/server/LightsService;)Landroid/app/PendingIntent;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 52
+    .line 53
     iget-object v0, p0, Lcom/android/server/LightsService;->mUpdateSvcLEDPendingIntent:Landroid/app/PendingIntent;
 
     return-object v0
 .end method
 
-.method static synthetic access$2200(Lcom/android/server/LightsService;)I
+.method static synthetic access$2500(Lcom/android/server/LightsService;)I
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 52
+    .line 53
     iget v0, p0, Lcom/android/server/LightsService;->mUpdateSvcLEDDelay:I
 
     return v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/server/LightsService;)Z
+.method static synthetic access$2600(Lcom/android/server/LightsService;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 52
+    .line 53
     iget-boolean v0, p0, Lcom/android/server/LightsService;->isHappyNight:Z
 
     return v0
 .end method
 
-.method static synthetic access$2302(Lcom/android/server/LightsService;Z)Z
+.method static synthetic access$2602(Lcom/android/server/LightsService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 52
+    .line 53
     iput-boolean p1, p0, Lcom/android/server/LightsService;->isHappyNight:Z
 
     return p1
 .end method
 
-.method static synthetic access$300(Lcom/android/server/LightsService;)Lcom/android/server/LightsService$SvcLEDTask;
+.method static synthetic access$300()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 53
+    sget-object v0, Lcom/android/server/LightsService;->model:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$400(Lcom/android/server/LightsService;)Landroid/os/HandlerThread;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 52
+    .line 53
+    iget-object v0, p0, Lcom/android/server/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
+
+    return-object v0
+.end method
+
+.method static synthetic access$500(Lcom/android/server/LightsService;)Lcom/android/server/LightsService$SvcLEDTask;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 53
     iget-object v0, p0, Lcom/android/server/LightsService;->mSvcLEDTask:Lcom/android/server/LightsService$SvcLEDTask;
 
     return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/server/LightsService;)Landroid/os/Handler;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/android/server/LightsService;->mSvcLEDHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic access$402(Lcom/android/server/LightsService;Landroid/os/Handler;)Landroid/os/Handler;
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 52
-    iput-object p1, p0, Lcom/android/server/LightsService;->mSvcLEDHandler:Landroid/os/Handler;
-
-    return-object p1
-.end method
-
-.method static synthetic access$500(Lcom/android/server/LightsService;IIIIIZ)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-    .parameter "x4"
-    .parameter "x5"
-    .parameter "x6"
-
-    .prologue
-    .line 52
-    invoke-direct/range {p0 .. p6}, Lcom/android/server/LightsService;->setSvcLedStateLocked(IIIIIZ)V
-
-    return-void
 .end method
 
 .method static synthetic access$600(Lcom/android/server/LightsService;)Landroid/os/Handler;
@@ -629,42 +662,61 @@
     .parameter "x0"
 
     .prologue
-    .line 52
-    iget-object v0, p0, Lcom/android/server/LightsService;->mH:Landroid/os/Handler;
+    .line 53
+    iget-object v0, p0, Lcom/android/server/LightsService;->mSvcLEDHandler:Landroid/os/Handler;
 
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/server/LightsService;I)V
+.method static synthetic access$602(Lcom/android/server/LightsService;Landroid/os/Handler;)Landroid/os/Handler;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 52
-    invoke-direct {p0, p1}, Lcom/android/server/LightsService;->clearSvcLedStateLocked(I)V
+    .line 53
+    iput-object p1, p0, Lcom/android/server/LightsService;->mSvcLEDHandler:Landroid/os/Handler;
+
+    return-object p1
+.end method
+
+.method static synthetic access$700(Lcom/android/server/LightsService;IIIIIZ)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+    .parameter "x2"
+    .parameter "x3"
+    .parameter "x4"
+    .parameter "x5"
+    .parameter "x6"
+
+    .prologue
+    .line 53
+    invoke-direct/range {p0 .. p6}, Lcom/android/server/LightsService;->setSvcLedStateLocked(IIIIIZ)V
 
     return-void
 .end method
 
-.method static synthetic access$800()I
+.method static synthetic access$800(Lcom/android/server/LightsService;)Lcom/android/server/LightsService$ForcedSvcLEDOnTask;
     .locals 1
+    .parameter "x0"
 
     .prologue
-    .line 52
-    sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
+    .line 53
+    iget-object v0, p0, Lcom/android/server/LightsService;->mForcedSvcLEDOnTask:Lcom/android/server/LightsService$ForcedSvcLEDOnTask;
 
-    return v0
+    return-object v0
 .end method
 
-.method static synthetic access$900()Z
+.method static synthetic access$900(Lcom/android/server/LightsService;)Landroid/os/Handler;
     .locals 1
+    .parameter "x0"
 
     .prologue
-    .line 52
-    sget-boolean v0, Lcom/android/server/LightsService;->mForceMode:Z
+    .line 53
+    iget-object v0, p0, Lcom/android/server/LightsService;->mH:Landroid/os/Handler;
 
-    return v0
+    return-object v0
 .end method
 
 .method private clearSvcLedStateLocked(I)V
@@ -674,7 +726,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 536
+    .line 564
     const/4 v3, -0x1
 
     move-object v0, p0
@@ -689,7 +741,7 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/android/server/LightsService;->setSvcLedStateLocked(IIIIIZ)V
 
-    .line 537
+    .line 565
     return-void
 .end method
 
@@ -698,15 +750,15 @@
     .parameter "enable"
 
     .prologue
-    .line 363
+    .line 374
     iget-boolean v0, p0, Lcom/android/server/LightsService;->mUseLEDAutoBrightnessEnabled:Z
 
     if-eqz v0, :cond_0
 
-    .line 364
+    .line 375
     if-eqz p1, :cond_1
 
-    .line 365
+    .line 376
     iget-object v0, p0, Lcom/android/server/LightsService;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lcom/android/server/LightsService;->mLightListener:Landroid/hardware/SensorEventListener;
@@ -717,17 +769,17 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
-    .line 366
+    .line 377
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/LightsService;->isLightSensorEnabled:Z
 
-    .line 373
+    .line 384
     :cond_0
     :goto_0
     return-void
 
-    .line 368
+    .line 379
     :cond_1
     iget-object v0, p0, Lcom/android/server/LightsService;->mSensorManager:Landroid/hardware/SensorManager;
 
@@ -735,14 +787,14 @@
 
     invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
 
-    .line 369
+    .line 380
     iget-object v0, p0, Lcom/android/server/LightsService;->mSvcLEDHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/server/LightsService;->mSvcLEDTask:Lcom/android/server/LightsService$SvcLEDTask;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 370
+    .line 381
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/LightsService;->isLightSensorEnabled:Z
@@ -756,10 +808,10 @@
     .parameter "value"
 
     .prologue
-    .line 510
+    .line 538
     const/4 v2, 0x0
 
-    .line 512
+    .line 540
     .local v2, out:Ljava/io/FileOutputStream;
     const-string v4, "LightsService"
 
@@ -793,7 +845,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 516
+    .line 544
     :try_start_0
     new-instance v3, Ljava/io/FileOutputStream;
 
@@ -806,7 +858,7 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 522
+    .line 550
     .end local v2           #out:Ljava/io/FileOutputStream;
     .local v3, out:Ljava/io/FileOutputStream;
     :try_start_1
@@ -820,24 +872,24 @@
 
     invoke-virtual {v3, v4}, Ljava/io/FileOutputStream;->write([B)V
 
-    .line 523
+    .line 551
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
 
     move-object v2, v3
 
-    .line 532
+    .line 560
     .end local v3           #out:Ljava/io/FileOutputStream;
     .restart local v2       #out:Ljava/io/FileOutputStream;
     :goto_0
     return-void
 
-    .line 517
+    .line 545
     :catch_0
     move-exception v0
 
-    .line 518
+    .line 546
     .local v0, e:Ljava/io/FileNotFoundException;
     :try_start_2
     invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
@@ -846,17 +898,17 @@
 
     goto :goto_0
 
-    .line 524
+    .line 552
     .end local v0           #e:Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v0
 
-    .line 525
+    .line 553
     .local v0, e:Ljava/io/IOException;
     :goto_1
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 527
+    .line 555
     :try_start_3
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_3
@@ -864,17 +916,17 @@
 
     goto :goto_0
 
-    .line 528
+    .line 556
     :catch_2
     move-exception v1
 
-    .line 529
+    .line 557
     .local v1, err:Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 524
+    .line 552
     .end local v0           #e:Ljava/io/IOException;
     .end local v1           #err:Ljava/lang/Exception;
     .end local v2           #out:Ljava/io/FileOutputStream;
@@ -911,18 +963,18 @@
 
     const/4 v5, 0x0
 
-    .line 465
+    .line 490
     const/4 v11, 0x0
 
-    .line 466
+    .line 491
     .local v11, priority:I
     const/4 v10, 0x1
 
-    .line 467
+    .line 492
     .local v10, operator:I
     const/4 v9, -0x1
 
-    .line 468
+    .line 493
     .local v9, mode:I
     const/4 v11, 0x0
 
@@ -931,35 +983,47 @@
 
     if-ge v11, v0, :cond_0
 
-    .line 469
+    .line 494
     sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
     shr-int/2addr v0, v11
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    .line 474
+    .line 499
     :cond_0
+    const-string v0, "SPH-D710"
+
+    sget-object v2, Lcom/android/server/LightsService;->model:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 500
     const-string v2, "/sys/class/sec/led/led_lowpower"
 
     const/16 v0, 0x14
 
-    if-ge p1, v0, :cond_2
+    if-ge p1, v0, :cond_3
 
     move v0, v1
 
     :goto_1
     invoke-static {v2, v0}, Lcom/android/server/LightsService;->fileWriteInt(Ljava/lang/String;I)V
 
-    .line 475
+    .line 503
+    :cond_1
     sput-boolean v1, Lcom/android/server/LightsService;->mForceMode:Z
 
-    .line 476
+    .line 504
     packed-switch v11, :pswitch_data_0
 
-    .line 502
+    .line 530
     iget-object v0, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
 
     const/4 v1, 0x5
@@ -975,28 +1039,28 @@
     move v8, v5
 
     #calls: Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
-    invoke-static/range {v3 .. v8}, Lcom/android/server/LightsService$Light;->access$2400(Lcom/android/server/LightsService$Light;IIIII)V
+    invoke-static/range {v3 .. v8}, Lcom/android/server/LightsService$Light;->access$2700(Lcom/android/server/LightsService$Light;IIIII)V
 
-    .line 506
+    .line 534
     :goto_2
     sput-boolean v5, Lcom/android/server/LightsService;->mForceMode:Z
 
-    .line 507
+    .line 535
     return-void
 
-    .line 468
-    :cond_1
+    .line 493
+    :cond_2
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     move v0, v5
 
-    .line 474
+    .line 500
     goto :goto_1
 
-    .line 478
+    .line 506
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
 
@@ -1011,11 +1075,11 @@
     sget v4, Lcom/android/server/LightsService;->mSvcLedOffMS:I
 
     #calls: Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
-    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2400(Lcom/android/server/LightsService$Light;IIIII)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2700(Lcom/android/server/LightsService$Light;IIIII)V
 
     goto :goto_2
 
-    .line 482
+    .line 510
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
 
@@ -1030,11 +1094,11 @@
     sget v4, Lcom/android/server/LightsService;->mSvcLedOffMS:I
 
     #calls: Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
-    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2400(Lcom/android/server/LightsService$Light;IIIII)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2700(Lcom/android/server/LightsService$Light;IIIII)V
 
     goto :goto_2
 
-    .line 486
+    .line 514
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
 
@@ -1049,11 +1113,11 @@
     sget v4, Lcom/android/server/LightsService;->mSvcLedOffMS:I
 
     #calls: Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
-    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2400(Lcom/android/server/LightsService$Light;IIIII)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2700(Lcom/android/server/LightsService$Light;IIIII)V
 
     goto :goto_2
 
-    .line 490
+    .line 518
     :pswitch_3
     iget-object v0, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
 
@@ -1068,11 +1132,11 @@
     sget v4, Lcom/android/server/LightsService;->mSvcLedOffMS:I
 
     #calls: Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
-    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2400(Lcom/android/server/LightsService$Light;IIIII)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2700(Lcom/android/server/LightsService$Light;IIIII)V
 
     goto :goto_2
 
-    .line 494
+    .line 522
     :pswitch_4
     iget-object v0, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
 
@@ -1087,11 +1151,11 @@
     sget v4, Lcom/android/server/LightsService;->mSvcLedOffMS:I
 
     #calls: Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
-    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2400(Lcom/android/server/LightsService$Light;IIIII)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2700(Lcom/android/server/LightsService$Light;IIIII)V
 
     goto :goto_2
 
-    .line 498
+    .line 526
     :pswitch_5
     iget-object v0, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
 
@@ -1106,11 +1170,11 @@
     sget v4, Lcom/android/server/LightsService;->mSvcLedOffMS:I
 
     #calls: Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
-    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2400(Lcom/android/server/LightsService$Light;IIIII)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->access$2700(Lcom/android/server/LightsService$Light;IIIII)V
 
     goto :goto_2
 
-    .line 476
+    .line 504
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1132,7 +1196,7 @@
     .parameter "set"
 
     .prologue
-    .line 541
+    .line 569
     const-string v1, "LightsService"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1197,25 +1261,25 @@
 
     invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 542
+    .line 570
     sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
     sput v0, Lcom/android/server/LightsService;->mPrevSvcLedState:I
 
-    .line 543
+    .line 571
     const/4 v0, 0x3
 
     if-ne p1, v0, :cond_7
 
-    .line 544
+    .line 572
     if-eqz p6, :cond_6
 
-    .line 545
+    .line 573
     const/16 v0, 0xa
 
     if-ne p3, v0, :cond_2
 
-    .line 546
+    .line 574
     sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
     and-int/lit8 v0, v0, -0x3a
@@ -1224,11 +1288,11 @@
 
     sput v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
-    .line 576
+    .line 604
     :goto_2
     return-void
 
-    .line 541
+    .line 569
     :cond_0
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1241,13 +1305,13 @@
 
     goto :goto_1
 
-    .line 547
+    .line 575
     :cond_2
     const/16 v0, 0xe
 
     if-ne p3, v0, :cond_3
 
-    .line 548
+    .line 576
     sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
     and-int/lit8 v0, v0, -0x3a
@@ -1258,13 +1322,13 @@
 
     goto :goto_2
 
-    .line 549
+    .line 577
     :cond_3
     const/16 v0, 0xd
 
     if-ne p3, v0, :cond_4
 
-    .line 550
+    .line 578
     sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
     and-int/lit8 v0, v0, -0x3a
@@ -1275,13 +1339,13 @@
 
     goto :goto_2
 
-    .line 551
+    .line 579
     :cond_4
     const/16 v0, 0xb
 
     if-ne p3, v0, :cond_5
 
-    .line 552
+    .line 580
     sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
     and-int/lit8 v0, v0, -0x3a
@@ -1292,7 +1356,7 @@
 
     goto :goto_2
 
-    .line 554
+    .line 582
     :cond_5
     const-string v0, "LightsService"
 
@@ -1318,7 +1382,7 @@
 
     goto :goto_2
 
-    .line 557
+    .line 585
     :cond_6
     sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
@@ -1328,21 +1392,21 @@
 
     goto :goto_2
 
-    .line 559
+    .line 587
     :cond_7
     const/4 v0, 0x4
 
     if-ne p1, v0, :cond_a
 
-    .line 560
+    .line 588
     if-eqz p6, :cond_9
 
-    .line 561
+    .line 589
     const/16 v0, 0xc
 
     if-ne p3, v0, :cond_8
 
-    .line 562
+    .line 590
     sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
     or-int/lit8 v0, v0, 0x2
@@ -1351,7 +1415,7 @@
 
     goto :goto_2
 
-    .line 564
+    .line 592
     :cond_8
     sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
@@ -1359,21 +1423,21 @@
 
     sput v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
-    .line 565
+    .line 593
     sput p2, Lcom/android/server/LightsService;->mSvcLedColor:I
 
-    .line 566
+    .line 594
     sput p3, Lcom/android/server/LightsService;->mSvcLedMode:I
 
-    .line 567
+    .line 595
     sput p4, Lcom/android/server/LightsService;->mSvcLedOnMS:I
 
-    .line 568
+    .line 596
     sput p5, Lcom/android/server/LightsService;->mSvcLedOffMS:I
 
     goto :goto_2
 
-    .line 571
+    .line 599
     :cond_9
     sget v0, Lcom/android/server/LightsService;->mSvcLedState:I
 
@@ -1383,7 +1447,7 @@
 
     goto :goto_2
 
-    .line 574
+    .line 602
     :cond_a
     const-string v0, "LightsService"
 
@@ -1421,15 +1485,15 @@
     .end annotation
 
     .prologue
-    .line 331
+    .line 342
     iget v0, p0, Lcom/android/server/LightsService;->mNativePointer:I
 
     invoke-static {v0}, Lcom/android/server/LightsService;->finalize_native(I)V
 
-    .line 332
+    .line 343
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 333
+    .line 344
     return-void
 .end method
 
@@ -1438,91 +1502,12 @@
     .parameter "id"
 
     .prologue
-    .line 336
+    .line 347
     iget-object v0, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
 
     aget-object v0, v0, p1
 
     return-object v0
-.end method
-
-.method systemReady()V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 349
-    const-string v1, "LightsService"
-
-    const-string v2, "[SvcLED] systemReady"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 350
-    iget-object v1, p0, Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
-
-    const-string v2, "alarm"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/AlarmManager;
-
-    iput-object v1, p0, Lcom/android/server/LightsService;->mAlarmManagerForSvcLED:Landroid/app/AlarmManager;
-
-    .line 351
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "com.android.server.LightsService.action.UPDATE_SVC_LED"
-
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
-
-    .line 352
-    .local v0, updateSvcLEDIntent:Landroid/content/Intent;
-    iget-object v1, p0, Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
-
-    invoke-static {v1, v3, v0, v3}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/LightsService;->mUpdateSvcLEDPendingIntent:Landroid/app/PendingIntent;
-
-    .line 354
-    new-instance v1, Landroid/hardware/SystemSensorManager;
-
-    iget-object v2, p0, Lcom/android/server/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v2}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Landroid/hardware/SystemSensorManager;-><init>(Landroid/os/Looper;)V
-
-    iput-object v1, p0, Lcom/android/server/LightsService;->mSensorManager:Landroid/hardware/SensorManager;
-
-    .line 355
-    iget-boolean v1, p0, Lcom/android/server/LightsService;->mUseLEDAutoBrightnessEnabled:Z
-
-    if-eqz v1, :cond_0
-
-    .line 356
-    iget-object v1, p0, Lcom/android/server/LightsService;->mSensorManager:Landroid/hardware/SensorManager;
-
-    const/4 v2, 0x5
-
-    invoke-virtual {v1, v2}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/LightsService;->mLightSensor:Landroid/hardware/Sensor;
-
-    .line 358
-    :cond_0
-    return-void
 .end method
 
 .method setLight(ILcom/android/server/LightsService$Light;)V
@@ -1538,5 +1523,84 @@
 
     aput-object p2, v0, p1
 
+    return-void
+.end method
+
+.method systemReady()V
+    .locals 4
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 360
+    const-string v1, "LightsService"
+
+    const-string v2, "[SvcLED] systemReady"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 361
+    iget-object v1, p0, Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
+
+    const-string v2, "alarm"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/AlarmManager;
+
+    iput-object v1, p0, Lcom/android/server/LightsService;->mAlarmManagerForSvcLED:Landroid/app/AlarmManager;
+
+    .line 362
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "com.android.server.LightsService.action.UPDATE_SVC_LED"
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    .line 363
+    .local v0, updateSvcLEDIntent:Landroid/content/Intent;
+    iget-object v1, p0, Lcom/android/server/LightsService;->mContext:Landroid/content/Context;
+
+    invoke-static {v1, v3, v0, v3}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/server/LightsService;->mUpdateSvcLEDPendingIntent:Landroid/app/PendingIntent;
+
+    .line 365
+    new-instance v1, Landroid/hardware/SystemSensorManager;
+
+    iget-object v2, p0, Lcom/android/server/LightsService;->mSvcLEDThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v2}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/hardware/SystemSensorManager;-><init>(Landroid/os/Looper;)V
+
+    iput-object v1, p0, Lcom/android/server/LightsService;->mSensorManager:Landroid/hardware/SensorManager;
+
+    .line 366
+    iget-boolean v1, p0, Lcom/android/server/LightsService;->mUseLEDAutoBrightnessEnabled:Z
+
+    if-eqz v1, :cond_0
+
+    .line 367
+    iget-object v1, p0, Lcom/android/server/LightsService;->mSensorManager:Landroid/hardware/SensorManager;
+
+    const/4 v2, 0x5
+
+    invoke-virtual {v1, v2}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/server/LightsService;->mLightSensor:Landroid/hardware/Sensor;
+
+    .line 369
+    :cond_0
     return-void
 .end method

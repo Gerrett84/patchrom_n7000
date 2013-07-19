@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2269
+    .line 2545
     iput-object p1, p0, Landroid/webkit/HtmlComposerView$HCWHandler;->this$0:Landroid/webkit/HtmlComposerView;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,17 +39,17 @@
     .parameter "msg"
 
     .prologue
-    .line 2271
+    .line 2547
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 2303
+    .line 2579
     :cond_0
     :goto_0
     return-void
 
-    .line 2273
+    .line 2549
     :pswitch_0
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$HCWHandler;->this$0:Landroid/webkit/HtmlComposerView;
 
@@ -59,7 +59,7 @@
 
     goto :goto_0
 
-    .line 2276
+    .line 2552
     :pswitch_1
     const-string v2, "HtmlComposerView"
 
@@ -67,7 +67,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2277
+    .line 2553
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$HCWHandler;->this$0:Landroid/webkit/HtmlComposerView;
 
     const/4 v3, 0x0
@@ -76,7 +76,7 @@
 
     goto :goto_0
 
-    .line 2281
+    .line 2557
     :pswitch_2
     const-string v2, "HtmlComposerView"
 
@@ -84,16 +84,16 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2282
+    .line 2558
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/String;
 
-    .line 2283
+    .line 2559
     .local v0, imageUri:Ljava/lang/String;
     if-eqz v0, :cond_1
 
-    .line 2284
+    .line 2560
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$HCWHandler;->this$0:Landroid/webkit/HtmlComposerView;
 
     iget-boolean v2, v2, Landroid/webkit/HtmlComposerView;->DEBUG:Z
@@ -128,7 +128,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2287
+    .line 2563
     :cond_1
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$HCWHandler;->this$0:Landroid/webkit/HtmlComposerView;
 
@@ -136,7 +136,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 2288
+    .line 2564
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$HCWHandler;->this$0:Landroid/webkit/HtmlComposerView;
 
     iget-object v2, v2, Landroid/webkit/HtmlComposerView;->mInsertedImageHitListener:Landroid/webkit/HtmlComposerView$InsertedImageHitListener;
@@ -145,7 +145,7 @@
 
     goto :goto_0
 
-    .line 2293
+    .line 2569
     .end local v0           #imageUri:Ljava/lang/String;
     :pswitch_3
     const-string v2, "HtmlComposerView"
@@ -154,14 +154,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2295
+    .line 2571
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$HCWHandler;->this$0:Landroid/webkit/HtmlComposerView;
 
     invoke-virtual {v2}, Landroid/webkit/HtmlComposerView;->getSelectedImageRect()Landroid/graphics/Rect;
 
     move-result-object v1
 
-    .line 2296
+    .line 2572
     .local v1, updateRect:Landroid/graphics/Rect;
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$HCWHandler;->this$0:Landroid/webkit/HtmlComposerView;
 
@@ -229,14 +229,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2298
+    .line 2574
     :cond_2
     iget-object v2, p0, Landroid/webkit/HtmlComposerView$HCWHandler;->this$0:Landroid/webkit/HtmlComposerView;
 
     iget-object v3, p0, Landroid/webkit/HtmlComposerView$HCWHandler;->this$0:Landroid/webkit/HtmlComposerView;
 
     #getter for: Landroid/webkit/HtmlComposerView;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Landroid/webkit/HtmlComposerView;->access$1000(Landroid/webkit/HtmlComposerView;)Landroid/content/Context;
+    invoke-static {v3}, Landroid/webkit/HtmlComposerView;->access$1300(Landroid/webkit/HtmlComposerView;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -244,7 +244,7 @@
 
     goto/16 :goto_0
 
-    .line 2271
+    .line 2547
     nop
 
     :pswitch_data_0

@@ -4,6 +4,12 @@
 
 
 # virtual methods
+.method public abstract actionDown()V
+.end method
+
+.method public abstract actionUp()V
+.end method
+
 .method public abstract cleanUp()V
 .end method
 

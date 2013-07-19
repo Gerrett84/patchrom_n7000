@@ -57,6 +57,10 @@
 
 .field public static final config_multiWindowSupportAppList:I = 0x107003f
 
+.field public static final config_multiWindowSupportComponentList:I = 0x1070041
+
+.field public static final config_multiWindowSupportPackageList:I = 0x1070040
+
 .field public static final config_oemUsbModeOverride:I = 0x107003a
 
 .field public static final config_protectedNetworks:I = 0x1070018
@@ -89,13 +93,13 @@
 
 .field public static final config_virtualKeyVibePattern:I = 0x1070026
 
-.field public static final default_apps_for_carcradle:I = 0x107004f
+.field public static final default_apps_for_carcradle:I = 0x1070051
 
-.field public static final default_apps_for_deskcradle:I = 0x1070050
+.field public static final default_apps_for_deskcradle:I = 0x1070052
 
-.field public static final default_apps_for_earphone:I = 0x107004e
+.field public static final default_apps_for_earphone:I = 0x1070050
 
-.field public static final default_apps_for_spen:I = 0x107004d
+.field public static final default_apps_for_spen:I = 0x107004f
 
 .field public static final emailAddressTypes:I = 0x1070000
 
@@ -135,31 +139,31 @@
 
 .field public static final telephony_provider_oem:I = 0x1070006
 
-.field public static final zzz_tts_lockscreen_1_missed_call:I = 0x107004a
+.field public static final zzz_tts_lockscreen_1_missed_call:I = 0x107004c
 
-.field public static final zzz_tts_lockscreen_1_unread_message:I = 0x107004b
+.field public static final zzz_tts_lockscreen_1_unread_message:I = 0x107004d
 
-.field public static final zzz_tts_lockscreen_calls_and_messages:I = 0x1070047
+.field public static final zzz_tts_lockscreen_calls_and_messages:I = 0x1070049
 
-.field public static final zzz_tts_lockscreen_n_missed_calls:I = 0x1070048
+.field public static final zzz_tts_lockscreen_n_missed_calls:I = 0x107004a
 
-.field public static final zzz_tts_lockscreen_n_unread_messages:I = 0x1070049
+.field public static final zzz_tts_lockscreen_n_unread_messages:I = 0x107004b
 
-.field public static final zzz_tts_lockscreen_time:I = 0x1070042
+.field public static final zzz_tts_lockscreen_time:I = 0x1070044
 
-.field public static final zzz_tts_lockscreen_time_am:I = 0x1070040
+.field public static final zzz_tts_lockscreen_time_am:I = 0x1070042
 
-.field public static final zzz_tts_lockscreen_time_pm:I = 0x1070041
+.field public static final zzz_tts_lockscreen_time_pm:I = 0x1070043
 
-.field public static final zzz_tts_string_langs:I = 0x107004c
+.field public static final zzz_tts_string_langs:I = 0x107004e
 
-.field public static final zzz_tts_temp_celsius:I = 0x1070045
+.field public static final zzz_tts_temp_celsius:I = 0x1070047
 
-.field public static final zzz_tts_temp_fahrenheit:I = 0x1070046
+.field public static final zzz_tts_temp_fahrenheit:I = 0x1070048
 
-.field public static final zzz_tts_temperature:I = 0x1070043
+.field public static final zzz_tts_temperature:I = 0x1070045
 
-.field public static final zzz_tts_temperature_for_sina:I = 0x1070044
+.field public static final zzz_tts_temperature_for_sina:I = 0x1070046
 
 
 # direct methods

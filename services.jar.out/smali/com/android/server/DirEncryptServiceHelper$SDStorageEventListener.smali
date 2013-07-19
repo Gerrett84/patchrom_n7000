@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 285
+    .line 288
     iput-object p1, p0, Lcom/android/server/DirEncryptServiceHelper$SDStorageEventListener;->this$0:Lcom/android/server/DirEncryptServiceHelper;
 
     invoke-direct {p0}, Landroid/os/storage/StorageEventListener;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 285
+    .line 288
     invoke-direct {p0, p1}, Lcom/android/server/DirEncryptServiceHelper$SDStorageEventListener;-><init>(Lcom/android/server/DirEncryptServiceHelper;)V
 
     return-void
@@ -53,15 +53,15 @@
     .parameter "newState"
 
     .prologue
-    .line 292
+    .line 295
     iget-object v0, p0, Lcom/android/server/DirEncryptServiceHelper$SDStorageEventListener;->this$0:Lcom/android/server/DirEncryptServiceHelper;
 
-    #getter for: Lcom/android/server/DirEncryptServiceHelper;->mDem:Landroid/dirEncryption/DirEncryptionManager;
-    invoke-static {v0}, Lcom/android/server/DirEncryptServiceHelper;->access$600(Lcom/android/server/DirEncryptServiceHelper;)Landroid/dirEncryption/DirEncryptionManager;
+    #getter for: Lcom/android/server/DirEncryptServiceHelper;->mDew:Landroid/dirEncryption/DirEncryptionWrapper;
+    invoke-static {v0}, Lcom/android/server/DirEncryptServiceHelper;->access$600(Lcom/android/server/DirEncryptServiceHelper;)Landroid/dirEncryption/DirEncryptionWrapper;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/dirEncryption/DirEncryptionManager;->getExternalSdPath()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/dirEncryption/DirEncryptionWrapper;->getExternalSdPath()Ljava/lang/String;
 
     move-result-object v0
 
@@ -71,7 +71,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 293
+    .line 296
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -112,7 +112,7 @@
 
     invoke-static {v0}, Lcom/android/server/DirEncryptServiceHelper;->logD(Ljava/lang/String;)V
 
-    .line 294
+    .line 297
     iget-object v0, p0, Lcom/android/server/DirEncryptServiceHelper$SDStorageEventListener;->this$0:Lcom/android/server/DirEncryptServiceHelper;
 
     #getter for: Lcom/android/server/DirEncryptServiceHelper;->mHandler:Landroid/os/Handler;
@@ -128,7 +128,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 296
+    .line 299
     :cond_0
     return-void
 .end method
@@ -138,6 +138,6 @@
     .parameter "connected"
 
     .prologue
-    .line 288
+    .line 291
     return-void
 .end method

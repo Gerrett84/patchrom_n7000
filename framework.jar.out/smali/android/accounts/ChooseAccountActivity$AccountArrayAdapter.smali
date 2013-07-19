@@ -88,7 +88,7 @@
 
     .line 173
     .local v0, holder:Landroid/accounts/ChooseAccountActivity$ViewHolder;
-    const v1, 0x1020292
+    const v1, 0x102029b
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -99,7 +99,7 @@
     iput-object v1, v0, Landroid/accounts/ChooseAccountActivity$ViewHolder;->text:Landroid/widget/TextView;
 
     .line 174
-    const v1, 0x1020291
+    const v1, 0x102029a
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

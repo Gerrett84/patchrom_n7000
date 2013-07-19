@@ -6,7 +6,7 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "WFD.Native.java"
 
-.field private static mAudioType:Ljava/lang/String;
+.field private static mAudioType:I
 
 .field private static mContext:Landroid/content/Context;
 
@@ -26,25 +26,25 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 30
-    sput-object v1, Lcom/samsung/wfd/WFDNative;->mContext:Landroid/content/Context;
-
-    .line 32
     const/4 v0, 0x0
 
-    sput v0, Lcom/samsung/wfd/WFDNative;->mRemoteIP_4th:I
+    .line 30
+    sput-object v0, Lcom/samsung/wfd/WFDNative;->mContext:Landroid/content/Context;
+
+    .line 32
+    sput v1, Lcom/samsung/wfd/WFDNative;->mRemoteIP_4th:I
 
     .line 33
-    sput-object v1, Lcom/samsung/wfd/WFDNative;->mRemoteIP:Ljava/lang/String;
+    sput-object v0, Lcom/samsung/wfd/WFDNative;->mRemoteIP:Ljava/lang/String;
 
     .line 34
-    sput-object v1, Lcom/samsung/wfd/WFDNative;->mUpdateURL:Ljava/lang/String;
+    sput-object v0, Lcom/samsung/wfd/WFDNative;->mUpdateURL:Ljava/lang/String;
 
     .line 35
-    sput-object v1, Lcom/samsung/wfd/WFDNative;->mAudioType:Ljava/lang/String;
+    sput v1, Lcom/samsung/wfd/WFDNative;->mAudioType:I
 
     .line 36
-    sput-object v1, Lcom/samsung/wfd/WFDNative;->mDongleVer:Ljava/lang/String;
+    sput-object v0, Lcom/samsung/wfd/WFDNative;->mDongleVer:Ljava/lang/String;
 
     .line 244
     const-string v0, "samsung_psi"
@@ -244,9 +244,9 @@
     invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 80
-    const-string v12, "1920"
+    const/16 v12, 0x780
 
-    sput-object v12, Lcom/samsung/wfd/WFDNative;->mAudioType:Ljava/lang/String;
+    sput v12, Lcom/samsung/wfd/WFDNative;->mAudioType:I
 
     .line 81
     if-eqz p2, :cond_2
@@ -265,9 +265,9 @@
     if-eqz v12, :cond_1
 
     .line 83
-    const-string v12, "4096"
+    const/16 v12, 0x1000
 
-    sput-object v12, Lcom/samsung/wfd/WFDNative;->mAudioType:Ljava/lang/String;
+    sput v12, Lcom/samsung/wfd/WFDNative;->mAudioType:I
 
     .line 85
     :cond_1
@@ -298,9 +298,9 @@
 
     move-result-object v13
 
-    sget-object v14, Lcom/samsung/wfd/WFDNative;->mAudioType:Ljava/lang/String;
+    sget v14, Lcom/samsung/wfd/WFDNative;->mAudioType:I
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v13
 
@@ -324,9 +324,9 @@
 
     move-result-object v13
 
-    sget-object v14, Lcom/samsung/wfd/WFDNative;->mAudioType:Ljava/lang/String;
+    sget v14, Lcom/samsung/wfd/WFDNative;->mAudioType:I
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v13
 
@@ -357,9 +357,9 @@
     .line 101
     const-string v12, "count"
 
-    sget-object v13, Lcom/samsung/wfd/WFDNative;->mAudioType:Ljava/lang/String;
+    sget v13, Lcom/samsung/wfd/WFDNative;->mAudioType:I
 
-    invoke-virtual {v4, v12, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v4, v12, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 103
     sget-object v12, Lcom/samsung/wfd/WFDNative;->mRemoteIP:Ljava/lang/String;

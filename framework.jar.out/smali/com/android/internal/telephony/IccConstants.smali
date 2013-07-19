@@ -80,6 +80,8 @@
 
 .field public static final EF_MAILBOX_CPHS:I = 0x6f17
 
+.field public static final EF_MASTERIMSI:I = 0x2f40
+
 .field public static final EF_MBDN:I = 0x6fc7
 
 .field public static final EF_MBI:I = 0x6fc9

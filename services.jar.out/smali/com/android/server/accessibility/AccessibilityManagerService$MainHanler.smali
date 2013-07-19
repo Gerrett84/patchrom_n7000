@@ -211,7 +211,7 @@
 
     move-result-object v7
 
-    const v8, 0x104049a
+    const v8, 0x10404a3
 
     invoke-virtual {v7, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -221,7 +221,7 @@
 
     iget-object v8, v8, Lcom/android/server/accessibility/AccessibilityManagerService;->mContext:Landroid/content/Context;
 
-    const v9, 0x104049b
+    const v9, 0x10404a4
 
     const/4 v10, 0x1
 

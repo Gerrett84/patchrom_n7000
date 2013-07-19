@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="cancel">Annuleren</string>
+    <string name="cancel">Annul.</string>
     <string name="copy">Kopiëren</string>
     <string name="copyUrl">URL kopiëren</string>
     <string name="cut">Knippen</string>
@@ -312,8 +312,8 @@
     <string name="perm_blocked_sim_notification_text">SIM-krt permanent geblokkeerd</string>
     <string name="network_locked_sim_notification_text">SIM-krt met netwerkvergr geplaatst</string>
     <string name="notification_title">Fout bij inloggen van %s</string>
-    <string name="contentServiceSync">Synchroniseren</string>
-    <string name="contentServiceSyncNotificationTitle">Synchroniseren</string>
+    <string name="contentServiceSync">Synchr.</string>
+    <string name="contentServiceSyncNotificationTitle">Synchr.</string>
     <string name="contentServiceTooManyDeletesNotificationDesc">Te veel %s verwijderd</string>
     <string name="low_memory">Telefoongeheugen vol. Verwijder bestanden om ruimte vrij te maken</string>
     <string name="me">Ik</string>
@@ -322,7 +322,7 @@
     <string name="turn_on_radio">Draadloos inschakelen</string>
     <string name="turn_off_radio">Draadloos uitschakelen</string>
     <string name="screen_lock">Schermvergrendeling</string>
-    <string name="power_off">Uitschakelen</string>
+    <string name="power_off">Uitschakeltijd</string>
     <string name="silent_mode_silent">Belsoftware uit</string>
     <string name="silent_mode_vibrate">Trillen als beltoon</string>
     <string name="silent_mode_ring">Belsoftware aan</string>
@@ -413,6 +413,7 @@
     <string name="permdesc_mdmKioskMode">Het gedrag van het apparaat in Kiosk-modus regelen</string>
     <string name="tether_usb_restrict">Gebruik van USB-tethering beperkt door beveiligingsbeleid</string>
     <string name="tether_wifi_restrict">Gebruik van Wi-Fi-tethering beperkt door beveiligingsbeleid</string>
+    <string name="data_call_restriction">Gebruik van mobiele gegevens wordt beperkt door beveiligingsbeleid</string>
     <string name="dpm_wifi_blocked_network">Gebruik van dit Wi-Fi-netwerk geblokkeerd door beveiligingsbeleid</string>
     <string name="dpm_wifi_misc_wifi_disabled">Gebruik van Wi-Fi beperkt door beveiligingsbeleid</string>
     <string name="dpm_wifi_misc_network_insecure">Gebruik van onveilige Wi-Fi-netwerken beperkt door beveiligingsbeleid</string>
@@ -624,7 +625,7 @@
     <string name="permdesc_writeSocialStream">Hiermee kan de app sociale updates van u en uw vrienden weergeven. Wees voorzichtig bij het delen van informatie: hiermee kan de app berichten produceren die afkomstig lijken te zijn van een vriend. Opmerking: deze toestemming kan niet worden afgedwongen voor alle sociale netwerken.</string>
     <string name="permlab_readCalendar">Agenda-items en vertrouwelijke informatie lezen</string>
     <string name="permdesc_readCalendar">"Hiermee kan de app alle agenda-afspraken lezen die zijn opgeslagen op uw telefoon, inclusief die van vrienden of collega's. De app kan uw agenda delen of uw agendagegevens opslaan, ongeacht vertrouwelijkheid of gevoeligheid."</string>
-    <string name="permlab_writeCalendar">agenda-afspraken toevoegen of wijzigen en e-mails verzenden aan gasten zonder medeweten van de eigenaren</string>
+    <string name="permlab_writeCalendar">Agenda-items toevoegen of wijzigen en e-mails verzenden naar gasten zonder medeweten van de gastheer</string>
     <string name="permdesc_writeCalendar">"Hiermee kan de app afspraken toevoegen, verwijderen en wijzigen die u kunt bewerken op uw telefoon, inclusief afspraken van vrienden of collega's. Zo kan de app berichten verzenden die afkomstig lijken te zijn van agenda-eigenaren, of afspraken aanpassen zonder medeweten van de eigenaar."</string>
     <string name="permlab_accessMockLocation">namaaklocatiebronnen voor testen</string>
     <string name="permdesc_accessMockLocation">Applicatie mag vervalste locatiebronnen maken voor testen. Indien toegestaan, kunnen schadelijke applicaties de locatie en/of de status negeren die wordt teruggestuurd door echte locatiebronnen als GPS of operators, of uw locatie controleren en doorgeven aan willekeurige websites</string>
@@ -668,7 +669,7 @@
     <string name="permdesc_asec_rename">Applicatie mag naam van USB-opslag wijzigen</string>
     <string name="permlab_vibrate">trilstand aansturen</string>
     <string name="permdesc_vibrate">Applicatie kan de trilstand aansturen</string>
-    <string name="permlab_flashlight">flitser aansturen</string>
+    <string name="permlab_flashlight">Flitser instellen</string>
     <string name="permdesc_flashlight">Applicatie kan de flits aansturen</string>
     <string name="permlab_manageUsb">Voorkeuren en machtiging beheren voor USB-apparaten</string>
     <string name="permdesc_manageUsb">De applicatie mag voorkeuren en machtiging voor USB-apparaten beheren</string>
@@ -714,7 +715,7 @@
     <string name="permdesc_getAccounts">Applicatie mag beschikbare lijst met accounts openen die bekend zijn bij de telefoon</string>
     <string name="permlab_authenticateAccounts">Optreden als goedkeurder accounts</string>
     <string name="permdesc_authenticateAccounts">Applicatie mag de functie voor accountgoedkeuring van Accountbeheer gebruiken. Dit omvat het maken van accounts en het controleren van wachtwoorden</string>
-    <string name="permlab_manageAccounts">accounts toevoegen of verwijderen</string>
+    <string name="permlab_manageAccounts">Accounts toevoegen of verwijderen</string>
     <string name="permdesc_manageAccounts">Applicatie mag account toevoegen en verwijderen en uw wachtwoord verwijderen</string>
     <string name="permlab_useCredentials">Verificatiegegevens van account gebruiken</string>
     <string name="permdesc_useCredentials">Applicatie mag verificatietokens opvragen</string>
@@ -736,7 +737,7 @@
     <string name="permdesc_changeWifiState">Applicatie mag verbinding met Wi-Fi-toegangspunten maken en verbreken, en wijzigingen aanbrengen in geconfigureerde Wi-Fi-netwerken</string>
     <string name="permlab_changeWifiMulticastState">Wi-Fi-multicastontvangst toestaan</string>
     <string name="permdesc_changeWifiMulticastState">Hiermee kan de app pakketten ontvangen die via multicastadressen naar alle apparaten in een wifi-netwerk worden verzonden, niet alleen naar uw telefoon. Het stroomgebruik ligt hierbij hoger dan in de niet-multicastmodus.</string>
-    <string name="permlab_bluetoothAdmin">Bluetooth-instellingen openen</string>
+    <string name="permlab_bluetoothAdmin">Bluetooth-instellingen</string>
     <string name="permdesc_bluetoothAdmin">Applicatie kan de Bluetooth-telefoon configureren en externe apparaten detecteren en daarmee koppelen</string>
     <string name="permlab_accessWimaxState">WiMAX-status weergeven</string>
     <string name="permdesc_accessWimaxState">Hiermee kan de app bepalen of WiMAX is ingeschakeld en informatie bekijken over alle WiMAX-netwerken waarmee verbinding is gemaakt.</string>
@@ -826,6 +827,7 @@
     <string name="policydesc_allow_desktopsync">Gebruik van desktopsynchronisatie verhinderen</string>
     <string name="policylab_require_storagecard_encryption">SD-kaart coderen instellen</string>
     <string name="policydesc_require_storagecard_encryption">Applicatie op SD-kaart moet worden gecodeerd</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth-verbinding is verbroken</string>
     <string name="bluetooth_security_mode_disable">Gebruik van Bluetooth-verbinding beperkt door beveiligingsbeleid</string>
     <string name="bluetooth_security_mode_handsfree">Veiligheidsbeleid beperkt gebruik van Bluetooth-verbinding tot hands-free functies</string>
     <string name="phoneTypeCustom">Aangepast</string>
@@ -898,14 +900,14 @@
     <string name="sipAddressTypeHome">Privé</string>
     <string name="sipAddressTypeWork">Zakelijk</string>
     <string name="sipAddressTypeOther">Overige</string>
-    <string name="keyguard_password_enter_pin_code">Pincode typen</string>
+    <string name="keyguard_password_enter_pin_code">Pincode invoeren</string>
     <string name="keyguard_password_enter_puk_code">PUK en nieuwe pincode ingeven</string>
     <string name="keyguard_password_enter_puk_prompt">PUK-code</string>
     <string name="keyguard_password_enter_pin_prompt">Nieuwe pincode</string>
     <string name="keyguard_password_entry_touch_hint">Tik om wachtwoord in te geven</string>
     <string name="keyguard_password_enter_password_code">Geef wachtwoord in om te ontgrendelen</string>
     <string name="keyguard_password_enter_pin_password_code">Geef pincode in om te ontgrendelen</string>
-    <string name="keyguard_password_wrong_pin_code">Onjuiste pincode.</string>
+    <string name="keyguard_password_wrong_pin_code">Pincode onjuist</string>
     <string name="keyguard_pin_accepted">Code geaccepteerd</string>
     <string name="keyguard_label_text">Druk op Menu en op 0 om te ontgrendelen</string>
     <string name="emergency_call_dialog_number_for_display">Alarmnummer</string>
@@ -942,8 +944,9 @@
     <string name="lockscreen_network_locked_message">Netwerk vergrendeld</string>
     <string name="lockscreen_sim_puk_locked_message">SIM-kaart heeft PUK-vergrendeling</string>
     <string name="lockscreen_sim_puk_locked_instructions">Raadpleeg gebruikershandleiding of neem contact op met klantenservice</string>
-    <string name="lockscreen_sim_locked_message">SIM-kaart is vergrendeld.</string>
+    <string name="lockscreen_sim_locked_message">SIM-kaart is vergrendeld</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">SIM-kaart ontgrendelen…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Onjuist ontgrendelpatroon %1$d keer getekend. Probeer het opnieuw over %2$d seconden</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Onjuist wachtwoord %1$d keer ingevoerd. Probeer het opnieuw over %2$d seconden</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 geblokkeerd. Geef PUK1 in om PIN1 te deblokkeren</string>
@@ -996,6 +999,7 @@
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">Zelfde als</string>
     <string name="autofill_billing_designator_re">Rekening</string>
+    <string name="autofill_shipping_designator_re">Schip</string>
     <string name="autofill_phone_suffix_re">Suffix</string>
     <string name="autofill_name_on_card_contextual_re">Naam</string>
     <string name="autofill_province">Provincie</string>
@@ -1010,7 +1014,7 @@
     <string name="autofill_parish">Gemeente</string>
     <string name="autofill_area">Oppervlakte</string>
     <string name="autofill_emirate">Emiraat</string>
-    <string name="permlab_readHistoryBookmarks">uw webbladwijzers en -geschiedenis lezen</string>
+    <string name="permlab_readHistoryBookmarks">Internetgeschiedenis en favorieten lezen</string>
     <string name="permdesc_readHistoryBookmarks">"Applicatie mag alle URL's lezen die door de browser zijn bezocht en alle browserfavorieten"</string>
     <string name="permlab_writeHistoryBookmarks">webbladwijzers en -geschiedenis schrijven</string>
     <string name="permdesc_writeHistoryBookmarks">Applicatie mag de internetgeschiedenis en de favorieten die op uw telefoon zijn opgeslagen, wijzigen. Indien toegestaan, kunnen schadelijke applicaties deze gegevens wissen of wijzigen</string>
@@ -1089,10 +1093,12 @@
     <string name="editTextMenuTitle">Tekstacties</string>
     <string name="low_internal_storage_view_title">Geheugen bijna vol</string>
     <string name="low_internal_storage_view_text">Bepaalde systeemfuncties werken mogelijk niet</string>
+    <string name="full_internal_storage_view_text">Er kan een fout optreden omdat het apparaatgeheugen vol is. Verwijder een aantal items</string>
     <string name="loading">Laden…</string>
     <string name="capital_on">Aan</string>
     <string name="capital_off">Uit</string>
     <string name="whichApplication">Actie voltooien met</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Standaard gebruiken voor deze actie</string>
     <string name="clearDefaultHintMsg">Wis standaard applicatie-instellingen via Instellingen > Applicatiebeheer > Alle</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1161,7 +1167,7 @@ Wilt u de pagina sluiten?"</string>
     <string name="wifi_notification_no_network_message">Open Wi-Fi-instellingen</string>
     <string name="wifi_notification_not_connected">Wi-Fi-netwerken beschikbaar</string>
     <string name="wifi_notification_not_connected_message">Open beschikbare Wi-Fi-netwerken</string>
-    <string name="wifi_notification_connected">Verbonden met %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Tik om Wi-Fi te configureren</string>
     <string name="wifi_notification_connected_secure">Veilig</string>
     <string name="wifi_notification_connected_open">Openen</string>
@@ -1175,7 +1181,7 @@ Wilt u de pagina sluiten?"</string>
     <string name="wifi_p2p_enabled_notification_title">Wi-Fi Direct is aan</string>
     <string name="wifi_p2p_enabled_notification_message">Tik om instellingen te wijzigen</string>
     <string name="accept">OK</string>
-    <string name="decline">Weigeren</string>
+    <string name="decline">Afwijzen</string>
     <string name="wifi_p2p_invitation_sent_title">Uitnodiging verzonden</string>
     <string name="wifi_p2p_invitation_to_connect_title">Uitnodigen voor verbinding</string>
     <string name="wifi_p2p_from_message">Van:</string>
@@ -1191,9 +1197,9 @@ Wilt u de pagina sluiten?"</string>
     <string name="select_character">Teken invoegen</string>
     <string name="sms_control_default_app_name">Onbekende applicatie</string>
     <string name="sms_control_title">SMS verzenden…</string>
-    <string name="sms_control_message">Groot aantal SMS-berichten verzonden. Tik op OK om door te gaan of op Annuleren om het verzenden te stoppen</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Annuleer</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> verzendt een groot aantal SMS-berichten. Wilt u deze app toestaan deze berichten te blijven sturen?</string>
+    <string name="sms_control_yes">Toestaan</string>
+    <string name="sms_control_no">Afwijzen</string>
     <string name="sim_removed_title">SIM-kaart verwijderd</string>
     <string name="sim_removed_message">Mobiel netwerk is pas beschikbaar nadat u opnieuw hebt opgestart met een geldige SIM-kaart</string>
     <string name="sim_done_button">Gereed</string>
@@ -1204,7 +1210,7 @@ Wilt u de pagina sluiten?"</string>
     <string name="date_picker_dialog_title">Datum instellen</string>
     <string name="date_time_set">Instellen</string>
     <string name="date_time_done">Gereed</string>
-    <string name="default_permission_group">Sjabloon</string>
+    <string name="default_permission_group">Standaard</string>
     <string name="no_permissions">Geen machtigingen vereist</string>
     <string name="perms_hide">Verbergen</string>
     <string name="perms_show_all">Alles weergeven</string>
@@ -1287,7 +1293,7 @@ Wilt u de pagina sluiten?"</string>
     <string name="activity_list_empty">Geen overeenkomende activiteiten gevonden</string>
     <string name="permlab_pkgUsageStats">gebruiksstatistieken voor component bijwerken</string>
     <string name="permdesc_pkgUsageStats">Staat het wijzigen toe van verzamelde gebruiksstatistieken voor componenten. Niet voor gebruik door normale applicaties</string>
-    <string name="permlab_copyProtectedData">Standaard containerservice mag inhoud kopiëren. Niet bestemd voor normale applicaties</string>
+    <string name="permlab_copyProtectedData">Inhoud kopiëren</string>
     <string name="permdesc_copyProtectedData">Standaard containerservice mag inhoud kopiëren. Niet bestemd voor normale applicaties</string>
     <string name="permlab_route_media_output">Media-uitvoer routeren</string>
     <string name="permdesc_route_media_output">Staat een toepassing toe om media-uitvoer te routeren naar externe apparaten</string>
@@ -1314,7 +1320,7 @@ Wilt u de pagina sluiten?"</string>
     <string name="permission_request_notification_with_subtitle">"Toestemming vereist
 voor account %s"</string>
     <string name="input_method_binding_label">Invoermethode</string>
-    <string name="sync_binding_label">Synchroniseren</string>
+    <string name="sync_binding_label">Synchr.</string>
     <string name="accessibility_binding_label">Toegankelijkheid</string>
     <string name="wallpaper_binding_label">Achtergrond</string>
     <string name="chooser_wallpaper">Andere achtergrond</string>
@@ -1427,10 +1433,11 @@ voor account %s"</string>
     <string name="action_bar_home_description">Naar huis navigeren</string>
     <string name="action_bar_up_description">Omhoog navigeren</string>
     <string name="action_menu_overflow_description">Meer opties</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Overschakelen naar vorige grootte</string>
     <string name="storage_internal">Apparaatgeheugen</string>
     <string name="storage_sd_card">SD-kaart</string>
     <string name="storage_usb">USB-opslag</string>
-    <string name="extract_edit_menu_button">Wijzigen…</string>
+    <string name="extract_edit_menu_button">Bewerken</string>
     <string name="data_usage_warning_title">Waarschuwing gegevensgebruik</string>
     <string name="data_usage_warning_body">Tik om gebruik en instellingen weer te geven</string>
     <string name="data_usage_3g_limit_title">2G-3G-gegevens uitgeschakeld</string>
@@ -1460,7 +1467,7 @@ voor account %s"</string>
     <string name="fingerprints">Vingerafdrukken</string>
     <string name="sha256_fingerprint">SHA-256-vingerafdruk:</string>
     <string name="sha1_fingerprint">SHA-1-vingerafdruk:</string>
-    <string name="activity_chooser_view_see_all">Alles</string>
+    <string name="activity_chooser_view_see_all">Alles weergeven</string>
     <string name="activity_chooser_view_dialog_title_default">Activiteit selecteren</string>
     <string name="share_action_provider_share_with">Delen met</string>
     <string name="status_bar_device_locked">Apparaat vergrendeld</string>
@@ -1516,6 +1523,8 @@ voor account %s"</string>
     <string name="lockscreen_fmapp_name">FM-radio</string>
     <string name="lockscreen_clock_dualclock_home">Privé</string>
     <string name="lockscreen_clock_dualclock_roaming">Roaming</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Seoul</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Roaming</string>
     <string name="lockscreen_clock_dualclock_popup_title">Twee klokken</string>
     <string name="lockscreen_clock_dualclock_popup_message">Thuisstad selecteren voor weergave van dubbele klok op het vergendelingsscherm. Naar Instellingen gaan?</string>
     <string name="lockscreen_ticker_no_data_to_display">Geen gegevens om weer te geven</string>
@@ -1532,7 +1541,7 @@ voor account %s"</string>
     <string name="lockscreen_ticker_fb_application_install">Als u de Facebook-ticker wilt gebruiken, moet u de Facebook-applicatie installeren. Naar Play Store gaan?</string>
     <string name="lockscreen_ticker_fb_button">Aanmelden bij Facebook</string>
     <string name="lockscreen_ticker_fb_install">Install.</string>
-    <string name="lockscreen_unlock_guide_text">Veeg uw vinger over het scherm om te ongrendelen</string>
+    <string name="lockscreen_unlock_guide_text">Veeg uw vinger over het scherm om te ontgrendelen</string>
     <string name="lockscreen_unlock_guide_text_touch_exploration">Tik twee keer en veeg over het scherm om te ontgrendelen</string>
     <string name="lockscreen_swipe_voice_unlock_guide_text">Veeg over het scherm en spreek de wake-up opdracht uit om te ontgrendelen</string>
     <string name="lockscreen_motion_unlock_guide_text">Tik en houd het scherm vast, en kantel het apparaat naar u toe</string>
@@ -1552,7 +1561,7 @@ voor account %s"</string>
     <string name="lockscreen_2ndLock_instructions2">Geef reservepincode in om te ontgrendelen</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">U hebt uw ontgrendelpatroon %1$d keer onjuist getekend. Probeer het opnieuw over %2$d seconden</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Ontgrendelpatroon %1$d keer onjuist getekend. Na nog %2$d mislukte pogingen, wordt u gevraagd uw apparaat te ontgrendelen met uw Google-nloggegevens of uw reservepincode. Probeer het opnieuw over %3$d seconden</string>
     <string name="lockscreen_carrier_noservice">(Geen service)</string>
     <string name="rescan_network">Zoeken naar beschikbaar netwerk</string>
     <string name="AutoUpdateOfTimeAndDate">Datum en tijd automatisch bijgewerkt</string>
@@ -1563,6 +1572,8 @@ voor account %s"</string>
     <string name="capabilitymanager_managed_errortitle">Fout</string>
     <string name="security_policy_title">Beveiligingsbeleid</string>
     <string name="security_policy_summary">Coderingsbeleid ontvangen van externe beheerder</string>
+    <string name="sdcard_unmount_policy_noti_title">SD-kaart losgekoppeld vanwege IT-beleid</string>
+    <string name="sdcard_unmount_policy_noti_content">Tik om SD-kaart te plaatsen</string>
     <string name="sdcard_encrypt_title_notification">SD-kaart coderen</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">SD-kaart coderen…</string>
     <string name="sdcard_encrypt_notification">SD-kaart gecodeerd</string>
@@ -1586,7 +1597,7 @@ voor account %s"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1628,7 +1639,7 @@ voor account %s"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">De ingevoerde waarden vallen buiten het geldige bereik. Controleer de waarden en probeer het opnieuw</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1650,6 +1661,8 @@ voor account %s"</string>
     <string name="SS_USB_TETHERING_ENABLED">USB-tethering ingeschakeld</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Wi-Fi-tethering ingeschakeld</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Tethering ingeschakeld (Wi-Fi en USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Apparaat geblokkeerd. Maximumaantal pogingen voor invoeren van wachtwoord bereikt. Wachtwoord moet worden hersteld om blokkering van apparaat op te heffen</string>
+    <string name="recovery_password_required">Herstelwachtwoord vereist om blokkering van apparaat op te heffen</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Inbelnetwerk ingeschakeld</string>
@@ -1683,12 +1696,21 @@ voor account %s"</string>
     <string name="lockscreen_ticker_logo_news_tts">Nieuws</string>
     <string name="lockscreen_ticker_logo_stock_tts">Aandelen</string>
     <string name="lockscreen_ticker_refresh_tts">Vernieuwen</string>
+    <string name="SS_ALWAYS_ON_TOP">Altijd bovenaan</string>
+    <string name="SS_MINIMISE">Minimaliseren</string>
+    <string name="SS_MAXIMISE">Maximaliseren</string>
+    <string name="SS_CLOSE_APPLICATION">Applicatie sluiten</string>
+    <string name="spengesture_media_scanning">Kan foto niet bijsnijden. Mediascanner is actief</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN geblokkeerd</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Neem contact op met uw serviceprovider om uw SIM-kaart te ontgrendelen</string>
     <string name="resolver_guide_title">Standaard-instellingen wissen</string>
     <string name="operation_not_allowed">Bewerking niet toegestaan</string>
     <string name="exceeded_maxlength">Maximale berichtgrootte overschreden</string>
     <string name="dont_show_again_message">Niet meer tonen</string>
     <string name="set_bing_as_default">Bing instellen als standaard zoekmachine?</string>
     <string name="ms_domain_site">Microsoft-domeinsite</string>
+    <string name="unsupported_in_popupbrowser">Niet-ondersteunde functie in de Pop-upbrowser</string>
+    <string name="find_on_page_abb">Zoek op pagina</string>
     <string name="tw_clipboard_already_exists">Bestaat al</string>
     <string name="tw_clipboard_no_items_to_paste">Geen items om te plakken</string>
     <string name="tw_clipboard_save_in_memo">Opslaan als notitie</string>
@@ -1702,9 +1724,12 @@ voor account %s"</string>
     <string name="tw_ids_com_body_unlock_in_clipboard">Ontgrendelen van klembord</string>
     <string name="tw_clipboard_clear">Wissen</string>
     <string name="tw_clipboard_delete_all">Alles verwijderen?</string>
-    <string name="tw_clipboard_edit">Bewerken</string>
-    <string name="tw_clipboard_done">Gereed</string>
-    <string name="tw_clipboard_save">Opslaan</string>
+    <string name="tw_clipboard_edit">Bewerk</string>
+    <string name="tw_clipboard_done">Klaar</string>
+    <string name="tw_clipboard_save">Opsl.</string>
     <string name="tw_clipboard_no_item">Geen items</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Alle items, met uitzondering van vergrendelde items, zijn verwijderd van het klembord</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Geplakt vanaf klembord</string>
+    <string name="Roaming_Auto_Dialing">PIN geblokkeerd</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

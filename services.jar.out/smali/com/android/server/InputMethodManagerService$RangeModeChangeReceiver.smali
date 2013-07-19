@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 620
+    .line 626
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$RangeModeChangeReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,7 +44,7 @@
 
     const/4 v1, 0x1
 
-    .line 623
+    .line 629
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v3
@@ -57,23 +57,23 @@
 
     if-eqz v3, :cond_0
 
-    .line 624
+    .line 630
     const-string v3, "com.sec.android.extra.ARRAGE_MODE"
 
     invoke-virtual {p2, v3, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 626
+    .line 632
     .local v0, mode:I
     const/4 v3, 0x4
 
     if-ne v0, v3, :cond_2
 
-    .line 628
+    .line 634
     invoke-static {v1}, Lcom/android/server/InputMethodManagerService;->access$502(Z)Z
 
-    .line 636
+    .line 642
     .end local v0           #mode:I
     :cond_0
     :goto_0
@@ -91,7 +91,13 @@
 
     if-eqz v3, :cond_1
 
-    .line 637
+    iget-object v3, p0, Lcom/android/server/InputMethodManagerService$RangeModeChangeReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
+
+    iget-object v3, v3, Lcom/android/server/InputMethodManagerService;->mCurMethod:Lcom/android/internal/view/IInputMethod;
+
+    if-eqz v3, :cond_1
+
+    .line 643
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService$RangeModeChangeReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iget-object v4, p0, Lcom/android/server/InputMethodManagerService$RangeModeChangeReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
@@ -121,11 +127,11 @@
 
     invoke-virtual {v3, v4, v1}, Lcom/android/server/InputMethodManagerService;->executeOrSendMessage(Landroid/os/IInterface;Landroid/os/Message;)V
 
-    .line 640
+    .line 646
     :cond_1
     return-void
 
-    .line 631
+    .line 637
     .restart local v0       #mode:I
     :cond_2
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$502(Z)Z
@@ -136,6 +142,6 @@
     :cond_3
     move v1, v2
 
-    .line 637
+    .line 643
     goto :goto_1
 .end method

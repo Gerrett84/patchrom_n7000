@@ -20,6 +20,8 @@
 
 .field public static final TAG_CSCFEATURE_SETTINGS_CHANGE_APPROVED_MODEMVERSION:Ljava/lang/String; = "CscFeature_Setting_ChangeApprovedModemVersion"
 
+.field public static final TAG_CSCFEATURE_SETTINGS_CSC_DISABLE:Ljava/lang/String; = "CscFeature_Settings_CSCDisable"
+
 .field public static final TAG_CSCFEATURE_SETTINGS_DEFSCREENLOCKTYPE:Ljava/lang/String; = "CscFeature_Setting_DefScreenLockType"
 
 .field public static final TAG_CSCFEATURE_SETTINGS_DISABLE_ISRAELCOUNTRY:Ljava/lang/String; = "CscFeature_Setting_DisableIsraelCountry"
@@ -27,8 +29,6 @@
 .field public static final TAG_CSCFEATURE_SETTINGS_DISABLE_MENUE_SOFTWAREUPDATE:Ljava/lang/String; = "CscFeature_Setting_DisableMenuSoftwareUpdate"
 
 .field public static final TAG_CSCFEATURE_SETTINGS_DISABLE_MENU_FINDMYMOBILE:Ljava/lang/String; = "CscFeature_Setting_DisableMenuFindMyMobile"
-
-.field public static final TAG_CSCFEATURE_SETTINGS_DISABLE_PAGEBUDDY:Ljava/lang/String; = "CscFeature_Setting_DisablePageBuddy"
 
 .field public static final TAG_CSCFEATURE_SETTINGS_EDIT_OPTION_FOR_APN_TYPE:Ljava/lang/String; = "CscFeature_Setting_EditOption4ApnType"
 
@@ -57,10 +57,6 @@
 .field public static final TAG_CSCFEATURE_SETTINGS_ENABLE_SIMCHANGEALERT_ONLY_4_FMM:Ljava/lang/String; = "CscFeature_Setting_EnableSimChangeAlertOnly4FindMobile"
 
 .field public static final TAG_CSCFEATURE_SETTINGS_FIX_APN_4_SPECIFIC_MCC_MNC:Ljava/lang/String; = "CscFeature_Setting_FixApn4SpecificMccMnc"
-
-.field public static final TAG_CSCFEATURE_SETTINGS_FMM:Ljava/lang/String; = "CscFeature_Settings_FindMyMobile"
-
-.field public static final TAG_CSCFEATURE_SETTINGS_PAGEBUDDY_DEFVALUE:Ljava/lang/String; = "CscFeature_Setting_PageBuddyDefValue"
 
 .field public static final TAG_CSCFEATURE_SETTINGS_REMOVE_DISABLE_BUTTON_IN_APPMGR:Ljava/lang/String; = "CscFeature_Setting_RemoveDisableButtonInAppMgr"
 
@@ -106,7 +102,11 @@
 
 .field public static final TAG_CSCFEATURE_SETTING_ENABLE_DATA_TARIFF_WIZARD:Ljava/lang/String; = "CscFeature_Settig_EnableDataTariffWizard"
 
+.field public static final TAG_CSCFEATURE_SETTING_ENABLE_NETWORK_MODE:Ljava/lang/String; = "CscFeature_Setting_EnableMenuNetworkMode"
+
 .field public static final TAG_CSCFEATURE_SETTING_HIDEAPNINAPNLIST:Ljava/lang/String; = "CscFeature_Setting_HideApnList"
+
+.field public static final TAG_CSCFEATURE_SETTING_NOTI_LTE_AVAILABLE_STATUS:Ljava/lang/String; = "CscFeature_Setting_NotiLteAvailableStatus"
 
 .field public static final TAG_CSCFEATURE_SETTING_OPERATORSPECIFICPRECONFIGKEYSTRING:Ljava/lang/String; = "CscFeature_Setting_OperatorSpecificPreConfigKeyString"
 
@@ -118,6 +118,8 @@
 
 .field public static final TAG_CSCFEATURE_VOICECALL_DISABLE_AUTOANSWER_IN_SILENT_N_EARJACK_MODE:Ljava/lang/String; = "CscFeature_VoiceCall_DisableAutoAnswerInSilentNEarjactMode"
 
+.field public static final TAG_CSCFEATURE_VOICECALL_DISABLE_DISPLAY_VOICEMAIL_KEYPAD:Ljava/lang/String; = "CscFeature_VoiceCall_DisableDisplayVoicemailKeypad"
+
 .field public static final TAG_CSCFEATURE_VOICECALL_DISABLE_EDITING_CALLERID:Ljava/lang/String; = "CscFeature_VoiceCall_DisableEditingCallerID"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_DISABLE_GEO_DESCRIPTION:Ljava/lang/String; = "CscFeature_VoiceCall_DisableGeoDescription"
@@ -127,6 +129,8 @@
 .field public static final TAG_CSCFEATURE_VOICECALL_DISABLE_TOAST_POPUP_WHEN_MO_CCF:Ljava/lang/String; = "CscFeature_VoiceCall_DisableToastPopupWhenMOConditionalCallForwarding"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_DISAPPER_USSD_CANCEL_POPUP:Ljava/lang/String; = "CscFeature_VoiceCall_DisableUssdCancelPopup"
+
+.field public static final TAG_CSCFEATURE_VOICECALL_ENABLEWIZARD1STCALL4TABLET:Ljava/lang/String; = "CscFeature_VoiceCall_EnableWizard1stCall4Tablet"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_ENABLE_BLOCK_FDN_WITH_PARTICULAR_LINE:Ljava/lang/String; = "CscFeature_VoiceCall_EnableBlockFdnWithParticularLine"
 
@@ -149,6 +153,8 @@
 .field public static final TAG_CSCFEATURE_VOICECALL_KEYPAD_TYPE_TO_PHONE_FOR_USSD:Ljava/lang/String; = "CscFeature_VoiceCall_KeypadTypeToDigit4UssdInput"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_REMOVE_CALL_BUTTON_IN_LOGS_LIST:Ljava/lang/String; = "CscFeature_VoiceCall_RemoveCallButtonInLogsList"
+
+.field public static final TAG_CSCFEATURE_VOICECALL_REMOVE_MMI_COMPLETE_POPUP:Ljava/lang/String; = "CscFeature_VoiceCall_RemoveMmiCompletePopup"
 
 .field public static final TAG_CSCFEATURE_VOICECALL_SERVICE_NUMBER_DISPLAY:Ljava/lang/String; = "CscFeature_VoiceCall_ServiceNumberDisplay"
 

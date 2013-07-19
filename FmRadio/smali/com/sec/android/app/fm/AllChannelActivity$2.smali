@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 341
+    .line 378
     iput-object p1, p0, Lcom/sec/android/app/fm/AllChannelActivity$2;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 345
+    .line 382
     .local p1, arg0:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     invoke-static {}, Lcom/sec/android/app/fm/WorkerThread;->getInstance()Lcom/sec/android/app/fm/WorkerThread;
 
@@ -64,7 +64,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 346
+    .line 383
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity$2;->this$0:Lcom/sec/android/app/fm/AllChannelActivity;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -123,11 +123,11 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 377
+    .line 412
     :goto_0
     return-void
 
-    .line 359
+    .line 392
     :cond_0
     :try_start_0
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -140,7 +140,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 360
+    .line 393
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -157,7 +157,7 @@
 
     iput v1, v2, Lcom/sec/android/app/fm/MainActivity;->mCurrentFreq:F
 
-    .line 361
+    .line 395
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -182,11 +182,11 @@
 
     goto :goto_0
 
-    .line 372
+    .line 405
     :catch_0
     move-exception v0
 
-    .line 374
+    .line 407
     .local v0, e:Ljava/lang/Exception;
     :try_start_1
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
@@ -195,13 +195,13 @@
 
     goto :goto_0
 
-    .line 375
+    .line 408
     :catch_1
     move-exception v1
 
     goto :goto_0
 
-    .line 365
+    .line 398
     .end local v0           #e:Ljava/lang/Exception;
     :cond_1
     :try_start_2
@@ -221,7 +221,7 @@
 
     iput v1, v2, Lcom/sec/android/app/fm/MainActivity;->mCurrentFreq:F
 
-    .line 366
+    .line 400
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;

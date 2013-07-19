@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 235
+    .line 236
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 237
+    .line 238
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->mPassword:Landroid/widget/EditText;
@@ -59,7 +59,7 @@
 
     move-result-object v2
 
-    .line 238
+    .line 239
     .local v2, inputPassword:Ljava/lang/String;
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
@@ -74,14 +74,14 @@
 
     if-eqz v4, :cond_1
 
-    .line 239
+    .line 240
     const-string v4, "PcwUnlockScreen"
 
     const-string v5, "setPositiveButton ClickListener: checkPcwPassword success"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 241
+    .line 242
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->mContext:Landroid/content/Context;
@@ -97,7 +97,7 @@
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 242
+    .line 243
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->mContext:Landroid/content/Context;
@@ -115,7 +115,7 @@
 
     invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 245
+    .line 246
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->mContext:Landroid/content/Context;
@@ -133,7 +133,7 @@
 
     move-result-object v3
 
-    .line 247
+    .line 248
     .local v3, state:Ljava/lang/String;
     const-string v4, "PcwUnlockScreen"
 
@@ -155,18 +155,18 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 250
+    .line 251
     invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v1
 
-    .line 251
+    .line 252
     .local v1, imm:Landroid/view/inputmethod/InputMethodManager;
     if-eqz v1, :cond_0
 
-    .line 252
+    .line 253
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->mPassword:Landroid/widget/EditText;
@@ -182,7 +182,7 @@
 
     invoke-virtual {v1, v4, v5}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 255
+    .line 256
     :cond_0
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
@@ -190,7 +190,7 @@
 
     invoke-virtual {v4}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 256
+    .line 257
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->mHandler:Landroid/os/Handler;
@@ -207,7 +207,7 @@
 
     invoke-virtual {v4, v5}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 257
+    .line 258
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -219,21 +219,21 @@
 
     invoke-interface {v4, v5}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->keyguardDone(Z)V
 
-    .line 273
+    .line 274
     .end local v1           #imm:Landroid/view/inputmethod/InputMethodManager;
     .end local v3           #state:Ljava/lang/String;
     :goto_0
     return-void
 
-    .line 259
+    .line 260
     :cond_1
     const-string v4, "PcwUnlockScreen"
 
     const-string v5, "setPositiveButton ClickListener: checkPcwPassword fail"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 261
+    .line 262
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->mHandler:Landroid/os/Handler;
@@ -252,7 +252,7 @@
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 263
+    .line 264
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
@@ -266,7 +266,7 @@
 
     invoke-direct {v0, v4, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    .line 264
+    .line 265
     .local v0, errorDialog:Landroid/app/AlertDialog$Builder;
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
@@ -275,7 +275,7 @@
 
     move-result-object v4
 
-    const v5, 0x1040494
+    const v5, 0x104049d
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -283,21 +283,21 @@
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    .line 266
+    .line 267
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     iget-object v4, v4, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->errorDlg:Landroid/app/AlertDialog;
 
     if-eqz v4, :cond_2
 
-    .line 267
+    .line 268
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     iget-object v4, v4, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->errorDlg:Landroid/app/AlertDialog;
 
     invoke-virtual {v4}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 269
+    .line 270
     :cond_2
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
@@ -307,7 +307,7 @@
 
     iput-object v5, v4, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->errorDlg:Landroid/app/AlertDialog;
 
-    .line 270
+    .line 271
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     iget-object v4, v4, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->errorDlg:Landroid/app/AlertDialog;
@@ -320,7 +320,7 @@
 
     invoke-virtual {v4, v5}, Landroid/view/Window;->setType(I)V
 
-    .line 271
+    .line 272
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     iget-object v4, v4, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->errorDlg:Landroid/app/AlertDialog;

@@ -166,14 +166,26 @@
     <string name="global_actions_airplane_mode_off_status">Airplane mode is OFF</string>
     <string name="global_actions_airplane_mode_on_status_confirm">Airplane mode will be enabled</string>
     <string name="global_actions_airplane_mode_off_status_confirm">Airplane mode will be disabled</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Switch to previous size</string>
     <string name="clipboard_copied_to_clipboard">Copied to clipboard</string>
     <string name="clipboard_exceed_msg">Maximum number of protected clips (%d) reached</string>
+    <string name="screen_overlay_1st">Swipe across the screen to unlock device.</string>
+    <string name="screen_overlay_2st">Swipe over a shortcut to open an app.</string>
+    <string name="screen_overlay_3st">Swipe over the icon to view the missed event.</string>
+    <string name="lockscreen_voiceunlock_failed_to_recognise_voice_text">Failed to recognize voice</string>
+    <string name="lockscreen_voiceunlock_recognising_text">Recognizing...</string>
+    <string name="SS_ALWAYS_ON_TOP">Always on top</string>
+    <string name="SS_MINIMISE">Minimize</string>
+    <string name="SS_MAXIMISE">Maximize</string>
+    <string name="SS_CLOSE_APPLICATION">Close application</string>
     <string name="resolver_guide_title">Clear defaults</string>
     <string name="operation_not_allowed">Operation not allowed</string>
     <string name="exceeded_maxlength">Maximum message size exceeded</string>
     <string name="dont_show_again_message">Do not show again</string>
     <string name="set_bing_as_default">Set Bing as the default search engine?</string>
     <string name="ms_domain_site">Microsoft domain site</string>
+    <string name="unsupported_in_popupbrowser">Unsupported function in the Popup Browser</string>
+    <string name="find_on_page_abb">Find on page</string>
     <string name="tw_clipboard_already_exists">Already exists</string>
     <string name="tw_clipboard_no_items_to_paste">No items to paste</string>
     <string name="tw_clipboard_save_in_memo">Save in Memo</string>
@@ -192,4 +204,5 @@
     <string name="tw_clipboard_save">Save</string>
     <string name="tw_clipboard_no_item">No items</string>
     <string name="tw_clipboard_delete_all_from_clipboard">All items, except locked items, have been deleted from the clipboard</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Pasted from clipboard</string>
 </resources>

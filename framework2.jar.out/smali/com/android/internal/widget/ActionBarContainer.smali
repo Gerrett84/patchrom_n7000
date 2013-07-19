@@ -2,6 +2,7 @@
 .super Landroid/widget/FrameLayout;
 .source "ActionBarContainer.java"
 
+
 # instance fields
 .field private mActionBarView:Lcom/android/internal/widget/ActionBarView;
 
@@ -84,7 +85,7 @@
 
     move-result v3
 
-    const v4, 0x10203ec
+    const v4, 0x10203fc
 
     if-ne v3, v4, :cond_0
 
@@ -150,7 +151,6 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 266
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarContainer;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lmiui/util/UiUtils;->isV5Ui(Landroid/content/Context;)Z
@@ -178,6 +178,8 @@
 
     goto :goto_0
 .end method
+
+
 # virtual methods
 .method protected getActionBarView()Lcom/android/internal/widget/ActionBarView;
     .locals 1
@@ -290,7 +292,7 @@
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
     .line 76
-    const v0, 0x10203ea
+    const v0, 0x10203fa
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarContainer;->findViewById(I)Landroid/view/View;
 

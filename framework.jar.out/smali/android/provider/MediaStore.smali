@@ -140,6 +140,43 @@
     return-object v0
 .end method
 
+.method public static getPlaylistsSyncUri(Ljava/lang/String;)Landroid/net/Uri;
+    .locals 2
+    .parameter "volumeName"
+
+    .prologue
+    .line 2146
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "content://media/"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "/playlists/sync"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static getVersion(Landroid/content/Context;)Ljava/lang/String;
     .locals 7
     .parameter "context"
@@ -147,7 +184,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 2167
+    .line 2172
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -168,11 +205,11 @@
 
     move-result-object v6
 
-    .line 2170
+    .line 2175
     .local v6, c:Landroid/database/Cursor;
     if-eqz v6, :cond_0
 
-    .line 2172
+    .line 2177
     :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -180,7 +217,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 2173
+    .line 2178
     const/4 v0, 0x0
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -189,15 +226,15 @@
 
     move-result-object v2
 
-    .line 2176
+    .line 2181
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 2179
+    .line 2184
     :cond_0
     :goto_0
     return-object v2
 
-    .line 2176
+    .line 2181
     :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 

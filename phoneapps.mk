@@ -1,13 +1,14 @@
 local-phone-apps = $(private-phone-apps) $(private-services)
 private-services := AllshareService \
 					FlashBarService \
+					FlashAnnotate \
+					FlashAnnotateSvc \
 					SuggestionService \
-					QuickSnote \
+					Snote_Q1 \
 					Snote_Q1_Provider \
 					ResourceManager \
-					SPenGestuurePad \
-					QuickSnote \
-					Snote_Q1 
+					QuickSnote_Q1 \
+					SamsungIME 
 
 private-phone-apps := ApplicationsProvider \
 					  BackupRestoreConfirmation \
@@ -18,15 +19,14 @@ private-phone-apps := ApplicationsProvider \
 					  CSC \
 					  ClipboardSaveService \
 					  CertInstaller \
+					  Cusettings \
 					  DefaultContainerService \
 					  Divx \
 					  EdmVpnServices \
 					  FaceLock \
-					  FactoryTest \
+					  FactoryTest_Q1_EUR_OPEN \
 					  FmRadio \
-					  Gallery2 \
 					  KeyChain \
-					  LatinIME \
 					  LogsProvider \
 					  MediaUploader \
 					  MusicFX \
@@ -35,20 +35,18 @@ private-phone-apps := ApplicationsProvider \
 					  PCWClientS \
 					  PRUI \
 					  PanningTryActually \
-					  Personalization \
 					  PhoneErrService \
-					  PopupBrowser \
-					  PolarisViewer \
 					  PopupuiReceiver \
+					  PopupBrowser \
 					  Preconfig \
 					  PreloadInstaller \
-					  SamsungCamera \
 					  SamsungTTS \
 					  SecMediaProvider \
 					  SecHTMLViewer \
 					  SecLiveWallpapersPicker \
 					  SecurityProvider \
-					  SelfTestMode \
+					  SelfTestMode_Q1_EUR_OPEN \
+					  SPenGesturePad \
 					  Stk \
 					  UserDictionaryProvider \
 					  VpnDialogs \
@@ -56,14 +54,12 @@ private-phone-apps := ApplicationsProvider \
 					  WAPPushManager \
 					  WlanTest \
 					  minimode-res \
-					  serviceModeApp \
-					  wssyncmlnps \
-					  Cusettings
+					  serviceModeApp_Q1_EUR_OPEN \
+					  wssyncmlnps
 
 private-lockscreen-apps := PickUpTutorial \
 						   AccuweatherDaemon \
-						   AccuweatherWidget \
-						   AccuweathetWidget_Main
+						   AccuweatherWidget
 
 private-phone-apps2 :=  AllshareDMC \
 						AllshareMediaServer \

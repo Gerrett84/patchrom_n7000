@@ -12,8 +12,6 @@
 
 
 # static fields
-.field public static final ACTION_SCONTEXT_EVENT:Ljava/lang/String; = "android.hardware.scontext.SCONTEXT_EVENT"
-
 .field public static final APPROACH:I = 0x1
 
 .field public static final AUTO_ROTATION:I = 0x6
@@ -64,17 +62,17 @@
     .parameter "mainLooper"
 
     .prologue
-    .line 69
+    .line 68
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
+    .line 64
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextManager;->mListenerDelegates:Ljava/util/ArrayList;
 
-    .line 70
+    .line 69
     const-string v0, "scontext"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -87,10 +85,10 @@
 
     iput-object v0, p0, Landroid/hardware/scontext/SContextManager;->mSContextService:Landroid/hardware/scontext/ISContextService;
 
-    .line 72
+    .line 71
     iput-object p1, p0, Landroid/hardware/scontext/SContextManager;->mMainLooper:Landroid/os/Looper;
 
-    .line 73
+    .line 72
     return-void
 .end method
 
@@ -101,19 +99,19 @@
     .parameter "service"
 
     .prologue
-    .line 178
+    .line 193
     if-lez p1, :cond_0
 
     const/4 v1, 0x6
 
     if-le p1, v1, :cond_1
 
-    .line 186
+    .line 201
     :cond_0
     :goto_0
     return-void
 
-    .line 182
+    .line 197
     :cond_1
     :try_start_0
     iget-object v1, p0, Landroid/hardware/scontext/SContextManager;->mSContextService:Landroid/hardware/scontext/ISContextService;
@@ -124,11 +122,11 @@
 
     goto :goto_0
 
-    .line 183
+    .line 198
     :catch_0
     move-exception v0
 
-    .line 184
+    .line 199
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "SContextManager"
 
@@ -140,15 +138,15 @@
 .end method
 
 .method public registerListener(Landroid/hardware/scontext/SContextListener;I)Z
-    .locals 7
+    .locals 8
     .parameter "listener"
     .parameter "service"
 
     .prologue
-    .line 76
-    const/16 v3, 0xa
-
     const/4 v4, 0x0
+
+    .line 75
+    const/16 v3, 0xa
 
     const/high16 v5, 0x432a
 
@@ -162,24 +160,32 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/hardware/scontext/SContextManager;->registerListener(Landroid/hardware/scontext/SContextListener;IIIFF)Z
 
-    .line 77
-    const/4 v0, 0x1
+    move-result v7
 
-    return v0
+    .line 77
+    .local v7, res:Z
+    if-eqz v7, :cond_0
+
+    .line 78
+    const/4 v4, 0x1
+
+    .line 80
+    :cond_0
+    return v4
 .end method
 
 .method public registerListener(Landroid/hardware/scontext/SContextListener;IFF)Z
-    .locals 7
+    .locals 8
     .parameter "listener"
     .parameter "service"
     .parameter "height"
     .parameter "weight"
 
     .prologue
-    .line 93
-    const/16 v3, 0xa
-
     const/4 v4, 0x0
+
+    .line 103
+    const/16 v3, 0xa
 
     move-object v0, p0
 
@@ -193,31 +199,38 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/hardware/scontext/SContextManager;->registerListener(Landroid/hardware/scontext/SContextListener;IIIFF)Z
 
-    .line 94
-    const/4 v0, 0x1
+    move-result v7
 
-    return v0
+    .line 105
+    .local v7, res:Z
+    if-eqz v7, :cond_0
+
+    .line 106
+    const/4 v4, 0x1
+
+    .line 108
+    :cond_0
+    return v4
 .end method
 
 .method public registerListener(Landroid/hardware/scontext/SContextListener;II)Z
-    .locals 7
+    .locals 8
     .parameter "listener"
     .parameter "service"
     .parameter "arg"
 
     .prologue
-    const/16 v3, 0xa
+    .line 86
+    const/4 v0, 0x3
 
+    if-ne p2, v0, :cond_0
+
+    .line 87
     const/4 v4, 0x0
 
     const/high16 v5, 0x432a
 
     const/high16 v6, 0x4270
-
-    .line 81
-    const/4 v0, 0x3
-
-    if-ne p2, v0, :cond_0
 
     move-object v0, p0
 
@@ -227,20 +240,35 @@
 
     move v3, p3
 
-    .line 82
     invoke-virtual/range {v0 .. v6}, Landroid/hardware/scontext/SContextManager;->registerListener(Landroid/hardware/scontext/SContextListener;IIIFF)Z
 
-    .line 89
+    move-result v7
+
+    .line 94
+    .local v7, res:Z
     :goto_0
+    if-eqz v7, :cond_2
+
+    .line 95
     const/4 v0, 0x1
 
+    .line 97
+    :goto_1
     return v0
 
-    .line 83
+    .line 88
+    .end local v7           #res:Z
     :cond_0
     const/4 v0, 0x6
 
     if-ne p2, v0, :cond_1
+
+    .line 89
+    const/16 v3, 0xa
+
+    const/high16 v5, 0x432a
+
+    const/high16 v6, 0x4270
 
     move-object v0, p0
 
@@ -250,22 +278,42 @@
 
     move v4, p3
 
-    .line 84
     invoke-virtual/range {v0 .. v6}, Landroid/hardware/scontext/SContextManager;->registerListener(Landroid/hardware/scontext/SContextListener;IIIFF)Z
 
+    move-result v7
+
+    .restart local v7       #res:Z
     goto :goto_0
 
+    .line 91
+    .end local v7           #res:Z
     :cond_1
+    const/16 v3, 0xa
+
+    const/4 v4, 0x0
+
+    const/high16 v5, 0x432a
+
+    const/high16 v6, 0x4270
+
     move-object v0, p0
 
     move-object v1, p1
 
     move v2, p2
 
-    .line 86
     invoke-virtual/range {v0 .. v6}, Landroid/hardware/scontext/SContextManager;->registerListener(Landroid/hardware/scontext/SContextListener;IIIFF)Z
 
+    move-result v7
+
+    .restart local v7       #res:Z
     goto :goto_0
+
+    .line 97
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method
 
 .method public registerListener(Landroid/hardware/scontext/SContextListener;IIIFF)Z
@@ -278,7 +326,7 @@
     .parameter "weight"
 
     .prologue
-    .line 99
+    .line 114
     if-eqz p1, :cond_0
 
     if-lez p2, :cond_0
@@ -287,45 +335,45 @@
 
     if-le p2, v7, :cond_1
 
-    .line 100
+    .line 115
     :cond_0
     const/4 v7, 0x0
 
-    .line 132
+    .line 147
     :goto_0
     return v7
 
-    .line 103
+    .line 118
     :cond_1
     const/4 v4, 0x0
 
-    .line 104
+    .line 119
     .local v4, scontextListener:Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
     new-instance v3, Landroid/hardware/scontext/SContext;
 
     invoke-direct {v3}, Landroid/hardware/scontext/SContext;-><init>()V
 
-    .line 105
+    .line 120
     .local v3, scontext:Landroid/hardware/scontext/SContext;
     invoke-virtual {v3, p2}, Landroid/hardware/scontext/SContext;->setType(I)V
 
-    .line 106
+    .line 121
     invoke-virtual {v3, p3}, Landroid/hardware/scontext/SContext;->setStepCount(I)V
 
-    .line 107
+    .line 122
     move/from16 v0, p6
 
     invoke-virtual {v3, p5, v0}, Landroid/hardware/scontext/SContext;->setUserBodyInfo(FF)V
 
-    .line 108
+    .line 123
     invoke-virtual {v3, p4}, Landroid/hardware/scontext/SContext;->setDeviceType(I)V
 
-    .line 110
+    .line 125
     iget-object v8, p0, Landroid/hardware/scontext/SContextManager;->mListenerDelegates:Ljava/util/ArrayList;
 
     monitor-enter v8
 
-    .line 111
+    .line 126
     :try_start_0
     iget-object v7, p0, Landroid/hardware/scontext/SContextManager;->mListenerDelegates:Ljava/util/ArrayList;
 
@@ -333,7 +381,7 @@
 
     move-result v6
 
-    .line 113
+    .line 128
     .local v6, size:I
     const/4 v2, 0x0
 
@@ -341,7 +389,7 @@
     :goto_1
     if-ge v2, v6, :cond_4
 
-    .line 114
+    .line 129
     iget-object v7, p0, Landroid/hardware/scontext/SContextManager;->mListenerDelegates:Ljava/util/ArrayList;
 
     invoke-virtual {v7, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -356,7 +404,7 @@
 
     if-ne v7, p1, :cond_2
 
-    .line 115
+    .line 130
     iget-object v7, p0, Landroid/hardware/scontext/SContextManager;->mListenerDelegates:Ljava/util/ArrayList;
 
     invoke-virtual {v7, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -373,13 +421,13 @@
 
     move-object v5, v4
 
-    .line 120
+    .line 135
     .end local v4           #scontextListener:Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
     .local v5, scontextListener:Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
     :goto_2
     if-nez v5, :cond_3
 
-    .line 121
+    .line 136
     :try_start_1
     new-instance v4, Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
 
@@ -389,7 +437,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 122
+    .line 137
     .end local v5           #scontextListener:Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
     .restart local v4       #scontextListener:Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
     :try_start_2
@@ -399,7 +447,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 126
+    .line 141
     :goto_3
     :try_start_3
     iget-object v7, p0, Landroid/hardware/scontext/SContextManager;->mSContextService:Landroid/hardware/scontext/ISContextService;
@@ -409,14 +457,14 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 130
+    .line 145
     :goto_4
     :try_start_4
     monitor-exit v8
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 131
+    .line 146
     const-string v7, "SContextManager"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -439,22 +487,22 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 132
+    .line 147
     const/4 v7, 0x1
 
     goto :goto_0
 
-    .line 113
+    .line 128
     :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 127
+    .line 142
     :catch_0
     move-exception v1
 
-    .line 128
+    .line 143
     .local v1, e:Landroid/os/RemoteException;
     :try_start_5
     const-string v7, "SContextManager"
@@ -465,7 +513,7 @@
 
     goto :goto_4
 
-    .line 130
+    .line 145
     .end local v1           #e:Landroid/os/RemoteException;
     .end local v2           #i:I
     .end local v6           #size:I
@@ -514,14 +562,14 @@
     .parameter "listener"
 
     .prologue
-    .line 136
+    .line 151
     if-nez p1, :cond_1
 
-    .line 143
+    .line 158
     :cond_0
     return-void
 
-    .line 140
+    .line 155
     :cond_1
     const/4 v0, 0x0
 
@@ -531,12 +579,12 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 141
+    .line 156
     add-int/lit8 v1, v0, 0x1
 
     invoke-virtual {p0, p1, v1}, Landroid/hardware/scontext/SContextManager;->unregisterListener(Landroid/hardware/scontext/SContextListener;I)V
 
-    .line 140
+    .line 155
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -548,7 +596,7 @@
     .parameter "service"
 
     .prologue
-    .line 146
+    .line 161
     if-eqz p1, :cond_0
 
     if-lez p2, :cond_0
@@ -557,22 +605,22 @@
 
     if-le p2, v5, :cond_1
 
-    .line 175
+    .line 190
     :cond_0
     :goto_0
     return-void
 
-    .line 150
+    .line 165
     :cond_1
     const/4 v3, 0x0
 
-    .line 152
+    .line 167
     .local v3, scontextListener:Landroid/hardware/scontext/SContextManager$SContextListenerDelegate;
     iget-object v6, p0, Landroid/hardware/scontext/SContextManager;->mListenerDelegates:Ljava/util/ArrayList;
 
     monitor-enter v6
 
-    .line 153
+    .line 168
     :try_start_0
     iget-object v5, p0, Landroid/hardware/scontext/SContextManager;->mListenerDelegates:Ljava/util/ArrayList;
 
@@ -580,7 +628,7 @@
 
     move-result v4
 
-    .line 155
+    .line 170
     .local v4, size:I
     const/4 v2, 0x0
 
@@ -588,7 +636,7 @@
     :goto_1
     if-ge v2, v4, :cond_2
 
-    .line 156
+    .line 171
     iget-object v5, p0, Landroid/hardware/scontext/SContextManager;->mListenerDelegates:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -603,7 +651,7 @@
 
     if-ne v5, p1, :cond_3
 
-    .line 157
+    .line 172
     iget-object v5, p0, Landroid/hardware/scontext/SContextManager;->mListenerDelegates:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -616,16 +664,16 @@
 
     move-object v3, v0
 
-    .line 162
+    .line 177
     :cond_2
     if-nez v3, :cond_4
 
-    .line 163
+    .line 178
     monitor-exit v6
 
     goto :goto_0
 
-    .line 173
+    .line 188
     .end local v2           #i:I
     .end local v4           #size:I
     :catchall_0
@@ -637,7 +685,7 @@
 
     throw v5
 
-    .line 155
+    .line 170
     .restart local v2       #i:I
     .restart local v4       #size:I
     :cond_3
@@ -645,7 +693,7 @@
 
     goto :goto_1
 
-    .line 167
+    .line 182
     :cond_4
     :try_start_1
     iget-object v5, p0, Landroid/hardware/scontext/SContextManager;->mSContextService:Landroid/hardware/scontext/ISContextService;
@@ -656,7 +704,7 @@
 
     if-eqz v5, :cond_5
 
-    .line 168
+    .line 183
     iget-object v5, p0, Landroid/hardware/scontext/SContextManager;->mListenerDelegates:Ljava/util/ArrayList;
 
     invoke-virtual {v5, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
@@ -664,7 +712,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 173
+    .line 188
     :cond_5
     :goto_2
     :try_start_2
@@ -672,7 +720,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 174
+    .line 189
     const-string v5, "SContextManager"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -697,11 +745,11 @@
 
     goto :goto_0
 
-    .line 170
+    .line 185
     :catch_0
     move-exception v1
 
-    .line 171
+    .line 186
     .local v1, e:Landroid/os/RemoteException;
     :try_start_3
     const-string v5, "SContextManager"

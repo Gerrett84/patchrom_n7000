@@ -26,21 +26,23 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "android.hardware.motion.IMotionRecognitionService"
 
+.field static final TRANSACTION_getMotionStatus:I = 0x3
+
 .field static final TRANSACTION_getSSPstatus:I = 0x2
 
 .field static final TRANSACTION_registerCallback:I = 0x1
 
-.field static final TRANSACTION_resetMotionEngine:I = 0x8
+.field static final TRANSACTION_resetMotionEngine:I = 0x9
 
-.field static final TRANSACTION_setLogPath:I = 0x4
+.field static final TRANSACTION_setLogPath:I = 0x5
 
-.field static final TRANSACTION_setMotionAngle:I = 0x6
+.field static final TRANSACTION_setMotionAngle:I = 0x7
 
-.field static final TRANSACTION_setMotionTiltLevel:I = 0x7
+.field static final TRANSACTION_setMotionTiltLevel:I = 0x8
 
-.field static final TRANSACTION_unregisterCallback:I = 0x3
+.field static final TRANSACTION_unregisterCallback:I = 0x4
 
-.field static final TRANSACTION_useMotionAlways:I = 0x5
+.field static final TRANSACTION_useMotionAlways:I = 0x6
 
 
 # direct methods
@@ -136,7 +138,7 @@
     .line 38
     sparse-switch p1, :sswitch_data_0
 
-    .line 132
+    .line 140
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v8
@@ -208,149 +210,175 @@
     .line 66
     .end local v7           #_result:Z
     :sswitch_3
-    const-string v0, "android.hardware.motion.IMotionRecognitionService"
+    const-string v9, "android.hardware.motion.IMotionRecognitionService"
 
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 67
+    invoke-virtual {p0}, Landroid/hardware/motion/IMotionRecognitionService$Stub;->getMotionStatus()Z
+
+    move-result v7
 
     .line 68
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v1
+    .restart local v7       #_result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 69
-    .restart local v1       #_arg0:Landroid/os/IBinder;
-    invoke-virtual {p0, v1}, Landroid/hardware/motion/IMotionRecognitionService$Stub;->unregisterCallback(Landroid/os/IBinder;)V
+    if-eqz v7, :cond_1
 
-    .line 70
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    move v0, v8
+
+    :cond_1
+    invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
-    .line 75
-    .end local v1           #_arg0:Landroid/os/IBinder;
+    .line 74
+    .end local v7           #_result:Z
     :sswitch_4
     const-string v0, "android.hardware.motion.IMotionRecognitionService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 77
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 78
-    .local v1, _arg0:Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroid/hardware/motion/IMotionRecognitionService$Stub;->setLogPath(Ljava/lang/String;)V
-
-    .line 79
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto :goto_0
-
-    .line 84
-    .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_5
-    const-string v9, "android.hardware.motion.IMotionRecognitionService"
-
-    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 86
+    .line 76
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    .line 88
+    .line 77
+    .restart local v1       #_arg0:Landroid/os/IBinder;
+    invoke-virtual {p0, v1}, Landroid/hardware/motion/IMotionRecognitionService$Stub;->unregisterCallback(Landroid/os/IBinder;)V
+
+    .line 78
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto :goto_0
+
+    .line 83
+    .end local v1           #_arg0:Landroid/os/IBinder;
+    :sswitch_5
+    const-string v0, "android.hardware.motion.IMotionRecognitionService"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 85
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 86
+    .local v1, _arg0:Ljava/lang/String;
+    invoke-virtual {p0, v1}, Landroid/hardware/motion/IMotionRecognitionService$Stub;->setLogPath(Ljava/lang/String;)V
+
+    .line 87
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto :goto_0
+
+    .line 92
+    .end local v1           #_arg0:Ljava/lang/String;
+    :sswitch_6
+    const-string v9, "android.hardware.motion.IMotionRecognitionService"
+
+    invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 94
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    .line 96
     .local v1, _arg0:Landroid/os/IBinder;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_2
 
     move v2, v8
 
-    .line 89
+    .line 97
     .local v2, _arg1:Z
     :goto_1
     invoke-virtual {p0, v1, v2}, Landroid/hardware/motion/IMotionRecognitionService$Stub;->useMotionAlways(Landroid/os/IBinder;Z)V
 
-    .line 90
+    .line 98
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto :goto_0
 
     .end local v2           #_arg1:Z
-    :cond_1
+    :cond_2
     move v2, v0
 
-    .line 88
+    .line 96
     goto :goto_1
 
-    .line 95
+    .line 103
     .end local v1           #_arg0:Landroid/os/IBinder;
-    :sswitch_6
-    const-string v0, "android.hardware.motion.IMotionRecognitionService"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 97
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
-
-    move-result-object v1
-
-    .line 99
-    .restart local v1       #_arg0:Landroid/os/IBinder;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v2
-
-    .line 100
-    .local v2, _arg1:I
-    invoke-virtual {p0, v1, v2}, Landroid/hardware/motion/IMotionRecognitionService$Stub;->setMotionAngle(Landroid/os/IBinder;I)V
-
-    .line 101
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto :goto_0
-
-    .line 106
-    .end local v1           #_arg0:Landroid/os/IBinder;
-    .end local v2           #_arg1:I
     :sswitch_7
     const-string v0, "android.hardware.motion.IMotionRecognitionService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 105
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    .line 107
+    .restart local v1       #_arg0:Landroid/os/IBinder;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
     .line 108
+    .local v2, _arg1:I
+    invoke-virtual {p0, v1, v2}, Landroid/hardware/motion/IMotionRecognitionService$Stub;->setMotionAngle(Landroid/os/IBinder;I)V
+
+    .line 109
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_0
+
+    .line 114
+    .end local v1           #_arg0:Landroid/os/IBinder;
+    .end local v2           #_arg1:I
+    :sswitch_8
+    const-string v0, "android.hardware.motion.IMotionRecognitionService"
+
+    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 116
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 110
+    .line 118
     .local v1, _arg0:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    .line 112
+    .line 120
     .restart local v2       #_arg1:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    .line 114
+    .line 122
     .local v3, _arg2:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    .line 116
+    .line 124
     .local v4, _arg3:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    .line 118
+    .line 126
     .local v5, _arg4:I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
@@ -359,36 +387,36 @@
     .local v6, _arg5:I
     move-object v0, p0
 
-    .line 119
+    .line 127
     invoke-virtual/range {v0 .. v6}, Landroid/hardware/motion/IMotionRecognitionService$Stub;->setMotionTiltLevel(IIIIII)V
 
-    .line 120
+    .line 128
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_0
 
-    .line 125
+    .line 133
     .end local v1           #_arg0:I
     .end local v2           #_arg1:I
     .end local v3           #_arg2:I
     .end local v4           #_arg3:I
     .end local v5           #_arg4:I
     .end local v6           #_arg5:I
-    :sswitch_8
+    :sswitch_9
     const-string v0, "android.hardware.motion.IMotionRecognitionService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 126
+    .line 134
     invoke-virtual {p0}, Landroid/hardware/motion/IMotionRecognitionService$Stub;->resetMotionEngine()I
 
     move-result v7
 
-    .line 127
+    .line 135
     .local v7, _result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 128
+    .line 136
     invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
@@ -406,6 +434,7 @@
         0x6 -> :sswitch_6
         0x7 -> :sswitch_7
         0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

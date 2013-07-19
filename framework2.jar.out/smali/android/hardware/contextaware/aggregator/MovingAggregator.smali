@@ -21,11 +21,11 @@
     .end annotation
 
     .prologue
-    .line 30
+    .line 29
     .local p1, collectionList:Ljava/util/List;,"Ljava/util/List<Landroid/hardware/contextaware/ContextProvider;>;"
     invoke-direct {p0, p1, p2}, Landroid/hardware/contextaware/aggregator/Aggregator;-><init>(Ljava/util/List;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/IAPPowerObservable;)V
 
-    .line 31
+    .line 30
     return-void
 .end method
 
@@ -35,10 +35,7 @@
     .locals 0
 
     .prologue
-    .line 63
-    invoke-static {}, Landroid/hardware/contextaware/utilbundle/CALogger;->trace()V
-
-    .line 64
+    .line 60
     return-void
 .end method
 
@@ -46,10 +43,7 @@
     .locals 0
 
     .prologue
-    .line 41
-    invoke-static {}, Landroid/hardware/contextaware/utilbundle/CALogger;->trace()V
-
-    .line 42
+    .line 40
     return-void
 .end method
 
@@ -57,7 +51,7 @@
     .locals 0
 
     .prologue
-    .line 27
+    .line 26
     invoke-super {p0}, Landroid/hardware/contextaware/aggregator/Aggregator;->start()V
 
     return-void
@@ -67,7 +61,7 @@
     .locals 0
 
     .prologue
-    .line 27
+    .line 26
     invoke-super {p0}, Landroid/hardware/contextaware/aggregator/Aggregator;->stop()V
 
     return-void
@@ -77,10 +71,7 @@
     .locals 0
 
     .prologue
-    .line 52
-    invoke-static {}, Landroid/hardware/contextaware/utilbundle/CALogger;->trace()V
-
-    .line 53
+    .line 50
     return-void
 .end method
 
@@ -89,7 +80,7 @@
     .parameter "x0"
 
     .prologue
-    .line 27
+    .line 26
     invoke-super {p0, p1}, Landroid/hardware/contextaware/aggregator/Aggregator;->updateAPPowerStatus(I)V
 
     return-void
@@ -101,9 +92,6 @@
     .parameter "listener"
 
     .prologue
-    .line 75
-    invoke-static {}, Landroid/hardware/contextaware/utilbundle/CALogger;->trace()V
-
-    .line 76
+    .line 71
     return-void
 .end method

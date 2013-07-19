@@ -79,6 +79,14 @@
     .end annotation
 .end method
 
+.method public abstract isImsForbidden()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract isOnEHRPD()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -191,6 +199,14 @@
     .end annotation
 .end method
 
+.method public abstract setAudioMode(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract setAudioTuningParameters(I)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -231,7 +247,7 @@
     .end annotation
 .end method
 
-.method public abstract startVideoRenderer(Landroid/view/Surface;II)V
+.method public abstract startVideoRenderer(Landroid/view/Surface;IILjava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -312,6 +328,14 @@
 .end method
 
 .method public abstract voiceRecord(ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract writeErrorData(Ljava/lang/String;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

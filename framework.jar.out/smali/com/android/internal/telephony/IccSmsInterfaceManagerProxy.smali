@@ -83,7 +83,7 @@
     .end annotation
 
     .prologue
-    .line 188
+    .line 199
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->disableCellBroadcast(I)Z
@@ -104,7 +104,7 @@
     .end annotation
 
     .prologue
-    .line 198
+    .line 209
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->disableCellBroadcastRange(II)Z
@@ -124,7 +124,7 @@
     .end annotation
 
     .prologue
-    .line 184
+    .line 195
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->enableCellBroadcast(I)Z
@@ -145,7 +145,7 @@
     .end annotation
 
     .prologue
-    .line 193
+    .line 204
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->enableCellBroadcastRange(II)Z
@@ -174,7 +174,7 @@
     .end annotation
 
     .prologue
-    .line 79
+    .line 83
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->getAllMessagesFromIccEf()Ljava/util/List;
@@ -193,10 +193,30 @@
     .end annotation
 
     .prologue
-    .line 180
+    .line 191
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->getCbSettings()[B
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getMessagesFromIccEf(I)[B
+    .locals 1
+    .parameter "index"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 89
+    iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->getMessagesFromIccEf(I)[B
 
     move-result-object v0
 
@@ -260,6 +280,24 @@
     return v0
 .end method
 
+.method public resetSimFullStatus()V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .line 73
+    iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
+
+    invoke-virtual {v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->resetSimFullStatus()V
+
+    .line 74
+    return-void
+.end method
+
 .method public sendData(Ljava/lang/String;Ljava/lang/String;I[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
     .locals 7
     .parameter "destAddr"
@@ -270,7 +308,7 @@
     .parameter "deliveryIntent"
 
     .prologue
-    .line 84
+    .line 95
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     move-object v1, p1
@@ -287,7 +325,7 @@
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendData(Ljava/lang/String;Ljava/lang/String;I[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
 
-    .line 86
+    .line 97
     return-void
 .end method
 
@@ -302,7 +340,7 @@
     .parameter "deliveryIntent"
 
     .prologue
-    .line 90
+    .line 101
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     move-object v1, p1
@@ -321,7 +359,7 @@
 
     invoke-virtual/range {v0 .. v7}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendDatawithOrigPort(Ljava/lang/String;Ljava/lang/String;II[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
 
-    .line 92
+    .line 103
     return-void
 .end method
 
@@ -359,7 +397,7 @@
     .end annotation
 
     .prologue
-    .line 128
+    .line 139
     .local p3, parts:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     .local p4, sentIntents:Ljava/util/List;,"Ljava/util/List<Landroid/app/PendingIntent;>;"
     .local p5, deliveryIntents:Ljava/util/List;,"Ljava/util/List<Landroid/app/PendingIntent;>;"
@@ -377,7 +415,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendMultipartText(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
 
-    .line 130
+    .line 141
     return-void
 .end method
 
@@ -419,7 +457,7 @@
     .end annotation
 
     .prologue
-    .line 142
+    .line 153
     .local p3, parts:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     .local p4, sentIntents:Ljava/util/List;,"Ljava/util/List<Landroid/app/PendingIntent;>;"
     .local p5, deliveryIntents:Ljava/util/List;,"Ljava/util/List<Landroid/app/PendingIntent;>;"
@@ -441,7 +479,7 @@
 
     invoke-virtual/range {v0 .. v7}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendMultipartTextwithCBP(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/lang/String;I)V
 
-    .line 144
+    .line 155
     return-void
 .end method
 
@@ -483,7 +521,7 @@
     .end annotation
 
     .prologue
-    .line 166
+    .line 177
     .local p3, parts:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
     .local p4, sentIntents:Ljava/util/List;,"Ljava/util/List<Landroid/app/PendingIntent;>;"
     .local p5, deliveryIntents:Ljava/util/List;,"Ljava/util/List<Landroid/app/PendingIntent;>;"
@@ -509,7 +547,7 @@
 
     invoke-virtual/range {v0 .. v9}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendMultipartTextwithOptions(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;ZIII)V
 
-    .line 168
+    .line 179
     return-void
 .end method
 
@@ -520,12 +558,12 @@
     .parameter "text"
 
     .prologue
-    .line 174
+    .line 185
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendOTADomestic(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 175
+    .line 186
     return-void
 .end method
 
@@ -538,7 +576,7 @@
     .parameter "deliveryIntent"
 
     .prologue
-    .line 96
+    .line 107
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     move-object v1, p1
@@ -553,7 +591,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendText(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
 
-    .line 97
+    .line 108
     return-void
 .end method
 
@@ -568,7 +606,7 @@
     .parameter "priority"
 
     .prologue
-    .line 135
+    .line 146
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     move-object v1, p1
@@ -587,7 +625,7 @@
 
     invoke-virtual/range {v0 .. v7}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendTextwithCBP(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Ljava/lang/String;I)V
 
-    .line 136
+    .line 147
     return-void
 .end method
 
@@ -604,7 +642,7 @@
     .parameter "encodingType"
 
     .prologue
-    .line 110
+    .line 121
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     move-object v1, p1
@@ -627,7 +665,7 @@
 
     invoke-virtual/range {v0 .. v9}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendTextwithOptions(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;ZIII)V
 
-    .line 112
+    .line 123
     return-void
 .end method
 
@@ -645,7 +683,7 @@
     .parameter "confirmID"
 
     .prologue
-    .line 120
+    .line 131
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     move-object v1, p1
@@ -670,7 +708,7 @@
 
     invoke-virtual/range {v0 .. v10}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendTextwithOptionsReadconfirm(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;ZIIII)V
 
-    .line 122
+    .line 133
     return-void
 .end method
 
@@ -685,7 +723,7 @@
     .parameter "deliveryIntent"
 
     .prologue
-    .line 149
+    .line 160
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     move-object v1, p1
@@ -704,7 +742,21 @@
 
     invoke-virtual/range {v0 .. v7}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->sendscptResult(Ljava/lang/String;IIIILandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
 
-    .line 151
+    .line 162
+    return-void
+.end method
+
+.method public setCDMASmsReassembly(Z)V
+    .locals 1
+    .parameter "onOff"
+
+    .prologue
+    .line 212
+    iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->setCDMASmsReassembly(Z)V
+
+    .line 213
     return-void
 .end method
 
@@ -752,7 +804,7 @@
     .end annotation
 
     .prologue
-    .line 74
+    .line 78
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->updateSmsServiceCenterOnSimEf([B)Z

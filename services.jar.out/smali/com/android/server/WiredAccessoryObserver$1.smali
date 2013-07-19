@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 235
+    .line 237
     iput-object p1, p0, Lcom/android/server/WiredAccessoryObserver$1;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "event"
 
     .prologue
-    .line 238
+    .line 240
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->access$300()Ljava/lang/String;
 
     move-result-object v9
@@ -68,14 +68,14 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 240
+    .line 242
     const-string v9, "ACTION"
 
     invoke-virtual {p1, v9}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 241
+    .line 243
     .local v0, action:Ljava/lang/String;
     const-string v9, "DEVPATH"
 
@@ -83,7 +83,7 @@
 
     move-result-object v5
 
-    .line 242
+    .line 244
     .local v5, devpath:Ljava/lang/String;
     const-string v9, "MAJOR"
 
@@ -91,7 +91,7 @@
 
     move-result-object v6
 
-    .line 243
+    .line 245
     .local v6, major:Ljava/lang/String;
     const-string v9, "MINOR"
 
@@ -99,7 +99,7 @@
 
     move-result-object v7
 
-    .line 244
+    .line 246
     .local v7, minor:Ljava/lang/String;
     const-string v9, "DEVNAME"
 
@@ -107,23 +107,23 @@
 
     move-result-object v4
 
-    .line 245
+    .line 247
     .local v4, devname:Ljava/lang/String;
     const-string v1, "1"
 
-    .line 246
+    .line 248
     .local v1, cardNumber:Ljava/lang/String;
     const-string v3, "0"
 
-    .line 247
+    .line 249
     .local v3, deviceNumber:Ljava/lang/String;
     const-string v2, "1"
 
-    .line 248
+    .line 250
     .local v2, channels:Ljava/lang/String;
     const/4 v8, 0x0
 
-    .line 249
+    .line 251
     .local v8, state:I
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->access$300()Ljava/lang/String;
 
@@ -179,7 +179,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 251
+    .line 253
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->access$300()Ljava/lang/String;
 
     move-result-object v9
@@ -204,7 +204,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 252
+    .line 254
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->access$300()Ljava/lang/String;
 
     move-result-object v9
@@ -229,7 +229,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 253
+    .line 255
     const-string v9, "116"
 
     invoke-virtual {v6, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -238,12 +238,12 @@
 
     if-eqz v9, :cond_0
 
-    .line 254
+    .line 256
     invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 255
+    .line 257
     const-string v9, "usb"
 
     invoke-virtual {v5, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -260,7 +260,7 @@
 
     if-nez v9, :cond_0
 
-    .line 257
+    .line 259
     const-string v9, "p"
 
     invoke-virtual {v4, v9}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
@@ -269,7 +269,7 @@
 
     if-eqz v9, :cond_0
 
-    .line 258
+    .line 260
     const/16 v9, 0x8
 
     invoke-virtual {v4, v9}, Ljava/lang/String;->charAt(I)C
@@ -280,7 +280,7 @@
 
     move-result-object v1
 
-    .line 259
+    .line 261
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->access$300()Ljava/lang/String;
 
     move-result-object v9
@@ -305,7 +305,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 260
+    .line 262
     const/16 v9, 0xa
 
     invoke-virtual {v4, v9}, Ljava/lang/String;->charAt(I)C
@@ -316,7 +316,7 @@
 
     move-result-object v3
 
-    .line 261
+    .line 263
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->access$300()Ljava/lang/String;
 
     move-result-object v9
@@ -341,7 +341,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 262
+    .line 264
     iget-object v9, p0, Lcom/android/server/WiredAccessoryObserver$1;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     #calls: Lcom/android/server/WiredAccessoryObserver;->getChannel(Ljava/lang/String;)I
@@ -353,7 +353,7 @@
 
     move-result-object v2
 
-    .line 263
+    .line 265
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->access$300()Ljava/lang/String;
 
     move-result-object v9
@@ -378,7 +378,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 264
+    .line 266
     const-string v9, "add"
 
     invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -387,21 +387,21 @@
 
     if-eqz v9, :cond_1
 
-    .line 265
+    .line 267
     const/4 v8, 0x1
 
-    .line 268
+    .line 270
     :goto_0
     iget-object v9, p0, Lcom/android/server/WiredAccessoryObserver$1;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     #calls: Lcom/android/server/WiredAccessoryObserver;->update_usbaudio(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v9, v8, v2, v1, v3}, Lcom/android/server/WiredAccessoryObserver;->access$500(Lcom/android/server/WiredAccessoryObserver;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 272
+    .line 274
     :cond_0
     return-void
 
-    .line 267
+    .line 269
     :cond_1
     const/4 v8, 0x0
 

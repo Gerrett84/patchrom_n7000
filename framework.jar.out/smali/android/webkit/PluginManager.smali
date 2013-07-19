@@ -802,7 +802,7 @@
 
     .line 177
     .local v12, pluginType:Ljava/lang/String;
-    const-string v17, "native"
+    const-string/jumbo v17, "native"
 
     move-object/from16 v0, v17
 

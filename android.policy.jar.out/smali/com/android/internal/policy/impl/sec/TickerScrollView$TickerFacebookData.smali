@@ -32,32 +32,32 @@
     .parameter
 
     .prologue
-    .line 479
+    .line 491
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 475
+    .line 487
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mTitle:Ljava/lang/String;
 
-    .line 476
+    .line 488
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mAttribute:Ljava/lang/String;
 
-    .line 477
+    .line 489
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mPublish_time:Ljava/lang/String;
 
-    .line 478
+    .line 490
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mFacebook_postid:Ljava/lang/String;
 
-    .line 480
+    .line 492
     return-void
 .end method
 
@@ -70,44 +70,44 @@
     .parameter "facebook_postid"
 
     .prologue
-    .line 481
+    .line 493
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 475
+    .line 487
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mTitle:Ljava/lang/String;
 
-    .line 476
+    .line 488
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mAttribute:Ljava/lang/String;
 
-    .line 477
+    .line 489
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mPublish_time:Ljava/lang/String;
 
-    .line 478
+    .line 490
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mFacebook_postid:Ljava/lang/String;
 
-    .line 482
+    .line 494
     iput-object p2, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mTitle:Ljava/lang/String;
 
-    .line 483
+    .line 495
     iput-object p3, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mAttribute:Ljava/lang/String;
 
-    .line 484
+    .line 496
     iput-object p4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mPublish_time:Ljava/lang/String;
 
-    .line 485
+    .line 497
     iput-object p5, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mFacebook_postid:Ljava/lang/String;
 
-    .line 486
+    .line 498
     return-void
 .end method
 
@@ -117,7 +117,7 @@
     .locals 1
 
     .prologue
-    .line 491
+    .line 503
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mAttribute:Ljava/lang/String;
 
     return-object v0
@@ -127,7 +127,7 @@
     .locals 1
 
     .prologue
-    .line 497
+    .line 509
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mFacebook_postid:Ljava/lang/String;
 
     return-object v0
@@ -137,7 +137,7 @@
     .locals 1
 
     .prologue
-    .line 488
+    .line 500
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mTitle:Ljava/lang/String;
 
     return-object v0
@@ -147,7 +147,7 @@
     .locals 1
 
     .prologue
-    .line 494
+    .line 506
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mPublish_time:Ljava/lang/String;
 
     return-object v0
@@ -158,10 +158,10 @@
     .parameter "attribute"
 
     .prologue
-    .line 503
+    .line 515
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mAttribute:Ljava/lang/String;
 
-    .line 504
+    .line 516
     return-void
 .end method
 
@@ -170,10 +170,10 @@
     .parameter "facebook_postid"
 
     .prologue
-    .line 510
+    .line 522
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mFacebook_postid:Ljava/lang/String;
 
-    .line 511
+    .line 523
     return-void
 .end method
 
@@ -182,10 +182,10 @@
     .parameter "title"
 
     .prologue
-    .line 500
+    .line 512
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mTitle:Ljava/lang/String;
 
-    .line 501
+    .line 513
     return-void
 .end method
 
@@ -194,9 +194,9 @@
     .parameter "publish_time"
 
     .prologue
-    .line 506
+    .line 518
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerFacebookData;->mPublish_time:Ljava/lang/String;
 
-    .line 507
+    .line 519
     return-void
 .end method

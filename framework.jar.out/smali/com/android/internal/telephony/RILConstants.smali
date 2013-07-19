@@ -136,21 +136,21 @@
 
 .field public static final RIL_KOR_REQUEST_LAST:I = 0x2734
 
-.field public static final RIL_KOR_UNSOL_BASE:I = 0x2b12
+.field public static final RIL_KOR_UNSOL_BASE:I = 0x2b14
 
-.field public static final RIL_KOR_UNSOL_LAST:I = 0x2b14
+.field public static final RIL_KOR_UNSOL_LAST:I = 0x2b16
 
 .field public static final RIL_LTE_REQUEST_BASE:I = 0x272e
 
 .field public static final RIL_LTE_REQUEST_LAST:I = 0x2731
 
-.field public static final RIL_LTE_UNSOL_BASE:I = 0x2b0f
+.field public static final RIL_LTE_UNSOL_BASE:I = 0x2b11
 
-.field public static final RIL_LTE_UNSOL_LAST:I = 0x2b12
+.field public static final RIL_LTE_UNSOL_LAST:I = 0x2b14
 
 .field public static final RIL_OEM_REQUEST_BASE:I = 0x2710
 
-.field public static final RIL_OEM_UNSOL_LAST:I = 0x2b0f
+.field public static final RIL_OEM_UNSOL_LAST:I = 0x2b11
 
 .field public static final RIL_OEM_UNSOL_RESPONSE_BASE:I = 0x2af8
 
@@ -498,7 +498,7 @@
 
 .field public static final RIL_UNSOL_DHA_STATE:I = 0x2b0b
 
-.field public static final RIL_UNSOL_DUN:I = 0x2b16
+.field public static final RIL_UNSOL_DUN:I = 0x2b19
 
 .field public static final RIL_UNSOL_DUN_CALL_STATUS:I = 0x2afc
 
@@ -508,23 +508,27 @@
 
 .field public static final RIL_UNSOL_EXIT_EMERGENCY_CALLBACK_MODE:I = 0x409
 
+.field public static final RIL_UNSOL_FACTORY_AM:I = 0x2b12
+
 .field public static final RIL_UNSOL_GPS_NOTI:I = 0x2b01
 
 .field public static final RIL_UNSOL_HSDPA_STATE_CHANGED:I = 0x2b08
 
-.field public static final RIL_UNSOL_IPV6_ADDR:I = 0x2b11
+.field public static final RIL_UNSOL_IMS_REGISTRATION_STATE_CHANGED:I = 0x2b13
 
-.field public static final RIL_UNSOL_MIP_CONNECT_STATUS:I = 0x2b1c
+.field public static final RIL_UNSOL_IPV6_ADDR:I = 0x2b13
+
+.field public static final RIL_UNSOL_MIP_CONNECT_STATUS:I = 0x2b1f
 
 .field public static final RIL_UNSOL_NITZ_TIME_RECEIVED:I = 0x3f0
 
-.field public static final RIL_UNSOL_NWK_INIT_DISC_REQUEST:I = 0x2b12
+.field public static final RIL_UNSOL_NWK_INIT_DISC_REQUEST:I = 0x2b14
 
 .field public static final RIL_UNSOL_O2_HOME_ZONE_INFO:I = 0x2aff
 
 .field public static final RIL_UNSOL_OEM_HOOK_RAW:I = 0x404
 
-.field public static final RIL_UNSOL_OMADM_SEND_DATA:I = 0x2b15
+.field public static final RIL_UNSOL_OMADM_SEND_DATA:I = 0x2b18
 
 .field public static final RIL_UNSOL_ON_USSD:I = 0x3ee
 
@@ -542,7 +546,7 @@
 
 .field public static final RIL_UNSOL_RESPONSE_CDMA_NEW_SMS:I = 0x3fc
 
-.field public static final RIL_UNSOL_RESPONSE_HANDOVER:I = 0x2b10
+.field public static final RIL_UNSOL_RESPONSE_HANDOVER:I = 0x2b12
 
 .field public static final RIL_UNSOL_RESPONSE_NEW_BROADCAST_SMS:I = 0x3fd
 
@@ -560,13 +564,15 @@
 
 .field public static final RIL_UNSOL_RESTRICTED_STATE_CHANGED:I = 0x3ff
 
-.field public static final RIL_UNSOL_RILD_RESET_NOTI:I = 0x2b14
+.field public static final RIL_UNSOL_RILD_RESET_NOTI:I = 0x2b16
 
 .field public static final RIL_UNSOL_RIL_CONNECTED:I = 0x40a
 
 .field public static final RIL_UNSOL_RINGBACK_TONE:I = 0x405
 
-.field public static final RIL_UNSOL_RTS_INDICATION:I = 0x2b13
+.field public static final RIL_UNSOL_RINGBACK_TONE_STATE:I = 0x2b11
+
+.field public static final RIL_UNSOL_RTS_INDICATION:I = 0x2b15
 
 .field public static final RIL_UNSOL_SAP:I = 0x2b05
 
@@ -592,19 +598,21 @@
 
 .field public static final RIL_UNSOL_SUPP_SVC_NOTIFICATION:I = 0x3f3
 
-.field public static final RIL_UNSOL_SYSTEM_REBOOT:I = 0x2b17
+.field public static final RIL_UNSOL_SYSTEM_REBOOT:I = 0x2b1a
 
 .field public static final RIL_UNSOL_TWO_MIC_STATE:I = 0x2b0a
 
 .field public static final RIL_UNSOL_UART:I = 0x2b0c
 
-.field public static final RIL_UNSOL_UTS_GETSMSCOUNT:I = 0x2b19
+.field public static final RIL_UNSOL_UTS_GETSMSCOUNT:I = 0x2b1c
 
-.field public static final RIL_UNSOL_UTS_GETSMSMSG:I = 0x2b1a
+.field public static final RIL_UNSOL_UTS_GETSMSMSG:I = 0x2b1d
 
-.field public static final RIL_UNSOL_UTS_GET_UNREAD_SMS_STATUS:I = 0x2b1b
+.field public static final RIL_UNSOL_UTS_GET_UNREAD_SMS_STATUS:I = 0x2b1e
 
-.field public static final RIL_UNSOL_VOICE_PRIVACY_CHANGED:I = 0x2b18
+.field public static final RIL_UNSOL_VE:I = 0x2b10
+
+.field public static final RIL_UNSOL_VOICE_PRIVACY_CHANGED:I = 0x2b1b
 
 .field public static final RIL_UNSOL_VOICE_RADIO_TECH_CHANGED:I = 0x40b
 
@@ -616,17 +624,17 @@
 
 .field public static final RIL_USA_CDMA_REQUEST_LAST:I = 0x2741
 
-.field public static final RIL_USA_CDMA_UNSOL_BASE:I = 0x2b14
+.field public static final RIL_USA_CDMA_UNSOL_BASE:I = 0x2b17
 
-.field public static final RIL_USA_CDMA_UNSOL_LAST:I = 0x2b1c
+.field public static final RIL_USA_CDMA_UNSOL_LAST:I = 0x2b1f
 
 .field public static final RIL_USA_GSM_REQUEST_BASE:I = 0x2741
 
 .field public static final RIL_USA_GSM_REQUEST_LAST:I = 0x2741
 
-.field public static final RIL_USA_GSM_UNSOL_BASE:I = 0x2b1c
+.field public static final RIL_USA_GSM_UNSOL_BASE:I = 0x2b1f
 
-.field public static final RIL_USA_GSM_UNSOL_LAST:I = 0x2b1c
+.field public static final RIL_USA_GSM_UNSOL_LAST:I = 0x2b1f
 
 .field public static final SEC_SIP_PHONE:I = 0x4
 

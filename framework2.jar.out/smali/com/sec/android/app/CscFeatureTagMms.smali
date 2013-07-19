@@ -122,6 +122,8 @@
 
 .field public static final TAG_CSCFEATURE_MESSAGE_DISABLEOVERLAYINMSGLIST:Ljava/lang/String; = "CscFeature_Message_DisableOverlayInMsgList"
 
+.field public static final TAG_CSCFEATURE_MESSAGE_DISABLEPHONENUMBERFORMATTINGINMSG:Ljava/lang/String; = "CscFeature_Message_DisablePhoneNumberFormattingInMsg"
+
 .field public static final TAG_CSCFEATURE_MESSAGE_DISABLEPLUSBUTTONONRECIPIENTFIELD:Ljava/lang/String; = "CscFeature_Message_DisablePlusButtonOnRecipientField"
 
 .field public static final TAG_CSCFEATURE_MESSAGE_DISABLEPLUSINPUTINADDRESSFIELD:Ljava/lang/String; = "CscFeature_Message_DisablePlusInputInAddressField"
@@ -167,6 +169,8 @@
 .field public static final TAG_CSCFEATURE_MESSAGE_ENABLECHECKFDNCONTACTWHENMMSSEND:Ljava/lang/String; = "CscFeature_Message_EnableCheckFDNContactWhenMMSSend"
 
 .field public static final TAG_CSCFEATURE_MESSAGE_ENABLECMAS4:Ljava/lang/String; = "CscFeature_Message_EnableCMAS4"
+
+.field public static final TAG_CSCFEATURE_MESSAGE_ENABLECOMBINEANDFORWARDMESSAGE:Ljava/lang/String; = "CscFeature_Message_EnableCombineAndForwardMessage"
 
 .field public static final TAG_CSCFEATURE_MESSAGE_ENABLECONTACTINFOINBUBBLE:Ljava/lang/String; = "CscFeature_Message_EnableContactInfoInBubble"
 
@@ -247,6 +251,8 @@
 .field public static final TAG_CSCFEATURE_MESSAGE_ENABLENOTIFICATIONBROADCASTRECEIVEDMESSAGE:Ljava/lang/String; = "CscFeature_Message_EnableNotificationBroadcastReceivedMessage"
 
 .field public static final TAG_CSCFEATURE_MESSAGE_ENABLENOTIFICATIONVIBRATE:Ljava/lang/String; = "CscFeature_Message_EnableNotificationVibrate"
+
+.field public static final TAG_CSCFEATURE_MESSAGE_ENABLENOTIFYSERVICEMAYNOTBEAVAILABLE:Ljava/lang/String; = "CscFeature_Message_EnableNotifyServiceMayNotBeAvailable"
 
 .field public static final TAG_CSCFEATURE_MESSAGE_ENABLEOPTIONACCESSTOUSIMMSG:Ljava/lang/String; = "CscFeature_Message_EnableOptionAccessToUsimMsg"
 

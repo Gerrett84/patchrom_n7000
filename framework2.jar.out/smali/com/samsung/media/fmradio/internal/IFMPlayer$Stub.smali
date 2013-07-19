@@ -66,6 +66,8 @@
 
 .field static final TRANSACTION_getSNR_th_2:I = 0x36
 
+.field static final TRANSACTION_getSoftMuteMode:I = 0x40
+
 .field static final TRANSACTION_getVolume:I = 0x21
 
 .field static final TRANSACTION_isAFEnable:I = 0x1a
@@ -141,6 +143,10 @@
 .field static final TRANSACTION_setSeekRSSI:I = 0x2a
 
 .field static final TRANSACTION_setSeekSNR:I = 0x2b
+
+.field static final TRANSACTION_setSoftMuteControl:I = 0x41
+
+.field static final TRANSACTION_setSoftmute:I = 0x3f
 
 .field static final TRANSACTION_setSpeakerOn:I = 0x24
 
@@ -225,7 +231,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 7
+    .locals 9
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -237,41 +243,41 @@
     .end annotation
 
     .prologue
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    const/4 v5, 0x1
+    const/4 v7, 0x1
 
     .line 43
     sparse-switch p1, :sswitch_data_0
 
-    .line 557
+    .line 587
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v5
+    move-result v7
 
     :goto_0
-    return v5
+    return v7
 
     .line 47
     :sswitch_0
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 52
     :sswitch_1
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 54
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-static {v4}, Lcom/samsung/media/fmradio/internal/IFMEventListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/media/fmradio/internal/IFMEventListener;
+    invoke-static {v6}, Lcom/samsung/media/fmradio/internal/IFMEventListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/media/fmradio/internal/IFMEventListener;
 
     move-result-object v0
 
@@ -287,16 +293,16 @@
     .line 61
     .end local v0           #_arg0:Lcom/samsung/media/fmradio/internal/IFMEventListener;
     :sswitch_2
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 63
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-static {v4}, Lcom/samsung/media/fmradio/internal/IFMEventListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/media/fmradio/internal/IFMEventListener;
+    invoke-static {v6}, Lcom/samsung/media/fmradio/internal/IFMEventListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/media/fmradio/internal/IFMEventListener;
 
     move-result-object v0
 
@@ -312,9 +318,9 @@
     .line 70
     .end local v0           #_arg0:Lcom/samsung/media/fmradio/internal/IFMEventListener;
     :sswitch_3
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 72
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
@@ -333,129 +339,129 @@
     .line 79
     .end local v0           #_arg0:J
     :sswitch_4
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 80
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->on()Z
 
-    move-result v2
+    move-result v4
 
     .line 81
-    .local v2, _result:Z
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 82
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_0
 
-    move v4, v5
+    move v6, v7
 
     :cond_0
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
     .line 87
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_5
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 88
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->off()Z
 
-    move-result v2
+    move-result v4
 
     .line 89
-    .restart local v2       #_result:Z
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 90
-    if-eqz v2, :cond_1
+    if-eqz v4, :cond_1
 
-    move v4, v5
+    move v6, v7
 
     :cond_1
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
     .line 95
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_6
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 96
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->isOn()Z
 
-    move-result v2
+    move-result v4
 
     .line 97
-    .restart local v2       #_result:Z
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 98
-    if-eqz v2, :cond_2
+    if-eqz v4, :cond_2
 
-    move v4, v5
+    move v6, v7
 
     :cond_2
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto :goto_0
 
     .line 103
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_7
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 104
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->seekUp()J
 
-    move-result-wide v2
+    move-result-wide v4
 
     .line 105
-    .local v2, _result:J
+    .local v4, _result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 106
-    invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p3, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     goto/16 :goto_0
 
     .line 111
-    .end local v2           #_result:J
+    .end local v4           #_result:J
     :sswitch_8
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 112
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->seekDown()J
 
-    move-result-wide v2
+    move-result-wide v4
 
     .line 113
-    .restart local v2       #_result:J
+    .restart local v4       #_result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 114
-    invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p3, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     goto/16 :goto_0
 
     .line 119
-    .end local v2           #_result:J
+    .end local v4           #_result:J
     :sswitch_9
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 120
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->cancelSeek()V
@@ -467,30 +473,30 @@
 
     .line 126
     :sswitch_a
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 127
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getCurrentChannel()J
 
-    move-result-wide v2
+    move-result-wide v4
 
     .line 128
-    .restart local v2       #_result:J
+    .restart local v4       #_result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 129
-    invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p3, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     goto/16 :goto_0
 
     .line 134
-    .end local v2           #_result:J
+    .end local v4           #_result:J
     :sswitch_b
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 135
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->scan()V
@@ -502,150 +508,150 @@
 
     .line 141
     :sswitch_c
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 142
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->cancelScan()Z
 
-    move-result v2
+    move-result v4
 
     .line 143
-    .local v2, _result:Z
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 144
-    if-eqz v2, :cond_3
+    if-eqz v4, :cond_3
 
-    move v4, v5
+    move v6, v7
 
     :cond_3
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 149
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_d
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 150
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->isScanning()Z
 
-    move-result v2
+    move-result v4
 
     .line 151
-    .restart local v2       #_result:Z
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 152
-    if-eqz v2, :cond_4
+    if-eqz v4, :cond_4
 
-    move v4, v5
+    move v6, v7
 
     :cond_4
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 157
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_e
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 158
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->isSeeking()Z
 
-    move-result v2
+    move-result v4
 
     .line 159
-    .restart local v2       #_result:Z
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 160
-    if-eqz v2, :cond_5
+    if-eqz v4, :cond_5
 
-    move v4, v5
+    move v6, v7
 
     :cond_5
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 165
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_f
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 166
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->searchDown()J
 
-    move-result-wide v2
+    move-result-wide v4
 
     .line 167
-    .local v2, _result:J
+    .local v4, _result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 168
-    invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p3, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     goto/16 :goto_0
 
     .line 173
-    .end local v2           #_result:J
+    .end local v4           #_result:J
     :sswitch_10
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 174
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->searchUp()J
 
-    move-result-wide v2
+    move-result-wide v4
 
     .line 175
-    .restart local v2       #_result:J
+    .restart local v4       #_result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 176
-    invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p3, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     goto/16 :goto_0
 
     .line 181
-    .end local v2           #_result:J
+    .end local v4           #_result:J
     :sswitch_11
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 182
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->searchAll()J
 
-    move-result-wide v2
+    move-result-wide v4
 
     .line 183
-    .restart local v2       #_result:J
+    .restart local v4       #_result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 184
-    invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p3, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     goto/16 :goto_0
 
     .line 189
-    .end local v2           #_result:J
+    .end local v4           #_result:J
     :sswitch_12
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 190
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->enableRDS()V
@@ -657,9 +663,9 @@
 
     .line 196
     :sswitch_13
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 197
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->disableRDS()V
@@ -671,9 +677,9 @@
 
     .line 203
     :sswitch_14
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 204
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->enableAF()V
@@ -685,9 +691,9 @@
 
     .line 210
     :sswitch_15
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 211
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->disableAF()V
@@ -699,9 +705,9 @@
 
     .line 217
     :sswitch_16
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 219
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -720,9 +726,9 @@
     .line 226
     .end local v0           #_arg0:I
     :sswitch_17
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 228
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -741,82 +747,82 @@
     .line 235
     .end local v0           #_arg0:I
     :sswitch_18
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 236
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->isBusy()I
 
-    move-result v2
+    move-result v4
 
     .line 237
-    .local v2, _result:I
+    .local v4, _result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 238
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 243
-    .end local v2           #_result:I
+    .end local v4           #_result:I
     :sswitch_19
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 244
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->isRDSEnable()Z
 
-    move-result v2
+    move-result v4
 
     .line 245
-    .local v2, _result:Z
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 246
-    if-eqz v2, :cond_6
+    if-eqz v4, :cond_6
 
-    move v4, v5
+    move v6, v7
 
     :cond_6
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 251
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_1a
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 252
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->isAFEnable()Z
 
-    move-result v2
+    move-result v4
 
     .line 253
-    .restart local v2       #_result:Z
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 254
-    if-eqz v2, :cond_7
+    if-eqz v4, :cond_7
 
-    move v4, v5
+    move v6, v7
 
     :cond_7
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 259
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_1b
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 260
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->cancelAFSwitching()V
@@ -828,30 +834,30 @@
 
     .line 266
     :sswitch_1c
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 267
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getLastScanResult()[J
 
-    move-result-object v2
+    move-result-object v4
 
     .line 268
-    .local v2, _result:[J
+    .local v4, _result:[J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 269
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeLongArray([J)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeLongArray([J)V
 
     goto/16 :goto_0
 
     .line 274
-    .end local v2           #_result:[J
+    .end local v4           #_result:[J
     :sswitch_1d
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 275
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->setStereo()V
@@ -863,9 +869,9 @@
 
     .line 281
     :sswitch_1e
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 282
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->setMono()V
@@ -877,9 +883,9 @@
 
     .line 288
     :sswitch_1f
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 290
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
@@ -898,9 +904,9 @@
     .line 297
     .end local v0           #_arg0:J
     :sswitch_20
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 298
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->SkipTuning_Value()V
@@ -912,91 +918,91 @@
 
     .line 304
     :sswitch_21
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 305
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getVolume()J
 
-    move-result-wide v2
+    move-result-wide v4
 
     .line 306
-    .local v2, _result:J
+    .local v4, _result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 307
-    invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p3, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     goto/16 :goto_0
 
     .line 312
-    .end local v2           #_result:J
+    .end local v4           #_result:J
     :sswitch_22
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 313
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->isHeadsetPlugged()Z
 
-    move-result v2
+    move-result v4
 
     .line 314
-    .local v2, _result:Z
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 315
-    if-eqz v2, :cond_8
+    if-eqz v4, :cond_8
 
-    move v4, v5
+    move v6, v7
 
     :cond_8
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 320
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_23
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 321
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->isTvOutPlugged()Z
 
-    move-result v2
+    move-result v4
 
     .line 322
-    .restart local v2       #_result:Z
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 323
-    if-eqz v2, :cond_9
+    if-eqz v4, :cond_9
 
-    move v4, v5
+    move v6, v7
 
     :cond_9
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 328
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_24
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 330
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_a
+    if-eqz v8, :cond_a
 
-    move v0, v5
+    move v0, v7
 
     .line 331
     .local v0, _arg0:Z
@@ -1010,16 +1016,16 @@
 
     .end local v0           #_arg0:Z
     :cond_a
-    move v0, v4
+    move v0, v6
 
     .line 330
     goto :goto_1
 
     .line 337
     :sswitch_25
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 339
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -1038,56 +1044,56 @@
     .line 346
     .end local v0           #_arg0:I
     :sswitch_26
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 347
-    invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getMaxVolume()J
-
-    move-result-wide v2
-
-    .line 348
-    .local v2, _result:J
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 349
-    invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
-
-    goto/16 :goto_0
-
-    .line 354
-    .end local v2           #_result:J
-    :sswitch_27
     const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 347
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getMaxVolume()J
+
+    move-result-wide v4
+
+    .line 348
+    .local v4, _result:J
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 349
+    invoke-virtual {p3, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
+
+    goto/16 :goto_0
+
+    .line 354
+    .end local v4           #_result:J
+    :sswitch_27
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     .line 355
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->isAirPlaneMode()Z
 
-    move-result v2
+    move-result v4
 
     .line 356
-    .local v2, _result:Z
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 357
-    if-eqz v2, :cond_b
+    if-eqz v4, :cond_b
 
-    move v4, v5
+    move v6, v7
 
     :cond_b
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 362
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_28
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 364
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
@@ -1106,30 +1112,30 @@
     .line 371
     .end local v0           #_arg0:J
     :sswitch_29
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 372
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getCurrentRSSI()J
 
-    move-result-wide v2
+    move-result-wide v4
 
     .line 373
-    .local v2, _result:J
+    .local v4, _result:J
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 374
-    invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
+    invoke-virtual {p3, v4, v5}, Landroid/os/Parcel;->writeLong(J)V
 
     goto/16 :goto_0
 
     .line 379
-    .end local v2           #_result:J
+    .end local v4           #_result:J
     :sswitch_2a
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 381
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
@@ -1148,9 +1154,9 @@
     .line 388
     .end local v0           #_arg0:J
     :sswitch_2b
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 390
     invoke-virtual {p2}, Landroid/os/Parcel;->readLong()J
@@ -1169,9 +1175,9 @@
     .line 397
     .end local v0           #_arg0:J
     :sswitch_2c
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 399
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -1190,9 +1196,9 @@
     .line 406
     .end local v0           #_arg0:I
     :sswitch_2d
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 408
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -1211,9 +1217,9 @@
     .line 415
     .end local v0           #_arg0:I
     :sswitch_2e
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 417
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -1232,9 +1238,9 @@
     .line 424
     .end local v0           #_arg0:I
     :sswitch_2f
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 426
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -1253,9 +1259,9 @@
     .line 433
     .end local v0           #_arg0:I
     :sswitch_30
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 435
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -1274,9 +1280,9 @@
     .line 442
     .end local v0           #_arg0:I
     :sswitch_31
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 444
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -1295,187 +1301,187 @@
     .line 451
     .end local v0           #_arg0:I
     :sswitch_32
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 452
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getRSSI_th()I
 
-    move-result v2
+    move-result v4
 
     .line 453
-    .local v2, _result:I
+    .local v4, _result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 454
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 459
-    .end local v2           #_result:I
+    .end local v4           #_result:I
     :sswitch_33
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 460
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getSNR_th()I
 
-    move-result v2
+    move-result v4
 
     .line 461
-    .restart local v2       #_result:I
+    .restart local v4       #_result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 462
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 467
-    .end local v2           #_result:I
+    .end local v4           #_result:I
     :sswitch_34
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 468
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getCnt_th()I
 
-    move-result v2
+    move-result v4
 
     .line 469
-    .restart local v2       #_result:I
+    .restart local v4       #_result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 470
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 475
-    .end local v2           #_result:I
+    .end local v4           #_result:I
     :sswitch_35
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 476
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getRSSI_th_2()I
 
-    move-result v2
+    move-result v4
 
     .line 477
-    .restart local v2       #_result:I
+    .restart local v4       #_result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 478
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 483
-    .end local v2           #_result:I
+    .end local v4           #_result:I
     :sswitch_36
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 484
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getSNR_th_2()I
 
-    move-result v2
+    move-result v4
 
     .line 485
-    .restart local v2       #_result:I
+    .restart local v4       #_result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 486
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 491
-    .end local v2           #_result:I
+    .end local v4           #_result:I
     :sswitch_37
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 492
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getCnt_th_2()I
 
-    move-result v2
+    move-result v4
 
     .line 493
-    .restart local v2       #_result:I
+    .restart local v4       #_result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 494
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 499
-    .end local v2           #_result:I
+    .end local v4           #_result:I
     :sswitch_38
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 500
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->on_in_testmode()Z
 
-    move-result v2
+    move-result v4
 
     .line 501
-    .local v2, _result:Z
+    .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 502
-    if-eqz v2, :cond_c
+    if-eqz v4, :cond_c
 
-    move v4, v5
+    move v6, v7
 
     :cond_c
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 507
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_39
-    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 508
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->isBatteryLow()Z
 
-    move-result v2
+    move-result v4
 
     .line 509
-    .restart local v2       #_result:Z
+    .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 510
-    if-eqz v2, :cond_d
+    if-eqz v4, :cond_d
 
-    move v4, v5
+    move v6, v7
 
     :cond_d
-    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 515
-    .end local v2           #_result:Z
+    .end local v4           #_result:Z
     :sswitch_3a
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 517
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -1494,30 +1500,30 @@
     .line 524
     .end local v0           #_arg0:I
     :sswitch_3b
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 525
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getAF_th()I
 
-    move-result v2
+    move-result v4
 
     .line 526
-    .local v2, _result:I
+    .local v4, _result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 527
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
 
     .line 532
-    .end local v2           #_result:I
+    .end local v4           #_result:I
     :sswitch_3c
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 534
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -1536,39 +1542,39 @@
     .line 541
     .end local v0           #_arg0:I
     :sswitch_3d
-    const-string v4, "com.samsung.media.fmradio.internal.IFMPlayer"
-
-    invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 542
-    invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getAFValid_th()I
-
-    move-result v2
-
-    .line 543
-    .restart local v2       #_result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 544
-    invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_0
-
-    .line 549
-    .end local v2           #_result:I
-    :sswitch_3e
     const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
 
     invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 542
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getAFValid_th()I
+
+    move-result v4
+
+    .line 543
+    .restart local v4       #_result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 544
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 549
+    .end local v4           #_result:I
+    :sswitch_3e
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
     .line 551
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_e
+    if-eqz v8, :cond_e
 
-    move v0, v5
+    move v0, v7
 
     .line 552
     .local v0, _arg0:Z
@@ -1582,14 +1588,102 @@
 
     .end local v0           #_arg0:Z
     :cond_e
-    move v0, v4
+    move v0, v6
 
     .line 551
     goto :goto_2
 
-    .line 43
-    nop
+    .line 558
+    :sswitch_3f
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
 
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 560
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v8
+
+    if-eqz v8, :cond_f
+
+    move v0, v7
+
+    .line 561
+    .restart local v0       #_arg0:Z
+    :goto_3
+    invoke-virtual {p0, v0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->setSoftmute(Z)V
+
+    .line 562
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_0
+
+    .end local v0           #_arg0:Z
+    :cond_f
+    move v0, v6
+
+    .line 560
+    goto :goto_3
+
+    .line 567
+    :sswitch_40
+    const-string v8, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 568
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->getSoftMuteMode()Z
+
+    move-result v4
+
+    .line 569
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 570
+    if-eqz v4, :cond_10
+
+    move v6, v7
+
+    :cond_10
+    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 575
+    .end local v4           #_result:Z
+    :sswitch_41
+    const-string v6, "com.samsung.media.fmradio.internal.IFMPlayer"
+
+    invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 577
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    .line 579
+    .local v0, _arg0:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    .line 581
+    .local v2, _arg1:I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v3
+
+    .line 582
+    .local v3, _arg2:I
+    invoke-virtual {p0, v0, v2, v3}, Lcom/samsung/media/fmradio/internal/IFMPlayer$Stub;->setSoftMuteControl(III)V
+
+    .line 583
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_0
+
+    .line 43
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -1654,6 +1748,9 @@
         0x3c -> :sswitch_3c
         0x3d -> :sswitch_3d
         0x3e -> :sswitch_3e
+        0x3f -> :sswitch_3f
+        0x40 -> :sswitch_40
+        0x41 -> :sswitch_41
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

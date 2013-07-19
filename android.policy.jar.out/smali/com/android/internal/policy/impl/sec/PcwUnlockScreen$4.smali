@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 276
+    .line 277
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,16 +43,16 @@
     .parameter "which"
 
     .prologue
-    .line 279
+    .line 280
     invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 
-    .line 280
+    .line 281
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_0
 
-    .line 281
+    .line 282
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;->mPassword:Landroid/widget/EditText;
@@ -68,7 +68,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 284
+    .line 285
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/PcwUnlockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/PcwUnlockScreen;
 
@@ -76,6 +76,6 @@
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 285
+    .line 286
     return-void
 .end method

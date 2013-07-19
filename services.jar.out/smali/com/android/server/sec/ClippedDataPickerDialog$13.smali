@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/sec/ClippedDataPickerDialog;->show()V
+    value = Lcom/android/server/sec/ClippedDataPickerDialog;->IsSetProtectAction(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1671
+    .line 1071
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$13;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,35 +41,15 @@
     .locals 2
 
     .prologue
-    .line 1673
-    new-instance v0, Landroid/content/Intent;
+    .line 1073
+    iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$13;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
-    const-string v1, "ShowClipboardDialog"
+    iget-object v0, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mClearButton:Landroid/widget/Button;
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    const/4 v1, 0x0
 
-    .line 1674
-    .local v0, intent:Landroid/content/Intent;
-    iget-object v1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$13;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    #getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$000(Lcom/android/server/sec/ClippedDataPickerDialog;)Landroid/content/Context;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    .line 1675
-    iget-object v1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$13;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
-
-    #getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$000(Lcom/android/server/sec/ClippedDataPickerDialog;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 1677
-    :cond_0
+    .line 1074
     return-void
 .end method

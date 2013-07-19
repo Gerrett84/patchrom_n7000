@@ -17,7 +17,7 @@
         <Button android:textAppearance="?textAppearanceLarge" android:textStyle="bold" android:id="@id/nine" android:layout_width="0.0sp" android:layout_height="fill_parent" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:layout_weight="1.0" />
     </LinearLayout>
     <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="54.0dip" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip">
-        <Button android:textAppearance="?textAppearanceMedium" android:textStyle="bold" android:id="@id/cancel" android:layout_width="0.0sp" android:layout_height="fill_parent" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:text="@string/cancel" android:layout_weight="1.0" />
+        <Button android:textAppearance="?textAppearanceMedium" android:textStyle="bold" android:ellipsize="end" android:id="@id/cancel" android:layout_width="0.0sp" android:layout_height="fill_parent" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:text="@string/cancel" android:singleLine="true" android:layout_weight="1.0" />
         <Button android:textAppearance="?textAppearanceLarge" android:textStyle="bold" android:id="@id/zero" android:layout_width="0.0sp" android:layout_height="fill_parent" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:layout_weight="1.0" />
         <Button android:textAppearance="?textAppearanceMedium" android:textStyle="bold" android:id="@id/ok" android:layout_width="0.0sp" android:layout_height="fill_parent" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:text="@string/ok" android:layout_weight="1.0" />
     </LinearLayout>

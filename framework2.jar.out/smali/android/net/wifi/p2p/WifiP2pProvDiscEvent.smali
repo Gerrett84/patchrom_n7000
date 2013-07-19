@@ -14,6 +14,8 @@
 
 .field private static final TAG:Ljava/lang/String; = "WifiP2pProvDiscEvent"
 
+.field private static final staticIpPattern:Ljava/util/regex/Pattern;
+
 
 # instance fields
 .field public device:Landroid/net/wifi/p2p/WifiP2pDevice;
@@ -24,26 +26,42 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 55
+    const-string v0, "static_ip=(0x[0-9a-fA-F]+)"
+
+    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+
+    move-result-object v0
+
+    sput-object v0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->staticIpPattern:Ljava/util/regex/Pattern;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
     .prologue
-    .line 46
+    .line 59
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
+    .line 60
     new-instance v0, Landroid/net/wifi/p2p/WifiP2pDevice;
 
     invoke-direct {v0}, Landroid/net/wifi/p2p/WifiP2pDevice;-><init>()V
 
     iput-object v0, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->device:Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    .line 48
+    .line 61
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 7
+    .locals 8
     .parameter "string"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -52,194 +70,203 @@
     .end annotation
 
     .prologue
-    const/4 v6, 0x4
+    const/4 v7, 0x4
+
+    const/4 v6, 0x2
 
     const/4 v5, 0x1
 
-    const/4 v4, 0x2
+    const/4 v4, 0x0
 
-    const/4 v3, 0x0
-
-    .line 61
+    .line 74
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 62
-    const-string v1, " "
+    .line 75
+    const-string v2, " "
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 64
-    .local v0, tokens:[Ljava/lang/String;
-    array-length v1, v0
+    .line 78
+    .local v1, tokens:[Ljava/lang/String;
+    array-length v2, v1
 
-    if-ge v1, v4, :cond_0
+    if-ge v2, v6, :cond_0
 
-    .line 65
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    .line 79
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Malformed event "
+    const-string v4, "Malformed event "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v2
 
-    .line 68
+    .line 82
     :cond_0
-    aget-object v1, v0, v3
+    aget-object v2, v1, v4
 
-    const-string v2, "PBC-REQ"
+    const-string v3, "PBC-REQ"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_3
 
     iput v5, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
 
-    .line 75
+    .line 89
     :goto_0
-    new-instance v1, Landroid/net/wifi/p2p/WifiP2pDevice;
+    new-instance v2, Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    invoke-direct {v1}, Landroid/net/wifi/p2p/WifiP2pDevice;-><init>()V
+    invoke-direct {v2}, Landroid/net/wifi/p2p/WifiP2pDevice;-><init>()V
 
-    iput-object v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->device:Landroid/net/wifi/p2p/WifiP2pDevice;
+    iput-object v2, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->device:Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    .line 76
-    iget-object v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->device:Landroid/net/wifi/p2p/WifiP2pDevice;
+    .line 90
+    iget-object v2, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->device:Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    aget-object v2, v0, v5
+    aget-object v3, v1, v5
 
-    iput-object v2, v1, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
+    iput-object v3, v2, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
 
-    .line 77
-    iget-object v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->device:Landroid/net/wifi/p2p/WifiP2pDevice;
+    .line 91
+    sget-object v2, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->staticIpPattern:Ljava/util/regex/Pattern;
 
-    const-string v2, "="
+    invoke-virtual {v2, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+    move-result-object v0
 
-    move-result v2
-
-    add-int/lit8 v2, v2, 0x1
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {p0, v2}, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->parseHex(Ljava/lang/String;)I
+    .line 92
+    .local v0, matchForStaticIp:Ljava/util/regex/Matcher;
+    invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v2
 
-    iput v2, v1, Landroid/net/wifi/p2p/WifiP2pDevice;->candidateStaticIp:I
+    if-eqz v2, :cond_1
 
-    .line 79
-    iget v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
+    .line 93
+    iget-object v2, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->device:Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    if-ne v1, v6, :cond_1
+    invoke-virtual {v0, v5}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
-    .line 80
-    aget-object v1, v0, v4
+    move-result-object v3
 
-    iput-object v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->pin:Ljava/lang/String;
+    invoke-direct {p0, v3}, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->parseHex(Ljava/lang/String;)I
 
-    .line 82
+    move-result v3
+
+    iput v3, v2, Landroid/net/wifi/p2p/WifiP2pDevice;->candidateStaticIp:I
+
+    .line 95
     :cond_1
+    iget v2, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
+
+    if-ne v2, v7, :cond_2
+
+    .line 96
+    aget-object v2, v1, v6
+
+    iput-object v2, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->pin:Ljava/lang/String;
+
+    .line 98
+    :cond_2
     return-void
 
-    .line 69
-    :cond_2
-    aget-object v1, v0, v3
-
-    const-string v2, "PBC-RESP"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    iput v4, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
-
-    goto :goto_0
-
-    .line 70
+    .line 83
+    .end local v0           #matchForStaticIp:Ljava/util/regex/Matcher;
     :cond_3
-    aget-object v1, v0, v3
+    aget-object v2, v1, v4
 
-    const-string v2, "ENTER-PIN"
+    const-string v3, "PBC-RESP"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_4
-
-    const/4 v1, 0x3
-
-    iput v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
-
-    goto :goto_0
-
-    .line 71
-    :cond_4
-    aget-object v1, v0, v3
-
-    const-string v2, "SHOW-PIN"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_4
 
     iput v6, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
 
     goto :goto_0
 
-    .line 72
+    .line 84
+    :cond_4
+    aget-object v2, v1, v4
+
+    const-string v3, "ENTER-PIN"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    const/4 v2, 0x3
+
+    iput v2, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
+
+    goto :goto_0
+
+    .line 85
     :cond_5
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    aget-object v2, v1, v4
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v3, "SHOW-PIN"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    const-string v3, "Malformed event "
+    move-result v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v2, :cond_6
 
-    move-result-object v2
+    iput v7, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :goto_0
 
-    move-result-object v2
+    .line 86
+    :cond_6
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    const-string v4, "Malformed event "
 
-    throw v1
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
 .end method
 
 .method private parseHex(Ljava/lang/String;)I
@@ -247,10 +274,10 @@
     .parameter "hexString"
 
     .prologue
-    .line 94
+    .line 110
     const/4 v1, 0x0
 
-    .line 95
+    .line 111
     .local v1, num:I
     const-string v2, "0x"
 
@@ -268,7 +295,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 96
+    .line 112
     :cond_0
     const/4 v2, 0x2
 
@@ -276,7 +303,7 @@
 
     move-result-object p1
 
-    .line 100
+    .line 116
     :cond_1
     const/16 v2, 0x10
 
@@ -287,15 +314,15 @@
 
     move-result v1
 
-    .line 104
+    .line 120
     :goto_0
     return v1
 
-    .line 101
+    .line 117
     :catch_0
     move-exception v0
 
-    .line 102
+    .line 118
     .local v0, e:Ljava/lang/NumberFormatException;
     const-string v2, "WifiP2pProvDiscEvent"
 
@@ -328,18 +355,18 @@
     .locals 3
 
     .prologue
-    .line 85
+    .line 101
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 86
+    .line 102
     .local v0, sbuf:Ljava/lang/StringBuffer;
     iget-object v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->device:Landroid/net/wifi/p2p/WifiP2pDevice;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
-    .line 87
+    .line 103
     const-string v1, "\n event: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -350,7 +377,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    .line 88
+    .line 104
     const-string v1, "\n pin: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -361,7 +388,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 89
+    .line 105
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1

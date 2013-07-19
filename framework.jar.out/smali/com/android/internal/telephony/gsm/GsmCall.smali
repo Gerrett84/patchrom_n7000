@@ -170,6 +170,11 @@
     iput-boolean v0, p0, Lcom/android/internal/telephony/gsm/GsmCall;->mIsVideoCall:Z
 
     .line 116
+    iget-object v0, p2, Lcom/android/internal/telephony/DriverCall;->callType:Lcom/android/internal/telephony/Call$CallType;
+
+    iput-object v0, p0, Lcom/android/internal/telephony/Call;->callType:Lcom/android/internal/telephony/Call$CallType;
+
+    .line 118
     return-void
 .end method
 
@@ -179,15 +184,15 @@
     .parameter "state"
 
     .prologue
-    .line 120
+    .line 122
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmCall;->connections:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 122
+    .line 124
     iput-object p2, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
 
-    .line 123
+    .line 125
     return-void
 .end method
 
@@ -195,7 +200,7 @@
     .locals 4
 
     .prologue
-    .line 216
+    .line 221
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmCall;->connections:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -208,7 +213,7 @@
     :goto_0
     if-ltz v1, :cond_1
 
-    .line 217
+    .line 222
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmCall;->connections:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -217,7 +222,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/gsm/GsmConnection;
 
-    .line 219
+    .line 224
     .local v0, cn:Lcom/android/internal/telephony/gsm/GsmConnection;
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GsmConnection;->getState()Lcom/android/internal/telephony/Call$State;
 
@@ -227,23 +232,23 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 220
+    .line 225
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmCall;->connections:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 223
+    .line 228
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/internal/telephony/gsm/GsmCall;->mIsVideoCall:Z
 
-    .line 216
+    .line 221
     :cond_0
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
-    .line 228
+    .line 233
     .end local v0           #cn:Lcom/android/internal/telephony/gsm/GsmConnection;
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmCall;->connections:Ljava/util/ArrayList;
@@ -254,12 +259,12 @@
 
     if-nez v2, :cond_2
 
-    .line 229
+    .line 234
     sget-object v2, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
     iput-object v2, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
 
-    .line 231
+    .line 236
     :cond_2
     return-void
 .end method
@@ -269,17 +274,17 @@
     .parameter "conn"
 
     .prologue
-    .line 130
+    .line 132
     iget-object v3, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
 
     sget-object v4, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
 
     if-eq v3, v4, :cond_1
 
-    .line 133
+    .line 135
     const/4 v0, 0x1
 
-    .line 135
+    .line 137
     .local v0, hasOnlyDisconnectedConnections:Z
     const/4 v1, 0x0
 
@@ -294,7 +299,7 @@
     :goto_0
     if-ge v1, v2, :cond_0
 
-    .line 136
+    .line 138
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmCall;->connections:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -311,26 +316,26 @@
 
     if-eq v3, v4, :cond_2
 
-    .line 139
+    .line 141
     const/4 v0, 0x0
 
-    .line 144
+    .line 146
     :cond_0
     if-eqz v0, :cond_1
 
-    .line 145
+    .line 147
     sget-object v3, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
 
     iput-object v3, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
 
-    .line 148
+    .line 150
     .end local v0           #hasOnlyDisconnectedConnections:Z
     .end local v1           #i:I
     .end local v2           #s:I
     :cond_1
     return-void
 
-    .line 135
+    .line 137
     .restart local v0       #hasOnlyDisconnectedConnections:Z
     .restart local v1       #i:I
     .restart local v2       #s:I
@@ -345,12 +350,12 @@
     .parameter "conn"
 
     .prologue
-    .line 153
+    .line 155
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmCall;->connections:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 155
+    .line 157
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmCall;->connections:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -359,12 +364,12 @@
 
     if-nez v0, :cond_0
 
-    .line 156
+    .line 158
     sget-object v0, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
     iput-object v0, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
 
-    .line 158
+    .line 160
     :cond_0
     return-void
 .end method
@@ -448,7 +453,7 @@
     .locals 2
 
     .prologue
-    .line 188
+    .line 193
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmCall;->connections:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -498,7 +503,7 @@
     .locals 1
 
     .prologue
-    .line 240
+    .line 245
     iget-boolean v0, p0, Lcom/android/internal/telephony/gsm/GsmCall;->mIsVideoCall:Z
 
     return v0
@@ -508,7 +513,7 @@
     .locals 4
 
     .prologue
-    .line 201
+    .line 206
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -518,12 +523,12 @@
 
     move-result v2
 
-    .line 202
+    .line 207
     .local v2, s:I
     :goto_0
     if-ge v1, v2, :cond_0
 
-    .line 204
+    .line 209
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmCall;->connections:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -532,23 +537,23 @@
 
     check-cast v0, Lcom/android/internal/telephony/gsm/GsmConnection;
 
-    .line 206
+    .line 211
     .local v0, cn:Lcom/android/internal/telephony/gsm/GsmConnection;
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GsmConnection;->onHangupLocal()V
 
-    .line 202
+    .line 207
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 208
+    .line 213
     .end local v0           #cn:Lcom/android/internal/telephony/gsm/GsmConnection;
     :cond_0
     sget-object v3, Lcom/android/internal/telephony/Call$State;->DISCONNECTING:Lcom/android/internal/telephony/Call$State;
 
     iput-object v3, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
 
-    .line 209
+    .line 214
     return-void
 .end method
 
@@ -557,10 +562,10 @@
     .parameter "mIsVideoCall"
 
     .prologue
-    .line 236
+    .line 241
     iput-boolean p1, p0, Lcom/android/internal/telephony/gsm/GsmCall;->mIsVideoCall:Z
 
-    .line 237
+    .line 242
     return-void
 .end method
 
@@ -584,49 +589,46 @@
     .parameter "dc"
 
     .prologue
-    .line 163
+    .line 165
     const/4 v0, 0x0
 
-    .line 165
+    .line 169
     .local v0, changed:Z
-    iget-object v2, p2, Lcom/android/internal/telephony/DriverCall;->state:Lcom/android/internal/telephony/DriverCall$State;
+    iget-object v3, p2, Lcom/android/internal/telephony/DriverCall;->state:Lcom/android/internal/telephony/DriverCall$State;
 
-    invoke-static {v2}, Lcom/android/internal/telephony/gsm/GsmCall;->stateFromDCState(Lcom/android/internal/telephony/DriverCall$State;)Lcom/android/internal/telephony/Call$State;
+    invoke-static {v3}, Lcom/android/internal/telephony/gsm/GsmCall;->stateFromDCState(Lcom/android/internal/telephony/DriverCall$State;)Lcom/android/internal/telephony/Call$State;
 
-    move-result-object v1
+    move-result-object v2
 
-    .line 168
-    .local v1, newState:Lcom/android/internal/telephony/Call$State;
-    iget-object v2, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
+    .line 171
+    .local v2, newState:Lcom/android/internal/telephony/Call$State;
+    iget-object v3, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
 
-    sget-object v3, Lcom/android/internal/telephony/Call$State;->DISCONNECTING:Lcom/android/internal/telephony/Call$State;
+    if-eq v2, v3, :cond_0
 
-    if-ne v2, v3, :cond_0
+    .line 172
+    iput-object v2, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
 
-    sget-object v2, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
-
-    if-eq v1, v2, :cond_0
-
-    sget-object v2, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
-
-    if-eq v1, v2, :cond_0
-
-    .line 170
-    sget-object v1, Lcom/android/internal/telephony/Call$State;->DISCONNECTING:Lcom/android/internal/telephony/Call$State;
-
-    .line 174
-    :cond_0
-    iget-object v2, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
-
-    if-eq v1, v2, :cond_1
-
-    .line 175
-    iput-object v1, p0, Lcom/android/internal/telephony/Call;->state:Lcom/android/internal/telephony/Call$State;
-
-    .line 176
+    .line 173
     const/4 v0, 0x1
 
+    .line 177
+    :cond_0
+    iget-object v1, p2, Lcom/android/internal/telephony/DriverCall;->callType:Lcom/android/internal/telephony/Call$CallType;
+
+    .line 178
+    .local v1, newCallType:Lcom/android/internal/telephony/Call$CallType;
+    iget-object v3, p0, Lcom/android/internal/telephony/Call;->callType:Lcom/android/internal/telephony/Call$CallType;
+
+    if-eq v1, v3, :cond_1
+
     .line 179
+    iput-object v1, p0, Lcom/android/internal/telephony/Call;->callType:Lcom/android/internal/telephony/Call$CallType;
+
+    .line 180
+    const/4 v0, 0x1
+
+    .line 184
     :cond_1
     return v0
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 210
+    .line 239
     iput-object p1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -57,8 +57,8 @@
     .local p1, arg0:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     const/4 v2, 0x0
 
-    .line 215
-    const v1, 0x7f07000a
+    .line 244
+    const v1, 0x7f07000c
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -66,18 +66,18 @@
 
     check-cast v0, Landroid/widget/CheckBox;
 
-    .line 217
+    .line 245
     .local v0, chBox:Landroid/widget/CheckBox;
     invoke-virtual {v0}, Landroid/widget/CheckBox;->toggle()V
 
-    .line 218
+    .line 246
     invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 219
+    .line 247
     iget-object v1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RemoveChannelActivity;->mAllChList:Ljava/util/ArrayList;
@@ -95,14 +95,14 @@
 
     iput-boolean v2, v1, Lcom/sec/android/app/fm/RemoveChannelActivity$ChannelInfo;->willDeleted:Z
 
-    .line 227
+    .line 255
     :goto_0
     iget-object v1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     #calls: Lcom/sec/android/app/fm/RemoveChannelActivity;->checkSelection()V
     invoke-static {v1}, Lcom/sec/android/app/fm/RemoveChannelActivity;->access$700(Lcom/sec/android/app/fm/RemoveChannelActivity;)V
 
-    .line 228
+    .line 256
     iget-object v1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RemoveChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -112,15 +112,15 @@
 
     invoke-virtual {v1}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 229
+    .line 257
     iget-object v1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     invoke-virtual {v1}, Lcom/sec/android/app/fm/RemoveChannelActivity;->invalidateOptionsMenu()V
 
-    .line 230
+    .line 258
     return-void
 
-    .line 221
+    .line 249
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
@@ -137,7 +137,7 @@
 
     iput-boolean v2, v1, Lcom/sec/android/app/fm/RemoveChannelActivity$ChannelInfo;->willDeleted:Z
 
-    .line 223
+    .line 251
     iget-object v1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$3;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     #setter for: Lcom/sec/android/app/fm/RemoveChannelActivity;->mSelectAll:Z

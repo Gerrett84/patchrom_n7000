@@ -566,25 +566,25 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 356
+    .line 365
     iput-boolean v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->isRunning_all:Z
 
-    .line 357
+    .line 366
     iput-boolean v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->isRecording:Z
 
-    .line 359
+    .line 368
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->threadRecord:Ljava/lang/Thread;
 
     if-eqz v1, :cond_0
 
-    .line 361
+    .line 370
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
     const-string v2, "waitForBackgroundRecordThread"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 364
+    .line 373
     :try_start_0
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->threadRecord:Ljava/lang/Thread;
 
@@ -594,16 +594,16 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 370
+    .line 379
     :cond_0
     :goto_0
     return-void
 
-    .line 365
+    .line 374
     :catch_0
     move-exception v0
 
-    .line 367
+    .line 376
     .local v0, e:Ljava/lang/InterruptedException;
     invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
 
@@ -658,10 +658,10 @@
     .locals 2
 
     .prologue
-    .line 329
+    .line 338
     monitor-enter p0
 
-    .line 331
+    .line 340
     :try_start_0
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
@@ -669,74 +669,74 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 333
+    .line 342
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->isRunning_all:Z
 
-    .line 334
+    .line 343
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->isRecording:Z
 
-    .line 337
+    .line 346
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
     const-string v1, "waitForBackgroundRecordThread start"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 338
+    .line 347
     invoke-direct {p0}, Lcom/samsung/voiceshell/AudioRecordHaydn;->waitForBackgroundRecordThread()V
 
-    .line 339
+    .line 348
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
     const-string v1, "waitForBackgroundRecordThread end"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 341
+    .line 350
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->aRecord:Landroid/media/AudioRecord;
 
     if-eqz v0, :cond_1
 
-    .line 343
+    .line 352
     iget v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->mState:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 345
+    .line 354
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->aRecord:Landroid/media/AudioRecord;
 
     invoke-virtual {v0}, Landroid/media/AudioRecord;->stop()V
 
-    .line 346
+    .line 355
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->mState:I
 
-    .line 348
+    .line 357
     :cond_0
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->aRecord:Landroid/media/AudioRecord;
 
     invoke-virtual {v0}, Landroid/media/AudioRecord;->release()V
 
-    .line 349
+    .line 358
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->aRecord:Landroid/media/AudioRecord;
 
-    .line 351
+    .line 360
     :cond_1
     monitor-exit p0
 
-    .line 352
+    .line 361
     return-void
 
-    .line 351
+    .line 360
     :catchall_0
     move-exception v0
 
@@ -755,52 +755,52 @@
 
     const/4 v2, 0x0
 
-    .line 374
+    .line 383
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
     const-string v1, "destroy"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 376
+    .line 385
     iput-boolean v3, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->isRunning_all:Z
 
-    .line 377
+    .line 386
     iput-boolean v3, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->isRecording:Z
 
-    .line 379
+    .line 388
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
 
     if-eqz v0, :cond_0
 
-    .line 382
+    .line 391
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
     const-string v1, "waitForBackgroundRecordThread start"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 383
+    .line 392
     invoke-direct {p0}, Lcom/samsung/voiceshell/AudioRecordHaydn;->waitForBackgroundRecordThread()V
 
-    .line 384
+    .line 393
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
     const-string v1, "waitForBackgroundRecordThread end"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 386
+    .line 395
     iput-object v2, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
 
-    .line 389
+    .line 398
     :cond_0
     iput-object v2, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->VElib:Lcom/samsung/voiceshell/VoiceEngine;
 
-    .line 390
+    .line 399
     iput-object v2, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->mSensoryJNI:Lcom/vlingo/client/phrasespotter/SensoryJNI;
 
-    .line 391
+    .line 400
     return-void
 .end method
 
@@ -839,19 +839,19 @@
     .locals 2
 
     .prologue
-    .line 323
+    .line 332
     iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
     const-string v1, "pauseRecord"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 324
+    .line 333
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->isRecording:Z
 
-    .line 325
+    .line 334
     return-void
 .end method
 
@@ -898,34 +898,34 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 395
+    .line 404
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
     const-string v2, "setAdaptation"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 397
+    .line 406
     if-ne p1, v3, :cond_0
 
-    .line 399
+    .line 408
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->VElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     if-eqz v1, :cond_0
 
-    .line 401
+    .line 410
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
     const-string v2, "Adaptation Start"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 402
+    .line 411
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->VElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     invoke-virtual {v1, v3}, Lcom/samsung/voiceshell/VoiceEngine;->setIsRunningAdaptation(Z)V
 
-    .line 403
+    .line 412
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->VElib:Lcom/samsung/voiceshell/VoiceEngine;
 
     iget-object v2, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->VElib:Lcom/samsung/voiceshell/VoiceEngine;
@@ -938,7 +938,7 @@
 
     move-result v0
 
-    .line 404
+    .line 413
     .local v0, contADAPTreturn:I
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
@@ -962,7 +962,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 409
+    .line 418
     .end local v0           #contADAPTreturn:I
     :cond_0
     const/4 v1, 0x0
@@ -1018,69 +1018,90 @@
     return-void
 .end method
 
-.method public startRecord()V
-    .locals 2
+.method public startRecord()Z
+    .locals 3
 
     .prologue
     .line 300
     monitor-enter p0
 
     .line 302
+    const/4 v0, 0x1
+
+    .line 303
+    .local v0, result:Z
     :try_start_0
-    iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
 
-    const-string v1, "startRecord"
+    const-string v2, "startRecord"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 304
-    iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->aRecord:Landroid/media/AudioRecord;
-
-    if-nez v0, :cond_0
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 305
+    iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->aRecord:Landroid/media/AudioRecord;
+
+    if-nez v1, :cond_0
+
+    .line 306
     invoke-virtual {p0}, Lcom/samsung/voiceshell/AudioRecordHaydn;->initRecorder()V
 
     .line 309
     :cond_0
-    iget v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->mState:I
+    iget v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->mState:I
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     .line 311
-    iget-object v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->aRecord:Landroid/media/AudioRecord;
+    iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->aRecord:Landroid/media/AudioRecord;
 
-    invoke-virtual {v0}, Landroid/media/AudioRecord;->startRecording()V
-
-    .line 312
-    const/4 v0, 0x1
-
-    iput v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->mState:I
+    invoke-virtual {v1}, Landroid/media/AudioRecord;->startRecording()V
 
     .line 316
-    :cond_1
+    iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->aRecord:Landroid/media/AudioRecord;
+
+    invoke-virtual {v1}, Landroid/media/AudioRecord;->getRecordingState()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    if-eq v1, v2, :cond_2
+
+    .line 317
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->processedSample:I
+    .line 325
+    :cond_1
+    :goto_0
+    const/4 v1, 0x0
 
-    .line 318
-    const/4 v0, 0x1
+    iput v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->processedSample:I
 
-    iput-boolean v0, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->isRecording:Z
-
-    .line 319
+    .line 327
     monitor-exit p0
 
-    .line 320
-    return-void
+    return v0
 
     .line 319
+    :cond_2
+    const/4 v1, 0x1
+
+    iput v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->mState:I
+
+    .line 320
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn;->isRecording:Z
+
+    goto :goto_0
+
+    .line 328
     :catchall_0
-    move-exception v0
+    move-exception v1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw v1
 .end method

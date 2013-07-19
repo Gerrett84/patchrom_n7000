@@ -34,7 +34,7 @@
     .locals 0
 
     .prologue
-    .line 31
+    .line 28
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -48,25 +48,25 @@
     .prologue
     const-wide/16 v2, 0x0
 
-    .line 45
+    .line 42
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->mStepCount:J
 
-    .line 46
+    .line 43
     iput-wide v2, p0, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->mCalorie:D
 
-    .line 47
+    .line 44
     iput-wide v2, p0, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->mDistance:D
 
-    .line 48
+    .line 45
     iput-wide v2, p0, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->mSpeed:D
 
-    .line 49
+    .line 46
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->mStepStatus:I
 
-    .line 50
+    .line 47
     return-void
 .end method

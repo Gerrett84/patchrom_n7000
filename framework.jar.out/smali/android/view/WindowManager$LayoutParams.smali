@@ -96,6 +96,8 @@
 
 .field public static final FLAG_PRIVATE_NO_ANIMATION_WHEN_RESIZE_INCLUDE_CHILD:I = 0x2000000
 
+.field public static final FLAG_PRIVATE_WANT_TO_BE_ASSUMED_FULL_OPAQUE:I = 0x4000000
+
 .field public static final FLAG_SCALED:I = 0x4000
 
 .field public static final FLAG_SECURE:I = 0x2000
@@ -167,6 +169,8 @@
 .field public static final PRIVATE_FLAG_FORCE_SHOW_WHEN_LOCKED:I = 0x1000000
 
 .field public static final PRIVATE_FLAG_IGNORE_OTHER_APP_TOUCHED:I = 0x20
+
+.field public static final PRIVATE_FLAG_NOTIFY_SYSTEMUI_VISIBILITY_CHANGED:I = 0x8000000
 
 .field public static final PRIVATE_FLAG_SET_NEEDS_MENU_KEY:I = 0x8
 
@@ -252,9 +256,13 @@
 
 .field public static final TYPE_MINI_APP_ON_KEYGUARD:I = 0x836
 
+.field public static final TYPE_MINI_APP_ON_KEYGUARD_DIALOG:I = 0x837
+
 .field public static final TYPE_MULTI_WINDOW_CONTROL_BAR:I = 0x898
 
 .field public static final TYPE_MULTI_WINDOW_EDIT_MODE:I = 0x89a
+
+.field public static final TYPE_MULTI_WINDOW_GUIDE_MODE:I = 0x89b
 
 .field public static final TYPE_MULTI_WINDOW_TRAY_BAR:I = 0x899
 
@@ -638,7 +646,7 @@
     .locals 1
 
     .prologue
-    .line 1326
+    .line 1359
     new-instance v0, Landroid/view/WindowManager$LayoutParams$1;
 
     invoke-direct {v0}, Landroid/view/WindowManager$LayoutParams$1;-><init>()V
@@ -660,47 +668,47 @@
 
     const/4 v1, -0x1
 
-    .line 1241
+    .line 1274
     invoke-direct {p0, v1, v1}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 1123
+    .line 1156
     iput v3, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
-    .line 1130
+    .line 1163
     iput v3, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 1159
+    .line 1192
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    .line 1167
+    .line 1200
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    .line 1173
+    .line 1206
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 1178
+    .line 1211
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 1188
+    .line 1221
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 1393
+    .line 1426
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    .line 1652
+    .line 1685
     const-string v0, ""
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1242
+    .line 1275
     const/4 v0, 0x2
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 1243
+    .line 1276
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 1244
+    .line 1277
     return-void
 .end method
 
@@ -717,45 +725,45 @@
 
     const/4 v1, -0x1
 
-    .line 1247
+    .line 1280
     invoke-direct {p0, v1, v1}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 1123
+    .line 1156
     iput v3, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
-    .line 1130
+    .line 1163
     iput v3, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 1159
+    .line 1192
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    .line 1167
+    .line 1200
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    .line 1173
+    .line 1206
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 1178
+    .line 1211
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 1188
+    .line 1221
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 1393
+    .line 1426
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    .line 1652
+    .line 1685
     const-string v0, ""
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1248
+    .line 1281
     iput p1, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 1249
+    .line 1282
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 1250
+    .line 1283
     return-void
 .end method
 
@@ -773,48 +781,48 @@
 
     const/4 v1, -0x1
 
-    .line 1253
+    .line 1286
     invoke-direct {p0, v1, v1}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 1123
+    .line 1156
     iput v3, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
-    .line 1130
+    .line 1163
     iput v3, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 1159
+    .line 1192
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    .line 1167
+    .line 1200
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    .line 1173
+    .line 1206
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 1178
+    .line 1211
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 1188
+    .line 1221
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 1393
+    .line 1426
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    .line 1652
+    .line 1685
     const-string v0, ""
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1254
+    .line 1287
     iput p1, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 1255
+    .line 1288
     iput p2, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 1256
+    .line 1289
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 1257
+    .line 1290
     return-void
 .end method
 
@@ -833,48 +841,48 @@
 
     const/4 v0, -0x1
 
-    .line 1260
+    .line 1293
     invoke-direct {p0, v0, v0}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 1123
+    .line 1156
     iput v3, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
-    .line 1130
+    .line 1163
     iput v3, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 1159
+    .line 1192
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    .line 1167
+    .line 1200
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    .line 1173
+    .line 1206
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 1178
+    .line 1211
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 1188
+    .line 1221
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 1393
+    .line 1426
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    .line 1652
+    .line 1685
     const-string v0, ""
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1261
+    .line 1294
     iput p1, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 1262
+    .line 1295
     iput p2, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 1263
+    .line 1296
     iput p3, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 1264
+    .line 1297
     return-void
 .end method
 
@@ -893,50 +901,50 @@
 
     const/4 v1, 0x0
 
-    .line 1267
+    .line 1300
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 1123
+    .line 1156
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
-    .line 1130
+    .line 1163
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 1159
+    .line 1192
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    .line 1167
+    .line 1200
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    .line 1173
+    .line 1206
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 1178
+    .line 1211
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 1188
+    .line 1221
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 1393
+    .line 1426
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    .line 1652
+    .line 1685
     const-string v0, ""
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1268
+    .line 1301
     iput p3, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 1269
+    .line 1302
     iput p4, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 1270
+    .line 1303
     iput p5, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 1271
+    .line 1304
     return-void
 .end method
 
@@ -957,56 +965,56 @@
 
     const/4 v1, 0x0
 
-    .line 1275
+    .line 1308
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 1123
+    .line 1156
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
-    .line 1130
+    .line 1163
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 1159
+    .line 1192
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    .line 1167
+    .line 1200
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    .line 1173
+    .line 1206
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 1178
+    .line 1211
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 1188
+    .line 1221
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 1393
+    .line 1426
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    .line 1652
+    .line 1685
     const-string v0, ""
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1276
+    .line 1309
     iput p3, p0, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    .line 1277
+    .line 1310
     iput p4, p0, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1278
+    .line 1311
     iput p5, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 1279
+    .line 1312
     iput p6, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 1280
+    .line 1313
     iput p7, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 1281
+    .line 1314
     return-void
 .end method
 
@@ -1021,174 +1029,174 @@
 
     const/4 v1, 0x0
 
-    .line 1338
+    .line 1371
     invoke-direct {p0}, Landroid/view/ViewGroup$LayoutParams;-><init>()V
 
-    .line 1123
+    .line 1156
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
-    .line 1130
+    .line 1163
     iput v2, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 1159
+    .line 1192
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    .line 1167
+    .line 1200
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    .line 1173
+    .line 1206
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 1178
+    .line 1211
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 1188
+    .line 1221
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 1393
+    .line 1426
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    .line 1652
+    .line 1685
     const-string v0, ""
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1339
+    .line 1372
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 1340
+    .line 1373
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 1341
+    .line 1374
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    .line 1342
+    .line 1375
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1343
+    .line 1376
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 1344
+    .line 1377
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 1345
+    .line 1378
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    .line 1346
+    .line 1379
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
-    .line 1347
+    .line 1380
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    .line 1348
+    .line 1381
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->horizontalMargin:F
 
-    .line 1349
+    .line 1382
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->verticalMargin:F
 
-    .line 1350
+    .line 1383
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 1351
+    .line 1384
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 1352
+    .line 1385
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
-    .line 1353
+    .line 1386
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 1354
+    .line 1387
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    .line 1355
+    .line 1388
     invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    .line 1356
+    .line 1389
     invoke-virtual {p1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 1357
+    .line 1390
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 1358
+    .line 1391
     sget-object v0, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1199,28 +1207,28 @@
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1359
+    .line 1392
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 1360
+    .line 1393
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
-    .line 1361
+    .line 1394
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->subtreeSystemUiVisibility:I
 
-    .line 1362
+    .line 1395
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -1232,17 +1240,17 @@
     :goto_0
     iput-boolean v0, p0, Landroid/view/WindowManager$LayoutParams;->hasSystemUiListeners:Z
 
-    .line 1363
+    .line 1396
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
 
-    .line 1364
+    .line 1397
     return-void
 
-    .line 1362
+    .line 1395
     :cond_0
     const/4 v0, 0x0
 
@@ -1254,26 +1262,26 @@
     .parameter "flags"
 
     .prologue
-    .line 956
+    .line 989
     const v0, 0x20008
 
     and-int/2addr v0, p0
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 961
+    .line 994
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 959
+    .line 992
     :sswitch_0
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 956
+    .line 989
     nop
 
     :sswitch_data_0
@@ -1289,14 +1297,14 @@
     .locals 3
 
     .prologue
-    .line 1627
+    .line 1660
     iget-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    .line 1628
+    .line 1661
     .local v0, backup:[I
     if-nez v0, :cond_0
 
-    .line 1630
+    .line 1663
     const/4 v1, 0x4
 
     new-array v0, v1, [I
@@ -1304,7 +1312,7 @@
     .end local v0           #backup:[I
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    .line 1632
+    .line 1665
     .restart local v0       #backup:[I
     :cond_0
     const/4 v1, 0x0
@@ -1313,28 +1321,28 @@
 
     aput v2, v0, v1
 
-    .line 1633
+    .line 1666
     const/4 v1, 0x1
 
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->y:I
 
     aput v2, v0, v1
 
-    .line 1634
+    .line 1667
     const/4 v1, 0x2
 
     iget v2, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     aput v2, v0, v1
 
-    .line 1635
+    .line 1668
     const/4 v1, 0x3
 
     iget v2, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     aput v2, v0, v1
 
-    .line 1636
+    .line 1669
     return-void
 .end method
 
@@ -1343,10 +1351,10 @@
     .parameter "o"
 
     .prologue
-    .line 1396
+    .line 1429
     const/4 v0, 0x0
 
-    .line 1398
+    .line 1431
     .local v0, changes:I
     iget v1, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
@@ -1354,15 +1362,15 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 1399
+    .line 1432
     iget v1, p1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     iput v1, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 1400
+    .line 1433
     or-int/lit8 v0, v0, 0x1
 
-    .line 1402
+    .line 1435
     :cond_0
     iget v1, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
@@ -1370,15 +1378,15 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 1403
+    .line 1436
     iget v1, p1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     iput v1, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 1404
+    .line 1437
     or-int/lit8 v0, v0, 0x1
 
-    .line 1406
+    .line 1439
     :cond_1
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->x:I
 
@@ -1386,15 +1394,15 @@
 
     if-eq v1, v2, :cond_2
 
-    .line 1407
+    .line 1440
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->x:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    .line 1408
+    .line 1441
     or-int/lit8 v0, v0, 0x1
 
-    .line 1410
+    .line 1443
     :cond_2
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->y:I
 
@@ -1402,15 +1410,15 @@
 
     if-eq v1, v2, :cond_3
 
-    .line 1411
+    .line 1444
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->y:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1412
+    .line 1445
     or-int/lit8 v0, v0, 0x1
 
-    .line 1414
+    .line 1447
     :cond_3
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->horizontalWeight:F
 
@@ -1420,15 +1428,15 @@
 
     if-eqz v1, :cond_4
 
-    .line 1415
+    .line 1448
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->horizontalWeight:F
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->horizontalWeight:F
 
-    .line 1416
+    .line 1449
     or-int/lit8 v0, v0, 0x1
 
-    .line 1418
+    .line 1451
     :cond_4
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->verticalWeight:F
 
@@ -1438,15 +1446,15 @@
 
     if-eqz v1, :cond_5
 
-    .line 1419
+    .line 1452
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->verticalWeight:F
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->verticalWeight:F
 
-    .line 1420
+    .line 1453
     or-int/lit8 v0, v0, 0x1
 
-    .line 1422
+    .line 1455
     :cond_5
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->horizontalMargin:F
 
@@ -1456,15 +1464,15 @@
 
     if-eqz v1, :cond_6
 
-    .line 1423
+    .line 1456
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->horizontalMargin:F
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->horizontalMargin:F
 
-    .line 1424
+    .line 1457
     or-int/lit8 v0, v0, 0x1
 
-    .line 1426
+    .line 1459
     :cond_6
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->verticalMargin:F
 
@@ -1474,15 +1482,15 @@
 
     if-eqz v1, :cond_7
 
-    .line 1427
+    .line 1460
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->verticalMargin:F
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->verticalMargin:F
 
-    .line 1428
+    .line 1461
     or-int/lit8 v0, v0, 0x1
 
-    .line 1430
+    .line 1463
     :cond_7
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
@@ -1490,15 +1498,15 @@
 
     if-eq v1, v2, :cond_8
 
-    .line 1431
+    .line 1464
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->type:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 1432
+    .line 1465
     or-int/lit8 v0, v0, 0x2
 
-    .line 1434
+    .line 1467
     :cond_8
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
@@ -1506,15 +1514,15 @@
 
     if-eq v1, v2, :cond_9
 
-    .line 1435
+    .line 1468
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 1436
+    .line 1469
     or-int/lit8 v0, v0, 0x4
 
-    .line 1438
+    .line 1471
     :cond_9
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
@@ -1522,17 +1530,17 @@
 
     if-eq v1, v2, :cond_a
 
-    .line 1439
+    .line 1472
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    .line 1440
+    .line 1473
     const/high16 v1, 0x1
 
     or-int/2addr v0, v1
 
-    .line 1442
+    .line 1475
     :cond_a
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
@@ -1540,15 +1548,15 @@
 
     if-eq v1, v2, :cond_b
 
-    .line 1443
+    .line 1476
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
-    .line 1444
+    .line 1477
     or-int/lit16 v0, v0, 0x200
 
-    .line 1446
+    .line 1479
     :cond_b
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
@@ -1556,15 +1564,15 @@
 
     if-eq v1, v2, :cond_c
 
-    .line 1447
+    .line 1480
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    .line 1448
+    .line 1481
     or-int/lit8 v0, v0, 0x1
 
-    .line 1450
+    .line 1483
     :cond_c
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
@@ -1572,15 +1580,15 @@
 
     if-eq v1, v2, :cond_d
 
-    .line 1451
+    .line 1484
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->format:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 1452
+    .line 1485
     or-int/lit8 v0, v0, 0x8
 
-    .line 1454
+    .line 1487
     :cond_d
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
@@ -1588,37 +1596,37 @@
 
     if-eq v1, v2, :cond_e
 
-    .line 1455
+    .line 1488
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 1456
+    .line 1489
     or-int/lit8 v0, v0, 0x10
 
-    .line 1458
+    .line 1491
     :cond_e
     iget-object v1, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     if-nez v1, :cond_f
 
-    .line 1461
+    .line 1494
     iget-object v1, p1, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 1463
+    .line 1496
     :cond_f
     iget-object v1, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
     if-nez v1, :cond_10
 
-    .line 1466
+    .line 1499
     iget-object v1, p1, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 1468
+    .line 1501
     :cond_10
     iget-object v1, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
@@ -1630,15 +1638,15 @@
 
     if-nez v1, :cond_11
 
-    .line 1469
+    .line 1502
     iget-object v1, p1, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
     iput-object v1, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1470
+    .line 1503
     or-int/lit8 v0, v0, 0x40
 
-    .line 1472
+    .line 1505
     :cond_11
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
@@ -1648,15 +1656,15 @@
 
     if-eqz v1, :cond_12
 
-    .line 1473
+    .line 1506
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
-    .line 1474
+    .line 1507
     or-int/lit16 v0, v0, 0x80
 
-    .line 1476
+    .line 1509
     :cond_12
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
@@ -1666,15 +1674,15 @@
 
     if-eqz v1, :cond_13
 
-    .line 1477
+    .line 1510
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 1478
+    .line 1511
     or-int/lit8 v0, v0, 0x20
 
-    .line 1480
+    .line 1513
     :cond_13
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
@@ -1684,15 +1692,15 @@
 
     if-eqz v1, :cond_14
 
-    .line 1481
+    .line 1514
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    .line 1482
+    .line 1515
     or-int/lit16 v0, v0, 0x800
 
-    .line 1484
+    .line 1517
     :cond_14
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
@@ -1702,15 +1710,15 @@
 
     if-eqz v1, :cond_15
 
-    .line 1485
+    .line 1518
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
-    .line 1486
+    .line 1519
     or-int/lit16 v0, v0, 0x1000
 
-    .line 1489
+    .line 1522
     :cond_15
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
@@ -1718,15 +1726,15 @@
 
     if-eq v1, v2, :cond_16
 
-    .line 1490
+    .line 1523
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 1491
+    .line 1524
     or-int/lit16 v0, v0, 0x400
 
-    .line 1494
+    .line 1527
     :cond_16
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
@@ -1740,21 +1748,21 @@
 
     if-eq v1, v2, :cond_18
 
-    .line 1496
+    .line 1529
     :cond_17
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
-    .line 1497
+    .line 1530
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->subtreeSystemUiVisibility:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->subtreeSystemUiVisibility:I
 
-    .line 1498
+    .line 1531
     or-int/lit16 v0, v0, 0x2000
 
-    .line 1501
+    .line 1534
     :cond_18
     iget-boolean v1, p0, Landroid/view/WindowManager$LayoutParams;->hasSystemUiListeners:Z
 
@@ -1762,15 +1770,15 @@
 
     if-eq v1, v2, :cond_19
 
-    .line 1502
+    .line 1535
     iget-boolean v1, p1, Landroid/view/WindowManager$LayoutParams;->hasSystemUiListeners:Z
 
     iput-boolean v1, p0, Landroid/view/WindowManager$LayoutParams;->hasSystemUiListeners:Z
 
-    .line 1503
+    .line 1536
     or-int/lit16 v0, v0, 0x4000
 
-    .line 1506
+    .line 1539
     :cond_19
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
 
@@ -1778,17 +1786,17 @@
 
     if-eq v1, v2, :cond_1a
 
-    .line 1507
+    .line 1540
     iget v1, p1, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
 
-    .line 1508
+    .line 1541
     const v1, 0x8000
 
     or-int/2addr v0, v1
 
-    .line 1511
+    .line 1544
     :cond_1a
     return v0
 .end method
@@ -1798,7 +1806,7 @@
     .parameter "output"
 
     .prologue
-    .line 1516
+    .line 1549
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1827,31 +1835,31 @@
 
     move-result-object p1
 
-    .line 1517
+    .line 1550
     const-string v0, "Debug"
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1518
+    .line 1551
     const-string v0, ""
 
     invoke-super {p0, v0}, Landroid/view/ViewGroup$LayoutParams;->debug(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 1519
+    .line 1552
     const-string v0, "Debug"
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1520
+    .line 1553
     const-string v0, "Debug"
 
     const-string v1, ""
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1521
+    .line 1554
     const-string v0, "Debug"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1882,7 +1890,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1522
+    .line 1555
     const-string v0, ""
 
     return-object v0
@@ -1892,7 +1900,7 @@
     .locals 1
 
     .prologue
-    .line 1295
+    .line 1328
     const/4 v0, 0x0
 
     return v0
@@ -1902,7 +1910,7 @@
     .locals 1
 
     .prologue
-    .line 1291
+    .line 1324
     iget-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
     return-object v0
@@ -1912,42 +1920,42 @@
     .locals 2
 
     .prologue
-    .line 1643
+    .line 1676
     iget-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mCompatibilityParamsBackup:[I
 
-    .line 1644
+    .line 1677
     .local v0, backup:[I
     if-eqz v0, :cond_0
 
-    .line 1645
+    .line 1678
     const/4 v1, 0x0
 
     aget v1, v0, v1
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    .line 1646
+    .line 1679
     const/4 v1, 0x1
 
     aget v1, v0, v1
 
     iput v1, p0, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1647
+    .line 1680
     const/4 v1, 0x2
 
     aget v1, v0, v1
 
     iput v1, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 1648
+    .line 1681
     const/4 v1, 0x3
 
     aget v1, v0, v1
 
     iput v1, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 1650
+    .line 1683
     :cond_0
     return-void
 .end method
@@ -1959,7 +1967,7 @@
     .prologue
     const/high16 v1, 0x3f00
 
-    .line 1612
+    .line 1645
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->x:I
 
     int-to-float v0, v0
@@ -1972,7 +1980,7 @@
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    .line 1613
+    .line 1646
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->y:I
 
     int-to-float v0, v0
@@ -1985,12 +1993,12 @@
 
     iput v0, p0, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 1614
+    .line 1647
     iget v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     if-lez v0, :cond_0
 
-    .line 1615
+    .line 1648
     iget v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     int-to-float v0, v0
@@ -2003,13 +2011,13 @@
 
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 1617
+    .line 1650
     :cond_0
     iget v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     if-lez v0, :cond_1
 
-    .line 1618
+    .line 1651
     iget v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     int-to-float v0, v0
@@ -2022,7 +2030,7 @@
 
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 1620
+    .line 1653
     :cond_1
     return-void
 .end method
@@ -2032,13 +2040,13 @@
     .parameter "title"
 
     .prologue
-    .line 1284
+    .line 1317
     if-nez p1, :cond_0
 
-    .line 1285
+    .line 1318
     const-string p1, ""
 
-    .line 1287
+    .line 1320
     :cond_0
     invoke-static {p1}, Landroid/text/TextUtils;->stringOrSpannedString(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
@@ -2046,7 +2054,7 @@
 
     iput-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 1288
+    .line 1321
     return-void
 .end method
 
@@ -2062,45 +2070,45 @@
 
     const/4 v3, -0x1
 
-    .line 1527
+    .line 1560
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x100
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 1528
+    .line 1561
     .local v0, sb:Ljava/lang/StringBuilder;
     const-string v1, "WM.LayoutParams{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1529
+    .line 1562
     const-string v1, "("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1530
+    .line 1563
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->x:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1531
+    .line 1564
     const/16 v1, 0x2c
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1532
+    .line 1565
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->y:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1533
+    .line 1566
     const-string v1, ")("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1534
+    .line 1567
     iget v1, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     if-ne v1, v3, :cond_10
@@ -2110,12 +2118,12 @@
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 1535
+    .line 1568
     const/16 v1, 0x78
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1536
+    .line 1569
     iget v1, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     if-ne v1, v3, :cond_12
@@ -2125,29 +2133,29 @@
     :goto_1
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 1537
+    .line 1570
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1538
+    .line 1571
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->horizontalMargin:F
 
     cmpl-float v1, v1, v2
 
     if-eqz v1, :cond_0
 
-    .line 1539
+    .line 1572
     const-string v1, " hm="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1540
+    .line 1573
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->horizontalMargin:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    .line 1542
+    .line 1575
     :cond_0
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->verticalMargin:F
 
@@ -2155,28 +2163,28 @@
 
     if-eqz v1, :cond_1
 
-    .line 1543
+    .line 1576
     const-string v1, " vm="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1544
+    .line 1577
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->verticalMargin:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    .line 1546
+    .line 1579
     :cond_1
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     if-eqz v1, :cond_2
 
-    .line 1547
+    .line 1580
     const-string v1, " gr=#"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1548
+    .line 1581
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
@@ -2185,18 +2193,18 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1550
+    .line 1583
     :cond_2
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
     if-eqz v1, :cond_3
 
-    .line 1551
+    .line 1584
     const-string v1, " sim=#"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1552
+    .line 1585
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
     invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
@@ -2205,23 +2213,23 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1554
+    .line 1587
     :cond_3
     const-string v1, " ty="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1555
+    .line 1588
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1556
+    .line 1589
     const-string v1, " fl=#"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1557
+    .line 1590
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
@@ -2230,12 +2238,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1558
+    .line 1591
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     if-eqz v1, :cond_4
 
-    .line 1559
+    .line 1592
     const-string v1, " pfl=0x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2250,34 +2258,34 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1561
+    .line 1594
     :cond_4
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
     if-eq v1, v3, :cond_5
 
-    .line 1562
+    .line 1595
     const-string v1, " fmt="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1563
+    .line 1596
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1565
+    .line 1598
     :cond_5
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
     if-eqz v1, :cond_6
 
-    .line 1566
+    .line 1599
     const-string v1, " wanim=0x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1567
+    .line 1600
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
     invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
@@ -2286,23 +2294,23 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1569
+    .line 1602
     :cond_6
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
     if-eq v1, v3, :cond_7
 
-    .line 1570
+    .line 1603
     const-string v1, " or="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1571
+    .line 1604
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 1573
+    .line 1606
     :cond_7
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
@@ -2312,17 +2320,17 @@
 
     if-eqz v1, :cond_8
 
-    .line 1574
+    .line 1607
     const-string v1, " alpha="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1575
+    .line 1608
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    .line 1577
+    .line 1610
     :cond_8
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
@@ -2330,17 +2338,17 @@
 
     if-eqz v1, :cond_9
 
-    .line 1578
+    .line 1611
     const-string v1, " sbrt="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1579
+    .line 1612
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    .line 1581
+    .line 1614
     :cond_9
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
@@ -2348,17 +2356,17 @@
 
     if-eqz v1, :cond_a
 
-    .line 1582
+    .line 1615
     const-string v1, " bbrt="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1583
+    .line 1616
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    .line 1585
+    .line 1618
     :cond_a
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
@@ -2368,23 +2376,23 @@
 
     if-eqz v1, :cond_b
 
-    .line 1586
+    .line 1619
     const-string v1, " compatible=true"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1588
+    .line 1621
     :cond_b
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     if-eqz v1, :cond_c
 
-    .line 1589
+    .line 1622
     const-string v1, " sysui=0x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1590
+    .line 1623
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
@@ -2393,18 +2401,18 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1592
+    .line 1625
     :cond_c
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->subtreeSystemUiVisibility:I
 
     if-eqz v1, :cond_d
 
-    .line 1593
+    .line 1626
     const-string v1, " vsysui=0x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1594
+    .line 1627
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->subtreeSystemUiVisibility:I
 
     invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
@@ -2413,29 +2421,29 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1596
+    .line 1629
     :cond_d
     iget-boolean v1, p0, Landroid/view/WindowManager$LayoutParams;->hasSystemUiListeners:Z
 
     if-eqz v1, :cond_e
 
-    .line 1597
+    .line 1630
     const-string v1, " sysuil="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1598
+    .line 1631
     iget-boolean v1, p0, Landroid/view/WindowManager$LayoutParams;->hasSystemUiListeners:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    .line 1600
+    .line 1633
     :cond_e
     iget v1, p0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
 
     if-eqz v1, :cond_f
 
-    .line 1601
+    .line 1634
     const-string v1, " if=0x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2450,20 +2458,20 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1603
+    .line 1636
     :cond_f
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1604
+    .line 1637
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     return-object v1
 
-    .line 1534
+    .line 1567
     :cond_10
     iget v1, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
@@ -2482,7 +2490,7 @@
 
     goto/16 :goto_0
 
-    .line 1536
+    .line 1569
     :cond_12
     iget v1, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
@@ -2508,122 +2516,122 @@
     .parameter "parcelableFlags"
 
     .prologue
-    .line 1299
+    .line 1332
     iget v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1300
+    .line 1333
     iget v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1301
+    .line 1334
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->x:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1302
+    .line 1335
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->y:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1303
+    .line 1336
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->type:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1304
+    .line 1337
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1305
+    .line 1338
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1306
+    .line 1339
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1307
+    .line 1340
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1308
+    .line 1341
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->horizontalMargin:F
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
-    .line 1309
+    .line 1342
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->verticalMargin:F
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
-    .line 1310
+    .line 1343
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->format:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1311
+    .line 1344
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1312
+    .line 1345
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->alpha:F
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
-    .line 1313
+    .line 1346
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
-    .line 1314
+    .line 1347
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
-    .line 1315
+    .line 1348
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->buttonBrightness:F
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
-    .line 1316
+    .line 1349
     iget-object v0, p0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 1317
+    .line 1350
     iget-object v0, p0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 1318
+    .line 1351
     iget-object v0, p0, Landroid/view/WindowManager$LayoutParams;->mTitle:Ljava/lang/CharSequence;
 
     invoke-static {v0, p1, p2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
-    .line 1319
+    .line 1352
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1320
+    .line 1353
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1321
+    .line 1354
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->subtreeSystemUiVisibility:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1322
+    .line 1355
     iget-boolean v0, p0, Landroid/view/WindowManager$LayoutParams;->hasSystemUiListeners:Z
 
     if-eqz v0, :cond_0
@@ -2633,15 +2641,15 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1323
+    .line 1356
     iget v0, p0, Landroid/view/WindowManager$LayoutParams;->inputFeatures:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 1324
+    .line 1357
     return-void
 
-    .line 1322
+    .line 1355
     :cond_0
     const/4 v0, 0x0
 

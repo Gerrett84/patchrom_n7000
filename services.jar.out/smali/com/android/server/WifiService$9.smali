@@ -1,5 +1,5 @@
-.class synthetic Lcom/android/server/WifiService$9;
-.super Ljava/lang/Object;
+.class Lcom/android/server/WifiService$9;
+.super Landroid/telephony/PhoneStateListener;
 .source "WifiService.java"
 
 
@@ -9,72 +9,130 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
-# static fields
-.field static final synthetic $SwitchMap$android$net$NetworkInfo$DetailedState:[I
+# instance fields
+.field final synthetic this$0:Lcom/android/server/WifiService;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method constructor <init>(Lcom/android/server/WifiService;)V
+    .locals 0
+    .parameter
 
     .prologue
-    .line 615
-    invoke-static {}, Landroid/net/NetworkInfo$DetailedState;->values()[Landroid/net/NetworkInfo$DetailedState;
+    .line 3475
+    iput-object p1, p0, Lcom/android/server/WifiService$9;->this$0:Lcom/android/server/WifiService;
 
-    move-result-object v0
+    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
 
-    array-length v0, v0
+    return-void
+.end method
 
-    new-array v0, v0, [I
 
-    sput-object v0, Lcom/android/server/WifiService$9;->$SwitchMap$android$net$NetworkInfo$DetailedState:[I
+# virtual methods
+.method public onDataConnectionStateChanged(II)V
+    .locals 3
+    .parameter "state"
+    .parameter "networkType"
 
-    :try_start_0
-    sget-object v0, Lcom/android/server/WifiService$9;->$SwitchMap$android$net$NetworkInfo$DetailedState:[I
+    .prologue
+    .line 3477
+    const-string v0, "WifiService"
 
-    sget-object v1, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Landroid/net/NetworkInfo$DetailedState;->ordinal()I
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v1
+    const-string v2, "onDataConnectionStateChanged: state -"
 
-    const/4 v2, 0x1
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_1
+    move-result-object v1
 
+    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", networkType - "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {p2}, Landroid/telephony/TelephonyManager;->getNetworkTypeName(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 3501
+    const/16 v0, 0xd
+
+    if-ne p2, v0, :cond_0
+
+    .line 3502
+    const/4 v0, -0x2
+
+    invoke-static {v0}, Lcom/android/server/WifiService;->access$1972(I)I
+
+    .line 3506
     :goto_0
-    :try_start_1
-    sget-object v0, Lcom/android/server/WifiService$9;->$SwitchMap$android$net$NetworkInfo$DetailedState:[I
+    const-string v0, "WifiService"
 
-    sget-object v1, Landroid/net/NetworkInfo$DetailedState;->DISCONNECTED:Landroid/net/NetworkInfo$DetailedState;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Landroid/net/NetworkInfo$DetailedState;->ordinal()I
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v1
+    const-string v2, "Booster FLAG : "
 
-    const/4 v2, 0x2
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_0
+    move-result-object v1
 
-    :goto_1
+    invoke-static {}, Lcom/android/server/WifiService;->access$1900()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 3507
+    iget-object v0, p0, Lcom/android/server/WifiService$9;->this$0:Lcom/android/server/WifiService;
+
+    #calls: Lcom/android/server/WifiService;->determineBoosterMode()V
+    invoke-static {v0}, Lcom/android/server/WifiService;->access$2000(Lcom/android/server/WifiService;)V
+
+    .line 3509
     return-void
 
-    :catch_0
-    move-exception v0
+    .line 3504
+    :cond_0
+    const/4 v0, 0x1
 
-    goto :goto_1
-
-    :catch_1
-    move-exception v0
+    invoke-static {v0}, Lcom/android/server/WifiService;->access$1976(I)I
 
     goto :goto_0
 .end method

@@ -30,18 +30,18 @@
     .parameter "router"
 
     .prologue
-    .line 1489
+    .line 1504
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1490
+    .line 1505
     iput-object p1, p0, Landroid/media/MediaRouter$CallbackInfo;->cb:Landroid/media/MediaRouter$Callback;
 
-    .line 1491
+    .line 1506
     iput p2, p0, Landroid/media/MediaRouter$CallbackInfo;->type:I
 
-    .line 1492
+    .line 1507
     iput-object p3, p0, Landroid/media/MediaRouter$CallbackInfo;->router:Landroid/media/MediaRouter;
 
-    .line 1493
+    .line 1508
     return-void
 .end method

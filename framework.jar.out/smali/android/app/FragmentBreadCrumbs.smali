@@ -749,7 +749,7 @@
 
     .line 258
     .local v3, a:Landroid/content/res/TypedArray;
-    const/16 v20, 0xf6
+    const/16 v20, 0xf9
 
     const v21, 0x1090043
 

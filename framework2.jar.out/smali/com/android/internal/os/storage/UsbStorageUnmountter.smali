@@ -67,12 +67,12 @@
     .parameter "path"
 
     .prologue
-    .line 113
+    .line 121
     iget-object v2, p0, Lcom/android/internal/os/storage/UsbStorageUnmountter;->mStorageVolumes:[Landroid/os/storage/StorageVolume;
 
     array-length v1, v2
 
-    .line 114
+    .line 122
     .local v1, length:I
     const/4 v0, 0x0
 
@@ -80,7 +80,7 @@
     :goto_0
     if-ge v0, v1, :cond_1
 
-    .line 115
+    .line 123
     iget-object v2, p0, Lcom/android/internal/os/storage/UsbStorageUnmountter;->mStorageVolumes:[Landroid/os/storage/StorageVolume;
 
     aget-object v2, v2, v0
@@ -121,20 +121,20 @@
 
     if-eqz v2, :cond_0
 
-    .line 118
+    .line 126
     const/4 v2, 0x1
 
-    .line 121
+    .line 129
     :goto_1
     return v2
 
-    .line 114
+    .line 122
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 121
+    .line 129
     :cond_1
     const/4 v2, 0x0
 
@@ -267,30 +267,30 @@
     .locals 3
 
     .prologue
-    .line 101
+    .line 109
     iget-object v1, p0, Lcom/android/internal/os/storage/UsbStorageUnmountter;->mMountService:Landroid/os/storage/IMountService;
 
     if-nez v1, :cond_0
 
-    .line 102
+    .line 110
     const-string v1, "mount"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 103
+    .line 111
     .local v0, service:Landroid/os/IBinder;
     if-eqz v0, :cond_1
 
-    .line 104
+    .line 112
     invoke-static {v0}, Landroid/os/storage/IMountService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/storage/IMountService;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/internal/os/storage/UsbStorageUnmountter;->mMountService:Landroid/os/storage/IMountService;
 
-    .line 109
+    .line 117
     .end local v0           #service:Landroid/os/IBinder;
     :cond_0
     :goto_0
@@ -298,7 +298,7 @@
 
     return-object v1
 
-    .line 106
+    .line 114
     .restart local v0       #service:Landroid/os/IBinder;
     :cond_1
     const-string v1, "UsbStorageUnmountter"
@@ -315,7 +315,7 @@
     .parameter "intent"
 
     .prologue
-    .line 97
+    .line 105
     const/4 v0, 0x0
 
     return-object v0
@@ -393,22 +393,17 @@
     .locals 2
 
     .prologue
-    .line 90
+    .line 98
     const-string v0, "UsbStorageUnmountter"
 
     const-string v1, "onDestroy!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 91
-    iget-object v0, p0, Lcom/android/internal/os/storage/UsbStorageUnmountter;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    .line 92
+    .line 100
     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
 
-    .line 93
+    .line 101
     return-void
 .end method
 
@@ -420,7 +415,7 @@
 
     .prologue
     .line 79
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 80
     const-string v0, "UsbStorageUnmountter"
@@ -453,13 +448,38 @@
     :goto_0
     invoke-direct {p0}, Lcom/android/internal/os/storage/UsbStorageUnmountter;->unmountUsbStorages()V
 
-    .line 85
+    .line 86
+    iget-object v0, p0, Lcom/android/internal/os/storage/UsbStorageUnmountter;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    if-eqz v0, :cond_0
+
+    .line 87
+    iget-object v0, p0, Lcom/android/internal/os/storage/UsbStorageUnmountter;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 88
+    iget-object v0, p0, Lcom/android/internal/os/storage/UsbStorageUnmountter;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+
+    .line 91
+    :cond_0
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/internal/os/storage/UsbStorageUnmountter;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    .line 93
     const/4 v0, 0x3
 
     return v0
 
     .line 82
-    :cond_0
+    :cond_1
     const-string v0, "UsbStorageUnmountter"
 
     const-string v1, "onStartCommand :: intent have null"

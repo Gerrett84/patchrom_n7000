@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 923
+    .line 931
     iput-object p1, p0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
     iput-object p2, p0, Lcom/android/server/MountService$4;->val$path:Ljava/lang/String;
@@ -43,7 +43,7 @@
     .locals 10
 
     .prologue
-    .line 927
+    .line 935
     const/4 v2, 0x0
 
     .local v2, i:I
@@ -52,7 +52,7 @@
 
     if-ge v2, v5, :cond_2
 
-    .line 928
+    .line 936
     const/4 v5, 0x0
 
     :try_start_0
@@ -60,12 +60,12 @@
 
     move-result-object v3
 
-    .line 929
+    .line 937
     .local v3, isPending:Ljava/lang/Boolean;
     iget-object v5, p0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mVolumePendingStates:Ljava/util/LinkedHashMap;
-    invoke-static {v5}, Lcom/android/server/MountService;->access$2200(Lcom/android/server/MountService;)Ljava/util/LinkedHashMap;
+    invoke-static {v5}, Lcom/android/server/MountService;->access$2400(Lcom/android/server/MountService;)Ljava/util/LinkedHashMap;
 
     move-result-object v6
 
@@ -73,12 +73,12 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 930
+    .line 938
     :try_start_1
     iget-object v5, p0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mVolumePendingStates:Ljava/util/LinkedHashMap;
-    invoke-static {v5}, Lcom/android/server/MountService;->access$2200(Lcom/android/server/MountService;)Ljava/util/LinkedHashMap;
+    invoke-static {v5}, Lcom/android/server/MountService;->access$2400(Lcom/android/server/MountService;)Ljava/util/LinkedHashMap;
 
     move-result-object v5
 
@@ -94,12 +94,12 @@
 
     move-object v3, v0
 
-    .line 931
+    .line 939
     monitor-exit v6
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 932
+    .line 940
     :try_start_2
     invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -107,7 +107,7 @@
 
     if-eqz v5, :cond_0
 
-    .line 933
+    .line 941
     const-string v5, "MountService"
 
     const-string v6, "\'%s\' waiting over pending state "
@@ -128,20 +128,20 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 934
+    .line 942
     const-wide/16 v5, 0x1f4
 
     invoke-static {v5, v6}, Landroid/os/SystemClock;->sleep(J)V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 927
+    .line 935
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 931
+    .line 939
     :catchall_0
     move-exception v5
 
@@ -155,12 +155,12 @@
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
-    .line 943
+    .line 951
     .end local v3           #isPending:Ljava/lang/Boolean;
     :catch_0
     move-exception v1
 
-    .line 944
+    .line 952
     .local v1, ex:Ljava/lang/Exception;
     const-string v5, "MountService"
 
@@ -168,13 +168,13 @@
 
     invoke-static {v5, v6, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 946
+    .line 954
     .end local v1           #ex:Ljava/lang/Exception;
     :cond_1
     :goto_1
     return-void
 
-    .line 940
+    .line 948
     :cond_2
     :try_start_5
     iget-object v5, p0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
@@ -191,14 +191,14 @@
     iget-object v6, p0, Lcom/android/server/MountService$4;->val$path:Ljava/lang/String;
 
     #calls: Lcom/android/server/MountService;->doMountVolume(Ljava/lang/String;)I
-    invoke-static {v5, v6}, Lcom/android/server/MountService;->access$2300(Lcom/android/server/MountService;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Lcom/android/server/MountService;->access$2500(Lcom/android/server/MountService;Ljava/lang/String;)I
 
     move-result v4
 
     .local v4, rc:I
     if-eqz v4, :cond_1
 
-    .line 941
+    .line 949
     const-string v5, "MountService"
 
     const-string v6, "Insertion mount failed (%d)"

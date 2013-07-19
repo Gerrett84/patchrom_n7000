@@ -10,7 +10,7 @@
     <string name="httpErrorBadUrl">Ekki er hægt að opna síðu. Ógild vefslóð</string>
     <string name="httpErrorUnsupportedScheme">Þessar samskiptareglur eru óstuddar</string>
     <string name="no">Hætta við</string>
-    <string name="ok">Í lagi</string>
+    <string name="ok">OK</string>
     <string name="paste">Líma</string>
     <string name="search_go">Leita</string>
     <string name="selectAll">Velja allt</string>
@@ -269,7 +269,7 @@
     <string name="turn_on_radio">Kveikja á þráðlausu</string>
     <string name="turn_off_radio">Slökkva á þráðlausu</string>
     <string name="screen_lock">Skjálás</string>
-    <string name="power_off">Slökkt</string>
+    <string name="power_off">Tími sjálfvirks rofa af</string>
     <string name="silent_mode_vibrate">Hringitónn og titringur</string>
     <string name="shutdown_progress">Slekk…</string>
     <string name="shutdown_confirm">Slökkt verður á tækinu</string>
@@ -281,7 +281,7 @@
     <string name="global_action_lock">Skjálás</string>
     <string name="global_action_power_off">Slökkt</string>
     <string name="global_action_restart">Endurræsa</string>
-    <string name="global_action_sound_mode_mute">Þögn</string>
+    <string name="global_action_sound_mode_mute">Hljóð af</string>
     <string name="global_action_sound_mode_vibrate">Titringur</string>
     <string name="global_action_sound_mode_sound">Hljóð</string>
     <string name="global_action_toggle_silent_mode">Hljóðlaus stilling</string>
@@ -303,7 +303,7 @@
     <string name="data_usage_disable_mobile">Slökkva á gagnatengingu farsíma?</string>
     <string name="global_action_insert_sim_card">Setjið gagnakortið í</string>
     <string name="global_action_insert_sim_card_message">Setjið SIM kort í til að fá aðgang að netþjónustu</string>
-    <string name="globalactions_silent_mode_mute">Þögn</string>
+    <string name="globalactions_silent_mode_mute">Hljóð af</string>
     <string name="globalactions_silent_mode_vibrate">Titringur</string>
     <string name="globalactions_silent_mode_sound">Hljóð</string>
     <string name="safeMode">Örugg stilling</string>
@@ -355,6 +355,7 @@
     <string name="permdesc_mdmKioskMode">Stjórna hegðun tækisins þegar það er stillt sem Sjálfsali</string>
     <string name="tether_usb_restrict">Öryggisstefna takmarkar notkun USB-tjóðrunar</string>
     <string name="tether_wifi_restrict">Öryggisreglur takmarka notkun Wi-Fi tjóðrunar</string>
+    <string name="data_call_restriction">Öryggisstefnan takmarkar notkun farsímagagna</string>
     <string name="dpm_wifi_blocked_network">Öryggisreglur loka fyrir notkun þessa Wi-Fi netkerfis</string>
     <string name="dpm_wifi_misc_wifi_disabled">Öryggisreglur takmarka notkun Wi-Fi</string>
     <string name="dpm_wifi_misc_network_insecure">Öryggisreglur takmarka notkun á óöruggum Wi-Fi netkerfum</string>
@@ -538,6 +539,7 @@
     <string name="permlab_readSocialStream">Lesa samfélagsstraum þinn</string>
     <string name="permlab_writeSocialStream">Birta á þínum samfélagsstraumi</string>
     <string name="permlab_readCalendar">Lestu dagbókarviðburði og trúnaðarupplýsingar</string>
+    <string name="permlab_writeCalendar">Bæta við eða breyta dagbókarviðburðum og senda tölvupóst til gesta að gestgjafa forspurðum</string>
     <string name="permlab_accessMockLocation">fölsk staðsetningarþjónusta fyrir prófun</string>
     <string name="permdesc_accessMockLocation">Leyfir forriti að búa til falska staðsetningarþjónustu fyrir prófun. Ef þetta er leyft gætu spilliforrit hnekkt staðsetningunni og/eða stöðu frá raunverulegri staðsetningarþjónustu líkt og GPS eða símafyrirtæki eða fylgst með og tilkynnt staðsetningu þína af handahófi á vefsvæði</string>
     <string name="permlab_accessLocationExtraCommands">Fá aðgang að fleiri skipunum staðsetningarþjónustu</string>
@@ -625,6 +627,7 @@
     <string name="permdesc_getAccounts">Leyfir forriti að opna reikningalista í símanum</string>
     <string name="permlab_authenticateAccounts">Sannprófar reikninginn</string>
     <string name="permdesc_authenticateAccounts">Leyfir forriti að nota eiginleika fyrir sannprófun reikninga í reikningastjórnun. Slíkt felur í sér að búa til reikninga og vinna með lykilorð</string>
+    <string name="permlab_manageAccounts">Bæta við eða fjarlægja reikninga</string>
     <string name="permdesc_manageAccounts">Leyfir forriti að bæta við og fjarlægja reikninga og að eyða lykilorði</string>
     <string name="permlab_useCredentials">Nota sannprófunarskilríki reiknings</string>
     <string name="permdesc_useCredentials">Leyfir forriti að biðja um að sannvottunarauðkenni</string>
@@ -644,6 +647,7 @@
     <string name="permlab_changeWifiState">breyta Wi-Fi-stöðu</string>
     <string name="permdesc_changeWifiState">Leyfir forriti að tengjast við og slíta tengingu við Wi-Fi aðgangsstað og breyta uppsettum Wi-Fi netum</string>
     <string name="permlab_changeWifiMulticastState">Leyfir móttöku á Wi-Fi margvarpi</string>
+    <string name="permlab_bluetoothAdmin">Bluetooth-stillingar</string>
     <string name="permdesc_bluetoothAdmin">Leyfir forriti að stilla staðbundinn Bluetooth-síma og finna og parast við fjartengd tæki</string>
     <string name="permlab_accessWimaxState">Skoða WiMAX-stöðu</string>
     <string name="permlab_changeWimaxState">Breyta WiMAX-stöðu</string>
@@ -725,6 +729,7 @@
     <string name="policydesc_allow_desktopsync">Hindra notkun á samstillingu skjáborðs</string>
     <string name="policylab_require_storagecard_encryption">Stilla dulkóðun á SD-korti</string>
     <string name="policydesc_require_storagecard_encryption">Krefjast dulkóðunar á forritum á SD-korti</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth hefur verið aftengt</string>
     <string name="bluetooth_security_mode_disable">Öryggisreglur takmarka notkun Bluetooth-tengingar</string>
     <string name="bluetooth_security_mode_handsfree">Öryggisreglur takmarka notkun Bluetooth-tengingar við handfrjálsa eiginleika</string>
     <string name="phoneTypeCustom">Sérstilla</string>
@@ -796,10 +801,12 @@
     <string name="sipAddressTypeHome">Heima</string>
     <string name="sipAddressTypeWork">Vinna</string>
     <string name="sipAddressTypeOther">Annað</string>
+    <string name="keyguard_password_enter_pin_code">Sláðu inn PIN-númer</string>
     <string name="keyguard_password_enter_puk_code">Sláðu in PUK og nýtt PIN-númer</string>
     <string name="keyguard_password_entry_touch_hint">Pikkaðu til að færa inn lykilorð</string>
     <string name="keyguard_password_enter_password_code">Sláðu inn lykilorð til að opna</string>
     <string name="keyguard_password_enter_pin_password_code">Sláðu inn PIN-númer til að opna</string>
+    <string name="keyguard_password_wrong_pin_code">Rangt PIN-númer</string>
     <string name="keyguard_pin_accepted">Kóði samþykktur</string>
     <string name="keyguard_label_text">Ýttu á Valmynd og 0 til að opna</string>
     <string name="emergency_call_dialog_number_for_display">Neyðarnúmer</string>
@@ -826,8 +833,9 @@
     <string name="lockscreen_network_locked_message">Netkerfið var læst</string>
     <string name="lockscreen_sim_puk_locked_message">SIM-kortið er varið með PUK-númeri</string>
     <string name="lockscreen_sim_puk_locked_instructions">Athugaðu notendahandbókina eða hafðu samband við þjónustuver</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM-kort er læst</string>
+    <string name="lockscreen_sim_locked_message">SIM-kortið er læst</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">Opna SIM-kort…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Rangt opnunarmynstur teiknað %1$d sinnum. Reyndu aftur eftir %2$d sekúndur</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Rangt lykilorð slegið %1$d sinnum inn. Reyndu aftur eftir %2$d sekúndur</string>
     <string name="lockscreen_sim_pin_blocked">PIN1-númer læst. Sláðu inn PUK1-númer til að opna fyrir PIN1-númer</string>
@@ -866,6 +874,7 @@
     <string name="autofill_this_form">Sjálfvirk innfylling</string>
     <string name="autofill_address_type_same_as_re">Sama og</string>
     <string name="autofill_billing_designator_re">Bill</string>
+    <string name="autofill_shipping_designator_re">Skip</string>
     <string name="autofill_phone_suffix_re">Viðskeyti</string>
     <string name="autofill_name_on_card_contextual_re">Heiti</string>
     <string name="autofill_province">Hérað</string>
@@ -879,6 +888,7 @@
     <string name="autofill_prefecture">Umsjónarmaður</string>
     <string name="autofill_parish">Hérað</string>
     <string name="autofill_area">Flatarmál</string>
+    <string name="permlab_readHistoryBookmarks">Lesa internetsögu og bókamerki</string>
     <string name="permdesc_readHistoryBookmarks">Leyfir forritinu að lesa allar vefslóðir sem vafrinn hefur opnað, sem og öll bókamerki vafrans</string>
     <string name="permdesc_writeHistoryBookmarks">Leyfir forriti að breyta internetsögu og bókamerkjum í símanum. Spilliforrit geta eytt eða breytt slíkum gögnum ef þetta er leyft</string>
     <string name="permlab_setAlarm">Stilla vekjara</string>
@@ -943,10 +953,12 @@
     <string name="inputMethod">Innsláttaraðferð</string>
     <string name="low_internal_storage_view_title">Minni er næstum fullt</string>
     <string name="low_internal_storage_view_text">Einhverjir kerfiseiginleikar kunna að vera óvirkir</string>
+    <string name="full_internal_storage_view_text">Villa kann að koma upp vegna þess að minni tækisins er fullt. Eyddu einhverjum atriðum</string>
     <string name="loading">Hleð…</string>
     <string name="capital_on">Á</string>
     <string name="capital_off">Af</string>
     <string name="whichApplication">Ljúka við aðgerð með því að nota</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Nota sjálfkrafa fyrir þessa aðgerð</string>
     <string name="clearDefaultHintMsg">Hreinsaðu sjálfgefnar forritastillingar með því að fara í Stillingar > Forritastjórnun > Allt</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1004,7 +1016,7 @@
     <string name="wifi_notification_no_network_message">Opna Wi-Fi stillingar</string>
     <string name="wifi_notification_not_connected">Wi-Fi net eru til staðar</string>
     <string name="wifi_notification_not_connected_message">Tengjast við tiltæk Wi-Fi net</string>
-    <string name="wifi_notification_connected">Tengt við %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Pikkaðu til að grunnstilla Wi-Fi</string>
     <string name="wifi_notification_connected_secure">Öruggt</string>
     <string name="wifi_notification_connected_open">Opna</string>
@@ -1031,9 +1043,9 @@
     <string name="select_character">Setja inn staf</string>
     <string name="sms_control_default_app_name">Óþekkt forrit</string>
     <string name="sms_control_title">Sendi SMS…</string>
-    <string name="sms_control_message">Verið er að senda mikinn fjölda SMS-skeyta. Pikkaðu á Í lagi til að halda áfram eða Hætta við til að hætta sendingu</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Hætta v.</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> er að senda mikinn fjölda SMS-skeyta. Leyfa þessu forriti að halda áfram að senda skeyti?</string>
+    <string name="sms_control_yes">Leyfa</string>
+    <string name="sms_control_no">Hafna</string>
     <string name="sim_removed_title">SIM-kortið var fjarlægt</string>
     <string name="sim_removed_message">Farsímakerfi verður ekki tiltækt fyrr en þú endurræsir með SIM-korti sem er í gildi</string>
     <string name="sim_done_button">Lokið</string>
@@ -1111,7 +1123,7 @@
     <string name="activity_list_empty">Engar samsvarandi aðgerðir fundust</string>
     <string name="permlab_pkgUsageStats">uppfæra notkunartölur hluta</string>
     <string name="permdesc_pkgUsageStats">Leyfir breytingar á söfnuðum gögnum um notkun. Valkosturinn er ekki fyrir venjuleg forrit</string>
-    <string name="permlab_copyProtectedData">Leyfir sjálfgefinni vistunarþjónustu að afrita efni. Ekki fyrir venjuleg forrit</string>
+    <string name="permlab_copyProtectedData">Afrita efni</string>
     <string name="permdesc_copyProtectedData">Leyfir sjálfgefinni vistunarþjónustu að afrita efni. Ekki fyrir venjuleg forrit</string>
     <string name="permlab_route_media_output">Efnisúttak</string>
     <string name="permdesc_route_media_output">Leyfir forriti að færa efnisúttak til annarra ytri tækja</string>
@@ -1218,7 +1230,7 @@ reikninginn %s"</string>
     <string name="radiobutton_selected">Valið</string>
     <string name="radiobutton_not_selected">Engir tengiliðir valdir</string>
     <string name="switch_on">Á</string>
-    <string name="switch_off">Slökkt</string>
+    <string name="switch_off">Af</string>
     <string name="togglebutton_pressed">Stutt á</string>
     <string name="keyboardview_keycode_alt">ALT</string>
     <string name="keyboardview_keycode_cancel">Hætta v.</string>
@@ -1242,10 +1254,11 @@ reikninginn %s"</string>
     <string name="action_bar_home_description">Leiðbeina heim</string>
     <string name="action_bar_up_description">Fara upp</string>
     <string name="action_menu_overflow_description">Fleiri kostir</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Skipta yfir í fyrri stærð</string>
     <string name="storage_internal">Innra minni tækis</string>
     <string name="storage_sd_card">SD-kort</string>
     <string name="storage_usb">USB-geymsla</string>
-    <string name="extract_edit_menu_button">Breyta…</string>
+    <string name="extract_edit_menu_button">Breyta</string>
     <string name="data_usage_warning_title">Gagnanotkunarviðvörun</string>
     <string name="data_usage_warning_body">Pikkaðu til að skoða notkun og stillingar</string>
     <string name="data_usage_3g_limit_title">2G-3G-gögn óvirk</string>
@@ -1274,7 +1287,7 @@ reikninginn %s"</string>
     <string name="fingerprints">Fingraför</string>
     <string name="sha256_fingerprint">SHA-256 fingrafar:</string>
     <string name="sha1_fingerprint">SHA-1 fingrafar:</string>
-    <string name="activity_chooser_view_see_all">Sjá öll</string>
+    <string name="activity_chooser_view_see_all">Sjá allt</string>
     <string name="activity_chooser_view_dialog_title_default">Veldu aðgerð</string>
     <string name="share_action_provider_share_with">Samnýta með</string>
     <string name="status_bar_device_locked">Tæki læst</string>
@@ -1329,6 +1342,8 @@ reikninginn %s"</string>
     <string name="lockscreen_fmapp_name">FM-útvarp</string>
     <string name="lockscreen_clock_dualclock_home">Heima</string>
     <string name="lockscreen_clock_dualclock_roaming">Í reiki</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Seúl</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Reiki</string>
     <string name="lockscreen_clock_dualclock_popup_title">Tvöföld klukka</string>
     <string name="lockscreen_clock_dualclock_popup_message">Veldu heimaborg til að birta tvöfalda klukku á lásskjá. Fara í Stillingar?</string>
     <string name="lockscreen_ticker_no_data_to_display">Engin gögn til að birta</string>
@@ -1365,7 +1380,7 @@ reikninginn %s"</string>
     <string name="lockscreen_2ndLock_instructions2">Sláðu inn auka PIN-númer til að opna</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">Í lagi</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Opnunarmynstrið hefur verið teiknað rangt %1$d sinnum. Reyndu aftur eftir %2$d sekúndur</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Rangt opnunarmynstur teiknað %1$d sinnum. Þú átt %2$d tilraunir eftir áður en þú verður beðin(n) um að opna tækið með Google innskráningunni þinni eða auka PIN-númeri. Reyndu aftur eftir %3$d sekúndur</string>
     <string name="lockscreen_carrier_noservice">(Ekkert samband)</string>
     <string name="rescan_network">Leita að símkerfum</string>
     <string name="AutoUpdateOfTimeAndDate">Sjálfvirk uppfærsla tíma og dagsetningar</string>
@@ -1376,6 +1391,8 @@ reikninginn %s"</string>
     <string name="capabilitymanager_managed_errortitle">Villa</string>
     <string name="security_policy_title">Öryggisreglur</string>
     <string name="security_policy_summary">Dulkóðunarreglur voru mótteknar frá ytri kerfisstjóra</string>
+    <string name="sdcard_unmount_policy_noti_title">SD-kort aftengt vegna tæknistefnu</string>
+    <string name="sdcard_unmount_policy_noti_content">Pikkaðu til að tengja SD-kort</string>
     <string name="sdcard_encrypt_title_notification">Dulkóðun SD-korts</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">Dulkóða SD-kort…</string>
     <string name="sdcard_encrypt_notification">SD-kort dulkóðað</string>
@@ -1399,7 +1416,7 @@ reikninginn %s"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1441,7 +1458,7 @@ reikninginn %s"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Innslegin gildi eru utan gilds sviðs. Athugaðu gildin og reyndu aftur</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1463,6 +1480,8 @@ reikninginn %s"</string>
     <string name="SS_USB_TETHERING_ENABLED">USB-tjóðrun virk</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Wi-Fi tjóðrun virk</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Tjóðrun virk (Wi-Fi og USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Tækið er lokað. Rangt aðgangsorð var of oft slegið inn. Endurheimt lykilorðs er nauðsynleg til að opna tækið. Ef þú slærð inn rangt endurheimtarlykilorð verður öllum gögnum eytt</string>
+    <string name="recovery_password_required">Endurheimtarlykilorðs er krafist til að opna tæki</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Upphringitenging er virk</string>
@@ -1496,12 +1515,21 @@ reikninginn %s"</string>
     <string name="lockscreen_ticker_logo_news_tts">Fréttir</string>
     <string name="lockscreen_ticker_logo_stock_tts">Kjötkraftur</string>
     <string name="lockscreen_ticker_refresh_tts">Uppfæra</string>
+    <string name="SS_ALWAYS_ON_TOP">Alltaf efst</string>
+    <string name="SS_MINIMISE">Fela</string>
+    <string name="SS_MAXIMISE">Birta</string>
+    <string name="SS_CLOSE_APPLICATION">Loka forriti</string>
+    <string name="spengesture_media_scanning">Ekki er hægt að skera myndina. Efnisleit er í gangi</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN-læst</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Hafðu samband við þjónustuveituna til þess að opna SIM-kortið</string>
     <string name="resolver_guide_title">Hreinsa sjálfgefið</string>
     <string name="operation_not_allowed">Aðgerðin er ekki leyfð</string>
     <string name="exceeded_maxlength">Komið er fram yfir hámarksstærð boða</string>
     <string name="dont_show_again_message">Ekki birta aftur</string>
     <string name="set_bing_as_default">Gera Bing að sjálfgefinni leitarvél?</string>
     <string name="ms_domain_site">Lénssvæði Microsoft</string>
+    <string name="unsupported_in_popupbrowser">Óstuddur eiginleiki í Sprettivafranum</string>
+    <string name="find_on_page_abb">Finna á síðu</string>
     <string name="tw_clipboard_already_exists">Er þegar til</string>
     <string name="tw_clipboard_no_items_to_paste">Engin atriði til að líma</string>
     <string name="tw_clipboard_save_in_memo">Vista í minnisatriði</string>
@@ -1520,4 +1548,7 @@ reikninginn %s"</string>
     <string name="tw_clipboard_save">Vista</string>
     <string name="tw_clipboard_no_item">Engin atriði</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Öllum atriðum nema læstum atriðum hefur verið eytt úr klippiborðinu</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Límt af klippiborði</string>
+    <string name="Roaming_Auto_Dialing">PIN-læst</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

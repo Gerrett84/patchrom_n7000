@@ -32,32 +32,32 @@
     .parameter
 
     .prologue
-    .line 518
+    .line 530
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 514
+    .line 526
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mTitle:Ljava/lang/String;
 
-    .line 515
+    .line 527
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mAttribute:Ljava/lang/String;
 
-    .line 516
+    .line 528
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mPublish_time:Ljava/lang/String;
 
-    .line 517
+    .line 529
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mNews_url:Ljava/lang/String;
 
-    .line 519
+    .line 531
     return-void
 .end method
 
@@ -70,44 +70,44 @@
     .parameter "news_url"
 
     .prologue
-    .line 520
+    .line 532
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->this$0:Lcom/android/internal/policy/impl/sec/TickerScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 514
+    .line 526
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mTitle:Ljava/lang/String;
 
-    .line 515
+    .line 527
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mAttribute:Ljava/lang/String;
 
-    .line 516
+    .line 528
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mPublish_time:Ljava/lang/String;
 
-    .line 517
+    .line 529
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mNews_url:Ljava/lang/String;
 
-    .line 521
+    .line 533
     iput-object p2, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mTitle:Ljava/lang/String;
 
-    .line 522
+    .line 534
     iput-object p3, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mAttribute:Ljava/lang/String;
 
-    .line 523
+    .line 535
     iput-object p4, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mPublish_time:Ljava/lang/String;
 
-    .line 524
+    .line 536
     iput-object p5, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mNews_url:Ljava/lang/String;
 
-    .line 525
+    .line 537
     return-void
 .end method
 
@@ -117,7 +117,7 @@
     .locals 1
 
     .prologue
-    .line 530
+    .line 542
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mAttribute:Ljava/lang/String;
 
     return-object v0
@@ -127,7 +127,7 @@
     .locals 1
 
     .prologue
-    .line 527
+    .line 539
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mTitle:Ljava/lang/String;
 
     return-object v0
@@ -137,7 +137,7 @@
     .locals 1
 
     .prologue
-    .line 536
+    .line 548
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mNews_url:Ljava/lang/String;
 
     return-object v0
@@ -147,7 +147,7 @@
     .locals 1
 
     .prologue
-    .line 533
+    .line 545
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mPublish_time:Ljava/lang/String;
 
     return-object v0
@@ -158,10 +158,10 @@
     .parameter "attribute"
 
     .prologue
-    .line 542
+    .line 554
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mAttribute:Ljava/lang/String;
 
-    .line 543
+    .line 555
     return-void
 .end method
 
@@ -170,10 +170,10 @@
     .parameter "title"
 
     .prologue
-    .line 539
+    .line 551
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mTitle:Ljava/lang/String;
 
-    .line 540
+    .line 552
     return-void
 .end method
 
@@ -182,10 +182,10 @@
     .parameter "news_url"
 
     .prologue
-    .line 548
+    .line 560
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mNews_url:Ljava/lang/String;
 
-    .line 549
+    .line 561
     return-void
 .end method
 
@@ -194,9 +194,9 @@
     .parameter "publish_time"
 
     .prologue
-    .line 545
+    .line 557
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerScrollView$TickerNewsData;->mPublish_time:Ljava/lang/String;
 
-    .line 546
+    .line 558
     return-void
 .end method

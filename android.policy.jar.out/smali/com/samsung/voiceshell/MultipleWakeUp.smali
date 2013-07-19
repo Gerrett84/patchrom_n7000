@@ -4,6 +4,10 @@
 
 
 # static fields
+.field private static final CAMERA_CLASS_NAME:Ljava/lang/String; = "com.sec.android.app.camera.Camera"
+
+.field private static final CAMERA_PACKAGE:Ljava/lang/String; = "com.sec.android.app.camera"
+
 .field private static final FM_CLASS_NAME:Ljava/lang/String; = "com.sec.android.app.fm.MainActivity"
 
 .field private static final FM_PACKAGE:Ljava/lang/String; = "com.sec.android.app.fm"
@@ -14,32 +18,34 @@
     .locals 0
 
     .prologue
-    .line 11
+    .line 21
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 .method public static getMultipleWakeUpIntent(I)Landroid/content/Intent;
-    .locals 13
+    .locals 14
     .parameter "intentType"
 
     .prologue
+    const/high16 v13, 0x1020
+
     const/4 v12, 0x1
 
-    .line 19
+    .line 34
     const/4 v4, 0x0
 
-    .line 21
+    .line 38
     .local v4, intent:Landroid/content/Intent;
     packed-switch p0, :pswitch_data_0
 
-    .line 103
+    .line 202
     :goto_0
     :pswitch_0
     return-object v4
 
-    .line 24
+    .line 44
     :pswitch_1
     new-instance v4, Landroid/content/Intent;
 
@@ -48,11 +54,11 @@
 
     invoke-direct {v4, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 25
+    .line 46
     .restart local v4       #intent:Landroid/content/Intent;
     goto :goto_0
 
-    .line 28
+    .line 52
     :pswitch_2
     new-instance v4, Landroid/content/Intent;
 
@@ -61,7 +67,7 @@
 
     invoke-direct {v4, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 29
+    .line 54
     .restart local v4       #intent:Landroid/content/Intent;
     const-string v9, "vnd.android-dir/mms-sms"
 
@@ -69,7 +75,7 @@
 
     goto :goto_0
 
-    .line 33
+    .line 62
     :pswitch_3
     new-instance v4, Landroid/content/Intent;
 
@@ -78,17 +84,29 @@
 
     invoke-direct {v4, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 34
+    .line 63
     .restart local v4       #intent:Landroid/content/Intent;
-    const-string v9, "com.sec.android.app.camera"
+    const-string v9, "android.intent.category.LAUNCHER"
 
-    const-string v10, "com.sec.android.app.camera.Camera"
+    invoke-virtual {v4, v9}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {v4, v9, v10}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    .line 64
+    new-instance v9, Landroid/content/ComponentName;
+
+    const-string v10, "com.sec.android.app.camera"
+
+    const-string v11, "com.sec.android.app.camera.Camera"
+
+    invoke-direct {v9, v10, v11}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v4, v9}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    .line 65
+    invoke-virtual {v4, v13}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
     goto :goto_0
 
-    .line 38
+    .line 72
     :pswitch_4
     new-instance v4, Landroid/content/Intent;
 
@@ -97,7 +115,7 @@
 
     invoke-direct {v4, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 39
+    .line 74
     .restart local v4       #intent:Landroid/content/Intent;
     const-string v9, "com.android.calendar"
 
@@ -107,7 +125,7 @@
 
     goto :goto_0
 
-    .line 43
+    .line 82
     :pswitch_5
     new-instance v4, Landroid/content/Intent;
 
@@ -116,7 +134,7 @@
 
     invoke-direct {v4, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 44
+    .line 84
     .restart local v4       #intent:Landroid/content/Intent;
     const-string v9, "playMusic"
 
@@ -124,7 +142,7 @@
 
     goto :goto_0
 
-    .line 49
+    .line 94
     :pswitch_6
     new-instance v4, Landroid/content/Intent;
 
@@ -133,13 +151,13 @@
 
     invoke-direct {v4, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 50
+    .line 96
     .restart local v4       #intent:Landroid/content/Intent;
     const-string v9, "android.intent.category.LAUNCHER"
 
     invoke-virtual {v4, v9}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 51
+    .line 98
     new-instance v9, Landroid/content/ComponentName;
 
     const-string v10, "com.sec.android.app.fm"
@@ -150,29 +168,29 @@
 
     invoke-virtual {v4, v9}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 52
+    .line 100
     const-string v9, "playback"
 
     invoke-virtual {v4, v9, v12}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 53
+    .line 102
     const/high16 v9, 0x20
 
     invoke-virtual {v4, v9}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 54
+    .line 104
     const/high16 v9, 0x1000
 
     invoke-virtual {v4, v9}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 55
+    .line 106
     const/high16 v9, 0x2
 
     invoke-virtual {v4, v9}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     goto :goto_0
 
-    .line 60
+    .line 116
     :pswitch_7
     new-instance v4, Landroid/content/Intent;
 
@@ -181,18 +199,16 @@
 
     invoke-direct {v4, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 61
+    .line 118
     .restart local v4       #intent:Landroid/content/Intent;
     const-string v9, "android.intent.category.LAUNCHER"
 
     invoke-virtual {v4, v9}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 62
-    const/high16 v9, 0x1020
+    .line 120
+    invoke-virtual {v4, v13}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v4, v9}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    .line 63
+    .line 122
     new-instance v9, Landroid/content/ComponentName;
 
     const-string v10, "com.sec.android.app.voicerecorder"
@@ -205,15 +221,15 @@
 
     goto/16 :goto_0
 
-    .line 70
+    .line 136
     :pswitch_8
     const/4 v6, 0x0
 
-    .line 71
+    .line 138
     .local v6, reader:Ljava/io/BufferedReader;
     const-string v3, "/data/data/com.vlingo.midas/files/contactpicked.txt"
 
-    .line 73
+    .line 142
     .local v3, filePath:Ljava/lang/String;
     :try_start_0
     new-instance v7, Ljava/io/BufferedReader;
@@ -230,13 +246,13 @@
     .local v7, reader:Ljava/io/BufferedReader;
     move-object v6, v7
 
-    .line 78
+    .line 152
     .end local v7           #reader:Ljava/io/BufferedReader;
     .restart local v6       #reader:Ljava/io/BufferedReader;
     :goto_1
     const-string v8, ""
 
-    .line 80
+    .line 156
     .local v8, results:Ljava/lang/String;
     :goto_2
     :try_start_1
@@ -247,7 +263,7 @@
     .local v5, line:Ljava/lang/String;
     if-eqz v5, :cond_0
 
-    .line 82
+    .line 160
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -268,29 +284,29 @@
 
     goto :goto_2
 
-    .line 74
+    .line 144
     .end local v5           #line:Ljava/lang/String;
     .end local v8           #results:Ljava/lang/String;
     :catch_0
     move-exception v2
 
-    .line 76
+    .line 148
     .local v2, e1:Ljava/io/FileNotFoundException;
     invoke-virtual {v2}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
     goto :goto_1
 
-    .line 84
+    .line 164
     .end local v2           #e1:Ljava/io/FileNotFoundException;
     .restart local v8       #results:Ljava/lang/String;
     :catch_1
     move-exception v1
 
-    .line 86
+    .line 168
     .local v1, e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 89
+    .line 174
     .end local v1           #e:Ljava/io/IOException;
     :cond_0
     :try_start_2
@@ -298,17 +314,17 @@
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 94
+    .line 184
     :goto_3
     const/4 v0, 0x0
 
-    .line 95
+    .line 186
     .local v0, Uri:Landroid/net/Uri;
     invoke-static {v8}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 97
+    .line 190
     new-instance v4, Landroid/content/Intent;
 
     .end local v4           #intent:Landroid/content/Intent;
@@ -316,24 +332,22 @@
 
     invoke-direct {v4, v9, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 98
+    .line 192
     .restart local v4       #intent:Landroid/content/Intent;
     goto/16 :goto_0
 
-    .line 90
+    .line 176
     .end local v0           #Uri:Landroid/net/Uri;
     :catch_2
     move-exception v1
 
-    .line 92
+    .line 180
     .restart local v1       #e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_3
 
-    .line 21
-    nop
-
+    .line 38
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1

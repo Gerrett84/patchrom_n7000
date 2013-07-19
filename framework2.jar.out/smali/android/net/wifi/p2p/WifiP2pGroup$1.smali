@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 332
+    .line 344
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,12 +49,12 @@
 
     const/4 v5, 0x0
 
-    .line 334
+    .line 346
     new-instance v1, Landroid/net/wifi/p2p/WifiP2pGroup;
 
     invoke-direct {v1}, Landroid/net/wifi/p2p/WifiP2pGroup;-><init>()V
 
-    .line 335
+    .line 347
     .local v1, group:Landroid/net/wifi/p2p/WifiP2pGroup;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -62,7 +62,7 @@
 
     invoke-virtual {v1, v3}, Landroid/net/wifi/p2p/WifiP2pGroup;->setNetworkName(Ljava/lang/String;)V
 
-    .line 336
+    .line 348
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v3
@@ -71,7 +71,7 @@
 
     invoke-virtual {v1, v3}, Landroid/net/wifi/p2p/WifiP2pGroup;->setOwner(Landroid/net/wifi/p2p/WifiP2pDevice;)V
 
-    .line 337
+    .line 349
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v3
@@ -83,12 +83,12 @@
     :goto_0
     invoke-virtual {v1, v3}, Landroid/net/wifi/p2p/WifiP2pGroup;->setIsGroupOwner(Z)V
 
-    .line 338
+    .line 350
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 339
+    .line 351
     .local v0, clientCount:I
     const/4 v2, 0x0
 
@@ -96,7 +96,7 @@
     :goto_1
     if-ge v2, v0, :cond_1
 
-    .line 340
+    .line 352
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v3
@@ -105,12 +105,12 @@
 
     invoke-virtual {v1, v3}, Landroid/net/wifi/p2p/WifiP2pGroup;->addClient(Landroid/net/wifi/p2p/WifiP2pDevice;)V
 
-    .line 339
+    .line 351
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 337
+    .line 349
     .end local v0           #clientCount:I
     .end local v2           #i:I
     :cond_0
@@ -118,7 +118,7 @@
 
     goto :goto_0
 
-    .line 342
+    .line 354
     .restart local v0       #clientCount:I
     .restart local v2       #i:I
     :cond_1
@@ -128,21 +128,21 @@
 
     invoke-virtual {v1, v3}, Landroid/net/wifi/p2p/WifiP2pGroup;->setPassphrase(Ljava/lang/String;)V
 
-    .line 343
+    .line 355
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/net/wifi/p2p/WifiP2pGroup;->setInterface(Ljava/lang/String;)V
 
-    .line 344
+    .line 356
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     invoke-virtual {v1, v3}, Landroid/net/wifi/p2p/WifiP2pGroup;->setFrequency(I)V
 
-    .line 345
+    .line 357
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v3
@@ -151,7 +151,7 @@
 
     invoke-virtual {v1, v3}, Landroid/net/wifi/p2p/WifiP2pGroup;->setWfdInfo(Lcom/samsung/wfd/WfdInfo;)V
 
-    .line 346
+    .line 358
     return-object v1
 .end method
 
@@ -160,7 +160,7 @@
     .parameter "x0"
 
     .prologue
-    .line 332
+    .line 344
     invoke-virtual {p0, p1}, Landroid/net/wifi/p2p/WifiP2pGroup$1;->createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/WifiP2pGroup;
 
     move-result-object v0
@@ -173,7 +173,7 @@
     .parameter "size"
 
     .prologue
-    .line 350
+    .line 362
     new-array v0, p1, [Landroid/net/wifi/p2p/WifiP2pGroup;
 
     return-object v0
@@ -184,7 +184,7 @@
     .parameter "x0"
 
     .prologue
-    .line 332
+    .line 344
     invoke-virtual {p0, p1}, Landroid/net/wifi/p2p/WifiP2pGroup$1;->newArray(I)[Landroid/net/wifi/p2p/WifiP2pGroup;
 
     move-result-object v0

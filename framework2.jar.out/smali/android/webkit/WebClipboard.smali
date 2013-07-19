@@ -43,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 59
+    .line 75
     const-string v0, "[<>&]| {2,}|\r?\n"
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -64,27 +64,27 @@
 
     const/4 v0, 0x0
 
-    .line 64
+    .line 80
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 44
+    .line 60
     iput-boolean v0, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
-    .line 52
+    .line 68
     iput-object v1, p0, Landroid/webkit/WebClipboard;->mPasteEvent:Landroid/webkit/WebClipboard$IClipboardDataPasteEventImpl;
 
-    .line 54
+    .line 70
     iput-object v1, p0, Landroid/webkit/WebClipboard;->mPasteListener:Landroid/webkit/WebClipboard$OnPasteFromSelectionUIListener;
 
-    .line 61
+    .line 77
     iput v0, p0, Landroid/webkit/WebClipboard;->mViewWidth:I
 
-    .line 62
+    .line 78
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/webkit/WebClipboard;->mZoomFactor:F
 
-    .line 68
+    .line 84
     const-string v0, "clipboardEx"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -95,7 +95,7 @@
 
     iput-object v0, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
-    .line 71
+    .line 87
     const-string v0, "webclipboard"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -120,20 +120,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 73
+    .line 89
     iput-object p1, p0, Landroid/webkit/WebClipboard;->mContext:Landroid/content/Context;
 
-    .line 75
+    .line 91
     new-instance v0, Landroid/webkit/WebClipboard$IClipboardDataPasteEventImpl;
 
     invoke-direct {v0, p0}, Landroid/webkit/WebClipboard$IClipboardDataPasteEventImpl;-><init>(Landroid/webkit/WebClipboard;)V
 
     iput-object v0, p0, Landroid/webkit/WebClipboard;->mPasteEvent:Landroid/webkit/WebClipboard$IClipboardDataPasteEventImpl;
 
-    .line 77
+    .line 93
     invoke-virtual {p0}, Landroid/webkit/WebClipboard;->createHandler()V
 
-    .line 78
+    .line 94
     return-void
 .end method
 
@@ -142,7 +142,7 @@
     .parameter "x0"
 
     .prologue
-    .line 40
+    .line 56
     invoke-direct {p0}, Landroid/webkit/WebClipboard;->nativeInitPasteboardJni()V
 
     return-void
@@ -154,7 +154,7 @@
     .parameter "x1"
 
     .prologue
-    .line 40
+    .line 56
     invoke-direct {p0, p1}, Landroid/webkit/WebClipboard;->pasteClipBoardData(Landroid/sec/clipboard/data/ClipboardData;)V
 
     return-void
@@ -165,7 +165,7 @@
     .parameter "x0"
 
     .prologue
-    .line 40
+    .line 56
     iget-object v0, p0, Landroid/webkit/WebClipboard;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -176,7 +176,7 @@
     .parameter "path"
 
     .prologue
-    .line 107
+    .line 123
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -203,19 +203,19 @@
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 108
+    .line 124
     invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 109
+    .line 125
     invoke-virtual {p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object v0
 
-    .line 110
+    .line 126
     .local v0, files:[Ljava/io/File;
     const/4 v1, 0x0
 
@@ -225,7 +225,7 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 111
+    .line 127
     aget-object v2, v0, v1
 
     invoke-virtual {v2}, Ljava/io/File;->isDirectory()Z
@@ -234,18 +234,18 @@
 
     if-eqz v2, :cond_0
 
-    .line 112
+    .line 128
     aget-object v2, v0, v1
 
     invoke-direct {p0, v2}, Landroid/webkit/WebClipboard;->deleteDirectory(Ljava/io/File;)V
 
-    .line 110
+    .line 126
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 115
+    .line 131
     :cond_0
     aget-object v2, v0, v1
 
@@ -253,13 +253,13 @@
 
     goto :goto_1
 
-    .line 119
+    .line 135
     .end local v0           #files:[Ljava/io/File;
     .end local v1           #i:I
     :cond_1
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
-    .line 120
+    .line 136
     return-void
 .end method
 
@@ -270,20 +270,20 @@
     .prologue
     const/16 v9, 0x20
 
-    .line 465
+    .line 481
     sget-object v6, Landroid/webkit/WebClipboard;->PLAIN_TEXT_TO_ESCAPE:Ljava/util/regex/Pattern;
 
-    .line 466
+    .line 482
     .local v6, pattern:Ljava/util/regex/Pattern;
     invoke-virtual {v6, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
     move-result-object v3
 
-    .line 467
+    .line 483
     .local v3, match:Ljava/util/regex/Matcher;
     const/4 v5, 0x0
 
-    .line 469
+    .line 485
     .local v5, out:Ljava/lang/StringBuilder;
     invoke-virtual {v3}, Ljava/util/regex/Matcher;->find()Z
 
@@ -291,28 +291,28 @@
 
     if-eqz v8, :cond_4
 
-    .line 471
+    .line 487
     if-nez v5, :cond_0
 
-    .line 472
+    .line 488
     new-instance v5, Ljava/lang/StringBuilder;
 
     .end local v5           #out:Ljava/lang/StringBuilder;
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 473
+    .line 489
     .restart local v5       #out:Ljava/lang/StringBuilder;
     :cond_0
     const/4 v1, 0x0
 
-    .line 475
+    .line 491
     .local v1, end:I
     :cond_1
     invoke-virtual {v3}, Ljava/util/regex/Matcher;->start()I
 
     move-result v7
 
-    .line 476
+    .line 492
     .local v7, start:I
     invoke-virtual {p1, v1, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -320,21 +320,21 @@
 
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 477
+    .line 493
     invoke-virtual {v3}, Ljava/util/regex/Matcher;->end()I
 
     move-result v1
 
-    .line 478
+    .line 494
     invoke-virtual {p1, v7}, Ljava/lang/String;->codePointAt(I)I
 
     move-result v0
 
-    .line 479
+    .line 495
     .local v0, c:I
     if-ne v0, v9, :cond_5
 
-    .line 481
+    .line 497
     const/4 v2, 0x1
 
     .local v2, i:I
@@ -344,21 +344,21 @@
     :goto_0
     if-ge v2, v4, :cond_2
 
-    .line 482
+    .line 498
     const-string v8, "&nbsp;"
 
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 481
+    .line 497
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 484
+    .line 500
     :cond_2
     invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 494
+    .line 510
     .end local v2           #i:I
     .end local v4           #n:I
     :cond_3
@@ -369,19 +369,19 @@
 
     if-nez v8, :cond_1
 
-    .line 495
+    .line 511
     invoke-virtual {p1, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v8
 
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 496
+    .line 512
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 497
+    .line 513
     const/4 v8, 0x0
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->length()I
@@ -390,14 +390,14 @@
 
     invoke-virtual {v5, v8, v9}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    .line 499
+    .line 515
     .end local v0           #c:I
     .end local v1           #end:I
     .end local v7           #start:I
     :cond_4
     return-object p1
 
-    .line 485
+    .line 501
     .restart local v0       #c:I
     .restart local v1       #end:I
     .restart local v7       #start:I
@@ -410,7 +410,7 @@
 
     if-ne v0, v8, :cond_7
 
-    .line 486
+    .line 502
     :cond_6
     const-string v8, "<br>"
 
@@ -418,39 +418,39 @@
 
     goto :goto_1
 
-    .line 487
+    .line 503
     :cond_7
     const/16 v8, 0x3c
 
     if-ne v0, v8, :cond_8
 
-    .line 488
+    .line 504
     const-string v8, "&lt;"
 
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
-    .line 489
+    .line 505
     :cond_8
     const/16 v8, 0x3e
 
     if-ne v0, v8, :cond_9
 
-    .line 490
+    .line 506
     const-string v8, "&gt;"
 
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
-    .line 491
+    .line 507
     :cond_9
     const/16 v8, 0x26
 
     if-ne v0, v8, :cond_3
 
-    .line 492
+    .line 508
     const-string v8, "&amp;"
 
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -463,19 +463,19 @@
     .parameter "filePath"
 
     .prologue
-    .line 129
+    .line 145
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v3, "giveFileUrl ent "
 
     invoke-virtual {v2, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 130
+    .line 146
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 131
+    .line 147
     .local v1, mFile:Ljava/io/File;
     invoke-static {v1}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
@@ -485,7 +485,7 @@
 
     move-result-object v0
 
-    .line 132
+    .line 148
     .local v0, fileURL:Ljava/lang/String;
     return-object v0
 .end method
@@ -495,10 +495,10 @@
     .parameter "htmlFragment"
 
     .prologue
-    .line 612
+    .line 628
     const/4 v13, 0x0
 
-    .line 614
+    .line 630
     .local v13, result:Ljava/lang/String;
     const-string v16, "WebClipboard"
 
@@ -506,42 +506,42 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 615
+    .line 631
     if-nez p1, :cond_0
 
-    .line 617
+    .line 633
     const-string v16, "WebClipboard"
 
     const-string v17, "makeHtmlFragmentForInsertedImage htmlFragment == null"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 618
+    .line 634
     const-string v16, ""
 
-    .line 728
+    .line 744
     :goto_0
     return-object v16
 
-    .line 621
+    .line 637
     :cond_0
     new-instance v8, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v8}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    .line 623
+    .line 639
     .local v8, options:Landroid/graphics/BitmapFactory$Options;
     invoke-static/range {p1 .. p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v6
 
-    .line 624
+    .line 640
     .local v6, imageUri:Landroid/net/Uri;
     invoke-virtual {v6}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 628
+    .line 644
     .local v2, absoluteFilePath:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -549,19 +549,19 @@
 
     move-result-object v3
 
-    .line 629
+    .line 645
     .local v3, dstFilePath:Ljava/lang/String;
     new-instance v7, Ljava/io/File;
 
     invoke-direct {v7, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 631
+    .line 647
     .local v7, mFile:Ljava/io/File;
     new-instance v11, Ljava/io/File;
 
     invoke-direct {v11, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 632
+    .line 648
     .local v11, originalFile:Ljava/io/File;
     const-wide/32 v16, 0x100000
 
@@ -573,7 +573,7 @@
 
     if-gtz v16, :cond_1
 
-    .line 634
+    .line 650
     const-string v16, "WebClipboard"
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -600,11 +600,11 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 637
+    .line 653
     :cond_1
     const/4 v14, 0x0
 
-    .line 640
+    .line 656
     .local v14, src:Landroid/graphics/Bitmap;
     :try_start_0
     invoke-static {v2, v8}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
@@ -613,7 +613,7 @@
 
     move-result-object v14
 
-    .line 649
+    .line 665
     const-string v16, "WebClipboard"
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -662,26 +662,26 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 651
+    .line 667
     iget v10, v8, Landroid/graphics/BitmapFactory$Options;->outWidth:I
 
-    .line 652
+    .line 668
     .local v10, originWidth:I
     iget v9, v8, Landroid/graphics/BitmapFactory$Options;->outHeight:I
 
-    .line 653
+    .line 669
     .local v9, originHeight:I
     move-object/from16 v0, p0
 
     iget v15, v0, Landroid/webkit/WebClipboard;->mViewWidth:I
 
-    .line 654
+    .line 670
     .local v15, width:I
     mul-int v16, v9, v15
 
     div-int v5, v16, v10
 
-    .line 656
+    .line 672
     .local v5, height:I
     const-wide/32 v16, 0x100000
 
@@ -693,23 +693,23 @@
 
     if-gtz v16, :cond_8
 
-    .line 658
+    .line 674
     const-string v16, "WebClipboard"
 
     const-string v17, "####################### htmlFragment : Big Data"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 660
+    .line 676
     if-eqz v14, :cond_3
 
-    .line 663
+    .line 679
     :try_start_1
     new-instance v12, Ljava/io/FileOutputStream;
 
     invoke-direct {v12, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
-    .line 665
+    .line 681
     .local v12, outStream:Ljava/io/FileOutputStream;
     invoke-virtual {v3}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
@@ -735,7 +735,7 @@
 
     if-lez v16, :cond_6
 
-    .line 667
+    .line 683
     :cond_2
     const-string v16, "WebClipboard"
 
@@ -743,7 +743,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 668
+    .line 684
     sget-object v16, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
 
     const/16 v17, 0x64
@@ -754,16 +754,16 @@
 
     invoke-virtual {v14, v0, v1, v12}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    .line 669
+    .line 685
     invoke-virtual {v12}, Ljava/io/FileOutputStream;->flush()V
 
-    .line 670
+    .line 686
     invoke-virtual {v12}, Ljava/io/FileOutputStream;->close()V
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 705
+    .line 721
     .end local v12           #outStream:Ljava/io/FileOutputStream;
     :cond_3
     :goto_1
@@ -775,19 +775,19 @@
 
     move-result-object p1
 
-    .line 709
+    .line 725
     if-eqz v15, :cond_9
 
-    .line 711
+    .line 727
     if-le v15, v10, :cond_4
 
-    .line 713
+    .line 729
     move v15, v10
 
-    .line 714
+    .line 730
     move v5, v9
 
-    .line 717
+    .line 733
     :cond_4
     const-wide/16 v16, 0x0
 
@@ -811,7 +811,7 @@
 
     if-gez v16, :cond_5
 
-    .line 718
+    .line 734
     mul-int/lit8 v16, v15, 0x64
 
     move/from16 v0, v16
@@ -832,7 +832,7 @@
 
     float-to-int v15, v0
 
-    .line 719
+    .line 735
     mul-int/lit8 v16, v5, 0x64
 
     move/from16 v0, v16
@@ -853,7 +853,7 @@
 
     float-to-int v5, v0
 
-    .line 722
+    .line 738
     :cond_5
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -909,10 +909,10 @@
 
     move-object/from16 v16, v13
 
-    .line 723
+    .line 739
     goto/16 :goto_0
 
-    .line 641
+    .line 657
     .end local v5           #height:I
     .end local v9           #originHeight:I
     .end local v10           #originWidth:I
@@ -920,22 +920,22 @@
     :catch_0
     move-exception v4
 
-    .line 642
+    .line 658
     .local v4, e:Ljava/lang/OutOfMemoryError;
     const/4 v7, 0x0
 
-    .line 643
+    .line 659
     const/4 v11, 0x0
 
-    .line 644
+    .line 660
     const/4 v8, 0x0
 
-    .line 646
+    .line 662
     const-string v16, ""
 
     goto/16 :goto_0
 
-    .line 672
+    .line 688
     .end local v4           #e:Ljava/lang/OutOfMemoryError;
     .restart local v5       #height:I
     .restart local v9       #originHeight:I
@@ -956,14 +956,14 @@
 
     if-lez v16, :cond_7
 
-    .line 674
+    .line 690
     const-string v16, "WebClipboard"
 
     const-string v17, "####################### htmlFragment : Bitmap.CompressFormat.PNG"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 675
+    .line 691
     sget-object v16, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
     const/16 v17, 0x64
@@ -974,10 +974,10 @@
 
     invoke-virtual {v14, v0, v1, v12}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
-    .line 676
+    .line 692
     invoke-virtual {v12}, Ljava/io/FileOutputStream;->flush()V
 
-    .line 677
+    .line 693
     invoke-virtual {v12}, Ljava/io/FileOutputStream;->close()V
     :try_end_2
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
@@ -985,21 +985,21 @@
 
     goto/16 :goto_1
 
-    .line 687
+    .line 703
     .end local v12           #outStream:Ljava/io/FileOutputStream;
     :catch_1
     move-exception v4
 
-    .line 688
+    .line 704
     .local v4, e:Ljava/io/FileNotFoundException;
     invoke-virtual {v4}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
-    .line 689
+    .line 705
     const-string v16, ""
 
     goto/16 :goto_0
 
-    .line 681
+    .line 697
     .end local v4           #e:Ljava/io/FileNotFoundException;
     .restart local v12       #outStream:Ljava/io/FileOutputStream;
     :cond_7
@@ -1018,14 +1018,14 @@
 
     if-eq v0, v1, :cond_3
 
-    .line 683
+    .line 699
     const-string v16, "WebClipboard"
 
     const-string v17, "####################### makeHtmlFragmentForInsertedImage : copyFile Fail !!!"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 684
+    .line 700
     const-string v16, ""
     :try_end_3
     .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_3} :catch_1
@@ -1033,21 +1033,21 @@
 
     goto/16 :goto_0
 
-    .line 690
+    .line 706
     .end local v12           #outStream:Ljava/io/FileOutputStream;
     :catch_2
     move-exception v4
 
-    .line 691
+    .line 707
     .local v4, e:Ljava/io/IOException;
     invoke-virtual {v4}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 692
+    .line 708
     const-string v16, ""
 
     goto/16 :goto_0
 
-    .line 698
+    .line 714
     .end local v4           #e:Ljava/io/IOException;
     :cond_8
     const/16 v16, 0x1
@@ -1064,19 +1064,19 @@
 
     if-eq v0, v1, :cond_3
 
-    .line 700
+    .line 716
     const-string v16, "WebClipboard"
 
     const-string v17, "####################### makeHtmlFragmentForInsertedImage : copyFile Fail !!!"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 701
+    .line 717
     const-string v16, ""
 
     goto/16 :goto_0
 
-    .line 727
+    .line 743
     :cond_9
     new-instance v16, Ljava/lang/StringBuilder;
 
@@ -1108,7 +1108,7 @@
 
     move-object/from16 v16, v13
 
-    .line 728
+    .line 744
     goto/16 :goto_0
 .end method
 
@@ -1120,23 +1120,23 @@
     .parameter "data"
 
     .prologue
-    .line 556
+    .line 572
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v8, "pasteClipBoardData"
 
     invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 557
+    .line 573
     const/4 v4, 0x0
 
-    .line 559
+    .line 575
     .local v4, paste:Ljava/lang/String;
     invoke-virtual {p1}, Landroid/sec/clipboard/data/ClipboardData;->GetFomat()I
 
     move-result v0
 
-    .line 561
+    .line 577
     .local v0, dataFormat:I
     const/4 v7, 0x4
 
@@ -1144,10 +1144,10 @@
 
     move-object v2, p1
 
-    .line 562
+    .line 578
     check-cast v2, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
 
-    .line 563
+    .line 579
     .local v2, htmlData:Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     invoke-virtual {v2}, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;->GetHTMLFragment()Ljava/lang/CharSequence;
 
@@ -1157,18 +1157,18 @@
 
     move-result-object v4
 
-    .line 595
+    .line 611
     .end local v2           #htmlData:Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     :cond_0
     :goto_0
     if-eqz v4, :cond_2
 
-    .line 596
+    .line 612
     iget-boolean v7, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v7, :cond_1
 
-    .line 597
+    .line 613
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1191,23 +1191,23 @@
 
     invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 599
+    .line 615
     :cond_1
     iget-object v7, p0, Landroid/webkit/WebClipboard;->mPasteListener:Landroid/webkit/WebClipboard$OnPasteFromSelectionUIListener;
 
     invoke-interface {v7, v4, v0}, Landroid/webkit/WebClipboard$OnPasteFromSelectionUIListener;->onPaste(Ljava/lang/String;I)V
 
-    .line 602
+    .line 618
     :cond_2
     return-void
 
-    .line 564
+    .line 580
     :cond_3
     const/4 v7, 0x2
 
     if-ne v0, v7, :cond_5
 
-    .line 565
+    .line 581
     const-string v7, "WebClipboard"
 
     const-string v8, "pasteClipBoardData FORMAT_TEXT_ID"
@@ -1216,10 +1216,10 @@
 
     move-object v5, p1
 
-    .line 566
+    .line 582
     check-cast v5, Landroid/sec/clipboard/data/list/ClipboardDataText;
 
-    .line 567
+    .line 583
     .local v5, textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
     invoke-virtual {v5}, Landroid/sec/clipboard/data/list/ClipboardDataText;->GetText()Ljava/lang/CharSequence;
 
@@ -1229,22 +1229,22 @@
 
     move-result-object v6
 
-    .line 568
+    .line 584
     .local v6, tmp_data_str:Ljava/lang/String;
     if-eqz v6, :cond_4
 
-    .line 569
+    .line 585
     invoke-direct {p0, v6}, Landroid/webkit/WebClipboard;->escapeCharacterToDisplay(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 573
+    .line 589
     :goto_1
     iget-boolean v7, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v7, :cond_0
 
-    .line 574
+    .line 590
     const-string v7, "WebClipboard"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1269,13 +1269,13 @@
 
     goto :goto_0
 
-    .line 572
+    .line 588
     :cond_4
     const/4 v4, 0x0
 
     goto :goto_1
 
-    .line 577
+    .line 593
     .end local v5           #textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
     .end local v6           #tmp_data_str:Ljava/lang/String;
     :cond_5
@@ -1283,7 +1283,7 @@
 
     if-ne v0, v7, :cond_0
 
-    .line 578
+    .line 594
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v8, "pasteClipBoardData FORMAT_BITMAP_ID "
@@ -1292,10 +1292,10 @@
 
     move-object v3, p1
 
-    .line 579
+    .line 595
     check-cast v3, Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
 
-    .line 581
+    .line 597
     .local v3, imageData:Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
     invoke-virtual {v3}, Landroid/sec/clipboard/data/list/ClipboardDataBitmap;->GetBitmapPath()Ljava/lang/String;
 
@@ -1305,13 +1305,13 @@
 
     move-result-object v1
 
-    .line 584
+    .line 600
     .local v1, fileUrl:Ljava/lang/String;
     iget-boolean v7, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v7, :cond_6
 
-    .line 585
+    .line 601
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1334,16 +1334,16 @@
 
     invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 587
+    .line 603
     :cond_6
     move-object v4, v1
 
-    .line 588
+    .line 604
     iget-boolean v7, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v7, :cond_0
 
-    .line 589
+    .line 605
     sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1374,30 +1374,30 @@
     .parameter "bitmapForSave"
 
     .prologue
-    .line 186
+    .line 202
     sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v10, "saveBitampTemporary ent "
 
     invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 188
+    .line 204
     new-instance v0, Ljava/io/File;
 
     const-string v9, "/sdcard/EmailTempImage/"
 
     invoke-direct {v0, v9}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 190
+    .line 206
     .local v0, HtmlComposerTempDirectory:Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
-    .line 192
+    .line 208
     new-instance v7, Ljava/util/Random;
 
     invoke-direct {v7}, Ljava/util/Random;-><init>()V
 
-    .line 193
+    .line 209
     .local v7, randNum:Ljava/util/Random;
     const/16 v9, 0x1f4
 
@@ -1405,7 +1405,7 @@
 
     move-result v8
 
-    .line 194
+    .line 210
     .local v8, randNumber:I
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -1431,13 +1431,13 @@
 
     move-result-object v2
 
-    .line 196
+    .line 212
     .local v2, filePath:Ljava/lang/String;
     iget-boolean v9, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v9, :cond_0
 
-    .line 197
+    .line 213
     sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1460,13 +1460,13 @@
 
     invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 200
+    .line 216
     :cond_0
     new-instance v4, Ljava/io/File;
 
     invoke-direct {v4, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 202
+    .line 218
     .local v4, mFile:Ljava/io/File;
     invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
@@ -1474,14 +1474,14 @@
 
     if-eqz v9, :cond_1
 
-    .line 203
+    .line 219
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
-    .line 206
+    .line 222
     :cond_1
     const/4 v5, 0x0
 
-    .line 209
+    .line 225
     .local v5, out:Ljava/io/FileOutputStream;
     :try_start_0
     new-instance v6, Ljava/io/FileOutputStream;
@@ -1490,7 +1490,7 @@
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 210
+    .line 226
     .end local v5           #out:Ljava/io/FileOutputStream;
     .local v6, out:Ljava/io/FileOutputStream;
     :try_start_1
@@ -1502,7 +1502,7 @@
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 215
+    .line 231
     invoke-static {v4}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
     move-result-object v9
@@ -1511,13 +1511,13 @@
 
     move-result-object v3
 
-    .line 216
+    .line 232
     .local v3, fileURL:Ljava/lang/String;
     iget-boolean v9, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v9, :cond_2
 
-    .line 217
+    .line 233
     sget-object v9, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1540,11 +1540,11 @@
 
     invoke-virtual {v9, v10}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 220
+    .line 236
     :cond_2
     if-eqz v6, :cond_3
 
-    .line 221
+    .line 237
     :try_start_2
     invoke-virtual {v6}, Ljava/io/FileOutputStream;->close()V
     :try_end_2
@@ -1554,28 +1554,28 @@
     :goto_0
     move-object v5, v6
 
-    .line 225
+    .line 241
     .end local v3           #fileURL:Ljava/lang/String;
     .end local v6           #out:Ljava/io/FileOutputStream;
     .restart local v5       #out:Ljava/io/FileOutputStream;
     :goto_1
     return-object v3
 
-    .line 211
+    .line 227
     :catch_0
     move-exception v1
 
-    .line 212
+    .line 228
     .local v1, e:Ljava/io/FileNotFoundException;
     :goto_2
     invoke-virtual {v1}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
-    .line 213
+    .line 229
     const/4 v3, 0x0
 
     goto :goto_1
 
-    .line 222
+    .line 238
     .end local v1           #e:Ljava/io/FileNotFoundException;
     .end local v5           #out:Ljava/io/FileOutputStream;
     .restart local v3       #fileURL:Ljava/lang/String;
@@ -1583,13 +1583,13 @@
     :catch_1
     move-exception v1
 
-    .line 223
+    .line 239
     .local v1, e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 211
+    .line 227
     .end local v1           #e:Ljava/io/IOException;
     .end local v3           #fileURL:Ljava/lang/String;
     :catch_2
@@ -1607,7 +1607,7 @@
     .parameter "imageFilePath"
 
     .prologue
-    .line 141
+    .line 157
     :try_start_0
     sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -1615,12 +1615,12 @@
 
     invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 143
+    .line 159
     iget-boolean v8, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v8, :cond_0
 
-    .line 144
+    .line 160
     sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1643,19 +1643,19 @@
 
     invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 147
+    .line 163
     :cond_0
     invoke-virtual {p0, p1}, Landroid/webkit/WebClipboard;->getCloneFilePath(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 149
+    .line 165
     .local v7, tmpFilePath:Ljava/lang/String;
     iget-boolean v8, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v8, :cond_1
 
-    .line 150
+    .line 166
     sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1678,19 +1678,19 @@
 
     invoke-virtual {v8, v9}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 154
+    .line 170
     :cond_1
     new-instance v4, Ljava/io/File;
 
     invoke-direct {v4, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 155
+    .line 171
     .local v4, inputFile:Ljava/io/File;
     new-instance v6, Ljava/io/File;
 
     invoke-direct {v6, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 157
+    .line 173
     .local v6, outputFile:Ljava/io/File;
     invoke-virtual {v6}, Ljava/io/File;->exists()Z
 
@@ -1698,22 +1698,22 @@
 
     if-eqz v8, :cond_2
 
-    .line 159
+    .line 175
     invoke-virtual {v6}, Ljava/io/File;->delete()Z
 
-    .line 163
+    .line 179
     :cond_2
     new-instance v3, Ljava/io/FileReader;
 
     invoke-direct {v3, v4}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
 
-    .line 164
+    .line 180
     .local v3, in:Ljava/io/FileReader;
     new-instance v5, Ljava/io/FileWriter;
 
     invoke-direct {v5, v6}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
 
-    .line 167
+    .line 183
     .local v5, out:Ljava/io/FileWriter;
     :goto_0
     invoke-virtual {v3}, Ljava/io/FileReader;->read()I
@@ -1725,14 +1725,14 @@
 
     if-eq v0, v8, :cond_3
 
-    .line 168
+    .line 184
     invoke-virtual {v5, v0}, Ljava/io/FileWriter;->write(I)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 177
+    .line 193
     .end local v0           #c:I
     .end local v3           #in:Ljava/io/FileReader;
     .end local v4           #inputFile:Ljava/io/File;
@@ -1742,18 +1742,18 @@
     :catch_0
     move-exception v1
 
-    .line 178
+    .line 194
     .local v1, e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 179
+    .line 195
     const/4 v2, 0x0
 
     .end local v1           #e:Ljava/io/IOException;
     :goto_1
     return-object v2
 
-    .line 170
+    .line 186
     .restart local v0       #c:I
     .restart local v3       #in:Ljava/io/FileReader;
     .restart local v4       #inputFile:Ljava/io/File;
@@ -1764,10 +1764,10 @@
     :try_start_1
     invoke-virtual {v3}, Ljava/io/FileReader;->close()V
 
-    .line 171
+    .line 187
     invoke-virtual {v5}, Ljava/io/FileWriter;->close()V
 
-    .line 173
+    .line 189
     invoke-static {v6}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
     move-result-object v8
@@ -1778,7 +1778,7 @@
 
     move-result-object v2
 
-    .line 175
+    .line 191
     .local v2, fileURL:Ljava/lang/String;
     goto :goto_1
 .end method
@@ -1793,29 +1793,29 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 736
+    .line 752
     :try_start_0
     new-instance v3, Ljava/io/FileInputStream;
 
     invoke-direct {v3, p1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
-    .line 737
+    .line 753
     .local v3, source:Ljava/io/FileInputStream;
     new-instance v4, Ljava/io/FileOutputStream;
 
     invoke-direct {v4, p2}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
-    .line 739
+    .line 755
     .local v4, target:Ljava/io/FileOutputStream;
     const/16 v6, 0x400
 
     new-array v0, v6, [B
 
-    .line 740
+    .line 756
     .local v0, buffer:[B
     const/4 v2, 0x0
 
-    .line 741
+    .line 757
     .local v2, i:I
     :goto_0
     invoke-virtual {v3, v0}, Ljava/io/FileInputStream;->read([B)I
@@ -1826,7 +1826,7 @@
 
     if-eq v2, v6, :cond_0
 
-    .line 742
+    .line 758
     const/4 v6, 0x0
 
     invoke-virtual {v4, v0, v6, v2}, Ljava/io/FileOutputStream;->write([BII)V
@@ -1836,7 +1836,7 @@
 
     goto :goto_0
 
-    .line 751
+    .line 767
     .end local v0           #buffer:[B
     .end local v2           #i:I
     .end local v3           #source:Ljava/io/FileInputStream;
@@ -1844,16 +1844,16 @@
     :catch_0
     move-exception v1
 
-    .line 752
+    .line 768
     .local v1, e:Ljava/io/FileNotFoundException;
     invoke-virtual {v1}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
-    .line 756
+    .line 772
     .end local v1           #e:Ljava/io/FileNotFoundException;
     :goto_1
     return v5
 
-    .line 744
+    .line 760
     .restart local v0       #buffer:[B
     .restart local v2       #i:I
     .restart local v3       #source:Ljava/io/FileInputStream;
@@ -1861,27 +1861,27 @@
     :cond_0
     if-eqz v3, :cond_1
 
-    .line 745
+    .line 761
     :try_start_1
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
 
-    .line 747
+    .line 763
     :cond_1
     if-eqz v4, :cond_2
 
-    .line 748
+    .line 764
     invoke-virtual {v4}, Ljava/io/FileOutputStream;->close()V
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 750
+    .line 766
     :cond_2
     const/4 v5, 0x1
 
     goto :goto_1
 
-    .line 754
+    .line 770
     .end local v0           #buffer:[B
     .end local v2           #i:I
     .end local v3           #source:Ljava/io/FileInputStream;
@@ -1889,7 +1889,7 @@
     :catch_1
     move-exception v1
 
-    .line 755
+    .line 771
     .local v1, e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
@@ -1900,7 +1900,7 @@
     .locals 1
 
     .prologue
-    .line 90
+    .line 106
     monitor-enter p0
 
     :try_start_0
@@ -1908,7 +1908,7 @@
 
     if-nez v0, :cond_0
 
-    .line 91
+    .line 107
     new-instance v0, Landroid/webkit/WebClipboard$1;
 
     invoke-direct {v0, p0}, Landroid/webkit/WebClipboard$1;-><init>(Landroid/webkit/WebClipboard;)V
@@ -1917,13 +1917,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 103
+    .line 119
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 90
+    .line 106
     :catchall_0
     move-exception v0
 
@@ -1936,25 +1936,25 @@
     .locals 3
 
     .prologue
-    .line 123
+    .line 139
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v2, "deleteTempDirectory"
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 124
+    .line 140
     new-instance v0, Ljava/io/File;
 
     const-string v1, "/sdcard/EmailTempImage/"
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 125
+    .line 141
     .local v0, HtmlComposerTempDirectory:Ljava/io/File;
     invoke-direct {p0, v0}, Landroid/webkit/WebClipboard;->deleteDirectory(Ljava/io/File;)V
 
-    .line 126
+    .line 142
     return-void
 .end method
 
@@ -1962,12 +1962,12 @@
     .locals 1
 
     .prologue
-    .line 504
+    .line 520
     iget-object v0, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
     invoke-virtual {v0}, Landroid/sec/clipboard/ClipboardExManager;->dismissUIDataDialog()V
 
-    .line 505
+    .line 521
     return-void
 .end method
 
@@ -1976,12 +1976,12 @@
     .parameter "filePath"
 
     .prologue
-    .line 233
+    .line 249
     iget-boolean v5, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v5, :cond_0
 
-    .line 234
+    .line 250
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2004,19 +2004,19 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 236
+    .line 252
     :cond_0
     if-nez p1, :cond_2
 
-    .line 238
+    .line 254
     const/4 v2, 0x0
 
-    .line 266
+    .line 282
     :cond_1
     :goto_0
     return-object v2
 
-    .line 242
+    .line 258
     :cond_2
     new-instance v0, Ljava/io/File;
 
@@ -2024,26 +2024,26 @@
 
     invoke-direct {v0, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 244
+    .line 260
     .local v0, HtmlComposerTempDirectory:Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
-    .line 247
+    .line 263
     new-instance v3, Ljava/io/File;
 
     invoke-direct {v3, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 248
+    .line 264
     .local v3, inputFile:Ljava/io/File;
     invoke-virtual {v3}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 249
+    .line 265
     .local v1, fileName:Ljava/lang/String;
     if-eqz v1, :cond_3
 
-    .line 251
+    .line 267
     const-string v5, " "
 
     const-string v6, "_"
@@ -2052,7 +2052,7 @@
 
     move-result-object v1
 
-    .line 254
+    .line 270
     :cond_3
     invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
@@ -2060,10 +2060,10 @@
 
     if-eqz v5, :cond_4
 
-    .line 256
+    .line 272
     move-object v4, v1
 
-    .line 257
+    .line 273
     .local v4, tmp:Ljava/lang/String;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -2085,7 +2085,7 @@
 
     move-result-object v1
 
-    .line 260
+    .line 276
     .end local v4           #tmp:Ljava/lang/String;
     :cond_4
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2106,13 +2106,13 @@
 
     move-result-object v2
 
-    .line 262
+    .line 278
     .local v2, fullFilePath:Ljava/lang/String;
     iget-boolean v5, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v5, :cond_1
 
-    .line 263
+    .line 279
     sget-object v5, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2142,14 +2142,14 @@
     .locals 14
 
     .prologue
-    .line 321
+    .line 337
     const-string v11, "WebClipboard"
 
     const-string v12, "getHTML enter"
 
     invoke-static {v11, v12}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 323
+    .line 339
     iget-object v11, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
     iget-object v12, p0, Landroid/webkit/WebClipboard;->mContext:Landroid/content/Context;
@@ -2160,24 +2160,24 @@
 
     move-result-object v1
 
-    .line 324
+    .line 340
     .local v1, data:Landroid/sec/clipboard/data/ClipboardData;
     const/4 v3, 0x0
 
-    .line 326
+    .line 342
     .local v3, data_str:Ljava/lang/String;
     const/4 v2, -0x1
 
-    .line 328
+    .line 344
     .local v2, dataFormat:I
     if-eqz v1, :cond_0
 
-    .line 329
+    .line 345
     invoke-virtual {v1}, Landroid/sec/clipboard/data/ClipboardData;->GetFomat()I
 
     move-result v2
 
-    .line 332
+    .line 348
     :cond_0
     const/4 v11, 0x4
 
@@ -2185,10 +2185,10 @@
 
     move-object v6, v1
 
-    .line 333
+    .line 349
     check-cast v6, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
 
-    .line 334
+    .line 350
     .local v6, htmlData:Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     invoke-virtual {v6}, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;->GetHTMLFragment()Ljava/lang/CharSequence;
 
@@ -2198,8 +2198,8 @@
 
     move-result-object v3
 
-    .line 335
-    const-string v11, "(?i)(?:line)[-|\\s]?(height)[\\s]?[\\=|\\:][\\s]?[s0-9][^;|\\\"]+ [\\s]?"
+    .line 351
+    const-string v11, "(?i)(?:(l|L)(i|I)(n|N)(e|E))(-)(h|H)(e|E)(i|I)(g|G)(h|H)(t|T)[\\s]*[\\=\\:][\\s]*([a-zA-Z]+|[0-9]+([a-zA-Z]+|%)|[0-9]+((.)[0-9]+|))[;\\s]?"
 
     const-string v12, ""
 
@@ -2207,7 +2207,7 @@
 
     move-result-object v3
 
-    .line 341
+    .line 357
     :try_start_0
     const-string v11, "<p"
 
@@ -2217,7 +2217,7 @@
 
     if-nez v11, :cond_1
 
-    .line 343
+    .line 359
     const-string v11, "<p"
 
     const-string v12, "<span"
@@ -2226,12 +2226,12 @@
 
     move-result-object v3
 
-    .line 344
+    .line 360
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 345
+    .line 361
     .local v0, b:Ljava/lang/StringBuilder;
     const-string v11, "/p>"
 
@@ -2251,12 +2251,12 @@
 
     invoke-virtual {v0, v11, v12, v13}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 346
+    .line 362
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 348
+    .line 364
     .end local v0           #b:Ljava/lang/StringBuilder;
     :cond_1
     const-string v11, "<div"
@@ -2267,7 +2267,7 @@
 
     if-nez v11, :cond_2
 
-    .line 350
+    .line 366
     const-string v11, "<div"
 
     const-string v12, "<span"
@@ -2276,12 +2276,12 @@
 
     move-result-object v3
 
-    .line 351
+    .line 367
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 352
+    .line 368
     .restart local v0       #b:Ljava/lang/StringBuilder;
     const-string v11, "/div>"
 
@@ -2301,14 +2301,14 @@
 
     invoke-virtual {v0, v11, v12, v13}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 353
+    .line 369
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v3
 
-    .line 394
+    .line 410
     .end local v0           #b:Ljava/lang/StringBuilder;
     .end local v6           #htmlData:Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     :cond_2
@@ -2317,7 +2317,7 @@
 
     if-eqz v11, :cond_3
 
-    .line 395
+    .line 411
     const-string v11, "ClipboardEx"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -2343,25 +2343,25 @@
     :cond_3
     move-object v11, v3
 
-    .line 398
+    .line 414
     :goto_1
     return-object v11
 
-    .line 355
+    .line 371
     .restart local v6       #htmlData:Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     :catch_0
     move-exception v4
 
-    .line 356
+    .line 372
     .local v4, e:Ljava/lang/OutOfMemoryError;
     invoke-virtual {v4}, Ljava/lang/OutOfMemoryError;->printStackTrace()V
 
-    .line 357
+    .line 373
     const-string v11, ""
 
     goto :goto_1
 
-    .line 359
+    .line 375
     .end local v4           #e:Ljava/lang/OutOfMemoryError;
     .end local v6           #htmlData:Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     :cond_4
@@ -2369,7 +2369,7 @@
 
     if-ne v2, v11, :cond_6
 
-    .line 360
+    .line 376
     const-string v11, "WebClipboard"
 
     const-string v12, "getHTML FORMAT_TEXT_ID"
@@ -2378,10 +2378,10 @@
 
     move-object v9, v1
 
-    .line 361
+    .line 377
     check-cast v9, Landroid/sec/clipboard/data/list/ClipboardDataText;
 
-    .line 362
+    .line 378
     .local v9, textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
     invoke-virtual {v9}, Landroid/sec/clipboard/data/list/ClipboardDataText;->GetText()Ljava/lang/CharSequence;
 
@@ -2391,22 +2391,22 @@
 
     move-result-object v10
 
-    .line 363
+    .line 379
     .local v10, tmp_data_str:Ljava/lang/String;
     if-eqz v10, :cond_5
 
-    .line 364
+    .line 380
     invoke-direct {p0, v10}, Landroid/webkit/WebClipboard;->escapeCharacterToDisplay(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 368
+    .line 384
     :goto_2
     iget-boolean v11, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v11, :cond_2
 
-    .line 369
+    .line 385
     const-string v11, "WebClipboard"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -2431,13 +2431,13 @@
 
     goto :goto_0
 
-    .line 367
+    .line 383
     :cond_5
     const-string v3, ""
 
     goto :goto_2
 
-    .line 371
+    .line 387
     .end local v9           #textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
     .end local v10           #tmp_data_str:Ljava/lang/String;
     :cond_6
@@ -2445,10 +2445,10 @@
 
     if-ne v2, v11, :cond_9
 
-    .line 372
+    .line 388
     const/4 v8, 0x0
 
-    .line 373
+    .line 389
     .local v8, paste:Ljava/lang/String;
     sget-object v11, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -2458,10 +2458,10 @@
 
     move-object v7, v1
 
-    .line 374
+    .line 390
     check-cast v7, Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
 
-    .line 376
+    .line 392
     .local v7, imageData:Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
     invoke-virtual {v7}, Landroid/sec/clipboard/data/list/ClipboardDataBitmap;->GetBitmapPath()Ljava/lang/String;
 
@@ -2471,13 +2471,13 @@
 
     move-result-object v5
 
-    .line 379
+    .line 395
     .local v5, fileUrl:Ljava/lang/String;
     iget-boolean v11, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v11, :cond_7
 
-    .line 380
+    .line 396
     sget-object v11, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -2500,16 +2500,16 @@
 
     invoke-virtual {v11, v12}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 382
+    .line 398
     :cond_7
     move-object v8, v5
 
-    .line 383
+    .line 399
     iget-boolean v11, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v11, :cond_8
 
-    .line 384
+    .line 400
     sget-object v11, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -2532,16 +2532,16 @@
 
     invoke-virtual {v11, v12}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 388
+    .line 404
     :cond_8
     invoke-direct {p0, v8}, Landroid/webkit/WebClipboard;->makeHtmlFragmentForInsertedImage(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 389
+    .line 405
     goto/16 :goto_0
 
-    .line 391
+    .line 407
     .end local v5           #fileUrl:Ljava/lang/String;
     .end local v7           #imageData:Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
     .end local v8           #paste:Ljava/lang/String;
@@ -2555,7 +2555,7 @@
     .locals 13
 
     .prologue
-    .line 403
+    .line 419
     iget-object v10, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
     iget-object v11, p0, Landroid/webkit/WebClipboard;->mContext:Landroid/content/Context;
@@ -2566,20 +2566,20 @@
 
     move-result-object v0
 
-    .line 406
+    .line 422
     .local v0, data:Landroid/sec/clipboard/data/ClipboardData;
     const/4 v1, -0x1
 
-    .line 408
+    .line 424
     .local v1, dataFormat:I
     if-eqz v0, :cond_0
 
-    .line 409
+    .line 425
     invoke-virtual {v0}, Landroid/sec/clipboard/data/ClipboardData;->GetFomat()I
 
     move-result v1
 
-    .line 412
+    .line 428
     :cond_0
     const/4 v10, 0x4
 
@@ -2587,10 +2587,10 @@
 
     move-object v5, v0
 
-    .line 413
+    .line 429
     check-cast v5, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
 
-    .line 414
+    .line 430
     .local v5, htmlData:Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     invoke-virtual {v5}, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;->GetHTMLFragment()Ljava/lang/CharSequence;
 
@@ -2600,7 +2600,7 @@
 
     move-result-object v2
 
-    .line 448
+    .line 464
     .end local v5           #htmlData:Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     .local v2, data_str:Ljava/lang/String;
     :cond_1
@@ -2609,7 +2609,7 @@
 
     if-eqz v10, :cond_2
 
-    .line 449
+    .line 465
     const-string v10, "ClipboardEx"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -2632,19 +2632,19 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 452
+    .line 468
     .end local v2           #data_str:Ljava/lang/String;
     :cond_2
     :goto_1
     return-object v2
 
-    .line 415
+    .line 431
     :cond_3
     const/4 v10, 0x2
 
     if-ne v1, v10, :cond_5
 
-    .line 416
+    .line 432
     const-string v10, "WebClipboard"
 
     const-string v11, "getHTMLForCheckingSize FORMAT_TEXT_ID"
@@ -2653,10 +2653,10 @@
 
     move-object v8, v0
 
-    .line 417
+    .line 433
     check-cast v8, Landroid/sec/clipboard/data/list/ClipboardDataText;
 
-    .line 418
+    .line 434
     .local v8, textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
     invoke-virtual {v8}, Landroid/sec/clipboard/data/list/ClipboardDataText;->GetText()Ljava/lang/CharSequence;
 
@@ -2666,23 +2666,23 @@
 
     move-result-object v9
 
-    .line 419
+    .line 435
     .local v9, tmp_data_str:Ljava/lang/String;
     if-eqz v9, :cond_4
 
-    .line 420
+    .line 436
     invoke-direct {p0, v9}, Landroid/webkit/WebClipboard;->escapeCharacterToDisplay(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 424
+    .line 440
     .restart local v2       #data_str:Ljava/lang/String;
     :goto_2
     iget-boolean v10, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v10, :cond_1
 
-    .line 425
+    .line 441
     const-string v10, "WebClipboard"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -2707,7 +2707,7 @@
 
     goto :goto_0
 
-    .line 423
+    .line 439
     .end local v2           #data_str:Ljava/lang/String;
     :cond_4
     const-string v2, ""
@@ -2715,7 +2715,7 @@
     .restart local v2       #data_str:Ljava/lang/String;
     goto :goto_2
 
-    .line 427
+    .line 443
     .end local v2           #data_str:Ljava/lang/String;
     .end local v8           #textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
     .end local v9           #tmp_data_str:Ljava/lang/String;
@@ -2724,7 +2724,7 @@
 
     if-ne v1, v10, :cond_6
 
-    .line 428
+    .line 444
     sget-object v10, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v11, "getHTML bitmap "
@@ -2733,10 +2733,10 @@
 
     move-object v6, v0
 
-    .line 429
+    .line 445
     check-cast v6, Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
 
-    .line 432
+    .line 448
     .local v6, imageData:Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
     invoke-virtual {v6}, Landroid/sec/clipboard/data/list/ClipboardDataBitmap;->GetBitmapPath()Ljava/lang/String;
 
@@ -2746,13 +2746,13 @@
 
     move-result-object v3
 
-    .line 434
+    .line 450
     .local v3, filePath:Ljava/lang/String;
     new-instance v7, Ljava/io/File;
 
     invoke-direct {v7, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 435
+    .line 451
     .local v7, mFile:Ljava/io/File;
     invoke-static {v7}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
@@ -2762,7 +2762,7 @@
 
     move-result-object v4
 
-    .line 437
+    .line 453
     .local v4, fileUrl:Ljava/lang/String;
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -2788,13 +2788,13 @@
 
     move-result-object v2
 
-    .line 438
+    .line 454
     .restart local v2       #data_str:Ljava/lang/String;
     iget-boolean v10, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v10, :cond_1
 
-    .line 439
+    .line 455
     sget-object v10, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -2819,7 +2819,7 @@
 
     goto/16 :goto_0
 
-    .line 445
+    .line 461
     .end local v2           #data_str:Ljava/lang/String;
     .end local v3           #filePath:Ljava/lang/String;
     .end local v4           #fileUrl:Ljava/lang/String;
@@ -2835,7 +2835,7 @@
     .locals 4
 
     .prologue
-    .line 299
+    .line 315
     iget-object v1, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
     iget-object v2, p0, Landroid/webkit/WebClipboard;->mContext:Landroid/content/Context;
@@ -2848,7 +2848,7 @@
 
     check-cast v0, Landroid/sec/clipboard/data/list/ClipboardDataText;
 
-    .line 301
+    .line 317
     .local v0, textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
     if-eqz v0, :cond_1
 
@@ -2858,12 +2858,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 302
+    .line 318
     iget-boolean v1, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v1, :cond_0
 
-    .line 303
+    .line 319
     const-string v1, "ClipboardEx"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2890,7 +2890,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 305
+    .line 321
     :cond_0
     invoke-virtual {v0}, Landroid/sec/clipboard/data/list/ClipboardDataText;->GetText()Ljava/lang/CharSequence;
 
@@ -2900,7 +2900,7 @@
 
     move-result-object v1
 
-    .line 308
+    .line 324
     :goto_0
     return-object v1
 
@@ -2914,7 +2914,7 @@
     .locals 3
 
     .prologue
-    .line 275
+    .line 291
     iget-object v0, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
     iget-object v1, p0, Landroid/webkit/WebClipboard;->mContext:Landroid/content/Context;
@@ -2967,7 +2967,7 @@
     .locals 3
 
     .prologue
-    .line 82
+    .line 98
     iget-object v0, p0, Landroid/webkit/WebClipboard;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Landroid/webkit/WebClipboard;->mHandler:Landroid/os/Handler;
@@ -2980,7 +2980,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 83
+    .line 99
     return-void
 .end method
 
@@ -2988,7 +2988,7 @@
     .locals 1
 
     .prologue
-    .line 279
+    .line 295
     iget-object v0, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
     invoke-virtual {v0}, Landroid/sec/clipboard/ClipboardExManager;->isShowing()Z
@@ -3002,7 +3002,7 @@
     .locals 4
 
     .prologue
-    .line 509
+    .line 525
     iget-object v0, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
     iget-object v1, p0, Landroid/webkit/WebClipboard;->mContext:Landroid/content/Context;
@@ -3013,7 +3013,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/sec/clipboard/ClipboardExManager;->getData(Landroid/content/Context;ILandroid/sec/clipboard/IClipboardDataPasteEvent;)Z
 
-    .line 510
+    .line 526
     return-void
 .end method
 
@@ -3023,7 +3023,7 @@
     .parameter "data"
 
     .prologue
-    .line 283
+    .line 299
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3046,7 +3046,7 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 286
+    .line 302
     :try_start_0
     const-string v1, "TEXT"
 
@@ -3056,15 +3056,15 @@
 
     if-eqz v1, :cond_1
 
-    .line 287
+    .line 303
     invoke-virtual {p0, p2}, Landroid/webkit/WebClipboard;->setText(Ljava/lang/String;)V
 
-    .line 295
+    .line 311
     :cond_0
     :goto_0
     return-void
 
-    .line 288
+    .line 304
     :cond_1
     const-string v1, "HTML"
 
@@ -3074,18 +3074,18 @@
 
     if-eqz v1, :cond_0
 
-    .line 289
+    .line 305
     invoke-virtual {p0, p2}, Landroid/webkit/WebClipboard;->setHTML(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 291
+    .line 307
     :catch_0
     move-exception v0
 
-    .line 292
+    .line 308
     .local v0, e:Ljava/lang/Exception;
     const-string v1, "ClipboardEx"
 
@@ -3121,28 +3121,28 @@
     .parameter "charSeq"
 
     .prologue
-    .line 456
+    .line 472
     new-instance v0, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
 
     invoke-direct {v0}, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;-><init>()V
 
-    .line 457
+    .line 473
     .local v0, htmlData:Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     invoke-virtual {v0, p1}, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;->SetHTMLFragment(Ljava/lang/CharSequence;)Z
 
-    .line 458
+    .line 474
     iget-object v1, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
     iget-object v2, p0, Landroid/webkit/WebClipboard;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v2, v0}, Landroid/sec/clipboard/ClipboardExManager;->setData(Landroid/content/Context;Landroid/sec/clipboard/data/ClipboardData;)Z
 
-    .line 459
+    .line 475
     iget-boolean v1, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v1, :cond_0
 
-    .line 460
+    .line 476
     const-string v1, "ClipboardEx"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3165,7 +3165,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 462
+    .line 478
     :cond_0
     return-void
 .end method
@@ -3175,10 +3175,10 @@
     .parameter "pasteListener"
 
     .prologue
-    .line 271
+    .line 287
     iput-object p1, p0, Landroid/webkit/WebClipboard;->mPasteListener:Landroid/webkit/WebClipboard$OnPasteFromSelectionUIListener;
 
-    .line 272
+    .line 288
     return-void
 .end method
 
@@ -3187,28 +3187,28 @@
     .parameter "charSeq"
 
     .prologue
-    .line 312
+    .line 328
     new-instance v0, Landroid/sec/clipboard/data/list/ClipboardDataText;
 
     invoke-direct {v0}, Landroid/sec/clipboard/data/list/ClipboardDataText;-><init>()V
 
-    .line 313
+    .line 329
     .local v0, textData:Landroid/sec/clipboard/data/list/ClipboardDataText;
     invoke-virtual {v0, p1}, Landroid/sec/clipboard/data/list/ClipboardDataText;->SetText(Ljava/lang/CharSequence;)Z
 
-    .line 314
+    .line 330
     iget-object v1, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
     iget-object v2, p0, Landroid/webkit/WebClipboard;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v2, v0}, Landroid/sec/clipboard/ClipboardExManager;->setData(Landroid/content/Context;Landroid/sec/clipboard/data/ClipboardData;)Z
 
-    .line 315
+    .line 331
     iget-boolean v1, p0, Landroid/webkit/WebClipboard;->DEBUG:Z
 
     if-eqz v1, :cond_0
 
-    .line 316
+    .line 332
     const-string v1, "ClipboardEx"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3231,7 +3231,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 318
+    .line 334
     :cond_0
     return-void
 .end method
@@ -3241,10 +3241,10 @@
     .parameter "viewWidth"
 
     .prologue
-    .line 761
+    .line 777
     iput p1, p0, Landroid/webkit/WebClipboard;->mViewWidth:I
 
-    .line 762
+    .line 778
     return-void
 .end method
 
@@ -3253,10 +3253,10 @@
     .parameter "factor"
 
     .prologue
-    .line 765
+    .line 781
     iput p1, p0, Landroid/webkit/WebClipboard;->mZoomFactor:F
 
-    .line 766
+    .line 782
     return-void
 .end method
 
@@ -3264,7 +3264,7 @@
     .locals 3
 
     .prologue
-    .line 513
+    .line 529
     iget-object v0, p0, Landroid/webkit/WebClipboard;->mClipboardEx:Landroid/sec/clipboard/ClipboardExManager;
 
     const/4 v1, 0x4
@@ -3273,6 +3273,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/sec/clipboard/ClipboardExManager;->updateData(ILandroid/sec/clipboard/IClipboardDataPasteEvent;)V
 
-    .line 514
+    .line 530
     return-void
 .end method

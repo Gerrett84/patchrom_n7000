@@ -3,7 +3,7 @@
 .source "FindActionModeCallback.java"
 
 # interfaces
-.implements Landroid/view/View$OnFocusChangeListener;
+.implements Landroid/view/View$OnKeyListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 57
+    .line 58
     iput-object p1, p0, Landroid/webkit/FindActionModeCallback$1;->this$0:Landroid/webkit/FindActionModeCallback;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,30 +37,27 @@
 
 
 # virtual methods
-.method public onFocusChange(Landroid/view/View;Z)V
+.method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 1
     .parameter "v"
-    .parameter "hasFocus"
+    .parameter "keyCode"
+    .parameter "event"
 
     .prologue
-    .line 60
-    if-nez p2, :cond_0
+    .line 61
+    const/16 v0, 0x3d
 
-    iget-object v0, p0, Landroid/webkit/FindActionModeCallback$1;->this$0:Landroid/webkit/FindActionModeCallback;
-
-    #getter for: Landroid/webkit/FindActionModeCallback;->mActionMode:Landroid/view/ActionMode;
-    invoke-static {v0}, Landroid/webkit/FindActionModeCallback;->access$000(Landroid/webkit/FindActionModeCallback;)Landroid/view/ActionMode;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
+    if-ne p2, v0, :cond_0
 
     .line 62
-    iget-object v0, p0, Landroid/webkit/FindActionModeCallback$1;->this$0:Landroid/webkit/FindActionModeCallback;
-
-    invoke-virtual {v0}, Landroid/webkit/FindActionModeCallback;->finish()V
+    const/4 v0, 0x1
 
     .line 64
+    :goto_0
+    return v0
+
     :cond_0
-    return-void
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

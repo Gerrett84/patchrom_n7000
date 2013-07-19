@@ -39,41 +39,35 @@
 
     .prologue
     .line 28
-    sget-object v0, Landroid/hardware/scontext/SContextUpdateContext;->instance:Landroid/hardware/scontext/SContextUpdateContext;
-
-    if-nez v0, :cond_1
-
-    .line 29
     const-class v1, Landroid/hardware/scontext/SContextUpdateContext;
 
     monitor-enter v1
 
-    .line 30
+    .line 29
     :try_start_0
     sget-object v0, Landroid/hardware/scontext/SContextUpdateContext;->instance:Landroid/hardware/scontext/SContextUpdateContext;
 
     if-nez v0, :cond_0
 
-    .line 31
+    .line 30
     new-instance v0, Landroid/hardware/scontext/SContextUpdateContext;
 
     invoke-direct {v0}, Landroid/hardware/scontext/SContextUpdateContext;-><init>()V
 
     sput-object v0, Landroid/hardware/scontext/SContextUpdateContext;->instance:Landroid/hardware/scontext/SContextUpdateContext;
 
-    .line 33
+    .line 32
     :cond_0
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 35
-    :cond_1
+    .line 33
     sget-object v0, Landroid/hardware/scontext/SContextUpdateContext;->instance:Landroid/hardware/scontext/SContextUpdateContext;
 
     return-object v0
 
-    .line 33
+    .line 32
     :catchall_0
     move-exception v0
 
@@ -89,12 +83,12 @@
     .locals 1
 
     .prologue
-    .line 47
+    .line 45
     const/4 v0, 0x0
 
     sput-object v0, Landroid/hardware/scontext/SContextUpdateContext;->mListener:Landroid/hardware/scontext/ISContextListener;
 
-    .line 48
+    .line 46
     return-void
 .end method
 
@@ -105,19 +99,19 @@
     .parameter "listener"
 
     .prologue
-    .line 39
+    .line 37
     sget-object v0, Landroid/hardware/scontext/SContextUpdateContext;->mListener:Landroid/hardware/scontext/ISContextListener;
 
     if-eqz v0, :cond_0
 
-    .line 40
+    .line 38
     invoke-direct {p0}, Landroid/hardware/scontext/SContextUpdateContext;->removeListener()V
 
-    .line 43
+    .line 41
     :cond_0
     sput-object p1, Landroid/hardware/scontext/SContextUpdateContext;->mListener:Landroid/hardware/scontext/ISContextListener;
 
-    .line 44
+    .line 42
     return-void
 .end method
 
@@ -127,17 +121,17 @@
     .parameter "scontext"
 
     .prologue
-    .line 51
+    .line 49
     sget-object v0, Landroid/hardware/scontext/SContextUpdateContext;->mListener:Landroid/hardware/scontext/ISContextListener;
 
     if-eqz v0, :cond_0
 
-    .line 52
+    .line 50
     sget-object v0, Landroid/hardware/scontext/SContextUpdateContext;->mListener:Landroid/hardware/scontext/ISContextListener;
 
     invoke-interface {v0, p1, p2}, Landroid/hardware/scontext/ISContextListener;->sendEvent(ILandroid/hardware/scontext/ISContextContexts;)V
 
-    .line 53
+    .line 51
     const-string v0, "SContextUpdateContext"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -164,7 +158,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 55
+    .line 53
     :cond_0
     return-void
 .end method

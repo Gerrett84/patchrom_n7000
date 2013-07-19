@@ -94,13 +94,13 @@ Qulaqlıq radio antenna kimi işləyir və qoşulmalıdır"</string>
     <string name="toast_unavailable_in_tvout_mode">TV-dən kənar rejimdə istifadə etmək mümkün deyil</string>
     <string name="mute">Səssiz</string>
     <string name="seeking">Axtarır…</string>
-    <string name="via_earphone">Qulaqlıqlar vasitəsilə</string>
-    <string name="via_speaker">Səsucaldan ilə</string>
+    <string name="via_earphone">Qulaqlıqla səsləndir</string>
+    <string name="via_speaker">Səsucaldanla səsləndir</string>
     <string name="normal_frequency">Normal tezlik</string>
     <string name="tag">Etk</string>
     <string name="stop">Dayandır</string>
     <string name="recording">Yazma</string>
-    <string name="memory_full">Yazılma dayanmışdır. Yaddaş doludur</string>
+    <string name="memory_full">Yaddaş dolmuşdur</string>
     <string name="cancel_recording">Yazılma ləğv edilsin?</string>
     <string name="change_frequency">Tezliyi dəyişin</string>
     <string name="enter_frequency">Tezliyi daxil et</string>
@@ -126,11 +126,14 @@ Qulaqlıq radio antenna kimi işləyir və qoşulmalıdır"</string>
     <string name="tags">Etiketlər</string>
     <string name="tags_now_broadcasting">İndi yayımlanır</string>
     <string name="tags_no_information">Məlumat yoxdur</string>
+    <string name="tags_music_history">Musiqi tarixçəsi</string>
     <string name="tags_music_title">Başlıq</string>
     <string name="tags_music_album">Albom</string>
     <string name="tags_music_artist">Artist</string>
+    <string name="tags_music_band">Tezlik</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Ana səhifə</string>
+    <string name="tags_interact_hotline">Qaynar xətt</string>
     <string name="tags_interact_studio">Studiya</string>
     <string name="tags_interact_other">Başqa</string>
     <string name="tags_interact_centre">Mərkəz</string>
@@ -176,4 +179,14 @@ Radionu yazdıqdan sonra yazılmış fayllar göstəriləcək"</string>
     <string name="dialog_one_item_deleted">Bu element silinəcək</string>
     <string name="dialog_multiple_items_deleted">%d element silinəcək</string>
     <string name="dialog_all_items_deleted">Bütün elementlər silinəcək</string>
+    <string name="turning_on">Yandırılır…</string>
+    <string name="not_enough_memory_recording_will_stop">Kifayət qədər yaddaş yoxdur. Yazılış %d saniyəyə bitəcək</string>
+    <string name="low_batt_msg">Batareya zəifdir</string>
+    <string name="no_play_during_call">Zəng zamanı səsləndirmək olmur</string>
+    <string name="unable_delete">Silmək mümkün deyil</string>
+    <string name="playing">Səslənir…</string>
+    <string name="tts_play_button">Səsləndir</string>
+    <string name="tts_previous_button">Əvvəlki</string>
+    <string name="tts_Next_button">Növbəti</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

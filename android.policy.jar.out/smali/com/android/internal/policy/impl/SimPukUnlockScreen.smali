@@ -6,6 +6,7 @@
 .implements Lcom/android/internal/policy/impl/KeyguardScreen;
 .implements Landroid/view/View$OnClickListener;
 .implements Landroid/view/View$OnFocusChangeListener;
+.implements Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$AirplaneModeChangeCallback;
 
 
 # annotations
@@ -80,7 +81,7 @@
     .locals 1
 
     .prologue
-    .line 87
+    .line 90
     const/16 v0, 0xa
 
     new-array v0, v0, [C
@@ -121,65 +122,65 @@
 
     const/4 v5, 0x1
 
-    .line 104
+    .line 107
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 79
+    .line 82
     iput-object v2, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
-    .line 89
+    .line 92
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->num_of_retry:I
 
-    .line 94
+    .line 97
     sget-object v0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;->REQUIRE_NEW_PIN:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mStatus:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
-    .line 95
+    .line 98
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSavedNewPin:Ljava/lang/String;
 
-    .line 105
+    .line 108
     iput-object p3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
-    .line 106
+    .line 109
     iput-object p4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 108
+    .line 111
     iget v0, p2, Landroid/content/res/Configuration;->orientation:I
 
     iput v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCreationOrientation:I
 
-    .line 109
+    .line 112
     iget v0, p2, Landroid/content/res/Configuration;->hardKeyboardHidden:I
 
     iput v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mKeyboardHidden:I
 
-    .line 110
+    .line 113
     iput-object p5, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    .line 112
+    .line 115
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v6
 
-    .line 113
+    .line 116
     .local v6, inflater:Landroid/view/LayoutInflater;
     iget v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mKeyboardHidden:I
 
     if-ne v0, v5, :cond_1
 
-    .line 114
-    const v0, 0x109007f
+    .line 117
+    const v0, 0x1090084
 
     invoke-virtual {v6, v0, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 124
+    .line 127
     :goto_0
-    const v0, 0x1020365
+    const v0, 0x1020375
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -189,8 +190,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
 
-    .line 125
-    const v0, 0x1020367
+    .line 128
+    const v0, 0x1020376
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -200,8 +201,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mLockinfoText:Landroid/widget/TextView;
 
-    .line 126
-    const v0, 0x102036f
+    .line 129
+    const v0, 0x102037f
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -211,8 +212,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
-    .line 127
-    const v0, 0x1020368
+    .line 130
+    const v0, 0x1020378
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -222,8 +223,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
-    .line 128
-    const v0, 0x1020370
+    .line 131
+    const v0, 0x1020380
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -231,8 +232,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mDelPukButton:Landroid/view/View;
 
-    .line 129
-    const v0, 0x1020358
+    .line 132
+    const v0, 0x1020365
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -240,8 +241,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mDelPinButton:Landroid/view/View;
 
-    .line 130
-    const v0, 0x102033b
+    .line 133
+    const v0, 0x1020348
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -249,34 +250,39 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mOkButton:Landroid/view/View;
 
-    .line 132
+    .line 135
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mDelPinButton:Landroid/view/View;
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 133
+    .line 136
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mDelPukButton:Landroid/view/View;
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 134
+    .line 137
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mOkButton:Landroid/view/View;
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 136
+    .line 138
+    iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+
+    invoke-virtual {v0, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->registerAirplaneCallbacks(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$AirplaneModeChangeCallback;)V
+
+    .line 140
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
 
-    const v1, 0x10403cc
+    const v1, 0x10403d2
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 138
+    .line 142
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setSelected(Z)V
 
-    .line 140
+    .line 144
     new-instance v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     move-object v1, p0
@@ -291,15 +297,15 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mKeyguardStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
-    .line 144
+    .line 148
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isDirectCallToEcc()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 145
-    const v0, 0x1020335
+    .line 149
+    const v0, 0x1020342
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -309,76 +315,76 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mEmergencyCallButton:Landroid/widget/TextView;
 
-    .line 146
+    .line 150
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mEmergencyCallButton:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 149
+    .line 153
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setFocusableInTouchMode(Z)V
 
-    .line 150
-    iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
-
-    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
-
-    .line 151
-    iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setFocusableInTouchMode(Z)V
-
-    .line 152
-    iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
-
-    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
-
     .line 154
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v7}, Landroid/widget/TextView;->setCursorColor(I)V
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     .line 155
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setFocusableInTouchMode(Z)V
+
+    .line 156
+    iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
+
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+
+    .line 158
+    iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
+
     invoke-virtual {v0, v7}, Landroid/widget/TextView;->setCursorColor(I)V
 
-    .line 157
+    .line 159
+    iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v7}, Landroid/widget/TextView;->setCursorColor(I)V
+
+    .line 161
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->forceHideSoftInput(Z)V
 
-    .line 158
+    .line 162
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->forceHideSoftInput(Z)V
 
-    .line 160
+    .line 164
     invoke-direct {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->getSimLockInfoResult()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->num_of_retry:I
 
-    .line 161
+    .line 165
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->setLockInfoText()V
 
-    .line 164
+    .line 168
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
-    .line 165
+    .line 169
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->requestFocus()Z
 
-    .line 167
+    .line 171
     return-void
 
-    .line 116
+    .line 119
     :cond_1
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->isTabletDevice()Z
 
@@ -392,12 +398,12 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 117
-    const v0, 0x1090080
+    .line 120
+    const v0, 0x1090085
 
     invoke-virtual {v6, v0, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 121
+    .line 124
     :goto_1
     new-instance v0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$TouchInput;
 
@@ -405,9 +411,9 @@
 
     goto/16 :goto_0
 
-    .line 119
+    .line 122
     :cond_2
-    const v0, 0x1090081
+    const v0, 0x1090086
 
     invoke-virtual {v6, v0, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -419,7 +425,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 59
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
     return-object v0
@@ -430,7 +436,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 59
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     return-object v0
@@ -442,7 +448,7 @@
     .parameter "x1"
 
     .prologue
-    .line 56
+    .line 59
     iput-object p1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mStatus:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
     return-object p1
@@ -454,7 +460,7 @@
     .parameter "x1"
 
     .prologue
-    .line 56
+    .line 59
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->reportDigit(I)V
 
     return-void
@@ -465,7 +471,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 59
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -476,7 +482,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 59
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -487,7 +493,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 59
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     return-object v0
@@ -498,7 +504,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 59
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     return-object v0
@@ -510,7 +516,7 @@
     .parameter "x1"
 
     .prologue
-    .line 56
+    .line 59
     iput p1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->num_of_retry:I
 
     return p1
@@ -521,7 +527,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 59
     invoke-direct {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->getSimLockInfoResult()I
 
     move-result v0
@@ -534,7 +540,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 59
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
 
     return-object v0
@@ -545,7 +551,7 @@
     .parameter "x0"
 
     .prologue
-    .line 56
+    .line 59
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
     return-object v0
@@ -557,7 +563,7 @@
     .prologue
     const/16 v2, 0x8
 
-    .line 372
+    .line 406
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
@@ -570,28 +576,28 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 374
+    .line 408
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
 
     const v1, 0x10400fe
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 375
+    .line 409
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
     const-string v1, ""
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 376
+    .line 410
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->setLockInfoText()V
 
-    .line 433
+    .line 471
     :goto_0
     return-void
 
-    .line 380
+    .line 414
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
@@ -619,7 +625,7 @@
 
     if-le v0, v2, :cond_2
 
-    .line 383
+    .line 417
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
 
@@ -627,19 +633,19 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 384
+    .line 418
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     const-string v1, ""
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 385
+    .line 419
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->setLockInfoText()V
 
     goto :goto_0
 
-    .line 389
+    .line 423
     :cond_2
     invoke-direct {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->getSimUnlockProgressDialog()Landroid/app/Dialog;
 
@@ -647,7 +653,14 @@
 
     invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
-    .line 391
+    .line 425
+    iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+
+    const v1, 0x927c0
+
+    invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock(I)V
+
+    .line 427
     new-instance v0, Lcom/android/internal/policy/impl/SimPukUnlockScreen$1;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
@@ -681,13 +694,41 @@
     .locals 4
 
     .prologue
-    .line 180
+    .line 184
     const/4 v0, 0x0
 
-    .line 182
+    .line 186
     .local v0, result:I
     :try_start_0
     const-string v1, "phoneext"
+
+    invoke-static {v1}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/internal/telephony/ITelephonyExt$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephonyExt;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Lcom/android/internal/telephony/ITelephonyExt;->getSimPukRetry()I
+
+    move-result v0
+
+    .line 190
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/MultiSimUtils;->isMultiSIMDevice()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/MultiSimUtils;->getCurrentPukLockSlot()I
+
+    move-result v1
+
+    if-lez v1, :cond_0
+
+    .line 192
+    const-string v1, "phoneext2"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -703,7 +744,8 @@
 
     move-result v0
 
-    .line 187
+    .line 200
+    :cond_0
     :goto_0
     const-string v1, "SimPukUnlockScreen"
 
@@ -727,10 +769,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 188
+    .line 201
     return v0
 
-    .line 184
+    .line 197
     :catch_0
     move-exception v1
 
@@ -741,12 +783,12 @@
     .locals 3
 
     .prologue
-    .line 358
+    .line 392
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
     if-nez v0, :cond_0
 
-    .line 359
+    .line 393
     new-instance v0, Landroid/app/ProgressDialog;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mContext:Landroid/content/Context;
@@ -755,12 +797,12 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
-    .line 360
+    .line 394
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040406
+    const v2, 0x104040c
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -768,21 +810,21 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 362
+    .line 396
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
 
-    .line 363
+    .line 397
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setCancelable(Z)V
 
-    .line 364
+    .line 398
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->getWindow()Landroid/view/Window;
@@ -793,7 +835,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setType(I)V
 
-    .line 367
+    .line 401
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
@@ -805,17 +847,17 @@
     .parameter "digit"
 
     .prologue
-    .line 469
+    .line 507
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
     if-nez v0, :cond_0
 
-    .line 470
+    .line 508
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
-    .line 473
+    .line 511
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
@@ -825,7 +867,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->append(Ljava/lang/CharSequence;)V
 
-    .line 474
+    .line 512
     return-void
 .end method
 
@@ -835,28 +877,28 @@
     .locals 1
 
     .prologue
-    .line 214
+    .line 227
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
     if-eqz v0, :cond_0
 
-    .line 215
+    .line 228
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
 
-    .line 216
+    .line 229
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
-    .line 218
+    .line 231
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->removeCallback(Ljava/lang/Object;)V
 
-    .line 219
+    .line 232
     return-void
 .end method
 
@@ -864,23 +906,55 @@
     .locals 1
 
     .prologue
-    .line 193
+    .line 206
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method public onAirplaneModeChanged(Z)V
+    .locals 2
+    .parameter "on"
+
+    .prologue
+    .line 641
+    if-eqz p1, :cond_0
+
+    .line 642
+    const-string v0, "SimPukUnlockScreen"
+
+    const-string v1, "onAirplaneModeChanged"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 643
+    iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+
+    sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PUK_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->reportSimUnlocked(Lcom/android/internal/telephony/IccCard$State;)V
+
+    .line 644
+    iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+
+    invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToUnlockScreen()V
+
+    .line 646
+    :cond_0
+    return-void
 .end method
 
 .method protected onAttachedToWindow()V
     .locals 0
 
     .prologue
-    .line 488
+    .line 526
     invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
 
-    .line 489
+    .line 527
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->updateConfiguration()V
 
-    .line 490
+    .line 528
     return-void
 .end method
 
@@ -891,26 +965,26 @@
     .prologue
     const/16 v6, 0x8
 
-    const v5, 0x10403cf
+    const v5, 0x10403d5
 
-    .line 259
+    .line 292
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mDelPukButton:Landroid/view/View;
 
     if-ne p1, v3, :cond_2
 
-    .line 260
+    .line 293
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
     if-eq v3, v4, :cond_0
 
-    .line 261
+    .line 294
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
     invoke-virtual {v3}, Landroid/widget/TextView;->requestFocus()Z
 
-    .line 262
+    .line 295
     :cond_0
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
@@ -918,22 +992,22 @@
 
     move-result-object v0
 
-    .line 263
+    .line 296
     .local v0, digits:Landroid/text/Editable;
     invoke-interface {v0}, Landroid/text/Editable;->length()I
 
     move-result v2
 
-    .line 264
+    .line 297
     .local v2, len:I
     if-lez v2, :cond_1
 
-    .line 265
+    .line 298
     add-int/lit8 v3, v2, -0x1
 
     invoke-interface {v0, v3, v2}, Landroid/text/Editable;->delete(II)Landroid/text/Editable;
 
-    .line 348
+    .line 382
     .end local v0           #digits:Landroid/text/Editable;
     .end local v2           #len:I
     :cond_1
@@ -944,28 +1018,28 @@
 
     invoke-interface {v3, v4}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock(I)V
 
-    .line 349
+    .line 383
     return-void
 
-    .line 267
+    .line 300
     :cond_2
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mDelPinButton:Landroid/view/View;
 
     if-ne p1, v3, :cond_4
 
-    .line 268
+    .line 301
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     if-eq v3, v4, :cond_3
 
-    .line 269
+    .line 302
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     invoke-virtual {v3}, Landroid/widget/TextView;->requestFocus()Z
 
-    .line 270
+    .line 303
     :cond_3
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
@@ -973,24 +1047,24 @@
 
     move-result-object v0
 
-    .line 271
+    .line 304
     .restart local v0       #digits:Landroid/text/Editable;
     invoke-interface {v0}, Landroid/text/Editable;->length()I
 
     move-result v2
 
-    .line 272
+    .line 305
     .restart local v2       #len:I
     if-lez v2, :cond_1
 
-    .line 273
+    .line 306
     add-int/lit8 v3, v2, -0x1
 
     invoke-interface {v0, v3, v2}, Landroid/text/Editable;->delete(II)Landroid/text/Editable;
 
     goto :goto_0
 
-    .line 275
+    .line 308
     .end local v0           #digits:Landroid/text/Editable;
     .end local v2           #len:I
     :cond_4
@@ -998,14 +1072,14 @@
 
     if-ne p1, v3, :cond_9
 
-    .line 276
+    .line 309
     invoke-direct {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->getSimLockInfoResult()I
 
     move-result v3
 
     iput v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->num_of_retry:I
 
-    .line 277
+    .line 310
     sget-object v3, Lcom/android/internal/policy/impl/SimPukUnlockScreen$2;->$SwitchMap$com$android$internal$policy$impl$SimPukUnlockScreen$SimLockState:[I
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mStatus:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
@@ -1020,7 +1094,7 @@
 
     goto :goto_0
 
-    .line 280
+    .line 313
     :pswitch_0
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
@@ -1034,34 +1108,39 @@
 
     if-ge v3, v6, :cond_5
 
-    .line 283
+    .line 316
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
 
     const v4, 0x10400fe
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
-    .line 284
+    .line 317
+    iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
+
+    invoke-virtual {v3}, Landroid/widget/TextView;->requestFocus()Z
+
+    .line 318
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
     const-string v4, ""
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 285
+    .line 319
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->setLockInfoText()V
 
-    .line 286
+    .line 320
     sget-object v3, Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;->REQUIRE_NEW_PIN:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
     iput-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mStatus:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
-    .line 287
+    .line 321
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setHint(I)V
 
-    .line 288
+    .line 322
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     const-string v4, ""
@@ -1070,7 +1149,7 @@
 
     goto :goto_0
 
-    .line 289
+    .line 323
     :cond_5
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
@@ -1098,7 +1177,7 @@
 
     if-le v3, v6, :cond_7
 
-    .line 293
+    .line 327
     :cond_6
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
 
@@ -1106,27 +1185,27 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
-    .line 294
+    .line 328
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     const-string v4, ""
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 295
+    .line 329
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->setLockInfoText()V
 
-    .line 296
+    .line 330
     sget-object v3, Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;->REQUIRE_NEW_PIN:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
     iput-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mStatus:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
-    .line 297
+    .line 331
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setHint(I)V
 
-    .line 298
+    .line 332
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     const-string v4, ""
@@ -1135,7 +1214,7 @@
 
     goto/16 :goto_0
 
-    .line 300
+    .line 334
     :cond_7
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
@@ -1149,19 +1228,19 @@
 
     iput-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mSavedNewPin:Ljava/lang/String;
 
-    .line 301
+    .line 335
     sget-object v3, Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;->CONFIRM_NEW_PIN:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
     iput-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mStatus:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
-    .line 302
+    .line 336
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
-    const v4, 0x10406ea
+    const v4, 0x1040700
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setHint(I)V
 
-    .line 303
+    .line 337
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     const-string v4, ""
@@ -1170,7 +1249,7 @@
 
     goto/16 :goto_0
 
-    .line 308
+    .line 342
     :pswitch_1
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
@@ -1190,24 +1269,24 @@
 
     if-nez v3, :cond_8
 
-    .line 311
+    .line 345
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
 
     const v4, 0x10400fc
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
-    .line 312
+    .line 346
     sget-object v3, Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;->REQUIRE_NEW_PIN:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
     iput-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mStatus:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
-    .line 313
+    .line 347
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setHint(I)V
 
-    .line 314
+    .line 348
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     const-string v4, ""
@@ -1216,13 +1295,13 @@
 
     goto/16 :goto_0
 
-    .line 316
+    .line 350
     :cond_8
     invoke-direct {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->checkPuk()V
 
     goto/16 :goto_0
 
-    .line 320
+    .line 354
     :cond_9
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mEmergencyCallButton:Landroid/widget/TextView;
 
@@ -1234,19 +1313,19 @@
 
     if-eqz v3, :cond_1
 
-    .line 321
+    .line 355
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v3}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 323
+    .line 357
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     if-ne v3, v4, :cond_a
 
-    .line 324
+    .line 358
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     invoke-virtual {v3}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
@@ -1259,7 +1338,7 @@
 
     iput-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mLastNumber:Ljava/lang/String;
 
-    .line 328
+    .line 362
     :goto_1
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mLastNumber:Ljava/lang/String;
 
@@ -1269,14 +1348,14 @@
 
     if-eqz v3, :cond_c
 
-    .line 329
+    .line 363
     new-instance v1, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.CALL_EMERGENCY"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 330
+    .line 364
     .local v1, intent:Landroid/content/Intent;
     const-string v3, "tel"
 
@@ -1290,24 +1369,24 @@
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 331
+    .line 365
     const/high16 v3, 0x1000
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 332
+    .line 366
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 334
+    .line 368
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     if-ne v3, v4, :cond_b
 
-    .line 335
+    .line 369
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     const-string v4, ""
@@ -1316,7 +1395,7 @@
 
     goto/16 :goto_0
 
-    .line 326
+    .line 360
     .end local v1           #intent:Landroid/content/Intent;
     :cond_a
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
@@ -1333,7 +1412,7 @@
 
     goto :goto_1
 
-    .line 337
+    .line 371
     .restart local v1       #intent:Landroid/content/Intent;
     :cond_b
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
@@ -1344,7 +1423,7 @@
 
     goto/16 :goto_0
 
-    .line 339
+    .line 373
     .end local v1           #intent:Landroid/content/Intent;
     :cond_c
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
@@ -1353,14 +1432,14 @@
 
     if-ne v3, v4, :cond_d
 
-    .line 340
+    .line 374
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     const-string v4, ""
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 344
+    .line 378
     :goto_2
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
@@ -1368,7 +1447,7 @@
 
     goto/16 :goto_0
 
-    .line 342
+    .line 376
     :cond_d
     iget-object v3, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPukText:Landroid/widget/TextView;
 
@@ -1378,9 +1457,7 @@
 
     goto :goto_2
 
-    .line 277
-    nop
-
+    .line 310
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1393,13 +1470,13 @@
     .parameter "newConfig"
 
     .prologue
-    .line 495
+    .line 533
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 496
+    .line 534
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->updateConfiguration()V
 
-    .line 497
+    .line 535
     return-void
 .end method
 
@@ -1409,16 +1486,16 @@
     .parameter "hasFocus"
 
     .prologue
-    .line 353
+    .line 387
     if-eqz p2, :cond_0
 
-    .line 354
+    .line 388
     check-cast p1, Landroid/widget/TextView;
 
     .end local p1
     iput-object p1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
-    .line 355
+    .line 389
     :cond_0
     return-void
 .end method
@@ -1431,33 +1508,33 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 437
+    .line 475
     const/4 v4, 0x4
 
     if-ne p1, v4, :cond_0
 
-    .line 438
+    .line 476
     sget-object v4, Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;->REQUIRE_NEW_PIN:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
     iput-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mStatus:Lcom/android/internal/policy/impl/SimPukUnlockScreen$SimLockState;
 
-    .line 439
+    .line 477
     iget-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mPinText:Landroid/widget/TextView;
 
-    const v5, 0x10403cf
+    const v5, 0x10403d5
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setHint(I)V
 
-    .line 440
+    .line 478
     iget-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v4}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToLockScreen()V
 
-    .line 464
+    .line 502
     :goto_0
     return v3
 
-    .line 443
+    .line 481
     :cond_0
     sget-object v4, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->DIGITS:[C
 
@@ -1465,51 +1542,51 @@
 
     move-result v2
 
-    .line 444
+    .line 482
     .local v2, match:C
     if-eqz v2, :cond_1
 
-    .line 445
+    .line 483
     add-int/lit8 v4, v2, -0x30
 
     invoke-direct {p0, v4}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->reportDigit(I)V
 
     goto :goto_0
 
-    .line 448
+    .line 486
     :cond_1
     const/16 v4, 0x43
 
     if-ne p1, v4, :cond_3
 
-    .line 449
+    .line 487
     iget-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
     invoke-virtual {v4, p1, p2}, Landroid/widget/TextView;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
-    .line 450
+    .line 488
     iget-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mFocusedEntry:Landroid/widget/TextView;
 
     invoke-virtual {v4}, Landroid/widget/TextView;->getEditableText()Landroid/text/Editable;
 
     move-result-object v0
 
-    .line 451
+    .line 489
     .local v0, digits:Landroid/text/Editable;
     invoke-interface {v0}, Landroid/text/Editable;->length()I
 
     move-result v1
 
-    .line 452
+    .line 490
     .local v1, len:I
     if-lez v1, :cond_2
 
-    .line 453
+    .line 491
     add-int/lit8 v4, v1, -0x1
 
     invoke-interface {v0, v4, v1}, Landroid/text/Editable;->delete(II)Landroid/text/Editable;
 
-    .line 455
+    .line 493
     :cond_2
     iget-object v4, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
@@ -1519,7 +1596,7 @@
 
     goto :goto_0
 
-    .line 459
+    .line 497
     .end local v0           #digits:Landroid/text/Editable;
     .end local v1           #len:I
     :cond_3
@@ -1527,12 +1604,12 @@
 
     if-ne p1, v4, :cond_4
 
-    .line 460
+    .line 498
     invoke-direct {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->checkPuk()V
 
     goto :goto_0
 
-    .line 464
+    .line 502
     :cond_4
     const/4 v3, 0x0
 
@@ -1543,12 +1620,12 @@
     .locals 1
 
     .prologue
-    .line 198
+    .line 211
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mKeyguardStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->onPause()V
 
-    .line 199
+    .line 212
     return-void
 .end method
 
@@ -1556,36 +1633,36 @@
     .locals 2
 
     .prologue
-    .line 204
+    .line 217
     const-string v0, "SimPukUnlockScreen"
 
     const-string v1, "onResume()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 205
+    .line 218
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mHeaderText:Landroid/widget/TextView;
 
-    const v1, 0x10403cc
+    const v1, 0x10403d2
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 206
+    .line 219
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mKeyguardStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->onResume()V
 
-    .line 207
+    .line 220
     invoke-direct {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->getSimLockInfoResult()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->num_of_retry:I
 
-    .line 208
+    .line 221
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->setLockInfoText()V
 
-    .line 209
+    .line 222
     return-void
 .end method
 
@@ -1597,7 +1674,7 @@
 
     const/4 v3, 0x1
 
-    .line 170
+    .line 174
     const-string v0, "SimPukUnlockScreen"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1622,19 +1699,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 171
+    .line 175
     iget v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->num_of_retry:I
 
     if-ne v0, v3, :cond_0
 
-    .line 172
+    .line 176
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mLockinfoText:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    const v2, 0x1040696
+    const v2, 0x10406aa
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -1652,11 +1729,11 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 177
+    .line 181
     :goto_0
     return-void
 
-    .line 175
+    .line 179
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mLockinfoText:Landroid/widget/TextView;
 
@@ -1664,7 +1741,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040697
+    const v2, 0x10406ab
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -1689,7 +1766,7 @@
     .locals 3
 
     .prologue
-    .line 477
+    .line 515
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -1698,7 +1775,7 @@
 
     move-result-object v0
 
-    .line 478
+    .line 516
     .local v0, newConfig:Landroid/content/res/Configuration;
     iget v1, v0, Landroid/content/res/Configuration;->orientation:I
 
@@ -1706,17 +1783,17 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 479
+    .line 517
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v1, v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->recreateMe(Landroid/content/res/Configuration;)V
 
-    .line 484
+    .line 522
     :cond_0
     :goto_0
     return-void
 
-    .line 480
+    .line 518
     :cond_1
     iget v1, v0, Landroid/content/res/Configuration;->hardKeyboardHidden:I
 
@@ -1724,7 +1801,7 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 481
+    .line 519
     iget v1, v0, Landroid/content/res/Configuration;->hardKeyboardHidden:I
 
     iput v1, p0, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->mKeyboardHidden:I

@@ -26,13 +26,13 @@
     .parameter "useFastForward"
 
     .prologue
-    .line 431
+    .line 464
     invoke-direct {p0, p1, p3}, Landroid/widget/MediaController;-><init>(Landroid/content/Context;Z)V
 
-    .line 432
+    .line 465
     iput-object p2, p0, Landroid/webkit/HTML5VideoFullScreen$FullScreenMediaController;->mVideoView:Landroid/view/View;
 
-    .line 433
+    .line 466
     return-void
 .end method
 
@@ -42,23 +42,23 @@
     .locals 2
 
     .prologue
-    .line 445
+    .line 478
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$FullScreenMediaController;->mVideoView:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 446
+    .line 479
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$FullScreenMediaController;->mVideoView:Landroid/view/View;
 
-    const/4 v1, 0x3
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    .line 449
+    .line 481
     :cond_0
     invoke-super {p0}, Landroid/widget/MediaController;->hide()V
 
-    .line 450
+    .line 482
     return-void
 .end method
 
@@ -66,22 +66,22 @@
     .locals 2
 
     .prologue
-    .line 437
+    .line 470
     invoke-super {p0}, Landroid/widget/MediaController;->show()V
 
-    .line 438
+    .line 471
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$FullScreenMediaController;->mVideoView:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 439
+    .line 472
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$FullScreenMediaController;->mVideoView:Landroid/view/View;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    .line 441
+    .line 474
     :cond_0
     return-void
 .end method

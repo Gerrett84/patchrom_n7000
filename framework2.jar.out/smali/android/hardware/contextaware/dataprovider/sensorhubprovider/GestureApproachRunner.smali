@@ -75,11 +75,6 @@
     .locals 2
 
     .prologue
-    .line 118
-    const-string v0, "================= Gesture ================="
-
-    invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/CALogger;->debug(Ljava/lang/String;)V
-
     .line 119
     new-instance v0, Ljava/lang/StringBuilder;
 

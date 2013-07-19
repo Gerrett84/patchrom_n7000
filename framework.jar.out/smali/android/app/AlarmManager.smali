@@ -272,8 +272,9 @@
     goto :goto_0
 .end method
 
-.method public shutdownTimeAfterFakeOff(I)I
+.method public shutdownTimeAfterFakeOff(ZI)I
     .locals 3
+    .parameter "enable"
     .parameter "minute"
 
     .prologue
@@ -287,7 +288,7 @@
     :cond_0
     iget-object v1, p0, Landroid/app/AlarmManager;->mService:Landroid/app/IAlarmManager;
 
-    invoke-interface {v1, p1}, Landroid/app/IAlarmManager;->shutdownTimeAfterFakeOff(I)I
+    invoke-interface {v1, p1, p2}, Landroid/app/IAlarmManager;->shutdownTimeAfterFakeOff(ZI)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

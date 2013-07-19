@@ -368,16 +368,16 @@
     .line 187
     iput-object v2, p0, Lcom/android/internal/telephony/CallManager;->mRestrictionPolicy:Landroid/sec/enterprise/PhoneRestrictionPolicy;
 
-    .line 1890
+    .line 1946
     iput-boolean v1, p0, Lcom/android/internal/telephony/CallManager;->isDisconnectSilent:Z
 
-    .line 1891
+    .line 1947
     iput-boolean v1, p0, Lcom/android/internal/telephony/CallManager;->isIMSDisconnectSilent:Z
 
-    .line 1892
+    .line 1948
     iput v1, p0, Lcom/android/internal/telephony/CallManager;->m606RetryCount:I
 
-    .line 1895
+    .line 1951
     new-instance v0, Lcom/android/internal/telephony/CallManager$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/CallManager$1;-><init>(Lcom/android/internal/telephony/CallManager;)V
@@ -466,7 +466,7 @@
 
     const/4 v7, 0x0
 
-    .line 953
+    .line 1009
     invoke-interface {p1}, Lcom/android/internal/telephony/Phone;->getServiceState()Landroid/telephony/ServiceState;
 
     move-result-object v8
@@ -475,25 +475,25 @@
 
     move-result v5
 
-    .line 954
+    .line 1010
     .local v5, serviceState:I
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveRingingCall()Z
 
     move-result v4
 
-    .line 955
+    .line 1011
     .local v4, hasRingingCall:Z
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
     move-result v2
 
-    .line 956
+    .line 1012
     .local v2, hasActiveCall:Z
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveBgCall()Z
 
     move-result v3
 
-    .line 957
+    .line 1013
     .local v3, hasHoldingCall:Z
     if-eqz v2, :cond_1
 
@@ -501,14 +501,14 @@
 
     move v0, v6
 
-    .line 958
+    .line 1014
     .local v0, allLinesTaken:Z
     :goto_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCallState()Lcom/android/internal/telephony/Call$State;
 
     move-result-object v1
 
-    .line 960
+    .line 1016
     .local v1, fgCallState:Lcom/android/internal/telephony/Call$State;
     const/4 v8, 0x3
 
@@ -541,7 +541,7 @@
     :cond_1
     move v0, v7
 
-    .line 957
+    .line 1013
     goto :goto_0
 
     .restart local v0       #allLinesTaken:Z
@@ -549,7 +549,7 @@
     :cond_2
     move v6, v7
 
-    .line 960
+    .line 1016
     goto :goto_1
 .end method
 
@@ -557,12 +557,12 @@
     .locals 2
 
     .prologue
-    .line 532
+    .line 579
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getDefaultPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v0
 
-    .line 533
+    .line 580
     .local v0, defaultPhone:Lcom/android/internal/telephony/Phone;
     if-nez v0, :cond_0
 
@@ -594,7 +594,7 @@
     .end annotation
 
     .prologue
-    .line 1859
+    .line 1915
     .local p1, calls:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/Call;>;"
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -614,7 +614,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/Call;
 
-    .line 1860
+    .line 1916
     .local v0, call:Lcom/android/internal/telephony/Call;
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->isIdle()Z
 
@@ -622,7 +622,7 @@
 
     if-nez v2, :cond_0
 
-    .line 1864
+    .line 1920
     .end local v0           #call:Lcom/android/internal/telephony/Call;
     :goto_0
     return-object v0
@@ -651,7 +651,7 @@
     .end annotation
 
     .prologue
-    .line 1871
+    .line 1927
     .local p1, calls:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/Call;>;"
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -671,7 +671,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/Call;
 
-    .line 1872
+    .line 1928
     .local v0, call:Lcom/android/internal/telephony/Call;
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
 
@@ -679,7 +679,7 @@
 
     if-ne v2, p2, :cond_0
 
-    .line 1876
+    .line 1932
     .end local v0           #call:Lcom/android/internal/telephony/Call;
     :goto_0
     return-object v0
@@ -705,11 +705,11 @@
     .end annotation
 
     .prologue
-    .line 1734
+    .line 1790
     .local p1, calls:Ljava/util/List;,"Ljava/util/List<Lcom/android/internal/telephony/Call;>;"
     const/4 v2, 0x0
 
-    .line 1735
+    .line 1791
     .local v2, result:Lcom/android/internal/telephony/Call;
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -730,7 +730,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/Call;
 
-    .line 1736
+    .line 1792
     .local v0, call:Lcom/android/internal/telephony/Call;
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->isIdle()Z
 
@@ -738,12 +738,12 @@
 
     if-nez v3, :cond_1
 
-    .line 1742
+    .line 1798
     .end local v0           #call:Lcom/android/internal/telephony/Call;
     :goto_1
     return-object v0
 
-    .line 1738
+    .line 1794
     .restart local v0       #call:Lcom/android/internal/telephony/Call;
     :cond_1
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
@@ -754,7 +754,7 @@
 
     if-eq v3, v4, :cond_0
 
-    .line 1739
+    .line 1795
     if-nez v2, :cond_0
 
     move-object v2, v0
@@ -765,7 +765,7 @@
     :cond_2
     move-object v0, v2
 
-    .line 1742
+    .line 1798
     goto :goto_1
 .end method
 
@@ -810,10 +810,10 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1881
+    .line 1937
     const/4 v1, 0x0
 
-    .line 1882
+    .line 1938
     .local v1, count:I
     iget-object v4, p0, Lcom/android/internal/telephony/CallManager;->mRingingCalls:Ljava/util/ArrayList;
 
@@ -835,7 +835,7 @@
 
     check-cast v0, Lcom/android/internal/telephony/Call;
 
-    .line 1883
+    .line 1939
     .local v0, call:Lcom/android/internal/telephony/Call;
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
 
@@ -847,12 +847,12 @@
 
     if-eqz v4, :cond_0
 
-    .line 1884
+    .line 1940
     add-int/lit8 v1, v1, 0x1
 
     if-le v1, v3, :cond_0
 
-    .line 1887
+    .line 1943
     .end local v0           #call:Lcom/android/internal/telephony/Call;
     :goto_0
     return v3
@@ -900,112 +900,112 @@
 
     const/4 v2, 0x0
 
-    .line 538
+    .line 585
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x65
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForPreciseCallStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 539
+    .line 586
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x64
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForDisconnect(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 540
+    .line 587
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x66
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForNewRingingConnection(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 541
+    .line 588
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x67
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForUnknownConnection(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 542
+    .line 589
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x68
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForIncomingRing(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 543
+    .line 590
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x69
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForRingbackTone(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 544
+    .line 591
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x6a
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForInCallVoicePrivacyOn(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 545
+    .line 592
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x6b
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForInCallVoicePrivacyOff(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 546
+    .line 593
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x6d
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForDisplayInfo(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 547
+    .line 594
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x6e
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForSignalInfo(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 548
+    .line 595
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x70
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForResendIncallMute(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 549
+    .line 596
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x71
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForMmiInitiate(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 550
+    .line 597
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x72
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForMmiComplete(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 551
+    .line 598
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x75
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForSuppServiceFailed(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 552
+    .line 599
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x76
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForServiceStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 555
+    .line 602
     invoke-interface {p1}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
 
     move-result v0
@@ -1020,7 +1020,7 @@
 
     if-ne v0, v3, :cond_1
 
-    .line 557
+    .line 604
     :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
@@ -1028,7 +1028,7 @@
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->setOnPostDialCharacter(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 561
+    .line 608
     :cond_1
     invoke-interface {p1}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
 
@@ -1036,42 +1036,42 @@
 
     if-ne v0, v3, :cond_2
 
-    .line 562
+    .line 609
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x6f
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForCdmaOtaStatusChange(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 563
+    .line 610
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x74
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForSubscriptionInfoReady(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 564
+    .line 611
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x6c
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForCallWaiting(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 565
+    .line 612
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x73
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForEcmTimerReset(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 566
+    .line 613
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x78
 
     invoke-interface {p1, v0, v1, v2}, Lcom/android/internal/telephony/Phone;->registerForLineControlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 568
+    .line 615
     :cond_2
     return-void
 .end method
@@ -1085,82 +1085,82 @@
 
     const/4 v2, 0x2
 
-    .line 572
+    .line 619
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForPreciseCallStateChanged(Landroid/os/Handler;)V
 
-    .line 573
+    .line 620
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForDisconnect(Landroid/os/Handler;)V
 
-    .line 574
+    .line 621
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForNewRingingConnection(Landroid/os/Handler;)V
 
-    .line 575
+    .line 622
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForUnknownConnection(Landroid/os/Handler;)V
 
-    .line 576
+    .line 623
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForIncomingRing(Landroid/os/Handler;)V
 
-    .line 577
+    .line 624
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForRingbackTone(Landroid/os/Handler;)V
 
-    .line 578
+    .line 625
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForInCallVoicePrivacyOn(Landroid/os/Handler;)V
 
-    .line 579
+    .line 626
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForInCallVoicePrivacyOff(Landroid/os/Handler;)V
 
-    .line 580
+    .line 627
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForDisplayInfo(Landroid/os/Handler;)V
 
-    .line 581
+    .line 628
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForSignalInfo(Landroid/os/Handler;)V
 
-    .line 582
+    .line 629
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForResendIncallMute(Landroid/os/Handler;)V
 
-    .line 583
+    .line 630
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForMmiInitiate(Landroid/os/Handler;)V
 
-    .line 584
+    .line 631
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForMmiComplete(Landroid/os/Handler;)V
 
-    .line 585
+    .line 632
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForSuppServiceFailed(Landroid/os/Handler;)V
 
-    .line 586
+    .line 633
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForServiceStateChanged(Landroid/os/Handler;)V
 
-    .line 589
+    .line 636
     invoke-interface {p1}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
 
     move-result v0
@@ -1175,13 +1175,13 @@
 
     if-ne v0, v2, :cond_1
 
-    .line 591
+    .line 638
     :cond_0
     const/16 v0, 0x77
 
     invoke-interface {p1, v3, v0, v3}, Lcom/android/internal/telephony/Phone;->setOnPostDialCharacter(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 595
+    .line 642
     :cond_1
     invoke-interface {p1}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
 
@@ -1189,32 +1189,32 @@
 
     if-ne v0, v2, :cond_2
 
-    .line 596
+    .line 643
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForCdmaOtaStatusChange(Landroid/os/Handler;)V
 
-    .line 597
+    .line 644
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForSubscriptionInfoReady(Landroid/os/Handler;)V
 
-    .line 598
+    .line 645
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForCallWaiting(Landroid/os/Handler;)V
 
-    .line 599
+    .line 646
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForEcmTimerReset(Landroid/os/Handler;)V
 
-    .line 600
+    .line 647
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mHandler:Landroid/os/Handler;
 
     invoke-interface {p1, v0}, Lcom/android/internal/telephony/Phone;->unregisterForLineControlInfo(Landroid/os/Handler;)V
 
-    .line 602
+    .line 649
     :cond_2
     return-void
 .end method
@@ -1235,12 +1235,12 @@
 
     const/4 v4, 0x1
 
-    .line 618
+    .line 665
     invoke-virtual {p1}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v2
 
-    .line 625
+    .line 672
     .local v2, ringingPhone:Lcom/android/internal/telephony/Phone;
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
@@ -1248,7 +1248,7 @@
 
     if-eqz v5, :cond_1
 
-    .line 626
+    .line 673
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v5
@@ -1257,7 +1257,7 @@
 
     move-result-object v0
 
-    .line 627
+    .line 674
     .local v0, activePhone:Lcom/android/internal/telephony/Phone;
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->getBackgroundCall()Lcom/android/internal/telephony/Call;
 
@@ -1271,28 +1271,28 @@
 
     move v1, v4
 
-    .line 628
+    .line 675
     .local v1, hasBgCall:Z
     :goto_0
     if-ne v0, v2, :cond_0
 
     move v3, v4
 
-    .line 634
+    .line 681
     .local v3, sameChannel:Z
     :cond_0
     if-eqz v3, :cond_3
 
     if-eqz v1, :cond_3
 
-    .line 635
+    .line 682
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v5
 
     invoke-virtual {v5}, Lcom/android/internal/telephony/Call;->hangup()V
 
-    .line 643
+    .line 690
     .end local v0           #activePhone:Lcom/android/internal/telephony/Phone;
     .end local v1           #hasBgCall:Z
     .end local v3           #sameChannel:Z
@@ -1300,20 +1300,20 @@
     :goto_1
     invoke-interface {v2}, Lcom/android/internal/telephony/Phone;->acceptCall()V
 
-    .line 647
+    .line 694
     iput-boolean v4, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
 
-    .line 653
+    .line 700
     return-void
 
     .restart local v0       #activePhone:Lcom/android/internal/telephony/Phone;
     :cond_2
     move v1, v3
 
-    .line 627
+    .line 674
     goto :goto_0
 
-    .line 636
+    .line 683
     .restart local v1       #hasBgCall:Z
     .restart local v3       #sameChannel:Z
     :cond_3
@@ -1321,18 +1321,18 @@
 
     if-nez v1, :cond_4
 
-    .line 637
+    .line 684
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->switchHoldingAndActive()V
 
     goto :goto_1
 
-    .line 638
+    .line 685
     :cond_4
     if-nez v3, :cond_1
 
     if-eqz v1, :cond_1
 
-    .line 639
+    .line 686
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v5
@@ -1347,14 +1347,14 @@
     .parameter "heldCall"
 
     .prologue
-    .line 776
+    .line 823
     const/4 v0, 0x0
 
-    .line 777
+    .line 824
     .local v0, activePhone:Lcom/android/internal/telephony/Phone;
     const/4 v1, 0x0
 
-    .line 779
+    .line 826
     .local v1, heldPhone:Lcom/android/internal/telephony/Phone;
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
@@ -1362,7 +1362,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 780
+    .line 827
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v2
@@ -1371,16 +1371,16 @@
 
     move-result-object v0
 
-    .line 783
+    .line 830
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 784
+    .line 831
     invoke-virtual {p1}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v1
 
-    .line 787
+    .line 834
     :cond_1
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -1402,14 +1402,14 @@
     .parameter "heldCall"
 
     .prologue
-    .line 976
+    .line 1032
     const/4 v0, 0x0
 
-    .line 977
+    .line 1033
     .local v0, activePhone:Lcom/android/internal/telephony/Phone;
     const/4 v1, 0x0
 
-    .line 979
+    .line 1035
     .local v1, heldPhone:Lcom/android/internal/telephony/Phone;
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
@@ -1417,7 +1417,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 980
+    .line 1036
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v2
@@ -1426,16 +1426,16 @@
 
     move-result-object v0
 
-    .line 983
+    .line 1039
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 984
+    .line 1040
     invoke-virtual {p1}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v1
 
-    .line 987
+    .line 1043
     :cond_1
     if-ne v1, v0, :cond_2
 
@@ -1460,7 +1460,7 @@
     .locals 3
 
     .prologue
-    .line 937
+    .line 993
     iget-object v2, p0, Lcom/android/internal/telephony/CallManager;->mPhones:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1481,13 +1481,13 @@
 
     check-cast v1, Lcom/android/internal/telephony/Phone;
 
-    .line 938
+    .line 994
     .local v1, phone:Lcom/android/internal/telephony/Phone;
     invoke-interface {v1}, Lcom/android/internal/telephony/Phone;->clearDisconnected()V
 
     goto :goto_0
 
-    .line 940
+    .line 996
     .end local v1           #phone:Lcom/android/internal/telephony/Phone;
     :cond_0
     return-void
@@ -1503,28 +1503,28 @@
     .end annotation
 
     .prologue
-    .line 807
+    .line 854
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFgPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v0
 
-    .line 808
+    .line 855
     .local v0, fgPhone:Lcom/android/internal/telephony/Phone;
     instance-of v1, v0, Lcom/android/internal/telephony/sip/SipPhone;
 
     if-eqz v1, :cond_0
 
-    .line 809
+    .line 856
     check-cast v0, Lcom/android/internal/telephony/sip/SipPhone;
 
     .end local v0           #fgPhone:Lcom/android/internal/telephony/Phone;
     invoke-virtual {v0, p1}, Lcom/android/internal/telephony/sip/SipPhone;->conference(Lcom/android/internal/telephony/Call;)V
 
-    .line 821
+    .line 868
     :goto_0
     return-void
 
-    .line 810
+    .line 857
     .restart local v0       #fgPhone:Lcom/android/internal/telephony/Phone;
     :cond_0
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/CallManager;->canConference(Lcom/android/internal/telephony/Call;)Z
@@ -1533,12 +1533,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 811
+    .line 858
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->conference()V
 
     goto :goto_0
 
-    .line 813
+    .line 860
     :cond_1
     new-instance v1, Lcom/android/internal/telephony/CallStateException;
 
@@ -1550,7 +1550,7 @@
 .end method
 
 .method public dial(Lcom/android/internal/telephony/Phone;Ljava/lang/String;)Lcom/android/internal/telephony/Connection;
-    .locals 13
+    .locals 1
     .parameter "phone"
     .parameter "dialString"
     .annotation system Ldalvik/annotation/Throws;
@@ -1560,77 +1560,99 @@
     .end annotation
 
     .prologue
-    const v11, 0x1040120
+    .line 904
+    sget-object v0, Lcom/android/internal/telephony/Call$CallType;->CS_CALL_VOICE:Lcom/android/internal/telephony/Call$CallType;
 
-    const/4 v9, 0x0
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/internal/telephony/CallManager;->dial(Lcom/android/internal/telephony/Phone;Ljava/lang/String;Lcom/android/internal/telephony/Call$CallType;)Lcom/android/internal/telephony/Connection;
 
-    const/4 v8, 0x1
+    move-result-object v0
 
-    .line 834
+    return-object v0
+.end method
+
+.method public dial(Lcom/android/internal/telephony/Phone;Ljava/lang/String;Lcom/android/internal/telephony/Call$CallType;)Lcom/android/internal/telephony/Connection;
+    .locals 11
+    .parameter "phone"
+    .parameter "dialString"
+    .parameter "callType"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/internal/telephony/CallStateException;
+        }
+    .end annotation
+
+    .prologue
+    .line 908
     invoke-static {p1}, Lcom/android/internal/telephony/CallManager;->getPhoneBase(Lcom/android/internal/telephony/Phone;)Lcom/android/internal/telephony/Phone;
 
     move-result-object v1
 
-    .line 837
+    .line 911
     .local v1, basePhone:Lcom/android/internal/telephony/Phone;
     invoke-interface {p1}, Lcom/android/internal/telephony/Phone;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
-    .line 838
+    .line 912
     .local v3, context:Landroid/content/Context;
     const/4 v2, 0x1
 
-    .line 839
+    .line 913
     .local v2, canMakeCall:Z
     const/4 v5, 0x0
 
-    .line 840
+    .line 914
     .local v5, isEmergencyCallOnly:Z
     invoke-static {p2}, Landroid/telephony/PhoneNumberUtils;->isEmergencyNumber(Ljava/lang/String;)Z
 
     move-result v6
 
-    .line 842
+    .line 916
     .local v6, isEmergencyNumber:Z
     if-eqz v3, :cond_2
 
-    .line 843
-    iget-object v10, p0, Lcom/android/internal/telephony/CallManager;->mRestrictionPolicy:Landroid/sec/enterprise/PhoneRestrictionPolicy;
+    .line 917
+    iget-object v8, p0, Lcom/android/internal/telephony/CallManager;->mRestrictionPolicy:Landroid/sec/enterprise/PhoneRestrictionPolicy;
 
-    if-eqz v10, :cond_0
+    if-eqz v8, :cond_0
 
     if-nez v6, :cond_0
 
-    .line 844
-    iget-object v10, p0, Lcom/android/internal/telephony/CallManager;->mRestrictionPolicy:Landroid/sec/enterprise/PhoneRestrictionPolicy;
+    .line 918
+    iget-object v8, p0, Lcom/android/internal/telephony/CallManager;->mRestrictionPolicy:Landroid/sec/enterprise/PhoneRestrictionPolicy;
 
-    invoke-virtual {v10, p2}, Landroid/sec/enterprise/PhoneRestrictionPolicy;->canOutgoingCall(Ljava/lang/String;)Z
+    invoke-virtual {v8, p2}, Landroid/sec/enterprise/PhoneRestrictionPolicy;->canOutgoingCall(Ljava/lang/String;)Z
 
     move-result v2
 
-    .line 845
-    iget-object v10, p0, Lcom/android/internal/telephony/CallManager;->mRestrictionPolicy:Landroid/sec/enterprise/PhoneRestrictionPolicy;
+    .line 919
+    iget-object v8, p0, Lcom/android/internal/telephony/CallManager;->mRestrictionPolicy:Landroid/sec/enterprise/PhoneRestrictionPolicy;
 
-    invoke-virtual {v10, v8}, Landroid/sec/enterprise/PhoneRestrictionPolicy;->getEmergencyCallOnly(Z)Z
+    const/4 v9, 0x1
+
+    invoke-virtual {v8, v9}, Landroid/sec/enterprise/PhoneRestrictionPolicy;->getEmergencyCallOnly(Z)Z
 
     move-result v5
 
-    .line 853
+    .line 927
     :cond_0
     if-nez v6, :cond_2
 
-    .line 855
+    .line 929
     if-nez v2, :cond_1
 
-    .line 856
-    invoke-static {v3, v11, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    .line 930
+    const v8, 0x1040120
+
+    const/4 v9, 0x1
+
+    invoke-static {v3, v8, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v8
 
     invoke-virtual {v8}, Landroid/widget/Toast;->show()V
 
-    .line 857
+    .line 931
     new-instance v8, Lcom/android/internal/telephony/CallStateException;
 
     const-string v9, "Admin did not allow dialing this number"
@@ -1639,18 +1661,22 @@
 
     throw v8
 
-    .line 859
+    .line 933
     :cond_1
     if-eqz v5, :cond_2
 
-    .line 860
-    invoke-static {v3, v11, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    .line 934
+    const v8, 0x1040120
+
+    const/4 v9, 0x1
+
+    invoke-static {v3, v8, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v8
 
     invoke-virtual {v8}, Landroid/widget/Toast;->show()V
 
-    .line 861
+    .line 935
     new-instance v8, Lcom/android/internal/telephony/CallStateException;
 
     const-string v9, "Administrator blocked call on this device"
@@ -1659,15 +1685,15 @@
 
     throw v8
 
-    .line 866
+    .line 940
     :cond_2
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/CallManager;->canDial(Lcom/android/internal/telephony/Phone;)Z
 
-    move-result v10
+    move-result v8
 
-    if-nez v10, :cond_3
+    if-nez v8, :cond_3
 
-    .line 867
+    .line 941
     new-instance v8, Lcom/android/internal/telephony/CallStateException;
 
     const-string v9, "cannot dial in current state"
@@ -1676,66 +1702,68 @@
 
     throw v8
 
-    .line 870
+    .line 944
     :cond_3
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
-    move-result v10
+    move-result v8
 
-    if-eqz v10, :cond_4
+    if-eqz v8, :cond_4
 
-    .line 871
+    .line 945
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
+    invoke-virtual {v8}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v0
 
-    .line 872
+    .line 946
     .local v0, activePhone:Lcom/android/internal/telephony/Phone;
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->getBackgroundCall()Lcom/android/internal/telephony/Call;
 
-    move-result-object v10
+    move-result-object v8
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/Call;->isIdle()Z
+    invoke-virtual {v8}, Lcom/android/internal/telephony/Call;->isIdle()Z
 
-    move-result v10
+    move-result v8
 
-    if-nez v10, :cond_5
+    if-nez v8, :cond_5
 
-    move v4, v8
+    const/4 v4, 0x1
 
-    .line 875
+    .line 949
     .local v4, hasBgCall:Z
     :goto_0
-    const-string v10, "CallManager"
+    const-string v9, "CallManager"
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v12, "hasBgCall: "
+    const-string v10, "hasBgCall: "
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v8
 
-    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v8
 
-    const-string v12, " sameChannel:"
+    const-string v10, " sameChannel:"
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v10
 
     if-ne v0, v1, :cond_6
 
+    const/4 v8, 0x1
+
     :goto_1
-    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
@@ -1743,57 +1771,57 @@
 
     move-result-object v8
 
-    invoke-static {v10, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 878
+    .line 952
     if-eq v0, v1, :cond_4
 
-    .line 879
+    .line 953
     if-eqz v4, :cond_7
 
-    .line 880
+    .line 954
     const-string v8, "CallManager"
 
     const-string v9, "Hangup"
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 881
+    .line 955
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v8
 
     invoke-virtual {v8}, Lcom/android/internal/telephony/Call;->hangup()V
 
-    .line 889
+    .line 963
     .end local v0           #activePhone:Lcom/android/internal/telephony/Phone;
     .end local v4           #hasBgCall:Z
     :cond_4
     :goto_2
-    invoke-interface {v1, p2}, Lcom/android/internal/telephony/Phone;->dial(Ljava/lang/String;)Lcom/android/internal/telephony/Connection;
+    invoke-interface {v1, p2, p3}, Lcom/android/internal/telephony/Phone;->dial(Ljava/lang/String;Lcom/android/internal/telephony/Call$CallType;)Lcom/android/internal/telephony/Connection;
 
     move-result-object v7
 
-    .line 896
+    .line 970
     .local v7, result:Lcom/android/internal/telephony/Connection;
     return-object v7
 
+    .line 946
     .end local v7           #result:Lcom/android/internal/telephony/Connection;
     .restart local v0       #activePhone:Lcom/android/internal/telephony/Phone;
     :cond_5
-    move v4, v9
+    const/4 v4, 0x0
 
-    .line 872
     goto :goto_0
 
+    .line 949
     .restart local v4       #hasBgCall:Z
     :cond_6
-    move v8, v9
+    const/4 v8, 0x0
 
-    .line 875
     goto :goto_1
 
-    .line 883
+    .line 957
     :cond_7
     const-string v8, "CallManager"
 
@@ -1801,7 +1829,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 884
+    .line 958
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->switchHoldingAndActive()V
 
     goto :goto_2
@@ -1819,7 +1847,7 @@
     .end annotation
 
     .prologue
-    .line 930
+    .line 986
     invoke-interface {p1, p2, p3}, Lcom/android/internal/telephony/Phone;->dial(Ljava/lang/String;Lcom/android/internal/telephony/UUSInfo;)Lcom/android/internal/telephony/Connection;
 
     move-result-object v0
@@ -1828,7 +1856,7 @@
 .end method
 
 .method public dialVideoCall(Lcom/android/internal/telephony/Phone;Ljava/lang/String;)Lcom/android/internal/telephony/Connection;
-    .locals 5
+    .locals 1
     .parameter "phone"
     .parameter "dialString"
     .annotation system Ldalvik/annotation/Throws;
@@ -1838,12 +1866,34 @@
     .end annotation
 
     .prologue
-    .line 902
+    .line 872
+    sget-object v0, Lcom/android/internal/telephony/Call$CallType;->CS_CALL_VIDEO:Lcom/android/internal/telephony/Call$CallType;
+
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/internal/telephony/CallManager;->dialVideoCall(Lcom/android/internal/telephony/Phone;Ljava/lang/String;Lcom/android/internal/telephony/Call$CallType;)Lcom/android/internal/telephony/Connection;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public dialVideoCall(Lcom/android/internal/telephony/Phone;Ljava/lang/String;Lcom/android/internal/telephony/Call$CallType;)Lcom/android/internal/telephony/Connection;
+    .locals 5
+    .parameter "phone"
+    .parameter "dialString"
+    .parameter "calltype"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/internal/telephony/CallStateException;
+        }
+    .end annotation
+
+    .prologue
+    .line 877
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
-    .line 903
+    .line 878
     :cond_0
     const-string v2, "CallManager"
 
@@ -1851,7 +1901,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 904
+    .line 879
     new-instance v2, Lcom/android/internal/telephony/CallStateException;
 
     const-string v3, "Cannot dial in current state"
@@ -1860,13 +1910,13 @@
 
     throw v2
 
-    .line 906
+    .line 881
     :cond_1
     invoke-static {p1}, Lcom/android/internal/telephony/CallManager;->getPhoneBase(Lcom/android/internal/telephony/Phone;)Lcom/android/internal/telephony/Phone;
 
     move-result-object v0
 
-    .line 907
+    .line 882
     .local v0, basePhone:Lcom/android/internal/telephony/Phone;
     const-string v2, "CallManager"
 
@@ -1890,19 +1940,19 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 909
+    .line 884
     const/4 v1, 0x0
 
-    .line 910
+    .line 885
     .local v1, result:Lcom/android/internal/telephony/Connection;
     if-eqz v0, :cond_2
 
-    .line 911
-    invoke-interface {v0, p2}, Lcom/android/internal/telephony/Phone;->dialVideoCall(Ljava/lang/String;)Lcom/android/internal/telephony/Connection;
+    .line 886
+    invoke-interface {v0, p2, p3}, Lcom/android/internal/telephony/Phone;->dialVideoCall(Ljava/lang/String;Lcom/android/internal/telephony/Call$CallType;)Lcom/android/internal/telephony/Connection;
 
     move-result-object v1
 
-    .line 914
+    .line 889
     :cond_2
     return-object v1
 .end method
@@ -1917,21 +1967,21 @@
     .end annotation
 
     .prologue
-    .line 1008
+    .line 1064
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/CallManager;->canTransfer(Lcom/android/internal/telephony/Call;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1009
+    .line 1065
     invoke-virtual {p1}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v0
 
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->explicitCallTransfer()V
 
-    .line 1017
+    .line 1073
     :cond_0
     return-void
 .end method
@@ -1940,30 +1990,30 @@
     .locals 2
 
     .prologue
-    .line 1722
+    .line 1778
     iget-object v1, p0, Lcom/android/internal/telephony/CallManager;->mForegroundCalls:Ljava/util/ArrayList;
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/CallManager;->getFirstNonIdleCall(Ljava/util/List;)Lcom/android/internal/telephony/Call;
 
     move-result-object v0
 
-    .line 1723
+    .line 1779
     .local v0, call:Lcom/android/internal/telephony/Call;
     if-nez v0, :cond_0
 
-    .line 1724
+    .line 1780
     iget-object v1, p0, Lcom/android/internal/telephony/CallManager;->mDefaultPhone:Lcom/android/internal/telephony/Phone;
 
     if-nez v1, :cond_1
 
     const/4 v0, 0x0
 
-    .line 1728
+    .line 1784
     :cond_0
     :goto_0
     return-object v0
 
-    .line 1724
+    .line 1780
     :cond_1
     iget-object v1, p0, Lcom/android/internal/telephony/CallManager;->mDefaultPhone:Lcom/android/internal/telephony/Phone;
 
@@ -1978,21 +2028,21 @@
     .locals 2
 
     .prologue
-    .line 1796
+    .line 1852
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
 
-    .line 1798
+    .line 1854
     .local v0, fgCall:Lcom/android/internal/telephony/Call;
     if-eqz v0, :cond_0
 
-    .line 1799
+    .line 1855
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
 
     move-result-object v1
 
-    .line 1802
+    .line 1858
     :goto_0
     return-object v1
 
@@ -2038,7 +2088,7 @@
     .end annotation
 
     .prologue
-    .line 1683
+    .line 1739
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mBackgroundCalls:Ljava/util/ArrayList;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
@@ -2061,21 +2111,21 @@
     .end annotation
 
     .prologue
-    .line 1822
+    .line 1878
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveBgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
 
-    .line 1823
+    .line 1879
     .local v0, bgCall:Lcom/android/internal/telephony/Call;
     if-eqz v0, :cond_0
 
-    .line 1824
+    .line 1880
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getConnections()Ljava/util/List;
 
     move-result-object v1
 
-    .line 1826
+    .line 1882
     :goto_0
     return-object v1
 
@@ -2086,19 +2136,41 @@
 .end method
 
 .method public getBgPhone()Lcom/android/internal/telephony/Phone;
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 387
+    .line 415
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveBgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
 
+    .line 418
+    .local v0, call:Lcom/android/internal/telephony/Call;
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CallManager;->isImsCall(Lcom/android/internal/telephony/Call;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 419
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getImsPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v1
+
+    .line 424
+    .local v1, phone:Lcom/android/internal/telephony/Phone;
+    :goto_0
+    return-object v1
+
+    .line 421
+    .end local v1           #phone:Lcom/android/internal/telephony/Phone;
+    :cond_0
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    .restart local v1       #phone:Lcom/android/internal/telephony/Phone;
+    goto :goto_0
 .end method
 
 .method public getDefaultPhone()Lcom/android/internal/telephony/Phone;
@@ -2124,21 +2196,21 @@
     .end annotation
 
     .prologue
-    .line 1810
+    .line 1866
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
 
-    .line 1811
+    .line 1867
     .local v0, fgCall:Lcom/android/internal/telephony/Call;
     if-eqz v0, :cond_0
 
-    .line 1812
+    .line 1868
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getConnections()Ljava/util/List;
 
     move-result-object v1
 
-    .line 1814
+    .line 1870
     :goto_0
     return-object v1
 
@@ -2152,21 +2224,21 @@
     .locals 2
 
     .prologue
-    .line 1834
+    .line 1890
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
 
-    .line 1835
+    .line 1891
     .local v0, fgCall:Lcom/android/internal/telephony/Call;
     if-eqz v0, :cond_0
 
-    .line 1836
+    .line 1892
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getLatestConnection()Lcom/android/internal/telephony/Connection;
 
     move-result-object v1
 
-    .line 1838
+    .line 1894
     :goto_0
     return-object v1
 
@@ -2177,49 +2249,71 @@
 .end method
 
 .method public getFgPhone()Lcom/android/internal/telephony/Phone;
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 380
+    .line 399
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
 
+    .line 402
+    .local v0, call:Lcom/android/internal/telephony/Call;
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CallManager;->isImsCall(Lcom/android/internal/telephony/Call;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 403
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getImsPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v1
+
+    .line 408
+    .local v1, phone:Lcom/android/internal/telephony/Phone;
+    :goto_0
+    return-object v1
+
+    .line 405
+    .end local v1           #phone:Lcom/android/internal/telephony/Phone;
+    :cond_0
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    .restart local v1       #phone:Lcom/android/internal/telephony/Phone;
+    goto :goto_0
 .end method
 
 .method public getFirstActiveBgCall()Lcom/android/internal/telephony/Call;
     .locals 2
 
     .prologue
-    .line 1759
+    .line 1815
     iget-object v1, p0, Lcom/android/internal/telephony/CallManager;->mBackgroundCalls:Ljava/util/ArrayList;
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/CallManager;->getFirstNonIdleCall(Ljava/util/List;)Lcom/android/internal/telephony/Call;
 
     move-result-object v0
 
-    .line 1760
+    .line 1816
     .local v0, call:Lcom/android/internal/telephony/Call;
     if-nez v0, :cond_0
 
-    .line 1761
+    .line 1817
     iget-object v1, p0, Lcom/android/internal/telephony/CallManager;->mDefaultPhone:Lcom/android/internal/telephony/Phone;
 
     if-nez v1, :cond_1
 
     const/4 v0, 0x0
 
-    .line 1765
+    .line 1821
     :cond_0
     :goto_0
     return-object v0
 
-    .line 1761
+    .line 1817
     :cond_1
     iget-object v1, p0, Lcom/android/internal/telephony/CallManager;->mDefaultPhone:Lcom/android/internal/telephony/Phone;
 
@@ -2234,30 +2328,30 @@
     .locals 2
 
     .prologue
-    .line 1782
+    .line 1838
     iget-object v1, p0, Lcom/android/internal/telephony/CallManager;->mRingingCalls:Ljava/util/ArrayList;
 
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/CallManager;->getFirstNonIdleCall(Ljava/util/List;)Lcom/android/internal/telephony/Call;
 
     move-result-object v0
 
-    .line 1783
+    .line 1839
     .local v0, call:Lcom/android/internal/telephony/Call;
     if-nez v0, :cond_0
 
-    .line 1784
+    .line 1840
     iget-object v1, p0, Lcom/android/internal/telephony/CallManager;->mDefaultPhone:Lcom/android/internal/telephony/Phone;
 
     if-nez v1, :cond_1
 
     const/4 v0, 0x0
 
-    .line 1788
+    .line 1844
     :cond_0
     :goto_0
     return-object v0
 
-    .line 1784
+    .line 1840
     :cond_1
     iget-object v1, p0, Lcom/android/internal/telephony/CallManager;->mDefaultPhone:Lcom/android/internal/telephony/Phone;
 
@@ -2281,7 +2375,7 @@
     .end annotation
 
     .prologue
-    .line 1676
+    .line 1732
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mForegroundCalls:Ljava/util/ArrayList;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
@@ -2291,18 +2385,64 @@
     return-object v0
 .end method
 
+.method public getImsPhone()Lcom/android/internal/telephony/Phone;
+    .locals 4
+
+    .prologue
+    .line 377
+    iget-object v2, p0, Lcom/android/internal/telephony/CallManager;->mPhones:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    .local v0, i$:Ljava/util/Iterator;
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/internal/telephony/Phone;
+
+    .line 378
+    .local v1, phone:Lcom/android/internal/telephony/Phone;
+    invoke-interface {v1}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
+
+    move-result v2
+
+    const/4 v3, 0x5
+
+    if-ne v2, v3, :cond_0
+
+    .line 382
+    .end local v1           #phone:Lcom/android/internal/telephony/Phone;
+    :goto_0
+    return-object v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method public getMute()Z
     .locals 1
 
     .prologue
-    .line 1081
+    .line 1137
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1082
+    .line 1138
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
@@ -2315,11 +2455,11 @@
 
     move-result v0
 
-    .line 1086
+    .line 1142
     :goto_0
     return v0
 
-    .line 1083
+    .line 1139
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveBgCall()Z
 
@@ -2327,7 +2467,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 1084
+    .line 1140
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveBgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
@@ -2342,7 +2482,7 @@
 
     goto :goto_0
 
-    .line 1086
+    .line 1142
     :cond_1
     const/4 v0, 0x0
 
@@ -2365,14 +2505,14 @@
     .end annotation
 
     .prologue
-    .line 1029
+    .line 1085
     const-string v0, "CallManager"
 
     const-string v1, "getPendingMmiCodes not implemented"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1030
+    .line 1086
     const/4 v0, 0x0
 
     return-object v0
@@ -2391,7 +2531,7 @@
     .end annotation
 
     .prologue
-    .line 1669
+    .line 1725
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mRingingCalls:Ljava/util/ArrayList;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
@@ -2402,19 +2542,41 @@
 .end method
 
 .method public getRingingPhone()Lcom/android/internal/telephony/Phone;
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 394
+    .line 431
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveRingingCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
 
+    .line 434
+    .local v0, call:Lcom/android/internal/telephony/Call;
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CallManager;->isImsCall(Lcom/android/internal/telephony/Call;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 435
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getImsPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v1
+
+    .line 440
+    .local v1, phone:Lcom/android/internal/telephony/Phone;
+    :goto_0
+    return-object v1
+
+    .line 437
+    .end local v1           #phone:Lcom/android/internal/telephony/Phone;
+    :cond_0
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    .restart local v1       #phone:Lcom/android/internal/telephony/Phone;
+    goto :goto_0
 .end method
 
 .method public getServiceState()I
@@ -2586,14 +2748,14 @@
     .end annotation
 
     .prologue
-    .line 742
+    .line 789
     const/4 v1, 0x0
 
-    .line 743
+    .line 790
     .local v1, foregroundPhone:Lcom/android/internal/telephony/Phone;
     const/4 v0, 0x0
 
-    .line 750
+    .line 797
     .local v0, backgroundPhone:Lcom/android/internal/telephony/Phone;
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
@@ -2601,35 +2763,35 @@
 
     if-eqz v2, :cond_0
 
-    .line 751
+    .line 798
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFgPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v1
 
-    .line 752
+    .line 799
     if-eqz p1, :cond_0
 
-    .line 753
+    .line 800
     invoke-virtual {p1}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v0
 
-    .line 754
+    .line 801
     if-ne v1, v0, :cond_1
 
-    .line 755
+    .line 802
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/Call;->hangup()V
 
-    .line 768
+    .line 815
     :cond_0
     :goto_0
     return-void
 
-    .line 758
+    .line 805
     :cond_1
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
@@ -2637,7 +2799,7 @@
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/Call;->hangup()V
 
-    .line 759
+    .line 806
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/CallManager;->switchHoldingAndActive(Lcom/android/internal/telephony/Call;)V
 
     goto :goto_0
@@ -2647,7 +2809,7 @@
     .locals 1
 
     .prologue
-    .line 1699
+    .line 1755
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mBackgroundCalls:Ljava/util/ArrayList;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveCall(Ljava/util/ArrayList;)Lcom/android/internal/telephony/Call;
@@ -2671,7 +2833,7 @@
     .locals 1
 
     .prologue
-    .line 1690
+    .line 1746
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mForegroundCalls:Ljava/util/ArrayList;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveCall(Ljava/util/ArrayList;)Lcom/android/internal/telephony/Call;
@@ -2695,7 +2857,7 @@
     .locals 1
 
     .prologue
-    .line 1707
+    .line 1763
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mRingingCalls:Ljava/util/ArrayList;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveCall(Ljava/util/ArrayList;)Lcom/android/internal/telephony/Call;
@@ -2719,7 +2881,7 @@
     .locals 2
 
     .prologue
-    .line 1852
+    .line 1908
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mBackgroundCalls:Ljava/util/ArrayList;
 
     sget-object v1, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
@@ -2745,7 +2907,7 @@
     .locals 2
 
     .prologue
-    .line 1845
+    .line 1901
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mForegroundCalls:Ljava/util/ArrayList;
 
     sget-object v1, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
@@ -2767,6 +2929,50 @@
     goto :goto_0
 .end method
 
+.method public isImsCall(Lcom/android/internal/telephony/Call;)Z
+    .locals 2
+    .parameter "call"
+
+    .prologue
+    .line 386
+    invoke-virtual {p1}, Lcom/android/internal/telephony/Call;->getCallType()Lcom/android/internal/telephony/Call$CallType;
+
+    move-result-object v0
+
+    .line 388
+    .local v0, type:Lcom/android/internal/telephony/Call$CallType;
+    sget-object v1, Lcom/android/internal/telephony/Call$CallType;->IMS_CALL_VOICE:Lcom/android/internal/telephony/Call$CallType;
+
+    if-eq v0, v1, :cond_0
+
+    sget-object v1, Lcom/android/internal/telephony/Call$CallType;->IMS_CALL_HDVIDEO:Lcom/android/internal/telephony/Call$CallType;
+
+    if-eq v0, v1, :cond_0
+
+    sget-object v1, Lcom/android/internal/telephony/Call$CallType;->IMS_CALL_QCIFVIDEO:Lcom/android/internal/telephony/Call$CallType;
+
+    if-eq v0, v1, :cond_0
+
+    sget-object v1, Lcom/android/internal/telephony/Call$CallType;->IMS_CALL_VIDEO_SHARE:Lcom/android/internal/telephony/Call$CallType;
+
+    if-eq v0, v1, :cond_0
+
+    sget-object v1, Lcom/android/internal/telephony/Call$CallType;->IMS_CALL_VIDEO_CONFERENCE:Lcom/android/internal/telephony/Call$CallType;
+
+    if-ne v0, v1, :cond_1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    :goto_0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method public registerForCallWaiting(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
     .parameter "h"
@@ -2774,12 +2980,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1495
+    .line 1551
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mCallWaitingRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1496
+    .line 1552
     return-void
 .end method
 
@@ -2790,12 +2996,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1587
+    .line 1643
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mCdmaOtaStatusChangeRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1588
+    .line 1644
     return-void
 .end method
 
@@ -2806,12 +3012,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1217
+    .line 1273
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mDisconnectRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1218
+    .line 1274
     return-void
 .end method
 
@@ -2822,12 +3028,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1566
+    .line 1622
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mDisplayInfoRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1567
+    .line 1623
     return-void
 .end method
 
@@ -2838,12 +3044,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1397
+    .line 1453
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mEcmTimerResetRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1398
+    .line 1454
     return-void
 .end method
 
@@ -2854,12 +3060,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1475
+    .line 1531
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mInCallVoicePrivacyOffRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1476
+    .line 1532
     return-void
 .end method
 
@@ -2870,12 +3076,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1455
+    .line 1511
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mInCallVoicePrivacyOnRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1456
+    .line 1512
     return-void
 .end method
 
@@ -2886,12 +3092,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1299
+    .line 1355
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mIncomingRingRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1300
+    .line 1356
     return-void
 .end method
 
@@ -2902,12 +3108,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1543
+    .line 1599
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mLineControlInfoRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1544
+    .line 1600
     return-void
 .end method
 
@@ -2918,12 +3124,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1379
+    .line 1435
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mMmiCompleteRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1380
+    .line 1436
     return-void
 .end method
 
@@ -2934,12 +3140,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1359
+    .line 1415
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mMmiInitiateRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1360
+    .line 1416
     return-void
 .end method
 
@@ -2950,12 +3156,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1278
+    .line 1334
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mNewRingingConnectionRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1279
+    .line 1335
     return-void
 .end method
 
@@ -2966,12 +3172,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1649
+    .line 1705
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mPostDialCharacterRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1650
+    .line 1706
     return-void
 .end method
 
@@ -2982,12 +3188,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1238
+    .line 1294
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mPreciseCallStateRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1239
+    .line 1295
     return-void
 .end method
 
@@ -2998,12 +3204,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1337
+    .line 1393
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mResendIncallMuteRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1338
+    .line 1394
     return-void
 .end method
 
@@ -3014,12 +3220,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1321
+    .line 1377
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mRingbackToneRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1322
+    .line 1378
     return-void
 .end method
 
@@ -3030,12 +3236,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1414
+    .line 1470
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mServiceStateChangedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1415
+    .line 1471
     return-void
 .end method
 
@@ -3046,12 +3252,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1518
+    .line 1574
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mSignalInfoRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1519
+    .line 1575
     return-void
 .end method
 
@@ -3062,12 +3268,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1605
+    .line 1661
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mSubscriptionInfoReadyRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1606
+    .line 1662
     return-void
 .end method
 
@@ -3078,12 +3284,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1434
+    .line 1490
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mSuppServiceFailedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1435
+    .line 1491
     return-void
 .end method
 
@@ -3094,12 +3300,12 @@
     .parameter "obj"
 
     .prologue
-    .line 1254
+    .line 1310
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mUnknownConnectionRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/os/RegistrantList;->addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
 
-    .line 1255
+    .line 1311
     return-void
 .end method
 
@@ -3239,16 +3445,16 @@
     .end annotation
 
     .prologue
-    .line 670
+    .line 717
     invoke-virtual {p1}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v0
 
-    .line 672
+    .line 719
     .local v0, ringingPhone:Lcom/android/internal/telephony/Phone;
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->rejectCall()V
 
-    .line 678
+    .line 725
     return-void
 .end method
 
@@ -3260,14 +3466,14 @@
     .parameter "onComplete"
 
     .prologue
-    .line 1199
+    .line 1255
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1200
+    .line 1256
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
@@ -3278,10 +3484,10 @@
 
     invoke-interface {v0, p1, p2, p3, p4}, Lcom/android/internal/telephony/Phone;->sendBurstDtmf(Ljava/lang/String;IILandroid/os/Message;)V
 
-    .line 1201
+    .line 1257
     const/4 v0, 0x1
 
-    .line 1203
+    .line 1259
     :goto_0
     return v0
 
@@ -3296,10 +3502,10 @@
     .parameter "c"
 
     .prologue
-    .line 1117
+    .line 1173
     const/4 v0, 0x0
 
-    .line 1124
+    .line 1180
     .local v0, result:Z
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
@@ -3307,7 +3513,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1125
+    .line 1181
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v1
@@ -3318,10 +3524,10 @@
 
     invoke-interface {v1, p1}, Lcom/android/internal/telephony/Phone;->sendDtmf(C)V
 
-    .line 1126
+    .line 1182
     const/4 v0, 0x1
 
-    .line 1133
+    .line 1189
     :cond_0
     return v0
 .end method
@@ -3332,14 +3538,14 @@
     .parameter "ussdMessge"
 
     .prologue
-    .line 1042
+    .line 1098
     const-string v0, "CallManager"
 
     const-string/jumbo v1, "sendUssdResponse not implemented"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1043
+    .line 1099
     const/4 v0, 0x0
 
     return v0
@@ -3355,20 +3561,20 @@
 
     const/4 v8, 0x0
 
-    .line 398
+    .line 444
     invoke-direct {p0}, Lcom/android/internal/telephony/CallManager;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    .line 399
+    .line 445
     .local v1, context:Landroid/content/Context;
     if-nez v1, :cond_0
 
-    .line 482
+    .line 529
     :goto_0
     return-void
 
-    .line 400
+    .line 446
     :cond_0
     const-string v5, "audio"
 
@@ -3378,7 +3584,7 @@
 
     check-cast v0, Landroid/media/AudioManager;
 
-    .line 405
+    .line 451
     .local v0, audioManager:Landroid/media/AudioManager;
     sget-object v5, Lcom/android/internal/telephony/CallManager$2;->$SwitchMap$com$android$internal$telephony$Phone$State:[I
 
@@ -3394,23 +3600,23 @@
 
     packed-switch v5, :pswitch_data_0
 
-    .line 481
+    .line 528
     :cond_1
     :goto_1
     iput-boolean v8, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
 
     goto :goto_0
 
-    .line 407
+    .line 453
     :pswitch_0
     iget-boolean v5, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
 
     if-eqz v5, :cond_3
 
-    .line 408
+    .line 454
     const/4 v2, 0x0
 
-    .line 409
+    .line 455
     .local v2, mode:I
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveRingingCall()Lcom/android/internal/telephony/Call;
 
@@ -3422,10 +3628,10 @@
 
     if-eqz v5, :cond_2
 
-    .line 410
+    .line 456
     const/4 v2, 0x4
 
-    .line 414
+    .line 460
     :goto_2
     const-string v5, "CallManager"
 
@@ -3449,15 +3655,15 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 415
+    .line 461
     const-string/jumbo v5, "realcall=on"
 
     invoke-virtual {v0, v5}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
 
-    .line 422
+    .line 468
     iput-boolean v8, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
 
-    .line 423
+    .line 469
     invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
 
     move-result v5
@@ -3468,13 +3674,13 @@
 
     goto :goto_1
 
-    .line 412
+    .line 458
     :cond_2
     const/4 v2, 0x2
 
     goto :goto_2
 
-    .line 427
+    .line 473
     .end local v2           #mode:I
     :cond_3
     invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
@@ -3483,21 +3689,21 @@
 
     if-eq v5, v9, :cond_1
 
-    .line 432
+    .line 478
     invoke-virtual {v0, v7, v7}, Landroid/media/AudioManager;->requestAudioFocusForCall(II)V
 
-    .line 435
+    .line 481
     invoke-virtual {v0, v9}, Landroid/media/AudioManager;->setMode(I)V
 
     goto :goto_1
 
-    .line 439
+    .line 485
     :pswitch_1
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFgPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v4
 
-    .line 440
+    .line 486
     .local v4, offhookPhone:Lcom/android/internal/telephony/Phone;
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCallState()Lcom/android/internal/telephony/Call$State;
 
@@ -3507,25 +3713,30 @@
 
     if-ne v5, v6, :cond_4
 
-    .line 443
+    .line 489
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getBgPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v4
 
-    .line 446
+    .line 492
     :cond_4
     const/4 v3, 0x2
 
-    .line 447
+    .line 493
     .local v3, newAudioMode:I
     instance-of v5, v4, Lcom/android/internal/telephony/sip/SipPhone;
 
     if-eqz v5, :cond_8
 
-    .line 449
+    .line 495
     const/4 v3, 0x3
 
-    .line 453
+    .line 496
+    const-string/jumbo v5, "realcall=off"
+
+    invoke-virtual {v0, v5}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 500
     :cond_5
     :goto_3
     invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
@@ -3534,29 +3745,29 @@
 
     if-eq v5, v3, :cond_1
 
-    .line 456
+    .line 503
     invoke-virtual {v0, v8, v7}, Landroid/media/AudioManager;->requestAudioFocusForCall(II)V
 
-    .line 458
+    .line 505
     if-eq v3, v7, :cond_6
 
     const/4 v5, 0x4
 
     if-ne v3, v5, :cond_7
 
-    .line 459
+    .line 506
     :cond_6
     const-string/jumbo v5, "realcall=on"
 
     invoke-virtual {v0, v5}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
 
-    .line 467
+    .line 514
     :cond_7
     invoke-virtual {v0, v3}, Landroid/media/AudioManager;->setMode(I)V
 
     goto :goto_1
 
-    .line 450
+    .line 497
     :cond_8
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
@@ -3568,12 +3779,12 @@
 
     if-eqz v5, :cond_5
 
-    .line 451
+    .line 498
     const/4 v3, 0x4
 
     goto :goto_3
 
-    .line 471
+    .line 518
     .end local v3           #newAudioMode:I
     .end local v4           #offhookPhone:Lcom/android/internal/telephony/Phone;
     :pswitch_2
@@ -3583,20 +3794,20 @@
 
     if-eqz v5, :cond_1
 
-    .line 472
+    .line 519
     const-string/jumbo v5, "realcall=off"
 
     invoke-virtual {v0, v5}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
 
-    .line 473
+    .line 520
     invoke-virtual {v0, v8}, Landroid/media/AudioManager;->setMode(I)V
 
-    .line 476
+    .line 523
     invoke-virtual {v0}, Landroid/media/AudioManager;->abandonAudioFocusForCall()V
 
     goto/16 :goto_1
 
-    .line 405
+    .line 451
     nop
 
     :pswitch_data_0
@@ -3612,21 +3823,21 @@
     .parameter "bSet"
 
     .prologue
-    .line 486
+    .line 533
     invoke-direct {p0}, Lcom/android/internal/telephony/CallManager;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    .line 487
+    .line 534
     .local v1, context:Landroid/content/Context;
     if-nez v1, :cond_1
 
-    .line 528
+    .line 575
     :cond_0
     :goto_0
     return-void
 
-    .line 488
+    .line 535
     :cond_1
     const-string v4, "audio"
 
@@ -3636,11 +3847,11 @@
 
     check-cast v0, Landroid/media/AudioManager;
 
-    .line 491
+    .line 538
     .local v0, audioManager:Landroid/media/AudioManager;
     const/4 v3, 0x0
 
-    .line 492
+    .line 539
     .local v3, mode:I
     sget-object v4, Lcom/android/internal/telephony/CallManager$2;->$SwitchMap$com$android$internal$telephony$Phone$State:[I
 
@@ -3656,7 +3867,7 @@
 
     packed-switch v4, :pswitch_data_0
 
-    .line 518
+    .line 565
     :cond_2
     :goto_1
     invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
@@ -3665,7 +3876,7 @@
 
     if-eq v4, v3, :cond_4
 
-    .line 520
+    .line 567
     const-string v4, "CallManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -3694,25 +3905,25 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 521
+    .line 568
     invoke-virtual {v0, v3}, Landroid/media/AudioManager;->setMode(I)V
 
     goto :goto_0
 
-    .line 494
+    .line 541
     :pswitch_0
     const/4 v3, 0x1
 
-    .line 495
+    .line 542
     goto :goto_1
 
-    .line 497
+    .line 544
     :pswitch_1
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFgPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v2
 
-    .line 500
+    .line 547
     .local v2, fgPhone:Lcom/android/internal/telephony/Phone;
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCallState()Lcom/android/internal/telephony/Call$State;
 
@@ -3734,21 +3945,21 @@
 
     if-nez v4, :cond_2
 
-    .line 503
+    .line 550
     if-eqz p1, :cond_3
 
-    .line 504
+    .line 551
     const/4 v3, 0x2
 
     goto :goto_1
 
-    .line 506
+    .line 553
     :cond_3
     const/4 v3, 0x0
 
     goto :goto_1
 
-    .line 524
+    .line 571
     .end local v2           #fgPhone:Lcom/android/internal/telephony/Phone;
     :cond_4
     const-string v4, "CallManager"
@@ -3779,21 +3990,21 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 525
+    .line 572
     iget-boolean v4, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
 
     const/4 v5, 0x1
 
     if-ne v4, v5, :cond_0
 
-    .line 526
+    .line 573
     const/4 v4, 0x0
 
     iput-boolean v4, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
 
     goto/16 :goto_0
 
-    .line 492
+    .line 539
     nop
 
     :pswitch_data_0
@@ -3808,14 +4019,14 @@
     .parameter "enabled"
 
     .prologue
-    .line 1098
+    .line 1154
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1099
+    .line 1155
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
@@ -3826,7 +4037,7 @@
 
     invoke-interface {v0, p1}, Lcom/android/internal/telephony/Phone;->setEchoSuppressionEnabled(Z)V
 
-    .line 1106
+    .line 1162
     :cond_0
     return-void
 .end method
@@ -3836,14 +4047,14 @@
     .parameter "muted"
 
     .prologue
-    .line 1061
+    .line 1117
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1062
+    .line 1118
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v0
@@ -3854,7 +4065,7 @@
 
     invoke-interface {v0, p1}, Lcom/android/internal/telephony/Phone;->setMute(Z)V
 
-    .line 1069
+    .line 1125
     :cond_0
     return-void
 .end method
@@ -3864,10 +4075,10 @@
     .parameter "c"
 
     .prologue
-    .line 1146
+    .line 1202
     const/4 v0, 0x0
 
-    .line 1153
+    .line 1209
     .local v0, result:Z
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
@@ -3875,7 +4086,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1154
+    .line 1210
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v1
@@ -3886,10 +4097,10 @@
 
     invoke-interface {v1, p1}, Lcom/android/internal/telephony/Phone;->startDtmf(C)V
 
-    .line 1155
+    .line 1211
     const/4 v0, 0x1
 
-    .line 1163
+    .line 1219
     :cond_0
     return v0
 .end method
@@ -3898,7 +4109,7 @@
     .locals 1
 
     .prologue
-    .line 1176
+    .line 1232
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
     move-result v0
@@ -3911,7 +4122,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->stopDtmf()V
 
-    .line 1182
+    .line 1238
     :cond_0
     return-void
 .end method
@@ -3926,14 +4137,14 @@
     .end annotation
 
     .prologue
-    .line 699
+    .line 746
     const/4 v0, 0x0
 
-    .line 700
+    .line 747
     .local v0, activePhone:Lcom/android/internal/telephony/Phone;
     const/4 v1, 0x0
 
-    .line 707
+    .line 754
     .local v1, heldPhone:Lcom/android/internal/telephony/Phone;
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->hasActiveFgCall()Z
 
@@ -3941,7 +4152,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 708
+    .line 755
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v2
@@ -3950,38 +4161,38 @@
 
     move-result-object v0
 
-    .line 711
+    .line 758
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 712
+    .line 759
     invoke-virtual {p1}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v1
 
-    .line 715
+    .line 762
     :cond_1
     if-eqz v0, :cond_2
 
-    .line 716
+    .line 763
     invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->switchHoldingAndActive()V
 
-    .line 719
+    .line 766
     :cond_2
     if-eqz v1, :cond_3
 
     if-eq v1, v0, :cond_3
 
-    .line 720
+    .line 767
     invoke-interface {v1}, Lcom/android/internal/telephony/Phone;->switchHoldingAndActive()V
 
-    .line 725
+    .line 772
     :cond_3
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
 
-    .line 731
+    .line 778
     return-void
 .end method
 
@@ -3989,18 +4200,18 @@
     .locals 6
 
     .prologue
-    .line 2084
+    .line 2143
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 2086
+    .line 2145
     .local v0, b:Ljava/lang/StringBuilder;
     const-string v4, "CallManager {"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2087
+    .line 2146
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -4025,12 +4236,12 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2088
+    .line 2147
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v1
 
-    .line 2089
+    .line 2148
     .local v1, call:Lcom/android/internal/telephony/Call;
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -4056,7 +4267,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2090
+    .line 2149
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -4081,7 +4292,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2091
+    .line 2150
     const-string v4, "\n  Conn: "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -4094,12 +4305,12 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 2092
+    .line 2151
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveBgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v1
 
-    .line 2093
+    .line 2152
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -4124,7 +4335,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2094
+    .line 2153
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -4149,7 +4360,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2095
+    .line 2154
     const-string v4, "\n  Conn: "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -4162,12 +4373,12 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 2096
+    .line 2155
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveRingingCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v1
 
-    .line 2097
+    .line 2156
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -4192,7 +4403,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2098
+    .line 2157
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -4217,7 +4428,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2100
+    .line 2159
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getAllPhones()Ljava/util/List;
 
     move-result-object v4
@@ -4241,11 +4452,11 @@
 
     check-cast v3, Lcom/android/internal/telephony/Phone;
 
-    .line 2101
+    .line 2160
     .local v3, phone:Lcom/android/internal/telephony/Phone;
     if-eqz v3, :cond_0
 
-    .line 2102
+    .line 2161
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -4294,12 +4505,12 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2104
+    .line 2163
     invoke-interface {v3}, Lcom/android/internal/telephony/Phone;->getForegroundCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v1
 
-    .line 2105
+    .line 2164
     const-string v4, "\n- Foreground: "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -4308,12 +4519,12 @@
 
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 2106
+    .line 2165
     invoke-interface {v3}, Lcom/android/internal/telephony/Phone;->getBackgroundCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v1
 
-    .line 2107
+    .line 2166
     const-string v4, " Background: "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -4322,12 +4533,12 @@
 
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 2108
+    .line 2167
     invoke-interface {v3}, Lcom/android/internal/telephony/Phone;->getRingingCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v1
 
-    .line 2109
+    .line 2168
     const-string v4, " Ringing: "
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -4338,14 +4549,14 @@
 
     goto :goto_0
 
-    .line 2112
+    .line 2171
     .end local v3           #phone:Lcom/android/internal/telephony/Phone;
     :cond_1
     const-string v4, "\n}"
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2113
+    .line 2172
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -4358,12 +4569,12 @@
     .parameter "h"
 
     .prologue
-    .line 1503
+    .line 1559
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mCallWaitingRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1504
+    .line 1560
     return-void
 .end method
 
@@ -4372,12 +4583,12 @@
     .parameter "h"
 
     .prologue
-    .line 1595
+    .line 1651
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mCdmaOtaStatusChangeRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1596
+    .line 1652
     return-void
 .end method
 
@@ -4386,12 +4597,12 @@
     .parameter "h"
 
     .prologue
-    .line 1225
+    .line 1281
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mDisconnectRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1226
+    .line 1282
     return-void
 .end method
 
@@ -4400,12 +4611,12 @@
     .parameter "h"
 
     .prologue
-    .line 1576
+    .line 1632
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mDisplayInfoRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1577
+    .line 1633
     return-void
 .end method
 
@@ -4414,12 +4625,12 @@
     .parameter "h"
 
     .prologue
-    .line 1405
+    .line 1461
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mEcmTimerResetRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1406
+    .line 1462
     return-void
 .end method
 
@@ -4428,12 +4639,12 @@
     .parameter "h"
 
     .prologue
-    .line 1484
+    .line 1540
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mInCallVoicePrivacyOffRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1485
+    .line 1541
     return-void
 .end method
 
@@ -4442,12 +4653,12 @@
     .parameter "h"
 
     .prologue
-    .line 1464
+    .line 1520
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mInCallVoicePrivacyOnRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1465
+    .line 1521
     return-void
 .end method
 
@@ -4456,12 +4667,12 @@
     .parameter "h"
 
     .prologue
-    .line 1308
+    .line 1364
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mIncomingRingRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1309
+    .line 1365
     return-void
 .end method
 
@@ -4470,12 +4681,12 @@
     .parameter "h"
 
     .prologue
-    .line 1553
+    .line 1609
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mLineControlInfoRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1554
+    .line 1610
     return-void
 .end method
 
@@ -4484,12 +4695,12 @@
     .parameter "h"
 
     .prologue
-    .line 1387
+    .line 1443
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mMmiCompleteRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1388
+    .line 1444
     return-void
 .end method
 
@@ -4498,12 +4709,12 @@
     .parameter "h"
 
     .prologue
-    .line 1367
+    .line 1423
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mMmiInitiateRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1368
+    .line 1424
     return-void
 .end method
 
@@ -4512,12 +4723,12 @@
     .parameter "h"
 
     .prologue
-    .line 1287
+    .line 1343
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mNewRingingConnectionRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1288
+    .line 1344
     return-void
 .end method
 
@@ -4526,12 +4737,12 @@
     .parameter "h"
 
     .prologue
-    .line 1653
+    .line 1709
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mPostDialCharacterRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1654
+    .line 1710
     return-void
 .end method
 
@@ -4540,12 +4751,12 @@
     .parameter "h"
 
     .prologue
-    .line 1246
+    .line 1302
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mPreciseCallStateRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1247
+    .line 1303
     return-void
 .end method
 
@@ -4554,12 +4765,12 @@
     .parameter "h"
 
     .prologue
-    .line 1344
+    .line 1400
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mResendIncallMuteRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1345
+    .line 1401
     return-void
 .end method
 
@@ -4568,12 +4779,12 @@
     .parameter "h"
 
     .prologue
-    .line 1329
+    .line 1385
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mRingbackToneRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1330
+    .line 1386
     return-void
 .end method
 
@@ -4582,12 +4793,12 @@
     .parameter "h"
 
     .prologue
-    .line 1422
+    .line 1478
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mServiceStateChangedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1423
+    .line 1479
     return-void
 .end method
 
@@ -4596,12 +4807,12 @@
     .parameter "h"
 
     .prologue
-    .line 1528
+    .line 1584
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mSignalInfoRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1529
+    .line 1585
     return-void
 .end method
 
@@ -4610,12 +4821,12 @@
     .parameter "h"
 
     .prologue
-    .line 1613
+    .line 1669
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mSubscriptionInfoReadyRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1614
+    .line 1670
     return-void
 .end method
 
@@ -4624,12 +4835,12 @@
     .parameter "h"
 
     .prologue
-    .line 1444
+    .line 1500
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mSuppServiceFailedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1445
+    .line 1501
     return-void
 .end method
 
@@ -4638,12 +4849,12 @@
     .parameter "h"
 
     .prologue
-    .line 1261
+    .line 1317
     iget-object v0, p0, Lcom/android/internal/telephony/CallManager;->mUnknownConnectionRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
-    .line 1262
+    .line 1318
     return-void
 .end method
 

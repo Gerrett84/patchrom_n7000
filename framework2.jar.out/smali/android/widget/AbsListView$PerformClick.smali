@@ -29,7 +29,7 @@
     .parameter
 
     .prologue
-    .line 3049
+    .line 3060
     iput-object p1, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
 
     const/4 v0, 0x0
@@ -45,7 +45,7 @@
     .parameter "x1"
 
     .prologue
-    .line 3049
+    .line 3060
     invoke-direct {p0, p1}, Landroid/widget/AbsListView$PerformClick;-><init>(Landroid/widget/AbsListView;)V
 
     return-void
@@ -57,7 +57,7 @@
     .locals 7
 
     .prologue
-    .line 3055
+    .line 3066
     iget-object v4, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
 
     #getter for: Landroid/widget/AbsListView;->mForcedClick:Z
@@ -73,22 +73,22 @@
 
     if-eqz v4, :cond_1
 
-    .line 3073
+    .line 3084
     :cond_0
     :goto_0
     return-void
 
-    .line 3057
+    .line 3068
     :cond_1
     iget-object v4, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
 
     iget-object v0, v4, Landroid/widget/AbsListView;->mAdapter:Landroid/widget/ListAdapter;
 
-    .line 3058
+    .line 3069
     .local v0, adapter:Landroid/widget/ListAdapter;
     iget v2, p0, Landroid/widget/AbsListView$PerformClick;->mClickMotionPosition:I
 
-    .line 3059
+    .line 3070
     .local v2, motionPosition:I
     if-eqz v0, :cond_0
 
@@ -114,7 +114,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 3062
+    .line 3073
     iget-object v4, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
 
     iget-object v5, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
@@ -127,11 +127,11 @@
 
     move-result-object v3
 
-    .line 3065
+    .line 3076
     .local v3, view:Landroid/view/View;
     if-eqz v3, :cond_0
 
-    .line 3067
+    .line 3078
     :try_start_0
     iget-object v4, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
 
@@ -145,11 +145,11 @@
 
     goto :goto_0
 
-    .line 3068
+    .line 3079
     :catch_0
     move-exception v1
 
-    .line 3069
+    .line 3080
     .local v1, e:Ljava/lang/IndexOutOfBoundsException;
     invoke-virtual {v1}, Ljava/lang/IndexOutOfBoundsException;->printStackTrace()V
 

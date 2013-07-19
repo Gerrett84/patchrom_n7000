@@ -32,21 +32,21 @@
     .parameter "messageResId"
 
     .prologue
-    .line 708
+    .line 731
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 709
+    .line 732
     iput p1, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mIconResId:I
 
-    .line 710
+    .line 733
     iput p2, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessageResId:I
 
-    .line 711
+    .line 734
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessage:Ljava/lang/CharSequence;
 
-    .line 712
+    .line 735
     return-void
 .end method
 
@@ -56,21 +56,21 @@
     .parameter "message"
 
     .prologue
-    .line 714
+    .line 737
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 715
+    .line 738
     iput p1, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mIconResId:I
 
-    .line 716
+    .line 739
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessageResId:I
 
-    .line 717
+    .line 740
     iput-object p2, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessage:Ljava/lang/CharSequence;
 
-    .line 718
+    .line 741
     return-void
 .end method
 
@@ -84,7 +84,7 @@
     .parameter "inflater"
 
     .prologue
-    .line 733
+    .line 756
     const v3, 0x1090045
 
     const/4 v4, 0x0
@@ -93,7 +93,7 @@
 
     move-result-object v2
 
-    .line 735
+    .line 758
     .local v2, v:Landroid/view/View;
     const v3, 0x1020006
 
@@ -103,7 +103,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 736
+    .line 759
     .local v0, icon:Landroid/widget/ImageView;
     const v3, 0x102000b
 
@@ -113,9 +113,9 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 738
+    .line 761
     .local v1, messageView:Landroid/widget/TextView;
-    const v3, 0x102029d
+    const v3, 0x10202a6
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -125,7 +125,7 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 740
+    .line 763
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -138,27 +138,27 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 741
+    .line 764
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessage:Ljava/lang/CharSequence;
 
     if-eqz v3, :cond_0
 
-    .line 742
+    .line 765
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessage:Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 748
+    .line 771
     :goto_0
     return-object v2
 
-    .line 744
+    .line 767
     :cond_0
     iget v3, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessageResId:I
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 
-    .line 745
+    .line 768
     const/4 v3, 0x1
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setEnabled(Z)V
@@ -170,7 +170,7 @@
     .locals 1
 
     .prologue
-    .line 720
+    .line 743
     const/4 v0, 0x1
 
     return v0
@@ -180,7 +180,7 @@
     .locals 1
 
     .prologue
-    .line 726
+    .line 749
     const/4 v0, 0x0
 
     return v0

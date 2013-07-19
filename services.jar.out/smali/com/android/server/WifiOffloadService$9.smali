@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1303
+    .line 1319
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,14 +44,14 @@
 
     const/4 v5, 0x1
 
-    .line 1307
+    .line 1323
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v3, "onReceive -- wifiStateReceiver"
 
     invoke-virtual {v2, v3}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1308
+    .line 1324
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v2
@@ -64,14 +64,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 1309
+    .line 1325
     const-string v2, "wifi_state"
 
     invoke-virtual {p2, v2, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 1310
+    .line 1326
     .local v0, currentWifiState:I
     const-string v2, "previous_wifi_state"
 
@@ -79,7 +79,7 @@
 
     move-result v1
 
-    .line 1312
+    .line 1328
     .local v1, previousWifiState:I
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -103,7 +103,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1313
+    .line 1329
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -126,7 +126,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1315
+    .line 1331
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_2
@@ -135,14 +135,14 @@
 
     if-ne v0, v2, :cond_2
 
-    .line 1316
+    .line 1332
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v3, "can reset timer"
 
     invoke-virtual {v2, v3}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1317
+    .line 1333
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v2}, Lcom/android/server/WifiOffloadService;->getIntelligentWifiEnabled()Z
@@ -151,19 +151,19 @@
 
     if-eqz v2, :cond_0
 
-    .line 1318
+    .line 1334
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v3, "resetWifiOffloadTimer "
 
     invoke-virtual {v2, v3}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1319
+    .line 1335
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v2}, Lcom/android/server/WifiOffloadService;->resetNeverTurnOnWifi()V
 
-    .line 1321
+    .line 1337
     :cond_0
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -178,14 +178,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 1322
+    .line 1338
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v3, "Reset 5 min timer when wifi turning ON"
 
     invoke-virtual {v2, v3}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1323
+    .line 1339
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     #getter for: Lcom/android/server/WifiOffloadService;->messageHandler:Landroid/os/Handler;
@@ -195,14 +195,14 @@
 
     invoke-virtual {v2, v5}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 1330
+    .line 1346
     .end local v0           #currentWifiState:I
     .end local v1           #previousWifiState:I
     :cond_1
     :goto_0
     return-void
 
-    .line 1325
+    .line 1341
     .restart local v0       #currentWifiState:I
     .restart local v1       #previousWifiState:I
     :cond_2
@@ -210,14 +210,14 @@
 
     if-ne v0, v5, :cond_1
 
-    .line 1326
+    .line 1342
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v3, "Reset tryingAutoConnect when wifi is turned OFF"
 
     invoke-virtual {v2, v3}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
-    .line 1327
+    .line 1343
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$9;->this$0:Lcom/android/server/WifiOffloadService;
 
     const/4 v3, 0x0

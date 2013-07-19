@@ -133,16 +133,16 @@
     .line 97
     iput v2, p0, Lcom/android/server/sec/InternalClipboardExService;->ADD_ITEM:I
 
-    .line 643
+    .line 651
     iput v2, p0, Lcom/android/server/sec/InternalClipboardExService;->MSG_SHOW_DIALOG:I
 
-    .line 644
+    .line 652
     iput v3, p0, Lcom/android/server/sec/InternalClipboardExService;->MSG_UPDATE_DIALOG:I
 
-    .line 645
+    .line 653
     iput v4, p0, Lcom/android/server/sec/InternalClipboardExService;->MSG_DISMISS_DIALOG:I
 
-    .line 707
+    .line 722
     new-instance v0, Lcom/android/server/sec/InternalClipboardExService$3;
 
     invoke-direct {v0, p0}, Lcom/android/server/sec/InternalClipboardExService$3;-><init>(Lcom/android/server/sec/InternalClipboardExService;)V
@@ -382,7 +382,7 @@
     :goto_0
     move-object v1, v0
 
-    .line 547
+    .line 552
     .end local v0           #Res:Landroid/sec/clipboard/data/ClipboardData;
     .local v1, Res:Landroid/sec/clipboard/data/ClipboardData;
     :goto_1
@@ -480,7 +480,31 @@
     .line 527
     invoke-direct {p0, v0}, Lcom/android/server/sec/InternalClipboardExService;->updateDataListChange(Landroid/sec/clipboard/data/ClipboardData;)V
 
-    .line 533
+    .line 530
+    iget-object v6, p0, Lcom/android/server/sec/InternalClipboardExService;->mCBPickerDialog:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    if-eqz v6, :cond_5
+
+    iget-object v6, p0, Lcom/android/server/sec/InternalClipboardExService;->mCBPickerDialog:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    iget-object v6, v6, Lcom/android/server/sec/ClippedDataPickerDialog;->mShowingMenu:Landroid/view/Menu;
+
+    if-eqz v6, :cond_5
+
+    iget-object v6, p0, Lcom/android/server/sec/InternalClipboardExService;->mCBPickerDialog:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    iget-boolean v6, v6, Lcom/android/server/sec/ClippedDataPickerDialog;->mIsShowingContextmenu:Z
+
+    if-eqz v6, :cond_5
+
+    .line 531
+    iget-object v6, p0, Lcom/android/server/sec/InternalClipboardExService;->mCBPickerDialog:Lcom/android/server/sec/ClippedDataPickerDialog;
+
+    iget-object v6, v6, Lcom/android/server/sec/ClippedDataPickerDialog;->mShowingMenu:Landroid/view/Menu;
+
+    invoke-interface {v6}, Landroid/view/Menu;->close()V
+
+    .line 538
     :cond_5
     :goto_2
     packed-switch p1, :pswitch_data_1
@@ -489,12 +513,12 @@
     :goto_3
     move-object v1, v0
 
-    .line 547
+    .line 552
     .end local v0           #Res:Landroid/sec/clipboard/data/ClipboardData;
     .restart local v1       #Res:Landroid/sec/clipboard/data/ClipboardData;
     goto :goto_1
 
-    .line 529
+    .line 534
     .end local v1           #Res:Landroid/sec/clipboard/data/ClipboardData;
     .restart local v0       #Res:Landroid/sec/clipboard/data/ClipboardData;
     :cond_7
@@ -513,16 +537,16 @@
     :pswitch_1
     move-object v5, p2
 
-    .line 535
+    .line 540
     check-cast v5, Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
 
-    .line 536
+    .line 541
     .restart local v5       #trgData:Landroid/sec/clipboard/data/list/ClipboardDataBitmap;
     invoke-virtual {v5}, Landroid/sec/clipboard/data/list/ClipboardDataBitmap;->GetBitmapPath()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 537
+    .line 542
     .restart local v4       #imagePath:Ljava/lang/String;
     if-eqz v4, :cond_6
 
@@ -534,7 +558,7 @@
 
     if-eqz v6, :cond_6
 
-    .line 538
+    .line 543
     sget-boolean v6, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v6, :cond_8
@@ -545,7 +569,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 539
+    .line 544
     :cond_8
     new-instance v3, Landroid/content/Intent;
 
@@ -553,16 +577,16 @@
 
     invoke-direct {v3, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 540
+    .line 545
     .restart local v3       #deleteIntent:Landroid/content/Intent;
     invoke-virtual {v3, v9}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 541
+    .line 546
     const-string v6, "deletePath"
 
     invoke-virtual {v3, v6, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 542
+    .line 547
     iget-object v6, p0, Lcom/android/server/sec/InternalClipboardExService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
@@ -570,12 +594,14 @@
     goto :goto_3
 
     .line 506
+    nop
+
     :pswitch_data_0
     .packed-switch 0x3
         :pswitch_0
     .end packed-switch
 
-    .line 533
+    .line 538
     :pswitch_data_1
     .packed-switch 0x3
         :pswitch_1
@@ -656,14 +682,14 @@
     .locals 5
 
     .prologue
-    .line 784
+    .line 798
     iget-object v2, p0, Lcom/android/server/sec/InternalClipboardExService;->mDataList:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-virtual {v2}, Landroid/sec/clipboard/data/ClipboardDataMgr;->size()I
 
     move-result v1
 
-    .line 785
+    .line 799
     .local v1, size:I
     sget-boolean v2, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
@@ -675,7 +701,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 786
+    .line 800
     :cond_0
     const/4 v0, 0x0
 
@@ -683,7 +709,7 @@
     :goto_0
     if-ge v0, v1, :cond_2
 
-    .line 787
+    .line 801
     sget-boolean v2, Landroid/sec/clipboard/data/ClipboardDefine;->INFO_DEBUG:Z
 
     if-eqz v2, :cond_1
@@ -730,13 +756,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 786
+    .line 800
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 789
+    .line 803
     :cond_2
     sget-boolean v2, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
@@ -748,7 +774,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 790
+    .line 804
     :cond_3
     return-void
 .end method
@@ -757,20 +783,20 @@
     .locals 3
 
     .prologue
-    .line 767
+    .line 781
     sget-object v1, Lcom/android/server/sec/InternalClipboardExService;->sService:Landroid/content/IClipboard;
 
     if-eqz v1, :cond_0
 
-    .line 768
+    .line 782
     sget-object v1, Lcom/android/server/sec/InternalClipboardExService;->sService:Landroid/content/IClipboard;
 
-    .line 776
+    .line 790
     .local v0, b:Landroid/os/IBinder;
     :goto_0
     return-object v1
 
-    .line 770
+    .line 784
     .end local v0           #b:Landroid/os/IBinder;
     :cond_0
     const-string v1, "clipboard"
@@ -779,7 +805,7 @@
 
     move-result-object v0
 
-    .line 771
+    .line 785
     .restart local v0       #b:Landroid/os/IBinder;
     invoke-static {v0}, Landroid/content/IClipboard$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/IClipboard;
 
@@ -787,12 +813,12 @@
 
     sput-object v1, Lcom/android/server/sec/InternalClipboardExService;->sService:Landroid/content/IClipboard;
 
-    .line 773
+    .line 787
     sget-object v1, Lcom/android/server/sec/InternalClipboardExService;->sService:Landroid/content/IClipboard;
 
     if-nez v1, :cond_1
 
-    .line 774
+    .line 788
     sget-boolean v1, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v1, :cond_1
@@ -803,7 +829,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 776
+    .line 790
     :cond_1
     sget-object v1, Lcom/android/server/sec/InternalClipboardExService;->sService:Landroid/content/IClipboard;
 
@@ -817,7 +843,7 @@
     .prologue
     const/4 v6, 0x2
 
-    .line 569
+    .line 577
     invoke-virtual {p1}, Landroid/sec/clipboard/data/ClipboardData;->GetFomat()I
 
     move-result v4
@@ -826,10 +852,10 @@
 
     move-object v2, p1
 
-    .line 570
+    .line 578
     check-cast v2, Landroid/sec/clipboard/data/list/ClipboardDataText;
 
-    .line 572
+    .line 580
     .local v2, txt:Landroid/sec/clipboard/data/list/ClipboardDataText;
     :try_start_0
     invoke-static {}, Lcom/android/server/sec/InternalClipboardExService;->getService()Landroid/content/IClipboard;
@@ -848,7 +874,7 @@
 
     invoke-interface {v4, v5}, Landroid/content/IClipboard;->setPrimaryClip(Landroid/content/ClipData;)V
 
-    .line 574
+    .line 582
     sget-boolean v4, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v4, :cond_0
@@ -861,24 +887,24 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 613
+    .line 621
     .end local v2           #txt:Landroid/sec/clipboard/data/list/ClipboardDataText;
     :cond_0
     :goto_0
     return-void
 
-    .line 575
+    .line 583
     .restart local v2       #txt:Landroid/sec/clipboard/data/list/ClipboardDataText;
     :catch_0
     move-exception v0
 
-    .line 576
+    .line 584
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 578
+    .line 586
     .end local v0           #e:Ljava/lang/Exception;
     .end local v2           #txt:Landroid/sec/clipboard/data/list/ClipboardDataText;
     :cond_1
@@ -890,16 +916,16 @@
 
     if-ne v4, v5, :cond_2
 
-    .line 579
+    .line 587
     new-instance v2, Landroid/sec/clipboard/data/list/ClipboardDataText;
 
     invoke-direct {v2}, Landroid/sec/clipboard/data/list/ClipboardDataText;-><init>()V
 
-    .line 580
+    .line 588
     .restart local v2       #txt:Landroid/sec/clipboard/data/list/ClipboardDataText;
     invoke-virtual {p1, v6, v2}, Landroid/sec/clipboard/data/ClipboardData;->SetAlternateFormat(ILandroid/sec/clipboard/data/ClipboardData;)Z
 
-    .line 582
+    .line 590
     :try_start_1
     invoke-static {}, Lcom/android/server/sec/InternalClipboardExService;->getService()Landroid/content/IClipboard;
 
@@ -917,7 +943,7 @@
 
     invoke-interface {v4, v5}, Landroid/content/IClipboard;->setPrimaryClip(Landroid/content/ClipData;)V
 
-    .line 585
+    .line 593
     sget-boolean v4, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v4, :cond_0
@@ -932,17 +958,17 @@
 
     goto :goto_0
 
-    .line 586
+    .line 594
     :catch_1
     move-exception v0
 
-    .line 587
+    .line 595
     .restart local v0       #e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 589
+    .line 597
     .end local v0           #e:Ljava/lang/Exception;
     .end local v2           #txt:Landroid/sec/clipboard/data/list/ClipboardDataText;
     :cond_2
@@ -956,10 +982,10 @@
 
     move-object v3, p1
 
-    .line 590
+    .line 598
     check-cast v3, Landroid/sec/clipboard/data/list/ClipboardDataUri;
 
-    .line 592
+    .line 600
     .local v3, uri:Landroid/sec/clipboard/data/list/ClipboardDataUri;
     :try_start_2
     invoke-static {}, Lcom/android/server/sec/InternalClipboardExService;->getService()Landroid/content/IClipboard;
@@ -984,7 +1010,7 @@
 
     invoke-interface {v4, v5}, Landroid/content/IClipboard;->setPrimaryClip(Landroid/content/ClipData;)V
 
-    .line 595
+    .line 603
     sget-boolean v4, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v4, :cond_0
@@ -999,17 +1025,17 @@
 
     goto :goto_0
 
-    .line 597
+    .line 605
     :catch_2
     move-exception v0
 
-    .line 598
+    .line 606
     .restart local v0       #e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 600
+    .line 608
     .end local v0           #e:Ljava/lang/Exception;
     .end local v3           #uri:Landroid/sec/clipboard/data/list/ClipboardDataUri;
     :cond_3
@@ -1023,10 +1049,10 @@
 
     move-object v1, p1
 
-    .line 601
+    .line 609
     check-cast v1, Landroid/sec/clipboard/data/list/ClipboardDataIntent;
 
-    .line 603
+    .line 611
     .local v1, intent:Landroid/sec/clipboard/data/list/ClipboardDataIntent;
     :try_start_3
     invoke-static {}, Lcom/android/server/sec/InternalClipboardExService;->getService()Landroid/content/IClipboard;
@@ -1045,7 +1071,7 @@
 
     invoke-interface {v4, v5}, Landroid/content/IClipboard;->setPrimaryClip(Landroid/content/ClipData;)V
 
-    .line 606
+    .line 614
     sget-boolean v4, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v4, :cond_0
@@ -1060,11 +1086,11 @@
 
     goto/16 :goto_0
 
-    .line 608
+    .line 616
     :catch_3
     move-exception v0
 
-    .line 609
+    .line 617
     .restart local v0       #e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -1076,14 +1102,14 @@
     .parameter "clip"
 
     .prologue
-    .line 552
+    .line 557
     iget-object v1, p0, Lcom/android/server/sec/InternalClipboardExService;->mClipboardWorkingFormUiInterface:Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;
 
     if-eqz v1, :cond_1
 
     if-eqz p1, :cond_1
 
-    .line 554
+    .line 559
     :try_start_0
     sget-boolean v1, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
@@ -1095,7 +1121,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 555
+    .line 560
     :cond_0
     iget-object v1, p0, Lcom/android/server/sec/InternalClipboardExService;->mClipboardWorkingFormUiInterface:Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;
 
@@ -1105,23 +1131,27 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 561
+    .line 567
     :cond_1
     :goto_0
+    if-eqz p1, :cond_2
+
+    .line 568
     invoke-virtual {p1}, Landroid/sec/clipboard/data/ClipboardData;->GetFomat()I
 
     move-result v1
 
     invoke-virtual {p0, v1, p1}, Lcom/android/server/sec/InternalClipboardExService;->ObserverUpdate(ILandroid/sec/clipboard/data/ClipboardData;)V
 
-    .line 562
+    .line 570
+    :cond_2
     return-void
 
-    .line 557
+    .line 562
     :catch_0
     move-exception v0
 
-    .line 558
+    .line 563
     .local v0, e:Landroid/os/RemoteException;
     sget-boolean v1, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
@@ -1384,10 +1414,10 @@
     .end annotation
 
     .prologue
-    .line 660
+    .line 670
     const/4 v0, 0x0
 
-    .line 661
+    .line 671
     .local v0, Result:Z
     iget-object v1, p0, Lcom/android/server/sec/InternalClipboardExService;->mCBPickerDialog:Lcom/android/server/sec/ClippedDataPickerDialog;
 
@@ -1399,7 +1429,7 @@
 
     move-result v0
 
-    .line 663
+    .line 673
     :cond_0
     return v0
 .end method
@@ -1467,41 +1497,41 @@
     .end annotation
 
     .prologue
-    .line 626
+    .line 634
     monitor-enter p0
 
-    .line 627
+    .line 635
     :try_start_0
     iput-object p1, p0, Lcom/android/server/sec/InternalClipboardExService;->mClipboardWorkingFormUiInterface:Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;
 
-    .line 629
+    .line 637
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mClipboardWorkingFormUiInterface:Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;
 
     if-eqz v0, :cond_1
 
-    .line 630
+    .line 638
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mClipboardWorkingFormUiInterface:Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;
 
     iget-object v1, p0, Lcom/android/server/sec/InternalClipboardExService;->mDataList:Landroid/sec/clipboard/data/ClipboardDataMgr;
 
     invoke-interface {v0, v1}, Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;->setClipboardDataMgr(Landroid/sec/clipboard/data/IClipboardDataList;)V
 
-    .line 631
+    .line 639
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mClipboardWorkingFormUiInterface:Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;
 
     iget-object v1, p0, Lcom/android/server/sec/InternalClipboardExService;->mClipBoardDataUiEventImp:Lcom/android/server/sec/InternalClipboardExService$ClipBoardDataUiEventImp;
 
     invoke-interface {v0, v1}, Landroid/sec/clipboard/IClipboardWorkingFormUiInterface;->setClipboardDataUiEvent(Landroid/sec/clipboard/IClipboardDataUiEvent;)V
 
-    .line 636
+    .line 644
     :cond_0
     :goto_0
     monitor-exit p0
 
-    .line 637
+    .line 645
     return-void
 
-    .line 634
+    .line 642
     :cond_1
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
@@ -1515,7 +1545,7 @@
 
     goto :goto_0
 
-    .line 636
+    .line 644
     :catchall_0
     move-exception v0
 
@@ -1960,7 +1990,7 @@
 .end method
 
 .method public ShowUIClipboardData(ILandroid/sec/clipboard/IClipboardDataPasteEvent;)V
-    .locals 2
+    .locals 3
     .parameter "format"
     .parameter "clPasteEvent"
     .annotation system Ldalvik/annotation/Throws;
@@ -1970,7 +2000,9 @@
     .end annotation
 
     .prologue
-    .line 650
+    const/4 v2, 0x1
+
+    .line 658
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -1981,21 +2013,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 652
+    .line 660
     :cond_0
     iput p1, p0, Lcom/android/server/sec/InternalClipboardExService;->mEnableFormatId:I
 
-    .line 653
+    .line 661
     iput-object p2, p0, Lcom/android/server/sec/InternalClipboardExService;->mClPasteEvent:Landroid/sec/clipboard/IClipboardDataPasteEvent;
 
-    .line 654
+    .line 663
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mHandler:Landroid/os/Handler;
 
-    const/4 v1, 0x1
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    .line 664
+    iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mHandler:Landroid/os/Handler;
 
-    .line 655
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    .line 665
     return-void
 .end method
 
@@ -2010,28 +2045,33 @@
     .end annotation
 
     .prologue
-    .line 673
+    const/4 v1, 0x2
+
+    .line 683
     invoke-virtual {p0}, Lcom/android/server/sec/InternalClipboardExService;->IsShowUIClipboardData()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 682
+    .line 694
     :goto_0
     return-void
 
-    .line 678
+    .line 688
     :cond_0
     iput p1, p0, Lcom/android/server/sec/InternalClipboardExService;->mEnableFormatId:I
 
-    .line 679
+    .line 689
     iput-object p2, p0, Lcom/android/server/sec/InternalClipboardExService;->mClPasteEvent:Landroid/sec/clipboard/IClipboardDataPasteEvent;
 
-    .line 680
+    .line 691
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mHandler:Landroid/os/Handler;
 
-    const/4 v1, 0x2
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 692
+    iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
@@ -2047,14 +2087,19 @@
     .end annotation
 
     .prologue
-    .line 689
+    const/4 v1, 0x3
+
+    .line 701
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mHandler:Landroid/os/Handler;
 
-    const/4 v1, 0x3
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 702
+    iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 694
+    .line 707
     return-void
 .end method
 
@@ -2096,12 +2141,14 @@
     .end annotation
 
     .prologue
-    .line 698
+    const/4 v1, 0x1
+
+    .line 711
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mContext:Landroid/content/Context;
 
     if-nez v0, :cond_1
 
-    .line 699
+    .line 712
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -2112,16 +2159,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 704
+    .line 719
     :cond_0
     :goto_0
     return-void
 
-    .line 703
+    .line 717
     :cond_1
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mHandler:Landroid/os/Handler;
 
-    const/4 v1, 0x1
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 718
+    iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 

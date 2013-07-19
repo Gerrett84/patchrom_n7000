@@ -199,7 +199,7 @@
 
     .line 526
     :cond_0
-    const-string v0, "media.Metadata"
+    const-string/jumbo v0, "media.Metadata"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -385,7 +385,7 @@
     if-gt v4, v9, :cond_2
 
     .line 303
-    const-string v6, "media.Metadata"
+    const-string/jumbo v6, "media.Metadata"
 
     const-string v7, "Record is too short"
 
@@ -405,7 +405,7 @@
 
     .line 341
     :cond_1
-    const-string v6, "media.Metadata"
+    const-string/jumbo v6, "media.Metadata"
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -476,7 +476,7 @@
     if-eqz v6, :cond_4
 
     .line 319
-    const-string v6, "media.Metadata"
+    const-string/jumbo v6, "media.Metadata"
 
     const-string v7, "Duplicate metadata ID found"
 
@@ -521,7 +521,7 @@
 
     .line 329
     :cond_5
-    const-string v6, "media.Metadata"
+    const-string/jumbo v6, "media.Metadata"
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -865,7 +865,7 @@
     if-ge v4, v5, :cond_0
 
     .line 379
-    const-string v4, "media.Metadata"
+    const-string/jumbo v4, "media.Metadata"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -921,7 +921,7 @@
 
     .line 388
     :cond_1
-    const-string v4, "media.Metadata"
+    const-string/jumbo v4, "media.Metadata"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -985,7 +985,7 @@
     if-eq v0, v4, :cond_3
 
     .line 396
-    const-string v4, "media.Metadata"
+    const-string/jumbo v4, "media.Metadata"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -1038,5 +1038,5 @@
     .line 407
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method

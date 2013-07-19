@@ -694,7 +694,7 @@
 
     .line 1982
     :cond_3
-    const-string v0, "media_type"
+    const-string/jumbo v0, "media_type"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -703,7 +703,7 @@
     if-eqz v0, :cond_4
 
     .line 1983
-    const-string v0, "mimetype"
+    const-string/jumbo v0, "mimetype"
 
     invoke-direct {p0, v0}, Landroid/app/DownloadManager$SecCursorTranslator;->getUnderlyingString(Ljava/lang/String;)Ljava/lang/String;
 

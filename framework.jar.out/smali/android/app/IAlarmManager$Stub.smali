@@ -134,13 +134,13 @@
     .line 43
     sparse-switch p1, :sswitch_data_0
 
-    .line 160
+    .line 162
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    move-result v0
+    move-result v10
 
     :goto_0
-    return v0
+    return v10
 
     .line 47
     :sswitch_0
@@ -148,9 +148,6 @@
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    move v0, v10
-
-    .line 48
     goto :goto_0
 
     .line 52
@@ -195,9 +192,6 @@
     .line 65
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    move v0, v10
-
-    .line 66
     goto :goto_0
 
     .line 62
@@ -261,9 +255,6 @@
     .line 85
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    move v0, v10
-
-    .line 86
     goto :goto_0
 
     .line 82
@@ -328,9 +319,6 @@
     .line 105
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    move v0, v10
-
-    .line 106
     goto :goto_0
 
     .line 102
@@ -363,9 +351,6 @@
     .line 114
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    move v0, v10
-
-    .line 115
     goto/16 :goto_0
 
     .line 119
@@ -387,9 +372,6 @@
     .line 123
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    move v0, v10
-
-    .line 124
     goto/16 :goto_0
 
     .line 128
@@ -423,9 +405,6 @@
     .line 137
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    move v0, v10
-
-    .line 138
     goto/16 :goto_0
 
     .line 134
@@ -455,9 +434,6 @@
     .line 146
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    move v0, v10
-
-    .line 147
     goto/16 :goto_0
 
     .line 151
@@ -470,25 +446,42 @@
     .line 153
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
-    move-result v1
+    move-result v0
 
-    .line 154
-    .local v1, _arg0:I
-    invoke-virtual {p0, v1}, Landroid/app/IAlarmManager$Stub;->shutdownTimeAfterFakeOff(I)I
+    if-eqz v0, :cond_4
+
+    move v1, v10
+
+    .line 155
+    .local v1, _arg0:Z
+    :goto_5
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v2
+
+    .line 156
+    .local v2, _arg1:I
+    invoke-virtual {p0, v1, v2}, Landroid/app/IAlarmManager$Stub;->shutdownTimeAfterFakeOff(ZI)I
 
     move-result v9
 
-    .line 155
+    .line 157
     .local v9, _result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 156
+    .line 158
     invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
 
-    move v0, v10
-
-    .line 157
     goto/16 :goto_0
+
+    .line 153
+    .end local v1           #_arg0:Z
+    .end local v2           #_arg1:I
+    .end local v9           #_result:I
+    :cond_4
+    const/4 v1, 0x0
+
+    goto :goto_5
 
     .line 43
     nop

@@ -7,27 +7,92 @@
 
 
 # static fields
+.field private static final FILE_INVALID_CHAR:[Ljava/lang/String;
+
 .field private static final TAG:Ljava/lang/String;
 
 
 # instance fields
-.field private mBeforeRename:Ljava/lang/String;
+.field private context:Landroid/content/Context;
 
-.field private mEditText:Landroid/widget/EditText;
+.field private editText:Landroid/widget/EditText;
 
-.field private mInputManager:Landroid/view/inputmethod/InputMethodManager;
+.field private inputManager:Landroid/view/inputmethod/InputMethodManager;
 
-.field private mListener:Landroid/content/DialogInterface$OnClickListener;
+.field private listener:Landroid/content/DialogInterface$OnClickListener;
 
-.field private mToast:Landroid/widget/Toast;
+.field private toast:Landroid/widget/Toast;
+
+.field private type:I
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 34
+    .line 39
+    const/16 v0, 0x9
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, "\\"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    const-string v2, "/"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x2
+
+    const-string v2, ":"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x3
+
+    const-string v2, "*"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x4
+
+    const-string v2, "?"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x5
+
+    const-string v2, "\""
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x6
+
+    const-string v2, "<"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
+
+    const-string v2, ">"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x8
+
+    const-string v2, "|"
+
+    aput-object v2, v0, v1
+
+    sput-object v0, Lcom/sec/android/app/fm/ui/RenameDialog;->FILE_INVALID_CHAR:[Ljava/lang/String;
+
+    .line 43
     const-class v0, Lcom/sec/android/app/fm/ui/RenameDialog;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -39,263 +104,357 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/content/DialogInterface$OnClickListener;)V
-    .locals 8
+.method public constructor <init>(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;)V
+    .locals 7
     .parameter "context"
+    .parameter "type"
     .parameter "listener"
 
     .prologue
-    const/4 v7, 0x1
-
-    const/4 v6, 0x0
-
-    .line 59
-    invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
-
-    .line 45
-    const-string v3, ""
-
-    iput-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mBeforeRename:Ljava/lang/String;
-
-    .line 61
-    iget-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mToast:Landroid/widget/Toast;
-
-    if-nez v3, :cond_0
-
-    .line 62
-    const-string v3, ""
-
-    invoke-static {p1, v3, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mToast:Landroid/widget/Toast;
-
-    .line 65
-    :cond_0
-    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v3
-
-    const v4, 0x7f030001
+    const/4 v6, 0x1
 
     const/4 v5, 0x0
 
-    invoke-virtual {v3, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    .line 58
+    invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
 
-    move-result-object v1
+    .line 60
+    iput-object p1, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->context:Landroid/content/Context;
 
-    .line 66
-    .local v1, layout:Landroid/view/View;
-    const v3, 0x7f070003
+    .line 62
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->toast:Landroid/widget/Toast;
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    if-nez v2, :cond_0
+
+    .line 63
+    const-string v2, ""
+
+    invoke-static {p1, v2, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v2
 
-    check-cast v2, Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->toast:Landroid/widget/Toast;
 
-    .line 67
-    .local v2, textView:Landroid/widget/TextView;
-    const v3, 0x7f070004
+    .line 66
+    :cond_0
+    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v2
 
-    move-result-object v3
+    const v3, 0x7f030003
 
-    check-cast v3, Landroid/widget/EditText;
+    const/4 v4, 0x0
 
-    iput-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
+    invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
 
     .line 68
-    iget-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
+    .local v0, layout:Landroid/view/View;
+    const v2, 0x7f070005
 
-    const v4, 0x80001
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setInputType(I)V
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
+
+    .line 69
+    .local v1, textView:Landroid/widget/TextView;
+    iput p2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->type:I
 
     .line 70
-    const v3, 0x7f0a00a5
+    packed-switch p2, :pswitch_data_0
 
-    invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    .line 81
+    :goto_0
+    const v2, 0x7f070006
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/EditText;
+
+    iput-object v2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
+
+    .line 82
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
+
+    invoke-direct {p0, p2}, Lcom/sec/android/app/fm/ui/RenameDialog;->getInputFilters(I)[Landroid/text/InputFilter;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
 
-    .line 73
-    const/4 v3, 0x2
+    .line 83
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
 
-    new-array v0, v3, [Landroid/text/InputFilter;
+    invoke-virtual {v2}, Landroid/widget/EditText;->setSingleLine()V
 
-    .line 74
-    .local v0, FilterArray:[Landroid/text/InputFilter;
+    .line 84
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
+
+    invoke-virtual {v2, v6}, Landroid/widget/EditText;->setFocusable(Z)V
+
+    .line 85
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
+
+    invoke-virtual {v2, v6}, Landroid/widget/EditText;->setSelectAllOnFocus(Z)V
+
+    .line 86
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
+
+    const v3, 0x84001
+
+    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setInputType(I)V
+
+    .line 88
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
+
     new-instance v3, Lcom/sec/android/app/fm/ui/RenameDialog$1;
 
-    invoke-direct {v3, p0, p1}, Lcom/sec/android/app/fm/ui/RenameDialog$1;-><init>(Lcom/sec/android/app/fm/ui/RenameDialog;Landroid/content/Context;)V
+    invoke-direct {v3, p0}, Lcom/sec/android/app/fm/ui/RenameDialog$1;-><init>(Lcom/sec/android/app/fm/ui/RenameDialog;)V
 
-    aput-object v3, v0, v6
+    invoke-virtual {v2, v3}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
 
-    .line 90
-    new-instance v3, Landroid/text/InputFilter$LengthFilter;
+    .line 100
+    iput-object p3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->listener:Landroid/content/DialogInterface$OnClickListener;
 
-    const/16 v4, 0xc
+    .line 102
+    const v2, 0x7f0a0025
 
-    invoke-direct {v3, v4}, Landroid/text/InputFilter$LengthFilter;-><init>(I)V
+    invoke-virtual {p0, v2}, Lcom/sec/android/app/fm/ui/RenameDialog;->setTitle(I)V
 
-    aput-object v3, v0, v7
+    .line 103
+    invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/RenameDialog;->setView(Landroid/view/View;)V
 
-    .line 91
-    iget-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
+    .line 105
+    const-string v2, "input_method"
 
-    invoke-virtual {v3, v0}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 94
-    iget-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
+    check-cast v2, Landroid/view/inputmethod/InputMethodManager;
 
-    invoke-virtual {v4}, Landroid/widget/EditText;->getInputType()I
+    iput-object v2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->inputManager:Landroid/view/inputmethod/InputMethodManager;
 
-    move-result v4
+    .line 107
+    const/4 v2, -0x1
 
-    or-int/lit16 v4, v4, 0x4000
-
-    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setInputType(I)V
-
-    .line 96
-    iget-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
-
-    invoke-virtual {v3}, Landroid/widget/EditText;->setSingleLine()V
-
-    .line 97
-    iget-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
-
-    new-instance v4, Lcom/sec/android/app/fm/ui/RenameDialog$2;
-
-    invoke-direct {v4, p0}, Lcom/sec/android/app/fm/ui/RenameDialog$2;-><init>(Lcom/sec/android/app/fm/ui/RenameDialog;)V
-
-    invoke-virtual {v3, v4}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    .line 111
-    iget-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
-
-    invoke-virtual {v3, v7}, Landroid/widget/EditText;->setFocusable(Z)V
-
-    .line 112
-    iget-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
-
-    invoke-virtual {v3, v7}, Landroid/widget/EditText;->setSelectAllOnFocus(Z)V
-
-    .line 114
-    const-string v3, "input_method"
-
-    invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
-    check-cast v3, Landroid/view/inputmethod/InputMethodManager;
+    const v4, 0x7f0a0020
 
-    iput-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mInputManager:Landroid/view/inputmethod/InputMethodManager;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    .line 115
-    iput-object p2, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mListener:Landroid/content/DialogInterface$OnClickListener;
+    move-result-object v3
+
+    invoke-virtual {p0, v2, v3, p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+
+    .line 108
+    const/4 v2, -0x2
+
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    const v4, 0x7f0a0021
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v2, v3, p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+
+    .line 109
+    invoke-virtual {p0, v5}, Lcom/sec/android/app/fm/ui/RenameDialog;->setIcon(I)V
+
+    .line 110
+    return-void
+
+    .line 72
+    :pswitch_0
+    const v2, 0x7f0a00a5
+
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    .line 75
+    :pswitch_1
+    const v2, 0x7f0a00b7
+
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_0
+
+    .line 70
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
+.end method
+
+.method static synthetic access$000(Lcom/sec/android/app/fm/ui/RenameDialog;)Landroid/content/Context;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 27
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->context:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$100(Lcom/sec/android/app/fm/ui/RenameDialog;)Landroid/widget/Toast;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 27
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->toast:Landroid/widget/Toast;
+
+    return-object v0
+.end method
+
+.method static synthetic access$200(Lcom/sec/android/app/fm/ui/RenameDialog;)Landroid/widget/EditText;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 27
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300()[Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 27
+    sget-object v0, Lcom/sec/android/app/fm/ui/RenameDialog;->FILE_INVALID_CHAR:[Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$400(Lcom/sec/android/app/fm/ui/RenameDialog;)Landroid/content/DialogInterface$OnClickListener;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 27
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->listener:Landroid/content/DialogInterface$OnClickListener;
+
+    return-object v0
+.end method
+
+.method static synthetic access$500(Lcom/sec/android/app/fm/ui/RenameDialog;)Landroid/view/inputmethod/InputMethodManager;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 27
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->inputManager:Landroid/view/inputmethod/InputMethodManager;
+
+    return-object v0
+.end method
+
+.method private getInputFilters(I)[Landroid/text/InputFilter;
+    .locals 4
+    .parameter "type"
+
+    .prologue
+    const/4 v1, 0x2
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    .line 113
+    const/4 v0, 0x0
+
+    .line 114
+    .local v0, filterArray:[Landroid/text/InputFilter;
+    packed-switch p1, :pswitch_data_0
+
+    .line 181
+    :goto_0
+    return-object v0
 
     .line 116
-    const v3, 0x7f0a0025
+    :pswitch_0
+    new-array v0, v1, [Landroid/text/InputFilter;
 
-    invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/ui/RenameDialog;->setTitle(I)V
+    .line 117
+    new-instance v1, Lcom/sec/android/app/fm/ui/RenameDialog$2;
 
-    .line 125
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/ui/RenameDialog;->setView(Landroid/view/View;)V
+    invoke-direct {v1, p0}, Lcom/sec/android/app/fm/ui/RenameDialog$2;-><init>(Lcom/sec/android/app/fm/ui/RenameDialog;)V
 
-    .line 128
-    const/4 v3, -0x1
+    aput-object v1, v0, v2
 
-    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->getContext()Landroid/content/Context;
+    .line 134
+    new-instance v1, Landroid/text/InputFilter$LengthFilter;
 
-    move-result-object v4
+    const/16 v2, 0xc
 
-    const v5, 0x7f0a0020
+    invoke-direct {v1, v2}, Landroid/text/InputFilter$LengthFilter;-><init>(I)V
 
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    aput-object v1, v0, v3
 
-    move-result-object v4
+    goto :goto_0
 
-    invoke-virtual {p0, v3, v4, p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    .line 138
+    :pswitch_1
+    new-array v0, v1, [Landroid/text/InputFilter;
 
-    .line 129
-    const/4 v3, -0x2
+    .line 139
+    new-instance v1, Lcom/sec/android/app/fm/ui/RenameDialog$3;
 
-    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->getContext()Landroid/content/Context;
+    invoke-direct {v1, p0}, Lcom/sec/android/app/fm/ui/RenameDialog$3;-><init>(Lcom/sec/android/app/fm/ui/RenameDialog;)V
 
-    move-result-object v4
+    aput-object v1, v0, v2
 
-    const v5, 0x7f0a0021
+    .line 175
+    new-instance v1, Landroid/text/InputFilter$LengthFilter;
 
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    const/16 v2, 0x36
 
-    move-result-object v4
+    invoke-direct {v1, v2}, Landroid/text/InputFilter$LengthFilter;-><init>(I)V
 
-    invoke-virtual {p0, v3, v4, p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    aput-object v1, v0, v3
 
-    .line 130
-    invoke-virtual {p0, v6}, Lcom/sec/android/app/fm/ui/RenameDialog;->setIcon(I)V
+    goto :goto_0
 
-    .line 132
-    iget-object v3, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
-
-    new-instance v4, Lcom/sec/android/app/fm/ui/RenameDialog$3;
-
-    invoke-direct {v4, p0}, Lcom/sec/android/app/fm/ui/RenameDialog$3;-><init>(Lcom/sec/android/app/fm/ui/RenameDialog;)V
-
-    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
-
-    .line 147
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/sec/android/app/fm/ui/RenameDialog;)Landroid/widget/Toast;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 33
-    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mToast:Landroid/widget/Toast;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/sec/android/app/fm/ui/RenameDialog;)Landroid/widget/EditText;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 33
-    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/sec/android/app/fm/ui/RenameDialog;)Landroid/view/inputmethod/InputMethodManager;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 33
-    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mInputManager:Landroid/view/inputmethod/InputMethodManager;
-
-    return-object v0
+    .line 114
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
 
 # virtual methods
-.method public getRenamedString()Ljava/lang/String;
+.method public getText()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 150
-    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
+    .line 185
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
@@ -308,152 +467,155 @@
     return-object v0
 .end method
 
-.method public onBackPressed()V
+.method public onAttachedToWindow()V
     .locals 2
 
     .prologue
-    .line 155
-    sget-object v0, Lcom/sec/android/app/fm/ui/RenameDialog;->TAG:Ljava/lang/String;
+    .line 205
+    invoke-super {p0}, Landroid/app/AlertDialog;->onAttachedToWindow()V
 
-    const-string v1, "onBackPressed()"
+    .line 207
+    iget v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->type:I
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v1, 0x1
 
-    .line 156
-    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->dismiss()V
+    if-ne v0, v1, :cond_0
 
-    .line 157
-    return-void
-.end method
+    .line 209
+    const/4 v0, -0x1
 
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
-    .parameter "dialog"
-    .parameter "which"
+    invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/RenameDialog;->getButton(I)Landroid/widget/Button;
 
-    .prologue
-    .line 161
-    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mListener:Landroid/content/DialogInterface$OnClickListener;
+    move-result-object v0
 
-    invoke-interface {v0, p1, p2}, Landroid/content/DialogInterface$OnClickListener;->onClick(Landroid/content/DialogInterface;I)V
-
-    .line 162
-    return-void
-.end method
-
-.method public onWindowFocusChanged(Z)V
-    .locals 4
-    .parameter "hasFocus"
-
-    .prologue
-    .line 166
-    if-eqz p1, :cond_0
-
-    .line 167
-    iget-object v1, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
-
-    invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
-
-    .line 168
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
-
-    .line 169
-    .local v0, handler:Landroid/os/Handler;
     new-instance v1, Lcom/sec/android/app/fm/ui/RenameDialog$4;
 
     invoke-direct {v1, p0}, Lcom/sec/android/app/fm/ui/RenameDialog$4;-><init>(Lcom/sec/android/app/fm/ui/RenameDialog;)V
 
-    const-wide/16 v2, 0x12c
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 180
-    sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
-
-    if-eqz v1, :cond_0
-
-    .line 181
-    sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
-
-    iget-object v1, v1, Lcom/sec/android/app/fm/MainActivity;->mAudioManager:Landroid/media/AudioManager;
-
-    invoke-virtual {v1}, Landroid/media/AudioManager;->isWiredHeadsetOn()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 182
-    sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
-
-    invoke-virtual {v1}, Lcom/sec/android/app/fm/MainActivity;->startBargeIn()V
-
-    .line 186
-    .end local v0           #handler:Landroid/os/Handler;
+    .line 217
     :cond_0
-    invoke-super {p0, p1}, Landroid/app/AlertDialog;->onWindowFocusChanged(Z)V
-
-    .line 187
     return-void
 .end method
 
-.method public setChannel(Lcom/sec/android/app/fm/data/Channel;)Lcom/sec/android/app/fm/ui/RenameDialog;
+.method public onBackPressed()V
     .locals 2
-    .parameter "channel"
 
     .prologue
     .line 190
     sget-object v0, Lcom/sec/android/app/fm/ui/RenameDialog;->TAG:Ljava/lang/String;
 
-    const-string v1, "setChannel()"
+    const-string v1, "onBackPressed()"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 191
-    if-nez p1, :cond_0
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->dismiss()V
 
     .line 192
+    return-void
+.end method
+
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 2
+    .parameter "dialog"
+    .parameter "which"
+
+    .prologue
+    .line 196
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->listener:Landroid/content/DialogInterface$OnClickListener;
+
+    if-nez v0, :cond_0
+
+    .line 197
+    sget-object v0, Lcom/sec/android/app/fm/ui/RenameDialog;->TAG:Ljava/lang/String;
+
+    const-string v1, "onClick listener is null!!"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 201
+    :goto_0
+    return-void
+
+    .line 200
+    :cond_0
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->listener:Landroid/content/DialogInterface$OnClickListener;
+
+    invoke-interface {v0, p1, p2}, Landroid/content/DialogInterface$OnClickListener;->onClick(Landroid/content/DialogInterface;I)V
+
+    goto :goto_0
+.end method
+
+.method public setText(Lcom/sec/android/app/fm/data/Channel;)V
+    .locals 2
+    .parameter "channel"
+
+    .prologue
+    .line 235
+    sget-object v0, Lcom/sec/android/app/fm/ui/RenameDialog;->TAG:Ljava/lang/String;
+
+    const-string v1, "setChannel()"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 236
+    if-nez p1, :cond_0
+
+    .line 237
     sget-object v0, Lcom/sec/android/app/fm/ui/RenameDialog;->TAG:Ljava/lang/String;
 
     const-string v1, "null channel"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 204
+    .line 248
     :goto_0
-    return-object p0
+    return-void
 
-    .line 196
+    .line 241
     :cond_0
-    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/RenameDialog;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const v1, 0x7f0a0025
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/RenameDialog;->setTitle(Ljava/lang/CharSequence;)V
-
-    .line 197
-    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
 
     iget-object v1, p1, Lcom/sec/android/app/fm/data/Channel;->mFreqName:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 198
-    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
+    goto :goto_0
+.end method
 
-    new-instance v1, Lcom/sec/android/app/fm/ui/RenameDialog$5;
+.method public setText(Ljava/lang/String;)V
+    .locals 2
+    .parameter "text"
 
-    invoke-direct {v1, p0}, Lcom/sec/android/app/fm/ui/RenameDialog$5;-><init>(Lcom/sec/android/app/fm/ui/RenameDialog;)V
+    .prologue
+    .line 251
+    sget-object v0, Lcom/sec/android/app/fm/ui/RenameDialog;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->post(Ljava/lang/Runnable;)Z
+    const-string v1, "setChannel()"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 252
+    if-nez p1, :cond_0
+
+    .line 253
+    sget-object v0, Lcom/sec/android/app/fm/ui/RenameDialog;->TAG:Ljava/lang/String;
+
+    const-string v1, "null text"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 264
+    :goto_0
+    return-void
+
+    .line 257
+    :cond_0
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
+
+    invoke-virtual {v0, p1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 .end method
@@ -462,25 +624,25 @@
     .locals 4
 
     .prologue
-    .line 209
+    .line 222
     invoke-super {p0}, Landroid/app/AlertDialog;->show()V
 
-    .line 210
-    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
+    .line 223
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 211
-    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->mEditText:Landroid/widget/EditText;
+    .line 224
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/RenameDialog;->editText:Landroid/widget/EditText;
 
-    new-instance v1, Lcom/sec/android/app/fm/ui/RenameDialog$6;
+    new-instance v1, Lcom/sec/android/app/fm/ui/RenameDialog$5;
 
-    invoke-direct {v1, p0}, Lcom/sec/android/app/fm/ui/RenameDialog$6;-><init>(Lcom/sec/android/app/fm/ui/RenameDialog;)V
+    invoke-direct {v1, p0}, Lcom/sec/android/app/fm/ui/RenameDialog$5;-><init>(Lcom/sec/android/app/fm/ui/RenameDialog;)V
 
     const-wide/16 v2, 0x12c
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/widget/EditText;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 220
+    .line 232
     return-void
 .end method

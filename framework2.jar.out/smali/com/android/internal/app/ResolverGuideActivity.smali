@@ -227,7 +227,7 @@
     if-lt v1, v2, :cond_1
 
     .line 50
-    const v1, 0x103031a
+    const v1, 0x103031d
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverGuideActivity;->setTheme(I)V
 
@@ -256,7 +256,7 @@
 
     move-result-object v1
 
-    const v2, 0x104073a
+    const v2, 0x1040769
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -269,7 +269,7 @@
 
     move-result-object v1
 
-    const v2, 0x10404c5
+    const v2, 0x10404cf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -311,7 +311,7 @@
     .line 52
     .end local v0           #ap:Lcom/android/internal/app/AlertController$AlertParams;
     :cond_1
-    const v1, 0x1030319
+    const v1, 0x103031c
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/ResolverGuideActivity;->setTheme(I)V
 

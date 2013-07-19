@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1450
+    .line 1276
     iput-object p1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -47,8 +47,10 @@
 
     const/4 v4, 0x2
 
-    .line 1453
+    .line 1279
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+
+    iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -74,16 +76,17 @@
 
     move-result-object v2
 
-    #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->logd(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3400(Lcom/samsung/wfd/WfdService$WfdStateMachine;Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    .line 1454
+    .line 1280
     iget v1, p1, Landroid/os/Message;->what:I
 
     sparse-switch v1, :sswitch_data_0
 
-    .line 1525
+    .line 1351
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+
+    iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -103,31 +106,31 @@
 
     move-result-object v2
 
-    #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->loge(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3600(Lcom/samsung/wfd/WfdService$WfdStateMachine;Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/wfd/WfdService;->loge(Ljava/lang/String;)V
 
-    .line 1526
+    .line 1352
     const/4 v1, 0x0
 
-    .line 1528
+    .line 1354
     :goto_0
     return v1
 
-    .line 1456
+    .line 1282
     :sswitch_0
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     if-nez v1, :cond_0
 
-    .line 1457
+    .line 1283
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+
+    iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     const-string v2, "Full connection with WifiStateMachine established"
 
-    #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->logd(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3400(Lcom/samsung/wfd/WfdService$WfdStateMachine;Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    .line 1458
+    .line 1284
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     iget-object v2, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
@@ -137,17 +140,19 @@
     check-cast v1, Lcom/android/internal/util/AsyncChannel;
 
     #setter for: Lcom/samsung/wfd/WfdService;->mWifiChannel:Lcom/android/internal/util/AsyncChannel;
-    invoke-static {v2, v1}, Lcom/samsung/wfd/WfdService;->access$3502(Lcom/samsung/wfd/WfdService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
+    invoke-static {v2, v1}, Lcom/samsung/wfd/WfdService;->access$3702(Lcom/samsung/wfd/WfdService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
 
-    .line 1528
+    .line 1354
     :goto_1
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1460
+    .line 1286
     :cond_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+
+    iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -169,47 +174,49 @@
 
     move-result-object v2
 
-    #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->loge(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3600(Lcom/samsung/wfd/WfdService$WfdStateMachine;Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/wfd/WfdService;->loge(Ljava/lang/String;)V
 
-    .line 1461
+    .line 1287
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     #setter for: Lcom/samsung/wfd/WfdService;->mWifiChannel:Lcom/android/internal/util/AsyncChannel;
-    invoke-static {v1, v7}, Lcom/samsung/wfd/WfdService;->access$3502(Lcom/samsung/wfd/WfdService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
+    invoke-static {v1, v7}, Lcom/samsung/wfd/WfdService;->access$3702(Lcom/samsung/wfd/WfdService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
 
     goto :goto_1
 
-    .line 1466
+    .line 1292
     :sswitch_1
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     if-ne v1, v4, :cond_1
 
-    .line 1467
+    .line 1293
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+
+    iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     const-string v2, "Send failed, client connection lost"
 
-    #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->loge(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3600(Lcom/samsung/wfd/WfdService$WfdStateMachine;Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/wfd/WfdService;->loge(Ljava/lang/String;)V
 
-    .line 1471
+    .line 1297
     :goto_2
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     #setter for: Lcom/samsung/wfd/WfdService;->mWifiChannel:Lcom/android/internal/util/AsyncChannel;
-    invoke-static {v1, v7}, Lcom/samsung/wfd/WfdService;->access$3502(Lcom/samsung/wfd/WfdService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
+    invoke-static {v1, v7}, Lcom/samsung/wfd/WfdService;->access$3702(Lcom/samsung/wfd/WfdService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
 
     goto :goto_1
 
-    .line 1469
+    .line 1295
     :cond_1
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+
+    iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -231,25 +238,24 @@
 
     move-result-object v2
 
-    #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->loge(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3600(Lcom/samsung/wfd/WfdService$WfdStateMachine;Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/samsung/wfd/WfdService;->loge(Ljava/lang/String;)V
 
     goto :goto_2
 
-    .line 1475
+    .line 1301
     :sswitch_2
     new-instance v0, Lcom/android/internal/util/AsyncChannel;
 
     invoke-direct {v0}, Lcom/android/internal/util/AsyncChannel;-><init>()V
 
-    .line 1476
+    .line 1302
     .local v0, ac:Lcom/android/internal/util/AsyncChannel;
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     iget-object v1, v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;->this$0:Lcom/samsung/wfd/WfdService;
 
     #getter for: Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/samsung/wfd/WfdService;->access$3700(Lcom/samsung/wfd/WfdService;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/samsung/wfd/WfdService;->access$3800(Lcom/samsung/wfd/WfdService;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -265,89 +271,91 @@
 
     goto :goto_1
 
-    .line 1480
+    .line 1306
     .end local v0           #ac:Lcom/android/internal/util/AsyncChannel;
     :sswitch_3
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v1, p1, v6, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3800(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
+    invoke-static {v1, p1, v6, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3900(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
 
     goto :goto_1
 
-    .line 1485
+    .line 1311
     :sswitch_4
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v1, p1, v6, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3800(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
+    invoke-static {v1, p1, v6, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3900(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
 
     goto :goto_1
 
-    .line 1490
+    .line 1316
     :sswitch_5
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v1, p1, v6, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3800(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
+    invoke-static {v1, p1, v6, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3900(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    .line 1495
+    .line 1321
     :sswitch_6
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3800(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
+    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3900(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
 
     goto/16 :goto_1
 
-    .line 1500
+    .line 1326
     :sswitch_7
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3800(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
+    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3900(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
 
     goto/16 :goto_1
 
-    .line 1505
+    .line 1331
     :sswitch_8
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3800(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
+    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3900(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
 
     goto/16 :goto_1
 
-    .line 1510
+    .line 1336
     :sswitch_9
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3800(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
+    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3900(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
 
     goto/16 :goto_1
 
-    .line 1515
+    .line 1341
     :sswitch_a
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3800(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
+    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3900(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
 
     goto/16 :goto_1
 
-    .line 1520
+    .line 1346
     :sswitch_b
     iget-object v1, p0, Lcom/samsung/wfd/WfdService$WfdStateMachine$DefaultState;->this$1:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3800(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
+    invoke-static {v1, p1, v5, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$3900(Lcom/samsung/wfd/WfdService$WfdStateMachine;Landroid/os/Message;II)V
 
     goto/16 :goto_1
 
-    .line 1454
+    .line 1280
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x11000 -> :sswitch_0

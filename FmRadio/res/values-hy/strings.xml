@@ -94,13 +94,13 @@
     <string name="toast_unavailable_in_tvout_mode">Անհասանելի է TV-out ռեժիմում</string>
     <string name="mute">Անձայն</string>
     <string name="seeking">Որոնում է…</string>
-    <string name="via_earphone">Ականջակալներով</string>
-    <string name="via_speaker">Բարձրախոսով</string>
+    <string name="via_earphone">Նվագարկել ականջակալներով</string>
+    <string name="via_speaker">Նվագարկել բարձրախոսով</string>
     <string name="normal_frequency">Նորմալ հաճախություն</string>
     <string name="tag">Հշչ</string>
     <string name="stop">Կանգնել</string>
     <string name="recording">Ձայնագրում է…</string>
-    <string name="memory_full">Գրանցումը կանգնեցվեց. հիշողությունը լիքն է</string>
+    <string name="memory_full">Հիշողութունը լիքն է</string>
     <string name="cancel_recording">Դադարեցնե՞լ գրանցումը:</string>
     <string name="change_frequency">Փոխել հաճախությունը</string>
     <string name="enter_frequency">Մուտքագրեք հաճախականությունը</string>
@@ -126,11 +126,14 @@
     <string name="tags">Հտկորոշիչներ</string>
     <string name="tags_now_broadcasting">Այժմ հեռարձակվում է</string>
     <string name="tags_no_information">Տեղեկություններ չկան</string>
+    <string name="tags_music_history">Երաժշտության պատմություն</string>
     <string name="tags_music_title">Վերնագիր</string>
     <string name="tags_music_album">Ալբոմ</string>
     <string name="tags_music_artist">Կատարող</string>
+    <string name="tags_music_band">Նվագախումբ</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Հիմնաէջ</string>
+    <string name="tags_interact_hotline">Թեժ գիծ</string>
     <string name="tags_interact_studio">Արվեստանոց</string>
     <string name="tags_interact_other">Այլ</string>
     <string name="tags_interact_centre">Կենտրոն</string>
@@ -176,4 +179,14 @@
     <string name="dialog_one_item_deleted">Այս տարրը կվերացվի</string>
     <string name="dialog_multiple_items_deleted">%d տարրեր կվերացվեն</string>
     <string name="dialog_all_items_deleted">Բոլոր տարրերը կվերացվեն</string>
+    <string name="turning_on">Միացվում է…</string>
+    <string name="not_enough_memory_recording_will_stop">Բավարար հիշողություն չկա: Գրանցումը կկանգնեցվի %d վայրկյանից</string>
+    <string name="low_batt_msg">Մարտկոցի լիցքը թույլ է</string>
+    <string name="no_play_during_call">Անհնար է վերարտադրել կանչի ընթացքում</string>
+    <string name="unable_delete">Անհար է ջնջել</string>
+    <string name="playing">Նվգրկ. է…</string>
+    <string name="tts_play_button">Նվագել</string>
+    <string name="tts_previous_button">Նախորդ</string>
+    <string name="tts_Next_button">հաջորդ</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

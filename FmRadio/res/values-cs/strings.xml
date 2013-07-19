@@ -100,13 +100,13 @@
     <string name="toast_unavailable_in_tvout_mode">V režimu TV-out není k dispozici</string>
     <string name="mute">Ztlumit</string>
     <string name="seeking">Hledání…</string>
-    <string name="via_earphone">Pomocí sluchátek</string>
-    <string name="via_speaker">Reproduktor</string>
+    <string name="via_earphone">Přehrát pomocí sluchátek</string>
+    <string name="via_speaker">Přehrát přes reprod.</string>
     <string name="normal_frequency">Normální frekvence</string>
     <string name="tag">Zna</string>
     <string name="stop">Stop</string>
     <string name="recording">Nahrávání…</string>
-    <string name="memory_full">Nahrávání bylo zastaveno. Paměť je plná</string>
+    <string name="memory_full">Paměť je plná</string>
     <string name="cancel_recording">Zrušit nahrávání?</string>
     <string name="change_frequency">Změnit frekvenci</string>
     <string name="enter_frequency">Zadat frekvenci</string>
@@ -132,11 +132,14 @@
     <string name="tags">Značky</string>
     <string name="tags_now_broadcasting">Právě se vysílá</string>
     <string name="tags_no_information">Žádné informace</string>
+    <string name="tags_music_history">Historie hudby</string>
     <string name="tags_music_title">Název</string>
     <string name="tags_music_album">Album</string>
     <string name="tags_music_artist">Interpret</string>
+    <string name="tags_music_band">Skupina</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Domovská stránka</string>
+    <string name="tags_interact_hotline">Hotline</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Další</string>
     <string name="tags_interact_centre">Střed</string>
@@ -182,4 +185,14 @@ Po nahrání rozhlasového vysílání se zobrazí nahrané soubory"</string>
     <string name="dialog_one_item_deleted">Položka bude odstraněna</string>
     <string name="dialog_multiple_items_deleted">%d položek bude odstraněno</string>
     <string name="dialog_all_items_deleted">Všechny položky budou odstraněny</string>
+    <string name="turning_on">Zapínání…</string>
+    <string name="not_enough_memory_recording_will_stop">Nedostatek paměti. Nahrávání bude zastaveno za %d sekund</string>
+    <string name="low_batt_msg">Vybitá baterie</string>
+    <string name="no_play_during_call">Nelze přehrát během hovoru</string>
+    <string name="unable_delete">Nelze odstranit</string>
+    <string name="playing">Přehr…</string>
+    <string name="tts_play_button">Přehrát</string>
+    <string name="tts_previous_button">Předchozí</string>
+    <string name="tts_Next_button">Další</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract getAdnCapacity()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getAdnLikesInfo(I)[I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -75,6 +83,14 @@
     .end annotation
 .end method
 
+.method public abstract getFreeAdn()I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getUsimPBCapaInfo()Lcom/android/internal/telephony/UsimPhonebookCapaInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -108,22 +124,6 @@
 .end method
 
 .method public abstract updateAdnRecordsInEfBySearchUsingAR(ILcom/android/internal/telephony/AdnRecord;Lcom/android/internal/telephony/AdnRecord;Ljava/lang/String;)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getFreeAdn()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getAdnCapacity()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

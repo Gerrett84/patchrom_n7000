@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 862
+    .line 903
     iput-object p1, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$5;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 866
+    .line 907
     iget-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$5;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     const/4 v1, 0x0
@@ -48,7 +48,7 @@
     #calls: Lcom/sec/android/app/fm/RemoveChannelActivity;->createScannedList([Z)V
     invoke-static {v0, v1}, Lcom/sec/android/app/fm/RemoveChannelActivity;->access$900(Lcom/sec/android/app/fm/RemoveChannelActivity;[Z)V
 
-    .line 867
+    .line 908
     iget-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$5;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     new-instance v1, Lcom/sec/android/app/fm/RemoveChannelActivity$MyAdapter;
@@ -60,7 +60,7 @@
     #setter for: Lcom/sec/android/app/fm/RemoveChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
     invoke-static {v0, v1}, Lcom/sec/android/app/fm/RemoveChannelActivity;->access$002(Lcom/sec/android/app/fm/RemoveChannelActivity;Landroid/widget/BaseAdapter;)Landroid/widget/BaseAdapter;
 
-    .line 868
+    .line 909
     iget-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$5;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RemoveChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -74,16 +74,16 @@
 
     if-nez v0, :cond_0
 
-    .line 869
+    .line 910
     iget-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$5;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/RemoveChannelActivity;->finish()V
 
-    .line 876
+    .line 917
     :goto_0
     return-void
 
-    .line 872
+    .line 913
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$5;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
@@ -101,13 +101,13 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 873
+    .line 914
     iget-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$5;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     #calls: Lcom/sec/android/app/fm/RemoveChannelActivity;->checkSelection()V
     invoke-static {v0}, Lcom/sec/android/app/fm/RemoveChannelActivity;->access$700(Lcom/sec/android/app/fm/RemoveChannelActivity;)V
 
-    .line 874
+    .line 915
     iget-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$5;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     #getter for: Lcom/sec/android/app/fm/RemoveChannelActivity;->mAdapter:Landroid/widget/BaseAdapter;
@@ -117,7 +117,7 @@
 
     invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
-    .line 875
+    .line 916
     iget-object v0, p0, Lcom/sec/android/app/fm/RemoveChannelActivity$5;->this$0:Lcom/sec/android/app/fm/RemoveChannelActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/RemoveChannelActivity;->invalidateOptionsMenu()V

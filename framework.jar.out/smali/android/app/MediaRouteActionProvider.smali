@@ -44,7 +44,7 @@
     iput-object p1, p0, Landroid/app/MediaRouteActionProvider;->mContext:Landroid/content/Context;
 
     .line 46
-    const-string v0, "media_router"
+    const-string/jumbo v0, "media_router"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

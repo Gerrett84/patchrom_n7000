@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 426
+    .line 434
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 426
+    .line 434
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;-><init>(Lcom/android/internal/policy/impl/sec/SignatureLockScreen;)V
 
     return-void
@@ -53,7 +53,7 @@
     .locals 3
 
     .prologue
-    .line 505
+    .line 513
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignServiceRunningLock:Ljava/lang/Object;
@@ -63,7 +63,7 @@
 
     monitor-enter v1
 
-    .line 506
+    .line 514
     :try_start_0
     const-string v0, "SignatureLockScreen"
 
@@ -71,7 +71,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 508
+    .line 516
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignService:Lcom/android/internal/policy/ISignServiceInterface;
@@ -81,14 +81,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 509
+    .line 517
     const-string v0, "SignatureLockScreen"
 
     const-string v2, "oh, sign service is alive now, just set to sign view."
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 510
+    .line 518
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -105,14 +105,14 @@
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/SignView;->setSignService(Lcom/android/internal/policy/ISignServiceInterface;)V
 
-    .line 511
+    .line 519
     monitor-exit v1
 
-    .line 524
+    .line 532
     :goto_0
     return-void
 
-    .line 514
+    .line 522
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
@@ -123,14 +123,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 515
+    .line 523
     const-string v0, "SignatureLockScreen"
 
     const-string v2, "onSignServiceError unbind by force."
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 516
+    .line 524
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mContext:Landroid/content/Context;
@@ -147,7 +147,7 @@
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    .line 519
+    .line 527
     :cond_1
     const-string v0, "SignatureLockScreen"
 
@@ -155,12 +155,12 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 520
+    .line 528
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->bindToSignatureLock()V
 
-    .line 521
+    .line 529
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     const/4 v2, 0x1
@@ -168,7 +168,7 @@
     #setter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mBoundToSignService:Z
     invoke-static {v0, v2}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->access$1302(Lcom/android/internal/policy/impl/sec/SignatureLockScreen;Z)Z
 
-    .line 523
+    .line 531
     monitor-exit v1
 
     goto :goto_0
@@ -188,7 +188,7 @@
     .parameter "reason"
 
     .prologue
-    .line 499
+    .line 507
     return-void
 .end method
 
@@ -197,7 +197,7 @@
     .parameter "nCount"
 
     .prologue
-    .line 502
+    .line 510
     return-void
 .end method
 
@@ -205,14 +205,14 @@
     .locals 2
 
     .prologue
-    .line 441
+    .line 449
     const-string v0, "SignatureLockScreen"
 
     const-string v1, "onSignatureCleared is called by SignView"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 442
+    .line 450
     return-void
 .end method
 
@@ -220,14 +220,14 @@
     .locals 6
 
     .prologue
-    .line 451
+    .line 459
     const-string v2, "SignatureLockScreen"
 
     const-string v3, "onSignatureDetected is called by SignView"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 456
+    .line 464
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
@@ -238,7 +238,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 457
+    .line 465
     const-string v2, "SignatureLockScreen"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -303,7 +303,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 467
+    .line 475
     :cond_0
     :goto_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
@@ -319,19 +319,19 @@
 
     if-eqz v2, :cond_1
 
-    .line 469
+    .line 477
     const-string v2, "SignatureLockScreen"
 
     const-string v3, "sign verification is successful, go to unlock screen"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 471
+    .line 479
     sget-object v2, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;->SUCCESS:Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
     invoke-static {v2}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->access$702(Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;)Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
-    .line 472
+    .line 480
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -343,7 +343,7 @@
 
     invoke-interface {v2, v3}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->keyguardDone(Z)V
 
-    .line 473
+    .line 481
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -353,33 +353,33 @@
 
     invoke-interface {v2}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->reportSuccessfulUnlockAttempt()V
 
-    .line 496
+    .line 504
     :goto_1
     return-void
 
-    .line 461
+    .line 469
     :catch_0
     move-exception v0
 
-    .line 462
+    .line 470
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 475
+    .line 483
     .end local v0           #e:Landroid/os/RemoteException;
     :cond_1
     sget-object v2, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;->FAIL:Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
     invoke-static {v2}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->access$702(Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;)Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
-    .line 477
+    .line 485
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     invoke-static {v2}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->access$1008(Lcom/android/internal/policy/impl/sec/SignatureLockScreen;)I
 
-    .line 479
+    .line 487
     const-string v2, "SignatureLockScreen"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -415,7 +415,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 482
+    .line 490
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mFailedAttempts:I
@@ -427,14 +427,14 @@
 
     if-lt v2, v3, :cond_2
 
-    .line 483
+    .line 491
     const-string v2, "SignatureLockScreen"
 
     const-string v3, "user failed to unlock with signature until maximum try, go to unlock screen"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 486
+    .line 494
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -446,7 +446,7 @@
 
     goto :goto_1
 
-    .line 488
+    .line 496
     :cond_2
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -463,7 +463,7 @@
 
     move-result-object v3
 
-    const v4, 0x10403e2
+    const v4, 0x10403e8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -494,7 +494,7 @@
 
     move-result-object v1
 
-    .line 491
+    .line 499
     .local v1, guideMessage:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
@@ -505,7 +505,7 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 493
+    .line 501
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -524,7 +524,7 @@
     .locals 2
 
     .prologue
-    .line 445
+    .line 453
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->access$800()Z
 
     move-result v0
@@ -537,7 +537,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 447
+    .line 455
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
@@ -548,7 +548,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 448
+    .line 456
     return-void
 .end method
 
@@ -556,14 +556,14 @@
     .locals 2
 
     .prologue
-    .line 428
+    .line 436
     const-string v0, "SignatureLockScreen"
 
     const-string v1, "onSignatureStart is called by SignView"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 430
+    .line 438
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mHelpText:Landroid/widget/TextView;
@@ -580,7 +580,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 433
+    .line 441
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$UnlockSignatureLister;->this$0:Lcom/android/internal/policy/impl/sec/SignatureLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->mSignView:Lcom/android/internal/widget/SignView;
@@ -592,7 +592,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/SignView;->setBackgroundColor(I)V
 
-    .line 435
+    .line 443
     sget-object v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;->INIT:Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->access$700()Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
@@ -601,12 +601,12 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 436
+    .line 444
     sget-object v0, Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;->IDENTIFYING:Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
     invoke-static {v0}, Lcom/android/internal/policy/impl/sec/SignatureLockScreen;->access$702(Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;)Lcom/android/internal/policy/impl/sec/SignatureLockScreen$IdentifyState;
 
-    .line 438
+    .line 446
     :cond_0
     return-void
 .end method

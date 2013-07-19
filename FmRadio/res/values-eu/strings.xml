@@ -94,13 +94,13 @@ Entzungailuak irrati antenaren modura funtzionatzen du. Entzungailua konektatu"<
     <string name="toast_unavailable_in_tvout_mode">Ez dago TB irteera modurako eskuragarri</string>
     <string name="mute">Isilarazi</string>
     <string name="seeking">Bilatzen</string>
-    <string name="via_earphone">Entzungailu bidez</string>
-    <string name="via_speaker">Bozg. bidez</string>
+    <string name="via_earphone">Erreproduzitu entzungailu bidez</string>
+    <string name="via_speaker">Erreproduzitu bozgorailuan</string>
     <string name="normal_frequency">Frekuentzia arrunta</string>
     <string name="tag">Etiketa</string>
     <string name="stop">Gelditu</string>
     <string name="recording">Grabatzen…</string>
-    <string name="memory_full">Grabaketa etenda. Memoria beteta</string>
+    <string name="memory_full">Memoria beteta</string>
     <string name="cancel_recording">Ezeztatu grabaketa?</string>
     <string name="change_frequency">Aldatu frekuentzia</string>
     <string name="enter_frequency">Frekuentzia idatzi</string>
@@ -126,11 +126,14 @@ Entzungailuak irrati antenaren modura funtzionatzen du. Entzungailua konektatu"<
     <string name="tags">Etiketak</string>
     <string name="tags_now_broadcasting">Orain ematen</string>
     <string name="tags_no_information">Informaziorik ez</string>
+    <string name="tags_music_history">Musika historia</string>
     <string name="tags_music_title">Izenburua</string>
     <string name="tags_music_album">Albuma</string>
     <string name="tags_music_artist">Artista</string>
+    <string name="tags_music_band">Taldea</string>
     <string name="tags_information_url">URLa</string>
     <string name="tags_programme_homepage">Orri nagusia</string>
+    <string name="tags_interact_hotline">Linea beroa</string>
     <string name="tags_interact_studio">Estudioa</string>
     <string name="tags_interact_other">Besterik</string>
     <string name="tags_interact_centre">Erdia</string>
@@ -176,4 +179,14 @@ Irratia grabatu ondoren, grabatutako fitxategiak erakutsiko dira"</string>
     <string name="dialog_one_item_deleted">Elementu hau ezabatu egingo da</string>
     <string name="dialog_multiple_items_deleted">%d elementu ezabatuko dira</string>
     <string name="dialog_all_items_deleted">Elementu guztiak ezabatuko dira</string>
+    <string name="turning_on">Pizten…</string>
+    <string name="not_enough_memory_recording_will_stop">Ez dago memoria nahikorik. Grabaketa %d segundutan geratuko da</string>
+    <string name="low_batt_msg">Bateria gutxi</string>
+    <string name="no_play_during_call">Ezin da deian zehar erreproduzitu</string>
+    <string name="unable_delete">Ezin da ezabatu</string>
+    <string name="playing">Erreproduzitzen…</string>
+    <string name="tts_play_button">Erreproduzitu</string>
+    <string name="tts_previous_button">Aurrekoa</string>
+    <string name="tts_Next_button">Hurrengoa</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

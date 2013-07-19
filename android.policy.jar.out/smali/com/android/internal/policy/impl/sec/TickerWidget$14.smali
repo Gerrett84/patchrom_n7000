@@ -3,7 +3,7 @@
 .source "TickerWidget.java"
 
 # interfaces
-.implements Lcom/android/internal/policy/impl/sec/TickerCallback;
+.implements Landroid/view/View$OnTouchListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 484
+    .line 566
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$14;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,74 +37,24 @@
 
 
 # virtual methods
-.method public closeTickerSlidingDrawer()V
+.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 1
+    .parameter "arg0"
+    .parameter "arg1"
 
     .prologue
-    .line 490
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$14;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->animateClose()V
-
-    .line 491
-    return-void
-.end method
-
-.method public goToUnlockScreen()V
-    .locals 1
-
-    .prologue
-    .line 495
+    .line 570
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$14;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToUnlockScreen()V
-
-    .line 496
-    return-void
-.end method
-
-.method public openTickerSlidingDrawer()V
-    .locals 1
-
-    .prologue
-    .line 486
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$14;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->animateOpen()V
-
-    .line 487
-    return-void
-.end method
-
-.method public pokeWakelock()V
-    .locals 1
-
-    .prologue
-    .line 500
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$14;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1700(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     move-result-object v0
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 501
-    return-void
+    .line 571
+    const/4 v0, 0x0
+
+    return v0
 .end method

@@ -4,11 +4,7 @@
 
 
 # static fields
-.field public static final autorun:I = 0x1770
-
 .field public static final cdfs:I = 0xfa0
-
-.field public static final cdfs_eject:I = 0x1388
 
 .field public static final load_at:I = 0x1b58
 
@@ -19,6 +15,10 @@
 .field public static final offline:I = 0x0
 
 .field public static final online:I = 0x1
+
+.field public static final time_reset:I = 0x1770
+
+.field public static final time_stop:I = 0x1388
 
 .field public static final ums:I = 0xbb8
 

@@ -14,13 +14,13 @@
     <integer name="config_wifi_supplicant_scan_interval">15000</integer>
     <integer name="config_wifi_framework_scan_interval">300000</integer>
     <integer name="config_wifi_driver_stop_delay">120000</integer>
-    <integer name="config_lidOpenRotation">-1</integer>
+    <integer name="config_lidOpenRotation">90</integer>
     <integer name="config_deskDockRotation">-1</integer>
     <integer name="config_carDockRotation">-1</integer>
     <integer name="config_defaultUiModeType">1</integer>
     <integer name="config_deskDockKeepsScreenOn">1</integer>
     <integer name="config_carDockKeepsScreenOn">1</integer>
-    <integer name="config_lidKeyboardAccessibility">0</integer>
+    <integer name="config_lidKeyboardAccessibility">1</integer>
     <integer name="config_lidNavigationAccessibility">0</integer>
     <integer name="config_longPressOnPowerBehavior">1</integer>
     <integer name="config_criticalBatteryWarningLevel">5</integer>
@@ -34,11 +34,12 @@
     <integer name="config_notificationsBatteryLedOn">125</integer>
     <integer name="config_notificationsBatteryLedOff">2875</integer>
     <integer name="config_longPressOnHomeBehavior">2</integer>
-    <integer name="config_screenBrightnessDim">20</integer>
+    <integer name="config_lightsensorDelay">3000</integer>
+    <integer name="config_screenBrightnessDim">30</integer>
     <integer name="config_lowLimitAtHighestAutoBrightnessLevel">255</integer>
     <integer name="config_valueOfVirtualZeroCandela">0</integer>
     <integer name="config_lightSensorWarmupTime">0</integer>
-    <integer name="config_virtualKeyQuietTimeMillis">0</integer>
+    <integer name="config_virtualKeyQuietTimeMillis">250</integer>
     <integer name="config_datause_polling_period_sec">600</integer>
     <integer name="config_datause_threshold_bytes">0</integer>
     <integer name="config_datause_throttle_kbitsps">300</integer>
@@ -62,5 +63,6 @@
     <integer name="preference_fragment_scrollbarStyle">33554432</integer>
     <integer name="scrollbar_fade_duration">250</integer>
     <integer name="config_multiWindowDefaultArrangeMode">1</integer>
+    <integer name="config_coverCloseRotation">0</integer>
     <integer name="config_findOnPageMaxLength">512</integer>
 </resources>

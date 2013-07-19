@@ -74,7 +74,7 @@
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .line 142
+    .line 146
     :goto_0
     return-void
 
@@ -97,12 +97,12 @@
 
     goto :goto_0
 
-    .line 137
+    .line 139
     .end local v0           #e:Landroid/content/ActivityNotFoundException;
     :catch_2
     move-exception v0
 
-    .line 139
+    .line 141
     .local v0, e:Ljava/lang/SecurityException;
     :try_start_2
     invoke-virtual {v0}, Ljava/lang/SecurityException;->printStackTrace()V
@@ -111,7 +111,7 @@
 
     goto :goto_0
 
-    .line 140
+    .line 142
     :catch_3
     move-exception v3
 

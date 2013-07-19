@@ -42,29 +42,29 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 46
+    .line 45
     iput-object p1, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 47
+    .line 46
     invoke-static {p2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->inflater:Landroid/view/LayoutInflater;
 
-    .line 48
+    .line 47
     iput-object v1, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->musicTagListArray:Ljava/util/ArrayList;
 
-    .line 49
+    .line 48
     new-instance v0, Lcom/sec/android/app/fm/TagsActivity$TagHolder;
 
     invoke-direct {v0, v1}, Lcom/sec/android/app/fm/TagsActivity$TagHolder;-><init>(Lcom/sec/android/app/fm/TagsActivity$1;)V
 
     iput-object v0, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->holder:Lcom/sec/android/app/fm/TagsActivity$TagHolder;
 
-    .line 50
+    .line 49
     return-void
 .end method
 
@@ -74,7 +74,7 @@
     .locals 1
 
     .prologue
-    .line 55
+    .line 54
     iget-object v0, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->musicTagListArray:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -89,7 +89,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 61
+    .line 60
     const/4 v0, 0x0
 
     return-object v0
@@ -100,7 +100,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 67
+    .line 66
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -115,10 +115,10 @@
     .prologue
     const/4 v11, 0x0
 
-    .line 74
+    .line 73
     iget-object v8, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->inflater:Landroid/view/LayoutInflater;
 
-    const v9, 0x7f030019
+    const v9, 0x7f030024
 
     const/4 v10, 0x0
 
@@ -126,8 +126,8 @@
 
     move-result-object p2
 
-    .line 76
-    const v8, 0x7f0700a5
+    .line 75
+    const v8, 0x7f0700e4
 
     invoke-virtual {p2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
     .local v2, musicListLayout:Landroid/widget/LinearLayout;
     iget-object v9, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->holder:Lcom/sec/android/app/fm/TagsActivity$TagHolder;
 
-    const v8, 0x7f0700a6
+    const v8, 0x7f0700e5
 
     invoke-virtual {p2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -152,7 +152,7 @@
     .line 78
     iget-object v9, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->holder:Lcom/sec/android/app/fm/TagsActivity$TagHolder;
 
-    const v8, 0x7f0700a7
+    const v8, 0x7f0700e6
 
     invoke-virtual {p2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -165,7 +165,7 @@
     .line 79
     iget-object v9, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->holder:Lcom/sec/android/app/fm/TagsActivity$TagHolder;
 
-    const v8, 0x7f0700a8
+    const v8, 0x7f0700e7
 
     invoke-virtual {p2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -348,7 +348,7 @@
 
     iget-object v8, v8, Lcom/sec/android/app/fm/TagsActivity$TagHolder;->link:Landroid/widget/ImageButton;
 
-    const v9, 0x7f0200df
+    const v9, 0x7f0200b1
 
     invoke-virtual {v8, v9}, Landroid/widget/ImageButton;->setImageResource(I)V
 
@@ -357,7 +357,7 @@
 
     iget-object v8, v8, Lcom/sec/android/app/fm/TagsActivity$TagHolder;->link:Landroid/widget/ImageButton;
 
-    const v9, 0x7f020130
+    const v9, 0x7f0200fa
 
     invoke-virtual {v8, v9}, Landroid/widget/ImageButton;->setBackgroundResource(I)V
 
@@ -372,17 +372,17 @@
 
     invoke-virtual {v8, v9}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 149
+    .line 153
     :goto_0
     invoke-virtual {v2}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v3
 
-    .line 150
+    .line 154
     .local v3, p:Landroid/view/ViewGroup$LayoutParams;
     const/4 v0, 0x0
 
-    .line 151
+    .line 155
     .local v0, imageWidth:I
     iget-object v8, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
@@ -393,14 +393,14 @@
 
     if-eqz v8, :cond_4
 
-    .line 152
+    .line 156
     iget-object v8, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->holder:Lcom/sec/android/app/fm/TagsActivity$TagHolder;
 
     iget-object v8, v8, Lcom/sec/android/app/fm/TagsActivity$TagHolder;->link:Landroid/widget/ImageButton;
 
     invoke-virtual {v8, v11, v11}, Landroid/widget/ImageButton;->measure(II)V
 
-    .line 153
+    .line 157
     iget-object v8, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->holder:Lcom/sec/android/app/fm/TagsActivity$TagHolder;
 
     iget-object v8, v8, Lcom/sec/android/app/fm/TagsActivity$TagHolder;->link:Landroid/widget/ImageButton;
@@ -411,7 +411,7 @@
 
     mul-int/lit8 v0, v8, 0x2
 
-    .line 155
+    .line 159
     :cond_4
     iget-object v8, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->this$0:Lcom/sec/android/app/fm/TagsActivity;
 
@@ -424,27 +424,27 @@
 
     iput v8, v3, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 157
+    .line 161
     invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 159
+    .line 163
     iget-object v8, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->holder:Lcom/sec/android/app/fm/TagsActivity$TagHolder;
 
     iget-object v8, v8, Lcom/sec/android/app/fm/TagsActivity$TagHolder;->title:Landroid/widget/TextView;
 
     invoke-virtual {v8, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 160
+    .line 164
     iget-object v8, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->holder:Lcom/sec/android/app/fm/TagsActivity$TagHolder;
 
     iget-object v8, v8, Lcom/sec/android/app/fm/TagsActivity$TagHolder;->info:Landroid/widget/TextView;
 
     invoke-virtual {v8, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 162
+    .line 166
     return-object p2
 
-    .line 145
+    .line 149
     .end local v0           #imageWidth:I
     .end local v3           #p:Landroid/view/ViewGroup$LayoutParams;
     :cond_5
@@ -473,10 +473,10 @@
     .end annotation
 
     .prologue
-    .line 167
+    .line 171
     .local p1, tagListArray:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/sec/android/app/fm/ui/RTPTagList;>;"
     iput-object p1, p0, Lcom/sec/android/app/fm/TagsActivity$MusicAdapter;->musicTagListArray:Ljava/util/ArrayList;
 
-    .line 168
+    .line 172
     return-void
 .end method

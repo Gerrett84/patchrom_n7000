@@ -54,26 +54,26 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 72
+    .line 75
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
+    .line 39
     iput-object v0, p0, Lcom/android/internal/util/NVStore;->mPhone:Lcom/android/internal/telephony/Phone;
 
-    .line 49
+    .line 52
     iput-object v0, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
-    .line 50
+    .line 53
     iput-object v0, p0, Lcom/android/internal/util/NVStore;->mContext:Landroid/content/Context;
 
-    .line 74
+    .line 77
     invoke-virtual {p0}, Lcom/android/internal/util/NVStore;->ReaddataFromNv()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
-    .line 76
+    .line 79
     return-void
 .end method
 
@@ -84,29 +84,29 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 65
+    .line 68
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
+    .line 39
     iput-object v0, p0, Lcom/android/internal/util/NVStore;->mPhone:Lcom/android/internal/telephony/Phone;
 
-    .line 49
+    .line 52
     iput-object v0, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
-    .line 50
+    .line 53
     iput-object v0, p0, Lcom/android/internal/util/NVStore;->mContext:Landroid/content/Context;
 
-    .line 66
+    .line 69
     iput-object p1, p0, Lcom/android/internal/util/NVStore;->mContext:Landroid/content/Context;
 
-    .line 68
+    .line 71
     invoke-virtual {p0}, Lcom/android/internal/util/NVStore;->ReaddataFromNv()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
-    .line 70
+    .line 73
     return-void
 .end method
 
@@ -120,17 +120,17 @@
 
     const/4 v3, 0x0
 
-    .line 105
+    .line 108
     iget-object v5, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v5, :cond_1
 
-    .line 123
+    .line 126
     :cond_0
     :goto_0
     return v3
 
-    .line 108
+    .line 111
     :cond_1
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -140,7 +140,7 @@
 
     invoke-direct {v1, v5, v6}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 110
+    .line 113
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -148,11 +148,11 @@
 
     new-array v2, v5, [Ljava/lang/String;
 
-    .line 111
+    .line 114
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 112
+    .line 115
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -161,25 +161,25 @@
 
     if-eqz v5, :cond_2
 
-    .line 113
+    .line 116
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v5
 
     aput-object v5, v2, v0
 
-    .line 114
+    .line 117
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 117
+    .line 120
     :cond_2
     const/4 v5, 0x2
 
     if-lt v0, v5, :cond_0
 
-    .line 120
+    .line 123
     aget-object v5, v2, v4
 
     const-string v6, "1"
@@ -192,7 +192,7 @@
 
     move v3, v4
 
-    .line 121
+    .line 124
     goto :goto_0
 .end method
 
@@ -206,17 +206,17 @@
 
     const/4 v6, 0x0
 
-    .line 81
+    .line 84
     iget-object v4, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v4, :cond_1
 
-    .line 100
+    .line 103
     :cond_0
     :goto_0
     return-object v3
 
-    .line 85
+    .line 88
     :cond_1
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -226,7 +226,7 @@
 
     invoke-direct {v1, v4, v5}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 87
+    .line 90
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -234,11 +234,11 @@
 
     new-array v2, v4, [Ljava/lang/String;
 
-    .line 88
+    .line 91
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 89
+    .line 92
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -247,25 +247,25 @@
 
     if-eqz v4, :cond_2
 
-    .line 90
+    .line 93
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
 
     aput-object v4, v2, v0
 
-    .line 91
+    .line 94
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 94
+    .line 97
     :cond_2
     const/4 v4, 0x1
 
     if-lt v0, v4, :cond_0
 
-    .line 97
+    .line 100
     aget-object v4, v2, v6
 
     invoke-virtual {v4}, Ljava/lang/String;->length()I
@@ -282,7 +282,7 @@
 
     if-lt v4, v7, :cond_0
 
-    .line 100
+    .line 103
     aget-object v3, v2, v6
 
     goto :goto_0
@@ -292,19 +292,19 @@
     .locals 5
 
     .prologue
-    .line 154
+    .line 157
     iget-object v3, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v3, :cond_0
 
-    .line 155
+    .line 158
     const-string v3, "none"
 
-    .line 171
+    .line 174
     :goto_0
     return-object v3
 
-    .line 157
+    .line 160
     :cond_0
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -314,7 +314,7 @@
 
     invoke-direct {v1, v3, v4}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 159
+    .line 162
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -322,11 +322,11 @@
 
     new-array v2, v3, [Ljava/lang/String;
 
-    .line 160
+    .line 163
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 161
+    .line 164
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -335,30 +335,30 @@
 
     if-eqz v3, :cond_1
 
-    .line 162
+    .line 165
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v2, v0
 
-    .line 163
+    .line 166
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 166
+    .line 169
     :cond_1
     const/4 v3, 0x4
 
     if-ge v0, v3, :cond_2
 
-    .line 167
+    .line 170
     const-string v3, "none"
 
     goto :goto_0
 
-    .line 171
+    .line 174
     :cond_2
     const/4 v3, 0x3
 
@@ -371,19 +371,19 @@
     .locals 5
 
     .prologue
-    .line 176
+    .line 179
     iget-object v3, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v3, :cond_0
 
-    .line 177
+    .line 180
     const-string v3, "none"
 
-    .line 193
+    .line 196
     :goto_0
     return-object v3
 
-    .line 179
+    .line 182
     :cond_0
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -393,7 +393,7 @@
 
     invoke-direct {v1, v3, v4}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 181
+    .line 184
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -401,11 +401,11 @@
 
     new-array v2, v3, [Ljava/lang/String;
 
-    .line 182
+    .line 185
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 183
+    .line 186
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -414,30 +414,30 @@
 
     if-eqz v3, :cond_1
 
-    .line 184
+    .line 187
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v2, v0
 
-    .line 185
+    .line 188
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 188
+    .line 191
     :cond_1
     const/4 v3, 0x5
 
     if-ge v0, v3, :cond_2
 
-    .line 189
+    .line 192
     const-string v3, "none"
 
     goto :goto_0
 
-    .line 193
+    .line 196
     :cond_2
     const/4 v3, 0x4
 
@@ -450,19 +450,19 @@
     .locals 5
 
     .prologue
-    .line 197
+    .line 200
     iget-object v3, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v3, :cond_0
 
-    .line 198
+    .line 201
     const-string v3, "none"
 
-    .line 214
+    .line 217
     :goto_0
     return-object v3
 
-    .line 200
+    .line 203
     :cond_0
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -472,7 +472,7 @@
 
     invoke-direct {v1, v3, v4}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 202
+    .line 205
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -480,11 +480,11 @@
 
     new-array v2, v3, [Ljava/lang/String;
 
-    .line 203
+    .line 206
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 204
+    .line 207
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -493,30 +493,30 @@
 
     if-eqz v3, :cond_1
 
-    .line 205
+    .line 208
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v2, v0
 
-    .line 206
+    .line 209
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 209
+    .line 212
     :cond_1
     const/4 v3, 0x6
 
     if-ge v0, v3, :cond_2
 
-    .line 210
+    .line 213
     const-string v3, "none"
 
     goto :goto_0
 
-    .line 214
+    .line 217
     :cond_2
     const/4 v3, 0x5
 
@@ -529,19 +529,19 @@
     .locals 5
 
     .prologue
-    .line 218
+    .line 221
     iget-object v3, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v3, :cond_0
 
-    .line 219
+    .line 222
     const-string v3, "none"
 
-    .line 235
+    .line 238
     :goto_0
     return-object v3
 
-    .line 221
+    .line 224
     :cond_0
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -551,7 +551,7 @@
 
     invoke-direct {v1, v3, v4}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 223
+    .line 226
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -559,11 +559,11 @@
 
     new-array v2, v3, [Ljava/lang/String;
 
-    .line 224
+    .line 227
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 225
+    .line 228
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -572,30 +572,30 @@
 
     if-eqz v3, :cond_1
 
-    .line 226
+    .line 229
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v2, v0
 
-    .line 227
+    .line 230
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 230
+    .line 233
     :cond_1
     const/4 v3, 0x7
 
     if-ge v0, v3, :cond_2
 
-    .line 231
+    .line 234
     const-string v3, "none"
 
     goto :goto_0
 
-    .line 235
+    .line 238
     :cond_2
     const/4 v3, 0x6
 
@@ -608,19 +608,19 @@
     .locals 5
 
     .prologue
-    .line 239
+    .line 242
     iget-object v3, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v3, :cond_0
 
-    .line 240
+    .line 243
     const-string v3, "none"
 
-    .line 256
+    .line 259
     :goto_0
     return-object v3
 
-    .line 242
+    .line 245
     :cond_0
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -630,7 +630,7 @@
 
     invoke-direct {v1, v3, v4}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 244
+    .line 247
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -638,11 +638,11 @@
 
     new-array v2, v3, [Ljava/lang/String;
 
-    .line 245
+    .line 248
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 246
+    .line 249
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -651,30 +651,30 @@
 
     if-eqz v3, :cond_1
 
-    .line 247
+    .line 250
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v2, v0
 
-    .line 248
+    .line 251
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 251
+    .line 254
     :cond_1
     const/16 v3, 0x8
 
     if-ge v0, v3, :cond_2
 
-    .line 252
+    .line 255
     const-string v3, "none"
 
     goto :goto_0
 
-    .line 256
+    .line 259
     :cond_2
     const/4 v3, 0x7
 
@@ -689,19 +689,19 @@
     .prologue
     const/4 v5, 0x2
 
-    .line 130
+    .line 133
     iget-object v3, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v3, :cond_0
 
-    .line 131
+    .line 134
     const-string v3, "Not Mentioned"
 
-    .line 148
+    .line 151
     :goto_0
     return-object v3
 
-    .line 133
+    .line 136
     :cond_0
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -711,7 +711,7 @@
 
     invoke-direct {v1, v3, v4}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 135
+    .line 138
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -719,11 +719,11 @@
 
     new-array v2, v3, [Ljava/lang/String;
 
-    .line 136
+    .line 139
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 137
+    .line 140
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -732,30 +732,30 @@
 
     if-eqz v3, :cond_1
 
-    .line 138
+    .line 141
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v2, v0
 
-    .line 139
+    .line 142
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 142
+    .line 145
     :cond_1
     const/4 v3, 0x3
 
     if-ge v0, v3, :cond_2
 
-    .line 143
+    .line 146
     const-string v3, "Not Mentioned"
 
     goto :goto_0
 
-    .line 145
+    .line 148
     :cond_2
     aget-object v3, v2, v5
 
@@ -767,12 +767,12 @@
 
     if-le v3, v4, :cond_3
 
-    .line 146
+    .line 149
     const-string v3, "Not Mentioned"
 
     goto :goto_0
 
-    .line 148
+    .line 151
     :cond_3
     aget-object v3, v2, v5
 
@@ -785,19 +785,19 @@
     .prologue
     const/16 v5, 0x8
 
-    .line 260
+    .line 263
     iget-object v3, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v3, :cond_0
 
-    .line 261
+    .line 264
     const-string v3, "Keep this message."
 
-    .line 277
+    .line 280
     :goto_0
     return-object v3
 
-    .line 263
+    .line 266
     :cond_0
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -807,7 +807,7 @@
 
     invoke-direct {v1, v3, v4}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 265
+    .line 268
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -815,11 +815,11 @@
 
     new-array v2, v3, [Ljava/lang/String;
 
-    .line 266
+    .line 269
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 267
+    .line 270
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -828,30 +828,30 @@
 
     if-eqz v3, :cond_1
 
-    .line 268
+    .line 271
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v2, v0
 
-    .line 269
+    .line 272
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 272
+    .line 275
     :cond_1
     const/16 v3, 0x9
 
     if-ge v0, v3, :cond_2
 
-    .line 273
+    .line 276
     const-string v3, "Keep this message."
 
     goto :goto_0
 
-    .line 274
+    .line 277
     :cond_2
     aget-object v3, v2, v5
 
@@ -863,12 +863,12 @@
 
     if-le v3, v4, :cond_3
 
-    .line 275
+    .line 278
     const-string v3, "Keep this message."
 
     goto :goto_0
 
-    .line 277
+    .line 280
     :cond_3
     aget-object v3, v2, v5
 
@@ -881,19 +881,19 @@
     .prologue
     const/16 v5, 0x9
 
-    .line 282
+    .line 285
     iget-object v3, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v3, :cond_0
 
-    .line 283
+    .line 286
     const-string v3, "0000"
 
-    .line 299
+    .line 302
     :goto_0
     return-object v3
 
-    .line 285
+    .line 288
     :cond_0
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -903,7 +903,7 @@
 
     invoke-direct {v1, v3, v4}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 287
+    .line 290
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -911,11 +911,11 @@
 
     new-array v2, v3, [Ljava/lang/String;
 
-    .line 288
+    .line 291
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 289
+    .line 292
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -924,30 +924,30 @@
 
     if-eqz v3, :cond_1
 
-    .line 290
+    .line 293
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v2, v0
 
-    .line 291
+    .line 294
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 294
+    .line 297
     :cond_1
     const/16 v3, 0xa
 
     if-ge v0, v3, :cond_2
 
-    .line 295
+    .line 298
     const-string v3, "0000"
 
     goto :goto_0
 
-    .line 296
+    .line 299
     :cond_2
     aget-object v3, v2, v5
 
@@ -959,16 +959,26 @@
 
     if-le v3, v4, :cond_3
 
-    .line 297
+    .line 300
     const-string v3, "0000"
 
     goto :goto_0
 
-    .line 299
+    .line 302
     :cond_3
     aget-object v3, v2, v5
 
     goto :goto_0
+.end method
+
+.method public GetStoredIMSI2()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 329
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method public IsPhLockeEnabled()Z
@@ -977,17 +987,17 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 304
+    .line 334
     iget-object v4, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
     if-nez v4, :cond_1
 
-    .line 327
+    .line 357
     :cond_0
     :goto_0
     return v3
 
-    .line 307
+    .line 337
     :cond_1
     new-instance v1, Ljava/util/StringTokenizer;
 
@@ -997,7 +1007,7 @@
 
     invoke-direct {v1, v4, v5}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 309
+    .line 339
     .local v1, str:Ljava/util/StringTokenizer;
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->countTokens()I
 
@@ -1005,11 +1015,11 @@
 
     new-array v2, v4, [Ljava/lang/String;
 
-    .line 310
+    .line 340
     .local v2, tokens:[Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 311
+    .line 341
     .local v0, i:I
     :goto_1
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
@@ -1018,25 +1028,25 @@
 
     if-eqz v4, :cond_2
 
-    .line 312
+    .line 342
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
 
     aput-object v4, v2, v0
 
-    .line 313
+    .line 343
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 316
+    .line 346
     :cond_2
     const/16 v4, 0xb
 
     if-lt v0, v4, :cond_0
 
-    .line 321
+    .line 351
     const/16 v4, 0xa
 
     aget-object v4, v2, v4
@@ -1049,7 +1059,7 @@
 
     if-nez v4, :cond_0
 
-    .line 323
+    .line 353
     const/4 v3, 0x1
 
     goto :goto_0
@@ -1059,18 +1069,18 @@
     .locals 12
 
     .prologue
-    .line 334
+    .line 364
     const/4 v3, 0x0
 
-    .line 335
+    .line 365
     .local v3, fIn:Ljava/io/FileInputStream;
     const/4 v7, 0x0
 
-    .line 336
+    .line 366
     .local v7, isr:Ljava/io/InputStreamReader;
     const/4 v0, 0x0
 
-    .line 341
+    .line 371
     .local v0, data:Ljava/lang/String;
     :try_start_0
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1099,7 +1109,7 @@
 
     move-result-object v5
 
-    .line 345
+    .line 375
     .local v5, fname:Ljava/lang/String;
     new-instance v4, Ljava/io/FileInputStream;
 
@@ -1109,7 +1119,7 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 346
+    .line 376
     .end local v3           #fIn:Ljava/io/FileInputStream;
     .local v4, fIn:Ljava/io/FileInputStream;
     :try_start_1
@@ -1121,7 +1131,7 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_c
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_a
 
-    .line 348
+    .line 378
     .end local v7           #isr:Ljava/io/InputStreamReader;
     .local v8, isr:Ljava/io/InputStreamReader;
     const/16 v10, 0x100
@@ -1129,11 +1139,11 @@
     :try_start_2
     new-array v6, v10, [C
 
-    .line 351
+    .line 381
     .local v6, inputBuffer:[C
     invoke-virtual {v8, v6}, Ljava/io/InputStreamReader;->read([C)I
 
-    .line 352
+    .line 382
     new-instance v9, Ljava/lang/String;
 
     invoke-direct {v9, v6}, Ljava/lang/String;-><init>([C)V
@@ -1142,25 +1152,25 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_d
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_b
 
-    .line 353
+    .line 383
     .local v9, readString:Ljava/lang/String;
     move-object v0, v9
 
-    .line 370
+    .line 400
     if-eqz v8, :cond_0
 
-    .line 373
+    .line 403
     :try_start_3
     invoke-virtual {v8}, Ljava/io/InputStreamReader;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
-    .line 377
+    .line 407
     :cond_0
     :goto_0
     if-eqz v4, :cond_1
 
-    .line 380
+    .line 410
     :try_start_4
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
     :try_end_4
@@ -1178,7 +1188,7 @@
     .restart local v3       #fIn:Ljava/io/FileInputStream;
     move-object v1, v0
 
-    .line 385
+    .line 415
     .end local v0           #data:Ljava/lang/String;
     .end local v5           #fname:Ljava/lang/String;
     .end local v6           #inputBuffer:[C
@@ -1187,29 +1197,29 @@
     :goto_2
     return-object v1
 
-    .line 358
+    .line 388
     .end local v1           #data:Ljava/lang/String;
     .restart local v0       #data:Ljava/lang/String;
     :catch_0
     move-exception v2
 
-    .line 370
+    .line 400
     .local v2, e:Ljava/io/FileNotFoundException;
     :goto_3
     if-eqz v7, :cond_2
 
-    .line 373
+    .line 403
     :try_start_5
     invoke-virtual {v7}, Ljava/io/InputStreamReader;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
 
-    .line 377
+    .line 407
     :cond_2
     :goto_4
     if-eqz v3, :cond_3
 
-    .line 380
+    .line 410
     :try_start_6
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
     :try_end_6
@@ -1219,35 +1229,35 @@
     :goto_5
     move-object v1, v0
 
-    .line 382
+    .line 412
     .end local v0           #data:Ljava/lang/String;
     .restart local v1       #data:Ljava/lang/String;
     goto :goto_2
 
-    .line 363
+    .line 393
     .end local v1           #data:Ljava/lang/String;
     .end local v2           #e:Ljava/io/FileNotFoundException;
     .restart local v0       #data:Ljava/lang/String;
     :catch_1
     move-exception v2
 
-    .line 370
+    .line 400
     .local v2, e:Ljava/io/IOException;
     :goto_6
     if-eqz v7, :cond_4
 
-    .line 373
+    .line 403
     :try_start_7
     invoke-virtual {v7}, Ljava/io/InputStreamReader;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_6
 
-    .line 377
+    .line 407
     :cond_4
     :goto_7
     if-eqz v3, :cond_5
 
-    .line 380
+    .line 410
     :try_start_8
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
     :try_end_8
@@ -1257,45 +1267,45 @@
     :goto_8
     move-object v1, v0
 
-    .line 382
+    .line 412
     .end local v0           #data:Ljava/lang/String;
     .restart local v1       #data:Ljava/lang/String;
     goto :goto_2
 
-    .line 369
+    .line 399
     .end local v1           #data:Ljava/lang/String;
     .end local v2           #e:Ljava/io/IOException;
     .restart local v0       #data:Ljava/lang/String;
     :catchall_0
     move-exception v10
 
-    .line 370
+    .line 400
     :goto_9
     if-eqz v7, :cond_6
 
-    .line 373
+    .line 403
     :try_start_9
     invoke-virtual {v7}, Ljava/io/InputStreamReader;->close()V
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_8
 
-    .line 377
+    .line 407
     :cond_6
     :goto_a
     if-eqz v3, :cond_7
 
-    .line 380
+    .line 410
     :try_start_a
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
     :try_end_a
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_9
 
-    .line 382
+    .line 412
     :cond_7
     :goto_b
     throw v10
 
-    .line 374
+    .line 404
     .end local v3           #fIn:Ljava/io/FileInputStream;
     .end local v7           #isr:Ljava/io/InputStreamReader;
     .restart local v4       #fIn:Ljava/io/FileInputStream;
@@ -1308,13 +1318,13 @@
 
     goto :goto_0
 
-    .line 381
+    .line 411
     :catch_3
     move-exception v10
 
     goto :goto_1
 
-    .line 374
+    .line 404
     .end local v4           #fIn:Ljava/io/FileInputStream;
     .end local v5           #fname:Ljava/lang/String;
     .end local v6           #inputBuffer:[C
@@ -1328,39 +1338,39 @@
 
     goto :goto_4
 
-    .line 381
+    .line 411
     :catch_5
     move-exception v10
 
     goto :goto_5
 
-    .line 374
+    .line 404
     .local v2, e:Ljava/io/IOException;
     :catch_6
     move-exception v10
 
     goto :goto_7
 
-    .line 381
+    .line 411
     :catch_7
     move-exception v10
 
     goto :goto_8
 
-    .line 374
+    .line 404
     .end local v2           #e:Ljava/io/IOException;
     :catch_8
     move-exception v11
 
     goto :goto_a
 
-    .line 381
+    .line 411
     :catch_9
     move-exception v11
 
     goto :goto_b
 
-    .line 369
+    .line 399
     .end local v3           #fIn:Ljava/io/FileInputStream;
     .restart local v4       #fIn:Ljava/io/FileInputStream;
     .restart local v5       #fname:Ljava/lang/String;
@@ -1390,7 +1400,7 @@
     .restart local v3       #fIn:Ljava/io/FileInputStream;
     goto :goto_9
 
-    .line 363
+    .line 393
     .end local v3           #fIn:Ljava/io/FileInputStream;
     .restart local v4       #fIn:Ljava/io/FileInputStream;
     :catch_a
@@ -1419,7 +1429,7 @@
     .restart local v3       #fIn:Ljava/io/FileInputStream;
     goto :goto_6
 
-    .line 358
+    .line 388
     .end local v3           #fIn:Ljava/io/FileInputStream;
     .restart local v4       #fIn:Ljava/io/FileInputStream;
     :catch_c
@@ -1455,14 +1465,14 @@
     .parameter "type"
 
     .prologue
-    .line 390
+    .line 420
     const-string v2, ""
 
-    .line 391
+    .line 421
     .local v2, newdata:Ljava/lang/String;
     const/4 v3, 0x0
 
-    .line 392
+    .line 422
     .local v3, raf:Ljava/io/RandomAccessFile;
     invoke-virtual {p0}, Lcom/android/internal/util/NVStore;->ReaddataFromNv()Ljava/lang/String;
 
@@ -1470,12 +1480,12 @@
 
     iput-object v5, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
-    .line 394
+    .line 424
     sget-object v5, Lcom/android/internal/util/NVStore$datatype;->PHPWD:Lcom/android/internal/util/NVStore$datatype;
 
     if-ne p2, v5, :cond_3
 
-    .line 397
+    .line 427
     invoke-virtual {p0}, Lcom/android/internal/util/NVStore;->GetMTStatus()Z
 
     move-result v5
@@ -1484,7 +1494,7 @@
 
     const-string v1, "1"
 
-    .line 399
+    .line 429
     .local v1, mtStatus:Ljava/lang/String;
     :goto_0
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1645,17 +1655,17 @@
 
     move-result-object v2
 
-    .line 430
+    .line 460
     .end local v1           #mtStatus:Ljava/lang/String;
     :goto_1
     iput-object v2, p0, Lcom/android/internal/util/NVStore;->mNvData:Ljava/lang/String;
 
-    .line 432
+    .line 462
     iget-object v5, p0, Lcom/android/internal/util/NVStore;->mContext:Landroid/content/Context;
 
     if-eqz v5, :cond_0
 
-    .line 434
+    .line 464
     iget-object v5, p0, Lcom/android/internal/util/NVStore;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1670,14 +1680,14 @@
 
     invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 435
+    .line 465
     invoke-virtual {p0}, Lcom/android/internal/util/NVStore;->GetMTStatus()Z
 
     move-result v5
 
     if-eqz v5, :cond_8
 
-    .line 436
+    .line 466
     iget-object v5, p0, Lcom/android/internal/util/NVStore;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1690,7 +1700,7 @@
 
     invoke-static {v5, v6, v7}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 444
+    .line 474
     :cond_0
     :goto_2
     :try_start_0
@@ -1720,7 +1730,7 @@
 
     move-result-object v0
 
-    .line 448
+    .line 478
     .local v0, fname:Ljava/lang/String;
     new-instance v4, Ljava/io/RandomAccessFile;
 
@@ -1733,7 +1743,7 @@
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_5
 
-    .line 450
+    .line 480
     .end local v3           #raf:Ljava/io/RandomAccessFile;
     .local v4, raf:Ljava/io/RandomAccessFile;
     :try_start_1
@@ -1750,10 +1760,10 @@
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_9
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_8
 
-    .line 467
+    .line 497
     if-eqz v4, :cond_a
 
-    .line 471
+    .line 501
     :try_start_2
     invoke-virtual {v4}, Ljava/io/RandomAccessFile;->close()V
     :try_end_2
@@ -1761,7 +1771,7 @@
 
     move-object v3, v4
 
-    .line 476
+    .line 506
     .end local v0           #fname:Ljava/lang/String;
     .end local v4           #raf:Ljava/io/RandomAccessFile;
     .restart local v3       #raf:Ljava/io/RandomAccessFile;
@@ -1769,19 +1779,19 @@
     :goto_3
     return-void
 
-    .line 397
+    .line 427
     :cond_2
     const-string v1, "0"
 
     goto/16 :goto_0
 
-    .line 404
+    .line 434
     :cond_3
     sget-object v5, Lcom/android/internal/util/NVStore$datatype;->PHLOCK_STATE:Lcom/android/internal/util/NVStore$datatype;
 
     if-ne p2, v5, :cond_5
 
-    .line 408
+    .line 438
     invoke-virtual {p0}, Lcom/android/internal/util/NVStore;->GetMTStatus()Z
 
     move-result v5
@@ -1790,7 +1800,7 @@
 
     const-string v1, "1"
 
-    .line 409
+    .line 439
     .restart local v1       #mtStatus:Ljava/lang/String;
     :goto_4
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1951,23 +1961,23 @@
 
     move-result-object v2
 
-    .line 414
+    .line 444
     goto/16 :goto_1
 
-    .line 408
+    .line 438
     .end local v1           #mtStatus:Ljava/lang/String;
     :cond_4
     const-string v1, "0"
 
     goto/16 :goto_4
 
-    .line 414
+    .line 444
     :cond_5
     sget-object v5, Lcom/android/internal/util/NVStore$datatype;->ENABLE_PHLOCK_FIRST:Lcom/android/internal/util/NVStore$datatype;
 
     if-ne p2, v5, :cond_7
 
-    .line 417
+    .line 447
     invoke-virtual {p0}, Lcom/android/internal/util/NVStore;->GetMTStatus()Z
 
     move-result v5
@@ -1976,7 +1986,7 @@
 
     const-string v1, "1"
 
-    .line 419
+    .line 449
     .restart local v1       #mtStatus:Ljava/lang/String;
     :goto_5
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2135,17 +2145,17 @@
 
     move-result-object v2
 
-    .line 425
+    .line 455
     goto/16 :goto_1
 
-    .line 417
+    .line 447
     .end local v1           #mtStatus:Ljava/lang/String;
     :cond_6
     const-string v1, "0"
 
     goto/16 :goto_5
 
-    .line 427
+    .line 457
     :cond_7
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -2165,7 +2175,7 @@
 
     goto/16 :goto_1
 
-    .line 438
+    .line 468
     :cond_8
     iget-object v5, p0, Lcom/android/internal/util/NVStore;->mContext:Landroid/content/Context;
 
@@ -2181,7 +2191,7 @@
 
     goto/16 :goto_2
 
-    .line 472
+    .line 502
     .end local v3           #raf:Ljava/io/RandomAccessFile;
     .restart local v0       #fname:Ljava/lang/String;
     .restart local v4       #raf:Ljava/io/RandomAccessFile;
@@ -2190,21 +2200,21 @@
 
     move-object v3, v4
 
-    .line 473
+    .line 503
     .end local v4           #raf:Ljava/io/RandomAccessFile;
     .restart local v3       #raf:Ljava/io/RandomAccessFile;
     goto/16 :goto_3
 
-    .line 455
+    .line 485
     .end local v0           #fname:Ljava/lang/String;
     :catch_1
     move-exception v5
 
-    .line 467
+    .line 497
     :goto_6
     if-eqz v3, :cond_1
 
-    .line 471
+    .line 501
     :try_start_3
     invoke-virtual {v3}, Ljava/io/RandomAccessFile;->close()V
     :try_end_3
@@ -2212,21 +2222,21 @@
 
     goto/16 :goto_3
 
-    .line 472
+    .line 502
     :catch_2
     move-exception v5
 
     goto/16 :goto_3
 
-    .line 458
+    .line 488
     :catch_3
     move-exception v5
 
-    .line 467
+    .line 497
     :goto_7
     if-eqz v3, :cond_1
 
-    .line 471
+    .line 501
     :try_start_4
     invoke-virtual {v3}, Ljava/io/RandomAccessFile;->close()V
     :try_end_4
@@ -2234,21 +2244,21 @@
 
     goto/16 :goto_3
 
-    .line 472
+    .line 502
     :catch_4
     move-exception v5
 
     goto/16 :goto_3
 
-    .line 461
+    .line 491
     :catch_5
     move-exception v5
 
-    .line 467
+    .line 497
     :goto_8
     if-eqz v3, :cond_1
 
-    .line 471
+    .line 501
     :try_start_5
     invoke-virtual {v3}, Ljava/io/RandomAccessFile;->close()V
     :try_end_5
@@ -2256,38 +2266,38 @@
 
     goto/16 :goto_3
 
-    .line 472
+    .line 502
     :catch_6
     move-exception v5
 
     goto/16 :goto_3
 
-    .line 465
+    .line 495
     :catchall_0
     move-exception v5
 
-    .line 467
+    .line 497
     :goto_9
     if-eqz v3, :cond_9
 
-    .line 471
+    .line 501
     :try_start_6
     invoke-virtual {v3}, Ljava/io/RandomAccessFile;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_7
 
-    .line 473
+    .line 503
     :cond_9
     :goto_a
     throw v5
 
-    .line 472
+    .line 502
     :catch_7
     move-exception v6
 
     goto :goto_a
 
-    .line 465
+    .line 495
     .end local v3           #raf:Ljava/io/RandomAccessFile;
     .restart local v0       #fname:Ljava/lang/String;
     .restart local v4       #raf:Ljava/io/RandomAccessFile;
@@ -2300,7 +2310,7 @@
     .restart local v3       #raf:Ljava/io/RandomAccessFile;
     goto :goto_9
 
-    .line 461
+    .line 491
     .end local v3           #raf:Ljava/io/RandomAccessFile;
     .restart local v4       #raf:Ljava/io/RandomAccessFile;
     :catch_8
@@ -2312,7 +2322,7 @@
     .restart local v3       #raf:Ljava/io/RandomAccessFile;
     goto :goto_8
 
-    .line 458
+    .line 488
     .end local v3           #raf:Ljava/io/RandomAccessFile;
     .restart local v4       #raf:Ljava/io/RandomAccessFile;
     :catch_9
@@ -2324,7 +2334,7 @@
     .restart local v3       #raf:Ljava/io/RandomAccessFile;
     goto :goto_7
 
-    .line 455
+    .line 485
     .end local v3           #raf:Ljava/io/RandomAccessFile;
     .restart local v4       #raf:Ljava/io/RandomAccessFile;
     :catch_a

@@ -214,7 +214,7 @@
 
     iput-wide v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->THscore:D
 
-    .line 309
+    .line 316
     new-instance v0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask$1;
 
     invoke-direct {v0, p0}, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask$1;-><init>(Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;)V
@@ -261,7 +261,7 @@
     .parameter "b2"
 
     .prologue
-    .line 306
+    .line 313
     and-int/lit16 v0, p0, 0xff
 
     shl-int/lit8 v1, p1, 0x8
@@ -280,34 +280,34 @@
     .parameter "result"
 
     .prologue
-    .line 325
+    .line 332
     iget-object v2, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->handler:Landroid/os/Handler;
 
     invoke-virtual {v2}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
     move-result-object v1
 
-    .line 326
+    .line 333
     .local v1, msg:Landroid/os/Message;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 327
+    .line 334
     .local v0, b:Landroid/os/Bundle;
     const-string v2, "recognition_result"
 
     invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 328
+    .line 335
     invoke-virtual {v1, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
-    .line 329
+    .line 336
     iget-object v2, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->handler:Landroid/os/Handler;
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 330
+    .line 337
     return-void
 .end method
 
@@ -731,7 +731,7 @@
 
     const/4 v10, 0x0
 
-    .line 204
+    .line 211
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->rec:Landroid/media/AudioRecord;
 
     iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->buf:[B
@@ -744,7 +744,7 @@
 
     move-result v8
 
-    .line 206
+    .line 213
     .local v8, nshorts:I
     iget v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->totalReadCount:I
 
@@ -752,7 +752,7 @@
 
     if-nez v0, :cond_0
 
-    .line 208
+    .line 215
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -775,7 +775,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 211
+    .line 218
     :cond_0
     iget v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->totalReadCount:I
 
@@ -783,7 +783,7 @@
 
     iput v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->totalReadCount:I
 
-    .line 213
+    .line 220
     const/4 v7, 0x0
 
     .local v7, i:I
@@ -792,7 +792,7 @@
 
     if-ge v7, v0, :cond_1
 
-    .line 215
+    .line 222
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->speech:[S
 
     div-int/lit8 v1, v7, 0x2
@@ -813,21 +813,21 @@
 
     aput-short v2, v0, v1
 
-    .line 213
+    .line 220
     add-int/lit8 v7, v7, 0x2
 
     goto :goto_0
 
-    .line 218
+    .line 225
     :cond_1
     if-lez v8, :cond_7
 
-    .line 220
+    .line 227
     iget-boolean v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->isMakePCM:Z
 
     if-eqz v0, :cond_2
 
-    .line 223
+    .line 230
     :try_start_0
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->mFileOutputStream:Ljava/io/FileOutputStream;
 
@@ -837,25 +837,25 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 230
+    .line 237
     :cond_2
     :goto_1
     const/4 v9, 0x0
 
-    .line 232
+    .line 239
     .local v9, result:I
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
 
     if-eqz v0, :cond_3
 
-    .line 234
+    .line 241
     iget v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->totalReadCount:I
 
     const/16 v1, 0x32
 
     if-le v0, v1, :cond_3
 
-    .line 236
+    .line 243
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
 
     iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->speech:[S
@@ -864,49 +864,49 @@
 
     move-result v9
 
-    .line 240
+    .line 247
     :cond_3
     const/4 v0, -0x2
 
     if-ne v9, v0, :cond_4
 
-    .line 242
+    .line 249
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
 
     if-eqz v0, :cond_4
 
-    .line 244
+    .line 251
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->TAG:Ljava/lang/String;
 
     const-string v1, "Barge-in : Too long input so Reset"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 245
+    .line 252
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
 
     invoke-virtual {v0}, Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;->ResetFx()I
 
-    .line 246
+    .line 253
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
 
     invoke-virtual {v0}, Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;->SASRReset()I
 
-    .line 250
+    .line 257
     :cond_4
     if-ne v9, v11, :cond_7
 
-    .line 252
+    .line 259
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
 
     if-eqz v0, :cond_7
 
-    .line 254
+    .line 261
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
 
     invoke-virtual {v0}, Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;->ResetFx()I
 
-    .line 256
+    .line 263
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
 
     iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->cmResult:[F
@@ -943,7 +943,7 @@
 
     iput v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->numRecogResult:I
 
-    .line 259
+    .line 266
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->strResult:[Ljava/lang/String;
 
     iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->strResult:[Ljava/lang/String;
@@ -956,7 +956,7 @@
 
     aput-object v1, v0, v10
 
-    .line 261
+    .line 268
     iget v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->mLanguage:I
 
     if-eqz v0, :cond_5
@@ -965,7 +965,7 @@
 
     if-ne v0, v11, :cond_6
 
-    .line 263
+    .line 270
     :cond_5
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->utfResult:[Ljava/lang/String;
 
@@ -979,7 +979,7 @@
 
     aput-object v1, v0, v10
 
-    .line 264
+    .line 271
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->strResult:[Ljava/lang/String;
 
     iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->utfResult:[Ljava/lang/String;
@@ -988,7 +988,7 @@
 
     aput-object v1, v0, v10
 
-    .line 267
+    .line 274
     :cond_6
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->TAG:Ljava/lang/String;
 
@@ -1016,7 +1016,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 268
+    .line 275
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1043,7 +1043,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 269
+    .line 276
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1070,7 +1070,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 271
+    .line 278
     iget v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->mCommandType:I
 
     const/4 v1, 0x3
@@ -1083,12 +1083,12 @@
 
     if-ne v0, v11, :cond_8
 
-    .line 273
+    .line 280
     const-wide v0, -0x4003333333333333L
 
     iput-wide v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->THscore:D
 
-    .line 284
+    .line 291
     :goto_2
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->TAG:Ljava/lang/String;
 
@@ -1114,7 +1114,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 286
+    .line 293
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->cmResult:[F
 
     aget v0, v0, v10
@@ -1127,33 +1127,33 @@
 
     if-lez v0, :cond_a
 
-    .line 288
+    .line 295
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->strResult:[Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->SendHandlerMessage([Ljava/lang/String;)V
 
-    .line 297
+    .line 304
     :goto_3
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
 
     invoke-virtual {v0}, Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;->SASRReset()I
 
-    .line 302
+    .line 309
     .end local v9           #result:I
     :cond_7
     return v8
 
-    .line 224
+    .line 231
     :catch_0
     move-exception v6
 
-    .line 226
+    .line 233
     .local v6, e:Ljava/io/IOException;
     invoke-virtual {v6}, Ljava/io/IOException;->printStackTrace()V
 
     goto/16 :goto_1
 
-    .line 275
+    .line 282
     .end local v6           #e:Ljava/io/IOException;
     .restart local v9       #result:I
     :cond_8
@@ -1163,14 +1163,14 @@
 
     if-ne v0, v1, :cond_9
 
-    .line 277
+    .line 284
     const-wide/high16 v0, -0x4010
 
     iput-wide v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->THscore:D
 
     goto :goto_2
 
-    .line 281
+    .line 288
     :cond_9
     const-wide/high16 v0, -0x4008
 
@@ -1178,7 +1178,7 @@
 
     goto :goto_2
 
-    .line 292
+    .line 299
     :cond_a
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->strResult:[Ljava/lang/String;
 
@@ -1186,14 +1186,14 @@
 
     aput-object v1, v0, v10
 
-    .line 293
+    .line 300
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->BargeinAct:[S
 
     const/4 v1, -0x1
 
     aput-short v1, v0, v10
 
-    .line 294
+    .line 301
     iget-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->strResult:[Ljava/lang/String;
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->SendHandlerMessage([Ljava/lang/String;)V
@@ -1282,12 +1282,37 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 198
-    iput-object v3, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
+    iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
 
-    .line 199
-    iput-object v3, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->m_listener:Lcom/sec/android/app/IWSpeechRecognizer/IWSpeechRecognizerListener;
+    if-eqz v1, :cond_2
 
     .line 200
+    iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->TAG:Ljava/lang/String;
+
+    const-string v2, "SASRClose start"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 201
+    iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
+
+    invoke-virtual {v1}, Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;->SASRClose()I
+
+    .line 202
+    iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->TAG:Ljava/lang/String;
+
+    const-string v2, "SASRClose end"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 205
+    :cond_2
+    iput-object v3, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->aMMUIRecognizer:Lcom/sec/android/app/IWSpeechRecognizer/MMUIRecognizer;
+
+    .line 206
+    iput-object v3, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->m_listener:Lcom/sec/android/app/IWSpeechRecognizer/IWSpeechRecognizerListener;
+
+    .line 207
     return-void
 .end method
 
@@ -1308,106 +1333,106 @@
     .parameter "language"
 
     .prologue
-    .line 334
+    .line 341
     packed-switch p1, :pswitch_data_0
 
-    .line 368
+    .line 375
     :goto_0
     :pswitch_0
     return-void
 
-    .line 336
+    .line 343
     :pswitch_1
     const-string v0, "/sasr/kor/16k/param"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->modelPath:Ljava/lang/String;
 
-    .line 337
+    .line 344
     const-string v0, "/sasr/kor/16k/"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->wordListPath:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 340
+    .line 347
     :pswitch_2
     const-string v0, "/sasr/eng/16k/param"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->modelPath:Ljava/lang/String;
 
-    .line 341
+    .line 348
     const-string v0, "/sasr/eng/16k/"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->wordListPath:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 344
+    .line 351
     :pswitch_3
     const-string v0, "/sasr/chi/16k/param"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->modelPath:Ljava/lang/String;
 
-    .line 345
+    .line 352
     const-string v0, "/sasr/chi/16k/"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->wordListPath:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 348
+    .line 355
     :pswitch_4
     const-string v0, "/sasr/spa/16k/param"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->modelPath:Ljava/lang/String;
 
-    .line 349
+    .line 356
     const-string v0, "/sasr/spa/16k/"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->wordListPath:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 352
+    .line 359
     :pswitch_5
     const-string v0, "/sasr/fra/16k/param"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->modelPath:Ljava/lang/String;
 
-    .line 353
+    .line 360
     const-string v0, "/sasr/fra/16k/"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->wordListPath:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 356
+    .line 363
     :pswitch_6
     const-string v0, "/sasr/ger/16k/param"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->modelPath:Ljava/lang/String;
 
-    .line 357
+    .line 364
     const-string v0, "/sasr/ger/16k/"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->wordListPath:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 360
+    .line 367
     :pswitch_7
     const-string v0, "/sasr/ita/16k/param"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->modelPath:Ljava/lang/String;
 
-    .line 361
+    .line 368
     const-string v0, "/sasr/ita/16k/"
 
     iput-object v0, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->wordListPath:Ljava/lang/String;
 
     goto :goto_0
 
-    .line 334
+    .line 341
     nop
 
     :pswitch_data_0

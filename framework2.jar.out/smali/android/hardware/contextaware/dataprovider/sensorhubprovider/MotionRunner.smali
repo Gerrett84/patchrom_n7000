@@ -75,11 +75,6 @@
     .locals 2
 
     .prologue
-    .line 120
-    const-string v0, "================= Motion ================="
-
-    invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/CALogger;->debug(Ljava/lang/String;)V
-
     .line 121
     new-instance v0, Ljava/lang/StringBuilder;
 

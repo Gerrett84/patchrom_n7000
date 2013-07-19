@@ -592,7 +592,7 @@
 
     const/4 v1, 0x0
 
-    const-string v4, "mailto:"
+    const-string/jumbo v4, "mailto:"
 
     aput-object v4, v3, v1
 

@@ -28,6 +28,8 @@
 
 .field public static final CDMA_SO_REJECT:I = 0x3ec
 
+.field public static final CHANNEL_NOT_AVAIL:I = 0x2c
+
 .field public static final ERROR_UNSPECIFIED:I = 0xffff
 
 .field public static final FDN_BLOCKED:I = 0xf1
@@ -95,5 +97,17 @@
 .field public static final NORMAL_UNSPECIFIED:I = 0x1f
 
 .field public static final NO_CIRCUIT_AVAIL:I = 0x22
+
+.field public static final NUMBER_CHANGED:I = 0x16
+
+.field public static final QOS_NOT_AVAIL:I = 0x31
+
+.field public static final STATUS_ENQUIRY:I = 0x1e
+
+.field public static final SWITCHING_CONGESTION:I = 0x2a
+
+.field public static final TEMPORARY_FAILURE:I = 0x29
+
+.field public static final UNOBTAINABLE_NUMBER:I = 0x1
 
 .field public static final USER_BUSY:I = 0x11

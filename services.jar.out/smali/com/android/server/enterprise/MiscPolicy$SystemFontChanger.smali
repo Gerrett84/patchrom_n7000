@@ -30,12 +30,12 @@
     .parameter
 
     .prologue
-    .line 954
+    .line 959
     iput-object p1, p0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->this$0:Lcom/android/server/enterprise/MiscPolicy;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 956
+    .line 961
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->mTypefaceFinder:Lcom/android/server/enterprise/TypefaceFinder;
@@ -49,7 +49,7 @@
     .parameter "x1"
 
     .prologue
-    .line 954
+    .line 959
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;-><init>(Lcom/android/server/enterprise/MiscPolicy;)V
 
     return-void
@@ -61,17 +61,17 @@
     .parameter "apkPath"
 
     .prologue
-    .line 1011
+    .line 1016
     const/16 v17, 0x0
 
-    .line 1015
+    .line 1020
     .local v17, ret:Z
     if-eqz p2, :cond_0
 
-    .line 1017
+    .line 1022
     const/4 v13, 0x0
 
-    .line 1018
+    .line 1023
     .local v13, installState:Z
     :try_start_0
     move-object/from16 v0, p0
@@ -93,7 +93,7 @@
 
     check-cast v5, Landroid/app/enterprise/EnterpriseDeviceManager;
 
-    .line 1020
+    .line 1025
     .local v5, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     invoke-virtual {v5}, Landroid/app/enterprise/EnterpriseDeviceManager;->getApplicationPolicy()Landroid/app/enterprise/ApplicationPolicy;
 
@@ -111,10 +111,10 @@
 
     move-result v13
 
-    .line 1021
+    .line 1026
     if-nez v13, :cond_0
 
-    .line 1022
+    .line 1027
     const-string v21, "MiscPolicy"
 
     const-string v22, "changeFont():New font install failed"
@@ -123,26 +123,26 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1106
+    .line 1111
     .end local v5           #edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     .end local v13           #installState:Z
     .end local v17           #ret:Z
     :goto_0
     return v17
 
-    .line 1025
+    .line 1030
     .restart local v13       #installState:Z
     .restart local v17       #ret:Z
     :catch_0
     move-exception v4
 
-    .line 1026
+    .line 1031
     .local v4, e:Ljava/lang/Exception;
     invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 1031
+    .line 1036
     .end local v4           #e:Ljava/lang/Exception;
     .end local v13           #installState:Z
     :cond_0
@@ -150,7 +150,7 @@
 
     invoke-direct {v8}, Lcom/android/server/enterprise/FontWriter;-><init>()V
 
-    .line 1032
+    .line 1037
     .local v8, fontWriter:Lcom/android/server/enterprise/FontWriter;
     move-object/from16 v0, p0
 
@@ -167,21 +167,21 @@
 
     move-result-object v15
 
-    .line 1035
+    .line 1040
     .local v15, packageManager:Landroid/content/pm/PackageManager;
     const/4 v12, 0x0
 
-    .line 1036
+    .line 1041
     .local v12, index:I
     invoke-direct/range {p0 .. p0}, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->getFontString()[Ljava/lang/String;
 
     move-result-object v14
 
-    .line 1038
+    .line 1043
     .local v14, installedFontList:[Ljava/lang/String;
     if-nez v14, :cond_1
 
-    .line 1039
+    .line 1044
     const-string v21, "MiscPolicy"
 
     const-string v22, "changeFont():Installed font list is null"
@@ -190,7 +190,7 @@
 
     goto :goto_0
 
-    .line 1043
+    .line 1048
     :cond_1
     const/4 v10, 0x0
 
@@ -204,7 +204,7 @@
 
     if-ge v10, v0, :cond_2
 
-    .line 1044
+    .line 1049
     aget-object v21, v14, v10
 
     move-object/from16 v0, v21
@@ -217,10 +217,10 @@
 
     if-eqz v21, :cond_3
 
-    .line 1045
+    .line 1050
     move v12, v10
 
-    .line 1046
+    .line 1051
     const-string v21, "MiscPolicy"
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -245,7 +245,7 @@
 
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1051
+    .line 1056
     :cond_2
     const-string v21, "default"
 
@@ -259,7 +259,7 @@
 
     if-eqz v21, :cond_4
 
-    .line 1053
+    .line 1058
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->this$0:Lcom/android/server/enterprise/MiscPolicy;
@@ -283,7 +283,7 @@
 
     invoke-virtual {v8, v0, v1, v2}, Lcom/android/server/enterprise/FontWriter;->writeLoc(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1055
+    .line 1060
     aget-object v21, v14, v12
 
     move-object/from16 v0, p0
@@ -292,7 +292,7 @@
 
     invoke-virtual {v0, v1, v12}, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->savePreferences(Ljava/lang/String;I)V
 
-    .line 1056
+    .line 1061
     const-string v21, "MiscPolicy"
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -317,18 +317,18 @@
 
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1057
+    .line 1062
     const/16 v17, 0x1
 
     goto/16 :goto_0
 
-    .line 1043
+    .line 1048
     :cond_3
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_1
 
-    .line 1060
+    .line 1065
     :cond_4
     move-object/from16 v0, p0
 
@@ -344,11 +344,11 @@
 
     move-result-object v18
 
-    .line 1061
+    .line 1066
     .local v18, sansTypeface:Lcom/android/server/enterprise/Typeface;
     if-nez v18, :cond_5
 
-    .line 1062
+    .line 1067
     const-string v21, "MiscPolicy"
 
     const-string v22, "change font failed"
@@ -357,18 +357,18 @@
 
     goto/16 :goto_0
 
-    .line 1066
+    .line 1071
     :cond_5
     invoke-virtual/range {v18 .. v18}, Lcom/android/server/enterprise/Typeface;->getFontPackageName()Ljava/lang/String;
 
     move-result-object p2
 
-    .line 1067
+    .line 1072
     invoke-virtual/range {v18 .. v18}, Lcom/android/server/enterprise/Typeface;->getTypefaceFilename()Ljava/lang/String;
 
     move-result-object v19
 
-    .line 1070
+    .line 1075
     .local v19, selectedFont:Ljava/lang/String;
     const-string v21, ".xml"
 
@@ -384,7 +384,7 @@
 
     move-result-object v9
 
-    .line 1072
+    .line 1077
     .local v9, fontdir:Ljava/lang/String;
     const-string v21, " "
 
@@ -398,7 +398,7 @@
 
     move-result-object v9
 
-    .line 1074
+    .line 1079
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->this$0:Lcom/android/server/enterprise/MiscPolicy;
@@ -416,31 +416,31 @@
 
     move-result-object v7
 
-    .line 1075
+    .line 1080
     .local v7, fontDir:Ljava/io/File;
     if-nez v7, :cond_6
 
-    .line 1076
+    .line 1081
     const-string v21, "MiscPolicy"
 
     const-string v22, "create fontDir object is null "
 
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1077
+    .line 1082
     const/16 v17, 0x0
 
     goto/16 :goto_0
 
-    .line 1082
+    .line 1087
     :cond_6
     const/16 v20, 0x0
 
-    .line 1083
+    .line 1088
     .local v20, tpf:Lcom/android/server/enterprise/TypefaceFile;
     if-eqz v18, :cond_7
 
-    .line 1084
+    .line 1089
     const/4 v10, 0x0
 
     :goto_2
@@ -458,7 +458,7 @@
 
     if-ge v10, v0, :cond_7
 
-    .line 1085
+    .line 1090
     move-object/from16 v0, v18
 
     iget-object v0, v0, Lcom/android/server/enterprise/Typeface;->mSansFonts:Ljava/util/List;
@@ -474,7 +474,7 @@
     .end local v20           #tpf:Lcom/android/server/enterprise/TypefaceFile;
     check-cast v20, Lcom/android/server/enterprise/TypefaceFile;
 
-    .line 1089
+    .line 1094
     .restart local v20       #tpf:Lcom/android/server/enterprise/TypefaceFile;
     :try_start_1
     move-object/from16 v0, p2
@@ -483,13 +483,13 @@
 
     move-result-object v16
 
-    .line 1090
+    .line 1095
     .local v16, res:Landroid/content/res/Resources;
     invoke-virtual/range {v16 .. v16}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v3
 
-    .line 1092
+    .line 1097
     .local v3, assetManager:Landroid/content/res/AssetManager;
     new-instance v21, Ljava/lang/StringBuilder;
 
@@ -519,7 +519,7 @@
 
     move-result-object v11
 
-    .line 1093
+    .line 1098
     .local v11, in:Ljava/io/InputStream;
     invoke-virtual/range {v20 .. v20}, Lcom/android/server/enterprise/TypefaceFile;->getDroidName()Ljava/lang/String;
 
@@ -531,19 +531,19 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 1084
+    .line 1089
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_2
 
-    .line 1095
+    .line 1100
     .end local v3           #assetManager:Landroid/content/res/AssetManager;
     .end local v11           #in:Ljava/io/InputStream;
     .end local v16           #res:Landroid/content/res/Resources;
     :catch_1
     move-exception v6
 
-    .line 1096
+    .line 1101
     .local v6, ex:Ljava/lang/Exception;
     const-string v21, "MiscPolicy"
 
@@ -551,7 +551,7 @@
 
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1097
+    .line 1102
     const-string v21, "MiscPolicy"
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -578,7 +578,7 @@
 
     goto/16 :goto_0
 
-    .line 1103
+    .line 1108
     .end local v6           #ex:Ljava/lang/Exception;
     :cond_7
     move-object/from16 v0, p0
@@ -606,7 +606,7 @@
 
     invoke-virtual {v8, v0, v1, v2}, Lcom/android/server/enterprise/FontWriter;->writeLoc(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1104
+    .line 1109
     invoke-virtual/range {v18 .. v18}, Lcom/android/server/enterprise/Typeface;->getTypefaceFilename()Ljava/lang/String;
 
     move-result-object v21
@@ -617,14 +617,14 @@
 
     invoke-virtual {v0, v1, v12}, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->savePreferences(Ljava/lang/String;I)V
 
-    .line 1105
+    .line 1110
     const-string v21, "MiscPolicy"
 
     const-string v22, "change font:Done"
 
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1106
+    .line 1111
     const/16 v17, 0x1
 
     goto/16 :goto_0
@@ -634,27 +634,27 @@
     .locals 4
 
     .prologue
-    .line 1149
+    .line 1154
     const/4 v2, 0x0
 
-    .line 1150
+    .line 1155
     .local v2, retString:[Ljava/lang/String;
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->getFontsVector()Ljava/util/Vector;
 
     move-result-object v0
 
-    .line 1151
+    .line 1156
     .local v0, fontNames:Ljava/util/Vector;
     if-nez v0, :cond_0
 
-    .line 1152
+    .line 1157
     const/4 v3, 0x0
 
-    .line 1159
+    .line 1164
     :goto_0
     return-object v3
 
-    .line 1153
+    .line 1158
     :cond_0
     invoke-virtual {v0}, Ljava/util/Vector;->size()I
 
@@ -662,7 +662,7 @@
 
     new-array v2, v3, [Ljava/lang/String;
 
-    .line 1156
+    .line 1161
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -673,7 +673,7 @@
 
     if-ge v1, v3, :cond_1
 
-    .line 1157
+    .line 1162
     invoke-virtual {v0, v1}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -682,7 +682,7 @@
 
     aput-object v3, v2, v1
 
-    .line 1156
+    .line 1161
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
@@ -690,7 +690,7 @@
     :cond_1
     move-object v3, v2
 
-    .line 1159
+    .line 1164
     goto :goto_0
 .end method
 
@@ -700,50 +700,50 @@
     .prologue
     const/4 v12, 0x0
 
-    .line 1163
+    .line 1168
     iput-object v12, p0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->mTypefaceFinder:Lcom/android/server/enterprise/TypefaceFinder;
 
-    .line 1164
+    .line 1169
     new-instance v11, Lcom/android/server/enterprise/TypefaceFinder;
 
     invoke-direct {v11}, Lcom/android/server/enterprise/TypefaceFinder;-><init>()V
 
     iput-object v11, p0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->mTypefaceFinder:Lcom/android/server/enterprise/TypefaceFinder;
 
-    .line 1165
+    .line 1170
     const-string v0, "com.monotype.android.font."
 
-    .line 1167
+    .line 1172
     .local v0, FONT_PACKAGE:Ljava/lang/String;
     new-instance v5, Ljava/util/Vector;
 
     invoke-direct {v5}, Ljava/util/Vector;-><init>()V
 
-    .line 1169
+    .line 1174
     .local v5, fontPackageNames:Ljava/util/Vector;
     new-instance v3, Ljava/util/Vector;
 
     invoke-direct {v3}, Ljava/util/Vector;-><init>()V
 
-    .line 1171
+    .line 1176
     .local v3, fontNames:Ljava/util/Vector;
     new-instance v10, Ljava/util/Vector;
 
     invoke-direct {v10}, Ljava/util/Vector;-><init>()V
 
-    .line 1172
+    .line 1177
     .local v10, typefaceFiles:Ljava/util/Vector;
     const/4 v2, 0x0
 
-    .line 1174
+    .line 1179
     .local v2, fontAssetManager:Landroid/content/res/AssetManager;
     const/4 v8, 0x0
 
-    .line 1175
+    .line 1180
     .local v8, packageManager:Landroid/content/pm/PackageManager;
     const/4 v7, 0x0
 
-    .line 1176
+    .line 1181
     .local v7, installedApplications:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
     iget-object v11, p0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->this$0:Lcom/android/server/enterprise/MiscPolicy;
 
@@ -756,7 +756,7 @@
 
     move-result-object v8
 
-    .line 1178
+    .line 1183
     const/16 v11, 0x80
 
     :try_start_0
@@ -764,10 +764,10 @@
 
     move-result-object v7
 
-    .line 1181
+    .line 1186
     const/4 v4, 0x0
 
-    .line 1182
+    .line 1187
     .local v4, fontPackageName:Ljava/lang/String;
     const/4 v6, 0x0
 
@@ -779,7 +779,7 @@
 
     if-ge v6, v11, :cond_1
 
-    .line 1183
+    .line 1188
     invoke-interface {v7, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v11
@@ -788,37 +788,37 @@
 
     iget-object v4, v11, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    .line 1184
+    .line 1189
     invoke-virtual {v4, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v11
 
     if-eqz v11, :cond_0
 
-    .line 1185
+    .line 1190
     invoke-virtual {v8, v4}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Ljava/lang/String;)Landroid/content/res/Resources;
 
     move-result-object v9
 
-    .line 1186
+    .line 1191
     .local v9, res:Landroid/content/res/Resources;
     invoke-virtual {v9}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v2
 
-    .line 1187
+    .line 1192
     iget-object v11, p0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->mTypefaceFinder:Lcom/android/server/enterprise/TypefaceFinder;
 
     invoke-virtual {v11, v2, v4}, Lcom/android/server/enterprise/TypefaceFinder;->findTypefaces(Landroid/content/res/AssetManager;Ljava/lang/String;)Z
 
-    .line 1182
+    .line 1187
     .end local v9           #res:Landroid/content/res/Resources;
     :cond_0
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    .line 1190
+    .line 1195
     :cond_1
     iget-object v11, p0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->mTypefaceFinder:Lcom/android/server/enterprise/TypefaceFinder;
 
@@ -826,14 +826,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1195
+    .line 1200
     .end local v3           #fontNames:Ljava/util/Vector;
     .end local v4           #fontPackageName:Ljava/lang/String;
     .end local v6           #i:I
     :goto_1
     return-object v3
 
-    .line 1192
+    .line 1197
     .restart local v3       #fontNames:Ljava/util/Vector;
     :catch_0
     move-exception v1
@@ -841,7 +841,7 @@
     .local v1, e:Ljava/lang/Exception;
     move-object v3, v12
 
-    .line 1193
+    .line 1198
     goto :goto_1
 .end method
 
@@ -853,21 +853,21 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 1121
+    .line 1126
     const-string v5, "MiscPolicy"
 
     const-string v6, "getActiveFontPosition():getting active font position:"
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1122
+    .line 1127
     const/4 v1, 0x0
 
-    .line 1123
+    .line 1128
     .local v1, mode:I
     const/4 v3, 0x0
 
-    .line 1125
+    .line 1130
     .local v3, settingContext:Landroid/content/Context;
     :try_start_0
     iget-object v5, p0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->this$0:Lcom/android/server/enterprise/MiscPolicy;
@@ -887,32 +887,32 @@
 
     move-result-object v3
 
-    .line 1132
+    .line 1137
     :goto_0
     if-nez v3, :cond_0
 
-    .line 1133
+    .line 1138
     const-string v5, "MiscPolicy"
 
     const-string v6, "Setting Context is Null"
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1140
+    .line 1145
     :goto_1
     return v4
 
-    .line 1127
+    .line 1132
     :catch_0
     move-exception v0
 
-    .line 1129
+    .line 1134
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 1137
+    .line 1142
     .end local v0           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :cond_0
     const-string v5, "prefs"
@@ -921,7 +921,7 @@
 
     move-result-object v2
 
-    .line 1140
+    .line 1145
     .local v2, mySharedPreference:Landroid/content/SharedPreferences;
     const-string v5, "SavedClickedItem"
 
@@ -936,19 +936,19 @@
     .locals 5
 
     .prologue
-    .line 1110
+    .line 1115
     const-string v2, "MiscPolicy"
 
     const-string v3, "getSystemActiveFont():getting active system font:"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1111
+    .line 1116
     invoke-virtual {p0}, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->getActiveFontPosition()I
 
     move-result v1
 
-    .line 1112
+    .line 1117
     .local v1, position:I
     const-string v2, "MiscPolicy"
 
@@ -972,19 +972,19 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1113
+    .line 1118
     invoke-virtual {p0}, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->getSystemFonts()[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1114
+    .line 1119
     .local v0, fonts:[Ljava/lang/String;
     if-eqz v0, :cond_0
 
-    .line 1115
+    .line 1120
     aget-object v2, v0, v1
 
-    .line 1117
+    .line 1122
     :goto_0
     return-object v2
 
@@ -998,14 +998,14 @@
     .locals 2
 
     .prologue
-    .line 1144
+    .line 1149
     const-string v0, "MiscPolicy"
 
     const-string v1, "getSystemFonts():getting all system fonts"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1145
+    .line 1150
     invoke-direct {p0}, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->getFontString()[Ljava/lang/String;
 
     move-result-object v0
@@ -1019,14 +1019,14 @@
     .parameter "position"
 
     .prologue
-    .line 1199
+    .line 1204
     const/4 v3, 0x0
 
-    .line 1200
+    .line 1205
     .local v3, mode:I
     const/4 v6, 0x0
 
-    .line 1203
+    .line 1208
     .local v6, settingContext:Landroid/content/Context;
     :try_start_0
     iget-object v7, p0, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->this$0:Lcom/android/server/enterprise/MiscPolicy;
@@ -1046,32 +1046,32 @@
 
     move-result-object v6
 
-    .line 1209
+    .line 1214
     :goto_0
     if-nez v6, :cond_0
 
-    .line 1210
+    .line 1215
     const-string v7, "MiscPolicy"
 
     const-string v8, "Setting Context is Null"
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1227
+    .line 1232
     :goto_1
     return-void
 
-    .line 1205
+    .line 1210
     :catch_0
     move-exception v0
 
-    .line 1206
+    .line 1211
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 1214
+    .line 1219
     .end local v0           #e:Ljava/lang/Exception;
     :cond_0
     const-string v7, "prefs"
@@ -1080,22 +1080,22 @@
 
     move-result-object v4
 
-    .line 1217
+    .line 1222
     .local v4, mySharedPreference:Landroid/content/SharedPreferences;
     invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v1
 
-    .line 1218
+    .line 1223
     .local v1, editor:Landroid/content/SharedPreferences$Editor;
     const-string v7, "SavedClickedItem"
 
     invoke-interface {v1, v7, p2}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
-    .line 1220
+    .line 1225
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 1222
+    .line 1227
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1118,24 +1118,24 @@
 
     move-result-object v5
 
-    .line 1223
+    .line 1228
     .local v5, prefName:Ljava/lang/String;
     invoke-virtual {v6, v5, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v4
 
-    .line 1224
+    .line 1229
     invoke-interface {v4}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v2
 
-    .line 1225
+    .line 1230
     .local v2, editor1:Landroid/content/SharedPreferences$Editor;
     const-string v7, "MONOTYPE"
 
     invoke-interface {v2, v7, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 1226
+    .line 1231
     invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
     goto :goto_1
@@ -1147,21 +1147,21 @@
     .parameter "apkPath"
 
     .prologue
-    .line 958
+    .line 963
     const-string v19, "MiscPolicy"
 
     const-string v20, "setSystemActiveFont():Start"
 
     invoke-static/range {v19 .. v20}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 959
+    .line 964
     const/4 v15, 0x0
 
-    .line 961
+    .line 966
     .local v15, ret:Z
     if-nez p1, :cond_0
 
-    .line 962
+    .line 967
     const-string v19, "MiscPolicy"
 
     const-string v20, "setSystemActiveFont():Invalid input"
@@ -1170,44 +1170,44 @@
 
     move/from16 v19, v15
 
-    .line 1007
+    .line 1012
     :goto_0
     return v19
 
-    .line 966
+    .line 971
     :cond_0
     invoke-direct/range {p0 .. p2}, Lcom/android/server/enterprise/MiscPolicy$SystemFontChanger;->changeFont(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v15
 
-    .line 967
+    .line 972
     if-nez v15, :cond_1
 
-    .line 968
+    .line 973
     const/16 v19, 0x0
 
     goto :goto_0
 
-    .line 971
+    .line 976
     :cond_1
     :try_start_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v17
 
-    .line 972
+    .line 977
     .local v17, token:J
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v5
 
-    .line 973
+    .line 978
     .local v5, am:Landroid/app/IActivityManager;
     invoke-interface {v5}, Landroid/app/IActivityManager;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v6
 
-    .line 974
+    .line 979
     .local v6, config:Landroid/content/res/Configuration;
     new-instance v14, Ljava/util/Random;
 
@@ -1219,29 +1219,29 @@
 
     invoke-direct {v14, v0, v1}, Ljava/util/Random;-><init>(J)V
 
-    .line 975
+    .line 980
     .local v14, randomizer:Ljava/util/Random;
     const/4 v13, 0x0
 
-    .line 976
+    .line 981
     .local v13, min:I
     const/16 v12, 0x2710
 
-    .line 980
+    .line 985
     .local v12, max:I
     invoke-interface {v5, v6}, Landroid/app/IActivityManager;->updateConfiguration(Landroid/content/res/Configuration;)V
 
-    .line 981
+    .line 986
     invoke-static/range {v17 .. v18}, Landroid/os/Binder;->restoreCallingIdentity(J)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 992
+    .line 997
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v10
 
-    .line 993
+    .line 998
     .local v10, identity:J
     move-object/from16 v0, p0
 
@@ -1262,7 +1262,7 @@
 
     check-cast v3, Landroid/app/ActivityManager;
 
-    .line 995
+    .line 1000
     .local v3, activityManager:Landroid/app/ActivityManager;
     const/16 v19, 0x32
 
@@ -1272,11 +1272,11 @@
 
     move-result-object v4
 
-    .line 996
+    .line 1001
     .local v4, allTasks:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     const/4 v8, 0x1
 
-    .line 997
+    .line 1002
     .local v8, i:I
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -1296,7 +1296,7 @@
 
     check-cast v2, Landroid/app/ActivityManager$RunningTaskInfo;
 
-    .line 998
+    .line 1003
     .local v2, aTask:Landroid/app/ActivityManager$RunningTaskInfo;
     iget-object v0, v2, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
 
@@ -1306,7 +1306,7 @@
 
     move-result-object v16
 
-    .line 1002
+    .line 1007
     .local v16, s:Ljava/lang/String;
     move-object/from16 v0, v16
 
@@ -1314,7 +1314,7 @@
 
     goto :goto_1
 
-    .line 985
+    .line 990
     .end local v2           #aTask:Landroid/app/ActivityManager$RunningTaskInfo;
     .end local v3           #activityManager:Landroid/app/ActivityManager;
     .end local v4           #allTasks:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
@@ -1331,7 +1331,7 @@
     :catch_0
     move-exception v7
 
-    .line 986
+    .line 991
     .local v7, e:Ljava/lang/Exception;
     const-string v19, "MiscPolicy"
 
@@ -1339,12 +1339,12 @@
 
     invoke-static/range {v19 .. v20}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 987
+    .line 992
     const/16 v19, 0x0
 
     goto :goto_0
 
-    .line 1006
+    .line 1011
     .end local v7           #e:Ljava/lang/Exception;
     .restart local v3       #activityManager:Landroid/app/ActivityManager;
     .restart local v4       #allTasks:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
@@ -1362,6 +1362,6 @@
 
     move/from16 v19, v15
 
-    .line 1007
+    .line 1012
     goto :goto_0
 .end method

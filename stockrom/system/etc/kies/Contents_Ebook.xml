@@ -577,11 +577,10 @@
 				
 			<Content name="Task" Type="Custom" version="2.0"
 				supportVersion="2.0" />
-			<!-- not support 
 			<Content name="MiniDiary" Type="Custom" version="2.0"
 				supportVersion="2.0" >
 				<TargetFilePath value="System:\BR\MiniDiary.bk" /> 
-			</Content> -->
+			</Content>
 			<Content name="Logs" Type="Custom" version="2.0"
 				supportVersion="2.0">
 				<TargetFilePath value="System:\BR\CallLog.bk" />

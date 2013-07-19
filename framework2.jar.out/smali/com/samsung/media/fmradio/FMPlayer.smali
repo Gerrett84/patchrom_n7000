@@ -105,10 +105,10 @@
     .end annotation
 
     .prologue
-    .line 562
+    .line 564
     const/4 v0, 0x0
 
-    .line 564
+    .line 566
     .local v0, code:I
     :try_start_0
     iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
@@ -119,13 +119,13 @@
 
     move-result v0
 
-    .line 569
+    .line 571
     :goto_0
     const/4 v2, 0x1
 
     if-ne v0, v2, :cond_0
 
-    .line 570
+    .line 572
     new-instance v2, Lcom/samsung/media/fmradio/FMPlayerException;
 
     const/4 v3, 0x3
@@ -142,17 +142,17 @@
 
     throw v2
 
-    .line 565
+    .line 567
     :catch_0
     move-exception v1
 
-    .line 566
+    .line 568
     .local v1, e:Landroid/os/RemoteException;
     invoke-direct {p0, v1}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
     goto :goto_0
 
-    .line 577
+    .line 579
     .end local v1           #e:Landroid/os/RemoteException;
     :cond_0
     return-void
@@ -167,16 +167,16 @@
     .end annotation
 
     .prologue
-    .line 551
+    .line 553
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
 
     move-result v0
 
-    .line 552
+    .line 554
     .local v0, val:Z
     if-nez v0, :cond_0
 
-    .line 553
+    .line 555
     new-instance v1, Lcom/samsung/media/fmradio/FMPlayerException;
 
     const/4 v2, 0x1
@@ -193,7 +193,7 @@
 
     throw v1
 
-    .line 559
+    .line 561
     :cond_0
     return-void
 .end method
@@ -238,11 +238,18 @@
     .end annotation
 
     .prologue
-    .line 770
+    .line 786
     const/4 v1, -0x1
 
-    .line 772
+    .line 787
     .local v1, val:I
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 789
     :try_start_0
     iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -252,15 +259,16 @@
 
     move-result v1
 
-    .line 776
+    .line 794
+    :cond_0
     :goto_0
     return v1
 
-    .line 773
+    .line 790
     :catch_0
     move-exception v0
 
-    .line 774
+    .line 791
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -276,11 +284,18 @@
     .end annotation
 
     .prologue
-    .line 751
+    .line 765
     const/4 v1, -0x1
 
-    .line 753
+    .line 766
     .local v1, val:I
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 768
     :try_start_0
     iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -290,15 +305,16 @@
 
     move-result v1
 
-    .line 757
+    .line 773
+    :cond_0
     :goto_0
     return v1
 
-    .line 754
+    .line 769
     :catch_0
     move-exception v0
 
-    .line 755
+    .line 770
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -315,10 +331,10 @@
     .end annotation
 
     .prologue
-    .line 761
+    .line 777
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 763
+    .line 779
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -326,15 +342,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 767
+    .line 783
     :goto_0
     return-void
 
-    .line 764
+    .line 780
     :catch_0
     move-exception v0
 
-    .line 765
+    .line 781
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -351,10 +367,10 @@
     .end annotation
 
     .prologue
-    .line 742
+    .line 756
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 744
+    .line 758
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -362,15 +378,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 748
+    .line 762
     :goto_0
     return-void
 
-    .line 745
+    .line 759
     :catch_0
     move-exception v0
 
-    .line 746
+    .line 760
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -386,7 +402,7 @@
     .end annotation
 
     .prologue
-    .line 674
+    .line 676
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -394,15 +410,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 678
+    .line 680
     :goto_0
     return-void
 
-    .line 675
+    .line 677
     :catch_0
     move-exception v0
 
-    .line 676
+    .line 678
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -487,7 +503,7 @@
     .end annotation
 
     .prologue
-    .line 475
+    .line 477
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -495,15 +511,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 479
+    .line 481
     :goto_0
     return-void
 
-    .line 476
+    .line 478
     :catch_0
     move-exception v0
 
-    .line 477
+    .line 479
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -661,16 +677,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 790
+    .line 836
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 791
+    .line 837
     iput-object v0, p0, Lcom/samsung/media/fmradio/FMPlayer;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 792
+    .line 838
     iput-object v0, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
-    .line 793
+    .line 839
     return-void
 .end method
 
@@ -683,11 +699,18 @@
     .end annotation
 
     .prologue
-    .line 701
+    .line 707
     const/4 v1, -0x1
 
-    .line 703
+    .line 708
     .local v1, val:I
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 710
     :try_start_0
     iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -697,15 +720,16 @@
 
     move-result v1
 
-    .line 707
+    .line 715
+    :cond_0
     :goto_0
     return v1
 
-    .line 704
+    .line 711
     :catch_0
     move-exception v0
 
-    .line 705
+    .line 712
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -721,11 +745,18 @@
     .end annotation
 
     .prologue
-    .line 731
+    .line 743
     const/4 v1, -0x1
 
-    .line 733
+    .line 744
     .local v1, val:I
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 746
     :try_start_0
     iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -735,15 +766,16 @@
 
     move-result v1
 
-    .line 737
+    .line 751
+    :cond_0
     :goto_0
     return v1
 
-    .line 734
+    .line 747
     :catch_0
     move-exception v0
 
-    .line 735
+    .line 748
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -759,14 +791,14 @@
     .end annotation
 
     .prologue
-    .line 482
+    .line 484
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 484
+    .line 486
     :try_start_0
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkBusy()V
 
-    .line 485
+    .line 487
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
     invoke-interface {v1}, Lcom/samsung/media/fmradio/internal/IFMPlayer;->getCurrentChannel()J
@@ -775,19 +807,19 @@
 
     move-result-wide v1
 
-    .line 489
+    .line 491
     :goto_0
     return-wide v1
 
-    .line 486
+    .line 488
     :catch_0
     move-exception v0
 
-    .line 487
+    .line 489
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
-    .line 489
+    .line 491
     const-wide/16 v1, -0x1
 
     goto :goto_0
@@ -802,7 +834,14 @@
     .end annotation
 
     .prologue
-    .line 442
+    .line 441
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 443
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -812,19 +851,21 @@
 
     move-result-wide v1
 
-    .line 446
+    .line 448
     :goto_0
     return-wide v1
 
-    .line 443
+    .line 444
     :catch_0
     move-exception v0
 
-    .line 444
+    .line 445
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
-    .line 446
+    .line 448
+    .end local v0           #e:Landroid/os/RemoteException;
+    :cond_0
     const-wide/16 v1, -0x1
 
     goto :goto_0
@@ -841,18 +882,18 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 540
+    .line 542
     invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isScanning()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 547
+    .line 549
     :goto_0
     return-object v1
 
-    .line 543
+    .line 545
     :cond_0
     :try_start_0
     iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
@@ -865,11 +906,11 @@
 
     goto :goto_0
 
-    .line 544
+    .line 546
     :catch_0
     move-exception v0
 
-    .line 545
+    .line 547
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -885,7 +926,7 @@
     .end annotation
 
     .prologue
-    .line 526
+    .line 528
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -895,19 +936,19 @@
 
     move-result-wide v1
 
-    .line 530
+    .line 532
     :goto_0
     return-wide v1
 
-    .line 527
+    .line 529
     :catch_0
     move-exception v0
 
-    .line 528
+    .line 530
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
-    .line 530
+    .line 532
     const-wide/16 v1, -0x1
 
     goto :goto_0
@@ -922,11 +963,18 @@
     .end annotation
 
     .prologue
-    .line 681
+    .line 683
     const/4 v1, -0x1
 
-    .line 683
+    .line 684
     .local v1, val:I
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 686
     :try_start_0
     iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -936,15 +984,16 @@
 
     move-result v1
 
-    .line 687
+    .line 691
+    :cond_0
     :goto_0
     return v1
 
-    .line 684
+    .line 687
     :catch_0
     move-exception v0
 
-    .line 685
+    .line 688
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -960,11 +1009,18 @@
     .end annotation
 
     .prologue
-    .line 711
+    .line 719
     const/4 v1, -0x1
 
-    .line 713
+    .line 720
     .local v1, val:I
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 722
     :try_start_0
     iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -974,15 +1030,16 @@
 
     move-result v1
 
-    .line 717
+    .line 727
+    :cond_0
     :goto_0
     return v1
 
-    .line 714
+    .line 723
     :catch_0
     move-exception v0
 
-    .line 715
+    .line 724
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -998,11 +1055,18 @@
     .end annotation
 
     .prologue
-    .line 691
+    .line 695
     const/4 v1, -0x1
 
-    .line 693
+    .line 696
     .local v1, val:I
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 698
     :try_start_0
     iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -1012,15 +1076,16 @@
 
     move-result v1
 
-    .line 697
+    .line 703
+    :cond_0
     :goto_0
     return v1
 
-    .line 694
+    .line 699
     :catch_0
     move-exception v0
 
-    .line 695
+    .line 700
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -1036,11 +1101,18 @@
     .end annotation
 
     .prologue
-    .line 721
+    .line 731
     const/4 v1, -0x1
 
-    .line 723
+    .line 732
     .local v1, val:I
+    invoke-virtual {p0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 734
     :try_start_0
     iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -1050,15 +1122,54 @@
 
     move-result v1
 
-    .line 727
+    .line 739
+    :cond_0
     :goto_0
     return v1
 
-    .line 724
+    .line 735
     :catch_0
     move-exception v0
 
-    .line 725
+    .line 736
+    .local v0, e:Landroid/os/RemoteException;
+    invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
+
+    goto :goto_0
+.end method
+
+.method public getSoftMuteMode()Z
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/samsung/media/fmradio/FMPlayerException;
+        }
+    .end annotation
+
+    .prologue
+    .line 816
+    const/4 v1, 0x0
+
+    .line 818
+    .local v1, val:Z
+    :try_start_0
+    iget-object v2, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
+
+    invoke-interface {v2}, Lcom/samsung/media/fmradio/internal/IFMPlayer;->getSoftMuteMode()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    .line 822
+    :goto_0
+    return v1
+
+    .line 819
+    :catch_0
+    move-exception v0
+
+    .line 820
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -1074,7 +1185,7 @@
     .end annotation
 
     .prologue
-    .line 507
+    .line 509
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -1084,19 +1195,19 @@
 
     move-result-wide v1
 
-    .line 512
+    .line 514
     :goto_0
     return-wide v1
 
-    .line 508
+    .line 510
     :catch_0
     move-exception v0
 
-    .line 509
+    .line 511
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
-    .line 512
+    .line 514
     const-wide/16 v1, -0x1
 
     goto :goto_0
@@ -1111,7 +1222,7 @@
     .end annotation
 
     .prologue
-    .line 589
+    .line 591
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -1121,19 +1232,19 @@
 
     move-result v1
 
-    .line 593
+    .line 595
     :goto_0
     return v1
 
-    .line 590
+    .line 592
     :catch_0
     move-exception v0
 
-    .line 591
+    .line 593
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
-    .line 593
+    .line 595
     const/4 v1, 0x0
 
     goto :goto_0
@@ -1296,7 +1407,7 @@
     .end annotation
 
     .prologue
-    .line 581
+    .line 583
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -1306,19 +1417,19 @@
 
     move-result v1
 
-    .line 585
+    .line 587
     :goto_0
     return v1
 
-    .line 582
+    .line 584
     :catch_0
     move-exception v0
 
-    .line 583
+    .line 585
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
-    .line 585
+    .line 587
     const/4 v1, 0x0
 
     goto :goto_0
@@ -1715,14 +1826,14 @@
     .end annotation
 
     .prologue
-    .line 608
+    .line 610
     if-nez p1, :cond_0
 
-    .line 616
+    .line 618
     :goto_0
     return-void
 
-    .line 611
+    .line 613
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
@@ -1735,11 +1846,11 @@
 
     goto :goto_0
 
-    .line 612
+    .line 614
     :catch_0
     move-exception v0
 
-    .line 613
+    .line 615
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -1922,14 +2033,14 @@
     .end annotation
 
     .prologue
-    .line 462
+    .line 464
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 465
+    .line 467
     :try_start_0
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkBusy()V
 
-    .line 466
+    .line 468
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
     invoke-interface {v1}, Lcom/samsung/media/fmradio/internal/IFMPlayer;->seekDown()J
@@ -1938,19 +2049,19 @@
 
     move-result-wide v1
 
-    .line 470
+    .line 472
     :goto_0
     return-wide v1
 
-    .line 467
+    .line 469
     :catch_0
     move-exception v0
 
-    .line 468
+    .line 470
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
-    .line 470
+    .line 472
     const-wide/16 v1, -0x1
 
     goto :goto_0
@@ -1965,14 +2076,14 @@
     .end annotation
 
     .prologue
-    .line 450
+    .line 452
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 453
+    .line 455
     :try_start_0
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkBusy()V
 
-    .line 454
+    .line 456
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
     invoke-interface {v1}, Lcom/samsung/media/fmradio/internal/IFMPlayer;->seekUp()J
@@ -1981,19 +2092,19 @@
 
     move-result-wide v1
 
-    .line 458
+    .line 460
     :goto_0
     return-wide v1
 
-    .line 455
+    .line 457
     :catch_0
     move-exception v0
 
-    .line 456
+    .line 458
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
-    .line 458
+    .line 460
     const-wide/16 v1, -0x1
 
     goto :goto_0
@@ -2075,10 +2186,10 @@
     .end annotation
 
     .prologue
-    .line 637
+    .line 639
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 639
+    .line 641
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -2086,15 +2197,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 643
+    .line 645
     :goto_0
     return-void
 
-    .line 640
+    .line 642
     :catch_0
     move-exception v0
 
-    .line 641
+    .line 643
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -2111,10 +2222,10 @@
     .end annotation
 
     .prologue
-    .line 664
+    .line 666
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 666
+    .line 668
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -2122,15 +2233,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 670
+    .line 672
     :goto_0
     return-void
 
-    .line 667
+    .line 669
     :catch_0
     move-exception v0
 
-    .line 668
+    .line 670
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -2183,10 +2294,10 @@
     .end annotation
 
     .prologue
-    .line 781
+    .line 799
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 783
+    .line 801
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -2194,15 +2305,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 787
+    .line 805
     :goto_0
     return-void
 
-    .line 784
+    .line 802
     :catch_0
     move-exception v0
 
-    .line 785
+    .line 803
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -2219,14 +2330,14 @@
     .end annotation
 
     .prologue
-    .line 597
+    .line 599
     if-nez p1, :cond_0
 
-    .line 604
+    .line 606
     :goto_0
     return-void
 
-    .line 600
+    .line 602
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
@@ -2239,11 +2350,11 @@
 
     goto :goto_0
 
-    .line 601
+    .line 603
     :catch_0
     move-exception v0
 
-    .line 602
+    .line 604
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -2295,10 +2406,10 @@
     .end annotation
 
     .prologue
-    .line 619
+    .line 621
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 621
+    .line 623
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -2306,15 +2417,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 625
+    .line 627
     :goto_0
     return-void
 
-    .line 622
+    .line 624
     :catch_0
     move-exception v0
 
-    .line 623
+    .line 625
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -2331,10 +2442,10 @@
     .end annotation
 
     .prologue
-    .line 646
+    .line 648
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 648
+    .line 650
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -2342,15 +2453,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 652
+    .line 654
     :goto_0
     return-void
 
-    .line 649
+    .line 651
     :catch_0
     move-exception v0
 
-    .line 650
+    .line 652
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -2367,7 +2478,7 @@
     .end annotation
 
     .prologue
-    .line 517
+    .line 519
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -2375,15 +2486,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 521
+    .line 523
     :goto_0
     return-void
 
-    .line 518
+    .line 520
     :catch_0
     move-exception v0
 
-    .line 519
+    .line 521
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -2400,10 +2511,10 @@
     .end annotation
 
     .prologue
-    .line 628
+    .line 630
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 630
+    .line 632
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -2411,15 +2522,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 634
+    .line 636
     :goto_0
     return-void
 
-    .line 631
+    .line 633
     :catch_0
     move-exception v0
 
-    .line 632
+    .line 634
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -2436,10 +2547,10 @@
     .end annotation
 
     .prologue
-    .line 655
+    .line 657
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMPlayer;->checkOnStatus()V
 
-    .line 657
+    .line 659
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -2447,15 +2558,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 661
+    .line 663
     :goto_0
     return-void
 
-    .line 658
+    .line 660
     :catch_0
     move-exception v0
 
-    .line 659
+    .line 661
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -2528,6 +2639,74 @@
     move-exception v0
 
     .line 436
+    .local v0, e:Landroid/os/RemoteException;
+    invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
+
+    goto :goto_0
+.end method
+
+.method public setSoftMuteControl(III)V
+    .locals 2
+    .parameter "min_RSSI"
+    .parameter "max_RSSI"
+    .parameter "max_attenuation"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/samsung/media/fmradio/FMPlayerException;
+        }
+    .end annotation
+
+    .prologue
+    .line 829
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
+
+    invoke-interface {v1, p1, p2, p3}, Lcom/samsung/media/fmradio/internal/IFMPlayer;->setSoftMuteControl(III)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 833
+    :goto_0
+    return-void
+
+    .line 830
+    :catch_0
+    move-exception v0
+
+    .line 831
+    .local v0, e:Landroid/os/RemoteException;
+    invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
+
+    goto :goto_0
+.end method
+
+.method public setSoftmute(Z)V
+    .locals 2
+    .parameter "state"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/samsung/media/fmradio/FMPlayerException;
+        }
+    .end annotation
+
+    .prologue
+    .line 809
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
+
+    invoke-interface {v1, p1}, Lcom/samsung/media/fmradio/internal/IFMPlayer;->setSoftmute(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 813
+    :goto_0
+    return-void
+
+    .line 810
+    :catch_0
+    move-exception v0
+
+    .line 811
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 
@@ -2656,7 +2835,7 @@
     .end annotation
 
     .prologue
-    .line 495
+    .line 497
     :try_start_0
     iget-object v1, p0, Lcom/samsung/media/fmradio/FMPlayer;->mPlayer:Lcom/samsung/media/fmradio/internal/IFMPlayer;
 
@@ -2664,15 +2843,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 500
+    .line 502
     :goto_0
     return-void
 
-    .line 496
+    .line 498
     :catch_0
     move-exception v0
 
-    .line 497
+    .line 499
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0, v0}, Lcom/samsung/media/fmradio/FMPlayer;->remoteError(Landroid/os/RemoteException;)V
 

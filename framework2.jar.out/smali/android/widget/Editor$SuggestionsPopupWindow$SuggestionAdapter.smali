@@ -26,12 +26,12 @@
     .parameter
 
     .prologue
-    .line 2492
+    .line 2562
     iput-object p1, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 2493
+    .line 2563
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
@@ -64,7 +64,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2492
+    .line 2562
     invoke-direct {p0, p1}, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;-><init>(Landroid/widget/Editor$SuggestionsPopupWindow;)V
 
     return-void
@@ -76,7 +76,7 @@
     .locals 1
 
     .prologue
-    .line 2498
+    .line 2568
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
     #getter for: Landroid/widget/Editor$SuggestionsPopupWindow;->mNumberOfSuggestions:I
@@ -92,7 +92,7 @@
     .parameter "position"
 
     .prologue
-    .line 2503
+    .line 2573
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
     #getter for: Landroid/widget/Editor$SuggestionsPopupWindow;->mSuggestionInfos:[Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
@@ -110,7 +110,7 @@
     .parameter "position"
 
     .prologue
-    .line 2508
+    .line 2578
     int-to-long v0, p1
 
     return-wide v0
@@ -127,16 +127,16 @@
 
     const/4 v4, 0x0
 
-    .line 2513
+    .line 2583
     move-object v1, p2
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 2515
+    .line 2585
     .local v1, textView:Landroid/widget/TextView;
     if-nez v1, :cond_0
 
-    .line 2516
+    .line 2586
     iget-object v2, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     iget-object v3, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
@@ -157,7 +157,7 @@
     .end local v1           #textView:Landroid/widget/TextView;
     check-cast v1, Landroid/widget/TextView;
 
-    .line 2520
+    .line 2590
     .restart local v1       #textView:Landroid/widget/TextView;
     :cond_0
     iget-object v2, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
@@ -169,29 +169,29 @@
 
     aget-object v0, v2, p1
 
-    .line 2521
+    .line 2591
     .local v0, suggestionInfo:Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
     iget-object v2, v0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->text:Landroid/text/SpannableStringBuilder;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2523
+    .line 2593
     iget v2, v0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->suggestionIndex:I
 
     const/4 v3, -0x1
 
     if-ne v2, v3, :cond_1
 
-    .line 2524
-    const v2, 0x10803a3
+    .line 2594
+    const v2, 0x10803bf
 
     invoke-virtual {v1, v2, v4, v4, v4}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 2533
+    .line 2603
     :goto_0
     return-object v1
 
-    .line 2526
+    .line 2596
     :cond_1
     iget v2, v0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->suggestionIndex:I
 
@@ -199,14 +199,14 @@
 
     if-ne v2, v3, :cond_2
 
-    .line 2527
-    const v2, 0x10803a4
+    .line 2597
+    const v2, 0x10803c0
 
     invoke-virtual {v1, v2, v4, v4, v4}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
     goto :goto_0
 
-    .line 2530
+    .line 2600
     :cond_2
     invoke-virtual {v1, v5, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 

@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 230
+    .line 258
     iput-object p1, p0, Landroid/hardware/motion/MotionRecognitionService$2;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
     invoke-direct {p0, p2}, Landroid/view/WindowOrientationListener;-><init>(Landroid/content/Context;)V
@@ -40,7 +40,7 @@
     .parameter "rotation"
 
     .prologue
-    .line 233
+    .line 261
     const-string v0, "MotionRecognitionService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -63,21 +63,21 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 234
+    .line 262
     packed-switch p1, :pswitch_data_0
 
-    .line 236
+    .line 264
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService$2;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
     const/16 v1, 0x1c
 
     iput v1, v0, Landroid/hardware/motion/MotionRecognitionService;->mRotate:I
 
-    .line 241
+    .line 269
     :goto_0
     return-void
 
-    .line 237
+    .line 265
     :pswitch_0
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService$2;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
@@ -87,7 +87,7 @@
 
     goto :goto_0
 
-    .line 238
+    .line 266
     :pswitch_1
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService$2;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
@@ -97,7 +97,7 @@
 
     goto :goto_0
 
-    .line 239
+    .line 267
     :pswitch_2
     iget-object v0, p0, Landroid/hardware/motion/MotionRecognitionService$2;->this$0:Landroid/hardware/motion/MotionRecognitionService;
 
@@ -107,7 +107,7 @@
 
     goto :goto_0
 
-    .line 234
+    .line 262
     nop
 
     :pswitch_data_0

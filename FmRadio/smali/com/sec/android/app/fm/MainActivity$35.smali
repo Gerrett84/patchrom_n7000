@@ -3,12 +3,12 @@
 .source "MainActivity.java"
 
 # interfaces
-.implements Landroid/widget/PopupMenu$OnMenuItemClickListener;
+.implements Landroid/view/animation/Animation$AnimationListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/fm/MainActivity;->showCustomOptionMenu(Landroid/view/View;)V
+    value = Lcom/sec/android/app/fm/MainActivity;->setPlayPauseImage()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 12360
+    .line 6212
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$35;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,24 +37,41 @@
 
 
 # virtual methods
-.method public onMenuItemClick(Landroid/view/MenuItem;)Z
+.method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 2
-    .parameter "item"
+    .parameter "arg0"
 
     .prologue
-    .line 12368
+    .line 6224
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$35;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity;->mHandler:Lcom/sec/android/app/fm/MainActivity$MyHandler;
+    #getter for: Lcom/sec/android/app/fm/MainActivity;->mTxtRadioStatusText:Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$700(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/TextView;
 
-    new-instance v1, Lcom/sec/android/app/fm/MainActivity$35$1;
+    move-result-object v0
 
-    invoke-direct {v1, p0, p1}, Lcom/sec/android/app/fm/MainActivity$35$1;-><init>(Lcom/sec/android/app/fm/MainActivity$35;Landroid/view/MenuItem;)V
+    const/16 v1, 0x8
 
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity$MyHandler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 12384
-    const/4 v0, 0x1
+    .line 6225
+    return-void
+.end method
 
-    return v0
+.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
+    .locals 0
+    .parameter "arg0"
+
+    .prologue
+    .line 6220
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/view/animation/Animation;)V
+    .locals 0
+    .parameter "arg0"
+
+    .prologue
+    .line 6216
+    return-void
 .end method

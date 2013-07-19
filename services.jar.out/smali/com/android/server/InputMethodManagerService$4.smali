@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1923
+    .line 1940
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$4;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,17 +38,17 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 1925
+    .line 1942
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "DismissClipboardDialogFromIMMService"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1926
+    .line 1943
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/server/InputMethodManagerService$4;->this$0:Lcom/android/server/InputMethodManagerService;
 
@@ -56,21 +56,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 1927
-    const-string v1, "ClipboardServiceEx"
-
-    const-string v2, "Send intent for dismiss clipboard dialog inside hideCurrentInputLocked() !"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1928
+    .line 1944
     iget-object v1, p0, Lcom/android/server/InputMethodManagerService$4;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iget-object v1, v1, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1930
+    .line 1946
     :cond_0
     return-void
 .end method

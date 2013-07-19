@@ -3,7 +3,7 @@
 .source "TickerWidget.java"
 
 # interfaces
-.implements Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 363
+    .line 425
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,131 +37,40 @@
 
 
 # virtual methods
-.method public onAnimationFinished()V
+.method public onClick(Landroid/view/View;)V
     .locals 2
+    .parameter "arg0"
 
     .prologue
-    .line 381
-    const-string v0, "TickerWidget"
-
-    const-string v1, "onAnimationFinished"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 382
+    .line 429
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->isOpened()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 383
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mIsDataReady:Z
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 384
+    .line 430
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
+    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandler:Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$800(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/os/Handler;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    new-instance v1, Lcom/android/internal/policy/impl/sec/TickerWidget$6$1;
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setVisibility(I)V
+    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/sec/TickerWidget$6$1;-><init>(Lcom/android/internal/policy/impl/sec/TickerWidget$6;)V
 
-    .line 385
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->startAutoScroll()V
-
-    .line 388
-    :cond_0
-    return-void
-.end method
-
-.method public onScrollEnded()V
-    .locals 2
-
-    .prologue
-    .line 376
-    const-string v0, "TickerWidget"
-
-    const-string v1, "onScrollEnded"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 377
-    return-void
-.end method
-
-.method public onScrollStarted()V
-    .locals 2
-
-    .prologue
-    .line 367
-    const-string v0, "TickerWidget"
-
-    const-string v1, "onScrollStarted"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 368
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->isOpened()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 369
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
-
-    move-result-object v0
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->setVisibility(I)V
-
-    .line 370
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$6;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHorizontalScrollView:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->stopAutoScroll()V
-
-    .line 372
+    .line 447
     :cond_0
     return-void
 .end method

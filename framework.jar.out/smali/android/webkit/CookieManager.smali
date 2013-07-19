@@ -200,6 +200,26 @@
     throw v0
 .end method
 
+.method public getCookieNumber()I
+    .locals 1
+
+    .prologue
+    .line 221
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public getCookieSize()I
+    .locals 1
+
+    .prologue
+    .line 218
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public declared-synchronized hasCookies()Z
     .locals 1
 

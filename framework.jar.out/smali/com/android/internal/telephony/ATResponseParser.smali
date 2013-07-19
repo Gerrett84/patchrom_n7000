@@ -328,7 +328,7 @@
     :cond_1
     new-instance v2, Lcom/android/internal/telephony/ATParseEx;
 
-    const-string v3, "missing prefix"
+    const-string/jumbo v3, "missing prefix"
 
     invoke-direct {v2, v3}, Lcom/android/internal/telephony/ATParseEx;-><init>(Ljava/lang/String;)V
 

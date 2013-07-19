@@ -100,13 +100,13 @@
     <string name="toast_unavailable_in_tvout_mode">Otillgänglig i TV-out-läge</string>
     <string name="mute">Ljud av</string>
     <string name="seeking">Söker…</string>
-    <string name="via_earphone">Via hörlurar</string>
-    <string name="via_speaker">Via högtalre</string>
+    <string name="via_earphone">Spela via hörlurar</string>
+    <string name="via_speaker">Spela upp m. högtalare</string>
     <string name="normal_frequency">Normal frekvens</string>
     <string name="tag">Tagg</string>
     <string name="stop">Stopp</string>
     <string name="recording">Spelar in…</string>
-    <string name="memory_full">Inspelningen stoppades. Minnet är fullt</string>
+    <string name="memory_full">Minnet fullt</string>
     <string name="cancel_recording">Avbryt inspelning?</string>
     <string name="change_frequency">Byt frekvens</string>
     <string name="enter_frequency">Ange frekvens</string>
@@ -117,7 +117,7 @@
     <string name="recording_error">Filfel</string>
     <string name="desc_record">Spela in</string>
     <string name="desc_volume">Volym</string>
-    <string name="desc_power">Kraft</string>
+    <string name="desc_power">Energilägen</string>
     <string name="desc_prev">Föregående station</string>
     <string name="desc_next">Nästa station</string>
     <string name="desc_add_favorite">Lägg t. favorit</string>
@@ -132,11 +132,14 @@
     <string name="tags">Taggar</string>
     <string name="tags_now_broadcasting">Nu sänds</string>
     <string name="tags_no_information">Ingen information</string>
+    <string name="tags_music_history">Musikhistorik</string>
     <string name="tags_music_title">Rubrik</string>
     <string name="tags_music_album">Album</string>
     <string name="tags_music_artist">Artist</string>
+    <string name="tags_music_band">Band</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Startsi.</string>
+    <string name="tags_interact_hotline">Hotline</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Annat</string>
     <string name="tags_interact_centre">Centrerad</string>
@@ -182,4 +185,14 @@ När du har spelat in radio kommer inspelade filer att visas"</string>
     <string name="dialog_one_item_deleted">Det här objektet kommer att raderas</string>
     <string name="dialog_multiple_items_deleted">%d objekt raderas</string>
     <string name="dialog_all_items_deleted">Alla objekt raderas</string>
+    <string name="turning_on">Slår på…</string>
+    <string name="not_enough_memory_recording_will_stop">Inte tillräckligt med minne. Inspelningen avbryts om %d sekunder</string>
+    <string name="low_batt_msg">Låg batterinivå</string>
+    <string name="no_play_during_call">Kan inte spela upp under samtal</string>
+    <string name="unable_delete">Kan inte radera</string>
+    <string name="playing">Spelar…</string>
+    <string name="tts_play_button">Starta</string>
+    <string name="tts_previous_button">Åter</string>
+    <string name="tts_Next_button">Nästa</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

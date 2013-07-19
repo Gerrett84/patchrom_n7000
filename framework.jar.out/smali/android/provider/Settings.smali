@@ -11,6 +11,7 @@
         Landroid/provider/Settings$System;,
         Landroid/provider/Settings$NameValueCache;,
         Landroid/provider/Settings$NameValueTable;,
+        Landroid/provider/Settings$LogMsg;,
         Landroid/provider/Settings$SettingNotFoundException;
     }
 .end annotation
@@ -24,6 +25,8 @@
 .field public static final ACTION_AIRPLANE_MODE_SETTINGS:Ljava/lang/String; = "android.settings.AIRPLANE_MODE_SETTINGS"
 
 .field public static final ACTION_APN_SETTINGS:Ljava/lang/String; = "android.settings.APN_SETTINGS"
+
+.field public static final ACTION_APN_SETTINGS_SECONDARY:Ljava/lang/String; = "android.settings.APN_SETTINGS_SECONDARY"
 
 .field public static final ACTION_APPLICATION_DETAILS_SETTINGS:Ljava/lang/String; = "android.settings.APPLICATION_DETAILS_SETTINGS"
 
@@ -115,10 +118,10 @@
     .locals 0
 
     .prologue
-    .line 65
+    .line 79
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 5919
+    .line 6332
     return-void
 .end method
 
@@ -127,7 +130,7 @@
     .parameter "androidId"
 
     .prologue
-    .line 6124
+    .line 6537
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

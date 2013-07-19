@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2216
+    .line 2255
     iput-object p1, p0, Lcom/android/server/LocationManagerService$2;->this$0:Lcom/android/server/LocationManagerService;
 
     invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "uid"
 
     .prologue
-    .line 2225
+    .line 2264
     iget-object v0, p0, Lcom/android/server/LocationManagerService$2;->this$0:Lcom/android/server/LocationManagerService;
 
     #getter for: Lcom/android/server/LocationManagerService;->mLocationHandler:Lcom/android/server/LocationManagerService$LocationWorkerHandler;
@@ -56,7 +56,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 2226
+    .line 2265
     return-void
 .end method
 
@@ -66,7 +66,7 @@
     .parameter "uid"
 
     .prologue
-    .line 2220
+    .line 2259
     iget-object v0, p0, Lcom/android/server/LocationManagerService$2;->this$0:Lcom/android/server/LocationManagerService;
 
     #getter for: Lcom/android/server/LocationManagerService;->mLocationHandler:Lcom/android/server/LocationManagerService$LocationWorkerHandler;
@@ -82,6 +82,6 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 2221
+    .line 2260
     return-void
 .end method

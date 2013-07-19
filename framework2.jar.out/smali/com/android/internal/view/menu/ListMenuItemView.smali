@@ -134,7 +134,7 @@
 
     move-result-object v2
 
-    const v3, 0x10103fa
+    const v3, 0x10103fd
 
     invoke-virtual {v2, v3, v1, v4}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
@@ -191,10 +191,10 @@
     .local v0, inflater:Landroid/view/LayoutInflater;
     iget-boolean v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mIsParentThemeDeviceDefault:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 281
-    const v1, 0x109010b
+    const v1, 0x1090111
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -204,28 +204,24 @@
 
     iput-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
-    .line 290
     :goto_0
-
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
     invoke-static {p0, v1}, Lcom/android/internal/view/menu/ListMenuItemView$Injector;->insertCheckBox(Lcom/android/internal/view/menu/ListMenuItemView;Landroid/widget/CheckBox;)Z
 
     move-result v1
 
-    if-nez v1, :cond_miui_1
+    if-nez v1, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/view/menu/ListMenuItemView;->addView(Landroid/view/View;)V
 
-    .line 291
-    :cond_miui_1
+    :cond_0
     return-void
 
-    .line 286
-    :cond_0
-    const v1, 0x1090093
+    :cond_1
+    const v1, 0x1090098
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -251,7 +247,7 @@
 
     .line 256
     .local v0, inflater:Landroid/view/LayoutInflater;
-    const v1, 0x1090094
+    const v1, 0x1090099
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -285,10 +281,10 @@
     .local v0, inflater:Landroid/view/LayoutInflater;
     iget-boolean v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mIsParentThemeDeviceDefault:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 264
-    const v1, 0x109010d
+    const v1, 0x1090113
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -298,7 +294,6 @@
 
     iput-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
-    .line 274
     :goto_0
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
@@ -306,19 +301,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_miui_1
+    if-nez v1, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
     invoke-virtual {p0, v1}, Lcom/android/internal/view/menu/ListMenuItemView;->addView(Landroid/view/View;)V
 
-    .line 275
-    :cond_miui_1
+    :cond_0
     return-void
 
-    .line 269
-    :cond_0
-    const v1, 0x1090096
+    :cond_1
+    const v1, 0x109009b
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -457,7 +450,7 @@
 
     .line 102
     :cond_0
-    const v0, 0x102038d
+    const v0, 0x102039d
 
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ListMenuItemView;->findViewById(I)Landroid/view/View;
 

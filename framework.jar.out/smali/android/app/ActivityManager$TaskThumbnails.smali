@@ -43,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 852
+    .line 870
     new-instance v0, Landroid/app/ActivityManager$TaskThumbnails$1;
 
     invoke-direct {v0}, Landroid/app/ActivityManager$TaskThumbnails$1;-><init>()V
@@ -57,10 +57,10 @@
     .locals 0
 
     .prologue
-    .line 816
+    .line 834
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 817
+    .line 835
     return-void
 .end method
 
@@ -69,13 +69,13 @@
     .parameter "source"
 
     .prologue
-    .line 861
+    .line 879
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 862
+    .line 880
     invoke-virtual {p0, p1}, Landroid/app/ActivityManager$TaskThumbnails;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 863
+    .line 881
     return-void
 .end method
 
@@ -85,7 +85,7 @@
     .parameter "x1"
 
     .prologue
-    .line 808
+    .line 826
     invoke-direct {p0, p1}, Landroid/app/ActivityManager$TaskThumbnails;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -97,7 +97,7 @@
     .locals 1
 
     .prologue
-    .line 828
+    .line 846
     const/4 v0, 0x0
 
     return v0
@@ -108,7 +108,7 @@
     .parameter "index"
 
     .prologue
-    .line 821
+    .line 839
     :try_start_0
     iget-object v1, p0, Landroid/app/ActivityManager$TaskThumbnails;->retriever:Landroid/app/IThumbnailRetriever;
 
@@ -118,15 +118,15 @@
 
     move-result-object v1
 
-    .line 823
+    .line 841
     :goto_0
     return-object v1
 
-    .line 822
+    .line 840
     :catch_0
     move-exception v0
 
-    .line 823
+    .line 841
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -138,14 +138,14 @@
     .parameter "source"
 
     .prologue
-    .line 843
+    .line 861
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 844
+    .line 862
     sget-object v0, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -156,7 +156,7 @@
 
     iput-object v0, p0, Landroid/app/ActivityManager$TaskThumbnails;->mainThumbnail:Landroid/graphics/Bitmap;
 
-    .line 848
+    .line 866
     :goto_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -164,7 +164,7 @@
 
     iput v0, p0, Landroid/app/ActivityManager$TaskThumbnails;->numSubThumbbails:I
 
-    .line 849
+    .line 867
     invoke-virtual {p1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v0
@@ -175,10 +175,10 @@
 
     iput-object v0, p0, Landroid/app/ActivityManager$TaskThumbnails;->retriever:Landroid/app/IThumbnailRetriever;
 
-    .line 850
+    .line 868
     return-void
 
-    .line 846
+    .line 864
     :cond_0
     const/4 v0, 0x0
 
@@ -195,36 +195,36 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 832
+    .line 850
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnails;->mainThumbnail:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_0
 
-    .line 833
+    .line 851
     const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 834
+    .line 852
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnails;->mainThumbnail:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, p1, v1}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 838
+    .line 856
     :goto_0
     iget v0, p0, Landroid/app/ActivityManager$TaskThumbnails;->numSubThumbbails:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 839
+    .line 857
     iget-object v0, p0, Landroid/app/ActivityManager$TaskThumbnails;->retriever:Landroid/app/IThumbnailRetriever;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStrongInterface(Landroid/os/IInterface;)V
 
-    .line 840
+    .line 858
     return-void
 
-    .line 836
+    .line 854
     :cond_0
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 

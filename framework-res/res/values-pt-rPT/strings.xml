@@ -322,7 +322,7 @@
     <string name="turn_on_radio">Ligar rádio</string>
     <string name="turn_off_radio">Desligar rádio</string>
     <string name="screen_lock">Bloqueio do ecrã</string>
-    <string name="power_off">Desligar</string>
+    <string name="power_off">Hora de desligar</string>
     <string name="silent_mode_silent">Campainha desativada</string>
     <string name="silent_mode_vibrate">Vibração de tom de toque</string>
     <string name="silent_mode_ring">Campainha ativada</string>
@@ -339,7 +339,7 @@
     <string name="global_action_lock">Bloqueio do ecrã</string>
     <string name="global_action_power_off">Desligar</string>
     <string name="global_action_restart">Reiniciar</string>
-    <string name="global_action_sound_mode_mute">Silenciar</string>
+    <string name="global_action_sound_mode_mute">Silen.</string>
     <string name="global_action_sound_mode_vibrate">Vibrar</string>
     <string name="global_action_sound_mode_sound">Som</string>
     <string name="global_action_toggle_silent_mode">Modo silencioso</string>
@@ -361,7 +361,7 @@
     <string name="data_usage_disable_mobile">Desactivar ligação de dados móvel?</string>
     <string name="global_action_insert_sim_card">Introduza cartão SIM</string>
     <string name="global_action_insert_sim_card_message">Insira o cartão SIM para aceder aos serviços de rede</string>
-    <string name="globalactions_silent_mode_mute">Silenciar</string>
+    <string name="globalactions_silent_mode_mute">Silen.</string>
     <string name="globalactions_silent_mode_vibrate">Vibrar</string>
     <string name="globalactions_silent_mode_sound">Som</string>
     <string name="safeMode">Modo de segurança</string>
@@ -413,6 +413,7 @@
     <string name="permdesc_mdmKioskMode">Controlar o comportamento do dispositivo no Modo de quiosque</string>
     <string name="tether_usb_restrict">A política de segurança restringe a utilização de ancoragem USB</string>
     <string name="tether_wifi_restrict">A política de segurança restringe a utilização da ancoragem Wi-Fi</string>
+    <string name="data_call_restriction">A política de segurança restringe a utilização de dados móveis</string>
     <string name="dpm_wifi_blocked_network">A política de segurança bloqueia a utilização desta rede Wi-Fi</string>
     <string name="dpm_wifi_misc_wifi_disabled">A política de segurança restringe a utilização de Wi-Fi</string>
     <string name="dpm_wifi_misc_network_insecure">A política de segurança restringe a utilização de redes Wi-Fi não protegidas</string>
@@ -624,7 +625,7 @@
     <string name="permdesc_writeSocialStream">Permite que a aplicação apresente atualizações de redes sociais de amigos. Tenha cuidado ao partilhar informações, pois esta ação permite que a aplicação produza mensagens que podem parecer ser enviadas por um amigo. Nota: esta autorização pode não ser aplicada a todas as redes sociais.</string>
     <string name="permlab_readCalendar">Ler eventos de agenda e informações confidenciais</string>
     <string name="permdesc_readCalendar">Permite que a aplicação leia todos os eventos do calendário guardados no telemóvel, incluindo os de amigos ou colegas de trabalho. Pode permitir que a aplicação partilhe ou guarde dados do calendário, independentemente da confidencialidade ou da sensibilidade.</string>
-    <string name="permlab_writeCalendar">adicionar ou modificar eventos do calendário e enviar e-mail a convidados sem o conhecimento dos proprietários</string>
+    <string name="permlab_writeCalendar">Adicionar ou modificar eventos de agenda e enviar e-mails a convidados sem o conhecimento do anfitrião</string>
     <string name="permdesc_writeCalendar">Permite que a aplicação adicione, remova e altere eventos que pode modificar no telemóvel, incluindo eventos relacionados com amigos ou colegas de trabalho. Pode permitir que a aplicação envie mensagens que parecem ser enviadas pelos proprietários dos calendários ou modifique eventos sem o conhecimento do proprietário.</string>
     <string name="permlab_accessMockLocation">simular origens de localização para teste</string>
     <string name="permdesc_accessMockLocation">Permite à aplicação criar origens de localização falsas para testes. Se permitido, é possível a aplicações maliciosas substituir a localização e/ou o estado devolvido por fontes de localização reais, tais como de GPS ou de operadores, ou monitorizar e referir a sua localização a sites da Web aleatórios</string>
@@ -714,7 +715,7 @@
     <string name="permdesc_getAccounts">Permite à aplicação aceder à lista de contas conhecidas pelo telefone</string>
     <string name="permlab_authenticateAccounts">Actuar como autenticador de conta</string>
     <string name="permdesc_authenticateAccounts">Permite a uma aplicação utilizar a função de autenticador de contas do Gestor de contas. Isto inclui a criação de contas e o controlo de palavras-passe</string>
-    <string name="permlab_manageAccounts">adicionar ou remover contas</string>
+    <string name="permlab_manageAccounts">Adicionar ou remover contas</string>
     <string name="permdesc_manageAccounts">Permite a uma aplicação adicionar e remover contas, bem como eliminar a sua palavra-passe</string>
     <string name="permlab_useCredentials">Utilizar credenciais de autenticação de conta</string>
     <string name="permdesc_useCredentials">Permite a uma aplicação pedir tokens de autenticação</string>
@@ -736,7 +737,7 @@
     <string name="permdesc_changeWifiState">Permite à aplicação ligar-se a e desligar-se de pontos de acesso Wi-Fi, e efectuar alterações nas redes Wi-Fi configuradas</string>
     <string name="permlab_changeWifiMulticastState">Permitir recepção multicast Wi-Fi</string>
     <string name="permdesc_changeWifiMulticastState">Permite que a aplicação receba pacotes enviados para todos os dispositivos numa rede Wi-Fi através de endereços multicast, não apenas para o telemóvel. Utiliza mais energia do que o modo não multicast.</string>
-    <string name="permlab_bluetoothAdmin">aceder às definições de Bluetooth</string>
+    <string name="permlab_bluetoothAdmin">Definições Bluetooth</string>
     <string name="permdesc_bluetoothAdmin">Permite a uma aplicação configurar o telefone Bluetooth local e descobrir e emparelhar dispositivos remotos</string>
     <string name="permlab_accessWimaxState">Ver estado WiMAX</string>
     <string name="permdesc_accessWimaxState">Permite que a aplicação determine se o WiMAX está ativado e aceda a informações acerca de qualquer rede WiMAX que esteja ligada.</string>
@@ -826,6 +827,7 @@
     <string name="policydesc_allow_desktopsync">Impedir a utilização da sincronização do ambiente de trabalho</string>
     <string name="policylab_require_storagecard_encryption">Definir encriptação do cartão SD</string>
     <string name="policydesc_require_storagecard_encryption">Exigir que a aplicação do cartão SD seja encriptada</string>
+    <string name="bluetooth_has_been_disconnected">O Bluetooth foi desligado</string>
     <string name="bluetooth_security_mode_disable">A política de segurança restringe a utilização da ligação Bluetooth</string>
     <string name="bluetooth_security_mode_handsfree">A política de segurança restringe a utilização da ligação Bluetooth unicamente às funções mãos-livres</string>
     <string name="phoneTypeCustom">Personalizar</string>
@@ -898,14 +900,14 @@
     <string name="sipAddressTypeHome">Pessoal</string>
     <string name="sipAddressTypeWork">Empresa</string>
     <string name="sipAddressTypeOther">Outro</string>
-    <string name="keyguard_password_enter_pin_code">Escreva o código PIN</string>
+    <string name="keyguard_password_enter_pin_code">Introduzir código PIN</string>
     <string name="keyguard_password_enter_puk_code">Introduzir PUK e PIN novo</string>
     <string name="keyguard_password_enter_puk_prompt">Código PUK</string>
     <string name="keyguard_password_enter_pin_prompt">Novo código PIN</string>
     <string name="keyguard_password_entry_touch_hint">Toque para introduzir palavra-passe</string>
     <string name="keyguard_password_enter_password_code">Introduza a palavra-passe para desbloquear</string>
     <string name="keyguard_password_enter_pin_password_code">Introduzir PIN para desbloquear</string>
-    <string name="keyguard_password_wrong_pin_code">Código PIN incorreto.</string>
+    <string name="keyguard_password_wrong_pin_code">Código PIN incorrecto</string>
     <string name="keyguard_pin_accepted">Código aceite!</string>
     <string name="keyguard_label_text">Para desbloquear, prima Menu e 0</string>
     <string name="emergency_call_dialog_number_for_display">Número de emergência</string>
@@ -942,8 +944,9 @@
     <string name="lockscreen_network_locked_message">Rede bloqueada</string>
     <string name="lockscreen_sim_puk_locked_message">O cartão SIM está bloqueado pelo PUK</string>
     <string name="lockscreen_sim_puk_locked_instructions">Consulte o Manual do Utilizador ou contacte o Apoio ao Cliente</string>
-    <string name="lockscreen_sim_locked_message">Cartão SIM/RUIM bloqueado</string>
+    <string name="lockscreen_sim_locked_message">O cartão SIM está bloqueado</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">A desbloquear cartão SIM…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Padrão de desbloqueio incorrecto desenhado %1$d vezes. Tente novamente dentro de %2$d segundos</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Palavra-passe incorrecta introduzida %1$d vezes. Tente novamente dentro de %2$d segundos</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 bloqueado. Introduza o PUK1 para desbloquear o PIN1</string>
@@ -996,6 +999,7 @@
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">Igual a</string>
     <string name="autofill_billing_designator_re">Conta</string>
+    <string name="autofill_shipping_designator_re">Navio</string>
     <string name="autofill_phone_suffix_re">Sufixo</string>
     <string name="autofill_name_on_card_contextual_re">Nome</string>
     <string name="autofill_province">Província</string>
@@ -1010,7 +1014,7 @@
     <string name="autofill_parish">Freguesia</string>
     <string name="autofill_area">Área</string>
     <string name="autofill_emirate">Emirado</string>
-    <string name="permlab_readHistoryBookmarks">ler os marcadores da Web e o histórico</string>
+    <string name="permlab_readHistoryBookmarks">Ler histórico e favoritos da Internet</string>
     <string name="permdesc_readHistoryBookmarks">Permite a uma aplicação ler todos os URL visitados belo browser e todos os favoritos do browser</string>
     <string name="permlab_writeHistoryBookmarks">gravar marcadores da Web e o histórico</string>
     <string name="permdesc_writeHistoryBookmarks">Permite a uma aplicação modificar o histórico da Internet e os favoritos guardados no seu telefone. Se permitido, é possível a aplicações maliciosas apagar ou modificar esses dados</string>
@@ -1089,10 +1093,12 @@
     <string name="editTextMenuTitle">Acções de texto</string>
     <string name="low_internal_storage_view_title">Memória quase cheia</string>
     <string name="low_internal_storage_view_text">Algumas funções do sistema poderão não funcionar</string>
+    <string name="full_internal_storage_view_text">Pode ter ocorrido um erro porque a memória do dispositivo está cheia. Elimine alguns itens</string>
     <string name="loading">A carregar</string>
     <string name="capital_on">Ligar</string>
     <string name="capital_off">Desl.</string>
     <string name="whichApplication">Concluir acção utilizando</string>
+    <string name="whichHomeApplication">Selecção pessoal</string>
     <string name="alwaysUse">Utilizar por predefinição para esta aplicação</string>
     <string name="clearDefaultHintMsg">Limpe as predefinições das aplicações acedendo a Definições > Gestor de aplicações > Tudo</string>
     <string name="clearDefaultHomeHintMsg">Pode alterar mais tarde neste menu de definições. (Definições > Selecção pessoal em Pessoal)</string>
@@ -1161,7 +1167,7 @@
     <string name="wifi_notification_no_network_message">Definições de abertura de Wi-Fi</string>
     <string name="wifi_notification_not_connected">Redes Wi-Fi disponíveis</string>
     <string name="wifi_notification_not_connected_message">Abrir as redes Wi-Fi disponíveis</string>
-    <string name="wifi_notification_connected">Ligado a %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Tocar para configurar Wi-Fi</string>
     <string name="wifi_notification_connected_secure">Seguro</string>
     <string name="wifi_notification_connected_open">Abrir</string>
@@ -1175,7 +1181,7 @@
     <string name="wifi_p2p_enabled_notification_title">O Wi-Fi Direct está ligado</string>
     <string name="wifi_p2p_enabled_notification_message">Tocar para alterar as definições</string>
     <string name="accept">Aceitar</string>
-    <string name="decline">Declinar</string>
+    <string name="decline">Rejeitar</string>
     <string name="wifi_p2p_invitation_sent_title">Convite enviado</string>
     <string name="wifi_p2p_invitation_to_connect_title">Convite para estabelecer ligação</string>
     <string name="wifi_p2p_from_message">De:</string>
@@ -1191,9 +1197,9 @@
     <string name="select_character">Inserir carácter</string>
     <string name="sms_control_default_app_name">Aplicação desconhecida</string>
     <string name="sms_control_title">A enviar SMS…</string>
-    <string name="sms_control_message">Número elevado de mensagens SMS a ser enviadas. Toque em OK para continuar ou em Cancelar para parar o envio</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Cancelar</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> está a enviar um número elevado de mensagens SMS. Permite que esta aplicação continue a enviar mensagens?</string>
+    <string name="sms_control_yes">Permitir</string>
+    <string name="sms_control_no">Declinar</string>
     <string name="sim_removed_title">Cartão SIM removido</string>
     <string name="sim_removed_message">A rede móvel ficará indisponível até o utilizador reiniciar com um cartão SIM válido inserido</string>
     <string name="sim_done_button">Concluir</string>
@@ -1287,7 +1293,7 @@
     <string name="activity_list_empty">Não foram encontradas actividades correspondentes</string>
     <string name="permlab_pkgUsageStats">actualizar estatísticas de utilização de componentes</string>
     <string name="permdesc_pkgUsageStats">Permite a modificação de estatísticas de utilização de componentes recolhidas. Não se destina a ser utilizada por aplicações normais</string>
-    <string name="permlab_copyProtectedData">Permite ao serviço de contentor padrão copiar conteúdos. Não se destina a ser utilizado por aplicações normais</string>
+    <string name="permlab_copyProtectedData">Copiar conteúdo</string>
     <string name="permdesc_copyProtectedData">Permite ao serviço de contentor padrão copiar conteúdos. Não se destina a ser utilizado por aplicações normais</string>
     <string name="permlab_route_media_output">Encaminhar saída multimédia</string>
     <string name="permdesc_route_media_output">Permite a uma aplicação encaminhar a saída de multimédia para outros dispositivos externos</string>
@@ -1399,7 +1405,7 @@ para conta %s"</string>
     <string name="radiobutton_selected">Seleccionado</string>
     <string name="radiobutton_not_selected">Sem contactos seleccionados</string>
     <string name="switch_on">Ligar</string>
-    <string name="switch_off">Desligar</string>
+    <string name="switch_off">Desl.</string>
     <string name="togglebutton_pressed">Premido</string>
     <string name="keyboardview_keycode_alt">ALT</string>
     <string name="keyboardview_keycode_cancel">Cancelar</string>
@@ -1427,10 +1433,11 @@ para conta %s"</string>
     <string name="action_bar_home_description">Navegar para casa</string>
     <string name="action_bar_up_description">Navegar para cima</string>
     <string name="action_menu_overflow_description">Mais opções</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Mudar para o tamanho anterior</string>
     <string name="storage_internal">Memória do dispositivo</string>
     <string name="storage_sd_card">Cartão SD</string>
     <string name="storage_usb">Armazenamento USB</string>
-    <string name="extract_edit_menu_button">Editar…</string>
+    <string name="extract_edit_menu_button">Editar</string>
     <string name="data_usage_warning_title">Aviso de utilização de dados</string>
     <string name="data_usage_warning_body">Tocar para ver a utilização e as definições</string>
     <string name="data_usage_3g_limit_title">Dados 2G-3G desactivados</string>
@@ -1460,7 +1467,7 @@ para conta %s"</string>
     <string name="fingerprints">Impressões digitais</string>
     <string name="sha256_fingerprint">Impressão digital SHA-256:</string>
     <string name="sha1_fingerprint">Impressão digital SHA-1:</string>
-    <string name="activity_chooser_view_see_all">Ver td.</string>
+    <string name="activity_chooser_view_see_all">Ver tudo</string>
     <string name="activity_chooser_view_dialog_title_default">Seleccionar actividade</string>
     <string name="share_action_provider_share_with">Partilhar com</string>
     <string name="status_bar_device_locked">Dispositivo bloqueado</string>
@@ -1516,6 +1523,8 @@ para conta %s"</string>
     <string name="lockscreen_fmapp_name">Rádio FM</string>
     <string name="lockscreen_clock_dualclock_home">Pessoal</string>
     <string name="lockscreen_clock_dualclock_roaming">Roaming</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Seul</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Roaming</string>
     <string name="lockscreen_clock_dualclock_popup_title">Rel. duplo</string>
     <string name="lockscreen_clock_dualclock_popup_message">Seleccione a cidade de origem para a apresentação do relógio duplo no ecrã de bloqueio. Ir para Definições?</string>
     <string name="lockscreen_ticker_no_data_to_display">Sem dados para apresentar</string>
@@ -1552,7 +1561,7 @@ para conta %s"</string>
     <string name="lockscreen_2ndLock_instructions2">Introduza o PIN de cópia de segurança para desbloquear</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Pode ter desenhado incorrectamente o seu padrão de desbloqueio %1$d vezes. Tente novamente dentro de %2$d segundos</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Padrão de desbloqueio incorrecto desenhado %1$d vezes. Restam %2$d tentativas antes de lhe ser pedido que desbloqueie o dispositivo utilizando o seu início de sessão Google ou o PIN de cópia de segurança. Tente novamente dentro de %3$d segundos</string>
     <string name="lockscreen_carrier_noservice">(Sem rede)</string>
     <string name="rescan_network">A procurar rede disponível</string>
     <string name="AutoUpdateOfTimeAndDate">Actualização automática de hora e data</string>
@@ -1563,6 +1572,8 @@ para conta %s"</string>
     <string name="capabilitymanager_managed_errortitle">Erro</string>
     <string name="security_policy_title">Políticas de segurança</string>
     <string name="security_policy_summary">Políticas de encriptação recebidas do administrador remoto</string>
+    <string name="sdcard_unmount_policy_noti_title">Cartão SD desinstalado devido a política de TI</string>
+    <string name="sdcard_unmount_policy_noti_content">Toque para instalar o cartão SD</string>
     <string name="sdcard_encrypt_title_notification">Encriptação do cartão SD</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">A encriptar cartão SD…</string>
     <string name="sdcard_encrypt_notification">Cartão SD encriptado</string>
@@ -1586,7 +1597,7 @@ para conta %s"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1628,7 +1639,7 @@ para conta %s"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Os valores introduzidos estão fora do intervalo válido. Verifique os valores e tente novamente</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1650,6 +1661,8 @@ para conta %s"</string>
     <string name="SS_USB_TETHERING_ENABLED">Ancoragem USB activada</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Ancoragem Wi-Fi activada</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Ancoragem activada (Wi-Fi e USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Dispositivo bloqueado. Foi atingido o número máximo de tentativas de introduções da palavra-passe. Palavra-passe de recuperação necessária para desbloquear o dispositivo. Se introduzir a palavra-passe de recuperação incorrecta, os dados serão todos limpos</string>
+    <string name="recovery_password_required">Palavra-passe de recuperação necessária para desbloquear o dispositivo</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Ligações telefónicas de rede activadas</string>
@@ -1683,12 +1696,21 @@ para conta %s"</string>
     <string name="lockscreen_ticker_logo_news_tts">Notícias</string>
     <string name="lockscreen_ticker_logo_stock_tts">Acção</string>
     <string name="lockscreen_ticker_refresh_tts">Actualizar</string>
+    <string name="SS_ALWAYS_ON_TOP">Sempre visível</string>
+    <string name="SS_MINIMISE">Minimizar</string>
+    <string name="SS_MAXIMISE">Maximizar</string>
+    <string name="SS_CLOSE_APPLICATION">Fechar aplicação</string>
+    <string name="spengesture_media_scanning">Impossível cortar a fotografia. Analisador multimédia a ser executado</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN bloqueado</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Contacte o fornecedor de serviços para desbloquear o seu cartão SIM</string>
     <string name="resolver_guide_title">Limpar predefinições</string>
     <string name="operation_not_allowed">Operação não permitida</string>
     <string name="exceeded_maxlength">Tamanho máximo de mensagem excedido</string>
     <string name="dont_show_again_message">Não mostrar novamente</string>
     <string name="set_bing_as_default">Definir o Bing como o motor de pesquisa predefinido?</string>
     <string name="ms_domain_site">Site de domínio Microsoft</string>
+    <string name="unsupported_in_popupbrowser">Função não suportada no Popup Browser</string>
+    <string name="find_on_page_abb">Local. na pág.</string>
     <string name="tw_clipboard_already_exists">Já existe</string>
     <string name="tw_clipboard_no_items_to_paste">Sem itens para colar</string>
     <string name="tw_clipboard_save_in_memo">Guardar no Memorando</string>
@@ -1703,8 +1725,11 @@ para conta %s"</string>
     <string name="tw_clipboard_clear">Limpar</string>
     <string name="tw_clipboard_delete_all">Eliminar tudo?</string>
     <string name="tw_clipboard_edit">Editar</string>
-    <string name="tw_clipboard_done">Concluído</string>
+    <string name="tw_clipboard_done">Concl.</string>
     <string name="tw_clipboard_save">Guardar</string>
     <string name="tw_clipboard_no_item">Sem itens</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Todos os itens, com excepção dos itens bloqueados, foram eliminados da área de transferência</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Colado da área de transferência</string>
+    <string name="Roaming_Auto_Dialing">PIN bloqueado</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

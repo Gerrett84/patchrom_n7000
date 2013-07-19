@@ -32,18 +32,18 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 759
+    .line 1191
     iput-object p1, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 760
+    .line 1192
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mIsHide:Z
 
-    .line 761
+    .line 1193
     iput v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mBackupX:I
 
-    .line 762
+    .line 1194
     iput v0, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mBackupY:I
 
     return-void
@@ -55,7 +55,7 @@
     .parameter "x1"
 
     .prologue
-    .line 759
+    .line 1191
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;-><init>(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)V
 
     return-void
@@ -71,14 +71,14 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 766
+    .line 1198
     const-string v5, "mw_action"
 
     invoke-virtual {p2, v5, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 767
+    .line 1199
     .local v0, action:I
     const-string v5, "mw_x"
 
@@ -86,7 +86,7 @@
 
     move-result v3
 
-    .line 768
+    .line 1200
     .local v3, x:I
     const-string v5, "mw_y"
 
@@ -94,12 +94,12 @@
 
     move-result v4
 
-    .line 769
+    .line 1201
     .local v4, y:I
     iget-object v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
     #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mActivity:Landroid/app/Activity;
-    invoke-static {v5}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
+    invoke-static {v5}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$400(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/app/Activity;
 
     move-result-object v5
 
@@ -111,16 +111,16 @@
 
     move-result-object v1
 
-    .line 771
+    .line 1203
     .local v1, p:Landroid/view/WindowManager$LayoutParams;
     packed-switch v0, :pswitch_data_0
 
-    .line 799
+    .line 1229
     :cond_0
     :goto_0
     return-void
 
-    .line 773
+    .line 1205
     :pswitch_0
     new-instance v2, Landroid/graphics/Rect;
 
@@ -142,7 +142,7 @@
 
     invoke-direct {v2, v5, v6, v7, v8}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    .line 775
+    .line 1207
     .local v2, rect:Landroid/graphics/Rect;
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mIsHide:Z
 
@@ -154,23 +154,23 @@
 
     if-eqz v5, :cond_0
 
-    .line 776
+    .line 1208
     iget v5, v1, Landroid/view/WindowManager$LayoutParams;->x:I
 
     iput v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mBackupX:I
 
-    .line 777
+    .line 1209
     iget v5, v1, Landroid/view/WindowManager$LayoutParams;->y:I
 
     iput v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mBackupY:I
 
-    .line 778
+    .line 1210
     iget v5, v1, Landroid/view/WindowManager$LayoutParams;->x:I
 
     iget-object v6, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
     #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mMaxSize:Landroid/graphics/Point;
-    invoke-static {v6}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/graphics/Point;
+    invoke-static {v6}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1200(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/graphics/Point;
 
     move-result-object v6
 
@@ -180,13 +180,13 @@
 
     iput v5, v1, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    .line 779
+    .line 1211
     iget v5, v1, Landroid/view/WindowManager$LayoutParams;->y:I
 
     iget-object v6, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
     #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mMaxSize:Landroid/graphics/Point;
-    invoke-static {v6}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1100(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/graphics/Point;
+    invoke-static {v6}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$1200(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/graphics/Point;
 
     move-result-object v6
 
@@ -196,62 +196,62 @@
 
     iput v5, v1, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 780
+    .line 1212
     iget-object v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
     #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mOwner:Landroid/view/Window;
-    invoke-static {v5}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$300(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/Window;
+    invoke-static {v5}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$800(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/Window;
 
     move-result-object v5
 
     invoke-virtual {v5, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 781
+    .line 1213
     const/4 v5, 0x1
 
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mIsHide:Z
 
     goto :goto_0
 
-    .line 788
+    .line 1219
     .end local v2           #rect:Landroid/graphics/Rect;
     :pswitch_1
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mIsHide:Z
 
     if-eqz v5, :cond_0
 
-    .line 789
+    .line 1220
     iget v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mBackupX:I
 
     iput v5, v1, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    .line 790
+    .line 1221
     iget v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mBackupY:I
 
     iput v5, v1, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 791
+    .line 1222
     iput v6, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mBackupX:I
 
-    .line 792
+    .line 1223
     iput v6, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mBackupY:I
 
-    .line 793
+    .line 1224
     iget-object v5, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->this$0:Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;
 
     #getter for: Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->mOwner:Landroid/view/Window;
-    invoke-static {v5}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$300(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/Window;
+    invoke-static {v5}, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;->access$800(Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent;)Landroid/view/Window;
 
     move-result-object v5
 
     invoke-virtual {v5, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 794
+    .line 1225
     iput-boolean v6, p0, Lcom/android/internal/policy/impl/multiwindow/MultiPhoneWindowEvent$TouchBroadcastReceiver;->mIsHide:Z
 
     goto :goto_0
 
-    .line 771
+    .line 1203
     nop
 
     :pswitch_data_0

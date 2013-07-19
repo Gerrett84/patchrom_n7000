@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 416
+    .line 427
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "event"
 
     .prologue
-    .line 419
+    .line 430
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
@@ -55,7 +55,7 @@
 
     if-eqz v15, :cond_0
 
-    .line 420
+    .line 431
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
@@ -69,7 +69,7 @@
 
     invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 421
+    .line 432
     :cond_0
     move-object/from16 v0, p0
 
@@ -93,15 +93,15 @@
 
     if-nez v15, :cond_2
 
-    .line 422
+    .line 433
     :cond_1
     const/4 v15, 0x0
 
-    .line 475
+    .line 486
     :goto_0
     return v15
 
-    .line 424
+    .line 435
     :cond_2
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getAnimation()Landroid/view/animation/Animation;
 
@@ -122,7 +122,7 @@
 
     if-ne v15, v0, :cond_3
 
-    .line 425
+    .line 436
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
@@ -136,22 +136,22 @@
 
     invoke-static/range {v15 .. v16}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 426
+    .line 437
     const/4 v15, 0x0
 
     goto :goto_0
 
-    .line 429
+    .line 440
     :cond_3
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v2
 
-    .line 430
+    .line 441
     .local v2, action:I
     packed-switch v2, :pswitch_data_0
 
-    .line 472
+    .line 483
     :goto_1
     move-object/from16 v0, p0
 
@@ -175,14 +175,14 @@
 
     invoke-interface/range {v15 .. v16}, Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;->setOnCircleUnlockListener(Lcom/android/internal/policy/impl/sec/CircleUnlockWidget$OnCircleUnlockListener;)V
 
-    .line 474
+    .line 485
     const-string v15, "ShortcutWidget"
 
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v15}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 475
+    .line 486
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
@@ -202,7 +202,7 @@
 
     goto :goto_0
 
-    .line 432
+    .line 443
     :pswitch_0
     move-object/from16 v0, p0
 
@@ -217,7 +217,7 @@
 
     invoke-static/range {v15 .. v16}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 433
+    .line 444
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
@@ -233,7 +233,7 @@
 
     move-object/from16 v15, p1
 
-    .line 434
+    .line 445
     check-cast v15, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
     const/16 v16, 0x1
@@ -242,7 +242,7 @@
 
     goto :goto_1
 
-    .line 438
+    .line 449
     :pswitch_1
     move-object/from16 v0, p0
 
@@ -257,7 +257,7 @@
 
     invoke-static/range {v15 .. v16}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 439
+    .line 450
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$4;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
@@ -273,7 +273,7 @@
 
     move-object/from16 v15, p1
 
-    .line 440
+    .line 451
     check-cast v15, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
     const/16 v16, 0x0
@@ -282,15 +282,15 @@
 
     goto :goto_1
 
-    .line 445
+    .line 456
     :pswitch_2
     const/4 v3, 0x0
 
-    .line 446
+    .line 457
     .local v3, diffX:I
     const/4 v4, 0x0
 
-    .line 451
+    .line 462
     .local v4, diffY:I
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredWidth()I
 
@@ -298,7 +298,7 @@
 
     div-int/lit8 v13, v15, 0x2
 
-    .line 452
+    .line 463
     .local v13, viewCenterX:I
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredHeight()I
 
@@ -306,7 +306,7 @@
 
     div-int/lit8 v14, v15, 0x2
 
-    .line 453
+    .line 464
     .local v14, viewCenterY:I
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getX()F
 
@@ -320,7 +320,7 @@
 
     float-to-int v3, v15
 
-    .line 454
+    .line 465
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result v15
@@ -333,7 +333,7 @@
 
     float-to-int v4, v15
 
-    .line 456
+    .line 467
     int-to-double v15, v3
 
     const-wide/high16 v17, 0x4000
@@ -354,13 +354,13 @@
 
     add-double v7, v15, v17
 
-    .line 458
+    .line 469
     .local v7, distance_square:D
     invoke-static {v7, v8}, Ljava/lang/Math;->sqrt(D)D
 
     move-result-wide v5
 
-    .line 459
+    .line 470
     .local v5, distance:D
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getMeasuredWidth()I
 
@@ -372,21 +372,21 @@
 
     int-to-double v11, v15
 
-    .line 460
+    .line 471
     .local v11, threshold:D
     div-double v9, v5, v11
 
     .local v9, mDistanceRatio:D
     move-object/from16 v15, p1
 
-    .line 465
+    .line 476
     check-cast v15, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
     invoke-virtual {v15, v9, v10}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->setOpacity(D)V
 
     goto/16 :goto_1
 
-    .line 430
+    .line 441
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

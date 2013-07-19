@@ -93,7 +93,7 @@
     .locals 2
 
     .prologue
-    .line 768
+    .line 770
     new-instance v0, Landroid/text/StaticLayout;
 
     const/4 v1, 0x0
@@ -102,7 +102,7 @@
 
     sput-object v0, Landroid/text/DynamicLayout;->sStaticLayout:Landroid/text/StaticLayout;
 
-    .line 770
+    .line 772
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -971,17 +971,19 @@
     if-ne v0, v1, :cond_4
 
     :cond_1
+    if-eqz p1, :cond_4
+
     :try_start_0
-    instance-of v5, v4, Landroid/text/SpannableStringBuilder;
+    move-object/from16 v0, p1
+
+    instance-of v5, v0, Landroid/text/Spannable;
 
     if-eqz v5, :cond_4
 
     if-ltz p2, :cond_4
 
     .line 209
-    move/from16 v0, p2
-
-    invoke-interface {v4, v0}, Ljava/lang/CharSequence;->charAt(I)C
+    invoke-interface/range {p1 .. p2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v29
 
@@ -999,7 +1001,7 @@
 
     if-lt v0, v5, :cond_2
 
-    const/16 v5, 0xe39
+    const/16 v5, 0xe3a
 
     move/from16 v0, v29
 
@@ -1020,17 +1022,17 @@
 
     .line 214
     :cond_3
-    move-object v0, v4
+    move-object/from16 v0, p1
 
-    check-cast v0, Landroid/text/SpannableStringBuilder;
+    check-cast v0, Landroid/text/Spannable;
 
     move-object/from16 v38, v0
 
     .line 216
-    .local v38, sp:Landroid/text/SpannableStringBuilder;
+    .local v38, sp:Landroid/text/Spannable;
     const/4 v5, 0x0
 
-    invoke-virtual/range {v38 .. v38}, Landroid/text/SpannableStringBuilder;->length()I
+    invoke-interface/range {v38 .. v38}, Landroid/text/Spannable;->length()I
 
     move-result v6
 
@@ -1038,7 +1040,7 @@
 
     move-object/from16 v0, v38
 
-    invoke-virtual {v0, v5, v6, v7}, Landroid/text/SpannableStringBuilder;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
+    invoke-interface {v0, v5, v6, v7}, Landroid/text/Spannable;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
 
     move-result-object v47
 
@@ -1063,7 +1065,7 @@
 
     move-object/from16 v0, v38
 
-    invoke-virtual {v0, v5}, Landroid/text/SpannableStringBuilder;->getSpanStart(Ljava/lang/Object;)I
+    invoke-interface {v0, v5}, Landroid/text/Spannable;->getSpanStart(Ljava/lang/Object;)I
 
     move-result v46
 
@@ -1073,7 +1075,7 @@
 
     move-object/from16 v0, v38
 
-    invoke-virtual {v0, v5}, Landroid/text/SpannableStringBuilder;->getSpanEnd(Ljava/lang/Object;)I
+    invoke-interface {v0, v5}, Landroid/text/Spannable;->getSpanEnd(Ljava/lang/Object;)I
 
     move-result v44
 
@@ -1098,7 +1100,7 @@
 
     move-object/from16 v0, v38
 
-    invoke-virtual {v0, v5}, Landroid/text/SpannableStringBuilder;->getSpanFlags(Ljava/lang/Object;)I
+    invoke-interface {v0, v5}, Landroid/text/Spannable;->getSpanFlags(Ljava/lang/Object;)I
 
     move-result v45
 
@@ -1108,14 +1110,14 @@
 
     move-object/from16 v0, v38
 
-    invoke-virtual {v0, v5}, Landroid/text/SpannableStringBuilder;->removeSpan(Ljava/lang/Object;)V
+    invoke-interface {v0, v5}, Landroid/text/Spannable;->removeSpan(Ljava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 242
     .end local v28           #i:I
     .end local v29           #insertedText:C
-    .end local v38           #sp:Landroid/text/SpannableStringBuilder;
+    .end local v38           #sp:Landroid/text/Spannable;
     .end local v44           #underLineSpenEndPos:I
     .end local v45           #underLineSpenFlag:I
     .end local v46           #underLineSpenStartPos:I
@@ -1303,7 +1305,7 @@
     .end local v33           #look:I
     .end local v39           #st:I
     .restart local v29       #insertedText:C
-    .local v38, sp:Landroid/text/SpannableStringBuilder;
+    .local v38, sp:Landroid/text/Spannable;
     .restart local v44       #underLineSpenEndPos:I
     .restart local v46       #underLineSpenStartPos:I
     .restart local v47       #us:[Landroid/text/style/UnderlineSpan;
@@ -1315,7 +1317,7 @@
     .line 234
     .end local v28           #i:I
     .end local v29           #insertedText:C
-    .end local v38           #sp:Landroid/text/SpannableStringBuilder;
+    .end local v38           #sp:Landroid/text/Spannable;
     .end local v44           #underLineSpenEndPos:I
     .end local v46           #underLineSpenStartPos:I
     .end local v47           #us:[Landroid/text/style/UnderlineSpan;
@@ -1996,15 +1998,15 @@
     .parameter "line"
 
     .prologue
-    .line 734
+    .line 736
     iget-object v0, p0, Landroid/text/DynamicLayout;->mEllipsizeAt:Landroid/text/TextUtils$TruncateAt;
 
     if-nez v0, :cond_0
 
-    .line 735
+    .line 737
     const/4 v0, 0x0
 
-    .line 738
+    .line 740
     :goto_0
     return v0
 
@@ -2025,15 +2027,15 @@
     .parameter "line"
 
     .prologue
-    .line 725
+    .line 727
     iget-object v0, p0, Landroid/text/DynamicLayout;->mEllipsizeAt:Landroid/text/TextUtils$TruncateAt;
 
     if-nez v0, :cond_0
 
-    .line 726
+    .line 728
     const/4 v0, 0x0
 
-    .line 729
+    .line 731
     :goto_0
     return v0
 

@@ -2532,7 +2532,7 @@
     .line 2076
     new-instance v2, Landroid/util/Pair;
 
-    const-string v4, "main"
+    const-string/jumbo v4, "main"
 
     iget-object v5, p0, Landroid/database/sqlite/SQLiteDatabase;->mConfigurationLocked:Landroid/database/sqlite/SQLiteDatabaseConfiguration;
 
@@ -3321,7 +3321,7 @@
     :try_start_2
     new-instance v7, Landroid/util/Pair;
 
-    const-string v8, "main"
+    const-string/jumbo v8, "main"
 
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteDatabase;->getPath()Ljava/lang/String;
 

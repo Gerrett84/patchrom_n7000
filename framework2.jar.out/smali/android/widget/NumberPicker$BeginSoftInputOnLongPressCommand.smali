@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2126
+    .line 2156
     iput-object p1, p0, Landroid/widget/NumberPicker$BeginSoftInputOnLongPressCommand;->this$0:Landroid/widget/NumberPicker;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
     .locals 2
 
     .prologue
-    .line 2130
+    .line 2160
     iget-object v0, p0, Landroid/widget/NumberPicker$BeginSoftInputOnLongPressCommand;->this$0:Landroid/widget/NumberPicker;
 
     #calls: Landroid/widget/NumberPicker;->showSoftInput()V
     invoke-static {v0}, Landroid/widget/NumberPicker;->access$2600(Landroid/widget/NumberPicker;)V
 
-    .line 2131
+    .line 2161
     iget-object v0, p0, Landroid/widget/NumberPicker$BeginSoftInputOnLongPressCommand;->this$0:Landroid/widget/NumberPicker;
 
     const/4 v1, 0x1
@@ -55,6 +55,6 @@
     #setter for: Landroid/widget/NumberPicker;->mIngonreMoveEvents:Z
     invoke-static {v0, v1}, Landroid/widget/NumberPicker;->access$2702(Landroid/widget/NumberPicker;Z)Z
 
-    .line 2132
+    .line 2162
     return-void
 .end method

@@ -32,14 +32,14 @@
     .parameter
 
     .prologue
-    .line 3712
+    .line 3713
     iput-object p1, p0, Landroid/widget/ListView$1;->this$0:Landroid/widget/ListView;
 
     iput-object p2, p0, Landroid/widget/ListView$1;->val$root:Landroid/view/View;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3713
+    .line 3714
     iget-object v0, p0, Landroid/widget/ListView$1;->val$root:Landroid/view/View;
 
     iput-object v0, p0, Landroid/widget/ListView$1;->mView:Landroid/view/View;
@@ -53,7 +53,7 @@
     .locals 6
 
     .prologue
-    .line 3716
+    .line 3717
     iget-object v5, p0, Landroid/widget/ListView$1;->mView:Landroid/view/View;
 
     invoke-virtual {v5}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -62,29 +62,29 @@
 
     invoke-virtual {v5, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 3718
+    .line 3719
     iget-object v5, p0, Landroid/widget/ListView$1;->mView:Landroid/view/View;
 
     instance-of v5, v5, Landroid/view/ViewGroup;
 
     if-eqz v5, :cond_2
 
-    .line 3719
+    .line 3720
     iget-object v4, p0, Landroid/widget/ListView$1;->mView:Landroid/view/View;
 
     check-cast v4, Landroid/view/ViewGroup;
 
-    .line 3720
+    .line 3721
     .local v4, vg:Landroid/view/ViewGroup;
     invoke-virtual {v4}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v1
 
-    .line 3722
+    .line 3723
     .local v1, cnt:I
     const/4 v2, 0x0
 
-    .line 3723
+    .line 3724
     .local v2, firstTextViewFound:Z
     const/4 v3, 0x0
 
@@ -92,31 +92,31 @@
     :goto_0
     if-ge v3, v1, :cond_2
 
-    .line 3724
+    .line 3725
     invoke-virtual {v4, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 3725
+    .line 3726
     .local v0, child:Landroid/view/View;
     instance-of v5, v0, Landroid/widget/TextView;
 
     if-eqz v5, :cond_1
 
-    .line 3727
+    .line 3728
     if-eqz v2, :cond_0
 
-    .line 3723
+    .line 3724
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 3728
+    .line 3729
     :cond_0
     const/4 v2, 0x1
 
-    .line 3730
+    .line 3731
     :cond_1
     iget-object v5, p0, Landroid/widget/ListView$1;->this$0:Landroid/widget/ListView;
 
@@ -125,7 +125,7 @@
 
     goto :goto_1
 
-    .line 3733
+    .line 3734
     .end local v0           #child:Landroid/view/View;
     .end local v1           #cnt:I
     .end local v2           #firstTextViewFound:Z

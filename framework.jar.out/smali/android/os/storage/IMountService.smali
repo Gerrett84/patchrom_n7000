@@ -257,6 +257,14 @@
     .end annotation
 .end method
 
+.method public abstract prepareDecryptOnRecovery(Ljava/lang/String;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract registerCallBackListener(Landroid/os/storage/IMountCallBackListener;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

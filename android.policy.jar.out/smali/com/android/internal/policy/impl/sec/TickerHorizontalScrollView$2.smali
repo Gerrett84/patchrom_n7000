@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 109
+    .line 110
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "animation"
 
     .prologue
-    .line 129
+    .line 130
     return-void
 .end method
 
@@ -51,7 +51,7 @@
     .parameter "animation"
 
     .prologue
-    .line 133
+    .line 134
     return-void
 .end method
 
@@ -62,7 +62,7 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 117
+    .line 118
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     #calls: Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->getScrollXAmount()I
@@ -70,7 +70,7 @@
 
     move-result v1
 
-    .line 118
+    .line 119
     .local v1, scrollXAmount:I
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
@@ -80,7 +80,7 @@
 
     sub-int v2, v1, v3
 
-    .line 119
+    .line 120
     .local v2, targetScrollX:I
     const/16 v3, 0x7d0
 
@@ -95,7 +95,7 @@
 
     add-int/2addr v2, v3
 
-    .line 120
+    .line 121
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->mScrollSpeedValue:I
@@ -105,7 +105,7 @@
 
     mul-int v0, v2, v3
 
-    .line 121
+    .line 122
     .local v0, animationDuration:I
     if-lez v2, :cond_0
 
@@ -118,7 +118,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 122
+    .line 123
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->mScrollAnimation:Landroid/animation/ValueAnimator;
@@ -130,7 +130,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    .line 123
+    .line 124
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerHorizontalScrollView;->mScrollAnimation:Landroid/animation/ValueAnimator;
@@ -150,7 +150,7 @@
 
     invoke-virtual {v3, v4}, Landroid/animation/ValueAnimator;->setIntValues([I)V
 
-    .line 125
+    .line 126
     :cond_0
     return-void
 .end method
@@ -160,6 +160,6 @@
     .parameter "arg0"
 
     .prologue
-    .line 112
+    .line 113
     return-void
 .end method

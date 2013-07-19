@@ -30,11 +30,21 @@
 
 .field public static final TELESERVICE_LGT_ETC_SHARE_49162:I = 0xc00a
 
+.field public static final TELESERVICE_LGT_ETC_SHARE_LONG_49163:I = 0xc00b
+
+.field public static final TELESERVICE_LGT_EVDO_ALWAYS_ON_49744:I = 0xc250
+
+.field public static final TELESERVICE_LGT_FAX_STATUS_49194:I = 0xc02a
+
 .field public static final TELESERVICE_LGT_FOTA_SMS:I = 0xc277
+
+.field public static final TELESERVICE_LGT_INTERACT_BEGIN_49153:I = 0xc001
 
 .field public static final TELESERVICE_LGT_LMS_63230:I = 0xf6fe
 
 .field public static final TELESERVICE_LGT_PCS_PAGING_TID_4097:I = 0x1001
+
+.field public static final TELESERVICE_LGT_PERSONAL_EMAIL_49752:I = 0xc258
 
 .field public static final TELESERVICE_LGT_WAP_M_NOTI_IND_49173:I = 0xc015
 
@@ -46,9 +56,15 @@
 
 .field public static final TELESERVICE_LGT_WEB_CP_49767:I = 0xc267
 
+.field public static final TELESERVICE_LGT_WEB_CP_LONG_49768:I = 0xc268
+
 .field public static final TELESERVICE_LGT_WEB_LGT_49765:I = 0xc265
 
+.field public static final TELESERVICE_LGT_WEB_LGT_LONG_49766:I = 0xc266
+
 .field public static final TELESERVICE_LGT_WEB_THIRD_49763:I = 0xc263
+
+.field public static final TELESERVICE_LGT_WEB_THIRD_LONG_49764:I = 0xc264
 
 .field public static final TELESERVICE_MWI:I = 0x40000
 
@@ -94,15 +110,15 @@
     .locals 1
 
     .prologue
-    .line 158
+    .line 172
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 105
+    .line 119
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;->teleService:I
 
-    .line 160
+    .line 174
     return-void
 .end method
 
@@ -112,7 +128,7 @@
     .locals 2
 
     .prologue
-    .line 163
+    .line 177
     iget v0, p0, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;->serviceCategory:I
 
     const/16 v1, 0x1000
@@ -125,10 +141,10 @@
 
     if-gt v0, v1, :cond_0
 
-    .line 165
+    .line 179
     const/4 v0, 0x1
 
-    .line 167
+    .line 181
     :goto_0
     return v0
 

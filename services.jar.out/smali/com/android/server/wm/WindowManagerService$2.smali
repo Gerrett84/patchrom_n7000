@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 354
+    .line 364
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 357
+    .line 367
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
@@ -49,14 +49,14 @@
 
     invoke-interface {v0, v1}, Landroid/view/WindowManagerPolicy;->enableKeyguard(Z)V
 
-    .line 358
+    .line 368
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v1, v0, Lcom/android/server/wm/WindowManagerService;->mKeyguardTokenWatcher:Landroid/os/TokenWatcher;
 
     monitor-enter v1
 
-    .line 360
+    .line 370
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
@@ -65,7 +65,7 @@
     #setter for: Lcom/android/server/wm/WindowManagerService;->mAllowDisableKeyguard:I
     invoke-static {v0, v2}, Lcom/android/server/wm/WindowManagerService;->access$202(Lcom/android/server/wm/WindowManagerService;I)I
 
-    .line 361
+    .line 371
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     const/4 v2, 0x0
@@ -73,13 +73,13 @@
     #setter for: Lcom/android/server/wm/WindowManagerService;->mKeyguardDisabled:Z
     invoke-static {v0, v2}, Lcom/android/server/wm/WindowManagerService;->access$102(Lcom/android/server/wm/WindowManagerService;Z)Z
 
-    .line 362
+    .line 372
     monitor-exit v1
 
-    .line 363
+    .line 373
     return-void
 
-    .line 362
+    .line 372
     :catchall_0
     move-exception v0
 

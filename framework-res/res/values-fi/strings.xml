@@ -322,7 +322,7 @@
     <string name="turn_on_radio">Ota langatonverkko käyttöön</string>
     <string name="turn_off_radio">Sammuta langaton verkko</string>
     <string name="screen_lock">Näyttölukko</string>
-    <string name="power_off">Virta pois päältä</string>
+    <string name="power_off">Sammutusaika</string>
     <string name="silent_mode_silent">Soittoääni: mykistetty</string>
     <string name="silent_mode_vibrate">Soittoäänen värinä</string>
     <string name="silent_mode_ring">Soittoääni: normaali</string>
@@ -337,7 +337,7 @@
     <string name="no_recent_tasks">Ei äskeisiä sovelluksia</string>
     <string name="global_actions">Laitteen asetukset</string>
     <string name="global_action_lock">Näyttölukko</string>
-    <string name="global_action_power_off">Virta pois päältä</string>
+    <string name="global_action_power_off">Katkaise virta</string>
     <string name="global_action_restart">Käynnistä uudelleen</string>
     <string name="global_action_sound_mode_mute">Mykistä</string>
     <string name="global_action_sound_mode_vibrate">Värinä</string>
@@ -413,6 +413,7 @@
     <string name="permdesc_mdmKioskMode">Hallitse laitteen käyttäytymistä Kioski-tilassa</string>
     <string name="tether_usb_restrict">Suojauskäytäntö estää USB-yhteyden käytön</string>
     <string name="tether_wifi_restrict">Suojauskäytäntö estää Wi-Fi-yhteyden käytön</string>
+    <string name="data_call_restriction">Suojauskäytäntö estää mobiilidatan käytön</string>
     <string name="dpm_wifi_blocked_network">Suojauskäytäntö estää WiFi-yhteyden käytön</string>
     <string name="dpm_wifi_misc_wifi_disabled">Suojauskäytäntö estää Wi-Fi-yhteyden käytön</string>
     <string name="dpm_wifi_misc_network_insecure">Suojauskäytäntö estää suojaamattomien WiFi-yhteyksien käytön</string>
@@ -624,7 +625,7 @@
     <string name="permdesc_writeSocialStream">Antaa sovelluksen näyttää kavereidesi päivityksiä sosiaalisista palveluista. Mieti tarkkaan ennen tietojen jakamista: tämän luvan saaneet sovellukset voivat luoda viestejä, jotka vaikuttavat kavereidesi lähettämiltä. Huom: tätä lupaa ei saa ottaa käyttöön kaikissa sosiaalisissa verkkopalveluissa.</string>
     <string name="permlab_readCalendar">Lue kalenteritapahtumat ja luottamukselliset tiedot</string>
     <string name="permdesc_readCalendar">Antaa sovelluksen lukea puhelimeen tallennettuja kalenteritapahtumia, myös kavereiden tai työkavereiden tapahtumia. Sovellus voi jakaa tai tallentaa kalenteritietojasi niiden arkaluonteisuudesta huolimatta.</string>
-    <string name="permlab_writeCalendar">lisää tai muokkaa kalenteritapahtumia ja lähetä sähköpostia vieraille ilman omistajien lupaa</string>
+    <string name="permlab_writeCalendar">Lisää tai muokkaa kalenteritapahtumia ja lähetä sähköpostiviestejä vieraille isännän tietämättä</string>
     <string name="permdesc_writeCalendar">Antaa sovelluksen lisätä, poistaa ja muuttaa tapahtumia, joita voit muokata puhelimellasi. Näihin kuuluvat myös kavereidesi tai työkavereidesi tapahtumat. Sovellus voi lähettää viestejä, jotka vaikuttavat kalenterin omistajien lähettämiltä, tai muokata tapahtumia ilman niiden omistajien lupaa.</string>
     <string name="permlab_accessMockLocation">keksityt paikkatietolähteet testausta varten</string>
     <string name="permdesc_accessMockLocation">Antaa sovelluksen luoda keksittyjä paikkatietolähteitä testausta varten. Jos tämä sallitaan, haittaohjelmat voivat ohittaa GPS:n tai operaattoreiden kaltaisten todellisten paikkatietolähteiden antaman paikan ja/tai tilan ja ilmoittaa sijaintisi satunnaisille sivustoille</string>
@@ -714,7 +715,7 @@
     <string name="permdesc_getAccounts">Antaa sovelluksen käyttää puhelimen tuntemien tilien luetteloa</string>
     <string name="permlab_authenticateAccounts">Toimi tilin todentajana</string>
     <string name="permdesc_authenticateAccounts">Sallii sovelluksen käyttää Tilienhallinnan tilin todentajatoimintoa. Tämä käsittää muun muassa tilien luonnin ja salasanojen hallinnan</string>
-    <string name="permlab_manageAccounts">lisää tai poista tilejä</string>
+    <string name="permlab_manageAccounts">Lisää tai poista tilejä</string>
     <string name="permdesc_manageAccounts">Sallii sovelluksen lisätä ja poistaa tilejä sekä poistaa salasanan</string>
     <string name="permlab_useCredentials">Käytä tilin todennuksen valtuustietoja</string>
     <string name="permdesc_useCredentials">Antaa sovelluksen pyytää todennustunnisteita</string>
@@ -736,7 +737,7 @@
     <string name="permdesc_changeWifiState">Antaa sovelluksen muodostaa ja katkaista yhteyden Wi-Fi-tukiasemiin sekä tehdä muutoksia määritettyihin Wi-Fi-verkkoihin</string>
     <string name="permlab_changeWifiMulticastState">Salli Wi-Fi-monilähetysten vastaanotto</string>
     <string name="permdesc_changeWifiMulticastState">Antaa sovelluksen vastaanottaa kaikille laitteille, ei vain puhelimellesi, wifi-verkon kautta monilähetystilassa lähetettyjä paketteja. Tämä käyttää enemmän virtaa kuin tavallinen lähetystila.</string>
-    <string name="permlab_bluetoothAdmin">käytä Bluetooth-asetuksia</string>
+    <string name="permlab_bluetoothAdmin">Bluetooth-asetukset</string>
     <string name="permdesc_bluetoothAdmin">Antaa sovelluksen määrittää paikallisen Bluetooth-puhelimen ja tunnistaa sekä muodostaa pariliitoksia etälaitteiden kanssa</string>
     <string name="permlab_accessWimaxState">Näytä WiMAX-tila</string>
     <string name="permdesc_accessWimaxState">Antaa sovelluksen määrittää, onko WiMAX käytössä, sekä saada selville tietoja WiMAX-verkoista, joihin on muodostettu yhteys.</string>
@@ -826,6 +827,7 @@
     <string name="policydesc_allow_desktopsync">Estä työpöydän synkronoinnin käyttö</string>
     <string name="policylab_require_storagecard_encryption">Määritä SD-kortin salaus</string>
     <string name="policydesc_require_storagecard_encryption">Vaadi SD-kortilla olevan sovelluksen salausta</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth-yhteys on katkaistu</string>
     <string name="bluetooth_security_mode_disable">Suojauskäytäntö estää Bluetooth-yhteyden käytön</string>
     <string name="bluetooth_security_mode_handsfree">Suojauskäytäntö estää Bluetooth-yhteyden käytön vain handsfree-toimintojen kanssa</string>
     <string name="phoneTypeCustom">Mukautettu</string>
@@ -857,7 +859,7 @@
     <string name="emailTypeHome">Koti</string>
     <string name="emailTypeWork">Työ</string>
     <string name="emailTypeOther">Muu</string>
-    <string name="emailTypeMobile">Mobiilidata</string>
+    <string name="emailTypeMobile">Matkapuhelin</string>
     <string name="postalTypeCustom">Mukautettu</string>
     <string name="postalTypeHome">Koti</string>
     <string name="postalTypeWork">Työ</string>
@@ -905,7 +907,7 @@
     <string name="keyguard_password_entry_touch_hint">Anna salasana napauttamalla</string>
     <string name="keyguard_password_enter_password_code">Poista lukitus antamalla salasana</string>
     <string name="keyguard_password_enter_pin_password_code">Poista lukitus antamalla PIN-koodi</string>
-    <string name="keyguard_password_wrong_pin_code">PIN-koodi väärin.</string>
+    <string name="keyguard_password_wrong_pin_code">Väärä PIN-koodi</string>
     <string name="keyguard_pin_accepted">Koodi hyväksytty</string>
     <string name="keyguard_label_text">Avaa lukitus valitsemalla Valikko ja sitten 0</string>
     <string name="emergency_call_dialog_number_for_display">Hätänumero</string>
@@ -942,8 +944,9 @@
     <string name="lockscreen_network_locked_message">Verkko lukittu</string>
     <string name="lockscreen_sim_puk_locked_message">SIM-kortti on PUK-lukittu</string>
     <string name="lockscreen_sim_puk_locked_instructions">Katso käyttöopasta tai ota yhteyttä asiakaspalveluun</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM-kortti on lukittu</string>
+    <string name="lockscreen_sim_locked_message">SIM-kortti on lukittu</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">Avataan SIM-kortin lukitusta…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Lukituksen poistokuvio on piirretty virheellisesti %1$d kertaa. Yritä %2$d sekunnin kuluttua uudelleen</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Virheellinen salasana on annettu %1$dkertaa. Yritä %2$d sekunnin kuluttua uudelleen</string>
     <string name="lockscreen_sim_pin_blocked">PIN1-koodi on lukittu. Poista PIN1-koodin lukitus antamalla PUK1-koodi</string>
@@ -996,6 +999,7 @@
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">Sama kuin</string>
     <string name="autofill_billing_designator_re">Lasku</string>
+    <string name="autofill_shipping_designator_re">Laiva</string>
     <string name="autofill_phone_suffix_re">Pääte</string>
     <string name="autofill_name_on_card_contextual_re">Nimi</string>
     <string name="autofill_province">Maakunta</string>
@@ -1010,7 +1014,7 @@
     <string name="autofill_parish">Seurakunta</string>
     <string name="autofill_area">Pinta-ala</string>
     <string name="autofill_emirate">Emiraatti</string>
-    <string name="permlab_readHistoryBookmarks">lue verkon kirjanmerkkejä ja historiaa</string>
+    <string name="permlab_readHistoryBookmarks">Lue Internet-historia ja kirjanmerkit</string>
     <string name="permdesc_readHistoryBookmarks">Antaa sovelluksen lukea kaikkia URL-osoitteita, joissa selaimella on käyty, ja kaikkia selaimen kirjanmerkkejä</string>
     <string name="permlab_writeHistoryBookmarks">kirjoita verkon kirjanmerkkejä ja historiaa</string>
     <string name="permdesc_writeHistoryBookmarks">Antaa sovelluksen muokata Internet-historiaa ja puhelimeen tallennettuja kirjanmerkkejä. Jos tämä sallitaan, haittaohjelmat voivat poistaa tai muuttaa tällaisia tietoja</string>
@@ -1089,10 +1093,12 @@
     <string name="editTextMenuTitle">Tekstitoiminnot</string>
     <string name="low_internal_storage_view_title">Muisti on lähes täynnä</string>
     <string name="low_internal_storage_view_text">Jotkin järjestelmätoiminnot eivät ehkä toimi</string>
+    <string name="full_internal_storage_view_text">Virheet ovat mahdollisia, sillä laitteen muisti on täynnä. Poista joitakin kohteita</string>
     <string name="loading">Ladataan…</string>
     <string name="capital_on">Päällä</string>
     <string name="capital_off">Pois</string>
     <string name="whichApplication">Vie toimenpide loppuun käyttämällä</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Käytä tämän toimenpiteen oletuksena</string>
     <string name="clearDefaultHintMsg">Poista sovelluksen oletusasetukset käytöstä valitsemalla Asetukset > Sovellusten hallinta > Kaikki</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1161,7 +1167,7 @@ Haluatko sulkea sen?"</string>
     <string name="wifi_notification_no_network_message">Avaa Wi-Fi-asetukset</string>
     <string name="wifi_notification_not_connected">Käytett. olevat Wi-Fi-verkot</string>
     <string name="wifi_notification_not_connected_message">Avaa käytettävissä olevat Wi-Fi-verkot</string>
-    <string name="wifi_notification_connected">Yhdistetty kohteeseen %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Määritä Wi-Fi napauttamalla</string>
     <string name="wifi_notification_connected_secure">Suojattu</string>
     <string name="wifi_notification_connected_open">Avoin</string>
@@ -1175,7 +1181,7 @@ Haluatko sulkea sen?"</string>
     <string name="wifi_p2p_enabled_notification_title">Wi-Fi Direct on käytössä</string>
     <string name="wifi_p2p_enabled_notification_message">Muuta asetuksia napauttamalla</string>
     <string name="accept">Hyv.</string>
-    <string name="decline">Hylkää</string>
+    <string name="decline">Kieltäydy</string>
     <string name="wifi_p2p_invitation_sent_title">Kutsu lähetetty</string>
     <string name="wifi_p2p_invitation_to_connect_title">Yhteyspyyntö</string>
     <string name="wifi_p2p_from_message">Lähettäjä:</string>
@@ -1191,9 +1197,9 @@ Haluatko sulkea sen?"</string>
     <string name="select_character">Lisää merkki</string>
     <string name="sms_control_default_app_name">Tuntematon sovellus</string>
     <string name="sms_control_title">Lähetetään tekstiviestiä…</string>
-    <string name="sms_control_message">Lähetettävänä on suuri määrä tekstiviestejä. Jatka valitsemalla OK tai lopeta lähettäminen valitsemalla Peruuta</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Peruuta</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> lähettää suuren määrän tekstiviestejä. Annetaanko tämän sovelluksen jatkaa viestien lähettämistä?</string>
+    <string name="sms_control_yes">Salli</string>
+    <string name="sms_control_no">Kieltäydy</string>
     <string name="sim_removed_title">SIM-kortti on poistettu</string>
     <string name="sim_removed_message">Matkapuhelinverkko on käytettävissä vasta sen jälkeen, kun käynnistät laitteen kelvollisella SIM-kortilla uudelleen</string>
     <string name="sim_done_button">Valmis</string>
@@ -1287,7 +1293,7 @@ Haluatko sulkea sen?"</string>
     <string name="activity_list_empty">Vastaavia toimenpiteitä ei löydy</string>
     <string name="permlab_pkgUsageStats">päivitä osan käyttötilastot</string>
     <string name="permdesc_pkgUsageStats">Sallii kerättyjen osien käyttötietojen muokkaamisen. Ei tavallisten sovellusten käyttöön</string>
-    <string name="permlab_copyProtectedData">Antaa oletusarvoisen säilytyspalvelun kopioida sisällön. Ei tavallisten sovellusten käyttöön</string>
+    <string name="permlab_copyProtectedData">Kopioi sisältö</string>
     <string name="permdesc_copyProtectedData">Antaa oletusarvoisen säilytyspalvelun kopioida sisällön. Ei tavallisten sovellusten käyttöön</string>
     <string name="permlab_route_media_output">Ohjaa mediasisältö</string>
     <string name="permdesc_route_media_output">Antaa sovelluksen ohjata mediasisällön muihin ulkoisiin laitteisiin</string>
@@ -1399,7 +1405,7 @@ tilille %s"</string>
     <string name="radiobutton_selected">Valittu</string>
     <string name="radiobutton_not_selected">Ei valittuja yhteystietoja</string>
     <string name="switch_on">Päällä</string>
-    <string name="switch_off">Ei käytössä</string>
+    <string name="switch_off">Pois</string>
     <string name="togglebutton_pressed">Painettu</string>
     <string name="keyboardview_keycode_alt">ALT</string>
     <string name="keyboardview_keycode_cancel">Peruuta</string>
@@ -1427,10 +1433,11 @@ tilille %s"</string>
     <string name="action_bar_home_description">Siirry kotiin</string>
     <string name="action_bar_up_description">Siirry ylös kohteeseen</string>
     <string name="action_menu_overflow_description">Lisävalinnat</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Vaihda edelliseen kokoon</string>
     <string name="storage_internal">Laitteen muisti</string>
     <string name="storage_sd_card">SD-kort.</string>
     <string name="storage_usb">USB-muisti</string>
-    <string name="extract_edit_menu_button">Muokkaa…</string>
+    <string name="extract_edit_menu_button">Muokkaa</string>
     <string name="data_usage_warning_title">Datankäyttövaroitus</string>
     <string name="data_usage_warning_body">Tarkastele käyttöä ja asetuksia napauttamalla</string>
     <string name="data_usage_3g_limit_title">2G-3G-datayhteys poistettu käytöstä</string>
@@ -1460,7 +1467,7 @@ tilille %s"</string>
     <string name="fingerprints">Sormenjäljet</string>
     <string name="sha256_fingerprint">SHA-256-sormenjälki:</string>
     <string name="sha1_fingerprint">SHA-1-sormenjälki:</string>
-    <string name="activity_chooser_view_see_all">Kaikki</string>
+    <string name="activity_chooser_view_see_all">Näytä kaikki</string>
     <string name="activity_chooser_view_dialog_title_default">Valitse toiminto</string>
     <string name="share_action_provider_share_with">Jaa:</string>
     <string name="status_bar_device_locked">Laite lukittu</string>
@@ -1516,6 +1523,8 @@ tilille %s"</string>
     <string name="lockscreen_fmapp_name">FM-radio</string>
     <string name="lockscreen_clock_dualclock_home">Koti</string>
     <string name="lockscreen_clock_dualclock_roaming">Verkkovierailu</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Soul</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Verkkovierailu</string>
     <string name="lockscreen_clock_dualclock_popup_title">Kaksoiskello</string>
     <string name="lockscreen_clock_dualclock_popup_message">Valitse kotikaupunki lukitusnäytössä näytettävää kaksoiskelloa varten. Siirrytäänkö Asetukset-kohtaan?</string>
     <string name="lockscreen_ticker_no_data_to_display">Ei näytettäviä tietoja</string>
@@ -1552,7 +1561,7 @@ tilille %s"</string>
     <string name="lockscreen_2ndLock_instructions2">Poista lukitus antamalla vara-PIN-koodi</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Olet piirtänyt lukituksen poistokuvion virheellisesti %1$d kertaa. Yritä %2$d sekunnin kuluttua uudelleen</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Lukituksen poistokuvio on piirretty virheellisesti %1$d kertaa. %2$d yrityskertaa jäljellä, ennen kuin sinua kehotetaan poistamaan laitteen lukitus Googlen kirjautumistiedoilla tai vara-PIN-koodilla. Yritä %3$d sekunnin kuluttua uudelleen</string>
     <string name="lockscreen_carrier_noservice">(Ei palvelua)</string>
     <string name="rescan_network">Etsitään käytettävissä olevaa verkkoa</string>
     <string name="AutoUpdateOfTimeAndDate">Ajan ja päiväyksen automaattinen päivitys</string>
@@ -1563,6 +1572,8 @@ tilille %s"</string>
     <string name="capabilitymanager_managed_errortitle">Virhe</string>
     <string name="security_policy_title">Suojauskäytännöt</string>
     <string name="security_policy_summary">Salauskäytännöt vastaanotettu etäjärjestelmänvalvojalta</string>
+    <string name="sdcard_unmount_policy_noti_title">SD-kortti on poistettu käytöstä IT-käytännön vuoksi</string>
+    <string name="sdcard_unmount_policy_noti_content">Ota SD-kortti käyttöön napauttamalla</string>
     <string name="sdcard_encrypt_title_notification">SD-kortin salaus</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">SD-korttia salataan…</string>
     <string name="sdcard_encrypt_notification">SD-kortti on salattu</string>
@@ -1586,7 +1597,7 @@ tilille %s"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1628,7 +1639,7 @@ tilille %s"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Annetut arvot ovat kelvollisen alueen ulkopuolella. Tarkista arvot ja yritä uudelleen</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1650,6 +1661,8 @@ tilille %s"</string>
     <string name="SS_USB_TETHERING_ENABLED">USB-yhteys käytössä</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Wi-Fi-yhteyden jakaminen käytössä</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Yhteyden jakaminen käytössä (Wi-Fi ja USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Laite on lukittu. Salasanan antamisen yrityskertojen enimmäismäärä on saavutettu. Laitteen lukituksen poistamiseen vaaditaan palautussalasanaa. Jos annat palautussalasanan väärin, kaikki tiedot poistetaan</string>
+    <string name="recovery_password_required">Laitteen lukituksen poistamiseen vaaditaan palautussalasanaa</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Puhelinverkkoyhteys käytössä</string>
@@ -1683,12 +1696,21 @@ tilille %s"</string>
     <string name="lockscreen_ticker_logo_news_tts">Uutiset</string>
     <string name="lockscreen_ticker_logo_stock_tts">Osake</string>
     <string name="lockscreen_ticker_refresh_tts">Päivitä</string>
+    <string name="SS_ALWAYS_ON_TOP">Aina päällimmäisenä</string>
+    <string name="SS_MINIMISE">Pienennä</string>
+    <string name="SS_MAXIMISE">Suurenna</string>
+    <string name="SS_CLOSE_APPLICATION">Sulje sovellus</string>
+    <string name="spengesture_media_scanning">Kuvaa ei voi rajata. Mediaskanneri on käynnissä</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN-koodi lukittu</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Ota yhteyttä palveluntarjoajaan SIM-kortin lukituksen poistamista varten</string>
     <string name="resolver_guide_title">Poista oletukset</string>
     <string name="operation_not_allowed">Toimintoa ei sallita</string>
     <string name="exceeded_maxlength">Viestin enimmäiskoko ylitetty</string>
     <string name="dont_show_again_message">Älä näytä uudestaan</string>
     <string name="set_bing_as_default">Asetetaanko Bing oletushakukoneeksi?</string>
     <string name="ms_domain_site">Microsoft-toimialueen sivusto</string>
+    <string name="unsupported_in_popupbrowser">Ponnahdusselain ei tue toimintoa</string>
+    <string name="find_on_page_abb">Etsi sivulta</string>
     <string name="tw_clipboard_already_exists">On jo olemassa</string>
     <string name="tw_clipboard_no_items_to_paste">Liitettäviä kohteita ei ole</string>
     <string name="tw_clipboard_save_in_memo">Tallenna muistioon</string>
@@ -1703,8 +1725,11 @@ tilille %s"</string>
     <string name="tw_clipboard_clear">Tyhj.</string>
     <string name="tw_clipboard_delete_all">Poistetaanko kaikki?</string>
     <string name="tw_clipboard_edit">Muokkaa</string>
-    <string name="tw_clipboard_done">Tehty</string>
-    <string name="tw_clipboard_save">Tallenna</string>
+    <string name="tw_clipboard_done">Valm.</string>
+    <string name="tw_clipboard_save">Tall.</string>
     <string name="tw_clipboard_no_item">Ei kohteita</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Kaikki kohteet lukittuja kohteita lukuun ottamatta on poistettu leikepöydältä</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Liitetty leikepöydältä</string>
+    <string name="Roaming_Auto_Dialing">PIN-koodi lukittu</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

@@ -248,7 +248,7 @@
 
     iget-object v6, p0, Lcom/android/server/am/AppPermissionManagedDialog;->mResource:Landroid/content/res/Resources;
 
-    const v7, 0x104054b
+    const v7, 0x104055c
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

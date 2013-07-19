@@ -349,7 +349,7 @@
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
     .line 170
-    const v0, 0x1020351
+    const v0, 0x102035e
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/DigitalClock;->findViewById(I)Landroid/view/View;
 
@@ -374,7 +374,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 174
-    const v0, 0x1020352
+    const v0, 0x102035f
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/DigitalClock;->findViewById(I)Landroid/view/View;
 

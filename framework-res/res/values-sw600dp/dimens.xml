@@ -19,10 +19,12 @@
     <dimen name="action_bar_subtitle_bottom_margin">9.0dip</dimen>
     <dimen name="action_button_min_width">64.0dip</dimen>
     <dimen name="multiwindow_gap">50.0dip</dimen>
-    <dimen name="multiwindow_def_width">640.0dip</dimen>
-    <dimen name="multiwindow_def_height">400.0dip</dimen>
-    <dimen name="multiwindow_minimized_width">394.0dip</dimen>
-    <dimen name="multiwindow_minimized_height">39.0dip</dimen>
+    <dimen name="multiwindow_def_width">475.0dip</dimen>
+    <dimen name="multiwindow_def_height">450.0dip</dimen>
+    <dimen name="multiwindow_minimized_width">475.0dip</dimen>
+    <dimen name="multiwindow_minimized_height">450.0dip</dimen>
+    <dimen name="multiwindow_default_center_bar_width">14.0dip</dimen>
+    <dimen name="multiwindow_default_center_bar_inner_padding">0.0dip</dimen>
     <dimen name="keyguard_lockscreen_application_shortcut_padding_width">12.0dip</dimen>
     <dimen name="keyguard_lockscreen_application_shortcut_icon_width">98.0dip</dimen>
     <dimen name="keyguard_lockscreen_application_shortcut_icon_height">72.0dip</dimen>
@@ -30,7 +32,9 @@
     <dimen name="keyguard_lockscreen_application_shortcut_badge_fontsize_small">18.0dip</dimen>
     <dimen name="keyguard_lockscreen_application_shortcut_badge_icon_centerXOffset">4.0dip</dimen>
     <dimen name="keyguard_lockscreen_application_shortcut_badge_icon_topToTopOffset">-2.0dip</dimen>
-    <dimen name="keyguard_pattern_unlock_clock_font_size">112.0sp</dimen>
+    <dimen name="keyguard_pattern_unlock_clock_font_size">112.0dip</dimen>
     <dimen name="keyguard_pattern_unlock_status_line_font_size">14.0sp</dimen>
     <dimen name="navigation_bar_height_portrait">56.0dip</dimen>
+    <dimen name="keyguard_lockscreen_facelock_area_height">512.0dip</dimen>
+    <dimen name="keyguard_lockscreen_facelock_area_width">512.0dip</dimen>
 </resources>

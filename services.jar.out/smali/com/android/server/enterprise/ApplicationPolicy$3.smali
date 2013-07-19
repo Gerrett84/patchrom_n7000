@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 4156
+    .line 4125
     iput-object p1, p0, Lcom/android/server/enterprise/ApplicationPolicy$3;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 4158
+    .line 4127
     iget-object v0, p0, Lcom/android/server/enterprise/ApplicationPolicy$3;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
     #calls: Lcom/android/server/enterprise/ApplicationPolicy;->refreshWidgetStatus()V
     invoke-static {v0}, Lcom/android/server/enterprise/ApplicationPolicy;->access$1700(Lcom/android/server/enterprise/ApplicationPolicy;)V
 
-    .line 4159
+    .line 4128
     return-void
 .end method

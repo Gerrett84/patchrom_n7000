@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 4147
+    .line 4116
     iput-object p1, p0, Lcom/android/server/enterprise/ApplicationPolicy$2;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 4149
+    .line 4118
     iget-object v1, p0, Lcom/android/server/enterprise/ApplicationPolicy$2;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
     #calls: Lcom/android/server/enterprise/ApplicationPolicy;->getPackageName(Landroid/content/Intent;)Ljava/lang/String;
@@ -48,11 +48,11 @@
 
     move-result-object v0
 
-    .line 4150
+    .line 4119
     .local v0, pkgName:Ljava/lang/String;
     if-eqz v0, :cond_0
 
-    .line 4151
+    .line 4120
     iget-object v1, p0, Lcom/android/server/enterprise/ApplicationPolicy$2;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
     iget-object v2, p0, Lcom/android/server/enterprise/ApplicationPolicy$2;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
@@ -65,7 +65,7 @@
     #calls: Lcom/android/server/enterprise/ApplicationPolicy;->refreshWidgetStatus(Ljava/util/List;)V
     invoke-static {v1, v2}, Lcom/android/server/enterprise/ApplicationPolicy;->access$1600(Lcom/android/server/enterprise/ApplicationPolicy;Ljava/util/List;)V
 
-    .line 4153
+    .line 4122
     :cond_0
     return-void
 .end method

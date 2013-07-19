@@ -328,9 +328,6 @@
 .method public native getCnt_th()I
 .end method
 
-.method public native getCnt_th_2()I
-.end method
-
 .method public native getCurrentChannel()J
 .end method
 
@@ -343,13 +340,10 @@
 .method public native getRSSI_th()I
 .end method
 
-.method public native getRSSI_th_2()I
-.end method
-
 .method public native getSNR_th()I
 .end method
 
-.method public native getSNR_th_2()I
+.method public native getSoftMuteMode()Z
 .end method
 
 .method public native getVolume()J
@@ -397,9 +391,6 @@
 .method public native setCnt_th(I)V
 .end method
 
-.method public native setCnt_th_2(I)V
-.end method
-
 .method public native setDEConstant(J)V
 .end method
 
@@ -412,22 +403,22 @@
 .method public native setRSSI_th(I)V
 .end method
 
-.method public native setRSSI_th_2(I)V
-.end method
-
 .method public native setRecordMode(I)V
 .end method
 
 .method public native setSNR_th(I)V
 .end method
 
-.method public native setSNR_th_2(I)V
-.end method
-
 .method public native setSeekRSSI(J)V
 .end method
 
 .method public native setSeekSNR(J)V
+.end method
+
+.method public native setSoftMuteControl(III)V
+.end method
+
+.method public native setSoftmute(Z)V
 .end method
 
 .method public native setSpeakerOn(Z)V

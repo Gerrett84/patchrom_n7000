@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 580
+    .line 582
     iput-object p1, p0, Landroid/webkit/WebViewCore$6;->this$0:Landroid/webkit/WebViewCore;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "allow"
 
     .prologue
-    .line 590
+    .line 592
     return-void
 .end method
 
@@ -53,26 +53,26 @@
     .parameter "counter"
 
     .prologue
-    .line 585
+    .line 587
     new-instance v0, Landroid/webkit/WebViewCore$InvokeEventparams;
 
     invoke-direct {v0}, Landroid/webkit/WebViewCore$InvokeEventparams;-><init>()V
 
-    .line 586
+    .line 588
     .local v0, data:Landroid/webkit/WebViewCore$InvokeEventparams;
     iput-object p1, v0, Landroid/webkit/WebViewCore$InvokeEventparams;->mEventName:Ljava/lang/String;
 
-    .line 587
+    .line 589
     iput p2, v0, Landroid/webkit/WebViewCore$InvokeEventparams;->mPointer:I
 
-    .line 588
+    .line 590
     iget-object v1, p0, Landroid/webkit/WebViewCore$6;->this$0:Landroid/webkit/WebViewCore;
 
     const/16 v2, 0xcc
 
     invoke-virtual {v1, v2, v0}, Landroid/webkit/WebViewCore;->sendMessage(ILjava/lang/Object;)V
 
-    .line 589
+    .line 591
     return-void
 .end method
 
@@ -82,19 +82,19 @@
     .parameter "counter"
 
     .prologue
-    .line 592
+    .line 594
     new-instance v0, Landroid/webkit/WebViewCore$InvokeNotifyID;
 
     invoke-direct {v0}, Landroid/webkit/WebViewCore$InvokeNotifyID;-><init>()V
 
-    .line 593
+    .line 595
     .local v0, data:Landroid/webkit/WebViewCore$InvokeNotifyID;
     iput p1, v0, Landroid/webkit/WebViewCore$InvokeNotifyID;->mnotificationID:I
 
-    .line 594
+    .line 596
     iput p2, v0, Landroid/webkit/WebViewCore$InvokeNotifyID;->mcounter:I
 
-    .line 595
+    .line 597
     iget-object v1, p0, Landroid/webkit/WebViewCore$6;->this$0:Landroid/webkit/WebViewCore;
 
     const/16 v2, 0xcd

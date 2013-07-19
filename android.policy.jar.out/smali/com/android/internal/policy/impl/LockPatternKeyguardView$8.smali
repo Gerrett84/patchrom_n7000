@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1892
+    .line 1997
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$8;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     invoke-direct {p0}, Landroid/os/storage/StorageEventListener;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "newState"
 
     .prologue
-    .line 1895
+    .line 2000
     const-string v0, "LockPatternKeyguardView"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -84,11 +84,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1899
+    .line 2004
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$8;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mExternalSdCardPath:Ljava/lang/String;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3000(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3100(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -97,7 +97,7 @@
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$8;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mExternalSdCardPath:Ljava/lang/String;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3000(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3100(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -107,13 +107,13 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3100()Ljava/lang/Thread;
+    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3200()Ljava/lang/Thread;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3100()Ljava/lang/Thread;
+    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3200()Ljava/lang/Thread;
 
     move-result-object v0
 
@@ -123,22 +123,22 @@
 
     if-nez v0, :cond_1
 
-    .line 1901
+    .line 2005
     :cond_0
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$8$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView$8$1;-><init>(Lcom/android/internal/policy/impl/LockPatternKeyguardView$8;)V
 
-    invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3102(Ljava/lang/Thread;)Ljava/lang/Thread;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3202(Ljava/lang/Thread;)Ljava/lang/Thread;
 
-    .line 1906
-    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3100()Ljava/lang/Thread;
+    .line 2010
+    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3200()Ljava/lang/Thread;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 1908
+    .line 2012
     :cond_1
     return-void
 .end method

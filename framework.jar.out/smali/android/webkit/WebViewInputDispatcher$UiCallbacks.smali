@@ -30,7 +30,10 @@
 .method public abstract getUiLooper()Landroid/os/Looper;
 .end method
 
-.method public abstract setConfirmMove()V
+.method public abstract hideKeyboradIfUneditable()V
+.end method
+
+.method public abstract isSelectingText()Z
 .end method
 
 .method public abstract shouldInterceptTouchEvent(Landroid/view/MotionEvent;)Z

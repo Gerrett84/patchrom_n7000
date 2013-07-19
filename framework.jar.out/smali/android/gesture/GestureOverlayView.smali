@@ -32,6 +32,8 @@
 
 
 # instance fields
+.field private mByPassingMode:Z
+
 .field private mCertainGestureColor:I
 
 .field private mCurrentColor:I
@@ -157,97 +159,97 @@
 
     const/4 v2, 0x0
 
-    .line 129
+    .line 135
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 66
+    .line 68
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
     iput-object v0, p0, Landroid/gesture/GestureOverlayView;->mGesturePaint:Landroid/graphics/Paint;
 
-    .line 68
+    .line 70
     const-wide/16 v0, 0x96
 
     iput-wide v0, p0, Landroid/gesture/GestureOverlayView;->mFadeDuration:J
 
-    .line 69
+    .line 71
     const-wide/16 v0, 0x1a4
 
     iput-wide v0, p0, Landroid/gesture/GestureOverlayView;->mFadeOffset:J
 
-    .line 72
+    .line 74
     iput-boolean v3, p0, Landroid/gesture/GestureOverlayView;->mFadeEnabled:Z
 
-    .line 75
+    .line 77
     const/16 v0, -0x100
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
 
-    .line 76
+    .line 78
     const v0, 0x48ffff00
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mUncertainGestureColor:I
 
-    .line 77
+    .line 79
     const/high16 v0, 0x4140
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
-    .line 78
+    .line 80
     const/16 v0, 0xa
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mInvalidateExtraBorder:I
 
-    .line 80
+    .line 82
     iput v2, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeType:I
 
-    .line 81
+    .line 83
     const/high16 v0, 0x4248
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeLengthThreshold:F
 
-    .line 82
+    .line 84
     const v0, 0x3e8ccccd
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeSquarenessTreshold:F
 
-    .line 83
+    .line 85
     const/high16 v0, 0x4220
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeAngleThreshold:F
 
-    .line 85
+    .line 87
     iput v3, p0, Landroid/gesture/GestureOverlayView;->mOrientation:I
 
-    .line 87
+    .line 89
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/gesture/GestureOverlayView;->mInvalidRect:Landroid/graphics/Rect;
 
-    .line 88
+    .line 90
     new-instance v0, Landroid/graphics/Path;
 
     invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
 
     iput-object v0, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
-    .line 89
+    .line 91
     iput-boolean v3, p0, Landroid/gesture/GestureOverlayView;->mGestureVisible:Z
 
-    .line 98
+    .line 100
     iput-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mIsGesturing:Z
 
-    .line 99
+    .line 101
     iput-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mPreviousWasGesturing:Z
 
-    .line 100
+    .line 102
     iput-boolean v3, p0, Landroid/gesture/GestureOverlayView;->mInterceptEvents:Z
 
-    .line 106
+    .line 108
     new-instance v0, Ljava/util/ArrayList;
 
     const/16 v1, 0x64
@@ -256,43 +258,46 @@
 
     iput-object v0, p0, Landroid/gesture/GestureOverlayView;->mStrokeBuffer:Ljava/util/ArrayList;
 
-    .line 109
+    .line 111
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
-    .line 112
+    .line 114
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturePerformedListeners:Ljava/util/ArrayList;
 
-    .line 115
+    .line 117
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturingListeners:Ljava/util/ArrayList;
 
-    .line 121
+    .line 123
+    iput-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mByPassingMode:Z
+
+    .line 127
     iput-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
-    .line 122
+    .line 128
     const/high16 v0, 0x3f80
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mFadingAlpha:F
 
-    .line 123
+    .line 129
     new-instance v0, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
     invoke-direct {v0}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
 
     iput-object v0, p0, Landroid/gesture/GestureOverlayView;->mInterpolator:Landroid/view/animation/AccelerateDecelerateInterpolator;
 
-    .line 126
+    .line 132
     new-instance v0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     const/4 v1, 0x0
@@ -301,10 +306,10 @@
 
     iput-object v0, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
-    .line 130
+    .line 136
     invoke-direct {p0}, Landroid/gesture/GestureOverlayView;->init()V
 
-    .line 131
+    .line 137
     return-void
 .end method
 
@@ -314,12 +319,12 @@
     .parameter "attrs"
 
     .prologue
-    .line 134
+    .line 140
     const v0, 0x10103c0
 
     invoke-direct {p0, p1, p2, v0}, Landroid/gesture/GestureOverlayView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 135
+    .line 141
     return-void
 .end method
 
@@ -336,95 +341,95 @@
 
     const/4 v4, 0x0
 
-    .line 138
+    .line 144
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 66
+    .line 68
     new-instance v1, Landroid/graphics/Paint;
 
     invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
     iput-object v1, p0, Landroid/gesture/GestureOverlayView;->mGesturePaint:Landroid/graphics/Paint;
 
-    .line 68
+    .line 70
     const-wide/16 v1, 0x96
 
     iput-wide v1, p0, Landroid/gesture/GestureOverlayView;->mFadeDuration:J
 
-    .line 69
+    .line 71
     const-wide/16 v1, 0x1a4
 
     iput-wide v1, p0, Landroid/gesture/GestureOverlayView;->mFadeOffset:J
 
-    .line 72
+    .line 74
     iput-boolean v3, p0, Landroid/gesture/GestureOverlayView;->mFadeEnabled:Z
 
-    .line 75
+    .line 77
     const/16 v1, -0x100
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
 
-    .line 76
+    .line 78
     const v1, 0x48ffff00
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mUncertainGestureColor:I
 
-    .line 77
+    .line 79
     const/high16 v1, 0x4140
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
-    .line 78
+    .line 80
     iput v5, p0, Landroid/gesture/GestureOverlayView;->mInvalidateExtraBorder:I
 
-    .line 80
+    .line 82
     iput v4, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeType:I
 
-    .line 81
+    .line 83
     const/high16 v1, 0x4248
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeLengthThreshold:F
 
-    .line 82
+    .line 84
     const v1, 0x3e8ccccd
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeSquarenessTreshold:F
 
-    .line 83
+    .line 85
     const/high16 v1, 0x4220
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeAngleThreshold:F
 
-    .line 85
+    .line 87
     iput v3, p0, Landroid/gesture/GestureOverlayView;->mOrientation:I
 
-    .line 87
+    .line 89
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v1, p0, Landroid/gesture/GestureOverlayView;->mInvalidRect:Landroid/graphics/Rect;
 
-    .line 88
+    .line 90
     new-instance v1, Landroid/graphics/Path;
 
     invoke-direct {v1}, Landroid/graphics/Path;-><init>()V
 
     iput-object v1, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
-    .line 89
+    .line 91
     iput-boolean v3, p0, Landroid/gesture/GestureOverlayView;->mGestureVisible:Z
 
-    .line 98
+    .line 100
     iput-boolean v4, p0, Landroid/gesture/GestureOverlayView;->mIsGesturing:Z
 
-    .line 99
+    .line 101
     iput-boolean v4, p0, Landroid/gesture/GestureOverlayView;->mPreviousWasGesturing:Z
 
-    .line 100
+    .line 102
     iput-boolean v3, p0, Landroid/gesture/GestureOverlayView;->mInterceptEvents:Z
 
-    .line 106
+    .line 108
     new-instance v1, Ljava/util/ArrayList;
 
     const/16 v2, 0x64
@@ -433,43 +438,46 @@
 
     iput-object v1, p0, Landroid/gesture/GestureOverlayView;->mStrokeBuffer:Ljava/util/ArrayList;
 
-    .line 109
+    .line 111
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
-    .line 112
+    .line 114
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Landroid/gesture/GestureOverlayView;->mOnGesturePerformedListeners:Ljava/util/ArrayList;
 
-    .line 115
+    .line 117
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Landroid/gesture/GestureOverlayView;->mOnGesturingListeners:Ljava/util/ArrayList;
 
-    .line 121
+    .line 123
+    iput-boolean v4, p0, Landroid/gesture/GestureOverlayView;->mByPassingMode:Z
+
+    .line 127
     iput-boolean v4, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
-    .line 122
+    .line 128
     const/high16 v1, 0x3f80
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mFadingAlpha:F
 
-    .line 123
+    .line 129
     new-instance v1, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
     invoke-direct {v1}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
 
     iput-object v1, p0, Landroid/gesture/GestureOverlayView;->mInterpolator:Landroid/view/animation/AccelerateDecelerateInterpolator;
 
-    .line 126
+    .line 132
     new-instance v1, Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     const/4 v2, 0x0
@@ -478,14 +486,14 @@
 
     iput-object v1, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
-    .line 140
+    .line 146
     sget-object v1, Lcom/android/internal/R$styleable;->GestureOverlayView:[I
 
     invoke-virtual {p1, p2, v1, p3, v4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 143
+    .line 149
     .local v0, a:Landroid/content/res/TypedArray;
     iget v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
@@ -495,7 +503,7 @@
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
-    .line 145
+    .line 151
     iget v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
     float-to-int v1, v1
@@ -508,7 +516,7 @@
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mInvalidateExtraBorder:I
 
-    .line 146
+    .line 152
     const/4 v1, 0x2
 
     iget v2, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
@@ -519,7 +527,7 @@
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
 
-    .line 148
+    .line 154
     const/4 v1, 0x3
 
     iget v2, p0, Landroid/gesture/GestureOverlayView;->mUncertainGestureColor:I
@@ -530,7 +538,7 @@
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mUncertainGestureColor:I
 
-    .line 150
+    .line 156
     const/4 v1, 0x5
 
     iget-wide v2, p0, Landroid/gesture/GestureOverlayView;->mFadeDuration:J
@@ -545,7 +553,7 @@
 
     iput-wide v1, p0, Landroid/gesture/GestureOverlayView;->mFadeDuration:J
 
-    .line 151
+    .line 157
     const/4 v1, 0x4
 
     iget-wide v2, p0, Landroid/gesture/GestureOverlayView;->mFadeOffset:J
@@ -560,7 +568,7 @@
 
     iput-wide v1, p0, Landroid/gesture/GestureOverlayView;->mFadeOffset:J
 
-    .line 152
+    .line 158
     const/4 v1, 0x6
 
     iget v2, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeType:I
@@ -571,7 +579,7 @@
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeType:I
 
-    .line 154
+    .line 160
     const/4 v1, 0x7
 
     iget v2, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeLengthThreshold:F
@@ -582,7 +590,7 @@
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeLengthThreshold:F
 
-    .line 157
+    .line 163
     const/16 v1, 0x9
 
     iget v2, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeAngleThreshold:F
@@ -593,7 +601,7 @@
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeAngleThreshold:F
 
-    .line 160
+    .line 166
     const/16 v1, 0x8
 
     iget v2, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeSquarenessTreshold:F
@@ -604,7 +612,7 @@
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeSquarenessTreshold:F
 
-    .line 163
+    .line 169
     iget-boolean v1, p0, Landroid/gesture/GestureOverlayView;->mInterceptEvents:Z
 
     invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -613,7 +621,7 @@
 
     iput-boolean v1, p0, Landroid/gesture/GestureOverlayView;->mInterceptEvents:Z
 
-    .line 165
+    .line 171
     const/16 v1, 0xb
 
     iget-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mFadeEnabled:Z
@@ -624,7 +632,7 @@
 
     iput-boolean v1, p0, Landroid/gesture/GestureOverlayView;->mFadeEnabled:Z
 
-    .line 167
+    .line 173
     iget v1, p0, Landroid/gesture/GestureOverlayView;->mOrientation:I
 
     invoke-virtual {v0, v4, v1}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -633,13 +641,13 @@
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mOrientation:I
 
-    .line 169
+    .line 175
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 171
+    .line 177
     invoke-direct {p0}, Landroid/gesture/GestureOverlayView;->init()V
 
-    .line 172
+    .line 178
     return-void
 .end method
 
@@ -648,7 +656,7 @@
     .parameter "x0"
 
     .prologue
-    .line 55
+    .line 57
     iget-boolean v0, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
     return v0
@@ -659,7 +667,7 @@
     .parameter "x0"
 
     .prologue
-    .line 55
+    .line 57
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mFadingAlpha:F
 
     return v0
@@ -671,7 +679,7 @@
     .parameter "x1"
 
     .prologue
-    .line 55
+    .line 57
     iput p1, p0, Landroid/gesture/GestureOverlayView;->mFadingAlpha:F
 
     return p1
@@ -683,7 +691,7 @@
     .parameter "x1"
 
     .prologue
-    .line 55
+    .line 57
     iput-boolean p1, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
     return p1
@@ -694,7 +702,7 @@
     .parameter "x0"
 
     .prologue
-    .line 55
+    .line 57
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mInterpolator:Landroid/view/animation/AccelerateDecelerateInterpolator;
 
     return-object v0
@@ -706,7 +714,7 @@
     .parameter "x1"
 
     .prologue
-    .line 55
+    .line 57
     iput-boolean p1, p0, Landroid/gesture/GestureOverlayView;->mResetGesture:Z
 
     return p1
@@ -717,7 +725,7 @@
     .parameter "x0"
 
     .prologue
-    .line 55
+    .line 57
     iget-wide v0, p0, Landroid/gesture/GestureOverlayView;->mFadingStart:J
 
     return-wide v0
@@ -728,7 +736,7 @@
     .parameter "x0"
 
     .prologue
-    .line 55
+    .line 57
     iget-wide v0, p0, Landroid/gesture/GestureOverlayView;->mFadeDuration:J
 
     return-wide v0
@@ -739,7 +747,7 @@
     .parameter "x0"
 
     .prologue
-    .line 55
+    .line 57
     invoke-direct {p0}, Landroid/gesture/GestureOverlayView;->fireOnGesturePerformed()V
 
     return-void
@@ -751,7 +759,7 @@
     .parameter "x1"
 
     .prologue
-    .line 55
+    .line 57
     iput-boolean p1, p0, Landroid/gesture/GestureOverlayView;->mPreviousWasGesturing:Z
 
     return p1
@@ -763,7 +771,7 @@
     .parameter "x1"
 
     .prologue
-    .line 55
+    .line 57
     iput-boolean p1, p0, Landroid/gesture/GestureOverlayView;->mFadingHasStarted:Z
 
     return p1
@@ -774,7 +782,7 @@
     .parameter "x0"
 
     .prologue
-    .line 55
+    .line 57
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     return-object v0
@@ -786,7 +794,7 @@
     .parameter "x1"
 
     .prologue
-    .line 55
+    .line 57
     iput-object p1, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
     return-object p1
@@ -798,7 +806,7 @@
     .parameter "x1"
 
     .prologue
-    .line 55
+    .line 57
     invoke-direct {p0, p1}, Landroid/gesture/GestureOverlayView;->setPaintAlpha(I)V
 
     return-void
@@ -809,16 +817,16 @@
     .parameter "event"
 
     .prologue
-    .line 715
+    .line 734
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
-    .line 716
+    .line 735
     .local v2, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 717
+    .line 736
     .local v0, count:I
     const/4 v1, 0x0
 
@@ -826,7 +834,7 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    .line 718
+    .line 737
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -835,18 +843,18 @@
 
     invoke-interface {v3, p0, p1}, Landroid/gesture/GestureOverlayView$OnGestureListener;->onGestureCancelled(Landroid/gesture/GestureOverlayView;Landroid/view/MotionEvent;)V
 
-    .line 717
+    .line 736
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 721
+    .line 740
     :cond_0
     const/4 v3, 0x0
 
     invoke-virtual {p0, v3}, Landroid/gesture/GestureOverlayView;->clear(Z)V
 
-    .line 722
+    .line 741
     return-void
 .end method
 
@@ -865,46 +873,46 @@
 
     const/4 v1, 0x0
 
-    .line 412
+    .line 418
     const/16 v0, 0xff
 
     invoke-direct {p0, v0}, Landroid/gesture/GestureOverlayView;->setPaintAlpha(I)V
 
-    .line 413
+    .line 419
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     invoke-virtual {p0, v0}, Landroid/gesture/GestureOverlayView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 414
+    .line 420
     iput-boolean v1, p0, Landroid/gesture/GestureOverlayView;->mResetGesture:Z
 
-    .line 415
+    .line 421
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     iput-boolean p2, v0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->fireActionPerformed:Z
 
-    .line 416
+    .line 422
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     iput-boolean v1, v0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->resetMultipleStrokes:Z
 
-    .line 418
+    .line 424
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
     if-eqz v0, :cond_0
 
-    .line 419
+    .line 425
     iput v3, p0, Landroid/gesture/GestureOverlayView;->mFadingAlpha:F
 
-    .line 420
+    .line 426
     iput-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
-    .line 421
+    .line 427
     iput-boolean v1, p0, Landroid/gesture/GestureOverlayView;->mFadingHasStarted:Z
 
-    .line 422
+    .line 428
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
     move-result-wide v0
@@ -915,48 +923,48 @@
 
     iput-wide v0, p0, Landroid/gesture/GestureOverlayView;->mFadingStart:J
 
-    .line 424
+    .line 430
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     iget-wide v1, p0, Landroid/gesture/GestureOverlayView;->mFadeOffset:J
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/gesture/GestureOverlayView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 445
+    .line 451
     :goto_0
     return-void
 
-    .line 426
+    .line 432
     :cond_0
     iput v3, p0, Landroid/gesture/GestureOverlayView;->mFadingAlpha:F
 
-    .line 427
+    .line 433
     iput-boolean v1, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
-    .line 428
+    .line 434
     iput-boolean v1, p0, Landroid/gesture/GestureOverlayView;->mFadingHasStarted:Z
 
-    .line 430
+    .line 436
     if-eqz p3, :cond_1
 
-    .line 431
+    .line 437
     iput-object v4, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
-    .line 432
+    .line 438
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->rewind()V
 
-    .line 433
+    .line 439
     invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->invalidate()V
 
     goto :goto_0
 
-    .line 434
+    .line 440
     :cond_1
     if-eqz p2, :cond_2
 
-    .line 435
+    .line 441
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     iget-wide v1, p0, Landroid/gesture/GestureOverlayView;->mFadeOffset:J
@@ -965,18 +973,18 @@
 
     goto :goto_0
 
-    .line 436
+    .line 442
     :cond_2
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeType:I
 
     if-ne v0, v2, :cond_3
 
-    .line 437
+    .line 443
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     iput-boolean v2, v0, Landroid/gesture/GestureOverlayView$FadeOutRunnable;->resetMultipleStrokes:Z
 
-    .line 438
+    .line 444
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     iget-wide v1, p0, Landroid/gesture/GestureOverlayView;->mFadeOffset:J
@@ -985,16 +993,16 @@
 
     goto :goto_0
 
-    .line 440
+    .line 446
     :cond_3
     iput-object v4, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
-    .line 441
+    .line 447
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->rewind()V
 
-    .line 442
+    .line 448
     invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->invalidate()V
 
     goto :goto_0
@@ -1004,16 +1012,16 @@
     .locals 5
 
     .prologue
-    .line 725
+    .line 744
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturePerformedListeners:Ljava/util/ArrayList;
 
-    .line 726
+    .line 745
     .local v0, actionListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturePerformedListener;>;"
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 727
+    .line 746
     .local v1, count:I
     const/4 v2, 0x0
 
@@ -1021,7 +1029,7 @@
     :goto_0
     if-ge v2, v1, :cond_0
 
-    .line 728
+    .line 747
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -1032,12 +1040,12 @@
 
     invoke-interface {v3, p0, v4}, Landroid/gesture/GestureOverlayView$OnGesturePerformedListener;->onGesturePerformed(Landroid/gesture/GestureOverlayView;Landroid/gesture/Gesture;)V
 
-    .line 727
+    .line 746
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 730
+    .line 749
     :cond_0
     return-void
 .end method
@@ -1048,57 +1056,57 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 175
+    .line 181
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Landroid/gesture/GestureOverlayView;->setWillNotDraw(Z)V
 
-    .line 177
+    .line 183
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mGesturePaint:Landroid/graphics/Paint;
 
-    .line 178
+    .line 184
     .local v0, gesturePaint:Landroid/graphics/Paint;
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 179
+    .line 185
     iget v1, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 180
+    .line 186
     sget-object v1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    .line 181
+    .line 187
     sget-object v1, Landroid/graphics/Paint$Join;->ROUND:Landroid/graphics/Paint$Join;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStrokeJoin(Landroid/graphics/Paint$Join;)V
 
-    .line 182
+    .line 188
     sget-object v1, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
-    .line 183
+    .line 189
     iget v1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    .line 184
+    .line 190
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setDither(Z)V
 
-    .line 186
+    .line 192
     iget v1, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
 
     iput v1, p0, Landroid/gesture/GestureOverlayView;->mCurrentColor:I
 
-    .line 187
+    .line 193
     const/16 v1, 0xff
 
     invoke-direct {p0, v1}, Landroid/gesture/GestureOverlayView;->setPaintAlpha(I)V
 
-    .line 188
+    .line 194
     return-void
 .end method
 
@@ -1111,7 +1119,7 @@
 
     const/4 v1, 0x1
 
-    .line 514
+    .line 533
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v3
@@ -1121,70 +1129,70 @@
     :cond_0
     move v1, v2
 
-    .line 543
+    .line 562
     :cond_1
     :goto_0
     return v1
 
-    .line 516
+    .line 535
     :pswitch_0
     invoke-direct {p0, p1}, Landroid/gesture/GestureOverlayView;->touchDown(Landroid/view/MotionEvent;)V
 
-    .line 517
+    .line 536
     invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->invalidate()V
 
     goto :goto_0
 
-    .line 520
+    .line 539
     :pswitch_1
     iget-boolean v3, p0, Landroid/gesture/GestureOverlayView;->mIsListeningForGestures:Z
 
     if-eqz v3, :cond_0
 
-    .line 521
+    .line 540
     invoke-direct {p0, p1}, Landroid/gesture/GestureOverlayView;->touchMove(Landroid/view/MotionEvent;)Landroid/graphics/Rect;
 
     move-result-object v0
 
-    .line 522
+    .line 541
     .local v0, rect:Landroid/graphics/Rect;
     if-eqz v0, :cond_1
 
-    .line 523
+    .line 542
     invoke-virtual {p0, v0}, Landroid/gesture/GestureOverlayView;->invalidate(Landroid/graphics/Rect;)V
 
     goto :goto_0
 
-    .line 529
+    .line 548
     .end local v0           #rect:Landroid/graphics/Rect;
     :pswitch_2
     iget-boolean v3, p0, Landroid/gesture/GestureOverlayView;->mIsListeningForGestures:Z
 
     if-eqz v3, :cond_0
 
-    .line 530
+    .line 549
     invoke-direct {p0, p1, v2}, Landroid/gesture/GestureOverlayView;->touchUp(Landroid/view/MotionEvent;Z)V
 
-    .line 531
+    .line 550
     invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->invalidate()V
 
     goto :goto_0
 
-    .line 536
+    .line 555
     :pswitch_3
     iget-boolean v3, p0, Landroid/gesture/GestureOverlayView;->mIsListeningForGestures:Z
 
     if-eqz v3, :cond_0
 
-    .line 537
+    .line 556
     invoke-direct {p0, p1, v1}, Landroid/gesture/GestureOverlayView;->touchUp(Landroid/view/MotionEvent;Z)V
 
-    .line 538
+    .line 557
     invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->invalidate()V
 
     goto :goto_0
 
-    .line 514
+    .line 533
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1199,15 +1207,15 @@
     .parameter "color"
 
     .prologue
-    .line 375
+    .line 381
     iput p1, p0, Landroid/gesture/GestureOverlayView;->mCurrentColor:I
 
-    .line 376
+    .line 382
     iget-boolean v0, p0, Landroid/gesture/GestureOverlayView;->mFadingHasStarted:Z
 
     if-eqz v0, :cond_0
 
-    .line 377
+    .line 383
     const/high16 v0, 0x437f
 
     iget v1, p0, Landroid/gesture/GestureOverlayView;->mFadingAlpha:F
@@ -1218,14 +1226,14 @@
 
     invoke-direct {p0, v0}, Landroid/gesture/GestureOverlayView;->setPaintAlpha(I)V
 
-    .line 381
+    .line 387
     :goto_0
     invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->invalidate()V
 
-    .line 382
+    .line 388
     return-void
 
-    .line 379
+    .line 385
     :cond_0
     const/16 v0, 0xff
 
@@ -1239,23 +1247,23 @@
     .parameter "alpha"
 
     .prologue
-    .line 401
+    .line 407
     shr-int/lit8 v2, p1, 0x7
 
     add-int/2addr p1, v2
 
-    .line 402
+    .line 408
     iget v2, p0, Landroid/gesture/GestureOverlayView;->mCurrentColor:I
 
     ushr-int/lit8 v0, v2, 0x18
 
-    .line 403
+    .line 409
     .local v0, baseAlpha:I
     mul-int v2, v0, p1
 
     shr-int/lit8 v1, v2, 0x8
 
-    .line 404
+    .line 410
     .local v1, useAlpha:I
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mGesturePaint:Landroid/graphics/Paint;
 
@@ -1271,7 +1279,7 @@
 
     invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 405
+    .line 411
     return-void
 .end method
 
@@ -1282,38 +1290,38 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 547
+    .line 566
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Landroid/gesture/GestureOverlayView;->mIsListeningForGestures:Z
 
-    .line 549
+    .line 568
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v4
 
-    .line 550
+    .line 569
     .local v4, x:F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v5
 
-    .line 552
+    .line 571
     .local v5, y:F
     iput v4, p0, Landroid/gesture/GestureOverlayView;->mX:F
 
-    .line 553
+    .line 572
     iput v5, p0, Landroid/gesture/GestureOverlayView;->mY:F
 
-    .line 555
+    .line 574
     const/4 v6, 0x0
 
     iput v6, p0, Landroid/gesture/GestureOverlayView;->mTotalLength:F
 
-    .line 556
+    .line 575
     iput-boolean v7, p0, Landroid/gesture/GestureOverlayView;->mIsGesturing:Z
 
-    .line 558
+    .line 577
     iget v6, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeType:I
 
     if-eqz v6, :cond_0
@@ -1322,7 +1330,7 @@
 
     if-eqz v6, :cond_5
 
-    .line 559
+    .line 578
     :cond_0
     iget-boolean v6, p0, Landroid/gesture/GestureOverlayView;->mHandleGestureActions:Z
 
@@ -1332,45 +1340,45 @@
 
     invoke-direct {p0, v6}, Landroid/gesture/GestureOverlayView;->setCurrentColor(I)V
 
-    .line 560
+    .line 579
     :cond_1
     iput-boolean v7, p0, Landroid/gesture/GestureOverlayView;->mResetGesture:Z
 
-    .line 561
+    .line 580
     const/4 v6, 0x0
 
     iput-object v6, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
-    .line 562
+    .line 581
     iget-object v6, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {v6}, Landroid/graphics/Path;->rewind()V
 
-    .line 568
+    .line 587
     :cond_2
     :goto_0
     iget-boolean v6, p0, Landroid/gesture/GestureOverlayView;->mFadingHasStarted:Z
 
     if-eqz v6, :cond_7
 
-    .line 569
+    .line 588
     invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->cancelClearAnimation()V
 
-    .line 577
+    .line 596
     :cond_3
     :goto_1
     iget-object v6, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
     if-nez v6, :cond_4
 
-    .line 578
+    .line 597
     new-instance v6, Landroid/gesture/Gesture;
 
     invoke-direct {v6}, Landroid/gesture/Gesture;-><init>()V
 
     iput-object v6, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
-    .line 581
+    .line 600
     :cond_4
     iget-object v6, p0, Landroid/gesture/GestureOverlayView;->mStrokeBuffer:Ljava/util/ArrayList;
 
@@ -1384,15 +1392,15 @@
 
     invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 582
+    .line 601
     iget-object v6, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {v6, v4, v5}, Landroid/graphics/Path;->moveTo(FF)V
 
-    .line 584
+    .line 603
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mInvalidateExtraBorder:I
 
-    .line 585
+    .line 604
     .local v0, border:I
     iget-object v6, p0, Landroid/gesture/GestureOverlayView;->mInvalidRect:Landroid/graphics/Rect;
 
@@ -1414,22 +1422,22 @@
 
     invoke-virtual {v6, v7, v8, v9, v10}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 587
+    .line 606
     iput v4, p0, Landroid/gesture/GestureOverlayView;->mCurveEndX:F
 
-    .line 588
+    .line 607
     iput v5, p0, Landroid/gesture/GestureOverlayView;->mCurveEndY:F
 
-    .line 591
+    .line 610
     iget-object v3, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
-    .line 592
+    .line 611
     .local v3, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 593
+    .line 612
     .local v1, count:I
     const/4 v2, 0x0
 
@@ -1437,7 +1445,7 @@
     :goto_2
     if-ge v2, v1, :cond_8
 
-    .line 594
+    .line 613
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v6
@@ -1446,12 +1454,12 @@
 
     invoke-interface {v6, p0, p1}, Landroid/gesture/GestureOverlayView$OnGestureListener;->onGestureStarted(Landroid/gesture/GestureOverlayView;Landroid/view/MotionEvent;)V
 
-    .line 593
+    .line 612
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    .line 563
+    .line 582
     .end local v0           #border:I
     .end local v1           #count:I
     .end local v2           #i:I
@@ -1469,7 +1477,7 @@
 
     if-nez v6, :cond_2
 
-    .line 564
+    .line 583
     :cond_6
     iget-boolean v6, p0, Landroid/gesture/GestureOverlayView;->mHandleGestureActions:Z
 
@@ -1481,31 +1489,31 @@
 
     goto :goto_0
 
-    .line 570
+    .line 589
     :cond_7
     iget-boolean v6, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
     if-eqz v6, :cond_3
 
-    .line 571
+    .line 590
     const/16 v6, 0xff
 
     invoke-direct {p0, v6}, Landroid/gesture/GestureOverlayView;->setPaintAlpha(I)V
 
-    .line 572
+    .line 591
     iput-boolean v7, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
-    .line 573
+    .line 592
     iput-boolean v7, p0, Landroid/gesture/GestureOverlayView;->mFadingHasStarted:Z
 
-    .line 574
+    .line 593
     iget-object v6, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     invoke-virtual {p0, v6}, Landroid/gesture/GestureOverlayView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     goto :goto_1
 
-    .line 596
+    .line 615
     .restart local v0       #border:I
     .restart local v1       #count:I
     .restart local v2       #i:I
@@ -1519,22 +1527,22 @@
     .parameter "event"
 
     .prologue
-    .line 599
+    .line 618
     const/4 v6, 0x0
 
-    .line 601
+    .line 620
     .local v6, areaToRefresh:Landroid/graphics/Rect;
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v19
 
-    .line 602
+    .line 621
     .local v19, x:F
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v20
 
-    .line 604
+    .line 623
     .local v20, y:F
     move-object/from16 v0, p0
 
@@ -1542,7 +1550,7 @@
 
     move/from16 v17, v0
 
-    .line 605
+    .line 624
     .local v17, previousX:F
     move-object/from16 v0, p0
 
@@ -1550,7 +1558,7 @@
 
     move/from16 v18, v0
 
-    .line 607
+    .line 626
     .local v18, previousY:F
     sub-float v21, v19, v17
 
@@ -1558,7 +1566,7 @@
 
     move-result v12
 
-    .line 608
+    .line 627
     .local v12, dx:F
     sub-float v21, v20, v18
 
@@ -1566,7 +1574,7 @@
 
     move-result v13
 
-    .line 610
+    .line 629
     .local v13, dy:F
     const/high16 v21, 0x4040
 
@@ -1580,18 +1588,18 @@
 
     if-ltz v21, :cond_5
 
-    .line 611
+    .line 630
     :cond_0
     move-object/from16 v0, p0
 
     iget-object v6, v0, Landroid/gesture/GestureOverlayView;->mInvalidRect:Landroid/graphics/Rect;
 
-    .line 614
+    .line 633
     move-object/from16 v0, p0
 
     iget v7, v0, Landroid/gesture/GestureOverlayView;->mInvalidateExtraBorder:I
 
-    .line 615
+    .line 634
     .local v7, border:I
     move-object/from16 v0, p0
 
@@ -1659,7 +1667,7 @@
 
     invoke-virtual {v6, v0, v1, v2, v3}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 618
+    .line 637
     add-float v21, v19, v17
 
     const/high16 v22, 0x4000
@@ -1670,7 +1678,7 @@
 
     iput v9, v0, Landroid/gesture/GestureOverlayView;->mCurveEndX:F
 
-    .line 619
+    .line 638
     .local v9, cX:F
     add-float v21, v20, v18
 
@@ -1682,7 +1690,7 @@
 
     iput v10, v0, Landroid/gesture/GestureOverlayView;->mCurveEndY:F
 
-    .line 621
+    .line 640
     .local v10, cY:F
     move-object/from16 v0, p0
 
@@ -1698,7 +1706,7 @@
 
     invoke-virtual {v0, v1, v2, v9, v10}, Landroid/graphics/Path;->quadTo(FFFF)V
 
-    .line 624
+    .line 643
     move/from16 v0, v17
 
     float-to-int v0, v0
@@ -1741,7 +1749,7 @@
 
     invoke-virtual {v6, v0, v1, v2, v3}, Landroid/graphics/Rect;->union(IIII)V
 
-    .line 628
+    .line 647
     float-to-int v0, v9
 
     move/from16 v21, v0
@@ -1776,21 +1784,21 @@
 
     invoke-virtual {v6, v0, v1, v2, v3}, Landroid/graphics/Rect;->union(IIII)V
 
-    .line 631
+    .line 650
     move/from16 v0, v19
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/gesture/GestureOverlayView;->mX:F
 
-    .line 632
+    .line 651
     move/from16 v0, v20
 
     move-object/from16 v1, p0
 
     iput v0, v1, Landroid/gesture/GestureOverlayView;->mY:F
 
-    .line 634
+    .line 653
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/gesture/GestureOverlayView;->mStrokeBuffer:Ljava/util/ArrayList;
@@ -1815,7 +1823,7 @@
 
     invoke-virtual/range {v21 .. v22}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 636
+    .line 655
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/gesture/GestureOverlayView;->mHandleGestureActions:Z
@@ -1832,7 +1840,7 @@
 
     if-nez v21, :cond_4
 
-    .line 637
+    .line 656
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/gesture/GestureOverlayView;->mTotalLength:F
@@ -1869,7 +1877,7 @@
 
     iput v0, v1, Landroid/gesture/GestureOverlayView;->mTotalLength:F
 
-    .line 639
+    .line 658
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/gesture/GestureOverlayView;->mTotalLength:F
@@ -1886,7 +1894,7 @@
 
     if-lez v21, :cond_4
 
-    .line 640
+    .line 659
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/gesture/GestureOverlayView;->mStrokeBuffer:Ljava/util/ArrayList;
@@ -1897,7 +1905,7 @@
 
     move-result-object v8
 
-    .line 643
+    .line 662
     .local v8, box:Landroid/gesture/OrientedBoundingBox;
     iget v0, v8, Landroid/gesture/OrientedBoundingBox;->orientation:F
 
@@ -1907,7 +1915,7 @@
 
     move-result v5
 
-    .line 644
+    .line 663
     .local v5, angle:F
     const/high16 v21, 0x42b4
 
@@ -1915,12 +1923,12 @@
 
     if-lez v21, :cond_1
 
-    .line 645
+    .line 664
     const/high16 v21, 0x4334
 
     sub-float v5, v21, v5
 
-    .line 648
+    .line 667
     :cond_1
     iget v0, v8, Landroid/gesture/OrientedBoundingBox;->squareness:F
 
@@ -1960,7 +1968,7 @@
 
     if-gez v21, :cond_4
 
-    .line 653
+    .line 672
     :cond_2
     const/16 v21, 0x1
 
@@ -1970,7 +1978,7 @@
 
     iput-boolean v0, v1, Landroid/gesture/GestureOverlayView;->mIsGesturing:Z
 
-    .line 654
+    .line 673
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
@@ -1983,20 +1991,20 @@
 
     invoke-direct {v0, v1}, Landroid/gesture/GestureOverlayView;->setCurrentColor(I)V
 
-    .line 656
+    .line 675
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/gesture/GestureOverlayView;->mOnGesturingListeners:Ljava/util/ArrayList;
 
     move-object/from16 v16, v0
 
-    .line 657
+    .line 676
     .local v16, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
     invoke-virtual/range {v16 .. v16}, Ljava/util/ArrayList;->size()I
 
     move-result v11
 
-    .line 658
+    .line 677
     .local v11, count:I
     const/4 v14, 0x0
 
@@ -2004,7 +2012,7 @@
     :goto_0
     if-ge v14, v11, :cond_4
 
-    .line 659
+    .line 678
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v14}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2019,12 +2027,12 @@
 
     invoke-interface {v0, v1}, Landroid/gesture/GestureOverlayView$OnGesturingListener;->onGesturingStarted(Landroid/gesture/GestureOverlayView;)V
 
-    .line 658
+    .line 677
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_0
 
-    .line 648
+    .line 667
     .end local v11           #count:I
     .end local v14           #i:I
     .end local v16           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
@@ -2039,7 +2047,7 @@
 
     if-gtz v21, :cond_2
 
-    .line 666
+    .line 685
     .end local v5           #angle:F
     .end local v8           #box:Landroid/gesture/OrientedBoundingBox;
     :cond_4
@@ -2047,13 +2055,13 @@
 
     iget-object v15, v0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
-    .line 667
+    .line 686
     .local v15, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     invoke-virtual {v15}, Ljava/util/ArrayList;->size()I
 
     move-result v11
 
-    .line 668
+    .line 687
     .restart local v11       #count:I
     const/4 v14, 0x0
 
@@ -2061,7 +2069,7 @@
     :goto_1
     if-ge v14, v11, :cond_5
 
-    .line 669
+    .line 688
     invoke-virtual {v15, v14}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v21
@@ -2076,12 +2084,12 @@
 
     invoke-interface {v0, v1, v2}, Landroid/gesture/GestureOverlayView$OnGestureListener;->onGesture(Landroid/gesture/GestureOverlayView;Landroid/view/MotionEvent;)V
 
-    .line 668
+    .line 687
     add-int/lit8 v14, v14, 0x1
 
     goto :goto_1
 
-    .line 673
+    .line 692
     .end local v7           #border:I
     .end local v9           #cX:F
     .end local v10           #cY:F
@@ -2102,15 +2110,15 @@
 
     const/4 v6, 0x0
 
-    .line 677
+    .line 696
     iput-boolean v6, p0, Landroid/gesture/GestureOverlayView;->mIsListeningForGestures:Z
 
-    .line 680
+    .line 699
     iget-object v4, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
     if-eqz v4, :cond_4
 
-    .line 682
+    .line 701
     iget-object v4, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
     new-instance v7, Landroid/gesture/GestureStroke;
@@ -2121,19 +2129,19 @@
 
     invoke-virtual {v4, v7}, Landroid/gesture/Gesture;->addStroke(Landroid/gesture/GestureStroke;)V
 
-    .line 684
+    .line 703
     if-nez p2, :cond_3
 
-    .line 686
+    .line 705
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
-    .line 687
+    .line 706
     .local v2, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 688
+    .line 707
     .local v0, count:I
     const/4 v1, 0x0
 
@@ -2141,7 +2149,7 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    .line 689
+    .line 708
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
@@ -2150,12 +2158,12 @@
 
     invoke-interface {v4, p0, p1}, Landroid/gesture/GestureOverlayView$OnGestureListener;->onGestureEnded(Landroid/gesture/GestureOverlayView;Landroid/view/MotionEvent;)V
 
-    .line 688
+    .line 707
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 692
+    .line 711
     :cond_0
     iget-boolean v4, p0, Landroid/gesture/GestureOverlayView;->mHandleGestureActions:Z
 
@@ -2179,7 +2187,7 @@
     :goto_2
     invoke-direct {p0, v4, v5, v6}, Landroid/gesture/GestureOverlayView;->clear(ZZZ)V
 
-    .line 702
+    .line 721
     .end local v0           #count:I
     .end local v1           #i:I
     .end local v2           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
@@ -2188,24 +2196,24 @@
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
-    .line 703
+    .line 722
     iget-boolean v4, p0, Landroid/gesture/GestureOverlayView;->mIsGesturing:Z
 
     iput-boolean v4, p0, Landroid/gesture/GestureOverlayView;->mPreviousWasGesturing:Z
 
-    .line 704
+    .line 723
     iput-boolean v6, p0, Landroid/gesture/GestureOverlayView;->mIsGesturing:Z
 
-    .line 706
+    .line 725
     iget-object v3, p0, Landroid/gesture/GestureOverlayView;->mOnGesturingListeners:Ljava/util/ArrayList;
 
-    .line 707
+    .line 726
     .local v3, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 708
+    .line 727
     .restart local v0       #count:I
     const/4 v1, 0x0
 
@@ -2213,7 +2221,7 @@
     :goto_4
     if-ge v1, v0, :cond_5
 
-    .line 709
+    .line 728
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
@@ -2222,7 +2230,7 @@
 
     invoke-interface {v4, p0}, Landroid/gesture/GestureOverlayView$OnGesturingListener;->onGesturingEnded(Landroid/gesture/GestureOverlayView;)V
 
-    .line 708
+    .line 727
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_4
@@ -2232,7 +2240,7 @@
     :cond_1
     move v4, v6
 
-    .line 692
+    .line 711
     goto :goto_1
 
     :cond_2
@@ -2240,7 +2248,7 @@
 
     goto :goto_2
 
-    .line 695
+    .line 714
     .end local v0           #count:I
     .end local v1           #i:I
     .end local v2           #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
@@ -2249,13 +2257,13 @@
 
     goto :goto_3
 
-    .line 699
+    .line 718
     :cond_4
     invoke-direct {p0, p1}, Landroid/gesture/GestureOverlayView;->cancelGesture(Landroid/view/MotionEvent;)V
 
     goto :goto_3
 
-    .line 711
+    .line 730
     .restart local v0       #count:I
     .restart local v1       #i:I
     .restart local v3       #listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
@@ -2270,12 +2278,12 @@
     .parameter "listener"
 
     .prologue
-    .line 328
+    .line 334
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 329
+    .line 335
     return-void
 .end method
 
@@ -2284,12 +2292,12 @@
     .parameter "listener"
 
     .prologue
-    .line 340
+    .line 346
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturePerformedListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 341
+    .line 347
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturePerformedListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -2298,12 +2306,12 @@
 
     if-lez v0, :cond_0
 
-    .line 342
+    .line 348
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/gesture/GestureOverlayView;->mHandleGestureActions:Z
 
-    .line 344
+    .line 350
     :cond_0
     return-void
 .end method
@@ -2313,12 +2321,12 @@
     .parameter "listener"
 
     .prologue
-    .line 359
+    .line 365
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturingListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 360
+    .line 366
     return-void
 .end method
 
@@ -2328,33 +2336,33 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 448
+    .line 454
     const/16 v0, 0xff
 
     invoke-direct {p0, v0}, Landroid/gesture/GestureOverlayView;->setPaintAlpha(I)V
 
-    .line 449
+    .line 455
     iput-boolean v1, p0, Landroid/gesture/GestureOverlayView;->mIsFadingOut:Z
 
-    .line 450
+    .line 456
     iput-boolean v1, p0, Landroid/gesture/GestureOverlayView;->mFadingHasStarted:Z
 
-    .line 451
+    .line 457
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mFadingOut:Landroid/gesture/GestureOverlayView$FadeOutRunnable;
 
     invoke-virtual {p0, v0}, Landroid/gesture/GestureOverlayView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 452
+    .line 458
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->rewind()V
 
-    .line 453
+    .line 459
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
-    .line 454
+    .line 460
     return-void
 .end method
 
@@ -2366,10 +2374,10 @@
 
     const/4 v7, 0x0
 
-    .line 457
+    .line 463
     iput-boolean v7, p0, Landroid/gesture/GestureOverlayView;->mIsListeningForGestures:Z
 
-    .line 460
+    .line 466
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
     new-instance v3, Landroid/gesture/GestureStroke;
@@ -2380,12 +2388,12 @@
 
     invoke-virtual {v2, v3}, Landroid/gesture/Gesture;->addStroke(Landroid/gesture/GestureStroke;)V
 
-    .line 463
+    .line 469
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
-    .line 464
+    .line 470
     .local v0, now:J
     const/4 v4, 0x3
 
@@ -2397,17 +2405,17 @@
 
     move-result-object v9
 
-    .line 467
+    .line 473
     .local v9, event:Landroid/view/MotionEvent;
     iget-object v11, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
-    .line 468
+    .line 474
     .local v11, listeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGestureListener;>;"
     invoke-virtual {v11}, Ljava/util/ArrayList;->size()I
 
     move-result v8
 
-    .line 469
+    .line 475
     .local v8, count:I
     const/4 v10, 0x0
 
@@ -2415,7 +2423,7 @@
     :goto_0
     if-ge v10, v8, :cond_0
 
-    .line 470
+    .line 476
     invoke-virtual {v11, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
@@ -2424,45 +2432,45 @@
 
     invoke-interface {v2, p0, v9}, Landroid/gesture/GestureOverlayView$OnGestureListener;->onGestureCancelled(Landroid/gesture/GestureOverlayView;Landroid/view/MotionEvent;)V
 
-    .line 469
+    .line 475
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_0
 
-    .line 473
+    .line 479
     :cond_0
     invoke-virtual {v9}, Landroid/view/MotionEvent;->recycle()V
 
-    .line 475
+    .line 481
     invoke-virtual {p0, v7}, Landroid/gesture/GestureOverlayView;->clear(Z)V
 
-    .line 476
+    .line 482
     iput-boolean v7, p0, Landroid/gesture/GestureOverlayView;->mIsGesturing:Z
 
-    .line 477
+    .line 483
     iput-boolean v7, p0, Landroid/gesture/GestureOverlayView;->mPreviousWasGesturing:Z
 
-    .line 478
+    .line 484
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mStrokeBuffer:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
-    .line 480
+    .line 486
     iget-object v12, p0, Landroid/gesture/GestureOverlayView;->mOnGesturingListeners:Ljava/util/ArrayList;
 
-    .line 481
+    .line 487
     .local v12, otherListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureOverlayView$OnGesturingListener;>;"
     invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
 
     move-result v8
 
-    .line 482
+    .line 488
     const/4 v10, 0x0
 
     :goto_1
     if-ge v10, v8, :cond_1
 
-    .line 483
+    .line 489
     invoke-virtual {v12, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
@@ -2471,12 +2479,12 @@
 
     invoke-interface {v2, p0}, Landroid/gesture/GestureOverlayView$OnGesturingListener;->onGesturingEnded(Landroid/gesture/GestureOverlayView;)V
 
-    .line 482
+    .line 488
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_1
 
-    .line 485
+    .line 491
     :cond_1
     return-void
 .end method
@@ -2486,39 +2494,39 @@
     .parameter "animated"
 
     .prologue
-    .line 408
+    .line 414
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
     invoke-direct {p0, p1, v0, v1}, Landroid/gesture/GestureOverlayView;->clear(ZZZ)V
 
-    .line 409
+    .line 415
     return-void
 .end method
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 3
+    .locals 4
     .parameter "event"
 
     .prologue
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    .line 494
+    .line 506
     invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->isEnabled()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
-    .line 495
+    .line 507
     iget-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mIsGesturing:Z
 
     if-nez v2, :cond_0
 
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
@@ -2526,52 +2534,82 @@
 
     move-result v2
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_3
 
     iget-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mPreviousWasGesturing:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     :cond_0
     iget-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mInterceptEvents:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
-    move v0, v1
+    move v0, v3
 
-    .line 499
+    .line 511
     .local v0, cancelDispatch:Z
     :goto_0
     invoke-direct {p0, p1}, Landroid/gesture/GestureOverlayView;->processEvent(Landroid/view/MotionEvent;)Z
 
-    .line 501
+    .line 513
     if-eqz v0, :cond_1
 
-    .line 502
+    .line 514
     const/4 v2, 0x3
 
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->setAction(I)V
 
-    .line 505
+    .line 517
     :cond_1
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
-    .line 510
-    .end local v0           #cancelDispatch:Z
-    :goto_1
-    return v1
+    move-result v1
 
-    .line 495
+    .line 519
+    .local v1, ret:Z
+    iget-boolean v2, p0, Landroid/gesture/GestureOverlayView;->mByPassingMode:Z
+
+    if-eqz v2, :cond_2
+
+    if-nez v1, :cond_2
+
+    .line 521
+    invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    instance-of v2, v2, Landroid/app/Activity;
+
+    if-eqz v2, :cond_2
+
+    .line 522
+    invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/Activity;
+
+    invoke-virtual {v2, v3}, Landroid/app/Activity;->setByPassTouchEvent(Z)V
+
+    .line 529
+    .end local v0           #cancelDispatch:Z
+    .end local v1           #ret:Z
     :cond_2
+    :goto_1
+    return v3
+
+    .line 507
+    :cond_3
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 510
-    :cond_3
+    .line 529
+    :cond_4
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v1
+    move-result v3
 
     goto :goto_1
 .end method
@@ -2581,10 +2619,10 @@
     .parameter "canvas"
 
     .prologue
-    .line 393
+    .line 399
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->draw(Landroid/graphics/Canvas;)V
 
-    .line 395
+    .line 401
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
     if-eqz v0, :cond_0
@@ -2593,14 +2631,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 396
+    .line 402
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     iget-object v1, p0, Landroid/gesture/GestureOverlayView;->mGesturePaint:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    .line 398
+    .line 404
     :cond_0
     return-void
 .end method
@@ -2618,7 +2656,7 @@
     .end annotation
 
     .prologue
-    .line 191
+    .line 197
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mStrokeBuffer:Ljava/util/ArrayList;
 
     return-object v0
@@ -2628,7 +2666,7 @@
     .locals 2
 
     .prologue
-    .line 320
+    .line 326
     iget-wide v0, p0, Landroid/gesture/GestureOverlayView;->mFadeOffset:J
 
     return-wide v0
@@ -2638,7 +2676,7 @@
     .locals 1
 
     .prologue
-    .line 277
+    .line 283
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
     return-object v0
@@ -2648,7 +2686,7 @@
     .locals 1
 
     .prologue
-    .line 215
+    .line 221
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
 
     return v0
@@ -2658,7 +2696,7 @@
     .locals 1
 
     .prologue
-    .line 388
+    .line 394
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mGesturePaint:Landroid/graphics/Paint;
 
     return-object v0
@@ -2668,7 +2706,7 @@
     .locals 1
 
     .prologue
-    .line 303
+    .line 309
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     return-object v0
@@ -2679,12 +2717,12 @@
     .parameter "path"
 
     .prologue
-    .line 307
+    .line 313
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {p1, v0}, Landroid/graphics/Path;->set(Landroid/graphics/Path;)V
 
-    .line 308
+    .line 314
     return-object p1
 .end method
 
@@ -2692,7 +2730,7 @@
     .locals 1
 
     .prologue
-    .line 253
+    .line 259
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeAngleThreshold:F
 
     return v0
@@ -2702,7 +2740,7 @@
     .locals 1
 
     .prologue
-    .line 237
+    .line 243
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeLengthThreshold:F
 
     return v0
@@ -2712,7 +2750,7 @@
     .locals 1
 
     .prologue
-    .line 245
+    .line 251
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeSquarenessTreshold:F
 
     return v0
@@ -2722,7 +2760,7 @@
     .locals 1
 
     .prologue
-    .line 229
+    .line 235
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeType:I
 
     return v0
@@ -2732,7 +2770,7 @@
     .locals 1
 
     .prologue
-    .line 219
+    .line 225
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
     return v0
@@ -2742,7 +2780,7 @@
     .locals 1
 
     .prologue
-    .line 195
+    .line 201
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mOrientation:I
 
     return v0
@@ -2752,7 +2790,7 @@
     .locals 1
 
     .prologue
-    .line 211
+    .line 217
     iget v0, p0, Landroid/gesture/GestureOverlayView;->mUncertainGestureColor:I
 
     return v0
@@ -2762,7 +2800,7 @@
     .locals 1
 
     .prologue
-    .line 261
+    .line 267
     iget-boolean v0, p0, Landroid/gesture/GestureOverlayView;->mInterceptEvents:Z
 
     return v0
@@ -2772,7 +2810,7 @@
     .locals 1
 
     .prologue
-    .line 269
+    .line 275
     iget-boolean v0, p0, Landroid/gesture/GestureOverlayView;->mFadeEnabled:Z
 
     return v0
@@ -2782,7 +2820,7 @@
     .locals 1
 
     .prologue
-    .line 312
+    .line 318
     iget-boolean v0, p0, Landroid/gesture/GestureOverlayView;->mGestureVisible:Z
 
     return v0
@@ -2792,7 +2830,7 @@
     .locals 1
 
     .prologue
-    .line 371
+    .line 377
     iget-boolean v0, p0, Landroid/gesture/GestureOverlayView;->mIsGesturing:Z
 
     return v0
@@ -2802,10 +2840,10 @@
     .locals 0
 
     .prologue
-    .line 489
+    .line 495
     invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->cancelClearAnimation()V
 
-    .line 490
+    .line 496
     return-void
 .end method
 
@@ -2813,12 +2851,12 @@
     .locals 1
 
     .prologue
-    .line 336
+    .line 342
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 337
+    .line 343
     return-void
 .end method
 
@@ -2826,17 +2864,17 @@
     .locals 1
 
     .prologue
-    .line 354
+    .line 360
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturePerformedListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 355
+    .line 361
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/gesture/GestureOverlayView;->mHandleGestureActions:Z
 
-    .line 356
+    .line 362
     return-void
 .end method
 
@@ -2844,12 +2882,12 @@
     .locals 1
 
     .prologue
-    .line 367
+    .line 373
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturingListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 368
+    .line 374
     return-void
 .end method
 
@@ -2858,12 +2896,12 @@
     .parameter "listener"
 
     .prologue
-    .line 332
+    .line 338
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGestureListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 333
+    .line 339
     return-void
 .end method
 
@@ -2872,12 +2910,12 @@
     .parameter "listener"
 
     .prologue
-    .line 347
+    .line 353
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturePerformedListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 348
+    .line 354
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturePerformedListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -2886,12 +2924,12 @@
 
     if-gtz v0, :cond_0
 
-    .line 349
+    .line 355
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/gesture/GestureOverlayView;->mHandleGestureActions:Z
 
-    .line 351
+    .line 357
     :cond_0
     return-void
 .end method
@@ -2901,12 +2939,24 @@
     .parameter "listener"
 
     .prologue
-    .line 363
+    .line 369
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mOnGesturingListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 364
+    .line 370
+    return-void
+.end method
+
+.method public setByPassingMode(Z)V
+    .locals 0
+    .parameter "mode"
+
+    .prologue
+    .line 500
+    iput-boolean p1, p0, Landroid/gesture/GestureOverlayView;->mByPassingMode:Z
+
+    .line 501
     return-void
 .end method
 
@@ -2915,10 +2965,10 @@
     .parameter "enabled"
 
     .prologue
-    .line 265
+    .line 271
     iput-boolean p1, p0, Landroid/gesture/GestureOverlayView;->mInterceptEvents:Z
 
-    .line 266
+    .line 272
     return-void
 .end method
 
@@ -2927,10 +2977,10 @@
     .parameter "fadeEnabled"
 
     .prologue
-    .line 273
+    .line 279
     iput-boolean p1, p0, Landroid/gesture/GestureOverlayView;->mFadeEnabled:Z
 
-    .line 274
+    .line 280
     return-void
 .end method
 
@@ -2939,10 +2989,10 @@
     .parameter "fadeOffset"
 
     .prologue
-    .line 324
+    .line 330
     iput-wide p1, p0, Landroid/gesture/GestureOverlayView;->mFadeOffset:J
 
-    .line 325
+    .line 331
     return-void
 .end method
 
@@ -2955,48 +3005,48 @@
 
     const/high16 v7, 0x4000
 
-    .line 281
+    .line 287
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
     if-eqz v2, :cond_0
 
-    .line 282
+    .line 288
     const/4 v2, 0x0
 
     invoke-virtual {p0, v2}, Landroid/gesture/GestureOverlayView;->clear(Z)V
 
-    .line 285
+    .line 291
     :cond_0
     iget v2, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
 
     invoke-direct {p0, v2}, Landroid/gesture/GestureOverlayView;->setCurrentColor(I)V
 
-    .line 286
+    .line 292
     iput-object p1, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
-    .line 288
+    .line 294
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mCurrentGesture:Landroid/gesture/Gesture;
 
     invoke-virtual {v2}, Landroid/gesture/Gesture;->toPath()Landroid/graphics/Path;
 
     move-result-object v1
 
-    .line 289
+    .line 295
     .local v1, path:Landroid/graphics/Path;
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
 
-    .line 290
+    .line 296
     .local v0, bounds:Landroid/graphics/RectF;
     invoke-virtual {v1, v0, v8}, Landroid/graphics/Path;->computeBounds(Landroid/graphics/RectF;Z)V
 
-    .line 293
+    .line 299
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {v2}, Landroid/graphics/Path;->rewind()V
 
-    .line 294
+    .line 300
     iget-object v2, p0, Landroid/gesture/GestureOverlayView;->mPath:Landroid/graphics/Path;
 
     iget v3, v0, Landroid/graphics/RectF;->left:F
@@ -3041,13 +3091,13 @@
 
     invoke-virtual {v2, v1, v3, v4}, Landroid/graphics/Path;->addPath(Landroid/graphics/Path;FF)V
 
-    .line 297
+    .line 303
     iput-boolean v8, p0, Landroid/gesture/GestureOverlayView;->mResetGesture:Z
 
-    .line 299
+    .line 305
     invoke-virtual {p0}, Landroid/gesture/GestureOverlayView;->invalidate()V
 
-    .line 300
+    .line 306
     return-void
 .end method
 
@@ -3056,10 +3106,10 @@
     .parameter "color"
 
     .prologue
-    .line 203
+    .line 209
     iput p1, p0, Landroid/gesture/GestureOverlayView;->mCertainGestureColor:I
 
-    .line 204
+    .line 210
     return-void
 .end method
 
@@ -3068,10 +3118,10 @@
     .parameter "gestureStrokeAngleThreshold"
 
     .prologue
-    .line 257
+    .line 263
     iput p1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeAngleThreshold:F
 
-    .line 258
+    .line 264
     return-void
 .end method
 
@@ -3080,10 +3130,10 @@
     .parameter "gestureStrokeLengthThreshold"
 
     .prologue
-    .line 241
+    .line 247
     iput p1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeLengthThreshold:F
 
-    .line 242
+    .line 248
     return-void
 .end method
 
@@ -3092,10 +3142,10 @@
     .parameter "gestureStrokeSquarenessTreshold"
 
     .prologue
-    .line 249
+    .line 255
     iput p1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeSquarenessTreshold:F
 
-    .line 250
+    .line 256
     return-void
 .end method
 
@@ -3104,10 +3154,10 @@
     .parameter "gestureStrokeType"
 
     .prologue
-    .line 233
+    .line 239
     iput p1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeType:I
 
-    .line 234
+    .line 240
     return-void
 .end method
 
@@ -3116,10 +3166,10 @@
     .parameter "gestureStrokeWidth"
 
     .prologue
-    .line 223
+    .line 229
     iput p1, p0, Landroid/gesture/GestureOverlayView;->mGestureStrokeWidth:F
 
-    .line 224
+    .line 230
     const/4 v0, 0x1
 
     float-to-int v1, p1
@@ -3132,12 +3182,12 @@
 
     iput v0, p0, Landroid/gesture/GestureOverlayView;->mInvalidateExtraBorder:I
 
-    .line 225
+    .line 231
     iget-object v0, p0, Landroid/gesture/GestureOverlayView;->mGesturePaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    .line 226
+    .line 232
     return-void
 .end method
 
@@ -3146,10 +3196,10 @@
     .parameter "visible"
 
     .prologue
-    .line 316
+    .line 322
     iput-boolean p1, p0, Landroid/gesture/GestureOverlayView;->mGestureVisible:Z
 
-    .line 317
+    .line 323
     return-void
 .end method
 
@@ -3158,10 +3208,10 @@
     .parameter "orientation"
 
     .prologue
-    .line 199
+    .line 205
     iput p1, p0, Landroid/gesture/GestureOverlayView;->mOrientation:I
 
-    .line 200
+    .line 206
     return-void
 .end method
 
@@ -3170,9 +3220,9 @@
     .parameter "color"
 
     .prologue
-    .line 207
+    .line 213
     iput p1, p0, Landroid/gesture/GestureOverlayView;->mUncertainGestureColor:I
 
-    .line 208
+    .line 214
     return-void
 .end method

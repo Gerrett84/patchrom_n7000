@@ -156,7 +156,7 @@
     .parameter "pkg"
 
     .prologue
-    .line 93
+    .line 96
     iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
     const-string v1, "com.lguplus.common_api_impl"
@@ -169,7 +169,7 @@
 
     invoke-direct {p0}, Lcom/lguplus/common_api/permission/PermissionsProxy;->getPerms()V
 
-    .line 94
+    .line 97
     :cond_0
     iget-object v0, p0, Lcom/lguplus/common_api/permission/PermissionsProxy;->mPerms:Lcom/lguplus/common_api/permission/Permissions;
 
@@ -185,7 +185,7 @@
 
     invoke-interface {v0, v1, v2}, Lcom/lguplus/common_api/permission/Permissions;->afterAdd(Ljava/lang/String;I)V
 
-    .line 95
+    .line 98
     :cond_1
     return-void
 .end method
@@ -344,6 +344,18 @@
     .line 79
     if-eqz v7, :cond_5
 
+    .line 80
+    move-object/from16 v0, p1
+
+    iget-object v12, v0, Landroid/content/pm/PackageParser$Package;->mSharedUserId:Ljava/lang/String;
+
+    invoke-virtual {v12, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_3
+
+    .line 81
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -370,7 +382,7 @@
 
     iput-object v12, v0, Landroid/content/pm/PackageParser$Package;->mSharedUserId:Ljava/lang/String;
 
-    .line 90
+    .line 93
     .end local v1           #am:Landroid/content/res/AssetManager;
     .end local v7           #isValidToken:Z
     .end local v9           #token:Ljava/lang/String;
@@ -418,14 +430,14 @@
 
     goto :goto_0
 
-    .line 87
+    .line 90
     .end local v1           #am:Landroid/content/res/AssetManager;
     .end local v5           #e:Ljava/lang/Exception;
     .end local v9           #token:Ljava/lang/String;
     :catch_1
     move-exception v5
 
-    .line 88
+    .line 91
     .restart local v5       #e:Ljava/lang/Exception;
     const-string v12, "uplus_common_api"
 
@@ -465,7 +477,7 @@
 
     goto :goto_1
 
-    .line 80
+    .line 83
     .restart local v7       #isValidToken:Z
     :cond_5
     :try_start_4
@@ -487,7 +499,7 @@
 
     goto :goto_2
 
-    .line 83
+    .line 86
     :cond_6
     if-eqz v7, :cond_3
 
@@ -662,7 +674,7 @@
     .parameter "pkg"
 
     .prologue
-    .line 98
+    .line 101
     iget-object v0, p0, Lcom/lguplus/common_api/permission/PermissionsProxy;->mPerms:Lcom/lguplus/common_api/permission/Permissions;
 
     if-eqz v0, :cond_0
@@ -673,7 +685,7 @@
 
     invoke-interface {v0, v1}, Lcom/lguplus/common_api/permission/Permissions;->del(Ljava/lang/String;)Z
 
-    .line 99
+    .line 102
     :cond_0
     return-void
 .end method
@@ -683,7 +695,7 @@
     .parameter "files"
 
     .prologue
-    .line 101
+    .line 104
     const/4 v1, 0x1
 
     .local v1, i:I
@@ -692,7 +704,7 @@
 
     if-ge v1, v3, :cond_1
 
-    .line 102
+    .line 105
     aget-object v3, p1, v1
 
     const-string v4, "LGUPlusLinuxCommonApi.apk"
@@ -703,10 +715,10 @@
 
     if-eqz v3, :cond_2
 
-    .line 103
+    .line 106
     aget-object v0, p1, v1
 
-    .line 104
+    .line 107
     .local v0, f:Ljava/lang/String;
     add-int/lit8 v2, v1, -0x1
 
@@ -714,31 +726,31 @@
     :goto_1
     if-ltz v2, :cond_0
 
-    .line 105
+    .line 108
     add-int/lit8 v3, v2, 0x1
 
     aget-object v4, p1, v2
 
     aput-object v4, p1, v3
 
-    .line 104
+    .line 107
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_1
 
-    .line 106
+    .line 109
     :cond_0
     const/4 v3, 0x0
 
     aput-object v0, p1, v3
 
-    .line 110
+    .line 113
     .end local v0           #f:Ljava/lang/String;
     .end local v2           #j:I
     :cond_1
     return-void
 
-    .line 101
+    .line 104
     :cond_2
     add-int/lit8 v1, v1, 0x1
 

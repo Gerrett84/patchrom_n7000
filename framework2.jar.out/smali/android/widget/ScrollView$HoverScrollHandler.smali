@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1886
+    .line 1906
     iput-object p1, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1886
+    .line 1906
     invoke-direct {p0, p1}, Landroid/widget/ScrollView$HoverScrollHandler;-><init>(Landroid/widget/ScrollView;)V
 
     return-void
@@ -61,21 +61,21 @@
 
     const/4 v4, 0x1
 
-    .line 1888
+    .line 1908
     iget v5, p1, Landroid/os/Message;->what:I
 
     packed-switch v5, :pswitch_data_0
 
-    .line 1961
+    .line 1981
     :cond_0
     :goto_0
     return-void
 
-    .line 1890
+    .line 1910
     :pswitch_0
     const/4 v1, 0x0
 
-    .line 1891
+    .line 1911
     .local v1, offset:I
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
@@ -84,7 +84,7 @@
 
     move-result v3
 
-    .line 1893
+    .line 1913
     .local v3, range:I
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
@@ -97,7 +97,7 @@
     #setter for: Landroid/widget/ScrollView;->mHoverRecognitionCurrentTime:I
     invoke-static {v5, v6}, Landroid/widget/ScrollView;->access$202(Landroid/widget/ScrollView;I)I
 
-    .line 1894
+    .line 1914
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     iget-object v6, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
@@ -121,7 +121,7 @@
     #setter for: Landroid/widget/ScrollView;->mHoverRecognitionDurationTime:I
     invoke-static {v5, v6}, Landroid/widget/ScrollView;->access$302(Landroid/widget/ScrollView;I)I
 
-    .line 1896
+    .line 1916
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mHoverRecognitionCurrentTime:I
@@ -147,7 +147,7 @@
 
     if-lt v5, v6, :cond_0
 
-    .line 1899
+    .line 1919
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mHoverRecognitionDurationTime:I
@@ -166,7 +166,7 @@
 
     if-ge v5, v10, :cond_1
 
-    .line 1900
+    .line 1920
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     iget-object v6, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
@@ -181,7 +181,7 @@
     #setter for: Landroid/widget/ScrollView;->mHoverScrollSpeed:I
     invoke-static {v5, v6}, Landroid/widget/ScrollView;->access$702(Landroid/widget/ScrollView;I)I
 
-    .line 1908
+    .line 1928
     :goto_1
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
@@ -192,7 +192,7 @@
 
     if-ne v5, v8, :cond_4
 
-    .line 1909
+    .line 1929
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mHoverScrollSpeed:I
@@ -202,7 +202,7 @@
 
     mul-int/lit8 v1, v5, -0x1
 
-    .line 1918
+    .line 1938
     :goto_2
     if-gez v1, :cond_5
 
@@ -215,12 +215,12 @@
 
     if-lez v5, :cond_5
 
-    .line 1919
+    .line 1939
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     invoke-virtual {v5, v0, v1}, Landroid/widget/ScrollView;->scrollBy(II)V
 
-    .line 1921
+    .line 1941
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mHoverHandler:Landroid/widget/ScrollView$HoverScrollHandler;
@@ -241,7 +241,7 @@
 
     goto/16 :goto_0
 
-    .line 1901
+    .line 1921
     :cond_1
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
@@ -263,7 +263,7 @@
 
     if-ge v5, v6, :cond_2
 
-    .line 1902
+    .line 1922
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     iget-object v6, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
@@ -280,7 +280,7 @@
 
     goto :goto_1
 
-    .line 1903
+    .line 1923
     :cond_2
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
@@ -293,7 +293,7 @@
 
     if-lt v5, v6, :cond_3
 
-    .line 1904
+    .line 1924
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     iget-object v6, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
@@ -310,7 +310,7 @@
 
     goto :goto_1
 
-    .line 1906
+    .line 1926
     :cond_3
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
@@ -326,7 +326,7 @@
 
     goto :goto_1
 
-    .line 1911
+    .line 1931
     :cond_4
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
@@ -339,7 +339,7 @@
 
     goto :goto_2
 
-    .line 1922
+    .line 1942
     :cond_5
     if-lez v1, :cond_6
 
@@ -352,12 +352,12 @@
 
     if-ge v5, v3, :cond_6
 
-    .line 1923
+    .line 1943
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     invoke-virtual {v5, v0, v1}, Landroid/widget/ScrollView;->scrollBy(II)V
 
-    .line 1925
+    .line 1945
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mHoverHandler:Landroid/widget/ScrollView$HoverScrollHandler;
@@ -378,7 +378,7 @@
 
     goto/16 :goto_0
 
-    .line 1928
+    .line 1948
     :cond_6
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
@@ -386,7 +386,7 @@
 
     move-result v2
 
-    .line 1929
+    .line 1949
     .local v2, overscrollMode:I
     if-eqz v2, :cond_7
 
@@ -397,7 +397,7 @@
     :cond_7
     move v0, v4
 
-    .line 1932
+    .line 1952
     .local v0, canOverscroll:Z
     :cond_8
     if-eqz v0, :cond_c
@@ -411,7 +411,7 @@
 
     if-nez v5, :cond_c
 
-    .line 1933
+    .line 1953
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mHoverScrollDirection:I
@@ -421,7 +421,7 @@
 
     if-ne v5, v8, :cond_d
 
-    .line 1934
+    .line 1954
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
@@ -431,7 +431,7 @@
 
     invoke-virtual {v5, v9}, Landroid/widget/EdgeEffect;->onPull(F)V
 
-    .line 1935
+    .line 1955
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -445,7 +445,7 @@
 
     if-nez v5, :cond_9
 
-    .line 1936
+    .line 1956
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -455,7 +455,7 @@
 
     invoke-virtual {v5}, Landroid/widget/EdgeEffect;->onRelease()V
 
-    .line 1945
+    .line 1965
     :cond_9
     :goto_3
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
@@ -493,20 +493,20 @@
 
     if-nez v5, :cond_b
 
-    .line 1947
+    .line 1967
     :cond_a
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     invoke-virtual {v5}, Landroid/widget/ScrollView;->invalidate()V
 
-    .line 1949
+    .line 1969
     :cond_b
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #setter for: Landroid/widget/ScrollView;->mIsHoverOverscrolled:Z
     invoke-static {v5, v4}, Landroid/widget/ScrollView;->access$1402(Landroid/widget/ScrollView;Z)Z
 
-    .line 1952
+    .line 1972
     :cond_c
     if-nez v0, :cond_0
 
@@ -519,7 +519,7 @@
 
     if-nez v5, :cond_0
 
-    .line 1953
+    .line 1973
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #setter for: Landroid/widget/ScrollView;->mIsHoverOverscrolled:Z
@@ -527,7 +527,7 @@
 
     goto/16 :goto_0
 
-    .line 1938
+    .line 1958
     :cond_d
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
@@ -538,7 +538,7 @@
 
     if-ne v5, v4, :cond_9
 
-    .line 1939
+    .line 1959
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -548,7 +548,7 @@
 
     invoke-virtual {v5, v9}, Landroid/widget/EdgeEffect;->onPull(F)V
 
-    .line 1940
+    .line 1960
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
@@ -562,7 +562,7 @@
 
     if-nez v5, :cond_9
 
-    .line 1941
+    .line 1961
     iget-object v5, p0, Landroid/widget/ScrollView$HoverScrollHandler;->this$0:Landroid/widget/ScrollView;
 
     #getter for: Landroid/widget/ScrollView;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
@@ -574,7 +574,7 @@
 
     goto :goto_3
 
-    .line 1888
+    .line 1908
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

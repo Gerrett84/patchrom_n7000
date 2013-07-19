@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 158
+    .line 159
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 160
+    .line 161
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen$4;->this$0:Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -59,6 +59,6 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->reportDeviceWipe(I)V
 
-    .line 161
+    .line 162
     return-void
 .end method

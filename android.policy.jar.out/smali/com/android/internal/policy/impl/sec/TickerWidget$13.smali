@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 475
+    .line 558
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$13;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,17 +43,17 @@
     .parameter "arg1"
 
     .prologue
-    .line 479
+    .line 561
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$13;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1700(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     move-result-object v0
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 480
+    .line 562
     const/4 v0, 0x0
 
     return v0

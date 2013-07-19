@@ -28,9 +28,11 @@
 
 .field static final TRANSACTION_onDiscoverCharacteristics:I = 0x4
 
+.field static final TRANSACTION_onDiscoverCharacteristicsFailed:I = 0x5
+
 .field static final TRANSACTION_onReadCharValue:I = 0x1
 
-.field static final TRANSACTION_onWatcherValueChanged:I = 0x5
+.field static final TRANSACTION_onWatcherValueChanged:I = 0x6
 
 .field static final TRANSACTION_onWriteCharValue:I = 0x2
 
@@ -128,7 +130,7 @@
     .line 43
     sparse-switch p1, :sswitch_data_0
 
-    .line 104
+    .line 113
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
@@ -260,17 +262,38 @@
 
     move-result-object v0
 
+    .line 97
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack$Stub;->onDiscoverCharacteristicsFailed(Ljava/lang/String;)V
+
     .line 98
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto :goto_0
+
+    .line 103
+    .end local v0           #_arg0:Ljava/lang/String;
+    :sswitch_6
+    const-string v3, "com.samsung.bluetoothle.IBluetoothLEClientCharUpdationCallBack"
+
+    invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 105
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 107
     .restart local v0       #_arg0:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 99
+    .line 108
     .local v1, _arg1:Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack$Stub;->onWatcherValueChanged(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 100
+    .line 109
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto :goto_0
@@ -285,6 +308,7 @@
         0x3 -> :sswitch_3
         0x4 -> :sswitch_4
         0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 438
+    .line 439
     iput-object p1, p0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "event"
 
     .prologue
-    .line 442
+    .line 443
     invoke-static {}, Lcom/android/server/usb/UsbHostManager;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -68,7 +68,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 444
+    .line 445
     const-string v1, "ACTION"
 
     move-object/from16 v0, p1
@@ -77,7 +77,7 @@
 
     move-result-object v9
 
-    .line 445
+    .line 446
     .local v9, action:Ljava/lang/String;
     const-string v1, "DEVPATH"
 
@@ -87,7 +87,7 @@
 
     move-result-object v10
 
-    .line 446
+    .line 447
     .local v10, devPath:Ljava/lang/String;
     const-string v1, "STATE"
 
@@ -97,7 +97,7 @@
 
     move-result-object v14
 
-    .line 447
+    .line 448
     .local v14, state:Ljava/lang/String;
     const-string v1, "SWITCH_NAME"
 
@@ -107,7 +107,7 @@
 
     move-result-object v13
 
-    .line 448
+    .line 449
     .local v13, name:Ljava/lang/String;
     const-string v1, "SWITCH_STATE"
 
@@ -117,7 +117,7 @@
 
     move-result-object v15
 
-    .line 453
+    .line 454
     .local v15, switchState:Ljava/lang/String;
     const-string v1, "add"
 
@@ -127,7 +127,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 454
+    .line 455
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
@@ -135,7 +135,7 @@
     #calls: Lcom/android/server/usb/UsbHostManager;->turnOnLcd()V
     invoke-static {v1}, Lcom/android/server/usb/UsbHostManager;->access$200(Lcom/android/server/usb/UsbHostManager;)V
 
-    .line 457
+    .line 458
     :cond_0
     const-string v1, "remove"
 
@@ -145,7 +145,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 458
+    .line 459
     const/4 v12, 0x0
 
     .local v12, i:I
@@ -161,7 +161,7 @@
 
     if-ge v12, v1, :cond_1
 
-    .line 459
+    .line 460
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
@@ -189,12 +189,12 @@
     #calls: Lcom/android/server/usb/UsbHostManager;->setUsbObserverNotification(IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
     invoke-static/range {v1 .. v8}, Lcom/android/server/usb/UsbHostManager;->access$400(Lcom/android/server/usb/UsbHostManager;IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
 
-    .line 458
+    .line 459
     add-int/lit8 v12, v12, 0x1
 
     goto :goto_0
 
-    .line 461
+    .line 462
     :cond_1
     move-object/from16 v0, p0
 
@@ -205,7 +205,7 @@
     #setter for: Lcom/android/server/usb/UsbHostManager;->nNotiCount:I
     invoke-static {v1, v2}, Lcom/android/server/usb/UsbHostManager;->access$302(Lcom/android/server/usb/UsbHostManager;I)I
 
-    .line 464
+    .line 465
     .end local v12           #i:I
     :cond_2
     const-string v1, "change"
@@ -226,7 +226,7 @@
 
     if-eqz v1, :cond_4
 
-    .line 466
+    .line 467
     :try_start_0
     const-string v1, "ADD"
 
@@ -236,7 +236,7 @@
 
     if-eqz v1, :cond_5
 
-    .line 468
+    .line 469
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
@@ -256,7 +256,7 @@
 
     if-ne v1, v2, :cond_3
 
-    .line 469
+    .line 470
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
@@ -270,7 +270,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/usb/UsbHostManager$UsbHostHandler;->removeMessages(I)V
 
-    .line 472
+    .line 473
     :cond_3
     move-object/from16 v0, p0
 
@@ -279,16 +279,16 @@
     #calls: Lcom/android/server/usb/UsbHostManager;->turnOnLcd()V
     invoke-static {v1}, Lcom/android/server/usb/UsbHostManager;->access$200(Lcom/android/server/usb/UsbHostManager;)V
 
-    .line 473
+    .line 474
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    const v2, 0x104064f
+    const v2, 0x1040661
 
     const/4 v3, 0x0
 
-    const v4, 0x10806ba
+    const v4, 0x10806f2
 
     const/4 v5, 0x1
 
@@ -307,19 +307,19 @@
     #calls: Lcom/android/server/usb/UsbHostManager;->setUsbObserverNotification(IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
     invoke-static/range {v1 .. v8}, Lcom/android/server/usb/UsbHostManager;->access$400(Lcom/android/server/usb/UsbHostManager;IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
 
-    .line 478
+    .line 479
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
     invoke-virtual {v1}, Lcom/android/server/usb/UsbHostManager;->RemoveCableNotification()V
 
-    .line 518
+    .line 525
     :cond_4
     :goto_1
     return-void
 
-    .line 480
+    .line 481
     :cond_5
     const-string v1, "REMOVE"
 
@@ -327,23 +327,53 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
-    .line 481
-    const-wide/16 v1, 0xfa0
-
-    invoke-static {v1, v2}, Landroid/os/SystemClock;->sleep(J)V
-
-    .line 482
+    .line 483
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    const v2, 0x1040650
+    #getter for: Lcom/android/server/usb/UsbHostManager;->mHandler:Lcom/android/server/usb/UsbHostManager$UsbHostHandler;
+    invoke-static {v1}, Lcom/android/server/usb/UsbHostManager;->access$500(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbHostManager$UsbHostHandler;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/android/server/usb/UsbHostManager$UsbHostHandler;->hasMessages(I)Z
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_6
+
+    .line 484
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
+
+    #getter for: Lcom/android/server/usb/UsbHostManager;->mHandler:Lcom/android/server/usb/UsbHostManager$UsbHostHandler;
+    invoke-static {v1}, Lcom/android/server/usb/UsbHostManager;->access$500(Lcom/android/server/usb/UsbHostManager;)Lcom/android/server/usb/UsbHostManager$UsbHostHandler;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/android/server/usb/UsbHostManager$UsbHostHandler;->removeMessages(I)V
+
+    .line 489
+    :goto_2
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
+
+    const v2, 0x1040662
 
     const/4 v3, 0x0
 
-    const v4, 0x10806ba
+    const v4, 0x10806f2
 
     const/4 v5, 0x1
 
@@ -362,7 +392,7 @@
     #calls: Lcom/android/server/usb/UsbHostManager;->setUsbObserverNotification(IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
     invoke-static/range {v1 .. v8}, Lcom/android/server/usb/UsbHostManager;->access$400(Lcom/android/server/usb/UsbHostManager;IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
 
-    .line 487
+    .line 494
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
@@ -373,11 +403,11 @@
 
     goto :goto_1
 
-    .line 514
+    .line 521
     :catch_0
     move-exception v11
 
-    .line 515
+    .line 522
     .local v11, e:Ljava/lang/NumberFormatException;
     invoke-static {}, Lcom/android/server/usb/UsbHostManager;->access$100()Ljava/lang/String;
 
@@ -407,26 +437,34 @@
 
     goto :goto_1
 
-    .line 489
+    .line 486
     .end local v11           #e:Ljava/lang/NumberFormatException;
     :cond_6
+    const-wide/16 v1, 0xfa0
+
     :try_start_1
+    invoke-static {v1, v2}, Landroid/os/SystemClock;->sleep(J)V
+
+    goto :goto_2
+
+    .line 496
+    :cond_7
     const-string v1, "OVERCURRENT"
 
     invoke-virtual {v14, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8
 
-    .line 490
+    .line 497
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    const v2, 0x104064c
+    const v2, 0x104065e
 
-    const v3, 0x104064d
+    const v3, 0x104065f
 
     const v4, 0x108008a
 
@@ -447,31 +485,31 @@
     #calls: Lcom/android/server/usb/UsbHostManager;->setUsbObserverNotification(IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
     invoke-static/range {v1 .. v8}, Lcom/android/server/usb/UsbHostManager;->access$400(Lcom/android/server/usb/UsbHostManager;IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
 
-    .line 495
+    .line 502
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
     invoke-static {v1}, Lcom/android/server/usb/UsbHostManager;->access$308(Lcom/android/server/usb/UsbHostManager;)I
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    .line 497
-    :cond_7
+    .line 504
+    :cond_8
     const-string v1, "UNKNOWN"
 
     invoke-virtual {v14, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9
 
-    .line 498
+    .line 505
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    const v2, 0x104064e
+    const v2, 0x1040660
 
     const/4 v3, 0x0
 
@@ -494,7 +532,7 @@
     #calls: Lcom/android/server/usb/UsbHostManager;->setUsbObserverNotification(IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
     invoke-static/range {v1 .. v8}, Lcom/android/server/usb/UsbHostManager;->access$400(Lcom/android/server/usb/UsbHostManager;IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
 
-    .line 503
+    .line 510
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
@@ -503,8 +541,8 @@
 
     goto/16 :goto_1
 
-    .line 505
-    :cond_8
+    .line 512
+    :cond_9
     const-string v1, "LOWBATT"
 
     invoke-virtual {v14, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -513,12 +551,12 @@
 
     if-eqz v1, :cond_4
 
-    .line 506
+    .line 513
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;
 
-    const v2, 0x10403e8
+    const v2, 0x10403ee
 
     const/4 v3, 0x0
 
@@ -541,7 +579,7 @@
     #calls: Lcom/android/server/usb/UsbHostManager;->setUsbObserverNotification(IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
     invoke-static/range {v1 .. v8}, Lcom/android/server/usb/UsbHostManager;->access$400(Lcom/android/server/usb/UsbHostManager;IIIZZLandroid/app/PendingIntent;Ljava/lang/String;)V
 
-    .line 511
+    .line 518
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/usb/UsbHostManager$2;->this$0:Lcom/android/server/usb/UsbHostManager;

@@ -269,7 +269,7 @@
     <string name="turn_on_radio">Сымсыз режимді қосу</string>
     <string name="turn_off_radio">Сымсыз режимді өшіру</string>
     <string name="screen_lock">Экранды құлыптау</string>
-    <string name="power_off">Сөндіру</string>
+    <string name="power_off">Өшу уақыты</string>
     <string name="silent_mode_vibrate">Рингтон дірілі</string>
     <string name="shutdown_progress">Жабылуда…</string>
     <string name="shutdown_confirm">Құрылғы қазір өшеді</string>
@@ -279,9 +279,9 @@
     <string name="no_recent_tasks">Соңғы қосымшалар жоқ</string>
     <string name="global_actions">Құрылғы опциялары</string>
     <string name="global_action_lock">Экранды құлыптау</string>
-    <string name="global_action_power_off">Сөндіру</string>
+    <string name="global_action_power_off">Өшіру</string>
     <string name="global_action_restart">Қайта бастау</string>
-    <string name="global_action_sound_mode_mute">Дыбысын өшіру</string>
+    <string name="global_action_sound_mode_mute">Дыбыссыз</string>
     <string name="global_action_sound_mode_vibrate">Дірілдеу</string>
     <string name="global_action_sound_mode_sound">Дыбыс</string>
     <string name="global_action_toggle_silent_mode">Үнсіз режим</string>
@@ -303,7 +303,7 @@
     <string name="data_usage_disable_mobile">Ұялы деректер қосылымын өшіру керек пе?</string>
     <string name="global_action_insert_sim_card">SIM-картаны енгізу</string>
     <string name="global_action_insert_sim_card_message">Желі қызметтеріне өту үшін SIM картасына салу</string>
-    <string name="globalactions_silent_mode_mute">Дыбысын өшіру</string>
+    <string name="globalactions_silent_mode_mute">Дыбыссыз</string>
     <string name="globalactions_silent_mode_vibrate">Дірілдеу</string>
     <string name="globalactions_silent_mode_sound">Дыбыс</string>
     <string name="safeMode">Қауіпсіздік режимі</string>
@@ -355,6 +355,7 @@
     <string name="permdesc_mdmKioskMode">Киоск режиміндегі құрылғы тәртібін басқару</string>
     <string name="tether_usb_restrict">Қауіпсіздік саясаты USB шегінің пайдаланылуын шектейді</string>
     <string name="tether_wifi_restrict">Қауіпсіздік саясаты Wi-Fi шегінің пайдаланылуын шектейді</string>
+    <string name="data_call_restriction">Қауіпсіздік саясаты ұялы деректер пайдалануын шектейді</string>
     <string name="dpm_wifi_blocked_network">Қауіпсіздік саясаты бұл Wi-Fi желісінің пайдаланылуына тыйым салады</string>
     <string name="dpm_wifi_misc_wifi_disabled">Қауіпсіздік саясаты Wi-Fi пайдаланылуын шектейді</string>
     <string name="dpm_wifi_misc_network_insecure">Қауіпсіздік саясаты қауіпсіз емес Wi-Fi желілерінің пайдаланылуын шектейді</string>
@@ -538,6 +539,7 @@
     <string name="permlab_readSocialStream">Әлеуметтік ағымды оқу</string>
     <string name="permlab_writeSocialStream">Жергілікті ағынға жіберу</string>
     <string name="permlab_readCalendar">Күнтізбе оқиғаларын және құпия ақпаратты оқу</string>
+    <string name="permlab_writeCalendar">Хосттың хабардар болуынсыз күнтізбе оқиғаларын қосу және өзгерту және қонақтарға электрондық пошта хабарларын жіберу</string>
     <string name="permlab_accessMockLocation">тексеру үшін жасанды орын ресурстары</string>
     <string name="permdesc_accessMockLocation">Бағдарламаға тексеру үшін жасанды орын ресурстарын жасауға мүмкіндік береді. Мүмкіндік берілсе, зиянды бағдарламалар GPS немесе операторлар сияқты нақты орын ресурстарымен берілген орыннан және/немесе күйден басым болады немесе орныңызды бақылап, еркін веб-сайттарға хабар беруі мүмкін</string>
     <string name="permlab_accessLocationExtraCommands">қосымша орын жабдықтаушының командаларына өту</string>
@@ -625,6 +627,7 @@
     <string name="permdesc_getAccounts">Бағдарламаға телефонда белгілі есептік жазбалар тізіміне өтуге мүмкіндік береді</string>
     <string name="permlab_authenticateAccounts">Есептік жазба түпнұсқалығын растау құралы ретінде әрекет ету</string>
     <string name="permdesc_authenticateAccounts">Бағдарламаға есептік жазба реттеуішінің аутентикаторын пайдалануға мүмкіндік береді. Оған есептік жазбалар құру және құпиясөздерді басқару кіреді</string>
+    <string name="permlab_manageAccounts">Есептік жазбаларды қосу немесе жою</string>
     <string name="permdesc_manageAccounts">Бағдарламаға есептік жазбалар қосуға және алып тастауға және құпиясөзді жоюға мүмкіндік береді</string>
     <string name="permlab_useCredentials">Есептік жазба түпнұсқалығын растау мәліметтерін пайдалану</string>
     <string name="permdesc_useCredentials">Бағдарламаға түпнұсқалығын растау таңбалауыштарын сұрауға мүмкіндік береді</string>
@@ -644,6 +647,7 @@
     <string name="permlab_changeWifiState">Wi-Fi күйін өзгерту</string>
     <string name="permdesc_changeWifiState">Бағдарламаға Wi-Fi кіру нүктелерінен қосылуға және ажыратуға және конфигурацияланған Wi-Fi желілерін өзгертулер енгізуге мүмкіндік береді</string>
     <string name="permlab_changeWifiMulticastState">Wi-Fi топтық қабылдауына рұқсат ету</string>
+    <string name="permlab_bluetoothAdmin">Bluetooth параметрлері</string>
     <string name="permdesc_bluetoothAdmin">Қосымшаның жергілікті Bluetooth телефонын конфигурациялауына және қашықтағы құрылғыларды анықтап, жұптастыруына мүмкіндік береді</string>
     <string name="permlab_accessWimaxState">WiMAX күйін көру</string>
     <string name="permlab_changeWimaxState">WiMAX күйін өзгертіңіз</string>
@@ -725,6 +729,7 @@
     <string name="policydesc_allow_desktopsync">Жұмыс үстелі синхрондалуының пайдаланылуына жол бермеу</string>
     <string name="policylab_require_storagecard_encryption">SD картасының шифрлауын орнату</string>
     <string name="policydesc_require_storagecard_encryption">SD картасындағы бағдарламаның шифрлануын талап ету</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth ажыратылды</string>
     <string name="bluetooth_security_mode_disable">Қауіпсіздік саясаты Bluetooth байланысының пайдаланылуын шектейді</string>
     <string name="bluetooth_security_mode_handsfree">Қауіпсіздік саясаты Bluetooth арқылы спикерфон мүмкіндіктеріне ғана қосылып пайдаланылуын шектейді</string>
     <string name="phoneTypeCustom">Әдеттегі</string>
@@ -796,10 +801,12 @@
     <string name="sipAddressTypeHome">Үй парағы</string>
     <string name="sipAddressTypeWork">Жұмыс</string>
     <string name="sipAddressTypeOther">Басқа</string>
+    <string name="keyguard_password_enter_pin_code">PIN кодын теру</string>
     <string name="keyguard_password_enter_puk_code">PUK коды мен жаңа PIN кодын енгізіңіз</string>
     <string name="keyguard_password_entry_touch_hint">Құпиясөз енгізу үшін түртіңіз</string>
     <string name="keyguard_password_enter_password_code">Құлпын ашу үшін құпиясөз енгізіңіз</string>
     <string name="keyguard_password_enter_pin_password_code">Құлпын ашу үшін PIN кодын енгізіңіз</string>
+    <string name="keyguard_password_wrong_pin_code">Дұрыс емес PIN коды</string>
     <string name="keyguard_pin_accepted">Код қабылданды</string>
     <string name="keyguard_label_text">Құлпын ашу үшін Мәзір, сосын 0 түймесін басыңыз</string>
     <string name="emergency_call_dialog_number_for_display">Төтенше қызмет нөмірі</string>
@@ -826,8 +833,9 @@
     <string name="lockscreen_network_locked_message">Желі құлыпталған</string>
     <string name="lockscreen_sim_puk_locked_message">SIM картасы PUK кодымен құлыпталған</string>
     <string name="lockscreen_sim_puk_locked_instructions">Пайдаланушы нұсқаулығын қараңыз немесе Тұтынушыларға техникалық қызмет көрсету орталығына хабарласыңыз</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM картасы құлыпталды</string>
+    <string name="lockscreen_sim_locked_message">SIM картасы құлыпталған</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">SIM картасының құлпы ашылуда…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Құлпын ашу үлгісі %1$d рет қате салынды. Әрекетті %2$d секундтан кейін қайталаңыз</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Құпиясөз %1$d рет дұрыс енгізілмеді. Әрекетті %2$d секундтан кейін қайталап көріңіз</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 бұғатталды. PIN1 құлпын ашу үшін PUK1 кодын енгізіңіз</string>
@@ -866,6 +874,7 @@
     <string name="autofill_this_form">Өз толтыру</string>
     <string name="autofill_address_type_same_as_re">Бірдей</string>
     <string name="autofill_billing_designator_re">Шот</string>
+    <string name="autofill_shipping_designator_re">Кеме</string>
     <string name="autofill_phone_suffix_re">Лауазым</string>
     <string name="autofill_name_on_card_contextual_re">Аты</string>
     <string name="autofill_province">Облыс</string>
@@ -879,6 +888,7 @@
     <string name="autofill_prefecture">Префектура</string>
     <string name="autofill_parish">Махалла</string>
     <string name="autofill_area">Алаң</string>
+    <string name="permlab_readHistoryBookmarks">Интернет журналы мен бетбелгілерді оқыңыз</string>
     <string name="permdesc_readHistoryBookmarks">Бағдарламаға браузер кірген URL мекенжайларының барлығын және браузер бетбелгілерінің барлығын оқуға мүмкіндік береді</string>
     <string name="permdesc_writeHistoryBookmarks">Бағдарламаға телефонға сақталған интернет журналын және бетбелгілерді өзгертуге мүмкіндік береді. Мүмкіндік берілсе, зиянды бағдарламалар мұндай деректерді өшіре немесе өзгерте алады</string>
     <string name="permlab_setAlarm">Дабылды орнату</string>
@@ -943,10 +953,12 @@
     <string name="inputMethod">Енгізу әдісі</string>
     <string name="low_internal_storage_view_title">Жад толуға жақын</string>
     <string name="low_internal_storage_view_text">Кейбір жүйе функциялары жұмыс істемеуі мүмкін</string>
+    <string name="full_internal_storage_view_text">Құрылғы жады толық болғандықтан қате пайда болуы мүмкін. Кейбір элементтерді жойыңыз</string>
     <string name="loading">Жазылуда…</string>
     <string name="capital_on">Қосулы</string>
     <string name="capital_off">Өшірулі</string>
     <string name="whichApplication">Әрекетті аяқтау</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Бұл әрекет үшін әдепкі мәні бойынша пайдаланыңыз</string>
     <string name="clearDefaultHintMsg">Параметрлер > Бағдарламалар реттеуішісі > Барлығы параметріне өтіп, әдепкі бағдарлама параметрлерін өшіріңіз</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -987,7 +999,7 @@
     <string name="volume_bluetooth_call">Bluetooth қоң-у дыбыс деңгейі</string>
     <string name="volume_alarm">Сигнал қатаңдығы</string>
     <string name="volume_notification">Мәлімдеменің дауыс қаттылығы</string>
-    <string name="volume_unknown">Дыбыс қаттылығы</string>
+    <string name="volume_unknown">Көлемі</string>
     <string name="volume_icon_description_bluetooth">Bluetooth гарнитурасының дыбыс деңгейі</string>
     <string name="volume_icon_description_ringer">Рингтон дауысы</string>
     <string name="volume_icon_description_incall">Қоңырау ішіндегі дыбыс деңгейі</string>
@@ -1004,7 +1016,7 @@
     <string name="wifi_notification_no_network_message">Wi-Fi параметрлерін ашу</string>
     <string name="wifi_notification_not_connected">Wi-Fi желілері қол жетімді</string>
     <string name="wifi_notification_not_connected_message">Қол жетімді Wi-Fi желілерін ашу</string>
-    <string name="wifi_notification_connected">%1$s қосылған</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Wi-Fi конфигурациялау үшін түртіңіз</string>
     <string name="wifi_notification_connected_secure">Қауіпсіздік</string>
     <string name="wifi_notification_connected_open">Ашу</string>
@@ -1016,7 +1028,7 @@
     <string name="wifi_p2p_enabled_notification_title">Wi-Fi Direct қосулы</string>
     <string name="wifi_p2p_enabled_notification_message">Параметрлер өзгерту үшін түрт-з</string>
     <string name="accept">Алу</string>
-    <string name="decline">Қабылдамау</string>
+    <string name="decline">Алып тастау</string>
     <string name="wifi_p2p_invitation_sent_title">Шақыру жіберілді</string>
     <string name="wifi_p2p_invitation_to_connect_title">Қосылуға шақыру</string>
     <string name="wifi_p2p_from_message">Келесіден:</string>
@@ -1031,9 +1043,9 @@
     <string name="select_character">Таңба енгізу</string>
     <string name="sms_control_default_app_name">Белгісіз қолданба</string>
     <string name="sms_control_title">SMS жіберілуде…</string>
-    <string name="sms_control_message">Көп SMS хабары жіберілуде. Жалғастыру үшін OK немесе жіберуді тоқтату үшін \"Бас тарту\" түймесін түртіңіз</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Тоқтату</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> көп SMS хабарларын жіберуде. Бұл бағдарламаға хабарлар жіберуді жалғастыруға рұқсат ету керек пе?</string>
+    <string name="sms_control_yes">Рұқсат</string>
+    <string name="sms_control_no">Бас тарту</string>
     <string name="sim_removed_title">SIM картасы алынды</string>
     <string name="sim_removed_message">Жарамды SIM картасын салып, қайта іске қосқанша ұялы байланыс желісі қол жетімді болмайды</string>
     <string name="sim_done_button">Дайын</string>
@@ -1111,7 +1123,7 @@
     <string name="activity_list_empty">Сәйкес келетін әрекеттер табылмады</string>
     <string name="permlab_pkgUsageStats">компоненттік пайдалану статистикасын жаңарту</string>
     <string name="permdesc_pkgUsageStats">Жиналған компонентті пайдалану статистикасының өзгерістеріне рұқсат береді. Қалыпты қосымшалар бойынша пайдалануға арналмаған</string>
-    <string name="permlab_copyProtectedData">Әдепкі қамту қызметіне мазмұнды көшіруге мүмкіндік береді. Кәдімгі бағдарламалардың пайдаланылуына арналмаған</string>
+    <string name="permlab_copyProtectedData">Мазмұнды көшіру</string>
     <string name="permdesc_copyProtectedData">Әдепкі қамту қызметіне мазмұнды көшіруге мүмкіндік береді. Кәдімгі бағдарламалардың пайдаланылуына арналмаған</string>
     <string name="permlab_route_media_output">Медиа шығысты бағыттау</string>
     <string name="permdesc_route_media_output">Бағдарламаға медиа шығысты басқа сыртқы құрылғыларға бағыттауға мүмкіндік береді</string>
@@ -1242,10 +1254,11 @@
     <string name="action_bar_home_description">Бастапқы бетке өту</string>
     <string name="action_bar_up_description">Жоғары шарлау</string>
     <string name="action_menu_overflow_description">Басқа параметрлер</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Алдыңғы өлшемге ауыстыру</string>
     <string name="storage_internal">Құрылғы жады</string>
     <string name="storage_sd_card">SD карта</string>
     <string name="storage_usb">Телефонның ішкі жады</string>
-    <string name="extract_edit_menu_button">Өзгерту….</string>
+    <string name="extract_edit_menu_button">Өзгерту</string>
     <string name="data_usage_warning_title">Деректер пайдалануды ескерту</string>
     <string name="data_usage_warning_body">Пайдалану мен параметрлерді көру үшін түртіңіз</string>
     <string name="data_usage_3g_limit_title">2G-3G деректері өшірілді</string>
@@ -1274,7 +1287,7 @@
     <string name="fingerprints">Саусақ іздері</string>
     <string name="sha256_fingerprint">SHA-256 саусақ ізі:</string>
     <string name="sha1_fingerprint">SHA-1 саусақ ізі:</string>
-    <string name="activity_chooser_view_see_all">Б. көру</string>
+    <string name="activity_chooser_view_see_all">Барлығын көру</string>
     <string name="activity_chooser_view_dialog_title_default">Әрекетті таңдау</string>
     <string name="share_action_provider_share_with">Бөлісу</string>
     <string name="status_bar_device_locked">Құрылғы құлыпталған</string>
@@ -1329,6 +1342,8 @@
     <string name="lockscreen_fmapp_name">FM радиосы</string>
     <string name="lockscreen_clock_dualclock_home">Үй парағы</string>
     <string name="lockscreen_clock_dualclock_roaming">Роуминг</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Сеул уақыты</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Роуминг уақыты</string>
     <string name="lockscreen_clock_dualclock_popup_title">Қос сағат</string>
     <string name="lockscreen_clock_dualclock_popup_message">Құлыптаулы экраннан қос сағатты көрсету үшін бастапқы қаланы таңдаңыз. Параметрлерге өту керек пе?</string>
     <string name="lockscreen_ticker_no_data_to_display">Көрсететін дерек жоқ</string>
@@ -1365,7 +1380,7 @@
     <string name="lockscreen_2ndLock_instructions2">Құлпын ашу үшін сақтық PIN кодын енгізіңіз</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Сіз құлпын ашу үлгісін %1$d рет дұрыс салмадыңыз. Әрекетті %2$d секундтан кейін қайталаңыз.</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Құлпын ашу үлгісі %1$d рет қате салынды. Google жүйесіне кіру немесе сақтық PIN арқылы құрылғының құлпын ашу сұралғанға дейін %2$d әрекет қалды. Әрекетті %3$d секундтан кейін қайталаңыз</string>
     <string name="lockscreen_carrier_noservice">(Қызмет жоқ)</string>
     <string name="rescan_network">Қатынаулы желіні іздеуде</string>
     <string name="AutoUpdateOfTimeAndDate">Күннен және үақыттын автоматтикалық жаңарту</string>
@@ -1376,6 +1391,8 @@
     <string name="capabilitymanager_managed_errortitle">Қате</string>
     <string name="security_policy_title">Қауіпсіздік саясаттары</string>
     <string name="security_policy_summary">Шифрлау саясаттары қашықтағы әкімшіден алынды</string>
+    <string name="sdcard_unmount_policy_noti_title">SD картасы АТ саясатына байланысты салынбады</string>
+    <string name="sdcard_unmount_policy_noti_content">SD картасын салу үшін түртіңіз</string>
     <string name="sdcard_encrypt_title_notification">SD картасын шифрлау</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">SD картасы шифрлануда…</string>
     <string name="sdcard_encrypt_notification">SD картасы шифрланды</string>
@@ -1399,7 +1416,7 @@
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1441,7 +1458,7 @@
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Енгізілген мәндер жарамды ауқымнан тыс. Мәндерді тексеріп, әрекетті қайталаңыз</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1463,6 +1480,8 @@
     <string name="SS_USB_TETHERING_ENABLED">USB байланыстыру қосылды</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Wi-Fi байланыстыру қосылды</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Байланыстыру қосылды (Wi-Fi және USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Құрылғы құлыпталды. Құпиясөзді енгізу әрекеттерінің ең көп санына жетті. Құрылғы құлпын ашуға қажетті қалпына келтіру құпиясөзі. Егер қалпына келтіру құпиясөзін дұрыс енгізбесеңіз, барлық деректер өшіріледі</string>
+    <string name="recovery_password_required">Құрылғы құлпын ашуға қажетті қалпына келтіру құпиясөзі</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Деректерді коммутациялық арнамен жіберу желісі қосылды</string>
@@ -1496,12 +1515,21 @@
     <string name="lockscreen_ticker_logo_news_tts">Жаңалықтар</string>
     <string name="lockscreen_ticker_logo_stock_tts">Қор</string>
     <string name="lockscreen_ticker_refresh_tts">Жаңарту</string>
+    <string name="SS_ALWAYS_ON_TOP">Әрдайым жоғарыда</string>
+    <string name="SS_MINIMISE">Азайту</string>
+    <string name="SS_MAXIMISE">Арттыру</string>
+    <string name="SS_CLOSE_APPLICATION">Бағдарламаны жабу</string>
+    <string name="spengesture_media_scanning">Суретті қиып алу мүмкін емес. Медиа сканер іске қосылуда</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN блоктаулы</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">SIM карта құлпын ашу үшін қызмет жеткізушісіне хабарласыңыз</string>
     <string name="resolver_guide_title">Әдепкі мәндерін өшіру</string>
     <string name="operation_not_allowed">Амалға рұқсат жоқ</string>
     <string name="exceeded_maxlength">Максималды хабар өлшемі асырылды</string>
     <string name="dont_show_again_message">Қайта көрсетпеңіз</string>
     <string name="set_bing_as_default">Bing қызметін әдепкі іздеу механизмі ретінде орнату керек пе?</string>
     <string name="ms_domain_site">Microsoft домен сайты</string>
+    <string name="unsupported_in_popupbrowser">Қалқымалы Браузерде қолданылмайтын функция</string>
+    <string name="find_on_page_abb">Беттен табу</string>
     <string name="tw_clipboard_already_exists">Қолданыста бар</string>
     <string name="tw_clipboard_no_items_to_paste">Қойылатын элементтер жоқ</string>
     <string name="tw_clipboard_save_in_memo">Жазбаларға сақтау</string>
@@ -1515,9 +1543,12 @@
     <string name="tw_ids_com_body_unlock_in_clipboard">Буфер құлпынан шешу</string>
     <string name="tw_clipboard_clear">Өшіру</string>
     <string name="tw_clipboard_delete_all">Бәрін жоясыз ба?</string>
-    <string name="tw_clipboard_edit">Өзгерту</string>
-    <string name="tw_clipboard_done">Аяқталды</string>
-    <string name="tw_clipboard_save">Сақтау</string>
+    <string name="tw_clipboard_edit">Өзг.</string>
+    <string name="tw_clipboard_done">Дай.</string>
+    <string name="tw_clipboard_save">Сақт</string>
     <string name="tw_clipboard_no_item">Баптар жоқ</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Құлыпталған элементтерден басқа барлық элементтер буферден жойылды</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Буферден қойылды</string>
+    <string name="Roaming_Auto_Dialing">PIN блоктаулы</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

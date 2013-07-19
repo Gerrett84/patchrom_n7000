@@ -107,7 +107,7 @@
     invoke-virtual {v1, p1}, Landroid/content/Intent;->setSourceBounds(Landroid/graphics/Rect;)V
 
     .line 7745
-    const-string v3, "mode"
+    const-string/jumbo v3, "mode"
 
     invoke-virtual {v1, v3, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 

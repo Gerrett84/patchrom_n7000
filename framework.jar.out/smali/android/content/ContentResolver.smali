@@ -909,9 +909,7 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {p3}, Landroid/net/Uri;->toString()Ljava/lang/String;
-
-    move-result-object v7
+    const-string v7, ""
 
     aput-object v7, v5, v6
 
@@ -2223,7 +2221,7 @@
     .line 1024
     new-instance v2, Ljava/lang/NullPointerException;
 
-    const-string v3, "method == null"
+    const-string/jumbo v3, "method == null"
 
     invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 

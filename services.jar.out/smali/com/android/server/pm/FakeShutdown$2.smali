@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 315
+    .line 435
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -33,31 +33,51 @@
     .parameter "intent"
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 319
+    .line 439
     invoke-static {}, Lcom/android/server/pm/FakeShutdown;->access$000()Landroid/content/BroadcastReceiver;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 320
+    .line 440
+    invoke-static {}, Lcom/android/server/pm/FakeShutdown;->access$100()Ljava/lang/Object;
+
+    move-result-object v1
+
+    monitor-enter v1
+
+    .line 441
+    :try_start_0
     const-string v0, "plugged"
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 321
-    invoke-static {v2}, Lcom/android/server/pm/FakeShutdown;->access$102(I)I
+    .line 442
+    const/4 v0, 0x0
 
-    .line 325
+    invoke-static {v0}, Lcom/android/server/pm/FakeShutdown;->access$202(I)I
+
+    .line 446
     :goto_0
+    invoke-static {}, Lcom/android/server/pm/FakeShutdown;->access$100()Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
+
+    .line 447
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 448
     const-string v0, "FakeShutdown"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -70,7 +90,7 @@
 
     move-result-object v1
 
-    invoke-static {}, Lcom/android/server/pm/FakeShutdown;->access$100()I
+    invoke-static {}, Lcom/android/server/pm/FakeShutdown;->access$200()I
 
     move-result v2
 
@@ -84,12 +104,25 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 326
+    .line 449
     return-void
 
-    .line 323
+    .line 444
     :cond_0
-    invoke-static {v2}, Lcom/android/server/pm/FakeShutdown;->access$102(I)I
+    const/4 v0, 0x1
+
+    :try_start_1
+    invoke-static {v0}, Lcom/android/server/pm/FakeShutdown;->access$202(I)I
 
     goto :goto_0
+
+    .line 447
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
 .end method

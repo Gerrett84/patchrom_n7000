@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 103
+    .line 108
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 105
+    .line 110
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     #getter for: Lcom/android/internal/app/ResolverActivity;->mIsDeviceDefault:Z
@@ -53,7 +53,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 106
+    .line 111
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
@@ -76,16 +76,16 @@
     :goto_0
     invoke-virtual {v1, v2, v0}, Lcom/android/internal/app/ResolverActivity;->startSelected(IZ)V
 
-    .line 107
+    .line 112
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity;->dismiss()V
 
-    .line 109
+    .line 114
     :cond_0
     return-void
 
-    .line 106
+    .line 111
     :cond_1
     const/4 v0, 0x0
 

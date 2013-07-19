@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 100
+    .line 101
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2$1;->this$1:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 4
 
     .prologue
-    .line 102
+    .line 103
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2$1;->this$1:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
@@ -53,7 +53,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 103
+    .line 104
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v2, "com.sec.android.app.camera"
@@ -62,22 +62,29 @@
 
     invoke-direct {v0, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 104
+    .line 105
     .local v0, cm:Landroid/content/ComponentName;
     new-instance v1, Landroid/content/Intent;
 
-    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+    const-string v2, "android.intent.action.MAIN"
 
-    .line 106
-    .local v1, stillCameraIntent:Landroid/content/Intent;
-    invoke-virtual {v1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 107
-    const/high16 v2, 0x1000
+    .local v1, stillCameraIntent:Landroid/content/Intent;
+    const-string v2, "android.intent.category.LAUNCHER"
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 108
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    .line 109
+    const/high16 v2, 0x1020
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 108
+    .line 110
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2$1;->this$1:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
@@ -89,7 +96,7 @@
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 109
+    .line 111
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2$1;->this$1:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleLockScreenMotion;
@@ -101,7 +108,7 @@
 
     invoke-interface {v2}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToUnlockScreen()V
 
-    .line 111
+    .line 113
     .end local v0           #cm:Landroid/content/ComponentName;
     .end local v1           #stillCameraIntent:Landroid/content/Intent;
     :cond_0

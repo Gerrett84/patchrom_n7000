@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 144
+    .line 164
     iput-object p1, p0, Landroid/webkit/HTML5VideoFullScreen$3;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
     .parameter "height"
 
     .prologue
-    .line 147
+    .line 167
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$3;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->getVideoWidth()I
@@ -54,7 +54,7 @@
     #setter for: Landroid/webkit/HTML5VideoFullScreen;->mVideoWidth:I
     invoke-static {v0, v1}, Landroid/webkit/HTML5VideoFullScreen;->access$002(Landroid/webkit/HTML5VideoFullScreen;I)I
 
-    .line 148
+    .line 168
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$3;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->getVideoHeight()I
@@ -64,7 +64,7 @@
     #setter for: Landroid/webkit/HTML5VideoFullScreen;->mVideoHeight:I
     invoke-static {v0, v1}, Landroid/webkit/HTML5VideoFullScreen;->access$102(Landroid/webkit/HTML5VideoFullScreen;I)I
 
-    .line 149
+    .line 169
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$3;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
     #getter for: Landroid/webkit/HTML5VideoFullScreen;->mVideoWidth:I
@@ -83,11 +83,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 150
+    .line 170
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$3;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
     #getter for: Landroid/webkit/HTML5VideoFullScreen;->mVideoSurfaceView:Landroid/webkit/HTML5VideoFullScreen$VideoSurfaceView;
-    invoke-static {v0}, Landroid/webkit/HTML5VideoFullScreen;->access$700(Landroid/webkit/HTML5VideoFullScreen;)Landroid/webkit/HTML5VideoFullScreen$VideoSurfaceView;
+    invoke-static {v0}, Landroid/webkit/HTML5VideoFullScreen;->access$300(Landroid/webkit/HTML5VideoFullScreen;)Landroid/webkit/HTML5VideoFullScreen$VideoSurfaceView;
 
     move-result-object v0
 
@@ -111,7 +111,7 @@
 
     invoke-interface {v0, v1, v2}, Landroid/view/SurfaceHolder;->setFixedSize(II)V
 
-    .line 152
+    .line 172
     :cond_0
     return-void
 .end method

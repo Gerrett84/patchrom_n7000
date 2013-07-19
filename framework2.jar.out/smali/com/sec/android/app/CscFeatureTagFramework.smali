@@ -6,9 +6,13 @@
 # static fields
 .field public static final TAG_CSCFEATRUE_FRAMEWORK_INVALIDATEFLAG4SPLITTOUCH:Ljava/lang/String; = "CscFeature_Framework_InvalidateFlag4SplitTouch"
 
+.field public static final TAG_CSCFEATURE_FRAMEWORK_AddOnApp4MultiWindow:Ljava/lang/String; = "CscFeature_MultiWindow_AddOnApp"
+
 .field public static final TAG_CSCFEATURE_FRAMEWORK_CHECKVALIDAPP4SPECIFICMCCMNC:Ljava/lang/String; = "CscFeature_Framework_CheckValidApp4SpecificMccMnc"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_DISABLECOMPENSATIONTOUCHAREAINSCROLLBAR:Ljava/lang/String; = "CscFeature_Framework_DisableCompensationTouchAreaInScrollBar"
+
+.field public static final TAG_CSCFEATURE_FRAMEWORK_DISABLEFORCECLOSEPOPUP:Ljava/lang/String; = "CscFeature_Framework_DisableForceClosePopup"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_DISABLEPENDETACHMENTALERT:Ljava/lang/String; = "CscFeature_Framework_DisablePenDetachmentAlert"
 
@@ -24,6 +28,8 @@
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_ENABLETHAIVIETRESHAPING:Ljava/lang/String; = "CscFeature_Framework_EnableThaiVietReshaping"
 
+.field public static final TAG_CSCFEATURE_FRAMEWORK_ExcludeApp4MultiWindow:Ljava/lang/String; = "CscFeature_MultiWindow_ExcludedApp"
+
 .field public static final TAG_CSCFEATURE_FRAMEWORK_FILTEREXTRAPACKAGE:Ljava/lang/String; = "CscFeature_Framework_FilterExtraPackage"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_HYPERLINKDIGIT:Ljava/lang/String; = "CscFeature_Framework_HyperLinkDigit"
@@ -33,6 +39,8 @@
 .field public static final TAG_CSCFEATURE_FRAMEWORK_LANGQWERTYTYPE4HWKEY:Ljava/lang/String; = "CscFeature_Sip_LangQwertyType4HwKey"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_NTTVOICEINPUT:Ljava/lang/String; = "CscFeature_Framework_NTTVoiceInput"
+
+.field public static final TAG_CSCFEATURE_FRAMEWORK_PLMNSHOWONSTATUSBAR:Ljava/lang/String; = "CscFeature_UIFW_EnableStatusbarNetworkName"
 
 .field public static final TAG_CSCFEATURE_FRAMEWORK_REPLACEDATATYPEICONASOPBRAND:Ljava/lang/String; = "CscFeature_Framework_ReplaceDataTypeIconAsOpBrand"
 

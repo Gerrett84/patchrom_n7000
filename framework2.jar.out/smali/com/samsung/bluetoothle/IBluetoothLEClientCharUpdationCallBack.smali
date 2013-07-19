@@ -23,6 +23,14 @@
     .end annotation
 .end method
 
+.method public abstract onDiscoverCharacteristicsFailed(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onReadCharValue(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

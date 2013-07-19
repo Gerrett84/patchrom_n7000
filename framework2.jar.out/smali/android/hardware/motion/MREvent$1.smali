@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 353
+    .line 355
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,7 +45,7 @@
     .parameter "in"
 
     .prologue
-    .line 355
+    .line 357
     new-instance v0, Landroid/hardware/motion/MREvent;
 
     invoke-direct {v0, p1}, Landroid/hardware/motion/MREvent;-><init>(Landroid/os/Parcel;)V
@@ -58,7 +58,7 @@
     .parameter "x0"
 
     .prologue
-    .line 353
+    .line 355
     invoke-virtual {p0, p1}, Landroid/hardware/motion/MREvent$1;->createFromParcel(Landroid/os/Parcel;)Landroid/hardware/motion/MREvent;
 
     move-result-object v0
@@ -71,7 +71,7 @@
     .parameter "size"
 
     .prologue
-    .line 358
+    .line 360
     new-array v0, p1, [Landroid/hardware/motion/MREvent;
 
     return-object v0
@@ -82,7 +82,7 @@
     .parameter "x0"
 
     .prologue
-    .line 353
+    .line 355
     invoke-virtual {p0, p1}, Landroid/hardware/motion/MREvent$1;->newArray(I)[Landroid/hardware/motion/MREvent;
 
     move-result-object v0

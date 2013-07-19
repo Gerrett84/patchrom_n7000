@@ -20,7 +20,7 @@
     sput-object v0, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
     .line 53
-    const/16 v0, 0xd
+    const/16 v0, 0x14
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -44,59 +44,101 @@
 
     const/4 v1, 0x3
 
-    const-string v2, "com.android.settings.ChooseLockPassword"
+    const-string v2, "com.android.settings.ChooseLockAdditionalPin"
 
     aput-object v2, v0, v1
 
     const/4 v1, 0x4
 
-    const-string v2, "com.android.settings.DeviceAdminAdd"
+    const-string v2, "com.android.settings.ChooseLockFaceWarning"
 
     aput-object v2, v0, v1
 
     const/4 v1, 0x5
 
-    const-string v2, "com.android.settings.bluetooth.DevicePickerActivity"
+    const-string v2, "com.android.settings.ChooseLockGeneric"
 
     aput-object v2, v0, v1
 
     const/4 v1, 0x6
 
-    const-string v2, "com.android.settings.wifi.p2p.WifiP2pDeviceList"
+    const-string v2, "com.android.settings.ChooseLockMotion"
 
     aput-object v2, v0, v1
 
     const/4 v1, 0x7
 
-    const-string v2, "com.android.settings.Settings$WifiP2pDevicePickerActivity"
+    const-string v2, "com.android.settings.ChooseLockPassword"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x8
 
-    const-string v2, "com.android.settings.wfd.WfdPickerActivity"
+    const-string v2, "com.android.settings.ChooseLockPattern"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x9
 
-    const-string v2, "com.android.settings.bluetooth.BluetoothPairingDialog"
+    const-string v2, "com.android.settings.ConfirmLockPassword"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa
 
-    const-string v2, "com.android.settings.bluetooth.CheckBluetoothStateActivity"
+    const-string v2, "com.android.settings.ConfirmLockPattern"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xb
 
-    const-string v2, "com.android.settings.bluetooth.BluetoothEnableActivity"
+    const-string v2, "com.android.settings.DeviceAdminAdd"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xc
+
+    const-string v2, "com.android.settings.bluetooth.DevicePickerActivity"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xd
+
+    const-string v2, "com.android.settings.wifi.p2p.WifiP2pDeviceList"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xe
+
+    const-string v2, "com.android.settings.Settings$WifiP2pDevicePickerActivity"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xf
+
+    const-string v2, "com.android.settings.wfd.WfdPickerActivity"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x10
+
+    const-string v2, "com.android.settings.bluetooth.BluetoothPairingDialog"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x11
+
+    const-string v2, "com.android.settings.bluetooth.CheckBluetoothStateActivity"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x12
+
+    const-string v2, "com.android.settings.bluetooth.BluetoothEnableActivity"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x13
 
     const-string v2, "com.android.settings.bluetooth.BluetoothEnablingActivity"
 
@@ -124,7 +166,7 @@
     .parameter "showMsg"
 
     .prologue
-    .line 201
+    .line 209
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -136,15 +178,15 @@
 
     move-result v1
 
-    .line 205
+    .line 213
     :goto_0
     return v1
 
-    .line 202
+    .line 210
     :catch_0
     move-exception v0
 
-    .line 203
+    .line 211
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -152,7 +194,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 205
+    .line 213
     const/4 v1, 0x1
 
     goto :goto_0
@@ -163,7 +205,7 @@
     .parameter "showMsg"
 
     .prologue
-    .line 107
+    .line 115
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -175,15 +217,15 @@
 
     move-result v1
 
-    .line 111
+    .line 119
     :goto_0
     return v1
 
-    .line 108
+    .line 116
     :catch_0
     move-exception v0
 
-    .line 109
+    .line 117
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -191,7 +233,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 111
+    .line 119
     const/4 v1, 0x1
 
     goto :goto_0
@@ -202,7 +244,7 @@
     .parameter "showMsg"
 
     .prologue
-    .line 138
+    .line 146
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -214,15 +256,15 @@
 
     move-result v1
 
-    .line 142
+    .line 150
     :goto_0
     return v1
 
-    .line 139
+    .line 147
     :catch_0
     move-exception v0
 
-    .line 140
+    .line 148
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -230,7 +272,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 142
+    .line 150
     const/4 v1, 0x1
 
     goto :goto_0
@@ -240,7 +282,7 @@
     .locals 3
 
     .prologue
-    .line 184
+    .line 192
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -252,15 +294,15 @@
 
     move-result v1
 
-    .line 188
+    .line 196
     :goto_0
     return v1
 
-    .line 185
+    .line 193
     :catch_0
     move-exception v0
 
-    .line 186
+    .line 194
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -268,7 +310,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 188
+    .line 196
     const/4 v1, 0x1
 
     goto :goto_0
@@ -279,7 +321,7 @@
     .parameter "showMsg"
 
     .prologue
-    .line 156
+    .line 164
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -291,15 +333,15 @@
 
     move-result v1
 
-    .line 160
+    .line 168
     :goto_0
     return v1
 
-    .line 157
+    .line 165
     :catch_0
     move-exception v0
 
-    .line 158
+    .line 166
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -307,7 +349,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 160
+    .line 168
     const/4 v1, 0x1
 
     goto :goto_0
@@ -317,7 +359,7 @@
     .locals 3
 
     .prologue
-    .line 121
+    .line 129
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -329,15 +371,15 @@
 
     move-result v1
 
-    .line 125
+    .line 133
     :goto_0
     return v1
 
-    .line 122
+    .line 130
     :catch_0
     move-exception v0
 
-    .line 123
+    .line 131
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -345,7 +387,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 125
+    .line 133
     const/4 v1, 0x1
 
     goto :goto_0
@@ -355,7 +397,7 @@
     .locals 3
 
     .prologue
-    .line 89
+    .line 97
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -367,15 +409,15 @@
 
     move-result v1
 
-    .line 93
+    .line 101
     :goto_0
     return v1
 
-    .line 90
+    .line 98
     :catch_0
     move-exception v0
 
-    .line 91
+    .line 99
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -383,7 +425,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 93
+    .line 101
     const/4 v1, 0x1
 
     goto :goto_0
@@ -394,7 +436,7 @@
     .parameter "showMsg"
 
     .prologue
-    .line 215
+    .line 223
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -406,15 +448,15 @@
 
     move-result v1
 
-    .line 219
+    .line 227
     :goto_0
     return v1
 
-    .line 216
+    .line 224
     :catch_0
     move-exception v0
 
-    .line 217
+    .line 225
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -422,7 +464,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 219
+    .line 227
     const/4 v1, 0x1
 
     goto :goto_0
@@ -433,7 +475,7 @@
     .parameter "showMsg"
 
     .prologue
-    .line 170
+    .line 178
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -445,15 +487,15 @@
 
     move-result v1
 
-    .line 174
+    .line 182
     :goto_0
     return v1
 
-    .line 171
+    .line 179
     :catch_0
     move-exception v0
 
-    .line 172
+    .line 180
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -461,7 +503,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 174
+    .line 182
     const/4 v1, 0x1
 
     goto :goto_0
@@ -472,7 +514,7 @@
     .parameter "showMsg"
 
     .prologue
-    .line 75
+    .line 83
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -484,15 +526,15 @@
 
     move-result v1
 
-    .line 79
+    .line 87
     :goto_0
     return v1
 
-    .line 76
+    .line 84
     :catch_0
     move-exception v0
 
-    .line 77
+    .line 85
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -500,7 +542,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 79
+    .line 87
     const/4 v1, 0x1
 
     goto :goto_0
@@ -510,7 +552,7 @@
     .locals 1
 
     .prologue
-    .line 235
+    .line 243
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/sec/enterprise/RestrictionPolicy;->isStatusBarExpansionAllowed(Z)Z
@@ -525,7 +567,7 @@
     .parameter "showMsg"
 
     .prologue
-    .line 243
+    .line 251
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getService()Landroid/sec/enterprise/IEDMProxy;
 
@@ -537,15 +579,15 @@
 
     move-result v1
 
-    .line 247
+    .line 255
     :goto_0
     return v1
 
-    .line 244
+    .line 252
     :catch_0
     move-exception v0
 
-    .line 245
+    .line 253
     .local v0, e:Ljava/lang/Exception;
     sget-object v1, Landroid/sec/enterprise/RestrictionPolicy;->TAG:Ljava/lang/String;
 
@@ -553,7 +595,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 247
+    .line 255
     const/4 v1, 0x1
 
     goto :goto_0

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 549
+    .line 566
     iput-object p1, p0, Lcom/android/server/LocationManagerService$SettingsObserver;->this$0:Lcom/android/server/LocationManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 549
+    .line 566
     invoke-direct {p0, p1}, Lcom/android/server/LocationManagerService$SettingsObserver;-><init>(Lcom/android/server/LocationManagerService;)V
 
     return-void
@@ -55,7 +55,7 @@
     .parameter "arg"
 
     .prologue
-    .line 551
+    .line 568
     iget-object v0, p0, Lcom/android/server/LocationManagerService$SettingsObserver;->this$0:Lcom/android/server/LocationManagerService;
 
     #getter for: Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
@@ -65,20 +65,20 @@
 
     monitor-enter v1
 
-    .line 552
+    .line 569
     :try_start_0
     iget-object v0, p0, Lcom/android/server/LocationManagerService$SettingsObserver;->this$0:Lcom/android/server/LocationManagerService;
 
     #calls: Lcom/android/server/LocationManagerService;->updateProvidersLocked()V
     invoke-static {v0}, Lcom/android/server/LocationManagerService;->access$800(Lcom/android/server/LocationManagerService;)V
 
-    .line 553
+    .line 570
     monitor-exit v1
 
-    .line 554
+    .line 571
     return-void
 
-    .line 553
+    .line 570
     :catchall_0
     move-exception v0
 

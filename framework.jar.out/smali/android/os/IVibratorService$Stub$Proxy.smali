@@ -27,13 +27,13 @@
     .parameter "remote"
 
     .prologue
-    .line 244
+    .line 236
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 245
+    .line 237
     iput-object p1, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    .line 246
+    .line 238
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 249
+    .line 241
     iget-object v0, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     return-object v0
@@ -59,28 +59,28 @@
     .end annotation
 
     .prologue
-    .line 377
+    .line 369
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 378
+    .line 370
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 380
+    .line 372
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 381
+    .line 373
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 382
+    .line 374
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x8
@@ -89,27 +89,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 383
+    .line 375
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 386
+    .line 378
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 387
+    .line 379
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 389
+    .line 381
     return-void
 
-    .line 386
+    .line 378
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 387
+    .line 379
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -119,7 +119,7 @@
     .locals 1
 
     .prologue
-    .line 253
+    .line 245
     const-string v0, "android.os.IVibratorService"
 
     return-object v0
@@ -134,25 +134,25 @@
     .end annotation
 
     .prologue
-    .line 517
+    .line 509
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 518
+    .line 510
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 521
+    .line 513
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "android.os.IVibratorService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 522
+    .line 514
     iget-object v3, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x11
@@ -161,34 +161,34 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 523
+    .line 515
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 524
+    .line 516
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
-    .line 527
+    .line 519
     .local v2, _result:I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 528
+    .line 520
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 530
+    .line 522
     return v2
 
-    .line 527
+    .line 519
     .end local v2           #_result:I
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 528
+    .line 520
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v3
@@ -207,25 +207,25 @@
 
     const/4 v3, 0x0
 
-    .line 257
+    .line 249
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 258
+    .line 250
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 261
+    .line 253
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v4, "android.os.IVibratorService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 262
+    .line 254
     iget-object v4, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v5, 0x1
@@ -234,10 +234,10 @@
 
     invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 263
+    .line 255
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 264
+    .line 256
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -246,107 +246,31 @@
 
     if-eqz v4, :cond_0
 
-    .line 267
+    .line 259
     .local v2, _result:Z
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 268
+    .line 260
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 270
+    .line 262
     return v2
 
     .end local v2           #_result:Z
     :cond_0
     move v2, v3
 
-    .line 264
+    .line 256
     goto :goto_0
 
-    .line 267
+    .line 259
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 268
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    throw v3
-.end method
-
-.method public isVibrating()Z
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 534
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 535
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 538
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "android.os.IVibratorService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 539
-    iget-object v3, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x12
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 540
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 541
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v2, 0x1
-
-    .line 544
-    .local v2, _result:Z
-    :cond_0
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 545
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 547
-    return v2
-
-    .line 544
-    .end local v2           #_result:Z
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 545
+    .line 260
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v3
@@ -361,25 +285,25 @@
     .end annotation
 
     .prologue
-    .line 503
+    .line 495
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 504
+    .line 496
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 506
+    .line 498
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 507
+    .line 499
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x10
@@ -388,27 +312,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 508
+    .line 500
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 511
+    .line 503
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 512
+    .line 504
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 514
+    .line 506
     return-void
 
-    .line 511
+    .line 503
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 512
+    .line 504
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -424,28 +348,28 @@
     .end annotation
 
     .prologue
-    .line 488
+    .line 480
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 489
+    .line 481
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 491
+    .line 483
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 492
+    .line 484
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 493
+    .line 485
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xf
@@ -454,27 +378,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 494
+    .line 486
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 497
+    .line 489
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 498
+    .line 490
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 500
+    .line 492
     return-void
 
-    .line 497
+    .line 489
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 498
+    .line 490
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -491,31 +415,31 @@
     .end annotation
 
     .prologue
-    .line 274
+    .line 266
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 275
+    .line 267
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 277
+    .line 269
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 278
+    .line 270
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 279
+    .line 271
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 280
+    .line 272
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x2
@@ -524,27 +448,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 281
+    .line 273
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 284
+    .line 276
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 285
+    .line 277
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 287
+    .line 279
     return-void
 
-    .line 284
+    .line 276
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 285
+    .line 277
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -560,28 +484,28 @@
     .end annotation
 
     .prologue
-    .line 458
+    .line 450
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 459
+    .line 451
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 461
+    .line 453
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 462
+    .line 454
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 463
+    .line 455
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xd
@@ -590,27 +514,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 464
+    .line 456
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 467
+    .line 459
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 468
+    .line 460
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 470
+    .line 462
     return-void
 
-    .line 467
+    .line 459
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 468
+    .line 460
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -627,31 +551,31 @@
     .end annotation
 
     .prologue
-    .line 394
+    .line 386
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 395
+    .line 387
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 397
+    .line 389
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 398
+    .line 390
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 399
+    .line 391
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 400
+    .line 392
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x9
@@ -660,27 +584,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 401
+    .line 393
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 404
+    .line 396
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 405
+    .line 397
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 407
+    .line 399
     return-void
 
-    .line 404
+    .line 396
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 405
+    .line 397
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -697,31 +621,31 @@
     .end annotation
 
     .prologue
-    .line 410
+    .line 402
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 411
+    .line 403
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 413
+    .line 405
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 414
+    .line 406
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 415
+    .line 407
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 416
+    .line 408
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xa
@@ -730,27 +654,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 417
+    .line 409
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 420
+    .line 412
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 421
+    .line 413
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 423
+    .line 415
     return-void
 
-    .line 420
+    .line 412
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 421
+    .line 413
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -767,31 +691,31 @@
     .end annotation
 
     .prologue
-    .line 426
+    .line 418
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 427
+    .line 419
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 429
+    .line 421
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 430
+    .line 422
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    .line 431
+    .line 423
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 432
+    .line 424
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xb
@@ -800,27 +724,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 433
+    .line 425
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 436
+    .line 428
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 437
+    .line 429
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 439
+    .line 431
     return-void
 
-    .line 436
+    .line 428
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 437
+    .line 429
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -837,31 +761,31 @@
     .end annotation
 
     .prologue
-    .line 442
+    .line 434
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 443
+    .line 435
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 445
+    .line 437
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 446
+    .line 438
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    .line 447
+    .line 439
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 448
+    .line 440
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xc
@@ -870,27 +794,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 449
+    .line 441
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 452
+    .line 444
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 453
+    .line 445
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 455
+    .line 447
     return-void
 
-    .line 452
+    .line 444
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 453
+    .line 445
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -908,34 +832,34 @@
     .end annotation
 
     .prologue
-    .line 290
+    .line 282
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 291
+    .line 283
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 293
+    .line 285
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 294
+    .line 286
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 295
+    .line 287
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 296
+    .line 288
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 297
+    .line 289
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x3
@@ -944,27 +868,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 298
+    .line 290
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 301
+    .line 293
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 302
+    .line 294
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 304
+    .line 296
     return-void
 
-    .line 301
+    .line 293
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 302
+    .line 294
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -982,34 +906,34 @@
     .end annotation
 
     .prologue
-    .line 307
+    .line 299
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 308
+    .line 300
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 310
+    .line 302
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 311
+    .line 303
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 312
+    .line 304
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 313
+    .line 305
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 314
+    .line 306
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x4
@@ -1018,27 +942,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 315
+    .line 307
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 318
+    .line 310
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 319
+    .line 311
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 321
+    .line 313
     return-void
 
-    .line 318
+    .line 310
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 319
+    .line 311
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -1054,28 +978,28 @@
     .end annotation
 
     .prologue
-    .line 473
+    .line 465
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 474
+    .line 466
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 476
+    .line 468
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 477
+    .line 469
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 478
+    .line 470
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xe
@@ -1084,27 +1008,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 479
+    .line 471
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 482
+    .line 474
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 483
+    .line 475
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 485
+    .line 477
     return-void
 
-    .line 482
+    .line 474
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 483
+    .line 475
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -1122,34 +1046,34 @@
     .end annotation
 
     .prologue
-    .line 324
+    .line 316
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 325
+    .line 317
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 327
+    .line 319
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 328
+    .line 320
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeLongArray([J)V
 
-    .line 329
+    .line 321
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 330
+    .line 322
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 331
+    .line 323
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x5
@@ -1158,27 +1082,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 332
+    .line 324
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 335
+    .line 327
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 336
+    .line 328
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 338
+    .line 330
     return-void
 
-    .line 335
+    .line 327
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 336
+    .line 328
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -1197,37 +1121,37 @@
     .end annotation
 
     .prologue
-    .line 341
+    .line 333
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 342
+    .line 334
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 344
+    .line 336
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 345
+    .line 337
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeLongArray([J)V
 
-    .line 346
+    .line 338
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 347
+    .line 339
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 348
+    .line 340
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 349
+    .line 341
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x6
@@ -1236,27 +1160,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 350
+    .line 342
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 353
+    .line 345
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 354
+    .line 346
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 356
+    .line 348
     return-void
 
-    .line 353
+    .line 345
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 354
+    .line 346
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2
@@ -1275,37 +1199,37 @@
     .end annotation
 
     .prologue
-    .line 359
+    .line 351
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 360
+    .line 352
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 362
+    .line 354
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 363
+    .line 355
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeLongArray([J)V
 
-    .line 364
+    .line 356
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 365
+    .line 357
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    .line 366
+    .line 358
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 367
+    .line 359
     iget-object v2, p0, Landroid/os/IVibratorService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x7
@@ -1314,27 +1238,27 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 368
+    .line 360
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 371
+    .line 363
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 372
+    .line 364
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 374
+    .line 366
     return-void
 
-    .line 371
+    .line 363
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 372
+    .line 364
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v2

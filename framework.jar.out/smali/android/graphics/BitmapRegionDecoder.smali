@@ -3,6 +3,10 @@
 .source "BitmapRegionDecoder.java"
 
 
+# static fields
+.field private static final TAG:Ljava/lang/String; = "BitmapRegionDecoder"
+
+
 # instance fields
 .field private mNativeBitmapRegionDecoder:I
 
@@ -15,18 +19,18 @@
     .parameter "decoder"
 
     .prologue
-    .line 381
+    .line 383
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 382
+    .line 384
     iput p1, p0, Landroid/graphics/BitmapRegionDecoder;->mNativeBitmapRegionDecoder:I
 
-    .line 383
+    .line 385
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/graphics/BitmapRegionDecoder;->mRecycled:Z
 
-    .line 384
+    .line 386
     return-void
 .end method
 
@@ -35,19 +39,19 @@
     .parameter "errorMessage"
 
     .prologue
-    .line 448
+    .line 450
     iget-boolean v0, p0, Landroid/graphics/BitmapRegionDecoder;->mRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 449
+    .line 451
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 451
+    .line 453
     :cond_0
     return-void
 .end method
@@ -87,7 +91,7 @@
     .end annotation
 
     .prologue
-    .line 93
+    .line 95
     invoke-static {p0, p1}, Landroid/graphics/BitmapRegionDecoder;->nativeNewInstance(Ljava/io/FileDescriptor;Z)Landroid/graphics/BitmapRegionDecoder;
 
     move-result-object v0
@@ -108,14 +112,14 @@
     .prologue
     const/16 v3, 0x4000
 
-    .line 118
+    .line 120
     invoke-virtual {p0}, Ljava/io/InputStream;->markSupported()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 119
+    .line 121
     new-instance v0, Ljava/io/BufferedInputStream;
 
     invoke-direct {v0, p0, v3}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V
@@ -124,7 +128,7 @@
     .local v0, is:Ljava/io/InputStream;
     move-object p0, v0
 
-    .line 122
+    .line 124
     .end local v0           #is:Ljava/io/InputStream;
     .restart local p0
     :cond_0
@@ -132,7 +136,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 123
+    .line 125
     check-cast p0, Landroid/content/res/AssetManager$AssetInputStream;
 
     .end local p0
@@ -144,16 +148,16 @@
 
     move-result-object v2
 
-    .line 131
+    .line 133
     :goto_0
     return-object v2
 
-    .line 130
+    .line 132
     .restart local p0
     :cond_1
     new-array v1, v3, [B
 
-    .line 131
+    .line 133
     .local v1, tempStorage:[B
     invoke-static {p0, v1, p1}, Landroid/graphics/BitmapRegionDecoder;->nativeNewInstance(Ljava/io/InputStream;[BZ)Landroid/graphics/BitmapRegionDecoder;
 
@@ -173,29 +177,22 @@
     .end annotation
 
     .prologue
-    .line 155
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  In"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 157
+    .line 159
     const/4 v1, 0x0
 
-    .line 158
+    .line 160
     .local v1, decoder:Landroid/graphics/BitmapRegionDecoder;
     const/4 v11, 0x0
 
-    .line 159
+    .line 161
     .local v11, stream:Ljava/io/InputStream;
     const/4 v6, 0x0
 
-    .line 160
+    .line 162
     .local v6, isdrm:Z
     const/4 v7, 0x0
 
-    .line 162
+    .line 164
     .local v7, mime:Ljava/lang/String;
     const-string v13, ".dcf"
 
@@ -217,32 +214,25 @@
 
     if-eqz v13, :cond_1
 
-    .line 163
+    .line 165
     :cond_0
     const/4 v6, 0x1
 
-    .line 165
+    .line 167
     :cond_1
     if-eqz v6, :cond_6
 
-    .line 167
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  DRM File"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 169
+    .line 171
     const-string v7, "application/vnd.oma.drm.content"
 
-    .line 170
+    .line 172
     new-instance v3, Landroid/drm/DrmManagerClient;
 
     const/4 v13, 0x0
 
     invoke-direct {v3, v13}, Landroid/drm/DrmManagerClient;-><init>(Landroid/content/Context;)V
 
-    .line 171
+    .line 173
     .local v3, drmclient:Landroid/drm/DrmManagerClient;
     new-instance v13, Ljava/io/File;
 
@@ -254,7 +244,7 @@
 
     move-result-wide v4
 
-    .line 172
+    .line 174
     .local v4, fileLength:J
     const/4 v13, 0x7
 
@@ -264,25 +254,18 @@
 
     move-result v9
 
-    .line 173
+    .line 175
     .local v9, rightStatus:I
     if-nez v9, :cond_5
 
-    .line 175
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  DRM File  Has valid Rights"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 177
+    .line 179
     new-instance v2, Landroid/drm/DrmInfoRequest;
 
     const/16 v13, 0xa
 
     invoke-direct {v2, v13, v7}, Landroid/drm/DrmInfoRequest;-><init>(ILjava/lang/String;)V
 
-    .line 178
+    .line 180
     .local v2, drmInfoRequest:Landroid/drm/DrmInfoRequest;
     const-string v13, "drm_path"
 
@@ -290,7 +273,7 @@
 
     invoke-virtual {v2, v13, v0}, Landroid/drm/DrmInfoRequest;->put(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 179
+    .line 181
     const-string v13, "LENGTH"
 
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -303,19 +286,19 @@
 
     invoke-virtual {v2, v13, v14}, Landroid/drm/DrmInfoRequest;->put(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 182
+    .line 184
     const-string/jumbo v13, "preview_option"
 
     const-string v14, "false"
 
     invoke-virtual {v2, v13, v14}, Landroid/drm/DrmInfoRequest;->put(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 185
+    .line 187
     invoke-virtual {v3, v2}, Landroid/drm/DrmManagerClient;->acquireDrmInfo(Landroid/drm/DrmInfoRequest;)Landroid/drm/DrmInfo;
 
     move-result-object v8
 
-    .line 186
+    .line 188
     .local v8, resultInfo:Landroid/drm/DrmInfo;
     const-string/jumbo v13, "status"
 
@@ -327,7 +310,7 @@
 
     move-result-object v10
 
-    .line 188
+    .line 190
     .local v10, status_req1:Ljava/lang/String;
     const-string/jumbo v13, "success"
 
@@ -337,21 +320,14 @@
 
     if-eqz v13, :cond_4
 
-    .line 190
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  DRM File  DEcoding is success"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 191
+    .line 193
     invoke-virtual {v8}, Landroid/drm/DrmInfo;->getData()[B
 
     move-result-object v13
 
     if-eqz v13, :cond_3
 
-    .line 193
+    .line 195
     new-instance v11, Ljava/io/ByteArrayInputStream;
 
     .end local v11           #stream:Ljava/io/InputStream;
@@ -361,7 +337,7 @@
 
     invoke-direct {v11, v13}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    .line 194
+    .line 196
     .restart local v11       #stream:Ljava/io/InputStream;
     move/from16 v0, p1
 
@@ -369,46 +345,25 @@
 
     move-result-object v1
 
-    .line 195
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  DRM File  DEcoding is success 1"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 214
+    .line 216
     .end local v2           #drmInfoRequest:Landroid/drm/DrmInfoRequest;
     .end local v8           #resultInfo:Landroid/drm/DrmInfo;
     .end local v10           #status_req1:Ljava/lang/String;
     :goto_0
     if-eqz v3, :cond_2
 
-    .line 216
-    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    const-string v14, "BitmapRegionDecoder::decodeFile ::  drmclient  deinitialised"
-
-    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    .line 217
+    .line 219
     invoke-virtual {v3}, Landroid/drm/DrmManagerClient;->release()V
 
-    .line 239
+    .line 242
     .end local v3           #drmclient:Landroid/drm/DrmManagerClient;
     .end local v4           #fileLength:J
     .end local v9           #rightStatus:I
     :cond_2
     :goto_1
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  DRM File  OUT"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 240
     return-object v1
 
-    .line 199
+    .line 201
     .restart local v2       #drmInfoRequest:Landroid/drm/DrmInfoRequest;
     .restart local v3       #drmclient:Landroid/drm/DrmManagerClient;
     .restart local v4       #fileLength:J
@@ -416,36 +371,36 @@
     .restart local v9       #rightStatus:I
     .restart local v10       #status_req1:Ljava/lang/String;
     :cond_3
-    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    const-string v13, "BitmapRegionDecoder"
 
-    const-string v14, "BitmapRegionDecoder ::newInstance::custom api returned null"
+    const-string/jumbo v14, "newInstance :: custom api returned null"
 
-    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 205
+    .line 207
     :cond_4
-    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    const-string v13, "BitmapRegionDecoder"
 
-    const-string v14, "BitmapRegionDecoder ::newInstance::Plug-In Returned FAIL as STATUS "
+    const-string/jumbo v14, "newInstance :: Plug-In Returned FAIL as STATUS "
 
-    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 211
+    .line 213
     .end local v2           #drmInfoRequest:Landroid/drm/DrmInfoRequest;
     .end local v8           #resultInfo:Landroid/drm/DrmInfo;
     .end local v10           #status_req1:Ljava/lang/String;
     :cond_5
-    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    const-string v13, "BitmapRegionDecoder"
 
     new-instance v14, Ljava/lang/StringBuilder;
 
     invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v15, "BitmapRegionDecoder ::newInstance::Rights are not Present for the file "
+    const-string/jumbo v15, "newInstance :: Rights are not Present for the file "
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -461,11 +416,11 @@
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 225
+    .line 227
     .end local v3           #drmclient:Landroid/drm/DrmManagerClient;
     .end local v4           #fileLength:J
     .end local v9           #rightStatus:I
@@ -479,7 +434,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 226
+    .line 228
     .end local v11           #stream:Ljava/io/InputStream;
     .local v12, stream:Ljava/io/InputStream;
     :try_start_1
@@ -491,10 +446,10 @@
 
     move-result-object v1
 
-    .line 228
+    .line 230
     if-eqz v12, :cond_8
 
-    .line 231
+    .line 233
     :try_start_2
     invoke-virtual {v12}, Ljava/io/FileInputStream;->close()V
     :try_end_2
@@ -502,12 +457,12 @@
 
     move-object v11, v12
 
-    .line 234
+    .line 236
     .end local v12           #stream:Ljava/io/InputStream;
     .restart local v11       #stream:Ljava/io/InputStream;
     goto :goto_1
 
-    .line 232
+    .line 234
     .end local v11           #stream:Ljava/io/InputStream;
     .restart local v12       #stream:Ljava/io/InputStream;
     :catch_0
@@ -515,36 +470,36 @@
 
     move-object v11, v12
 
-    .line 234
+    .line 236
     .end local v12           #stream:Ljava/io/InputStream;
     .restart local v11       #stream:Ljava/io/InputStream;
     goto :goto_1
 
-    .line 228
+    .line 230
     :catchall_0
     move-exception v13
 
     :goto_2
     if-eqz v11, :cond_7
 
-    .line 231
+    .line 233
     :try_start_3
     invoke-virtual {v11}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
 
-    .line 234
+    .line 236
     :cond_7
     :goto_3
     throw v13
 
-    .line 232
+    .line 234
     :catch_1
     move-exception v14
 
     goto :goto_3
 
-    .line 228
+    .line 230
     .end local v11           #stream:Ljava/io/InputStream;
     .restart local v12       #stream:Ljava/io/InputStream;
     :catchall_1
@@ -578,29 +533,22 @@
     .end annotation
 
     .prologue
-    .line 287
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  In"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 289
+    .line 291
     const/4 v1, 0x0
 
-    .line 290
+    .line 292
     .local v1, decoder:Landroid/graphics/BitmapRegionDecoder;
     const/4 v11, 0x0
 
-    .line 291
+    .line 293
     .local v11, stream:Ljava/io/InputStream;
     const/4 v6, 0x0
 
-    .line 292
+    .line 294
     .local v6, isdrm:Z
     const/4 v7, 0x0
 
-    .line 294
+    .line 296
     .local v7, mime:Ljava/lang/String;
     const-string v13, ".dcf"
 
@@ -622,32 +570,25 @@
 
     if-eqz v13, :cond_1
 
-    .line 295
+    .line 297
     :cond_0
     const/4 v6, 0x1
 
-    .line 297
+    .line 299
     :cond_1
     if-eqz v6, :cond_7
 
-    .line 299
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  DRM File"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 301
+    .line 303
     const-string v7, "application/vnd.oma.drm.content"
 
-    .line 302
+    .line 304
     new-instance v3, Landroid/drm/DrmManagerClient;
 
     const/4 v13, 0x0
 
     invoke-direct {v3, v13}, Landroid/drm/DrmManagerClient;-><init>(Landroid/content/Context;)V
 
-    .line 303
+    .line 305
     .local v3, drmclient:Landroid/drm/DrmManagerClient;
     new-instance v13, Ljava/io/File;
 
@@ -659,7 +600,7 @@
 
     move-result-wide v4
 
-    .line 304
+    .line 306
     .local v4, fileLength:J
     const/4 v13, 0x7
 
@@ -669,25 +610,18 @@
 
     move-result v9
 
-    .line 306
+    .line 308
     .local v9, rightStatus:I
     if-nez v9, :cond_6
 
-    .line 308
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  DRM File  Has valid Rights"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 310
+    .line 312
     new-instance v2, Landroid/drm/DrmInfoRequest;
 
     const/16 v13, 0xa
 
     invoke-direct {v2, v13, v7}, Landroid/drm/DrmInfoRequest;-><init>(ILjava/lang/String;)V
 
-    .line 311
+    .line 313
     .local v2, drmInfoRequest:Landroid/drm/DrmInfoRequest;
     const-string v13, "drm_path"
 
@@ -695,7 +629,7 @@
 
     invoke-virtual {v2, v13, v0}, Landroid/drm/DrmInfoRequest;->put(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 312
+    .line 314
     const-string v13, "LENGTH"
 
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -708,7 +642,7 @@
 
     invoke-virtual {v2, v13, v14}, Landroid/drm/DrmInfoRequest;->put(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 315
+    .line 317
     const-string/jumbo v14, "preview_option"
 
     if-eqz p2, :cond_3
@@ -718,12 +652,12 @@
     :goto_0
     invoke-virtual {v2, v14, v13}, Landroid/drm/DrmInfoRequest;->put(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 318
+    .line 320
     invoke-virtual {v3, v2}, Landroid/drm/DrmManagerClient;->acquireDrmInfo(Landroid/drm/DrmInfoRequest;)Landroid/drm/DrmInfo;
 
     move-result-object v8
 
-    .line 319
+    .line 321
     .local v8, resultInfo:Landroid/drm/DrmInfo;
     const-string/jumbo v13, "status"
 
@@ -735,7 +669,7 @@
 
     move-result-object v10
 
-    .line 320
+    .line 322
     .local v10, status_req1:Ljava/lang/String;
     const-string/jumbo v13, "success"
 
@@ -745,21 +679,14 @@
 
     if-eqz v13, :cond_5
 
-    .line 322
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  DRM File  DEcoding is success"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 323
+    .line 325
     invoke-virtual {v8}, Landroid/drm/DrmInfo;->getData()[B
 
     move-result-object v13
 
     if-eqz v13, :cond_4
 
-    .line 325
+    .line 327
     new-instance v11, Ljava/io/ByteArrayInputStream;
 
     .end local v11           #stream:Ljava/io/InputStream;
@@ -769,7 +696,7 @@
 
     invoke-direct {v11, v13}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    .line 326
+    .line 328
     .restart local v11       #stream:Ljava/io/InputStream;
     move/from16 v0, p1
 
@@ -777,46 +704,25 @@
 
     move-result-object v1
 
-    .line 327
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  DRM File  DEcoding is success 1"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 346
+    .line 348
     .end local v2           #drmInfoRequest:Landroid/drm/DrmInfoRequest;
     .end local v8           #resultInfo:Landroid/drm/DrmInfo;
     .end local v10           #status_req1:Ljava/lang/String;
     :goto_1
     if-eqz v3, :cond_2
 
-    .line 348
-    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    const-string v14, "BitmapRegionDecoder::decodeFile ::  drmclient  deinitialised"
-
-    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    .line 349
+    .line 351
     invoke-virtual {v3}, Landroid/drm/DrmManagerClient;->release()V
 
-    .line 371
+    .line 374
     .end local v3           #drmclient:Landroid/drm/DrmManagerClient;
     .end local v4           #fileLength:J
     .end local v9           #rightStatus:I
     :cond_2
     :goto_2
-    const-string v13, "BitmapRegionDecoder"
-
-    const-string v14, "***********************newInstance  DRM File  OUT"
-
-    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 372
     return-object v1
 
-    .line 315
+    .line 317
     .restart local v2       #drmInfoRequest:Landroid/drm/DrmInfoRequest;
     .restart local v3       #drmclient:Landroid/drm/DrmManagerClient;
     .restart local v4       #fileLength:J
@@ -826,40 +732,40 @@
 
     goto :goto_0
 
-    .line 331
+    .line 333
     .restart local v8       #resultInfo:Landroid/drm/DrmInfo;
     .restart local v10       #status_req1:Ljava/lang/String;
     :cond_4
-    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    const-string v13, "BitmapRegionDecoder"
 
-    const-string v14, "BitmapRegionDecoder ::newInstance::custom api returned null"
+    const-string/jumbo v14, "newInstance + isPreview :: custom api returned null"
 
-    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    .line 337
+    .line 339
     :cond_5
-    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    const-string v13, "BitmapRegionDecoder"
 
-    const-string v14, "BitmapRegionDecoder ::newInstance::Plug-In Returned FAIL as STATUS "
+    const-string/jumbo v14, "newInstance + isPreview :: Plug-In Returned FAIL as STATUS "
 
-    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    .line 343
+    .line 345
     .end local v2           #drmInfoRequest:Landroid/drm/DrmInfoRequest;
     .end local v8           #resultInfo:Landroid/drm/DrmInfo;
     .end local v10           #status_req1:Ljava/lang/String;
     :cond_6
-    sget-object v13, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    const-string v13, "BitmapRegionDecoder"
 
     new-instance v14, Ljava/lang/StringBuilder;
 
     invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v15, "BitmapRegionDecoder ::newInstance::Rights are not Present for the file "
+    const-string/jumbo v15, "newInstance + isPreview :: Rights are not Present for the file "
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -875,11 +781,11 @@
 
     move-result-object v14
 
-    invoke-virtual {v13, v14}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-static {v13, v14}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    .line 357
+    .line 359
     .end local v3           #drmclient:Landroid/drm/DrmManagerClient;
     .end local v4           #fileLength:J
     .end local v9           #rightStatus:I
@@ -893,7 +799,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 358
+    .line 360
     .end local v11           #stream:Ljava/io/InputStream;
     .local v12, stream:Ljava/io/InputStream;
     :try_start_1
@@ -905,10 +811,10 @@
 
     move-result-object v1
 
-    .line 360
+    .line 362
     if-eqz v12, :cond_9
 
-    .line 363
+    .line 365
     :try_start_2
     invoke-virtual {v12}, Ljava/io/FileInputStream;->close()V
     :try_end_2
@@ -916,12 +822,12 @@
 
     move-object v11, v12
 
-    .line 366
+    .line 368
     .end local v12           #stream:Ljava/io/InputStream;
     .restart local v11       #stream:Ljava/io/InputStream;
     goto :goto_2
 
-    .line 364
+    .line 366
     .end local v11           #stream:Ljava/io/InputStream;
     .restart local v12       #stream:Ljava/io/InputStream;
     :catch_0
@@ -929,36 +835,36 @@
 
     move-object v11, v12
 
-    .line 366
+    .line 368
     .end local v12           #stream:Ljava/io/InputStream;
     .restart local v11       #stream:Ljava/io/InputStream;
     goto :goto_2
 
-    .line 360
+    .line 362
     :catchall_0
     move-exception v13
 
     :goto_3
     if-eqz v11, :cond_8
 
-    .line 363
+    .line 365
     :try_start_3
     invoke-virtual {v11}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
 
-    .line 366
+    .line 368
     :cond_8
     :goto_4
     throw v13
 
-    .line 364
+    .line 366
     :catch_1
     move-exception v14
 
     goto :goto_4
 
-    .line 360
+    .line 362
     .end local v11           #stream:Ljava/io/InputStream;
     .restart local v12       #stream:Ljava/io/InputStream;
     :catchall_1
@@ -993,7 +899,7 @@
     .end annotation
 
     .prologue
-    .line 68
+    .line 70
     or-int v0, p1, p2
 
     if-ltz v0, :cond_0
@@ -1004,7 +910,7 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 69
+    .line 71
     :cond_0
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
@@ -1012,7 +918,7 @@
 
     throw v0
 
-    .line 71
+    .line 73
     :cond_1
     invoke-static {p0, p1, p2, p3}, Landroid/graphics/BitmapRegionDecoder;->nativeNewInstance([BIIZ)Landroid/graphics/BitmapRegionDecoder;
 
@@ -1029,12 +935,12 @@
     .parameter "options"
 
     .prologue
-    .line 396
+    .line 398
     const-string v0, "decodeRegion called on recycled region decoder"
 
     invoke-direct {p0, v0}, Landroid/graphics/BitmapRegionDecoder;->checkRecycled(Ljava/lang/String;)V
 
-    .line 397
+    .line 399
     iget v0, p1, Landroid/graphics/Rect;->right:I
 
     if-lez v0, :cond_0
@@ -1059,7 +965,7 @@
 
     if-lt v0, v1, :cond_1
 
-    .line 399
+    .line 401
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -1069,7 +975,7 @@
 
     throw v0
 
-    .line 400
+    .line 402
     :cond_1
     iget v0, p0, Landroid/graphics/BitmapRegionDecoder;->mNativeBitmapRegionDecoder:I
 
@@ -1107,19 +1013,19 @@
     .end annotation
 
     .prologue
-    .line 456
+    .line 458
     :try_start_0
     invoke-virtual {p0}, Landroid/graphics/BitmapRegionDecoder;->recycle()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 458
+    .line 460
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 460
+    .line 462
     return-void
 
-    .line 458
+    .line 460
     :catchall_0
     move-exception v0
 
@@ -1132,12 +1038,12 @@
     .locals 1
 
     .prologue
-    .line 412
+    .line 414
     const-string v0, "getHeight called on recycled region decoder"
 
     invoke-direct {p0, v0}, Landroid/graphics/BitmapRegionDecoder;->checkRecycled(Ljava/lang/String;)V
 
-    .line 413
+    .line 415
     iget v0, p0, Landroid/graphics/BitmapRegionDecoder;->mNativeBitmapRegionDecoder:I
 
     invoke-static {v0}, Landroid/graphics/BitmapRegionDecoder;->nativeGetHeight(I)I
@@ -1151,12 +1057,12 @@
     .locals 1
 
     .prologue
-    .line 406
+    .line 408
     const-string v0, "getWidth called on recycled region decoder"
 
     invoke-direct {p0, v0}, Landroid/graphics/BitmapRegionDecoder;->checkRecycled(Ljava/lang/String;)V
 
-    .line 407
+    .line 409
     iget v0, p0, Landroid/graphics/BitmapRegionDecoder;->mNativeBitmapRegionDecoder:I
 
     invoke-static {v0}, Landroid/graphics/BitmapRegionDecoder;->nativeGetWidth(I)I
@@ -1170,7 +1076,7 @@
     .locals 1
 
     .prologue
-    .line 440
+    .line 442
     iget-boolean v0, p0, Landroid/graphics/BitmapRegionDecoder;->mRecycled:Z
 
     return v0
@@ -1180,22 +1086,22 @@
     .locals 1
 
     .prologue
-    .line 427
+    .line 429
     iget-boolean v0, p0, Landroid/graphics/BitmapRegionDecoder;->mRecycled:Z
 
     if-nez v0, :cond_0
 
-    .line 428
+    .line 430
     iget v0, p0, Landroid/graphics/BitmapRegionDecoder;->mNativeBitmapRegionDecoder:I
 
     invoke-static {v0}, Landroid/graphics/BitmapRegionDecoder;->nativeClean(I)V
 
-    .line 429
+    .line 431
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/BitmapRegionDecoder;->mRecycled:Z
 
-    .line 431
+    .line 433
     :cond_0
     return-void
 .end method

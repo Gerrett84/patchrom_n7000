@@ -31,7 +31,7 @@
     .parameter
 
     .prologue
-    .line 2097
+    .line 2156
     iput-object p1, p0, Landroid/media/AudioService$SoundPoolCallback;->this$0:Landroid/media/AudioService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2097
+    .line 2156
     invoke-direct {p0, p1}, Landroid/media/AudioService$SoundPoolCallback;-><init>(Landroid/media/AudioService;)V
 
     return-void
@@ -60,7 +60,7 @@
     .parameter "status"
 
     .prologue
-    .line 2112
+    .line 2171
     iget-object v0, p0, Landroid/media/AudioService$SoundPoolCallback;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->mSoundEffectsLock:Ljava/lang/Object;
@@ -70,20 +70,20 @@
 
     monitor-enter v1
 
-    .line 2113
+    .line 2172
     if-eqz p3, :cond_0
 
-    .line 2114
+    .line 2173
     :try_start_0
     iput p3, p0, Landroid/media/AudioService$SoundPoolCallback;->mStatus:I
 
-    .line 2116
+    .line 2175
     :cond_0
     iget v0, p0, Landroid/media/AudioService$SoundPoolCallback;->mLastSample:I
 
     if-ne p2, v0, :cond_1
 
-    .line 2117
+    .line 2176
     iget-object v0, p0, Landroid/media/AudioService$SoundPoolCallback;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->mSoundEffectsLock:Ljava/lang/Object;
@@ -93,14 +93,14 @@
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
-    .line 2119
+    .line 2178
     :cond_1
     monitor-exit v1
 
-    .line 2120
+    .line 2179
     return-void
 
-    .line 2119
+    .line 2178
     :catchall_0
     move-exception v0
 
@@ -116,10 +116,10 @@
     .parameter "sample"
 
     .prologue
-    .line 2108
+    .line 2167
     iput p1, p0, Landroid/media/AudioService$SoundPoolCallback;->mLastSample:I
 
-    .line 2109
+    .line 2168
     return-void
 .end method
 
@@ -127,7 +127,7 @@
     .locals 1
 
     .prologue
-    .line 2104
+    .line 2163
     iget v0, p0, Landroid/media/AudioService$SoundPoolCallback;->mStatus:I
 
     return v0

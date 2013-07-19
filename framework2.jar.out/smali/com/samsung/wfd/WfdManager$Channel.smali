@@ -51,46 +51,46 @@
     .parameter "l"
 
     .prologue
-    .line 390
+    .line 403
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 396
+    .line 409
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/wfd/WfdManager$Channel;->mListenerMap:Ljava/util/HashMap;
 
-    .line 397
+    .line 410
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/wfd/WfdManager$Channel;->mListenerMapLock:Ljava/lang/Object;
 
-    .line 398
+    .line 411
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/wfd/WfdManager$Channel;->mListenerKey:I
 
-    .line 391
+    .line 404
     new-instance v0, Lcom/android/internal/util/AsyncChannel;
 
     invoke-direct {v0}, Lcom/android/internal/util/AsyncChannel;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/wfd/WfdManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
-    .line 392
+    .line 405
     new-instance v0, Lcom/samsung/wfd/WfdManager$Channel$WfdHandler;
 
     invoke-direct {v0, p0, p1}, Lcom/samsung/wfd/WfdManager$Channel$WfdHandler;-><init>(Lcom/samsung/wfd/WfdManager$Channel;Landroid/os/Looper;)V
 
     iput-object v0, p0, Lcom/samsung/wfd/WfdManager$Channel;->mHandler:Lcom/samsung/wfd/WfdManager$Channel$WfdHandler;
 
-    .line 393
+    .line 406
     iput-object p2, p0, Lcom/samsung/wfd/WfdManager$Channel;->mChannelListener:Lcom/samsung/wfd/WfdManager$ChannelListener;
 
-    .line 394
+    .line 407
     return-void
 .end method
 
@@ -99,7 +99,7 @@
     .parameter "x0"
 
     .prologue
-    .line 389
+    .line 402
     iget-object v0, p0, Lcom/samsung/wfd/WfdManager$Channel;->mChannelListener:Lcom/samsung/wfd/WfdManager$ChannelListener;
 
     return-object v0
@@ -111,7 +111,7 @@
     .parameter "x1"
 
     .prologue
-    .line 389
+    .line 402
     iput-object p1, p0, Lcom/samsung/wfd/WfdManager$Channel;->mChannelListener:Lcom/samsung/wfd/WfdManager$ChannelListener;
 
     return-object p1
@@ -124,12 +124,12 @@
     .parameter "key"
 
     .prologue
-    .line 435
+    .line 448
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager$Channel;->mListenerMapLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 436
+    .line 449
     :try_start_0
     iget-object v0, p0, Lcom/samsung/wfd/WfdManager$Channel;->mListenerMap:Ljava/util/HashMap;
 
@@ -145,7 +145,7 @@
 
     return-object v0
 
-    .line 437
+    .line 450
     :catchall_0
     move-exception v0
 
@@ -161,22 +161,22 @@
     .parameter "listener"
 
     .prologue
-    .line 425
+    .line 438
     if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
-    .line 431
+    .line 444
     :goto_0
     return v0
 
-    .line 427
+    .line 440
     :cond_0
     iget-object v2, p0, Lcom/samsung/wfd/WfdManager$Channel;->mListenerMapLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 428
+    .line 441
     :try_start_0
     iget v0, p0, Lcom/samsung/wfd/WfdManager$Channel;->mListenerKey:I
 
@@ -184,7 +184,7 @@
 
     iput v1, p0, Lcom/samsung/wfd/WfdManager$Channel;->mListenerKey:I
 
-    .line 429
+    .line 442
     .local v0, key:I
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager$Channel;->mListenerMap:Ljava/util/HashMap;
 
@@ -194,7 +194,7 @@
 
     invoke-virtual {v1, v3, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 430
+    .line 443
     monitor-exit v2
 
     goto :goto_0

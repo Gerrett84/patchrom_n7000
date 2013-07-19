@@ -8,7 +8,7 @@
 
 
 # static fields
-.field public static final ALARM_ALERT_ACTION:Ljava/lang/String; = "com.samsung.sec.android.clockpackage.alarm.ALARM_ALERT"
+.field public static final ALARM_ALERT_ACTION:Ljava/lang/String; = "com.samsung.sec.android.clockpackage.alarm.ALARM_ALERT_FROM_ALARM"
 
 .field public static final TAG:Ljava/lang/String; = "Sally Service"
 
@@ -86,7 +86,7 @@
 
     .line 179
     .local v0, filter:Landroid/content/IntentFilter;
-    const-string v1, "com.samsung.sec.android.clockpackage.alarm.ALARM_ALERT"
+    const-string v1, "com.samsung.sec.android.clockpackage.alarm.ALARM_ALERT_FROM_ALARM"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 

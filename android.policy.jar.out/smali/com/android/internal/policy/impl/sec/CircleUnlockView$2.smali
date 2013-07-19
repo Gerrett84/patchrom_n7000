@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 294
+    .line 298
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockView$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "animation"
 
     .prologue
-    .line 305
+    .line 309
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockView$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleUnlockView;->arrowContainer:Landroid/widget/LinearLayout;
@@ -52,7 +52,16 @@
 
     invoke-virtual {v0}, Landroid/widget/LinearLayout;->clearAnimation()V
 
-    .line 306
+    .line 311
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockView$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockView;
+
+    #getter for: Lcom/android/internal/policy/impl/sec/CircleUnlockView;->isAnimationOn:Z
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/CircleUnlockView;->access$200(Lcom/android/internal/policy/impl/sec/CircleUnlockView;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockView$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleUnlockView;->arrowContainer:Landroid/widget/LinearLayout;
@@ -63,13 +72,14 @@
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockView$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockView;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleUnlockView;->arrowFadeSet:Landroid/view/animation/AnimationSet;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/CircleUnlockView;->access$200(Lcom/android/internal/policy/impl/sec/CircleUnlockView;)Landroid/view/animation/AnimationSet;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/CircleUnlockView;->access$300(Lcom/android/internal/policy/impl/sec/CircleUnlockView;)Landroid/view/animation/AnimationSet;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 307
+    .line 312
+    :cond_0
     return-void
 .end method
 
@@ -78,7 +88,7 @@
     .parameter "animation"
 
     .prologue
-    .line 301
+    .line 305
     return-void
 .end method
 
@@ -87,6 +97,6 @@
     .parameter "animation"
 
     .prologue
-    .line 297
+    .line 301
     return-void
 .end method

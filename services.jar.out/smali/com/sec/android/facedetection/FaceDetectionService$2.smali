@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 614
+    .line 636
     iput-object p1, p0, Lcom/sec/android/facedetection/FaceDetectionService$2;->this$0:Lcom/sec/android/facedetection/FaceDetectionService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 5
 
     .prologue
-    .line 617
+    .line 639
     :try_start_0
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService$2;->this$0:Lcom/sec/android/facedetection/FaceDetectionService;
 
@@ -56,7 +56,7 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 624
+    .line 646
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -91,7 +91,7 @@
 
     invoke-static {v1}, Landroid/os/Debug;->saveDumpstate(Ljava/lang/String;)V
 
-    .line 625
+    .line 647
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService$2;->this$0:Lcom/sec/android/facedetection/FaceDetectionService;
 
     #getter for: Lcom/sec/android/facedetection/FaceDetectionService;->mHandler:Landroid/os/Handler;
@@ -107,15 +107,15 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 652
+    .line 674
     :goto_0
     return-void
 
-    .line 648
+    .line 670
     :catch_0
     move-exception v0
 
-    .line 650
+    .line 672
     .local v0, e:Ljava/lang/Exception;
     const-string v1, "FaceDetectionService"
 

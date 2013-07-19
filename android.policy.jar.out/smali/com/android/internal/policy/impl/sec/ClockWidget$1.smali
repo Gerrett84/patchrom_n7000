@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 122
+    .line 145
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$1;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 125
+    .line 148
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$1;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget;->mClock:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
@@ -54,7 +54,7 @@
     #calls: Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->setMarquee(Z)V
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$100(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;Z)V
 
-    .line 126
+    .line 149
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$1;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget;->mCharger:Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;
@@ -65,7 +65,7 @@
     #calls: Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->setMarquee(Z)V
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->access$300(Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;Z)V
 
-    .line 127
+    .line 150
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$1;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget;->mWeather:Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;
@@ -76,6 +76,6 @@
     #calls: Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->setMarquee(Z)V
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$500(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;Z)V
 
-    .line 128
+    .line 151
     return-void
 .end method

@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1166
+    .line 1169
     iput-object p1, p0, Lcom/android/server/input/InputManagerService$9;->this$0:Lcom/android/server/input/InputManagerService;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,11 +40,11 @@
     .parameter "selfChange"
 
     .prologue
-    .line 1169
+    .line 1172
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$9;->this$0:Lcom/android/server/input/InputManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/input/InputManagerService;->updateShowHoveringFromSettings()V
 
-    .line 1170
+    .line 1173
     return-void
 .end method

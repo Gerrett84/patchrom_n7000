@@ -110,7 +110,7 @@
     .parameter "error"
 
     .prologue
-    .line 228
+    .line 234
     return-void
 .end method
 
@@ -121,10 +121,10 @@
     .parameter "host_and_port"
 
     .prologue
-    .line 247
+    .line 253
     invoke-virtual {p2}, Landroid/webkit/ClientCertRequestHandler;->cancel()V
 
-    .line 248
+    .line 254
     return-void
 .end method
 
@@ -148,10 +148,10 @@
     .parameter "realm"
 
     .prologue
-    .line 262
+    .line 268
     invoke-virtual {p2}, Landroid/webkit/HttpAuthHandler;->cancel()V
 
-    .line 263
+    .line 269
     return-void
 .end method
 
@@ -163,7 +163,7 @@
     .parameter "args"
 
     .prologue
-    .line 321
+    .line 327
     return-void
 .end method
 
@@ -201,6 +201,21 @@
     return-void
 .end method
 
+.method public onReceivedSslError(Landroid/webkit/WebView;Landroid/webkit/SslErrorHandler;Landroid/net/http/SslError;Z)V
+    .locals 0
+    .parameter "view"
+    .parameter "handler"
+    .parameter "error"
+    .parameter "forced"
+
+    .prologue
+    .line 224
+    invoke-virtual {p2}, Landroid/webkit/SslErrorHandler;->cancel()V
+
+    .line 225
+    return-void
+.end method
+
 .method public onScaleChanged(Landroid/webkit/WebView;FF)V
     .locals 0
     .parameter "view"
@@ -208,7 +223,7 @@
     .parameter "newScale"
 
     .prologue
-    .line 307
+    .line 313
     return-void
 .end method
 
@@ -218,7 +233,7 @@
     .parameter "misspelledWordCount"
 
     .prologue
-    .line 332
+    .line 338
     return-void
 .end method
 
@@ -244,20 +259,29 @@
     .parameter "event"
 
     .prologue
-    .line 292
+    .line 298
     invoke-virtual {p1}, Landroid/webkit/WebView;->getViewRootImpl()Landroid/view/ViewRootImpl;
 
     move-result-object v0
 
-    .line 293
+    .line 299
     .local v0, root:Landroid/view/ViewRootImpl;
     if-eqz v0, :cond_0
 
-    .line 294
+    .line 300
     invoke-virtual {v0, p2}, Landroid/view/ViewRootImpl;->dispatchUnhandledKey(Landroid/view/KeyEvent;)V
 
-    .line 296
+    .line 302
     :cond_0
+    return-void
+.end method
+
+.method public onUpdateUrl(Ljava/lang/String;)V
+    .locals 0
+    .parameter "url"
+
+    .prologue
+    .line 341
     return-void
 .end method
 
@@ -279,7 +303,7 @@
     .parameter "event"
 
     .prologue
-    .line 278
+    .line 284
     const/4 v0, 0x0
 
     return v0

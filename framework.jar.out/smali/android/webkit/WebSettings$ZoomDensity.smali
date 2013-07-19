@@ -32,7 +32,11 @@
 
 .field public static final enum MEDIUM:Landroid/webkit/WebSettings$ZoomDensity;
 
+.field public static final enum SFAR:Landroid/webkit/WebSettings$ZoomDensity;
+
 .field public static final enum XFAR:Landroid/webkit/WebSettings$ZoomDensity;
+
+.field public static final enum XXFAR:Landroid/webkit/WebSettings$ZoomDensity;
 
 
 # instance fields
@@ -41,81 +45,117 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 9
 
     .prologue
-    const/4 v6, 0x3
+    const/4 v8, 0x4
 
-    const/4 v5, 0x2
+    const/4 v7, 0x3
 
-    const/4 v4, 0x1
+    const/4 v6, 0x2
 
-    const/4 v3, 0x0
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
 
     .line 88
+    new-instance v0, Landroid/webkit/WebSettings$ZoomDensity;
+
+    const-string v1, "XXFAR"
+
+    const/16 v2, 0x12c
+
+    invoke-direct {v0, v1, v4, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
+
+    sput-object v0, Landroid/webkit/WebSettings$ZoomDensity;->XXFAR:Landroid/webkit/WebSettings$ZoomDensity;
+
+    .line 89
     new-instance v0, Landroid/webkit/WebSettings$ZoomDensity;
 
     const-string v1, "XFAR"
 
     const/16 v2, 0xc8
 
-    invoke-direct {v0, v1, v3, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v5, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Landroid/webkit/WebSettings$ZoomDensity;->XFAR:Landroid/webkit/WebSettings$ZoomDensity;
 
-    .line 89
+    .line 90
     new-instance v0, Landroid/webkit/WebSettings$ZoomDensity;
 
     const-string v1, "FAR"
 
     const/16 v2, 0x96
 
-    invoke-direct {v0, v1, v4, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v6, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Landroid/webkit/WebSettings$ZoomDensity;->FAR:Landroid/webkit/WebSettings$ZoomDensity;
 
-    .line 90
+    .line 91
+    new-instance v0, Landroid/webkit/WebSettings$ZoomDensity;
+
+    const-string v1, "SFAR"
+
+    const/16 v2, 0x85
+
+    invoke-direct {v0, v1, v7, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
+
+    sput-object v0, Landroid/webkit/WebSettings$ZoomDensity;->SFAR:Landroid/webkit/WebSettings$ZoomDensity;
+
+    .line 92
     new-instance v0, Landroid/webkit/WebSettings$ZoomDensity;
 
     const-string v1, "MEDIUM"
 
     const/16 v2, 0x64
 
-    invoke-direct {v0, v1, v5, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v8, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Landroid/webkit/WebSettings$ZoomDensity;->MEDIUM:Landroid/webkit/WebSettings$ZoomDensity;
 
-    .line 91
+    .line 93
     new-instance v0, Landroid/webkit/WebSettings$ZoomDensity;
 
     const-string v1, "CLOSE"
 
-    const/16 v2, 0x4b
+    const/4 v2, 0x5
 
-    invoke-direct {v0, v1, v6, v2}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
+    const/16 v3, 0x4b
+
+    invoke-direct {v0, v1, v2, v3}, Landroid/webkit/WebSettings$ZoomDensity;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Landroid/webkit/WebSettings$ZoomDensity;->CLOSE:Landroid/webkit/WebSettings$ZoomDensity;
 
     .line 87
-    const/4 v0, 0x4
+    const/4 v0, 0x6
 
     new-array v0, v0, [Landroid/webkit/WebSettings$ZoomDensity;
 
-    sget-object v1, Landroid/webkit/WebSettings$ZoomDensity;->XFAR:Landroid/webkit/WebSettings$ZoomDensity;
-
-    aput-object v1, v0, v3
-
-    sget-object v1, Landroid/webkit/WebSettings$ZoomDensity;->FAR:Landroid/webkit/WebSettings$ZoomDensity;
+    sget-object v1, Landroid/webkit/WebSettings$ZoomDensity;->XXFAR:Landroid/webkit/WebSettings$ZoomDensity;
 
     aput-object v1, v0, v4
 
-    sget-object v1, Landroid/webkit/WebSettings$ZoomDensity;->MEDIUM:Landroid/webkit/WebSettings$ZoomDensity;
+    sget-object v1, Landroid/webkit/WebSettings$ZoomDensity;->XFAR:Landroid/webkit/WebSettings$ZoomDensity;
 
     aput-object v1, v0, v5
 
-    sget-object v1, Landroid/webkit/WebSettings$ZoomDensity;->CLOSE:Landroid/webkit/WebSettings$ZoomDensity;
+    sget-object v1, Landroid/webkit/WebSettings$ZoomDensity;->FAR:Landroid/webkit/WebSettings$ZoomDensity;
 
     aput-object v1, v0, v6
+
+    sget-object v1, Landroid/webkit/WebSettings$ZoomDensity;->SFAR:Landroid/webkit/WebSettings$ZoomDensity;
+
+    aput-object v1, v0, v7
+
+    sget-object v1, Landroid/webkit/WebSettings$ZoomDensity;->MEDIUM:Landroid/webkit/WebSettings$ZoomDensity;
+
+    aput-object v1, v0, v8
+
+    const/4 v1, 0x5
+
+    sget-object v2, Landroid/webkit/WebSettings$ZoomDensity;->CLOSE:Landroid/webkit/WebSettings$ZoomDensity;
+
+    aput-object v2, v0, v1
 
     sput-object v0, Landroid/webkit/WebSettings$ZoomDensity;->$VALUES:[Landroid/webkit/WebSettings$ZoomDensity;
 
@@ -134,13 +174,13 @@
     .end annotation
 
     .prologue
-    .line 92
+    .line 94
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 93
+    .line 95
     iput p3, p0, Landroid/webkit/WebSettings$ZoomDensity;->value:I
 
-    .line 94
+    .line 96
     return-void
 .end method
 

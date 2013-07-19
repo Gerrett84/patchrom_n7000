@@ -15,6 +15,8 @@
 
 
 # static fields
+.field public static final CCKM:I = 0x7
+
 .field public static final IEEE8021X:I = 0x3
 
 .field public static final NONE:I = 0x0
@@ -39,8 +41,8 @@
     .locals 3
 
     .prologue
-    .line 181
-    const/4 v0, 0x7
+    .line 194
+    const/16 v0, 0x8
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -86,6 +88,12 @@
 
     aput-object v2, v0, v1
 
+    const/4 v1, 0x7
+
+    const-string v2, "CCKM"
+
+    aput-object v2, v0, v1
+
     sput-object v0, Landroid/net/wifi/WifiConfiguration$KeyMgmt;->strings:[Ljava/lang/String;
 
     return-void
@@ -95,7 +103,7 @@
     .locals 0
 
     .prologue
-    .line 156
+    .line 167
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void

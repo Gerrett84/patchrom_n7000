@@ -133,12 +133,12 @@
     .parameter "attrs"
 
     .prologue
-    .line 198
+    .line 199
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 199
+    .line 200
     return-void
 .end method
 
@@ -157,31 +157,31 @@
 
     const/high16 v9, 0x3f00
 
-    .line 209
+    .line 210
     invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    .line 106
-    new-instance v5, Landroid/graphics/Rect;
-
-    invoke-direct {v5}, Landroid/graphics/Rect;-><init>()V
-
-    iput-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mFrame:Landroid/graphics/Rect;
 
     .line 107
     new-instance v5, Landroid/graphics/Rect;
 
     invoke-direct {v5}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContentFrame:Landroid/graphics/Rect;
+    iput-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mFrame:Landroid/graphics/Rect;
 
     .line 108
     new-instance v5, Landroid/graphics/Rect;
 
     invoke-direct {v5}, Landroid/graphics/Rect;-><init>()V
 
+    iput-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContentFrame:Landroid/graphics/Rect;
+
+    .line 109
+    new-instance v5, Landroid/graphics/Rect;
+
+    invoke-direct {v5}, Landroid/graphics/Rect;-><init>()V
+
     iput-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mInvalidate:Landroid/graphics/Rect;
 
-    .line 127
+    .line 128
     new-instance v5, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$SlidingHandler;
 
     const/4 v8, 0x0
@@ -190,25 +190,25 @@
 
     iput-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandler:Landroid/os/Handler;
 
-    .line 148
+    .line 149
     const-string v5, "Ticker"
 
     iput-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->TAG:Ljava/lang/String;
 
-    .line 210
+    .line 211
     sget-object v5, Lcom/android/internal/R$styleable;->SlidingDrawer:[I
 
     invoke-virtual {p1, p2, v5, p3, v7}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 212
+    .line 213
     .local v0, a:Landroid/content/res/TypedArray;
     invoke-virtual {v0, v7, v6}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v4
 
-    .line 213
+    .line 214
     .local v4, orientation:I
     if-ne v4, v6, :cond_0
 
@@ -217,7 +217,7 @@
     :goto_0
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
 
-    .line 214
+    .line 215
     invoke-virtual {v0, v6, v10}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result v5
@@ -226,7 +226,7 @@
 
     iput v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mBottomOffset:I
 
-    .line 215
+    .line 216
     const/4 v5, 0x2
 
     invoke-virtual {v0, v5, v10}, Landroid/content/res/TypedArray;->getDimension(IF)F
@@ -237,7 +237,7 @@
 
     iput v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
-    .line 216
+    .line 217
     const/4 v5, 0x3
 
     invoke-virtual {v0, v5, v6}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -246,7 +246,7 @@
 
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAllowSingleTap:Z
 
-    .line 217
+    .line 218
     const/4 v5, 0x6
 
     invoke-virtual {v0, v5, v6}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
@@ -255,23 +255,23 @@
 
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimateOnClick:Z
 
-    .line 219
+    .line 220
     iget v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mBottomOffset:I
 
     iput v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mDefaultBottomOffset:I
 
-    .line 221
+    .line 222
     const/4 v5, 0x4
 
     invoke-virtual {v0, v5, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v3
 
-    .line 222
+    .line 223
     .local v3, handleId:I
     if-nez v3, :cond_1
 
-    .line 223
+    .line 224
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     const-string v6, "The handle attribute is required and must refer to a valid child."
@@ -284,10 +284,10 @@
     :cond_0
     move v5, v7
 
-    .line 213
+    .line 214
     goto :goto_0
 
-    .line 227
+    .line 228
     .restart local v3       #handleId:I
     :cond_1
     const/4 v5, 0x5
@@ -296,11 +296,11 @@
 
     move-result v1
 
-    .line 228
+    .line 229
     .local v1, contentId:I
     if-nez v1, :cond_2
 
-    .line 229
+    .line 230
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     const-string v6, "The content attribute is required and must refer to a valid child."
@@ -309,11 +309,11 @@
 
     throw v5
 
-    .line 233
+    .line 234
     :cond_2
     if-ne v3, v1, :cond_3
 
-    .line 234
+    .line 235
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     const-string v6, "The content and handle attributes must refer to different children."
@@ -322,14 +322,14 @@
 
     throw v5
 
-    .line 238
+    .line 239
     :cond_3
     iput v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandleId:I
 
-    .line 239
+    .line 240
     iput v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContentId:I
 
-    .line 241
+    .line 242
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
@@ -340,7 +340,7 @@
 
     iget v2, v5, Landroid/util/DisplayMetrics;->density:F
 
-    .line 242
+    .line 243
     .local v2, density:F
     const/high16 v5, 0x40c0
 
@@ -352,7 +352,7 @@
 
     iput v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTapThreshold:I
 
-    .line 243
+    .line 244
     const/high16 v5, 0x42c8
 
     mul-float/2addr v5, v2
@@ -363,7 +363,7 @@
 
     iput v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumTapVelocity:I
 
-    .line 244
+    .line 245
     const/high16 v5, 0x4316
 
     mul-float/2addr v5, v2
@@ -374,7 +374,7 @@
 
     iput v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumMinorVelocity:I
 
-    .line 245
+    .line 246
     const/high16 v5, 0x4348
 
     mul-float/2addr v5, v2
@@ -385,7 +385,7 @@
 
     iput v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumMajorVelocity:I
 
-    .line 246
+    .line 247
     const/high16 v5, 0x44fa
 
     mul-float/2addr v5, v2
@@ -396,7 +396,7 @@
 
     iput v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumAcceleration:I
 
-    .line 247
+    .line 248
     const/high16 v5, 0x447a
 
     mul-float/2addr v5, v2
@@ -407,13 +407,13 @@
 
     iput v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVelocityUnits:I
 
-    .line 249
+    .line 250
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 251
+    .line 252
     invoke-virtual {p0, v7}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setAlwaysDrawnWithCacheEnabled(Z)V
 
-    .line 252
+    .line 253
     return-void
 .end method
 
@@ -422,7 +422,7 @@
     .parameter "x0"
 
     .prologue
-    .line 84
+    .line 85
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mLocked:Z
 
     return v0
@@ -433,7 +433,7 @@
     .parameter "x0"
 
     .prologue
-    .line 84
+    .line 85
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimateOnClick:Z
 
     return v0
@@ -444,7 +444,7 @@
     .parameter "x0"
 
     .prologue
-    .line 84
+    .line 85
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->doAnimation()V
 
     return-void
@@ -455,10 +455,10 @@
     .parameter "position"
 
     .prologue
-    .line 530
+    .line 531
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->prepareTracking(I)V
 
-    .line 531
+    .line 532
     iget v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumAcceleration:I
 
     int-to-float v0, v0
@@ -467,7 +467,7 @@
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->performFling(IFZ)V
 
-    .line 532
+    .line 533
     return-void
 .end method
 
@@ -476,10 +476,10 @@
     .parameter "position"
 
     .prologue
-    .line 535
+    .line 536
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->prepareTracking(I)V
 
-    .line 536
+    .line 537
     iget v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumAcceleration:I
 
     neg-int v0, v0
@@ -490,7 +490,7 @@
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->performFling(IFZ)V
 
-    .line 537
+    .line 538
     return-void
 .end method
 
@@ -498,22 +498,22 @@
     .locals 2
 
     .prologue
-    .line 867
+    .line 868
     const/16 v0, -0x2712
 
     invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->moveHandle(I)V
 
-    .line 868
+    .line 869
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
 
     if-eqz v0, :cond_0
 
-    .line 869
+    .line 870
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;->onAnimationFinished()V
 
-    .line 871
+    .line 872
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
@@ -521,33 +521,33 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 872
+    .line 873
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->destroyDrawingCache()V
 
-    .line 874
+    .line 875
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
     if-nez v0, :cond_2
 
-    .line 882
+    .line 883
     :cond_1
     :goto_0
     return-void
 
-    .line 878
+    .line 879
     :cond_2
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
-    .line 879
+    .line 880
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerCloseListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerCloseListener;
 
     if-eqz v0, :cond_1
 
-    .line 880
+    .line 881
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerCloseListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerCloseListener;
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerCloseListener;->onDrawerClosed()V
@@ -561,15 +561,15 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 728
+    .line 729
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimating:Z
 
     if-eqz v0, :cond_0
 
-    .line 729
+    .line 730
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->incrementAnimation()V
 
-    .line 730
+    .line 731
     iget v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationPosition:F
 
     iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mBottomOffset:I
@@ -593,18 +593,18 @@
 
     if-ltz v0, :cond_2
 
-    .line 731
+    .line 732
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimating:Z
 
-    .line 732
+    .line 733
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->closeDrawer()V
 
-    .line 743
+    .line 744
     :cond_0
     :goto_1
     return-void
 
-    .line 730
+    .line 731
     :cond_1
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getWidth()I
 
@@ -612,7 +612,7 @@
 
     goto :goto_0
 
-    .line 733
+    .line 734
     :cond_2
     iget v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationPosition:F
 
@@ -624,15 +624,15 @@
 
     if-gez v0, :cond_3
 
-    .line 734
+    .line 735
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimating:Z
 
-    .line 735
+    .line 736
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->openDrawer()V
 
     goto :goto_1
 
-    .line 737
+    .line 738
     :cond_3
     iget v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationPosition:F
 
@@ -640,7 +640,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->moveHandle(I)V
 
-    .line 738
+    .line 739
     iget-wide v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mCurrentAnimationTime:J
 
     const-wide/16 v2, 0x10
@@ -649,7 +649,7 @@
 
     iput-wide v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mCurrentAnimationTime:J
 
-    .line 739
+    .line 740
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandler:Landroid/os/Handler;
@@ -671,12 +671,12 @@
     .locals 8
 
     .prologue
-    .line 746
+    .line 747
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
 
-    .line 747
+    .line 748
     .local v1, now:J
     iget-wide v6, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationLastTime:J
 
@@ -688,19 +688,19 @@
 
     div-float v4, v6, v7
 
-    .line 748
+    .line 749
     .local v4, t:F
     iget v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationPosition:F
 
-    .line 749
+    .line 750
     .local v3, position:F
     iget v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedVelocity:F
 
-    .line 750
+    .line 751
     .local v5, v:F
     iget v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedAcceleration:F
 
-    .line 751
+    .line 752
     .local v0, a:F
     mul-float v6, v5, v4
 
@@ -718,17 +718,17 @@
 
     iput v6, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationPosition:F
 
-    .line 752
+    .line 753
     mul-float v6, v0, v4
 
     add-float/2addr v6, v5
 
     iput v6, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedVelocity:F
 
-    .line 753
+    .line 754
     iput-wide v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationLastTime:J
 
-    .line 754
+    .line 755
     return-void
 .end method
 
@@ -743,19 +743,19 @@
 
     const/16 v8, -0x2712
 
-    .line 614
+    .line 615
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
-    .line 616
+    .line 617
     .local v3, handle:Landroid/view/View;
     iget-boolean v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
 
     if-eqz v7, :cond_4
 
-    .line 617
+    .line 618
     if-ne p1, v9, :cond_0
 
-    .line 618
+    .line 619
     iget v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
     invoke-virtual {v3}, Landroid/view/View;->getTop()I
@@ -766,18 +766,18 @@
 
     invoke-virtual {v3, v7}, Landroid/view/View;->offsetTopAndBottom(I)V
 
-    .line 619
+    .line 620
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate()V
 
-    .line 677
+    .line 678
     :goto_0
     return-void
 
-    .line 620
+    .line 621
     :cond_0
     if-ne p1, v8, :cond_1
 
-    .line 621
+    .line 622
     iget v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mBottomOffset:I
 
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getBottom()I
@@ -804,52 +804,52 @@
 
     invoke-virtual {v3, v7}, Landroid/view/View;->offsetTopAndBottom(I)V
 
-    .line 623
+    .line 624
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate()V
 
     goto :goto_0
 
-    .line 625
+    .line 626
     :cond_1
     invoke-virtual {v3}, Landroid/view/View;->getTop()I
 
     move-result v6
 
-    .line 626
+    .line 627
     .local v6, top:I
     sub-int v1, p1, v6
 
-    .line 627
+    .line 628
     .local v1, deltaY:I
     iget v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
     if-ge p1, v7, :cond_3
 
-    .line 628
+    .line 629
     iget v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
     sub-int v1, v7, v6
 
-    .line 632
+    .line 633
     :cond_2
     :goto_1
     invoke-virtual {v3, v1}, Landroid/view/View;->offsetTopAndBottom(I)V
 
-    .line 634
+    .line 635
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mFrame:Landroid/graphics/Rect;
 
-    .line 635
+    .line 636
     .local v2, frame:Landroid/graphics/Rect;
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mInvalidate:Landroid/graphics/Rect;
 
-    .line 637
+    .line 638
     .local v5, region:Landroid/graphics/Rect;
     invoke-virtual {v3, v2}, Landroid/view/View;->getHitRect(Landroid/graphics/Rect;)V
 
-    .line 638
+    .line 639
     invoke-virtual {v5, v2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 640
+    .line 641
     iget v7, v2, Landroid/graphics/Rect;->left:I
 
     iget v8, v2, Landroid/graphics/Rect;->top:I
@@ -864,7 +864,7 @@
 
     invoke-virtual {v5, v7, v8, v9, v10}, Landroid/graphics/Rect;->union(IIII)V
 
-    .line 641
+    .line 642
     iget v7, v2, Landroid/graphics/Rect;->bottom:I
 
     sub-int/2addr v7, v1
@@ -887,12 +887,12 @@
 
     invoke-virtual {v5, v11, v7, v8, v9}, Landroid/graphics/Rect;->union(IIII)V
 
-    .line 644
+    .line 645
     invoke-virtual {p0, v5}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate(Landroid/graphics/Rect;)V
 
     goto :goto_0
 
-    .line 629
+    .line 630
     .end local v2           #frame:Landroid/graphics/Rect;
     .end local v5           #region:Landroid/graphics/Rect;
     :cond_3
@@ -918,7 +918,7 @@
 
     if-le v1, v7, :cond_2
 
-    .line 630
+    .line 631
     iget v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mBottomOffset:I
 
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getBottom()I
@@ -941,13 +941,13 @@
 
     goto :goto_1
 
-    .line 647
+    .line 648
     .end local v1           #deltaY:I
     .end local v6           #top:I
     :cond_4
     if-ne p1, v9, :cond_5
 
-    .line 648
+    .line 649
     iget v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
     invoke-virtual {v3}, Landroid/view/View;->getLeft()I
@@ -958,16 +958,16 @@
 
     invoke-virtual {v3, v7}, Landroid/view/View;->offsetLeftAndRight(I)V
 
-    .line 649
+    .line 650
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate()V
 
     goto/16 :goto_0
 
-    .line 650
+    .line 651
     :cond_5
     if-ne p1, v8, :cond_6
 
-    .line 651
+    .line 652
     iget v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mBottomOffset:I
 
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getRight()I
@@ -994,52 +994,52 @@
 
     invoke-virtual {v3, v7}, Landroid/view/View;->offsetLeftAndRight(I)V
 
-    .line 653
+    .line 654
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate()V
 
     goto/16 :goto_0
 
-    .line 655
+    .line 656
     :cond_6
     invoke-virtual {v3}, Landroid/view/View;->getLeft()I
 
     move-result v4
 
-    .line 656
+    .line 657
     .local v4, left:I
     sub-int v0, p1, v4
 
-    .line 657
+    .line 658
     .local v0, deltaX:I
     iget v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
     if-ge p1, v7, :cond_8
 
-    .line 658
+    .line 659
     iget v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
     sub-int v0, v7, v4
 
-    .line 662
+    .line 663
     :cond_7
     :goto_2
     invoke-virtual {v3, v0}, Landroid/view/View;->offsetLeftAndRight(I)V
 
-    .line 664
+    .line 665
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mFrame:Landroid/graphics/Rect;
 
-    .line 665
+    .line 666
     .restart local v2       #frame:Landroid/graphics/Rect;
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mInvalidate:Landroid/graphics/Rect;
 
-    .line 667
+    .line 668
     .restart local v5       #region:Landroid/graphics/Rect;
     invoke-virtual {v3, v2}, Landroid/view/View;->getHitRect(Landroid/graphics/Rect;)V
 
-    .line 668
+    .line 669
     invoke-virtual {v5, v2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 670
+    .line 671
     iget v7, v2, Landroid/graphics/Rect;->left:I
 
     sub-int/2addr v7, v0
@@ -1054,7 +1054,7 @@
 
     invoke-virtual {v5, v7, v8, v9, v10}, Landroid/graphics/Rect;->union(IIII)V
 
-    .line 671
+    .line 672
     iget v7, v2, Landroid/graphics/Rect;->right:I
 
     sub-int/2addr v7, v0
@@ -1077,12 +1077,12 @@
 
     invoke-virtual {v5, v7, v11, v8, v9}, Landroid/graphics/Rect;->union(IIII)V
 
-    .line 674
+    .line 675
     invoke-virtual {p0, v5}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate(Landroid/graphics/Rect;)V
 
     goto/16 :goto_0
 
-    .line 659
+    .line 660
     .end local v2           #frame:Landroid/graphics/Rect;
     .end local v5           #region:Landroid/graphics/Rect;
     :cond_8
@@ -1108,7 +1108,7 @@
 
     if-le v0, v7, :cond_7
 
-    .line 660
+    .line 661
     iget v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mBottomOffset:I
 
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getRight()I
@@ -1136,22 +1136,22 @@
     .locals 2
 
     .prologue
-    .line 885
+    .line 886
     const/16 v0, -0x2711
 
     invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->moveHandle(I)V
 
-    .line 886
+    .line 887
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
 
     if-eqz v0, :cond_0
 
-    .line 887
+    .line 888
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;->onAnimationFinished()V
 
-    .line 889
+    .line 890
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
@@ -1159,28 +1159,28 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 891
+    .line 892
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
     if-eqz v0, :cond_2
 
-    .line 900
+    .line 901
     :cond_1
     :goto_0
     return-void
 
-    .line 895
+    .line 896
     :cond_2
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
-    .line 897
+    .line 898
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerOpenListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerOpenListener;
 
     if-eqz v0, :cond_1
 
-    .line 898
+    .line 899
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerOpenListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerOpenListener;
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerOpenListener;->onDrawerOpened()V
@@ -1199,20 +1199,20 @@
 
     const/4 v4, 0x0
 
-    .line 540
+    .line 541
     int-to-float v2, p1
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationPosition:F
 
-    .line 541
+    .line 542
     iput p2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedVelocity:F
 
-    .line 543
+    .line 544
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
     if-eqz v2, :cond_4
 
-    .line 544
+    .line 545
     if-nez p3, :cond_0
 
     iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumMajorVelocity:I
@@ -1246,7 +1246,7 @@
 
     if-lez v2, :cond_3
 
-    .line 549
+    .line 550
     :cond_0
     iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumAcceleration:I
 
@@ -1254,43 +1254,43 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedAcceleration:F
 
-    .line 550
+    .line 551
     cmpg-float v2, p2, v4
 
     if-gez v2, :cond_1
 
-    .line 551
+    .line 552
     iput v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedVelocity:F
 
-    .line 579
+    .line 580
     :cond_1
     :goto_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
-    .line 580
+    .line 581
     .local v0, now:J
     iput-wide v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationLastTime:J
 
-    .line 581
+    .line 582
     const-wide/16 v2, 0x10
 
     add-long/2addr v2, v0
 
     iput-wide v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mCurrentAnimationTime:J
 
-    .line 582
+    .line 583
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimating:Z
 
-    .line 583
+    .line 584
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v5}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 584
+    .line 585
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandler:Landroid/os/Handler;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandler:Landroid/os/Handler;
@@ -1303,20 +1303,20 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->sendMessageAtTime(Landroid/os/Message;J)Z
 
-    .line 585
+    .line 586
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->stopTracking()V
 
-    .line 586
+    .line 587
     return-void
 
-    .line 544
+    .line 545
     .end local v0           #now:J
     :cond_2
     iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandleWidth:I
 
     goto :goto_0
 
-    .line 555
+    .line 556
     :cond_3
     iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumAcceleration:I
 
@@ -1326,17 +1326,17 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedAcceleration:F
 
-    .line 556
+    .line 557
     cmpl-float v2, p2, v4
 
     if-lez v2, :cond_1
 
-    .line 557
+    .line 558
     iput v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedVelocity:F
 
     goto :goto_1
 
-    .line 561
+    .line 562
     :cond_4
     if-nez p3, :cond_7
 
@@ -1371,7 +1371,7 @@
 
     if-lez v2, :cond_7
 
-    .line 565
+    .line 566
     :cond_5
     iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumAcceleration:I
 
@@ -1379,17 +1379,17 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedAcceleration:F
 
-    .line 566
+    .line 567
     cmpg-float v2, p2, v4
 
     if-gez v2, :cond_1
 
-    .line 567
+    .line 568
     iput v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedVelocity:F
 
     goto :goto_1
 
-    .line 561
+    .line 562
     :cond_6
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getWidth()I
 
@@ -1397,7 +1397,7 @@
 
     goto :goto_2
 
-    .line 572
+    .line 573
     :cond_7
     iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumAcceleration:I
 
@@ -1407,12 +1407,12 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedAcceleration:F
 
-    .line 573
+    .line 574
     cmpl-float v2, p2, v4
 
     if-lez v2, :cond_1
 
-    .line 574
+    .line 575
     iput v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedVelocity:F
 
     goto :goto_1
@@ -1426,20 +1426,20 @@
 
     const/high16 v8, 0x4000
 
-    .line 680
+    .line 681
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimating:Z
 
     if-eqz v5, :cond_0
 
-    .line 711
+    .line 712
     :goto_0
     return-void
 
-    .line 686
+    .line 687
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
-    .line 687
+    .line 688
     .local v2, content:Landroid/view/View;
     invoke-virtual {v2}, Landroid/view/View;->isLayoutRequested()Z
 
@@ -1447,15 +1447,15 @@
 
     if-eqz v5, :cond_1
 
-    .line 688
+    .line 689
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
 
     if-eqz v5, :cond_2
 
-    .line 689
+    .line 690
     iget v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandleHeight:I
 
-    .line 690
+    .line 691
     .local v0, childHeight:I
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getBottom()I
 
@@ -1473,7 +1473,7 @@
 
     sub-int v3, v5, v6
 
-    .line 691
+    .line 692
     .local v3, height:I
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getRight()I
 
@@ -1495,7 +1495,7 @@
 
     invoke-virtual {v2, v5, v6}, Landroid/view/View;->measure(II)V
 
-    .line 693
+    .line 694
     iget v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
     add-int/2addr v5, v0
@@ -1516,7 +1516,7 @@
 
     invoke-virtual {v2, v9, v5, v6, v7}, Landroid/view/View;->layout(IIII)V
 
-    .line 707
+    .line 708
     .end local v0           #childHeight:I
     .end local v3           #height:I
     :cond_1
@@ -1527,17 +1527,17 @@
 
     invoke-virtual {v5}, Landroid/view/ViewTreeObserver;->dispatchOnPreDraw()Z
 
-    .line 708
+    .line 709
     invoke-virtual {v2}, Landroid/view/View;->buildDrawingCache()V
 
-    .line 710
+    .line 711
     const/16 v5, 0x8
 
     invoke-virtual {v2, v5}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 696
+    .line 697
     :cond_2
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
@@ -1545,7 +1545,7 @@
 
     move-result v1
 
-    .line 697
+    .line 698
     .local v1, childWidth:I
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getRight()I
 
@@ -1563,7 +1563,7 @@
 
     sub-int v4, v5, v6
 
-    .line 698
+    .line 699
     .local v4, width:I
     invoke-static {v4, v8}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
@@ -1585,7 +1585,7 @@
 
     invoke-virtual {v2, v5, v6}, Landroid/view/View;->measure(II)V
 
-    .line 700
+    .line 701
     iget v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
     add-int/2addr v5, v1
@@ -1620,43 +1620,43 @@
 
     const/4 v4, 0x1
 
-    .line 589
+    .line 590
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTracking:Z
 
-    .line 590
+    .line 591
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
 
     move-result-object v5
 
     iput-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    .line 591
+    .line 592
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
     if-nez v5, :cond_0
 
     move v2, v4
 
-    .line 592
+    .line 593
     .local v2, opening:Z
     :goto_0
     if-eqz v2, :cond_2
 
-    .line 593
+    .line 594
     iget v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumAcceleration:I
 
     int-to-float v3, v3
 
     iput v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedAcceleration:F
 
-    .line 594
+    .line 595
     iget v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumMajorVelocity:I
 
     int-to-float v3, v3
 
     iput v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimatedVelocity:F
 
-    .line 595
+    .line 596
     iget v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mBottomOffset:I
 
     iget-boolean v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
@@ -1678,41 +1678,41 @@
 
     iput v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationPosition:F
 
-    .line 597
+    .line 598
     iget v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationPosition:F
 
     float-to-int v3, v3
 
     invoke-direct {p0, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->moveHandle(I)V
 
-    .line 598
+    .line 599
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimating:Z
 
-    .line 599
+    .line 600
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v3, v7}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 600
+    .line 601
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
-    .line 601
+    .line 602
     .local v0, now:J
     iput-wide v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimationLastTime:J
 
-    .line 602
+    .line 603
     const-wide/16 v5, 0x10
 
     add-long/2addr v5, v0
 
     iput-wide v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mCurrentAnimationTime:J
 
-    .line 603
+    .line 604
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimating:Z
 
-    .line 611
+    .line 612
     .end local v0           #now:J
     :goto_2
     return-void
@@ -1721,10 +1721,10 @@
     :cond_0
     move v2, v3
 
-    .line 591
+    .line 592
     goto :goto_0
 
-    .line 595
+    .line 596
     .restart local v2       #opening:Z
     :cond_1
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getWidth()I
@@ -1737,21 +1737,21 @@
 
     goto :goto_1
 
-    .line 605
+    .line 606
     :cond_2
     iget-boolean v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimating:Z
 
     if-eqz v4, :cond_3
 
-    .line 606
+    .line 607
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAnimating:Z
 
-    .line 607
+    .line 608
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v3, v7}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 609
+    .line 610
     :cond_3
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->moveHandle(I)V
 
@@ -1764,41 +1764,41 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 714
+    .line 715
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setPressed(Z)V
 
-    .line 715
+    .line 716
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTracking:Z
-
-    .line 717
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
-
-    if-eqz v0, :cond_0
 
     .line 718
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
 
+    if-eqz v0, :cond_0
+
+    .line 719
+    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
+
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;->onScrollEnded()V
 
-    .line 721
+    .line 722
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     if-eqz v0, :cond_1
 
-    .line 722
+    .line 723
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v0}, Landroid/view/VelocityTracker;->recycle()V
 
-    .line 723
+    .line 724
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    .line 725
+    .line 726
     :cond_1
     return-void
 .end method
@@ -1809,20 +1809,20 @@
     .locals 2
 
     .prologue
-    .line 830
+    .line 831
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->prepareContent()V
 
-    .line 831
+    .line 832
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
 
-    .line 832
+    .line 833
     .local v0, scrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
     if-eqz v0, :cond_0
 
-    .line 833
+    .line 834
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;->onScrollStarted()V
 
-    .line 835
+    .line 836
     :cond_0
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
 
@@ -1837,17 +1837,17 @@
     :goto_0
     invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->animateClose(I)V
 
-    .line 837
+    .line 838
     if-eqz v0, :cond_1
 
-    .line 838
+    .line 839
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;->onScrollEnded()V
 
-    .line 840
+    .line 841
     :cond_1
     return-void
 
-    .line 835
+    .line 836
     :cond_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
@@ -1862,20 +1862,20 @@
     .locals 2
 
     .prologue
-    .line 852
+    .line 853
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->prepareContent()V
 
-    .line 853
+    .line 854
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
 
-    .line 854
+    .line 855
     .local v0, scrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
     if-eqz v0, :cond_0
 
-    .line 855
+    .line 856
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;->onScrollStarted()V
 
-    .line 857
+    .line 858
     :cond_0
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
 
@@ -1890,22 +1890,22 @@
     :goto_0
     invoke-direct {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->animateOpen(I)V
 
-    .line 859
+    .line 860
     const/16 v1, 0x20
 
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->sendAccessibilityEvent(I)V
 
-    .line 861
+    .line 862
     if-eqz v0, :cond_1
 
-    .line 862
+    .line 863
     invoke-interface {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;->onScrollEnded()V
 
-    .line 864
+    .line 865
     :cond_1
     return-void
 
-    .line 857
+    .line 858
     :cond_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
@@ -1920,19 +1920,19 @@
     .locals 1
 
     .prologue
-    .line 785
+    .line 786
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
     if-nez v0, :cond_0
 
-    .line 786
+    .line 787
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->animateOpen()V
 
-    .line 790
+    .line 791
     :goto_0
     return-void
 
-    .line 788
+    .line 789
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->animateClose()V
 
@@ -1943,16 +1943,16 @@
     .locals 0
 
     .prologue
-    .line 815
+    .line 816
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->closeDrawer()V
 
-    .line 816
+    .line 817
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate()V
 
-    .line 817
+    .line 818
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->requestLayout()V
 
-    .line 818
+    .line 819
     return-void
 .end method
 
@@ -1965,24 +1965,24 @@
 
     const/4 v5, 0x0
 
-    .line 306
+    .line 307
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->getDrawingTime()J
 
     move-result-wide v1
 
-    .line 307
+    .line 308
     .local v1, drawingTime:J
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
-    .line 308
+    .line 309
     .local v3, handle:Landroid/view/View;
     iget-boolean v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
 
-    .line 310
+    .line 311
     .local v4, isVertical:Z
     invoke-virtual {p0, p1, v3, v1, v2}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
 
-    .line 312
+    .line 313
     iget-boolean v6, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTracking:Z
 
     if-nez v6, :cond_0
@@ -1991,7 +1991,7 @@
 
     if-eqz v6, :cond_6
 
-    .line 313
+    .line 314
     :cond_0
     iget-object v6, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
@@ -1999,14 +1999,14 @@
 
     move-result-object v0
 
-    .line 314
+    .line 315
     .local v0, cache:Landroid/graphics/Bitmap;
     if-eqz v0, :cond_3
 
-    .line 315
+    .line 316
     if-eqz v4, :cond_2
 
-    .line 316
+    .line 317
     invoke-virtual {v3}, Landroid/view/View;->getBottom()I
 
     move-result v6
@@ -2015,13 +2015,13 @@
 
     invoke-virtual {p1, v0, v5, v6, v7}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    .line 330
+    .line 331
     .end local v0           #cache:Landroid/graphics/Bitmap;
     :cond_1
     :goto_0
     return-void
 
-    .line 318
+    .line 319
     .restart local v0       #cache:Landroid/graphics/Bitmap;
     :cond_2
     invoke-virtual {v3}, Landroid/view/View;->getRight()I
@@ -2034,11 +2034,11 @@
 
     goto :goto_0
 
-    .line 321
+    .line 322
     :cond_3
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 322
+    .line 323
     if-eqz v4, :cond_5
 
     move v6, v5
@@ -2059,17 +2059,17 @@
     :cond_4
     invoke-virtual {p1, v6, v5}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 324
+    .line 325
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
     invoke-virtual {p0, p1, v5, v1, v2}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
 
-    .line 325
+    .line 326
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     goto :goto_0
 
-    .line 322
+    .line 323
     :cond_5
     invoke-virtual {v3}, Landroid/view/View;->getLeft()I
 
@@ -2083,14 +2083,14 @@
 
     goto :goto_1
 
-    .line 327
+    .line 328
     .end local v0           #cache:Landroid/graphics/Bitmap;
     :cond_6
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
     if-eqz v5, :cond_1
 
-    .line 328
+    .line 329
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
     invoke-virtual {p0, p1, v5, v1, v2}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
@@ -2102,7 +2102,7 @@
     .locals 1
 
     .prologue
-    .line 949
+    .line 950
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
     return-object v0
@@ -2112,7 +2112,7 @@
     .locals 1
 
     .prologue
-    .line 1024
+    .line 1025
     iget v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mDefaultBottomOffset:I
 
     return v0
@@ -2122,7 +2122,7 @@
     .locals 1
 
     .prologue
-    .line 939
+    .line 940
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
     return-object v0
@@ -2132,7 +2132,7 @@
     .locals 3
 
     .prologue
-    .line 1028
+    .line 1029
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2159,9 +2159,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1029
+    .line 1030
     iget v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mBottomOffset:I
 
     invoke-static {v0}, Ljava/lang/Math;->abs(I)I
@@ -2175,7 +2175,7 @@
     .locals 1
 
     .prologue
-    .line 985
+    .line 986
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTracking:Z
 
     if-nez v0, :cond_0
@@ -2200,7 +2200,7 @@
     .locals 1
 
     .prologue
-    .line 976
+    .line 977
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
     return v0
@@ -2210,12 +2210,12 @@
     .locals 1
 
     .prologue
-    .line 967
+    .line 968
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mLocked:Z
 
-    .line 968
+    .line 969
     return-void
 .end method
 
@@ -2223,7 +2223,7 @@
     .locals 3
 
     .prologue
-    .line 256
+    .line 257
     iget v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandleId:I
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->findViewById(I)Landroid/view/View;
@@ -2232,12 +2232,12 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
-    .line 257
+    .line 258
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
     if-nez v0, :cond_0
 
-    .line 258
+    .line 259
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The handle attribute is must refer to an existing child."
@@ -2246,7 +2246,7 @@
 
     throw v0
 
-    .line 261
+    .line 262
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
@@ -2258,7 +2258,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 263
+    .line 264
     iget v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContentId:I
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->findViewById(I)Landroid/view/View;
@@ -2267,12 +2267,12 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
-    .line 264
+    .line 265
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
     if-nez v0, :cond_1
 
-    .line 265
+    .line 266
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "The content attribute is must refer to an existing child."
@@ -2281,7 +2281,7 @@
 
     throw v0
 
-    .line 268
+    .line 269
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
@@ -2289,8 +2289,8 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 271
-    const v0, 0x1020313
+    .line 272
+    const v0, 0x1020320
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->findViewById(I)Landroid/view/View;
 
@@ -2300,8 +2300,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mRefreshButton:Landroid/widget/ImageView;
 
-    .line 273
-    const v0, 0x102030e
+    .line 274
+    const v0, 0x102031b
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->findViewById(I)Landroid/view/View;
 
@@ -2311,7 +2311,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mLogoButton:Landroid/widget/ImageView;
 
-    .line 274
+    .line 275
     return-void
 .end method
 
@@ -2320,66 +2320,66 @@
     .parameter "event"
 
     .prologue
-    .line 373
+    .line 374
     iget-boolean v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mLocked:Z
 
     if-eqz v12, :cond_0
 
-    .line 374
+    .line 375
     const/4 v12, 0x0
 
-    .line 443
+    .line 444
     :goto_0
     return v12
 
-    .line 377
+    .line 378
     :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 379
+    .line 380
     .local v0, action:I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v10
 
-    .line 380
+    .line 381
     .local v10, x:F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v11
 
-    .line 382
+    .line 383
     .local v11, y:F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v7
 
-    .line 384
+    .line 385
     .local v7, rawX:F
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mFrame:Landroid/graphics/Rect;
 
-    .line 385
+    .line 386
     .local v4, handleFrame:Landroid/graphics/Rect;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContentFrame:Landroid/graphics/Rect;
 
-    .line 387
+    .line 388
     .local v2, contentFrame:Landroid/graphics/Rect;
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
-    .line 388
+    .line 389
     .local v3, handle:Landroid/view/View;
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
-    .line 390
+    .line 391
     .local v1, content:Landroid/view/View;
     invoke-virtual {v3, v4}, Landroid/view/View;->getHitRect(Landroid/graphics/Rect;)V
 
-    .line 391
+    .line 392
     invoke-virtual {v1, v2}, Landroid/view/View;->getHitRect(Landroid/graphics/Rect;)V
 
-    .line 393
+    .line 394
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->isOpened()Z
 
     move-result v12
@@ -2406,26 +2406,26 @@
 
     if-nez v12, :cond_1
 
-    .line 394
+    .line 395
     const/4 v12, 0x1
 
     iput-boolean v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mClosing:Z
 
-    .line 395
+    .line 396
     const/4 v12, 0x1
 
     goto :goto_0
 
-    .line 397
+    .line 398
     :cond_1
     const/4 v12, 0x0
 
     iput-boolean v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mClosing:Z
 
-    .line 400
+    .line 401
     invoke-virtual {v3, v4}, Landroid/view/View;->getHitRect(Landroid/graphics/Rect;)V
 
-    .line 401
+    .line 402
     iget-boolean v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTracking:Z
 
     if-nez v12, :cond_2
@@ -2440,24 +2440,24 @@
 
     if-nez v12, :cond_2
 
-    .line 402
+    .line 403
     const/4 v12, 0x0
 
     goto :goto_0
 
-    .line 406
+    .line 407
     :cond_2
     new-instance v8, Landroid/graphics/Rect;
 
     invoke-direct {v8}, Landroid/graphics/Rect;-><init>()V
 
-    .line 407
+    .line 408
     .local v8, refreshFrame:Landroid/graphics/Rect;
     iget-object v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mRefreshButton:Landroid/widget/ImageView;
 
     invoke-virtual {v12, v8}, Landroid/widget/ImageView;->getGlobalVisibleRect(Landroid/graphics/Rect;)Z
 
-    .line 408
+    .line 409
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->isOpened()Z
 
     move-result v12
@@ -2474,24 +2474,24 @@
 
     if-eqz v12, :cond_3
 
-    .line 409
+    .line 410
     const/4 v12, 0x0
 
     goto :goto_0
 
-    .line 413
+    .line 414
     :cond_3
     new-instance v6, Landroid/graphics/Rect;
 
     invoke-direct {v6}, Landroid/graphics/Rect;-><init>()V
 
-    .line 414
+    .line 415
     .local v6, logoFrame:Landroid/graphics/Rect;
     iget-object v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mLogoButton:Landroid/widget/ImageView;
 
     invoke-virtual {v12, v6}, Landroid/widget/ImageView;->getGlobalVisibleRect(Landroid/graphics/Rect;)Z
 
-    .line 415
+    .line 416
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->isOpened()Z
 
     move-result v12
@@ -2508,52 +2508,52 @@
 
     if-eqz v12, :cond_4
 
-    .line 416
+    .line 417
     const/4 v12, 0x0
 
     goto/16 :goto_0
 
-    .line 419
+    .line 420
     :cond_4
     if-nez v0, :cond_6
 
-    .line 420
+    .line 421
     const/4 v12, 0x1
 
     iput-boolean v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTracking:Z
 
-    .line 422
+    .line 423
     const/4 v12, 0x1
 
     invoke-virtual {v3, v12}, Landroid/view/View;->setPressed(Z)V
 
-    .line 424
+    .line 425
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->prepareContent()V
-
-    .line 427
-    iget-object v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
-
-    if-eqz v12, :cond_5
 
     .line 428
     iget-object v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
 
+    if-eqz v12, :cond_5
+
+    .line 429
+    iget-object v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
+
     invoke-interface {v12}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;->onScrollStarted()V
 
-    .line 431
+    .line 432
     :cond_5
     iget-boolean v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
 
     if-eqz v12, :cond_7
 
-    .line 432
+    .line 433
     iget-object v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
     invoke-virtual {v12}, Landroid/view/View;->getTop()I
 
     move-result v9
 
-    .line 433
+    .line 434
     .local v9, top:I
     float-to-int v12, v11
 
@@ -2561,23 +2561,23 @@
 
     iput v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTouchDelta:I
 
-    .line 434
+    .line 435
     invoke-direct {p0, v9}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->prepareTracking(I)V
 
-    .line 440
+    .line 441
     .end local v9           #top:I
     :goto_1
     iget-object v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v12, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    .line 443
+    .line 444
     :cond_6
     const/4 v12, 0x1
 
     goto/16 :goto_0
 
-    .line 436
+    .line 437
     :cond_7
     iget-object v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
@@ -2585,7 +2585,7 @@
 
     move-result v5
 
-    .line 437
+    .line 438
     .local v5, left:I
     float-to-int v12, v10
 
@@ -2593,7 +2593,7 @@
 
     iput v12, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTouchDelta:I
 
-    .line 438
+    .line 439
     invoke-direct {p0, v5}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->prepareTracking(I)V
 
     goto :goto_1
@@ -2608,55 +2608,55 @@
     .parameter "b"
 
     .prologue
-    .line 334
+    .line 335
     iget-boolean v8, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTracking:Z
 
     if-eqz v8, :cond_0
 
-    .line 369
+    .line 370
     :goto_0
     return-void
 
-    .line 338
+    .line 339
     :cond_0
     sub-int v7, p4, p2
 
-    .line 339
+    .line 340
     .local v7, width:I
     sub-int v6, p5, p3
 
-    .line 341
+    .line 342
     .local v6, height:I
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
-    .line 343
+    .line 344
     .local v5, handle:Landroid/view/View;
     invoke-virtual {v5}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v3
 
-    .line 344
+    .line 345
     .local v3, childWidth:I
     invoke-virtual {v5}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v0
 
-    .line 349
+    .line 350
     .local v0, childHeight:I
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
-    .line 351
+    .line 352
     .local v4, content:Landroid/view/View;
     iget-boolean v8, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
 
     if-eqz v8, :cond_2
 
-    .line 352
+    .line 353
     sub-int v8, v7, v3
 
     div-int/lit8 v1, v8, 0x2
 
-    .line 353
+    .line 354
     .local v1, childLeft:I
     iget-boolean v8, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
@@ -2664,7 +2664,7 @@
 
     iget v2, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
-    .line 355
+    .line 356
     .local v2, childTop:I
     :goto_1
     const/4 v8, 0x0
@@ -2689,7 +2689,7 @@
 
     invoke-virtual {v4, v8, v9, v10, v11}, Landroid/view/View;->layout(IIII)V
 
-    .line 366
+    .line 367
     :goto_2
     add-int v8, v1, v3
 
@@ -2697,14 +2697,14 @@
 
     invoke-virtual {v5, v1, v2, v8, v9}, Landroid/view/View;->layout(IIII)V
 
-    .line 367
+    .line 368
     invoke-virtual {v5}, Landroid/view/View;->getHeight()I
 
     move-result v8
 
     iput v8, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandleHeight:I
 
-    .line 368
+    .line 369
     invoke-virtual {v5}, Landroid/view/View;->getWidth()I
 
     move-result v8
@@ -2713,7 +2713,7 @@
 
     goto :goto_0
 
-    .line 353
+    .line 354
     .end local v2           #childTop:I
     :cond_1
     sub-int v8, v6, v0
@@ -2724,7 +2724,7 @@
 
     goto :goto_1
 
-    .line 358
+    .line 359
     .end local v1           #childLeft:I
     :cond_2
     iget-boolean v8, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
@@ -2733,14 +2733,14 @@
 
     iget v1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
-    .line 359
+    .line 360
     .restart local v1       #childLeft:I
     :goto_3
     sub-int v8, v6, v0
 
     div-int/lit8 v2, v8, 0x2
 
-    .line 361
+    .line 362
     .restart local v2       #childTop:I
     iget v8, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTopOffset:I
 
@@ -2766,7 +2766,7 @@
 
     goto :goto_2
 
-    .line 358
+    .line 359
     .end local v1           #childLeft:I
     .end local v2           #childTop:I
     :cond_3
@@ -2787,36 +2787,36 @@
     .prologue
     const/high16 v9, 0x4000
 
-    .line 278
+    .line 279
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v5
 
-    .line 279
+    .line 280
     .local v5, widthSpecMode:I
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v6
 
-    .line 281
+    .line 282
     .local v6, widthSpecSize:I
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v2
 
-    .line 282
+    .line 283
     .local v2, heightSpecMode:I
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v3
 
-    .line 284
+    .line 285
     .local v3, heightSpecSize:I
     if-eqz v5, :cond_0
 
     if-nez v2, :cond_1
 
-    .line 285
+    .line 286
     :cond_0
     new-instance v7, Ljava/lang/RuntimeException;
 
@@ -2826,20 +2826,20 @@
 
     throw v7
 
-    .line 288
+    .line 289
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
-    .line 289
+    .line 290
     .local v0, handle:Landroid/view/View;
     invoke-virtual {p0, v0, p1, p2}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->measureChild(Landroid/view/View;II)V
 
-    .line 291
+    .line 292
     iget-boolean v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
 
     if-eqz v7, :cond_2
 
-    .line 292
+    .line 293
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v7
@@ -2850,7 +2850,7 @@
 
     sub-int v1, v7, v8
 
-    .line 293
+    .line 294
     .local v1, height:I
     iget-object v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
@@ -2864,15 +2864,15 @@
 
     invoke-virtual {v7, v8, v9}, Landroid/view/View;->measure(II)V
 
-    .line 301
+    .line 302
     .end local v1           #height:I
     :goto_0
     invoke-virtual {p0, v6, v3}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->setMeasuredDimension(II)V
 
-    .line 302
+    .line 303
     return-void
 
-    .line 296
+    .line 297
     :cond_2
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredWidth()I
 
@@ -2884,7 +2884,7 @@
 
     sub-int v4, v7, v8
 
-    .line 297
+    .line 298
     .local v4, width:I
     iget-object v7, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mContent:Landroid/view/View;
 
@@ -2906,39 +2906,39 @@
     .parameter "event"
 
     .prologue
-    .line 448
+    .line 449
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mLocked:Z
 
     if-eqz v9, :cond_0
 
-    .line 449
+    .line 450
     const/4 v9, 0x1
 
-    .line 526
+    .line 527
     :goto_0
     return v9
 
-    .line 452
+    .line 453
     :cond_0
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTracking:Z
 
     if-eqz v9, :cond_1
 
-    .line 453
+    .line 454
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v9, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    .line 454
+    .line 455
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 455
+    .line 456
     .local v0, action:I
     packed-switch v0, :pswitch_data_0
 
-    .line 526
+    .line 527
     .end local v0           #action:I
     :cond_1
     :goto_1
@@ -2961,7 +2961,7 @@
 
     goto :goto_0
 
-    .line 457
+    .line 458
     .restart local v0       #action:I
     :pswitch_0
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
@@ -2990,36 +2990,36 @@
 
     goto :goto_2
 
-    .line 461
+    .line 462
     :pswitch_1
     iget-object v5, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    .line 462
+    .line 463
     .local v5, velocityTracker:Landroid/view/VelocityTracker;
     iget v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVelocityUnits:I
 
     invoke-virtual {v5, v9}, Landroid/view/VelocityTracker;->computeCurrentVelocity(I)V
 
-    .line 464
+    .line 465
     invoke-virtual {v5}, Landroid/view/VelocityTracker;->getYVelocity()F
 
     move-result v8
 
-    .line 465
+    .line 466
     .local v8, yVelocity:F
     invoke-virtual {v5}, Landroid/view/VelocityTracker;->getXVelocity()F
 
     move-result v7
 
-    .line 468
+    .line 469
     .local v7, xVelocity:F
     iget-boolean v6, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mVertical:Z
 
-    .line 469
+    .line 470
     .local v6, vertical:Z
     if-eqz v6, :cond_a
 
-    .line 470
+    .line 471
     const/4 v9, 0x0
 
     cmpg-float v9, v8, v9
@@ -3028,7 +3028,7 @@
 
     const/4 v2, 0x1
 
-    .line 471
+    .line 472
     .local v2, negative:Z
     :goto_3
     const/4 v9, 0x0
@@ -3037,10 +3037,10 @@
 
     if-gez v9, :cond_4
 
-    .line 472
+    .line 473
     neg-float v7, v7
 
-    .line 474
+    .line 475
     :cond_4
     iget v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumMinorVelocity:I
 
@@ -3050,12 +3050,12 @@
 
     if-lez v9, :cond_5
 
-    .line 475
+    .line 476
     iget v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumMinorVelocity:I
 
     int-to-float v7, v9
 
-    .line 487
+    .line 488
     :cond_5
     :goto_4
     float-to-double v9, v7
@@ -3068,14 +3068,14 @@
 
     double-to-float v4, v9
 
-    .line 488
+    .line 489
     .local v4, velocity:F
     if-eqz v2, :cond_6
 
-    .line 489
+    .line 490
     neg-float v4, v4
 
-    .line 492
+    .line 493
     :cond_6
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
@@ -3083,7 +3083,7 @@
 
     move-result v3
 
-    .line 493
+    .line 494
     .local v3, top:I
     iget-object v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mHandle:Landroid/view/View;
 
@@ -3091,7 +3091,7 @@
 
     move-result v1
 
-    .line 495
+    .line 496
     .local v1, left:I
     invoke-static {v4}, Ljava/lang/Math;->abs(F)F
 
@@ -3105,7 +3105,7 @@
 
     if-gez v9, :cond_16
 
-    .line 496
+    .line 497
     if-eqz v6, :cond_d
 
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
@@ -3149,23 +3149,23 @@
 
     if-le v3, v9, :cond_f
 
-    .line 503
+    .line 504
     :cond_8
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mAllowSingleTap:Z
 
     if-eqz v9, :cond_13
 
-    .line 504
+    .line 505
     const/4 v9, 0x0
 
     invoke-virtual {p0, v9}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->playSoundEffect(I)V
 
-    .line 506
+    .line 507
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
     if-eqz v9, :cond_11
 
-    .line 507
+    .line 508
     if-eqz v6, :cond_10
 
     .end local v3           #top:I
@@ -3174,7 +3174,7 @@
 
     goto/16 :goto_1
 
-    .line 470
+    .line 471
     .end local v1           #left:I
     .end local v2           #negative:Z
     .end local v4           #velocity:F
@@ -3183,7 +3183,7 @@
 
     goto :goto_3
 
-    .line 478
+    .line 479
     :cond_a
     const/4 v9, 0x0
 
@@ -3193,7 +3193,7 @@
 
     const/4 v2, 0x1
 
-    .line 479
+    .line 480
     .restart local v2       #negative:Z
     :goto_6
     const/4 v9, 0x0
@@ -3202,10 +3202,10 @@
 
     if-gez v9, :cond_b
 
-    .line 480
+    .line 481
     neg-float v8, v8
 
-    .line 482
+    .line 483
     :cond_b
     iget v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumMinorVelocity:I
 
@@ -3215,21 +3215,21 @@
 
     if-lez v9, :cond_5
 
-    .line 483
+    .line 484
     iget v9, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mMaximumMinorVelocity:I
 
     int-to-float v8, v9
 
     goto :goto_4
 
-    .line 478
+    .line 479
     .end local v2           #negative:Z
     :cond_c
     const/4 v2, 0x0
 
     goto :goto_6
 
-    .line 496
+    .line 497
     .restart local v1       #left:I
     .restart local v2       #negative:Z
     .restart local v3       #top:I
@@ -3276,7 +3276,7 @@
 
     if-gt v1, v9, :cond_8
 
-    .line 516
+    .line 517
     :cond_f
     if-eqz v6, :cond_15
 
@@ -3292,10 +3292,10 @@
     :cond_10
     move v3, v1
 
-    .line 507
+    .line 508
     goto :goto_5
 
-    .line 509
+    .line 510
     :cond_11
     if-eqz v6, :cond_12
 
@@ -3311,7 +3311,7 @@
 
     goto :goto_8
 
-    .line 512
+    .line 513
     :cond_13
     if-eqz v6, :cond_14
 
@@ -3332,10 +3332,10 @@
     :cond_15
     move v3, v1
 
-    .line 516
+    .line 517
     goto :goto_7
 
-    .line 519
+    .line 520
     :cond_16
     if-eqz v6, :cond_17
 
@@ -3353,7 +3353,7 @@
 
     goto :goto_a
 
-    .line 526
+    .line 527
     .end local v0           #action:I
     .end local v1           #left:I
     .end local v2           #negative:Z
@@ -3368,7 +3368,7 @@
 
     goto/16 :goto_0
 
-    .line 455
+    .line 456
     nop
 
     :pswitch_data_0
@@ -3383,21 +3383,21 @@
     .locals 1
 
     .prologue
-    .line 800
+    .line 801
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->openDrawer()V
 
-    .line 801
+    .line 802
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate()V
 
-    .line 802
+    .line 803
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->requestLayout()V
 
-    .line 804
+    .line 805
     const/16 v0, 0x20
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->sendAccessibilityEvent(I)V
 
-    .line 805
+    .line 806
     return-void
 .end method
 
@@ -3406,10 +3406,10 @@
     .parameter "offset"
 
     .prologue
-    .line 1020
+    .line 1021
     iput p1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mBottomOffset:I
 
-    .line 1021
+    .line 1022
     return-void
 .end method
 
@@ -3418,10 +3418,10 @@
     .parameter "onDrawerCloseListener"
 
     .prologue
-    .line 917
+    .line 918
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerCloseListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerCloseListener;
 
-    .line 918
+    .line 919
     return-void
 .end method
 
@@ -3430,10 +3430,10 @@
     .parameter "onDrawerOpenListener"
 
     .prologue
-    .line 908
+    .line 909
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerOpenListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerOpenListener;
 
-    .line 909
+    .line 910
     return-void
 .end method
 
@@ -3442,10 +3442,10 @@
     .parameter "onDrawerScrollListener"
 
     .prologue
-    .line 929
+    .line 930
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mOnDrawerScrollListener:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$OnDrawerScrollListener;
 
-    .line 930
+    .line 931
     return-void
 .end method
 
@@ -3454,10 +3454,10 @@
     .parameter "callback"
 
     .prologue
-    .line 1016
+    .line 1017
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mTickerCallback:Lcom/android/internal/policy/impl/sec/TickerCallback;
 
-    .line 1017
+    .line 1018
     return-void
 .end method
 
@@ -3465,25 +3465,25 @@
     .locals 1
 
     .prologue
-    .line 766
+    .line 767
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mExpanded:Z
 
     if-nez v0, :cond_0
 
-    .line 767
+    .line 768
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->openDrawer()V
 
-    .line 771
+    .line 772
     :goto_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->invalidate()V
 
-    .line 772
+    .line 773
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->requestLayout()V
 
-    .line 773
+    .line 774
     return-void
 
-    .line 769
+    .line 770
     :cond_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->closeDrawer()V
 
@@ -3494,11 +3494,11 @@
     .locals 1
 
     .prologue
-    .line 958
+    .line 959
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mLocked:Z
 
-    .line 959
+    .line 960
     return-void
 .end method

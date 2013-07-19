@@ -44,13 +44,15 @@
 
 .field public static final FLIP_TOP_TO_BOTTOM:I = 0xa
 
+.field public static final LCD_UP_STEADY:I = 0x63
+
 .field public static final LOCK_EXECUTE_APP:I = 0x45
 
 .field public static final LOCK_EXECUTE_CAMERA_L:I = 0x49
 
 .field public static final LOCK_EXECUTE_CAMERA_R:I = 0x4a
 
-.field public static final MAX:I = 0x63
+.field public static final MAX:I = 0x64
 
 .field public static final NONE:I = 0x0
 
@@ -244,7 +246,7 @@
     .locals 1
 
     .prologue
-    .line 352
+    .line 354
     new-instance v0, Landroid/hardware/motion/MREvent$1;
 
     invoke-direct {v0}, Landroid/hardware/motion/MREvent$1;-><init>()V
@@ -260,34 +262,34 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 119
+    .line 120
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 120
+    .line 121
     iput v0, p0, Landroid/hardware/motion/MREvent;->motion:I
 
-    .line 121
+    .line 122
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDx:I
 
-    .line 122
+    .line 123
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDy:I
 
-    .line 123
+    .line 124
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDz:I
 
-    .line 124
+    .line 125
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDxImage:I
 
-    .line 125
+    .line 126
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDyImage:I
 
-    .line 126
+    .line 127
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDzImage:I
 
-    .line 127
+    .line 128
     iput v0, p0, Landroid/hardware/motion/MREvent;->walkingStatus:I
 
-    .line 128
+    .line 129
     return-void
 .end method
 
@@ -296,13 +298,13 @@
     .parameter "src"
 
     .prologue
-    .line 130
+    .line 131
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 131
+    .line 132
     invoke-virtual {p0, p1}, Landroid/hardware/motion/MREvent;->readFromParcel(Landroid/os/Parcel;)V
 
-    .line 132
+    .line 133
     return-void
 .end method
 
@@ -312,7 +314,7 @@
     .locals 1
 
     .prologue
-    .line 325
+    .line 327
     const/4 v0, 0x0
 
     return v0
@@ -322,7 +324,7 @@
     .locals 1
 
     .prologue
-    .line 135
+    .line 136
     iget v0, p0, Landroid/hardware/motion/MREvent;->motion:I
 
     return v0
@@ -332,7 +334,7 @@
     .locals 1
 
     .prologue
-    .line 166
+    .line 167
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDx:I
 
     return v0
@@ -342,7 +344,7 @@
     .locals 1
 
     .prologue
-    .line 198
+    .line 199
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDxImage:I
 
     return v0
@@ -352,7 +354,7 @@
     .locals 1
 
     .prologue
-    .line 170
+    .line 171
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDy:I
 
     return v0
@@ -362,7 +364,7 @@
     .locals 1
 
     .prologue
-    .line 202
+    .line 203
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDyImage:I
 
     return v0
@@ -372,7 +374,7 @@
     .locals 1
 
     .prologue
-    .line 174
+    .line 175
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDz:I
 
     return v0
@@ -382,7 +384,7 @@
     .locals 1
 
     .prologue
-    .line 206
+    .line 207
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDzImage:I
 
     return v0
@@ -392,7 +394,7 @@
     .locals 1
 
     .prologue
-    .line 178
+    .line 179
     iget v0, p0, Landroid/hardware/motion/MREvent;->tilt:I
 
     return v0
@@ -402,7 +404,7 @@
     .locals 1
 
     .prologue
-    .line 182
+    .line 183
     iget v0, p0, Landroid/hardware/motion/MREvent;->walkingStatus:I
 
     return v0
@@ -413,70 +415,70 @@
     .parameter "src"
 
     .prologue
-    .line 341
+    .line 343
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/motion/MREvent;->motion:I
 
-    .line 342
+    .line 344
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDx:I
 
-    .line 343
+    .line 345
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDy:I
 
-    .line 344
+    .line 346
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDz:I
 
-    .line 345
+    .line 347
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDxImage:I
 
-    .line 346
+    .line 348
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDyImage:I
 
-    .line 347
+    .line 349
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/motion/MREvent;->panningDzImage:I
 
-    .line 348
+    .line 350
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/motion/MREvent;->tilt:I
 
-    .line 349
+    .line 351
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/hardware/motion/MREvent;->walkingStatus:I
 
-    .line 350
+    .line 352
     return-void
 .end method
 
@@ -485,22 +487,22 @@
     .parameter "m"
 
     .prologue
-    .line 139
+    .line 140
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/hardware/motion/MREvent;->motion:I
 
-    .line 140
+    .line 141
     if-ltz p1, :cond_0
 
-    const/16 v0, 0x63
+    const/16 v0, 0x64
 
     if-gt p1, v0, :cond_0
 
-    .line 141
+    .line 142
     iput p1, p0, Landroid/hardware/motion/MREvent;->motion:I
 
-    .line 143
+    .line 144
     :cond_0
     return-void
 .end method
@@ -510,10 +512,10 @@
     .parameter "dx"
 
     .prologue
-    .line 146
+    .line 147
     iput p1, p0, Landroid/hardware/motion/MREvent;->panningDx:I
 
-    .line 147
+    .line 148
     return-void
 .end method
 
@@ -522,10 +524,10 @@
     .parameter "dx"
 
     .prologue
-    .line 186
+    .line 187
     iput p1, p0, Landroid/hardware/motion/MREvent;->panningDxImage:I
 
-    .line 187
+    .line 188
     return-void
 .end method
 
@@ -534,10 +536,10 @@
     .parameter "dy"
 
     .prologue
-    .line 150
+    .line 151
     iput p1, p0, Landroid/hardware/motion/MREvent;->panningDy:I
 
-    .line 151
+    .line 152
     return-void
 .end method
 
@@ -546,10 +548,10 @@
     .parameter "dy"
 
     .prologue
-    .line 190
+    .line 191
     iput p1, p0, Landroid/hardware/motion/MREvent;->panningDyImage:I
 
-    .line 191
+    .line 192
     return-void
 .end method
 
@@ -558,10 +560,10 @@
     .parameter "dz"
 
     .prologue
-    .line 154
+    .line 155
     iput p1, p0, Landroid/hardware/motion/MREvent;->panningDz:I
 
-    .line 155
+    .line 156
     return-void
 .end method
 
@@ -570,10 +572,10 @@
     .parameter "dz"
 
     .prologue
-    .line 194
+    .line 195
     iput p1, p0, Landroid/hardware/motion/MREvent;->panningDzImage:I
 
-    .line 195
+    .line 196
     return-void
 .end method
 
@@ -582,10 +584,10 @@
     .parameter "t"
 
     .prologue
-    .line 158
+    .line 159
     iput p1, p0, Landroid/hardware/motion/MREvent;->tilt:I
 
-    .line 159
+    .line 160
     return-void
 .end method
 
@@ -594,10 +596,10 @@
     .parameter "ws"
 
     .prologue
-    .line 162
+    .line 163
     iput p1, p0, Landroid/hardware/motion/MREvent;->walkingStatus:I
 
-    .line 163
+    .line 164
     return-void
 .end method
 
@@ -605,7 +607,7 @@
     .locals 3
 
     .prologue
-    .line 211
+    .line 212
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -630,27 +632,27 @@
 
     move-result-object v0
 
-    .line 213
+    .line 214
     .local v0, string:Ljava/lang/String;
     iget v1, p0, Landroid/hardware/motion/MREvent;->motion:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 313
+    .line 315
     :goto_0
     :pswitch_0
     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 315
+    .line 317
     iget v1, p0, Landroid/hardware/motion/MREvent;->motion:I
 
     const/16 v2, 0x3d
 
     if-ne v1, v2, :cond_0
 
-    .line 316
+    .line 318
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -705,7 +707,7 @@
 
     move-result-object v0
 
-    .line 318
+    .line 320
     :cond_0
     iget v1, p0, Landroid/hardware/motion/MREvent;->motion:I
 
@@ -713,7 +715,7 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 319
+    .line 321
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -756,11 +758,11 @@
 
     move-result-object v0
 
-    .line 321
+    .line 323
     :cond_1
     return-object v0
 
-    .line 214
+    .line 215
     :pswitch_1
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -782,7 +784,7 @@
 
     goto/16 :goto_0
 
-    .line 215
+    .line 216
     :pswitch_2
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -804,7 +806,7 @@
 
     goto/16 :goto_0
 
-    .line 216
+    .line 217
     :pswitch_3
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -826,7 +828,7 @@
 
     goto/16 :goto_0
 
-    .line 217
+    .line 218
     :pswitch_4
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -848,7 +850,7 @@
 
     goto/16 :goto_0
 
-    .line 218
+    .line 219
     :pswitch_5
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -870,7 +872,7 @@
 
     goto/16 :goto_0
 
-    .line 219
+    .line 220
     :pswitch_6
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -892,7 +894,7 @@
 
     goto/16 :goto_0
 
-    .line 220
+    .line 221
     :pswitch_7
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -914,7 +916,7 @@
 
     goto/16 :goto_0
 
-    .line 221
+    .line 222
     :pswitch_8
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -936,7 +938,7 @@
 
     goto/16 :goto_0
 
-    .line 222
+    .line 223
     :pswitch_9
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -958,7 +960,7 @@
 
     goto/16 :goto_0
 
-    .line 223
+    .line 224
     :pswitch_a
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -980,7 +982,7 @@
 
     goto/16 :goto_0
 
-    .line 224
+    .line 225
     :pswitch_b
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1002,7 +1004,7 @@
 
     goto/16 :goto_0
 
-    .line 225
+    .line 226
     :pswitch_c
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1024,7 +1026,7 @@
 
     goto/16 :goto_0
 
-    .line 226
+    .line 227
     :pswitch_d
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1046,7 +1048,7 @@
 
     goto/16 :goto_0
 
-    .line 227
+    .line 228
     :pswitch_e
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1068,7 +1070,7 @@
 
     goto/16 :goto_0
 
-    .line 228
+    .line 229
     :pswitch_f
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1090,7 +1092,7 @@
 
     goto/16 :goto_0
 
-    .line 229
+    .line 230
     :pswitch_10
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1112,7 +1114,7 @@
 
     goto/16 :goto_0
 
-    .line 230
+    .line 231
     :pswitch_11
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1134,7 +1136,7 @@
 
     goto/16 :goto_0
 
-    .line 231
+    .line 232
     :pswitch_12
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1156,7 +1158,7 @@
 
     goto/16 :goto_0
 
-    .line 232
+    .line 233
     :pswitch_13
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1178,7 +1180,7 @@
 
     goto/16 :goto_0
 
-    .line 233
+    .line 234
     :pswitch_14
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1200,7 +1202,7 @@
 
     goto/16 :goto_0
 
-    .line 234
+    .line 235
     :pswitch_15
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1222,7 +1224,7 @@
 
     goto/16 :goto_0
 
-    .line 235
+    .line 236
     :pswitch_16
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1244,7 +1246,7 @@
 
     goto/16 :goto_0
 
-    .line 236
+    .line 237
     :pswitch_17
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1266,7 +1268,7 @@
 
     goto/16 :goto_0
 
-    .line 237
+    .line 238
     :pswitch_18
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1288,7 +1290,7 @@
 
     goto/16 :goto_0
 
-    .line 238
+    .line 239
     :pswitch_19
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1310,7 +1312,7 @@
 
     goto/16 :goto_0
 
-    .line 239
+    .line 240
     :pswitch_1a
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1332,7 +1334,7 @@
 
     goto/16 :goto_0
 
-    .line 240
+    .line 241
     :pswitch_1b
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1354,7 +1356,7 @@
 
     goto/16 :goto_0
 
-    .line 241
+    .line 242
     :pswitch_1c
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1376,7 +1378,7 @@
 
     goto/16 :goto_0
 
-    .line 242
+    .line 243
     :pswitch_1d
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1398,7 +1400,7 @@
 
     goto/16 :goto_0
 
-    .line 243
+    .line 244
     :pswitch_1e
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1420,7 +1422,7 @@
 
     goto/16 :goto_0
 
-    .line 244
+    .line 245
     :pswitch_1f
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1442,7 +1444,7 @@
 
     goto/16 :goto_0
 
-    .line 245
+    .line 246
     :pswitch_20
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1464,7 +1466,7 @@
 
     goto/16 :goto_0
 
-    .line 246
+    .line 247
     :pswitch_21
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1486,7 +1488,7 @@
 
     goto/16 :goto_0
 
-    .line 247
+    .line 248
     :pswitch_22
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1508,7 +1510,7 @@
 
     goto/16 :goto_0
 
-    .line 248
+    .line 249
     :pswitch_23
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1530,7 +1532,7 @@
 
     goto/16 :goto_0
 
-    .line 249
+    .line 250
     :pswitch_24
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1552,7 +1554,7 @@
 
     goto/16 :goto_0
 
-    .line 250
+    .line 251
     :pswitch_25
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1574,7 +1576,7 @@
 
     goto/16 :goto_0
 
-    .line 251
+    .line 252
     :pswitch_26
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1596,7 +1598,7 @@
 
     goto/16 :goto_0
 
-    .line 252
+    .line 253
     :pswitch_27
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1618,7 +1620,7 @@
 
     goto/16 :goto_0
 
-    .line 253
+    .line 254
     :pswitch_28
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1640,7 +1642,7 @@
 
     goto/16 :goto_0
 
-    .line 254
+    .line 255
     :pswitch_29
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1662,7 +1664,7 @@
 
     goto/16 :goto_0
 
-    .line 255
+    .line 256
     :pswitch_2a
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1684,7 +1686,7 @@
 
     goto/16 :goto_0
 
-    .line 256
+    .line 257
     :pswitch_2b
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1706,7 +1708,7 @@
 
     goto/16 :goto_0
 
-    .line 257
+    .line 258
     :pswitch_2c
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1728,7 +1730,7 @@
 
     goto/16 :goto_0
 
-    .line 258
+    .line 259
     :pswitch_2d
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1750,7 +1752,7 @@
 
     goto/16 :goto_0
 
-    .line 259
+    .line 260
     :pswitch_2e
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1772,7 +1774,7 @@
 
     goto/16 :goto_0
 
-    .line 260
+    .line 261
     :pswitch_2f
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1794,7 +1796,7 @@
 
     goto/16 :goto_0
 
-    .line 261
+    .line 262
     :pswitch_30
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1816,7 +1818,7 @@
 
     goto/16 :goto_0
 
-    .line 262
+    .line 263
     :pswitch_31
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1838,7 +1840,7 @@
 
     goto/16 :goto_0
 
-    .line 263
+    .line 264
     :pswitch_32
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1860,7 +1862,7 @@
 
     goto/16 :goto_0
 
-    .line 264
+    .line 265
     :pswitch_33
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1882,7 +1884,7 @@
 
     goto/16 :goto_0
 
-    .line 265
+    .line 266
     :pswitch_34
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1904,7 +1906,7 @@
 
     goto/16 :goto_0
 
-    .line 266
+    .line 267
     :pswitch_35
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1926,7 +1928,7 @@
 
     goto/16 :goto_0
 
-    .line 267
+    .line 268
     :pswitch_36
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1948,7 +1950,7 @@
 
     goto/16 :goto_0
 
-    .line 268
+    .line 269
     :pswitch_37
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1970,7 +1972,7 @@
 
     goto/16 :goto_0
 
-    .line 269
+    .line 270
     :pswitch_38
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1992,7 +1994,7 @@
 
     goto/16 :goto_0
 
-    .line 270
+    .line 271
     :pswitch_39
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2014,7 +2016,7 @@
 
     goto/16 :goto_0
 
-    .line 271
+    .line 272
     :pswitch_3a
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2036,7 +2038,7 @@
 
     goto/16 :goto_0
 
-    .line 272
+    .line 273
     :pswitch_3b
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2058,7 +2060,7 @@
 
     goto/16 :goto_0
 
-    .line 273
+    .line 274
     :pswitch_3c
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2080,7 +2082,7 @@
 
     goto/16 :goto_0
 
-    .line 274
+    .line 275
     :pswitch_3d
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2102,7 +2104,7 @@
 
     goto/16 :goto_0
 
-    .line 275
+    .line 276
     :pswitch_3e
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2124,7 +2126,7 @@
 
     goto/16 :goto_0
 
-    .line 276
+    .line 277
     :pswitch_3f
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2146,7 +2148,7 @@
 
     goto/16 :goto_0
 
-    .line 277
+    .line 278
     :pswitch_40
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2168,7 +2170,7 @@
 
     goto/16 :goto_0
 
-    .line 278
+    .line 279
     :pswitch_41
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2190,7 +2192,7 @@
 
     goto/16 :goto_0
 
-    .line 279
+    .line 280
     :pswitch_42
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2212,7 +2214,7 @@
 
     goto/16 :goto_0
 
-    .line 280
+    .line 281
     :pswitch_43
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2234,7 +2236,7 @@
 
     goto/16 :goto_0
 
-    .line 281
+    .line 282
     :pswitch_44
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2256,7 +2258,7 @@
 
     goto/16 :goto_0
 
-    .line 282
+    .line 283
     :pswitch_45
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2278,7 +2280,7 @@
 
     goto/16 :goto_0
 
-    .line 283
+    .line 284
     :pswitch_46
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2300,7 +2302,7 @@
 
     goto/16 :goto_0
 
-    .line 284
+    .line 285
     :pswitch_47
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2322,7 +2324,7 @@
 
     goto/16 :goto_0
 
-    .line 285
+    .line 286
     :pswitch_48
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2344,7 +2346,7 @@
 
     goto/16 :goto_0
 
-    .line 286
+    .line 287
     :pswitch_49
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2366,7 +2368,7 @@
 
     goto/16 :goto_0
 
-    .line 287
+    .line 288
     :pswitch_4a
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2388,7 +2390,7 @@
 
     goto/16 :goto_0
 
-    .line 288
+    .line 289
     :pswitch_4b
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2410,7 +2412,7 @@
 
     goto/16 :goto_0
 
-    .line 289
+    .line 290
     :pswitch_4c
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2432,7 +2434,7 @@
 
     goto/16 :goto_0
 
-    .line 290
+    .line 291
     :pswitch_4d
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2454,7 +2456,7 @@
 
     goto/16 :goto_0
 
-    .line 291
+    .line 292
     :pswitch_4e
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2476,7 +2478,7 @@
 
     goto/16 :goto_0
 
-    .line 292
+    .line 293
     :pswitch_4f
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2498,7 +2500,7 @@
 
     goto/16 :goto_0
 
-    .line 293
+    .line 294
     :pswitch_50
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2520,7 +2522,7 @@
 
     goto/16 :goto_0
 
-    .line 294
+    .line 295
     :pswitch_51
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2542,7 +2544,7 @@
 
     goto/16 :goto_0
 
-    .line 295
+    .line 296
     :pswitch_52
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2564,7 +2566,7 @@
 
     goto/16 :goto_0
 
-    .line 296
+    .line 297
     :pswitch_53
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2586,7 +2588,7 @@
 
     goto/16 :goto_0
 
-    .line 297
+    .line 298
     :pswitch_54
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2608,7 +2610,7 @@
 
     goto/16 :goto_0
 
-    .line 298
+    .line 299
     :pswitch_55
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2630,7 +2632,7 @@
 
     goto/16 :goto_0
 
-    .line 299
+    .line 300
     :pswitch_56
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2652,7 +2654,7 @@
 
     goto/16 :goto_0
 
-    .line 300
+    .line 301
     :pswitch_57
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2674,7 +2676,7 @@
 
     goto/16 :goto_0
 
-    .line 301
+    .line 302
     :pswitch_58
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2696,7 +2698,7 @@
 
     goto/16 :goto_0
 
-    .line 303
+    .line 304
     :pswitch_59
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2718,7 +2720,7 @@
 
     goto/16 :goto_0
 
-    .line 304
+    .line 305
     :pswitch_5a
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2740,7 +2742,7 @@
 
     goto/16 :goto_0
 
-    .line 305
+    .line 306
     :pswitch_5b
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2762,7 +2764,7 @@
 
     goto/16 :goto_0
 
-    .line 306
+    .line 307
     :pswitch_5c
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2784,7 +2786,7 @@
 
     goto/16 :goto_0
 
-    .line 307
+    .line 308
     :pswitch_5d
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2806,7 +2808,7 @@
 
     goto/16 :goto_0
 
-    .line 308
+    .line 309
     :pswitch_5e
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2828,7 +2830,7 @@
 
     goto/16 :goto_0
 
-    .line 309
+    .line 310
     :pswitch_5f
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2850,7 +2852,7 @@
 
     goto/16 :goto_0
 
-    .line 310
+    .line 311
     :pswitch_60
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2872,8 +2874,30 @@
 
     goto/16 :goto_0
 
-    .line 311
+    .line 312
     :pswitch_61
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "LCD_UP_STEADY"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    .line 313
+    :pswitch_62
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2894,7 +2918,9 @@
 
     goto/16 :goto_0
 
-    .line 213
+    .line 214
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -2997,6 +3023,7 @@
         :pswitch_4e
         :pswitch_45
         :pswitch_61
+        :pswitch_62
     .end packed-switch
 .end method
 
@@ -3006,51 +3033,51 @@
     .parameter "flags"
 
     .prologue
-    .line 329
+    .line 331
     iget v0, p0, Landroid/hardware/motion/MREvent;->motion:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 330
+    .line 332
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDx:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 331
+    .line 333
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDy:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 332
+    .line 334
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDz:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 333
+    .line 335
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDxImage:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 334
+    .line 336
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDyImage:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 335
+    .line 337
     iget v0, p0, Landroid/hardware/motion/MREvent;->panningDzImage:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 336
+    .line 338
     iget v0, p0, Landroid/hardware/motion/MREvent;->tilt:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 337
+    .line 339
     iget v0, p0, Landroid/hardware/motion/MREvent;->walkingStatus:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 338
+    .line 340
     return-void
 .end method

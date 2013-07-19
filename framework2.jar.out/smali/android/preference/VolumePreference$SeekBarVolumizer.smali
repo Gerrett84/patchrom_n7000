@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Landroid/widget/SeekBar$OnSeekBarChangeListener;
+.implements Landroid/widget/SeekBar$OnSeekBarChangeKeyListener;
 .implements Ljava/lang/Runnable;
 
 
@@ -29,15 +30,7 @@
 
 .field private mLastWaitingToneVolume:I
 
-.field private mMusicPreviousStreamVolume:I
-
-.field private mOriginalLastAudibleMusicVolumeHPH:I
-
-.field private mOriginalLastAudibleMusicVolumeSPK:I
-
 .field private mOriginalMusicStreamVolumeHPH:I
-
-.field private mOriginalMusicStreamVolumeSPK:I
 
 .field private mOriginalNotificationVolume:I
 
@@ -71,7 +64,7 @@
     .parameter "streamType"
 
     .prologue
-    .line 344
+    .line 329
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -86,7 +79,7 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/preference/VolumePreference$SeekBarVolumizer;-><init>(Landroid/preference/VolumePreference;Landroid/content/Context;Landroid/widget/SeekBar;ILandroid/net/Uri;)V
 
-    .line 345
+    .line 330
     return-void
 .end method
 
@@ -101,7 +94,7 @@
     .prologue
     const/4 v1, -0x1
 
-    .line 347
+    .line 332
     iput-object p1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->this$0:Landroid/preference/VolumePreference;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -113,21 +106,21 @@
 
     iput-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mHandler:Landroid/os/Handler;
 
-    .line 300
+    .line 293
     iput v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
 
-    .line 302
+    .line 295
     iput v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mVolumeBeforeMute:I
 
-    .line 303
+    .line 296
     iput v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastWaitingToneVolume:I
 
-    .line 304
+    .line 297
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mToneGenerator:Landroid/media/ToneGenerator;
 
-    .line 311
+    .line 304
     new-instance v0, Landroid/preference/VolumePreference$SeekBarVolumizer$1;
 
     iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mHandler:Landroid/os/Handler;
@@ -136,10 +129,10 @@
 
     iput-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mVolumeObserver:Landroid/database/ContentObserver;
 
-    .line 348
+    .line 333
     iput-object p2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
 
-    .line 349
+    .line 334
     const-string v0, "audio"
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -150,16 +143,16 @@
 
     iput-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 350
+    .line 335
     iput p4, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
-    .line 351
+    .line 336
     iput-object p3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
-    .line 353
+    .line 338
     invoke-direct {p0, p3, p5}, Landroid/preference/VolumePreference$SeekBarVolumizer;->initSeekBar(Landroid/widget/SeekBar;Landroid/net/Uri;)V
 
-    .line 354
+    .line 339
     return-void
 .end method
 
@@ -168,7 +161,7 @@
     .parameter "x0"
 
     .prologue
-    .line 278
+    .line 279
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
     return-object v0
@@ -179,7 +172,7 @@
     .parameter "x0"
 
     .prologue
-    .line 278
+    .line 279
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
     return-object v0
@@ -190,28 +183,17 @@
     .parameter "x0"
 
     .prologue
-    .line 278
+    .line 279
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     return v0
-.end method
-
-.method static synthetic access$600(Landroid/preference/VolumePreference$SeekBarVolumizer;)Landroid/content/Context;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 278
-    iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
-
-    return-object v0
 .end method
 
 .method private getTelephonyService()Lcom/android/internal/telephony/ITelephony;
     .locals 3
 
     .prologue
-    .line 626
+    .line 574
     const-string v1, "phone"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -222,18 +204,18 @@
 
     move-result-object v0
 
-    .line 627
+    .line 575
     .local v0, telephonyService:Lcom/android/internal/telephony/ITelephony;
     if-nez v0, :cond_0
 
-    .line 628
+    .line 576
     const-string v1, "VolumePreference"
 
     const-string v2, "Unable to find ITelephony interface."
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 630
+    .line 578
     :cond_0
     return-object v0
 .end method
@@ -252,24 +234,24 @@
 
     const/4 v4, 0x2
 
-    .line 357
+    .line 342
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     if-ne v0, v3, :cond_5
 
-    .line 358
+    .line 343
     const-string v0, "VolumePreference"
 
     const-string v1, "initSeekBar: waiting tone"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 359
+    .line 344
     const/4 v0, 0x4
 
     invoke-virtual {p1, v0}, Landroid/widget/SeekBar;->setMax(I)V
 
-    .line 360
+    .line 345
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -284,15 +266,18 @@
 
     iput v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastWaitingToneVolume:I
 
-    .line 361
+    .line 346
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastWaitingToneVolume:I
 
     invoke-virtual {p1, v0}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 362
+    .line 347
     invoke-virtual {p1, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    .line 365
+    .line 348
+    invoke-virtual {p1, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeKeyListener(Landroid/widget/SeekBar$OnSeekBarChangeKeyListener;)V
+
+    .line 350
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -313,18 +298,18 @@
 
     invoke-virtual {v0, v1, v6, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 369
+    .line 354
     if-nez p2, :cond_0
 
-    .line 370
+    .line 355
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     if-ne v0, v4, :cond_2
 
-    .line 371
+    .line 356
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_RINGTONE_URI:Landroid/net/Uri;
 
-    .line 381
+    .line 366
     :cond_0
     :goto_0
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
@@ -335,52 +320,52 @@
 
     iput-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
-    .line 382
+    .line 367
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     if-eqz v0, :cond_1
 
-    .line 383
+    .line 368
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     invoke-virtual {v0, v1}, Landroid/media/Ringtone;->setStreamType(I)V
 
-    .line 430
+    .line 415
     :cond_1
     :goto_1
     return-void
 
-    .line 372
+    .line 357
     :cond_2
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     if-ne v0, v5, :cond_3
 
-    .line 373
+    .line 358
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_NOTIFICATION_URI:Landroid/net/Uri;
 
     goto :goto_0
 
-    .line 374
+    .line 359
     :cond_3
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     if-ne v0, v3, :cond_4
 
-    .line 375
+    .line 360
     const/4 p2, 0x0
 
     goto :goto_0
 
-    .line 377
+    .line 362
     :cond_4
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_ALARM_ALERT_URI:Landroid/net/Uri;
 
     goto :goto_0
 
-    .line 386
+    .line 371
     :cond_5
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
@@ -392,7 +377,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/SeekBar;->setMax(I)V
 
-    .line 387
+    .line 372
     const-string v0, "CTC"
 
     const-string v1, "ro.csc.sales_code"
@@ -419,15 +404,25 @@
 
     move-result v0
 
+    if-nez v0, :cond_6
+
+    const-string v0, "CMCC"
+
+    const-string v1, "OPEN"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
     if-eqz v0, :cond_7
 
-    .line 389
+    .line 375
     :cond_6
     invoke-direct {p0, p1, p2}, Landroid/preference/VolumePreference$SeekBarVolumizer;->initSeekBarSetVolume(Landroid/widget/SeekBar;Landroid/net/Uri;)V
 
     goto :goto_1
 
-    .line 392
+    .line 378
     :cond_7
     const-string v0, "VolumePreference"
 
@@ -459,7 +454,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 393
+    .line 379
     const-string v0, "VolumePreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -484,7 +479,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 394
+    .line 380
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
     iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
@@ -495,7 +490,7 @@
 
     iput v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
 
-    .line 395
+    .line 381
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v0}, Landroid/media/AudioManager;->getRingerMode()I
@@ -504,26 +499,18 @@
 
     iput v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalRingerMode:I
 
-    .line 397
-    iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    const/4 v1, 0x3
-
-    invoke-virtual {v0, v1}, Landroid/media/AudioManager;->getStreamVolume(I)I
-
-    move-result v0
-
-    iput v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mMusicPreviousStreamVolume:I
-
-    .line 398
+    .line 383
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
 
     invoke-virtual {p1, v0}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 399
+    .line 384
     invoke-virtual {p1, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    .line 402
+    .line 385
+    invoke-virtual {p1, p0}, Landroid/widget/SeekBar;->setOnSeekBarChangeKeyListener(Landroid/widget/SeekBar$OnSeekBarChangeKeyListener;)V
+
+    .line 387
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -544,18 +531,18 @@
 
     invoke-virtual {v0, v1, v6, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 406
+    .line 391
     if-nez p2, :cond_8
 
-    .line 407
+    .line 392
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     if-ne v0, v4, :cond_a
 
-    .line 408
+    .line 393
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_RINGTONE_URI:Landroid/net/Uri;
 
-    .line 416
+    .line 401
     :cond_8
     :goto_2
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
@@ -566,19 +553,19 @@
 
     iput-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
-    .line 418
+    .line 403
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     if-eqz v0, :cond_9
 
-    .line 419
+    .line 404
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     invoke-virtual {v0, v1}, Landroid/media/Ringtone;->setStreamType(I)V
 
-    .line 422
+    .line 407
     :cond_9
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
@@ -594,7 +581,7 @@
 
     if-eqz v0, :cond_c
 
-    .line 423
+    .line 408
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
     iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
@@ -607,24 +594,24 @@
 
     goto/16 :goto_1
 
-    .line 409
+    .line 394
     :cond_a
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     if-ne v0, v5, :cond_b
 
-    .line 410
+    .line 395
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_NOTIFICATION_URI:Landroid/net/Uri;
 
     goto :goto_2
 
-    .line 412
+    .line 397
     :cond_b
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_ALARM_ALERT_URI:Landroid/net/Uri;
 
     goto :goto_2
 
-    .line 424
+    .line 409
     :cond_c
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
@@ -642,7 +629,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 425
+    .line 410
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
     iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
@@ -662,7 +649,7 @@
     .parameter "defaultUri"
 
     .prologue
-    .line 683
+    .line 631
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->this$0:Landroid/preference/VolumePreference;
@@ -674,7 +661,7 @@
 
     if-nez v4, :cond_4
 
-    .line 684
+    .line 632
     const-string v4, "VolumePreference"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -709,7 +696,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 685
+    .line 633
     const-string v4, "VolumePreference"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -736,7 +723,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 686
+    .line 634
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
@@ -753,7 +740,7 @@
 
     iput v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
 
-    .line 687
+    .line 635
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
@@ -766,22 +753,7 @@
 
     iput v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalRingerMode:I
 
-    .line 689
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    const/4 v5, 0x3
-
-    invoke-virtual {v4, v5}, Landroid/media/AudioManager;->getStreamVolume(I)I
-
-    move-result v4
-
-    move-object/from16 v0, p0
-
-    iput v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mMusicPreviousStreamVolume:I
-
-    .line 690
+    .line 638
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
@@ -790,14 +762,21 @@
 
     invoke-virtual {v0, v4}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 691
+    .line 639
     move-object/from16 v0, p1
 
     move-object/from16 v1, p0
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    .line 694
+    .line 640
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setOnSeekBarChangeKeyListener(Landroid/widget/SeekBar$OnSeekBarChangeKeyListener;)V
+
+    .line 642
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
@@ -826,10 +805,10 @@
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 698
+    .line 646
     if-nez p2, :cond_0
 
-    .line 699
+    .line 647
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
@@ -838,10 +817,10 @@
 
     if-ne v4, v5, :cond_2
 
-    .line 700
+    .line 648
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_RINGTONE_URI:Landroid/net/Uri;
 
-    .line 708
+    .line 656
     :cond_0
     :goto_0
     move-object/from16 v0, p0
@@ -858,14 +837,14 @@
 
     iput-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
-    .line 710
+    .line 658
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     if-eqz v4, :cond_1
 
-    .line 711
+    .line 659
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
@@ -876,12 +855,12 @@
 
     invoke-virtual {v4, v5}, Landroid/media/Ringtone;->setStreamType(I)V
 
-    .line 837
+    .line 772
     :cond_1
     :goto_1
     return-void
 
-    .line 701
+    .line 649
     :cond_2
     move-object/from16 v0, p0
 
@@ -891,18 +870,18 @@
 
     if-ne v4, v5, :cond_3
 
-    .line 702
+    .line 650
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_NOTIFICATION_URI:Landroid/net/Uri;
 
     goto :goto_0
 
-    .line 704
+    .line 652
     :cond_3
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_ALARM_ALERT_URI:Landroid/net/Uri;
 
     goto :goto_0
 
-    .line 716
+    .line 664
     :cond_4
     move-object/from16 v0, p0
 
@@ -924,7 +903,7 @@
 
     move-result v19
 
-    .line 718
+    .line 666
     .local v19, editMode:I
     move-object/from16 v0, p0
 
@@ -946,7 +925,7 @@
 
     move-result v17
 
-    .line 721
+    .line 669
     .local v17, currentMode:I
     move-object/from16 v0, p0
 
@@ -958,11 +937,11 @@
 
     move-result-object v20
 
-    .line 722
+    .line 670
     .local v20, isMusicHPH:Ljava/lang/String;
     const/16 v22, 0x0
 
-    .line 723
+    .line 671
     .local v22, useEarPhone:Z
     const-string v4, "HPH"
 
@@ -974,18 +953,18 @@
 
     if-eqz v4, :cond_5
 
-    .line 724
+    .line 672
     const/16 v22, 0x1
 
-    .line 727
+    .line 675
     :cond_5
     const-string v8, "com.android.settings"
 
-    .line 728
+    .line 676
     .local v8, AUTHORITY:Ljava/lang/String;
     const-string v16, "profile"
 
-    .line 729
+    .line 677
     .local v16, PROFILE_TABLE:Ljava/lang/String;
     const-string v4, "content://com.android.settings/profile"
 
@@ -993,35 +972,35 @@
 
     move-result-object v3
 
-    .line 730
+    .line 678
     .local v3, PROFILE_CONTENT_URI:Landroid/net/Uri;
     const-string v14, "profile_ring_volume"
 
-    .line 731
+    .line 679
     .local v14, PROFILE_RING_VOLUME:Ljava/lang/String;
     const-string v15, "profile_system_volume"
 
-    .line 732
+    .line 680
     .local v15, PROFILE_SYSTEM_VOLUME:Ljava/lang/String;
     const-string v10, "profile_music_volume"
 
-    .line 733
+    .line 681
     .local v10, PROFILE_MUSIC_VOLUME:Ljava/lang/String;
     const-string v12, "profile_notification_volume"
 
-    .line 734
+    .line 682
     .local v12, PROFILE_NOTIFICATION_VOLUME:Ljava/lang/String;
     const-string v9, "profile_hph_music_volume"
 
-    .line 735
+    .line 683
     .local v9, PROFILE_HPH_MUSIC_VOLUME:Ljava/lang/String;
     const-string v13, "profile_ringtone"
 
-    .line 736
+    .line 684
     .local v13, PROFILE_RINGTONE:Ljava/lang/String;
     const-string v11, "profile_notification_tone"
 
-    .line 738
+    .line 686
     .local v11, PROFILE_NOTIFICATION_TONE:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -1035,7 +1014,7 @@
 
     move-result-object v2
 
-    .line 739
+    .line 687
     .local v2, cr:Landroid/content/ContentResolver;
     const/4 v4, 0x0
 
@@ -1067,11 +1046,11 @@
 
     move-result-object v18
 
-    .line 740
+    .line 688
     .local v18, cursor:Landroid/database/Cursor;
     invoke-interface/range {v18 .. v18}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 742
+    .line 690
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
@@ -1084,7 +1063,7 @@
 
     iput v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalRingerMode:I
 
-    .line 744
+    .line 692
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
@@ -1093,7 +1072,7 @@
 
     if-ne v4, v5, :cond_9
 
-    .line 745
+    .line 693
     const-string v4, "profile_ring_volume"
 
     move-object/from16 v0, v18
@@ -1112,28 +1091,9 @@
 
     iput v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
 
-    .line 757
+    .line 705
     :cond_6
     :goto_2
-    const-string v4, "profile_music_volume"
-
-    move-object/from16 v0, v18
-
-    invoke-interface {v0, v4}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v4
-
-    move-object/from16 v0, v18
-
-    invoke-interface {v0, v4}, Landroid/database/Cursor;->getInt(I)I
-
-    move-result v4
-
-    move-object/from16 v0, p0
-
-    iput v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalMusicStreamVolumeSPK:I
-
-    .line 758
     const-string v4, "profile_hph_music_volume"
 
     move-object/from16 v0, v18
@@ -1152,47 +1112,7 @@
 
     iput v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalMusicStreamVolumeHPH:I
 
-    .line 759
-    if-eqz v22, :cond_c
-
-    .line 760
-    move-object/from16 v0, p0
-
-    iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalMusicStreamVolumeHPH:I
-
-    move-object/from16 v0, p0
-
-    iput v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mMusicPreviousStreamVolume:I
-
-    .line 766
-    :goto_3
-    const-string v4, "VolumePreference"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "initSeekBar : Music Previous volume : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mMusicPreviousStreamVolume:I
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 767
+    .line 707
     const-string v4, "VolumePreference"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1233,16 +1153,16 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 769
+    .line 709
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     const/4 v5, 0x2
 
-    if-ne v4, v5, :cond_d
+    if-ne v4, v5, :cond_c
 
-    .line 770
+    .line 710
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
@@ -1261,10 +1181,10 @@
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
-    .line 783
+    .line 718
     :cond_7
-    :goto_4
-    if-eqz v22, :cond_f
+    :goto_3
+    if-eqz v22, :cond_e
 
     move-object/from16 v0, p0
 
@@ -1272,9 +1192,9 @@
 
     const/4 v5, 0x3
 
-    if-ne v4, v5, :cond_f
+    if-ne v4, v5, :cond_e
 
-    .line 784
+    .line 719
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalMusicStreamVolumeHPH:I
@@ -1283,15 +1203,22 @@
 
     invoke-virtual {v0, v4}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 789
-    :goto_5
+    .line 724
+    :goto_4
     move-object/from16 v0, p1
 
     move-object/from16 v1, p0
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    .line 792
+    .line 725
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p0
+
+    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setOnSeekBarChangeKeyListener(Landroid/widget/SeekBar$OnSeekBarChangeKeyListener;)V
+
+    .line 727
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
@@ -1320,27 +1247,27 @@
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 798
+    .line 733
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     packed-switch v4, :pswitch_data_0
 
-    .line 831
+    .line 766
     :cond_8
-    :goto_6
+    :goto_5
     :pswitch_0
     invoke-interface/range {v18 .. v18}, Landroid/database/Cursor;->close()V
 
-    .line 833
+    .line 768
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     if-eqz v4, :cond_1
 
-    .line 834
+    .line 769
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
@@ -1353,7 +1280,7 @@
 
     goto/16 :goto_1
 
-    .line 747
+    .line 695
     :cond_9
     move-object/from16 v0, p0
 
@@ -1363,7 +1290,7 @@
 
     if-ne v4, v5, :cond_a
 
-    .line 748
+    .line 696
     const-string v4, "profile_system_volume"
 
     move-object/from16 v0, v18
@@ -1384,7 +1311,7 @@
 
     goto/16 :goto_2
 
-    .line 750
+    .line 698
     :cond_a
     move-object/from16 v0, p0
 
@@ -1394,7 +1321,7 @@
 
     if-ne v4, v5, :cond_b
 
-    .line 751
+    .line 699
     const-string v4, "profile_music_volume"
 
     move-object/from16 v0, v18
@@ -1415,7 +1342,7 @@
 
     goto/16 :goto_2
 
-    .line 753
+    .line 701
     :cond_b
     move-object/from16 v0, p0
 
@@ -1425,7 +1352,7 @@
 
     if-ne v4, v5, :cond_6
 
-    .line 754
+    .line 702
     const-string v4, "profile_notification_volume"
 
     move-object/from16 v0, v18
@@ -1446,38 +1373,17 @@
 
     goto/16 :goto_2
 
-    .line 763
+    .line 711
     :cond_c
-    move-object/from16 v0, p0
-
-    iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalMusicStreamVolumeSPK:I
-
-    move-object/from16 v0, p0
-
-    iput v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mMusicPreviousStreamVolume:I
-
-    goto/16 :goto_3
-
-    .line 772
-    :cond_d
-    move-object/from16 v0, p0
-
-    iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    const/4 v5, 0x3
-
-    if-eq v4, v5, :cond_7
-
-    .line 776
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_e
+    if-ne v4, v5, :cond_d
 
-    .line 777
+    .line 712
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
@@ -1496,10 +1402,10 @@
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
-    .line 779
-    :cond_e
+    .line 714
+    :cond_d
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
@@ -1508,7 +1414,7 @@
 
     if-ne v4, v5, :cond_7
 
-    .line 780
+    .line 715
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
@@ -1527,10 +1433,10 @@
 
     invoke-virtual {v4, v5, v6, v7}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
-    .line 787
-    :cond_f
+    .line 722
+    :cond_e
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
@@ -1539,9 +1445,9 @@
 
     invoke-virtual {v0, v4}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
-    .line 800
+    .line 735
     :pswitch_1
     const-string v4, "profile_ringtone"
 
@@ -1557,17 +1463,17 @@
 
     move-result-object v21
 
-    .line 801
+    .line 736
     .local v21, ringtoneName:Ljava/lang/String;
-    if-eqz v21, :cond_10
+    if-eqz v21, :cond_f
 
-    .line 802
+    .line 737
     invoke-static/range {v21 .. v21}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object p2
 
-    .line 804
-    :cond_10
+    .line 739
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
@@ -1582,9 +1488,9 @@
 
     iput-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
-    goto/16 :goto_6
+    goto/16 :goto_5
 
-    .line 811
+    .line 746
     .end local v21           #ringtoneName:Ljava/lang/String;
     :pswitch_2
     const-string v4, "profile_notification_tone"
@@ -1601,17 +1507,17 @@
 
     move-result-object v21
 
-    .line 812
+    .line 747
     .restart local v21       #ringtoneName:Ljava/lang/String;
-    if-eqz v21, :cond_11
+    if-eqz v21, :cond_10
 
-    .line 813
+    .line 748
     invoke-static/range {v21 .. v21}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object p2
 
-    .line 815
-    :cond_11
+    .line 750
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
@@ -1626,14 +1532,14 @@
 
     iput-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
-    goto/16 :goto_6
+    goto/16 :goto_5
 
-    .line 822
+    .line 757
     .end local v21           #ringtoneName:Ljava/lang/String;
     :pswitch_3
     if-eqz p2, :cond_8
 
-    .line 823
+    .line 758
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
@@ -1648,9 +1554,9 @@
 
     iput-object v4, v0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
-    goto/16 :goto_6
+    goto/16 :goto_5
 
-    .line 798
+    .line 733
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_1
@@ -1664,34 +1570,34 @@
     .locals 2
 
     .prologue
-    .line 553
+    .line 500
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mToneGenerator:Landroid/media/ToneGenerator;
 
     if-eqz v0, :cond_0
 
-    .line 554
+    .line 501
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mToneGenerator:Landroid/media/ToneGenerator;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/media/ToneGenerator;->setVolume(F)V
 
-    .line 556
+    .line 503
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mToneGenerator:Landroid/media/ToneGenerator;
 
     invoke-virtual {v0}, Landroid/media/ToneGenerator;->stopTone()V
 
-    .line 557
+    .line 504
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mToneGenerator:Landroid/media/ToneGenerator;
 
     invoke-virtual {v0}, Landroid/media/ToneGenerator;->release()V
 
-    .line 558
+    .line 505
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mToneGenerator:Landroid/media/ToneGenerator;
 
-    .line 560
+    .line 507
     :cond_0
     return-void
 .end method
@@ -1703,19 +1609,19 @@
     .parameter "amount"
 
     .prologue
-    .line 644
+    .line 592
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
     invoke-virtual {v0, p1}, Landroid/widget/SeekBar;->incrementProgressBy(I)V
 
-    .line 645
+    .line 593
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->isSamplePlaying()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 646
+    .line 594
     const-string v0, "VolumePreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1738,10 +1644,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 647
+    .line 595
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->startSample()V
 
-    .line 649
+    .line 597
     :cond_0
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
@@ -1751,12 +1657,12 @@
 
     invoke-virtual {p0, v0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
 
-    .line 650
+    .line 598
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mVolumeBeforeMute:I
 
-    .line 651
+    .line 599
     return-void
 .end method
 
@@ -1764,7 +1670,7 @@
     .locals 1
 
     .prologue
-    .line 640
+    .line 588
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
     return-object v0
@@ -1774,7 +1680,7 @@
     .locals 1
 
     .prologue
-    .line 598
+    .line 546
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     if-eqz v0, :cond_0
@@ -1806,34 +1712,34 @@
 
     const/4 v2, -0x1
 
-    .line 654
+    .line 602
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mVolumeBeforeMute:I
 
     if-eq v0, v2, :cond_0
 
-    .line 655
+    .line 603
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mVolumeBeforeMute:I
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 656
+    .line 604
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->startSample()V
 
-    .line 657
+    .line 605
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mVolumeBeforeMute:I
 
     invoke-virtual {p0, v0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
 
-    .line 658
+    .line 606
     iput v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mVolumeBeforeMute:I
 
-    .line 665
+    .line 613
     :goto_0
     return-void
 
-    .line 660
+    .line 608
     :cond_0
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
@@ -1843,15 +1749,15 @@
 
     iput v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mVolumeBeforeMute:I
 
-    .line 661
+    .line 609
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 662
+    .line 610
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->stopSample()V
 
-    .line 663
+    .line 611
     invoke-virtual {p0, v1}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
 
     goto :goto_0
@@ -1865,7 +1771,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 840
+    .line 775
     const-string v0, "VolumePreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1888,21 +1794,21 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 841
+    .line 776
     packed-switch p1, :pswitch_data_0
 
-    .line 858
+    .line 793
     :cond_0
     :goto_0
     return v3
 
-    .line 844
+    .line 779
     :pswitch_0
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->stopSample()V
 
     goto :goto_0
 
-    .line 849
+    .line 784
     :pswitch_1
     const-string v0, "VolumePreference"
 
@@ -1932,19 +1838,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 850
+    .line 785
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->isSamplePlaying()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 851
+    .line 786
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->startSample()V
 
     goto :goto_0
 
-    .line 841
+    .line 776
     nop
 
     :pswitch_data_0
@@ -1969,25 +1875,25 @@
 
     const/4 v6, 0x1
 
-    .line 494
+    .line 449
     if-nez p3, :cond_0
 
-    .line 550
+    .line 497
     :goto_0
     return-void
 
-    .line 497
+    .line 452
     :cond_0
     invoke-direct {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->stopToneGenerator()V
 
-    .line 499
+    .line 454
     iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     const/4 v4, 0x2
 
     if-ne v3, v4, :cond_3
 
-    .line 500
+    .line 455
     const-string v3, "CTC"
 
     const-string v4, "ro.csc.sales_code"
@@ -2014,9 +1920,19 @@
 
     move-result v3
 
+    if-nez v3, :cond_1
+
+    const-string v3, "CMCC"
+
+    const-string v4, "OPEN"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
     if-eqz v3, :cond_2
 
-    .line 502
+    .line 458
     :cond_1
     iget-object v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->this$0:Landroid/preference/VolumePreference;
 
@@ -2027,19 +1943,19 @@
 
     if-ne v3, v6, :cond_2
 
-    .line 503
+    .line 459
     if-ge p2, v6, :cond_2
 
-    .line 504
+    .line 460
     const/4 p2, 0x1
 
-    .line 509
+    .line 465
     :cond_2
     invoke-virtual {p0, p2}, Landroid/preference/VolumePreference$SeekBarVolumizer;->setSeekBarVolume(I)V
 
     goto :goto_0
 
-    .line 510
+    .line 466
     :cond_3
     iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
@@ -2047,53 +1963,37 @@
 
     if-ne v3, v4, :cond_4
 
-    .line 511
+    .line 467
     invoke-virtual {p0, p2}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
 
     goto :goto_0
 
-    .line 512
+    .line 468
     :cond_4
     iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
-    const/4 v4, 0x3
+    if-ne v3, v6, :cond_8
 
-    if-ne v3, v4, :cond_5
-
-    .line 519
-    iput p2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mMusicPreviousStreamVolume:I
-
-    .line 520
-    invoke-virtual {p0, p2}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
-
-    goto :goto_0
-
-    .line 521
-    :cond_5
-    iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    if-ne v3, v6, :cond_9
-
-    .line 522
+    .line 469
     iget-object v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->this$0:Landroid/preference/VolumePreference;
 
     invoke-virtual {v3, p0}, Landroid/preference/VolumePreference;->onSampleStarting(Landroid/preference/VolumePreference$SeekBarVolumizer;)V
 
-    .line 523
+    .line 470
     iget-object v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v3, v6, p2, v5}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
-    .line 525
+    .line 472
     invoke-direct {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->getTelephonyService()Lcom/android/internal/telephony/ITelephony;
 
     move-result-object v1
 
-    .line 526
+    .line 473
     .local v1, telephonyService:Lcom/android/internal/telephony/ITelephony;
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
-    .line 528
+    .line 475
     :try_start_0
     const-string v3, "VolumePreference"
 
@@ -2121,7 +2021,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 529
+    .line 476
     const-string v3, "VolumePreference"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2148,21 +2048,21 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 530
+    .line 477
     invoke-interface {v1}, Lcom/android/internal/telephony/ITelephony;->isRinging()Z
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_5
 
     invoke-interface {v1}, Lcom/android/internal/telephony/ITelephony;->isOffhook()Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_7
 
-    .line 531
-    :cond_6
+    .line 478
+    :cond_5
     const-string v3, "VolumePreference"
 
     const-string v4, "don\'t play STREAM_SYSTEM in volumepreference."
@@ -2171,8 +2071,8 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 539
-    :cond_7
+    .line 486
+    :cond_6
     :goto_1
     const-string v3, "VolumePreference"
 
@@ -2210,8 +2110,8 @@
 
     goto/16 :goto_0
 
-    .line 533
-    :cond_8
+    .line 480
+    :cond_7
     :try_start_1
     iget-object v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
@@ -2225,11 +2125,11 @@
 
     goto :goto_1
 
-    .line 535
+    .line 482
     :catch_0
     move-exception v0
 
-    .line 536
+    .line 483
     .local v0, ex:Landroid/os/RemoteException;
     const-string v3, "VolumePreference"
 
@@ -2239,15 +2139,15 @@
 
     goto :goto_1
 
-    .line 540
+    .line 487
     .end local v0           #ex:Landroid/os/RemoteException;
     .end local v1           #telephonyService:Lcom/android/internal/telephony/ITelephony;
-    :cond_9
+    :cond_8
     iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
-    if-ne v3, v7, :cond_a
+    if-ne v3, v7, :cond_9
 
-    .line 541
+    .line 488
     iget-object v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2258,14 +2158,14 @@
 
     invoke-static {v3, v4, p2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 543
+    .line 490
     new-instance v3, Landroid/media/ToneGenerator;
 
     invoke-direct {v3, v7, v5}, Landroid/media/ToneGenerator;-><init>(II)V
 
     iput-object v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mToneGenerator:Landroid/media/ToneGenerator;
 
-    .line 544
+    .line 491
     const-wide/high16 v3, 0x4000
 
     add-int/lit8 v5, p2, -0x2
@@ -2278,7 +2178,7 @@
 
     double-to-float v2, v3
 
-    .line 545
+    .line 492
     .local v2, volFloat:F
     iget-object v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mToneGenerator:Landroid/media/ToneGenerator;
 
@@ -2298,7 +2198,7 @@
 
     invoke-virtual {v3, v4}, Landroid/media/ToneGenerator;->setVolume(F)V
 
-    .line 546
+    .line 493
     iget-object v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mToneGenerator:Landroid/media/ToneGenerator;
 
     const/16 v4, 0x16
@@ -2309,9 +2209,9 @@
 
     goto/16 :goto_0
 
-    .line 548
+    .line 495
     .end local v2           #volFloat:F
-    :cond_a
+    :cond_9
     invoke-virtual {p0, p2}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
 
     goto/16 :goto_0
@@ -2322,29 +2222,29 @@
     .parameter "volumeStore"
 
     .prologue
-    .line 675
+    .line 623
     iget v0, p1, Landroid/preference/VolumePreference$VolumeStore;->volume:I
 
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 676
+    .line 624
     iget v0, p1, Landroid/preference/VolumePreference$VolumeStore;->originalVolume:I
 
     iput v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
 
-    .line 677
+    .line 625
     iget v0, p1, Landroid/preference/VolumePreference$VolumeStore;->volume:I
 
     iput v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
 
-    .line 678
+    .line 626
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
 
     invoke-virtual {p0, v0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
 
-    .line 680
+    .line 628
     :cond_0
     return-void
 .end method
@@ -2354,22 +2254,22 @@
     .parameter "volumeStore"
 
     .prologue
-    .line 668
+    .line 616
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
 
     if-ltz v0, :cond_0
 
-    .line 669
+    .line 617
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
 
     iput v0, p1, Landroid/preference/VolumePreference$VolumeStore;->volume:I
 
-    .line 670
+    .line 618
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
 
     iput v0, p1, Landroid/preference/VolumePreference$VolumeStore;->originalVolume:I
 
-    .line 672
+    .line 620
     :cond_0
     return-void
 .end method
@@ -2379,17 +2279,17 @@
     .parameter "seekBar"
 
     .prologue
-    .line 570
+    .line 517
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->isSamplePlaying()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 571
+    .line 518
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->startSample()V
 
-    .line 573
+    .line 520
     :cond_0
     return-void
 .end method
@@ -2401,17 +2301,17 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 576
+    .line 523
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->isSamplePlaying()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 577
+    .line 524
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->startSample()V
 
-    .line 580
+    .line 527
     :cond_0
     const-string v0, "CTC"
 
@@ -2439,9 +2339,19 @@
 
     move-result v0
 
+    if-nez v0, :cond_1
+
+    const-string v0, "CMCC"
+
+    const-string v1, "OPEN"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
     if-eqz v0, :cond_2
 
-    .line 582
+    .line 530
     :cond_1
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->this$0:Landroid/preference/VolumePreference;
 
@@ -2452,29 +2362,29 @@
 
     if-ne v0, v2, :cond_2
 
-    .line 583
+    .line 531
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_2
 
-    .line 584
+    .line 532
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
 
     if-ge v0, v2, :cond_2
 
-    .line 585
+    .line 533
     iput v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
 
-    .line 586
+    .line 534
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
     iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 591
+    .line 539
     :cond_2
     return-void
 .end method
@@ -2484,251 +2394,152 @@
     .parameter "progress"
 
     .prologue
-    .line 564
+    .line 511
     iput p1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
 
-    .line 565
+    .line 512
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 566
+    .line 513
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 567
+    .line 514
     return-void
 .end method
 
 .method public revertVolume()V
-    .locals 5
+    .locals 4
 
     .prologue
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    .line 449
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
+    .line 433
+    iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
-    if-eqz v1, :cond_2
+    const/16 v1, 0x8
 
-    .line 450
-    iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
+    if-ne v0, v1, :cond_0
 
-    const/4 v2, 0x3
+    .line 434
+    iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
 
-    if-ne v1, v2, :cond_2
-
-    .line 451
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    const-string v2, "audioParam;curDevice"
-
-    invoke-virtual {v1, v2}, Landroid/media/AudioManager;->getParameters(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 452
-    .local v0, isMusicHPH:Ljava/lang/String;
-    const-string v1, "HPH"
+    const-string v1, "volume_waiting_tone"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastWaitingToneVolume:I
 
-    move-result v1
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    if-eqz v1, :cond_1
-
-    .line 453
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
-
-    invoke-virtual {v1, v2, v3, v4}, Landroid/media/AudioManager;->setStreamVolume(III)V
-
-    .line 458
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    invoke-virtual {v1, v2}, Landroid/media/AudioManager;->isStreamMute(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 459
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalLastAudibleMusicVolumeHPH:I
-
-    invoke-virtual {v1, v2, v3, v4}, Landroid/media/AudioManager;->setStreamVolume(III)V
-
-    .line 490
-    .end local v0           #isMusicHPH:Ljava/lang/String;
-    :cond_0
+    .line 445
     :goto_0
     return-void
 
-    .line 462
-    .restart local v0       #isMusicHPH:Ljava/lang/String;
+    .line 435
+    :cond_0
+    iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
+
+    const/4 v1, 0x5
+
+    if-ne v0, v1, :cond_1
+
+    iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
+
+    iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
+
+    invoke-virtual {v0, v1}, Landroid/media/AudioManager;->isStreamMute(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 436
+    iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
+
+    iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
+
+    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalNotificationVolume:I
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/media/AudioManager;->setStreamVolume(III)V
+
+    goto :goto_0
+
+    .line 437
     :cond_1
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
+    iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
+    const/4 v1, 0x1
 
-    iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
+    if-ne v0, v1, :cond_2
 
-    invoke-virtual {v1, v2, v3, v4}, Landroid/media/AudioManager;->setStreamVolume(III)V
+    iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 467
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
+    iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
+    invoke-virtual {v0, v1}, Landroid/media/AudioManager;->isStreamMute(I)Z
 
-    invoke-virtual {v1, v2}, Landroid/media/AudioManager;->isStreamMute(I)Z
+    move-result v0
 
-    move-result v1
+    if-eqz v0, :cond_2
 
-    if-eqz v1, :cond_0
+    .line 438
+    iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 468
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
+    iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
+    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalSystemVolume:I
 
-    iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalLastAudibleMusicVolumeSPK:I
-
-    invoke-virtual {v1, v2, v3, v4}, Landroid/media/AudioManager;->setStreamVolume(III)V
+    invoke-virtual {v0, v1, v2, v3}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
     goto :goto_0
 
-    .line 478
-    .end local v0           #isMusicHPH:Ljava/lang/String;
+    .line 440
     :cond_2
+    iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
+
+    if-nez v0, :cond_3
+
+    iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalRingerMode:I
+
+    if-nez v0, :cond_3
+
+    .line 441
+    iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
+
     iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
-    const/16 v2, 0x8
+    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
 
-    if-ne v1, v2, :cond_3
+    const/16 v3, 0x40
 
-    .line 479
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "volume_waiting_tone"
-
-    iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastWaitingToneVolume:I
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-virtual {v0, v1, v2, v3}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
     goto :goto_0
 
-    .line 480
+    .line 443
     :cond_3
+    iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
+
     iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
-    const/4 v2, 0x5
+    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
 
-    if-ne v1, v2, :cond_4
-
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    invoke-virtual {v1, v2}, Landroid/media/AudioManager;->isStreamMute(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    .line 481
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalNotificationVolume:I
-
-    invoke-virtual {v1, v2, v3, v4}, Landroid/media/AudioManager;->setStreamVolume(III)V
+    invoke-virtual {v0, v1, v2, v3}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
     goto :goto_0
-
-    .line 482
-    :cond_4
-    iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_5
-
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    invoke-virtual {v1, v2}, Landroid/media/AudioManager;->isStreamMute(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    .line 483
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalSystemVolume:I
-
-    invoke-virtual {v1, v2, v3, v4}, Landroid/media/AudioManager;->setStreamVolume(III)V
-
-    goto :goto_0
-
-    .line 485
-    :cond_5
-    iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
-
-    if-nez v1, :cond_6
-
-    iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalRingerMode:I
-
-    if-nez v1, :cond_6
-
-    .line 486
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
-
-    const/16 v4, 0x40
-
-    invoke-virtual {v1, v2, v3, v4}, Landroid/media/AudioManager;->setStreamVolume(III)V
-
-    goto :goto_0
-
-    .line 488
-    :cond_6
-    iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
-
-    iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
-
-    iget v3, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mOriginalStreamVolume:I
-
-    invoke-virtual {v1, v2, v3, v4}, Landroid/media/AudioManager;->setStreamVolume(III)V
-
-    goto/16 :goto_0
 .end method
 
 .method public run()V
     .locals 4
 
     .prologue
-    .line 594
+    .line 542
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
 
     iget v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
@@ -2739,7 +2550,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/media/AudioManager;->setStreamVolume(III)V
 
-    .line 595
+    .line 543
     return-void
 .end method
 
@@ -2748,15 +2559,15 @@
     .parameter "volume"
 
     .prologue
-    .line 434
+    .line 419
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
     invoke-virtual {v0, p1}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 435
+    .line 420
     invoke-virtual {p0, p1}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
 
-    .line 436
+    .line 421
     return-void
 .end method
 
@@ -2764,16 +2575,16 @@
     .locals 5
 
     .prologue
-    .line 602
+    .line 550
     invoke-direct {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->getTelephonyService()Lcom/android/internal/telephony/ITelephony;
 
     move-result-object v1
 
-    .line 603
+    .line 551
     .local v1, telephonyService:Lcom/android/internal/telephony/ITelephony;
     if-eqz v1, :cond_2
 
-    .line 605
+    .line 553
     :try_start_0
     const-string v2, "VolumePreference"
 
@@ -2801,7 +2612,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 606
+    .line 554
     const-string v2, "VolumePreference"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2828,7 +2639,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 607
+    .line 555
     invoke-interface {v1}, Lcom/android/internal/telephony/ITelephony;->isRinging()Z
 
     move-result v2
@@ -2841,7 +2652,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 608
+    .line 556
     :cond_0
     const-string v2, "VolumePreference"
 
@@ -2851,16 +2662,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 623
+    .line 571
     :cond_1
     :goto_0
     return-void
 
-    .line 611
+    .line 559
     :catch_0
     move-exception v0
 
-    .line 612
+    .line 560
     .local v0, ex:Landroid/os/RemoteException;
     const-string v2, "VolumePreference"
 
@@ -2868,19 +2679,19 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 616
+    .line 564
     .end local v0           #ex:Landroid/os/RemoteException;
     :cond_2
     iget-object v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->this$0:Landroid/preference/VolumePreference;
 
     invoke-virtual {v2, p0}, Landroid/preference/VolumePreference;->onSampleStarting(Landroid/preference/VolumePreference$SeekBarVolumizer;)V
 
-    .line 617
+    .line 565
     iget-object v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     if-eqz v2, :cond_1
 
-    .line 618
+    .line 566
     iget v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     const/4 v3, 0x1
@@ -2893,12 +2704,12 @@
 
     if-eq v2, v3, :cond_1
 
-    .line 619
+    .line 567
     iget-object v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     invoke-virtual {v2}, Landroid/media/Ringtone;->play()V
 
-    .line 620
+    .line 568
     const-string v2, "VolumePreference"
 
     const-string v3, "sample : mRingtone.play()"
@@ -2909,16 +2720,18 @@
 .end method
 
 .method public stop()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 440
+    const/4 v2, 0x0
+
+    .line 425
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->stopSample()V
 
-    .line 441
+    .line 426
     invoke-direct {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->stopToneGenerator()V
 
-    .line 442
+    .line 427
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2929,14 +2742,17 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 443
+    .line 428
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
-    const/4 v1, 0x0
+    invoke-virtual {v0, v2}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+    .line 429
+    iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
-    .line 445
+    invoke-virtual {v0, v2}, Landroid/widget/SeekBar;->setOnSeekBarChangeKeyListener(Landroid/widget/SeekBar$OnSeekBarChangeKeyListener;)V
+
+    .line 430
     return-void
 .end method
 
@@ -2944,17 +2760,17 @@
     .locals 1
 
     .prologue
-    .line 634
+    .line 582
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     if-eqz v0, :cond_0
 
-    .line 635
+    .line 583
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
     invoke-virtual {v0}, Landroid/media/Ringtone;->stop()V
 
-    .line 637
+    .line 585
     :cond_0
     return-void
 .end method

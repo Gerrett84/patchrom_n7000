@@ -34,7 +34,7 @@
     .parameter
 
     .prologue
-    .line 8579
+    .line 8648
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$10;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iput-object p3, p0, Lcom/android/server/am/ActivityManagerService$10;->val$sb:Ljava/lang/StringBuilder;
@@ -54,12 +54,12 @@
     .locals 5
 
     .prologue
-    .line 8583
+    .line 8652
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$10;->val$sb:Ljava/lang/StringBuilder;
 
     monitor-enter v2
 
-    .line 8584
+    .line 8653
     :try_start_0
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$10;->val$sb:Ljava/lang/StringBuilder;
 
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    .line 8585
+    .line 8654
     .local v0, report:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$10;->val$sb:Ljava/lang/StringBuilder;
 
@@ -81,35 +81,35 @@
 
     invoke-virtual {v1, v3, v4}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    .line 8586
+    .line 8655
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$10;->val$sb:Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->trimToSize()V
 
-    .line 8587
+    .line 8656
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 8588
+    .line 8657
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 8589
+    .line 8658
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$10;->val$dbox:Landroid/os/DropBoxManager;
 
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$10;->val$dropboxTag:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v0}, Landroid/os/DropBoxManager;->addText(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 8591
+    .line 8660
     :cond_0
     return-void
 
-    .line 8587
+    .line 8656
     .end local v0           #report:Ljava/lang/String;
     :catchall_0
     move-exception v1

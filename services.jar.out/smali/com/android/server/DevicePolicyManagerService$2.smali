@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 796
+    .line 806
     iput-object p1, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     iput-object p2, p0, Lcom/android/server/DevicePolicyManagerService$2;->val$admin:Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;
@@ -50,12 +50,12 @@
     .parameter "intent"
 
     .prologue
-    .line 799
+    .line 809
     iget-object v3, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     monitor-enter v3
 
-    .line 800
+    .line 810
     :try_start_0
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$2;->val$admin:Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;
 
@@ -67,7 +67,7 @@
 
     move-result v0
 
-    .line 802
+    .line 812
     .local v0, doProxyCleanup:Z
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
@@ -77,7 +77,7 @@
 
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 803
+    .line 813
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     iget-object v2, v2, Lcom/android/server/DevicePolicyManagerService;->mAdminMap:Ljava/util/HashMap;
@@ -86,33 +86,33 @@
 
     invoke-virtual {v2, v4}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 804
+    .line 814
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/DevicePolicyManagerService;->validatePasswordOwnerLocked()V
 
-    .line 805
+    .line 815
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/DevicePolicyManagerService;->syncDeviceCapabilitiesLocked()V
 
-    .line 806
+    .line 816
     if-eqz v0, :cond_0
 
-    .line 807
+    .line 817
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     #calls: Lcom/android/server/DevicePolicyManagerService;->resetGlobalProxyLocked()V
     invoke-static {v2}, Lcom/android/server/DevicePolicyManagerService;->access$200(Lcom/android/server/DevicePolicyManagerService;)V
 
-    .line 809
+    .line 819
     :cond_0
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     #calls: Lcom/android/server/DevicePolicyManagerService;->saveSettingsLocked()V
     invoke-static {v2}, Lcom/android/server/DevicePolicyManagerService;->access$100(Lcom/android/server/DevicePolicyManagerService;)V
 
-    .line 812
+    .line 822
     new-instance v1, Landroid/app/enterprise/EnterpriseDeviceManager;
 
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
@@ -121,24 +121,24 @@
 
     invoke-direct {v1, v2}, Landroid/app/enterprise/EnterpriseDeviceManager;-><init>(Landroid/content/Context;)V
 
-    .line 813
+    .line 823
     .local v1, edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$2;->val$adminReceiver:Landroid/content/ComponentName;
 
     invoke-virtual {v1, v2}, Landroid/app/enterprise/EnterpriseDeviceManager;->removeActiveAdminFromDpm(Landroid/content/ComponentName;)V
 
-    .line 816
+    .line 826
     iget-object v2, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/DevicePolicyManagerService;->updateMaximumTimeToLockLocked()V
 
-    .line 817
+    .line 827
     monitor-exit v3
 
-    .line 818
+    .line 828
     return-void
 
-    .line 817
+    .line 827
     .end local v0           #doProxyCleanup:Z
     .end local v1           #edm:Landroid/app/enterprise/EnterpriseDeviceManager;
     :catchall_0

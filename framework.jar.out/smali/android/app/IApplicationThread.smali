@@ -35,6 +35,8 @@
 
 .field public static final DUMP_HEAP_TRANSACTION:I = 0x24
 
+.field public static final DUMP_LOOPER_TRANSACTION:I = 0x1f5
+
 .field public static final DUMP_MEM_INFO_TRANSACTION:I = 0x2b
 
 .field public static final DUMP_PROVIDER_TRANSACTION:I = 0x2d
@@ -202,6 +204,14 @@
 .end method
 
 .method public abstract dumpHeap(ZLjava/lang/String;Landroid/os/ParcelFileDescriptor;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract dumpLooper(Ljava/io/FileDescriptor;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

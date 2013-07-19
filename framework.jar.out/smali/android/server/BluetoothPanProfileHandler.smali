@@ -1193,7 +1193,7 @@
     .line 152
     iget-object v6, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
-    const-string v7, "nap"
+    const-string/jumbo v7, "nap"
 
     invoke-virtual {v6, v2, v7}, Landroid/server/BluetoothService;->connectPanDeviceNative(Ljava/lang/String;Ljava/lang/String;)Z
 

@@ -37,12 +37,15 @@
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
+.method public declared-synchronized handleMessage(Landroid/os/Message;)V
     .locals 5
     .parameter "msg"
 
     .prologue
     .line 382
+    monitor-enter p0
+
+    :try_start_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/hardware/contextaware/CAEvent;
@@ -57,6 +60,8 @@
     move-result-object v3
 
     invoke-virtual {v3}, Ljava/util/concurrent/CopyOnWriteArrayList;->size()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
@@ -64,10 +69,13 @@
 
     .line 397
     :goto_0
+    monitor-exit p0
+
     return-void
 
     .line 388
     :cond_0
+    :try_start_1
     iget-object v3, p0, Landroid/hardware/contextaware/ContextAwareService$ServiceHandler;->this$0:Landroid/hardware/contextaware/ContextAwareService;
 
     #getter for: Landroid/hardware/contextaware/ContextAwareService;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
@@ -120,12 +128,27 @@
 
     .line 391
     invoke-virtual {v2, v0}, Landroid/hardware/contextaware/ContextAwareService$Listener;->callback(Landroid/hardware/contextaware/CAEvent;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
-    .line 395
+    .line 382
+    .end local v0           #event:Landroid/hardware/contextaware/CAEvent;
+    .end local v1           #i:Ljava/util/Iterator;
     .end local v2           #next:Landroid/hardware/contextaware/ContextAwareService$Listener;
+    :catchall_0
+    move-exception v3
+
+    monitor-exit p0
+
+    throw v3
+
+    .line 395
+    .restart local v0       #event:Landroid/hardware/contextaware/CAEvent;
+    .restart local v1       #i:Ljava/util/Iterator;
     :cond_2
+    :try_start_2
     iget-object v3, p0, Landroid/hardware/contextaware/ContextAwareService$ServiceHandler;->this$0:Landroid/hardware/contextaware/ContextAwareService;
 
     #getter for: Landroid/hardware/contextaware/ContextAwareService;->mEventPool:Landroid/hardware/contextaware/ContextAwareService$EventPool;
@@ -134,6 +157,8 @@
     move-result-object v3
 
     invoke-virtual {v3, v0}, Landroid/hardware/contextaware/ContextAwareService$EventPool;->recycle(Landroid/hardware/contextaware/CAEvent;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 .end method

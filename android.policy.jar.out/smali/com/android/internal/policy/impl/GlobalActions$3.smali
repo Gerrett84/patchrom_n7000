@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 322
+    .line 339
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     invoke-direct {p0, p2, p3}, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;-><init>(II)V
@@ -40,7 +40,7 @@
     .locals 2
 
     .prologue
-    .line 325
+    .line 342
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #calls: Lcom/android/internal/policy/impl/GlobalActions;->isMtpRunning()Z
@@ -50,11 +50,11 @@
 
     if-eqz v1, :cond_0
 
-    .line 331
+    .line 348
     :goto_0
     return-void
 
-    .line 328
+    .line 345
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
@@ -62,13 +62,13 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 329
+    .line 346
     .local v0, intent:Landroid/content/Intent;
     const v1, 0x10008000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 330
+    .line 347
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -85,7 +85,7 @@
     .locals 1
 
     .prologue
-    .line 338
+    .line 355
     const/4 v0, 0x0
 
     return v0
@@ -99,7 +99,7 @@
 
     const/4 v1, 0x0
 
-    .line 342
+    .line 359
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -132,7 +132,7 @@
     .locals 1
 
     .prologue
-    .line 334
+    .line 351
     const/4 v0, 0x1
 
     return v0

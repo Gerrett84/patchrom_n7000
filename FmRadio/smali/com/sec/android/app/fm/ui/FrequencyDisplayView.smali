@@ -66,7 +66,7 @@
 
     .line 96
     :pswitch_0
-    const v0, 0x7f02007f
+    const v0, 0x7f02005e
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -74,7 +74,7 @@
 
     .line 99
     :pswitch_1
-    const v0, 0x7f020081
+    const v0, 0x7f02005f
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -82,7 +82,7 @@
 
     .line 102
     :pswitch_2
-    const v0, 0x7f020083
+    const v0, 0x7f020060
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -90,7 +90,7 @@
 
     .line 105
     :pswitch_3
-    const v0, 0x7f020085
+    const v0, 0x7f020061
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -98,7 +98,7 @@
 
     .line 108
     :pswitch_4
-    const v0, 0x7f020087
+    const v0, 0x7f020062
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -106,7 +106,7 @@
 
     .line 111
     :pswitch_5
-    const v0, 0x7f020089
+    const v0, 0x7f020063
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -114,7 +114,7 @@
 
     .line 114
     :pswitch_6
-    const v0, 0x7f02008b
+    const v0, 0x7f020064
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -122,7 +122,7 @@
 
     .line 117
     :pswitch_7
-    const v0, 0x7f02008d
+    const v0, 0x7f020065
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -130,7 +130,7 @@
 
     .line 120
     :pswitch_8
-    const v0, 0x7f02008f
+    const v0, 0x7f020066
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -138,7 +138,7 @@
 
     .line 123
     :pswitch_9
-    const v0, 0x7f020091
+    const v0, 0x7f020067
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -167,7 +167,7 @@
 
     .prologue
     .line 32
-    const v0, 0x7f07003e
+    const v0, 0x7f07004c
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->findViewById(I)Landroid/view/View;
 
@@ -178,7 +178,7 @@
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->m1stDigit:Landroid/widget/ImageView;
 
     .line 33
-    const v0, 0x7f07003f
+    const v0, 0x7f07004d
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->findViewById(I)Landroid/view/View;
 
@@ -189,7 +189,7 @@
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->m2ndDigit:Landroid/widget/ImageView;
 
     .line 34
-    const v0, 0x7f070040
+    const v0, 0x7f07004e
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->findViewById(I)Landroid/view/View;
 
@@ -200,7 +200,7 @@
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->m3rdDigit:Landroid/widget/ImageView;
 
     .line 35
-    const v0, 0x7f070041
+    const v0, 0x7f07004f
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->findViewById(I)Landroid/view/View;
 
@@ -211,7 +211,7 @@
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->mDotDigit:Landroid/widget/ImageView;
 
     .line 36
-    const v0, 0x7f070042
+    const v0, 0x7f070050
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->findViewById(I)Landroid/view/View;
 
@@ -222,7 +222,7 @@
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->mDot1stDigit:Landroid/widget/ImageView;
 
     .line 38
-    const v0, 0x7f070043
+    const v0, 0x7f070051
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->findViewById(I)Landroid/view/View;
 
@@ -233,7 +233,7 @@
     iput-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->mDot2ndDigit:Landroid/widget/ImageView;
 
     .line 40
-    const v0, 0x7f070044
+    const v0, 0x7f070052
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->findViewById(I)Landroid/view/View;
 
@@ -546,14 +546,14 @@
     :goto_0
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->mDotDigit:Landroid/widget/ImageView;
 
-    const v2, 0x7f020095
+    const v2, 0x7f020069
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 89
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->mMhzDigit:Landroid/widget/ImageView;
 
-    const v2, 0x7f020099
+    const v2, 0x7f02006b
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -569,7 +569,7 @@
     .line 81
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayView;->m1stDigit:Landroid/widget/ImageView;
 
-    const v2, 0x7f020093
+    const v2, 0x7f020068
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 

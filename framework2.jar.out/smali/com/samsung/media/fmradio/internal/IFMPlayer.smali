@@ -175,6 +175,14 @@
     .end annotation
 .end method
 
+.method public abstract getSoftMuteMode()Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract getVolume()J
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -472,6 +480,22 @@
 .end method
 
 .method public abstract setSeekSNR(J)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setSoftMuteControl(III)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract setSoftmute(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

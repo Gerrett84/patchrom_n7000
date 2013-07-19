@@ -66,6 +66,8 @@
 
 .field public static final METADATA_KEY_SEC_AUTHORIZATION:I = 0x73
 
+.field public static final METADATA_KEY_SEC_CITYID:I = 0x75
+
 .field public static final METADATA_KEY_SEC_VIDEOSNAPSHOT:I = 0x74
 
 .field public static final METADATA_KEY_SEC_WEATHER:I = 0x72
@@ -107,7 +109,7 @@
 
     .prologue
     .line 39
-    const-string v0, "media_jni"
+    const-string/jumbo v0, "media_jni"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 

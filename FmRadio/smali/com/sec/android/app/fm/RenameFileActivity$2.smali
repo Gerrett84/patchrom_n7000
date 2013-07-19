@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 96
+    .line 103
     iput-object p1, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,23 +43,23 @@
     .parameter "which"
 
     .prologue
-    .line 99
+    .line 106
     const/4 v12, -0x1
 
     move/from16 v0, p2
 
     if-ne v0, v12, :cond_3
 
-    .line 100
+    .line 107
     invoke-static {}, Lcom/sec/android/app/fm/RenameFileActivity;->access$000()Ljava/lang/String;
 
     move-result-object v12
 
     const-string v13, "Rename"
 
-    invoke-static {v12, v13}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 102
+    .line 109
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
@@ -69,7 +69,7 @@
 
     if-nez v12, :cond_0
 
-    .line 103
+    .line 110
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     iget-object v13, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
@@ -82,7 +82,7 @@
     #setter for: Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
     invoke-static {v12, v13}, Lcom/sec/android/app/fm/RenameFileActivity;->access$102(Lcom/sec/android/app/fm/RenameFileActivity;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 105
+    .line 112
     :cond_0
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
@@ -93,7 +93,7 @@
 
     if-eqz v12, :cond_3
 
-    .line 106
+    .line 113
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameFileActivity;->mSelectedFilePath:Ljava/lang/String;
@@ -105,7 +105,7 @@
 
     move-result v5
 
-    .line 107
+    .line 114
     .local v5, len:I
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
@@ -122,7 +122,7 @@
 
     add-int/lit8 v4, v12, 0x1
 
-    .line 108
+    .line 115
     .local v4, fileNameStart:I
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
@@ -137,7 +137,7 @@
 
     move-result v3
 
-    .line 109
+    .line 116
     .local v3, fileNameEnd:I
     if-ltz v4, :cond_5
 
@@ -149,14 +149,22 @@
 
     move-object/from16 v12, p1
 
-    .line 110
-    check-cast v12, Lcom/sec/android/app/fm/ui/RenameFileDialog;
+    .line 118
+    check-cast v12, Lcom/sec/android/app/fm/ui/RenameDialog;
 
-    invoke-virtual {v12}, Lcom/sec/android/app/fm/ui/RenameFileDialog;->getRenamedString()Ljava/lang/String;
+    invoke-virtual {v12}, Lcom/sec/android/app/fm/ui/RenameDialog;->getText()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/String;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v7
 
-    .line 113
+    .line 122
     .local v7, newFileName:Ljava/lang/String;
     if-eqz v7, :cond_1
 
@@ -166,7 +174,7 @@
 
     if-nez v12, :cond_2
 
-    .line 114
+    .line 123
     :cond_1
     invoke-static {}, Lcom/sec/android/app/fm/RenameFileActivity;->access$000()Ljava/lang/String;
 
@@ -174,9 +182,9 @@
 
     const-string v13, "empty file name"
 
-    invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 115
+    .line 124
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameFileActivity;->mToast:Landroid/widget/Toast;
@@ -188,7 +196,7 @@
 
     invoke-virtual {v12, v13}, Landroid/widget/Toast;->setText(I)V
 
-    .line 116
+    .line 125
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameFileActivity;->mToast:Landroid/widget/Toast;
@@ -198,7 +206,7 @@
 
     invoke-virtual {v12}, Landroid/widget/Toast;->show()V
 
-    .line 159
+    .line 173
     .end local v3           #fileNameEnd:I
     .end local v4           #fileNameStart:I
     .end local v5           #len:I
@@ -206,7 +214,7 @@
     :goto_0
     return-void
 
-    .line 120
+    .line 129
     .restart local v3       #fileNameEnd:I
     .restart local v4       #fileNameStart:I
     .restart local v5       #len:I
@@ -223,7 +231,7 @@
 
     move-result-object v9
 
-    .line 121
+    .line 131
     .local v9, oldFileName:Ljava/lang/String;
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
@@ -236,7 +244,7 @@
 
     move-result-object v8
 
-    .line 123
+    .line 134
     .local v8, newFilePath:Ljava/lang/String;
     new-instance v2, Ljava/io/File;
 
@@ -249,13 +257,13 @@
 
     invoke-direct {v2, v12}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 124
+    .line 135
     .local v2, file:Ljava/io/File;
     new-instance v6, Ljava/io/File;
 
     invoke-direct {v6, v8}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 126
+    .line 137
     .local v6, newFile:Ljava/io/File;
     invoke-virtual {v6}, Ljava/io/File;->exists()Z
 
@@ -263,43 +271,43 @@
 
     if-nez v12, :cond_4
 
-    .line 127
+    .line 138
     invoke-static {}, Lcom/sec/android/app/fm/RenameFileActivity;->access$000()Ljava/lang/String;
 
     move-result-object v12
 
     const-string v13, "renamed"
 
-    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 128
+    .line 139
     invoke-virtual {v2, v6}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    .line 133
+    .line 144
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     invoke-virtual {v12}, Lcom/sec/android/app/fm/RenameFileActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
-    .line 134
+    .line 145
     .local v1, cr:Landroid/content/ContentResolver;
     new-instance v11, Landroid/content/ContentValues;
 
     invoke-direct {v11}, Landroid/content/ContentValues;-><init>()V
 
-    .line 135
+    .line 146
     .local v11, value:Landroid/content/ContentValues;
     const-string v12, "title"
 
     invoke-virtual {v11, v12, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 136
+    .line 147
     const-string v12, "_data"
 
     invoke-virtual {v11, v12, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 138
+    .line 149
     const/4 v12, 0x1
 
     new-array v10, v12, [Ljava/lang/String;
@@ -315,7 +323,7 @@
 
     aput-object v13, v10, v12
 
-    .line 139
+    .line 152
     .local v10, selectionArgs:[Ljava/lang/String;
     sget-object v12, Landroid/provider/MediaStore$Audio$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
@@ -323,7 +331,7 @@
 
     invoke-virtual {v1, v12, v11, v13, v10}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 157
+    .line 171
     .end local v1           #cr:Landroid/content/ContentResolver;
     .end local v2           #file:Ljava/io/File;
     .end local v3           #fileNameEnd:I
@@ -341,7 +349,7 @@
 
     goto :goto_0
 
-    .line 143
+    .line 156
     .restart local v2       #file:Ljava/io/File;
     .restart local v3       #fileNameEnd:I
     .restart local v4       #fileNameStart:I
@@ -357,9 +365,9 @@
 
     const-string v13, "file already exist"
 
-    invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 144
+    .line 157
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameFileActivity;->mToast:Landroid/widget/Toast;
@@ -371,7 +379,7 @@
 
     invoke-virtual {v12, v13}, Landroid/widget/Toast;->setText(I)V
 
-    .line 145
+    .line 158
     iget-object v12, p0, Lcom/sec/android/app/fm/RenameFileActivity$2;->this$0:Lcom/sec/android/app/fm/RenameFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/RenameFileActivity;->mToast:Landroid/widget/Toast;
@@ -383,7 +391,7 @@
 
     goto/16 :goto_0
 
-    .line 150
+    .line 163
     .end local v2           #file:Ljava/io/File;
     .end local v6           #newFile:Ljava/io/File;
     .end local v7           #newFileName:Ljava/lang/String;
@@ -422,7 +430,7 @@
 
     move-result-object v13
 
-    invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v12, v13}, Landroid/util/secutil/Log;->secW(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 .end method

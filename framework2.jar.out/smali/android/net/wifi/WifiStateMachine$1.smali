@@ -1,11 +1,11 @@
 .class Landroid/net/wifi/WifiStateMachine$1;
-.super Landroid/content/BroadcastReceiver;
+.super Landroid/os/Handler;
 .source "WifiStateMachine.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/net/wifi/WifiStateMachine;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/net/wifi/WifiStateMachine;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,134 +24,62 @@
     .parameter
 
     .prologue
-    .line 703
+    .line 175
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$1;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
-    .parameter "context"
-    .parameter "intent"
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 2
+    .parameter "msg"
 
     .prologue
-    const/4 v4, -0x1
+    .line 177
+    iget v0, p1, Landroid/os/Message;->what:I
 
-    .line 706
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    packed-switch v0, :pswitch_data_0
 
-    move-result-object v2
+    .line 185
+    const-string v0, "CW_SISO"
 
-    const-string v3, "edm.intent.action.disable"
+    const-string v1, "WifiStateTracker : mCwHandler : Nothing"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 707
-    const-string v2, "netId"
-
-    invoke-virtual {p2, v2, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v1
-
-    .line 708
-    .local v1, netId:I
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$1;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$000(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiConfigStore;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/net/wifi/WifiConfigStore;->disableNetwork(I)Z
-
-    .line 718
-    .end local v1           #netId:I
-    :cond_0
+    .line 188
     :goto_0
     return-void
 
-    .line 709
-    :cond_1
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    .line 179
+    :pswitch_0
+    const-string v0, "CW_SISO"
 
-    move-result-object v2
+    const-string v1, "WifiStateTracker : mCwHandler : EVENT_IMS_REQUEST_TIMEOUT"
 
-    const-string v3, "edm.intent.action.enable"
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 180
+    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$1;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    move-result v2
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mCwHandler:Landroid/os/Handler;
+    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$000(Landroid/net/wifi/WifiStateMachine;)Landroid/os/Handler;
 
-    if-eqz v2, :cond_2
+    move-result-object v0
 
-    .line 710
-    const-string v2, "netId"
+    const/16 v1, 0x20
 
-    invoke-virtual {p2, v2, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v1
-
-    .line 711
-    .restart local v1       #netId:I
-    const-string v2, "enableOthers"
-
-    const/4 v3, 0x0
-
-    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    .line 712
-    .local v0, enableOthers:Z
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$1;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$000(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiConfigStore;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1, v0}, Landroid/net/wifi/WifiConfigStore;->enableNetwork(IZ)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
     goto :goto_0
 
-    .line 714
-    .end local v0           #enableOthers:Z
-    .end local v1           #netId:I
-    :cond_2
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "android.net.wifi.p2p.STATE_CHANGED"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 716
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$1;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const-string v3, "wifi_p2p_state"
-
-    const/4 v4, 0x1
-
-    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v3
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mWifiP2pState:I
-    invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$102(Landroid/net/wifi/WifiStateMachine;I)I
-
-    goto :goto_0
+    .line 177
+    :pswitch_data_0
+    .packed-switch 0x20
+        :pswitch_0
+    .end packed-switch
 .end method

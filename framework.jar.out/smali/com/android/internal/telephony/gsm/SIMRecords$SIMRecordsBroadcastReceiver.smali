@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 391
+    .line 396
     iput-object p1, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 391
+    .line 396
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;-><init>(Lcom/android/internal/telephony/gsm/SIMRecords;)V
 
     return-void
@@ -47,254 +47,233 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .locals 6
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 394
+    .line 399
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 395
+    .line 400
     .local v0, action:Ljava/lang/String;
-    const-string v4, "com.samsung.intent.action.SIMDB_UNKNOWN_READY"
+    const-string v3, "com.samsung.intent.action.SIMDB_UNKNOWN_READY"
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
-    .line 396
-    const-string v4, "gsm.sim.unknownready"
+    .line 401
+    const-string v3, "gsm.sim.unknownready"
 
-    const-string v5, "1"
+    const-string v4, "1"
 
-    invoke-static {v4, v5}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 427
+    .line 437
     :cond_0
     :goto_0
     return-void
 
-    .line 397
-    :cond_1
-    const-string v4, "com.samsung.intent.action.ICC_CARD_STATE_CHANGED"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    .line 398
-    const-string/jumbo v4, "status"
-
-    invoke-virtual {p2, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 399
-    .local v2, iccStatus:Ljava/lang/String;
-    const-string v4, "INSERTED"
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    .line 400
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
-
-    #getter for: Lcom/android/internal/telephony/gsm/SIMRecords;->mParentCard:Lcom/android/internal/telephony/IccCard;
-    invoke-static {v4}, Lcom/android/internal/telephony/gsm/SIMRecords;->access$100(Lcom/android/internal/telephony/gsm/SIMRecords;)Lcom/android/internal/telephony/IccCard;
-
-    move-result-object v4
-
-    const/4 v5, 0x1
-
-    invoke-virtual {v4, v5}, Lcom/android/internal/telephony/IccCard;->doIccCardSwap(Z)V
-
-    goto :goto_0
-
-    .line 401
-    :cond_2
-    const-string v4, "REMOVED"
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
     .line 402
-    const-string v4, "KOR"
+    :cond_1
+    const-string v3, "com.samsung.intent.action.ICC_CARD_STATE_CHANGED"
 
-    const-string v5, ""
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v3
 
-    move-result v4
+    if-eqz v3, :cond_4
 
-    if-eqz v4, :cond_3
+    .line 403
+    const-string/jumbo v3, "status"
+
+    invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
 
     .line 404
-    new-instance v1, Landroid/content/Intent;
+    .local v1, iccStatus:Ljava/lang/String;
+    const-string v3, "INSERTED"
 
-    const-string v4, "android.intent.action.NO_SIM_NOTY"
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    move-result v3
+
+    if-eqz v3, :cond_2
 
     .line 405
-    .local v1, i:Landroid/content/Intent;
-    invoke-virtual {p1, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    goto :goto_0
-
-    .line 409
-    .end local v1           #i:Landroid/content/Intent;
-    :cond_3
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
+    iget-object v3, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
 
     #getter for: Lcom/android/internal/telephony/gsm/SIMRecords;->mParentCard:Lcom/android/internal/telephony/IccCard;
-    invoke-static {v4}, Lcom/android/internal/telephony/gsm/SIMRecords;->access$200(Lcom/android/internal/telephony/gsm/SIMRecords;)Lcom/android/internal/telephony/IccCard;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_0
-
-    .line 410
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
-
-    #getter for: Lcom/android/internal/telephony/gsm/SIMRecords;->mParentCard:Lcom/android/internal/telephony/IccCard;
-    invoke-static {v4}, Lcom/android/internal/telephony/gsm/SIMRecords;->access$300(Lcom/android/internal/telephony/gsm/SIMRecords;)Lcom/android/internal/telephony/IccCard;
-
-    move-result-object v4
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v4, v5}, Lcom/android/internal/telephony/IccCard;->doIccCardSwap(Z)V
-
-    goto :goto_0
-
-    .line 413
-    .end local v2           #iccStatus:Ljava/lang/String;
-    :cond_4
-    const-string v4, "com.samsung.intent.action.ICC_CARD_INIT_CRASH"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_5
-
-    .line 414
-    const-string v4, "GSM"
-
-    const-string v5, "com.samsung.intent.action.ICC_CARD_INIT_CRASH"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 415
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
-
-    #getter for: Lcom/android/internal/telephony/gsm/SIMRecords;->mParentCard:Lcom/android/internal/telephony/IccCard;
-    invoke-static {v4}, Lcom/android/internal/telephony/gsm/SIMRecords;->access$400(Lcom/android/internal/telephony/gsm/SIMRecords;)Lcom/android/internal/telephony/IccCard;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_0
-
-    .line 417
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
-
-    #getter for: Lcom/android/internal/telephony/gsm/SIMRecords;->mParentCard:Lcom/android/internal/telephony/IccCard;
-    invoke-static {v4}, Lcom/android/internal/telephony/gsm/SIMRecords;->access$500(Lcom/android/internal/telephony/gsm/SIMRecords;)Lcom/android/internal/telephony/IccCard;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/internal/telephony/IccCard;->checkCardIoError()V
-
-    goto :goto_0
-
-    .line 418
-    :cond_5
-    const-string v4, "android.intent.action.CSC_UPDATE_NETWORK_DONE"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    .line 419
-    const-string/jumbo v4, "networkName"
-
-    invoke-virtual {p2, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/internal/telephony/gsm/SIMRecords;->access$100(Lcom/android/internal/telephony/gsm/SIMRecords;)Lcom/android/internal/telephony/IccCard;
 
     move-result-object v3
 
+    const/4 v4, 0x1
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/telephony/IccCard;->doIccCardSwap(Z)V
+
+    goto :goto_0
+
+    .line 406
+    :cond_2
+    const-string v3, "REMOVED"
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 407
+    const-string v3, "KOR"
+
+    const-string v4, ""
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    .line 415
+    :cond_3
+    iget-object v3, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
+
+    #getter for: Lcom/android/internal/telephony/gsm/SIMRecords;->mParentCard:Lcom/android/internal/telephony/IccCard;
+    invoke-static {v3}, Lcom/android/internal/telephony/gsm/SIMRecords;->access$200(Lcom/android/internal/telephony/gsm/SIMRecords;)Lcom/android/internal/telephony/IccCard;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    .line 416
+    iget-object v3, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
+
+    #getter for: Lcom/android/internal/telephony/gsm/SIMRecords;->mParentCard:Lcom/android/internal/telephony/IccCard;
+    invoke-static {v3}, Lcom/android/internal/telephony/gsm/SIMRecords;->access$300(Lcom/android/internal/telephony/gsm/SIMRecords;)Lcom/android/internal/telephony/IccCard;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/telephony/IccCard;->doIccCardSwap(Z)V
+
+    goto :goto_0
+
+    .line 419
+    .end local v1           #iccStatus:Ljava/lang/String;
+    :cond_4
+    const-string v3, "com.samsung.intent.action.ICC_CARD_INIT_CRASH"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
     .line 420
-    .local v3, selectedNwkName:Ljava/lang/String;
-    if-eqz v3, :cond_6
+    const-string v3, "GSM"
 
-    invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
+    const-string v4, "com.samsung.intent.action.ICC_CARD_INIT_CRASH"
 
-    move-result v4
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v4, :cond_7
+    goto :goto_0
 
-    .line 421
+    .line 424
+    :cond_5
+    const-string v3, "android.intent.action.CSC_UPDATE_NETWORK_DONE"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_8
+
+    .line 425
+    const-string/jumbo v3, "networkName"
+
+    invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 426
+    .local v2, selectedNwkName:Ljava/lang/String;
+    if-eqz v2, :cond_6
+
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_7
+
+    .line 427
     :cond_6
-    const-string v4, "GSM"
+    const-string v3, "GSM"
 
-    const-string v5, "[Voicemail] Voicemail number can not be set because there is no matched networkName!"
+    const-string v4, "[Voicemail] Voicemail number can not be set because there is no matched networkName!"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 428
+    :cond_7
+    iget-object v3, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
+
+    invoke-virtual {v3}, Lcom/android/internal/telephony/gsm/SIMRecords;->isAvailableVoiceMailInSIM()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 429
+    const-string v3, "GSM"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "[Voicemail] Voicemail number can not be set what matched with "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 430
+    iget-object v3, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
+
+    #calls: Lcom/android/internal/telephony/gsm/SIMRecords;->setVoiceMailByCountry(Ljava/lang/String;)V
+    invoke-static {v3, v2}, Lcom/android/internal/telephony/gsm/SIMRecords;->access$400(Lcom/android/internal/telephony/gsm/SIMRecords;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 422
-    :cond_7
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
+    .line 432
+    .end local v2           #selectedNwkName:Ljava/lang/String;
+    :cond_8
+    const-string v3, "android.intent.action.SILENT_RESETBY_DUALMODE"
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/gsm/SIMRecords;->isAvailableVoiceMailInSIM()Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_0
-
-    .line 423
-    const-string v4, "GSM"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "[Voicemail] Voicemail number can not be set what matched with "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 424
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/SIMRecords$SIMRecordsBroadcastReceiver;->this$0:Lcom/android/internal/telephony/gsm/SIMRecords;
-
-    #calls: Lcom/android/internal/telephony/gsm/SIMRecords;->setVoiceMailByCountry(Ljava/lang/String;)V
-    invoke-static {v4, v3}, Lcom/android/internal/telephony/gsm/SIMRecords;->access$600(Lcom/android/internal/telephony/gsm/SIMRecords;Ljava/lang/String;)V
+    if-eqz v3, :cond_0
 
     goto/16 :goto_0
 .end method

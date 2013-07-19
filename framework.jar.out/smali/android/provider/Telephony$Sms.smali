@@ -316,7 +316,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 356
-    const-string v1, "msg_id"
+    const-string/jumbo v1, "msg_id"
 
     invoke-static {p11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

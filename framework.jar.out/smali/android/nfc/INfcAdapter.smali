@@ -151,7 +151,7 @@
     .end annotation
 .end method
 
-.method public abstract setNdefPushCallback(Landroid/nfc/INdefPushCallback;)V
+.method public abstract setNdefPushCallback(Ljava/lang/String;Landroid/nfc/INdefPushCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -56,15 +56,15 @@
     .locals 1
 
     .prologue
-    .line 9916
+    .line 9998
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 9917
+    .line 9999
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->all:Z
 
-    .line 9918
+    .line 10000
     return-void
 .end method
 
@@ -76,16 +76,16 @@
     .parameter "opti"
 
     .prologue
-    .line 9950
+    .line 10032
     :goto_0
     array-length v1, p1
 
     if-ge p2, v1, :cond_0
 
-    .line 9951
+    .line 10033
     aget-object v0, p1, p2
 
-    .line 9952
+    .line 10034
     .local v0, name:Ljava/lang/String;
     const-string v1, "--"
 
@@ -95,22 +95,22 @@
 
     if-eqz v1, :cond_1
 
-    .line 9953
+    .line 10035
     add-int/lit8 p2, p2, 0x1
 
-    .line 9957
+    .line 10039
     .end local v0           #name:Ljava/lang/String;
     .end local p2
     :cond_0
     return p2
 
-    .line 9955
+    .line 10037
     .restart local v0       #name:Ljava/lang/String;
     .restart local p2
     :cond_1
     invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->build(Ljava/lang/String;)V
 
-    .line 9950
+    .line 10032
     add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
@@ -123,45 +123,45 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 9921
+    .line 10003
     invoke-static {p1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v0
 
-    .line 9922
+    .line 10004
     .local v0, componentName:Landroid/content/ComponentName;
     if-eqz v0, :cond_1
 
-    .line 9923
+    .line 10005
     iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->components:Ljava/util/ArrayList;
 
     if-nez v3, :cond_0
 
-    .line 9924
+    .line 10006
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v3, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->components:Ljava/util/ArrayList;
 
-    .line 9926
+    .line 10008
     :cond_0
     iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->components:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 9927
+    .line 10009
     iput-boolean v5, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->all:Z
 
-    .line 9947
+    .line 10029
     :goto_0
     return-void
 
-    .line 9929
+    .line 10011
     :cond_1
     const/4 v2, 0x0
 
-    .line 9932
+    .line 10014
     .local v2, objectId:I
     const/16 v3, 0x10
 
@@ -170,19 +170,19 @@
 
     move-result v2
 
-    .line 9933
+    .line 10015
     iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->objects:Ljava/util/ArrayList;
 
     if-nez v3, :cond_2
 
-    .line 9934
+    .line 10016
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v3, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->objects:Ljava/util/ArrayList;
 
-    .line 9936
+    .line 10018
     :cond_2
     iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->objects:Ljava/util/ArrayList;
 
@@ -192,7 +192,7 @@
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 9937
+    .line 10019
     const/4 v3, 0x0
 
     iput-boolean v3, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->all:Z
@@ -201,30 +201,30 @@
 
     goto :goto_0
 
-    .line 9938
+    .line 10020
     :catch_0
     move-exception v1
 
-    .line 9940
+    .line 10022
     .local v1, e:Ljava/lang/RuntimeException;
     iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->strings:Ljava/util/ArrayList;
 
     if-nez v3, :cond_3
 
-    .line 9941
+    .line 10023
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v3, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->strings:Ljava/util/ArrayList;
 
-    .line 9943
+    .line 10025
     :cond_3
     iget-object v3, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->strings:Ljava/util/ArrayList;
 
     invoke-virtual {v3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 9944
+    .line 10026
     iput-boolean v5, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->all:Z
 
     goto :goto_0
@@ -238,24 +238,24 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 9961
+    .line 10043
     iget-boolean v2, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->all:Z
 
     if-eqz v2, :cond_0
 
     move v2, v3
 
-    .line 9986
+    .line 10068
     :goto_0
     return v2
 
-    .line 9964
+    .line 10046
     :cond_0
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->components:Ljava/util/ArrayList;
 
     if-eqz v2, :cond_2
 
-    .line 9965
+    .line 10047
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -268,7 +268,7 @@
 
     if-ge v1, v2, :cond_2
 
-    .line 9966
+    .line 10048
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->components:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -285,23 +285,23 @@
 
     move v2, v3
 
-    .line 9967
+    .line 10049
     goto :goto_0
 
-    .line 9965
+    .line 10047
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 9971
+    .line 10053
     .end local v1           #i:I
     :cond_2
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->objects:Ljava/util/ArrayList;
 
     if-eqz v2, :cond_4
 
-    .line 9972
+    .line 10054
     const/4 v1, 0x0
 
     .restart local v1       #i:I
@@ -314,7 +314,7 @@
 
     if-ge v1, v2, :cond_4
 
-    .line 9973
+    .line 10055
     invoke-static {p1}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v4
@@ -335,28 +335,28 @@
 
     move v2, v3
 
-    .line 9974
+    .line 10056
     goto :goto_0
 
-    .line 9972
+    .line 10054
     :cond_3
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
-    .line 9978
+    .line 10060
     .end local v1           #i:I
     :cond_4
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->strings:Ljava/util/ArrayList;
 
     if-eqz v2, :cond_6
 
-    .line 9979
+    .line 10061
     invoke-virtual {p2}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 9980
+    .line 10062
     .local v0, flat:Ljava/lang/String;
     const/4 v1, 0x0
 
@@ -370,7 +370,7 @@
 
     if-ge v1, v2, :cond_6
 
-    .line 9981
+    .line 10063
     iget-object v2, p0, Lcom/android/server/am/ActivityManagerService$ItemMatcher;->strings:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -387,16 +387,16 @@
 
     move v2, v3
 
-    .line 9982
+    .line 10064
     goto :goto_0
 
-    .line 9980
+    .line 10062
     :cond_5
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_3
 
-    .line 9986
+    .line 10068
     .end local v0           #flat:Ljava/lang/String;
     .end local v1           #i:I
     :cond_6

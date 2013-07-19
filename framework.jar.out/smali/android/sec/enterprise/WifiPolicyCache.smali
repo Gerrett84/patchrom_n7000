@@ -515,7 +515,7 @@
 
     .line 168
     .local v0, i:Landroid/content/Intent;
-    const-string v1, "message"
+    const-string/jumbo v1, "message"
 
     iget-object v2, p0, Landroid/sec/enterprise/WifiPolicyCache;->mContext:Landroid/content/Context;
 

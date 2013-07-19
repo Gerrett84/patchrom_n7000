@@ -21,6 +21,8 @@
 
 .field private static final IMS_SVC_USER_REJECT_REASON_USR_DECLINE:I = 0x3
 
+.field public static final IMS_USER_REJECT_REASON_USR_BUSY_CS_CALL:I = 0x7
+
 .field private static final LOG_TAG:Ljava/lang/String; = "SamsungAPCommonService"
 
 .field private static final MMTELSVCHDL:I = 0x0
@@ -393,10 +395,10 @@
 
     const/4 v3, 0x6
 
-    .line 2122
+    .line 2174
     const/4 v0, -0x1
 
-    .line 2124
+    .line 2176
     .local v0, callType:I
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -428,18 +430,18 @@
 
     invoke-direct {p0, v1}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2126
-    if-ne p1, v4, :cond_5
+    .line 2178
+    if-ne p1, v4, :cond_6
 
-    .line 2127
+    .line 2179
     const/4 v1, 0x5
 
     if-ne p2, v1, :cond_1
 
-    .line 2128
+    .line 2180
     const/4 v0, 0x5
 
-    .line 2144
+    .line 2198
     :cond_0
     :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
@@ -472,65 +474,76 @@
 
     invoke-direct {p0, v1}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2146
+    .line 2200
     return v0
 
-    .line 2129
+    .line 2181
     :cond_1
     const/4 v1, 0x2
 
     if-ne p2, v1, :cond_2
 
-    .line 2130
+    .line 2182
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 2131
+    .line 2183
     :cond_2
     const/4 v1, 0x1
 
     if-ne p2, v1, :cond_3
 
-    .line 2132
+    .line 2184
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 2133
+    .line 2185
     :cond_3
     if-ne p2, v3, :cond_4
 
-    .line 2134
+    .line 2186
     const/4 v0, 0x7
 
     goto :goto_0
 
-    .line 2135
+    .line 2187
     :cond_4
-    if-ne p2, v4, :cond_0
+    if-ne p2, v4, :cond_5
 
-    .line 2136
+    .line 2188
     const/16 v0, 0x8
 
     goto :goto_0
 
-    .line 2138
+    .line 2189
     :cond_5
+    const/16 v1, 0x9
+
+    if-ne p2, v1, :cond_0
+
+    .line 2190
+    const/16 v0, 0x9
+
+    goto :goto_0
+
+    .line 2192
+    :cond_6
     const/4 v1, 0x4
 
-    if-ne p1, v1, :cond_6
+    if-ne p1, v1, :cond_7
 
-    .line 2139
+    .line 2193
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 2140
-    :cond_6
+    .line 2194
+    :cond_7
     if-ne p1, v3, :cond_0
 
-    .line 2141
+    .line 2195
     const/4 v0, 0x3
 
     goto :goto_0
@@ -540,7 +553,7 @@
     .locals 2
 
     .prologue
-    .line 2112
+    .line 2164
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mContext:Landroid/content/Context;
 
     const-string v1, "audio"
@@ -562,7 +575,7 @@
     .locals 2
 
     .prologue
-    .line 2106
+    .line 2158
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -585,7 +598,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2108
+    .line 2160
     iget-boolean v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->isSpeakerOn:Z
 
     return v0
@@ -669,7 +682,7 @@
     .parameter "sessionID"
 
     .prologue
-    .line 2097
+    .line 2149
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -682,7 +695,7 @@
 
     if-ge v0, v2, :cond_1
 
-    .line 2098
+    .line 2150
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mIMSCallStateListener:Ljava/util/List;
 
     invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -691,24 +704,24 @@
 
     check-cast v1, Lcom/samsung/commonimsservice/IIMSCallStateListener;
 
-    .line 2099
+    .line 2151
     .local v1, listener:Lcom/samsung/commonimsservice/IIMSCallStateListener;
     if-eqz v1, :cond_0
 
-    .line 2100
+    .line 2152
     const/16 v2, 0x190
 
     const-string v3, "Bad Request"
 
     invoke-interface {v1, p1, v2, v3}, Lcom/samsung/commonimsservice/IIMSCallStateListener;->onError(IILjava/lang/String;)V
 
-    .line 2097
+    .line 2149
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 2103
+    .line 2155
     .end local v1           #listener:Lcom/samsung/commonimsservice/IIMSCallStateListener;
     :cond_1
     return-void
@@ -724,7 +737,7 @@
 
     const/4 v4, 0x0
 
-    .line 1288
+    .line 1340
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -755,34 +768,34 @@
 
     invoke-direct {p0, v2}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1289
+    .line 1341
     if-nez p2, :cond_0
 
-    .line 1308
+    .line 1360
     :goto_0
     return-void
 
-    .line 1292
+    .line 1344
     :cond_0
     new-array v1, v5, [Ljava/lang/String;
 
-    .line 1293
+    .line 1345
     .local v1, path:[Ljava/lang/String;
     new-array v0, v5, [Ljava/lang/String;
 
-    .line 1295
+    .line 1347
     .local v0, mimetype:[Ljava/lang/String;
     aput-object p2, v1, v4
 
-    .line 1296
+    .line 1348
     if-eqz p1, :cond_1
 
-    .line 1297
+    .line 1349
     const-string v2, "videocallimages/jpeg"
 
     aput-object v2, v0, v4
 
-    .line 1302
+    .line 1354
     :goto_1
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mContext:Landroid/content/Context;
 
@@ -794,7 +807,7 @@
 
     goto :goto_0
 
-    .line 1299
+    .line 1351
     :cond_1
     const-string v2, "videocallimages/jpeg-scramble"
 
@@ -914,14 +927,14 @@
     .parameter "peerUri"
 
     .prologue
-    .line 1761
+    .line 1813
     const-string v3, "\\$"
 
     invoke-virtual {p2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v2
 
-    .line 1762
+    .line 1814
     .local v2, sCallerNos:[Ljava/lang/String;
     if-eqz v2, :cond_1
 
@@ -929,10 +942,10 @@
 
     if-lez v3, :cond_1
 
-    .line 1763
+    .line 1815
     array-length v1, v2
 
-    .line 1764
+    .line 1816
     .local v1, n:I
     const/4 v0, 0x0
 
@@ -942,7 +955,7 @@
 
     if-gt v0, v3, :cond_0
 
-    .line 1765
+    .line 1817
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -965,7 +978,7 @@
 
     invoke-direct {p0, v3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1766
+    .line 1818
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -990,18 +1003,18 @@
 
     invoke-virtual {p1, v3, v4}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1764
+    .line 1816
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1768
+    .line 1820
     :cond_0
     const-string v3, "UriCount"
 
     invoke-virtual {p1, v3, v1}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1769
+    .line 1821
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1022,13 +1035,13 @@
 
     invoke-direct {p0, v3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1773
+    .line 1825
     .end local v0           #i:I
     .end local v1           #n:I
     :goto_1
     return-object p1
 
-    .line 1771
+    .line 1823
     :cond_1
     const-string v3, "setUriListForConference returned failure"
 
@@ -1042,7 +1055,7 @@
     .parameter "newState"
 
     .prologue
-    .line 2116
+    .line 2168
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1069,15 +1082,15 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2117
+    .line 2169
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v0, p1}, Landroid/media/AudioManager;->setMicrophoneMute(Z)V
 
-    .line 2118
+    .line 2170
     iput-boolean p1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mMuted:Z
 
-    .line 2119
+    .line 2171
     return-void
 .end method
 
@@ -1093,12 +1106,12 @@
     .end annotation
 
     .prologue
-    .line 1576
+    .line 1628
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v2, :cond_0
 
-    .line 1577
+    .line 1629
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v3, "Cannot accept change request R[Service Not Up]"
@@ -1107,17 +1120,17 @@
 
     throw v2
 
-    .line 1580
+    .line 1632
     :cond_0
     const/4 v0, -0x1
 
-    .line 1581
+    .line 1633
     .local v0, callId:I
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v2}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1582
+    .line 1634
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v3, "Type"
@@ -1126,7 +1139,7 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1585
+    .line 1637
     :try_start_0
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -1144,14 +1157,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1590
+    .line 1642
     return-void
 
-    .line 1586
+    .line 1638
     :catch_0
     move-exception v1
 
-    .line 1587
+    .line 1639
     .local v1, e:Landroid/os/RemoteException;
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
@@ -1174,12 +1187,12 @@
     .end annotation
 
     .prologue
-    .line 1645
+    .line 1697
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v5, :cond_0
 
-    .line 1646
+    .line 1698
     new-instance v5, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v6, "Cannot downgrade call R[Service Not Up]"
@@ -1188,7 +1201,7 @@
 
     throw v5
 
-    .line 1648
+    .line 1700
     :cond_0
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mContext:Landroid/content/Context;
 
@@ -1202,7 +1215,7 @@
 
     move-result-object v4
 
-    .line 1649
+    .line 1701
     .local v4, uriPrefix:Ljava/lang/String;
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mContext:Landroid/content/Context;
 
@@ -1216,11 +1229,11 @@
 
     move-result-object v0
 
-    .line 1650
+    .line 1702
     .local v0, dialType:Ljava/lang/String;
     if-nez p2, :cond_1
 
-    .line 1651
+    .line 1703
     new-instance v5, Lcom/samsung/commonimsservice/IMSException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1251,22 +1264,22 @@
 
     throw v5
 
-    .line 1653
+    .line 1705
     :cond_1
     const/4 v3, -0x1
 
-    .line 1654
+    .line 1706
     .local v3, sessid:I
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v5}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1656
+    .line 1708
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v5}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1657
+    .line 1709
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "AppType"
@@ -1275,7 +1288,7 @@
 
     invoke-virtual {v5, v6, v7}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1658
+    .line 1710
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "CallType"
@@ -1284,10 +1297,10 @@
 
     invoke-virtual {v5, v6, v7}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1659
+    .line 1711
     const/4 v1, 0x1
 
-    .line 1660
+    .line 1712
     .local v1, dialTypeVal:I
     if-eqz v0, :cond_3
 
@@ -1299,7 +1312,7 @@
 
     if-nez v5, :cond_3
 
-    .line 1661
+    .line 1713
     const-string v5, "1"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1308,10 +1321,10 @@
 
     if-eqz v5, :cond_2
 
-    .line 1662
+    .line 1714
     const/4 v1, 0x3
 
-    .line 1669
+    .line 1721
     :goto_0
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -1349,17 +1362,17 @@
 
     invoke-direct {p0, v5}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1670
+    .line 1722
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "RmtUriType"
 
     invoke-virtual {v5, v6, v1}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1672
+    .line 1724
     if-eqz v4, :cond_4
 
-    .line 1673
+    .line 1725
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "RmtUriPrefix"
@@ -1368,7 +1381,7 @@
 
     invoke-virtual {v5, v6, v7}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1680
+    .line 1732
     :goto_1
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
@@ -1378,7 +1391,7 @@
 
     iput-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
-    .line 1682
+    .line 1734
     :try_start_0
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -1396,31 +1409,31 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1686
+    .line 1738
     return v3
 
-    .line 1664
+    .line 1716
     :cond_2
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1667
+    .line 1719
     :cond_3
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1675
+    .line 1727
     :cond_4
     const-string v5, "UriPrefix is NULL"
 
     invoke-direct {p0, v5}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1676
+    .line 1728
     const-string v4, "Sip"
 
-    .line 1677
+    .line 1729
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "RmtUriPrefix"
@@ -1431,11 +1444,11 @@
 
     goto :goto_1
 
-    .line 1683
+    .line 1735
     :catch_0
     move-exception v2
 
-    .line 1684
+    .line 1736
     .local v2, e:Landroid/os/RemoteException;
     new-instance v5, Lcom/samsung/commonimsservice/IMSException;
 
@@ -1456,12 +1469,12 @@
     .end annotation
 
     .prologue
-    .line 1361
+    .line 1413
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 1362
+    .line 1414
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot answer call R[Service Not Up]"
@@ -1470,13 +1483,13 @@
 
     throw v1
 
-    .line 1365
+    .line 1417
     :cond_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v1}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1366
+    .line 1418
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v2, "eVVFtrType"
@@ -1485,7 +1498,7 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1369
+    .line 1421
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -1503,14 +1516,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1374
+    .line 1426
     return-void
 
-    .line 1371
+    .line 1423
     :catch_0
     move-exception v0
 
-    .line 1372
+    .line 1424
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -1531,12 +1544,12 @@
     .end annotation
 
     .prologue
-    .line 1345
+    .line 1397
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 1346
+    .line 1398
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot answer call audio only R[Service Not Up]"
@@ -1545,13 +1558,13 @@
 
     throw v1
 
-    .line 1349
+    .line 1401
     :cond_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v1}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1350
+    .line 1402
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v2, "eVVFtrType"
@@ -1560,7 +1573,7 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1352
+    .line 1404
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -1578,14 +1591,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1358
+    .line 1410
     return-void
 
-    .line 1354
+    .line 1406
     :catch_0
     move-exception v0
 
-    .line 1355
+    .line 1407
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -1607,12 +1620,12 @@
     .end annotation
 
     .prologue
-    .line 1983
+    .line 2035
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v3, :cond_0
 
-    .line 1984
+    .line 2036
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v4, "Cannot cancel call R[Service Not Up]"
@@ -1621,24 +1634,24 @@
 
     throw v3
 
-    .line 1987
+    .line 2039
     :cond_0
     const/4 v0, -0x1
 
-    .line 1989
+    .line 2041
     .local v0, callType:I
     const/4 v3, 0x2
 
     if-ne p2, v3, :cond_1
 
-    .line 1990
+    .line 2042
     const/4 v0, 0x2
 
-    .line 1998
+    .line 2050
     :goto_0
     const/4 v2, -0x1
 
-    .line 1999
+    .line 2051
     .local v2, svcRet:I
     :try_start_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -1653,33 +1666,33 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2003
+    .line 2055
     return-void
 
-    .line 1991
+    .line 2043
     .end local v2           #svcRet:I
     :cond_1
     const/4 v3, 0x1
 
     if-ne p2, v3, :cond_2
 
-    .line 1992
+    .line 2044
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1994
+    .line 2046
     :cond_2
     const/4 v0, 0x5
 
     goto :goto_0
 
-    .line 2000
+    .line 2052
     .restart local v2       #svcRet:I
     :catch_0
     move-exception v1
 
-    .line 2001
+    .line 2053
     .local v1, e:Landroid/os/RemoteException;
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
@@ -1701,12 +1714,12 @@
     .end annotation
 
     .prologue
-    .line 2257
+    .line 2311
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 2258
+    .line 2312
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot captureSurfaceEndImage"
@@ -1715,7 +1728,7 @@
 
     throw v1
 
-    .line 2262
+    .line 2316
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -1724,14 +1737,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2266
+    .line 2320
     return-void
 
-    .line 2263
+    .line 2317
     :catch_0
     move-exception v0
 
-    .line 2264
+    .line 2318
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -1762,61 +1775,61 @@
 
     const/4 v0, 0x2
 
-    .line 2078
+    .line 2130
     if-ne p3, v3, :cond_2
 
-    .line 2079
+    .line 2131
     if-eq p2, v0, :cond_0
 
     if-eq p2, v1, :cond_0
 
     if-ne p2, v2, :cond_1
 
-    .line 2081
+    .line 2133
     :cond_0
     invoke-virtual {p0, p1, p2, p3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->downgradeCall(III)V
 
-    .line 2094
+    .line 2146
     :cond_1
     :goto_0
     return-void
 
-    .line 2082
+    .line 2134
     :cond_2
     if-eq p3, v1, :cond_3
 
     if-ne p3, v2, :cond_5
 
-    .line 2083
+    .line 2135
     :cond_3
     if-ne p2, v0, :cond_4
 
-    .line 2084
+    .line 2136
     invoke-virtual {p0, p1, p2, p3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->downgradeCall(III)V
 
     goto :goto_0
 
-    .line 2085
+    .line 2137
     :cond_4
     if-ne p2, v3, :cond_1
 
-    .line 2086
+    .line 2138
     invoke-virtual {p0, p1, p2, p3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->upgradeCall(III)V
 
     goto :goto_0
 
-    .line 2088
+    .line 2140
     :cond_5
     if-ne p3, v0, :cond_1
 
-    .line 2089
+    .line 2141
     if-eq p2, v1, :cond_6
 
     if-eq p2, v2, :cond_6
 
     if-ne p2, v3, :cond_1
 
-    .line 2091
+    .line 2143
     :cond_6
     invoke-virtual {p0, p1, p2, p3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->upgradeCall(III)V
 
@@ -1833,12 +1846,12 @@
     .end annotation
 
     .prologue
-    .line 1491
+    .line 1543
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v2, :cond_0
 
-    .line 1492
+    .line 1544
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v3, "Cannot continue video R[Service Not Up]"
@@ -1847,17 +1860,17 @@
 
     throw v2
 
-    .line 1495
+    .line 1547
     :cond_0
     const/4 v1, -0x1
 
-    .line 1496
+    .line 1548
     .local v1, retval:I
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v2}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1497
+    .line 1549
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v3, "appType"
@@ -1866,7 +1879,7 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1500
+    .line 1552
     :try_start_0
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -1884,14 +1897,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1505
+    .line 1557
     return-void
 
-    .line 1502
+    .line 1554
     :catch_0
     move-exception v0
 
-    .line 1503
+    .line 1555
     .local v0, e:Landroid/os/RemoteException;
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
@@ -1907,7 +1920,7 @@
     .parameter "listener"
 
     .prologue
-    .line 2183
+    .line 2237
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1934,7 +1947,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2184
+    .line 2238
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mIMSCallStateListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -1943,7 +1956,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 2185
+    .line 2239
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1970,12 +1983,12 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2186
+    .line 2240
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mIMSCallStateListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 2188
+    .line 2242
     :cond_0
     return-void
 .end method
@@ -1985,7 +1998,7 @@
     .parameter "regListener"
 
     .prologue
-    .line 2191
+    .line 2245
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2012,7 +2025,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2192
+    .line 2246
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mIMSRegListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -2021,7 +2034,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 2193
+    .line 2247
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2048,12 +2061,12 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2194
+    .line 2248
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mIMSRegListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 2196
+    .line 2250
     :cond_0
     return-void
 .end method
@@ -2063,7 +2076,7 @@
     .parameter "connListener"
 
     .prologue
-    .line 2199
+    .line 2253
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2090,7 +2103,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2200
+    .line 2254
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mServiceConnectionListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -2099,7 +2112,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 2201
+    .line 2255
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2126,12 +2139,12 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2202
+    .line 2256
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mServiceConnectionListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 2204
+    .line 2258
     :cond_0
     return-void
 .end method
@@ -2146,12 +2159,12 @@
     .end annotation
 
     .prologue
-    .line 2271
+    .line 2325
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 2272
+    .line 2326
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot deinitSurface"
@@ -2160,7 +2173,7 @@
 
     throw v1
 
-    .line 2276
+    .line 2330
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -2169,14 +2182,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2280
+    .line 2334
     return-void
 
-    .line 2277
+    .line 2331
     :catch_0
     move-exception v0
 
-    .line 2278
+    .line 2332
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -2205,12 +2218,12 @@
 
     const/4 v4, 0x5
 
-    .line 2007
+    .line 2059
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v3, :cond_0
 
-    .line 2008
+    .line 2060
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v4, "Cannot downgrade call R[Service Not Up]"
@@ -2219,37 +2232,37 @@
 
     throw v3
 
-    .line 2011
+    .line 2063
     :cond_0
     const/4 v2, -0x1
 
-    .line 2012
+    .line 2064
     .local v2, svcId:I
     const/4 v0, -0x1
 
-    .line 2013
+    .line 2065
     .local v0, appType:I
     if-ne p3, v5, :cond_1
 
     if-ne p2, v4, :cond_1
 
-    .line 2014
+    .line 2066
     const/4 v0, 0x1
 
-    .line 2025
+    .line 2077
     :goto_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v3}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 2026
+    .line 2078
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "appType"
 
     invoke-virtual {v3, v4, v0}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 2028
+    .line 2080
     :try_start_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -2267,32 +2280,32 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2032
+    .line 2084
     return-void
 
-    .line 2015
+    .line 2067
     :cond_1
     if-ne p3, v5, :cond_2
 
     if-ne p2, v6, :cond_2
 
-    .line 2016
+    .line 2068
     const/4 v0, 0x3
 
     goto :goto_0
 
-    .line 2017
+    .line 2069
     :cond_2
     if-ne p3, v6, :cond_3
 
     if-ne p2, v4, :cond_3
 
-    .line 2018
+    .line 2070
     const/4 v0, 0x4
 
     goto :goto_0
 
-    .line 2019
+    .line 2071
     :cond_3
     const/4 v3, 0x4
 
@@ -2300,12 +2313,12 @@
 
     if-ne p2, v4, :cond_4
 
-    .line 2020
+    .line 2072
     const/4 v0, 0x4
 
     goto :goto_0
 
-    .line 2022
+    .line 2074
     :cond_4
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
@@ -2315,11 +2328,11 @@
 
     throw v3
 
-    .line 2029
+    .line 2081
     :catch_0
     move-exception v1
 
-    .line 2030
+    .line 2082
     .local v1, e:Landroid/os/RemoteException;
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
@@ -2341,12 +2354,12 @@
     .end annotation
 
     .prologue
-    .line 1957
+    .line 2009
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v3, :cond_0
 
-    .line 1958
+    .line 2010
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v4, "Cannot end call R[Service Not Up]"
@@ -2355,26 +2368,26 @@
 
     throw v3
 
-    .line 1961
+    .line 2013
     :cond_0
     const/4 v0, -0x1
 
-    .line 1963
+    .line 2015
     .local v0, callType:I
     const/4 v3, 0x2
 
     if-ne p2, v3, :cond_1
 
-    .line 1964
+    .line 2016
     const/4 v0, 0x2
 
-    .line 1971
+    .line 2023
     :goto_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v3}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1972
+    .line 2024
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "eDisconnectRsn"
@@ -2383,10 +2396,10 @@
 
     invoke-virtual {v3, v4, v5}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1975
+    .line 2027
     const/4 v2, -0x1
 
-    .line 1976
+    .line 2028
     .local v2, svcRet:I
     :try_start_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -2405,33 +2418,33 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1980
+    .line 2032
     return-void
 
-    .line 1965
+    .line 2017
     .end local v2           #svcRet:I
     :cond_1
     const/4 v3, 0x1
 
     if-ne p2, v3, :cond_2
 
-    .line 1966
+    .line 2018
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1968
+    .line 2020
     :cond_2
     const/4 v0, 0x5
 
     goto :goto_0
 
-    .line 1977
+    .line 2029
     .restart local v2       #svcRet:I
     :catch_0
     move-exception v1
 
-    .line 1978
+    .line 2030
     .local v1, e:Landroid/os/RemoteException;
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
@@ -2454,12 +2467,12 @@
     .end annotation
 
     .prologue
-    .line 1879
+    .line 1931
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v3, :cond_0
 
-    .line 1880
+    .line 1932
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v4, "Cannot end call R[Service Not Up]"
@@ -2468,35 +2481,35 @@
 
     throw v3
 
-    .line 1883
+    .line 1935
     :cond_0
     const/4 v2, -0x1
 
-    .line 1884
+    .line 1936
     .local v2, svcRet:I
     const/4 v0, -0x1
 
-    .line 1886
+    .line 1938
     .local v0, callType:I
     const/4 v3, 0x2
 
     if-ne p2, v3, :cond_2
 
-    .line 1887
+    .line 1939
     const/4 v0, 0x2
 
-    .line 1894
+    .line 1946
     :goto_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v3}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1896
+    .line 1948
     const/4 v3, 0x4
 
     if-ne p3, v3, :cond_4
 
-    .line 1897
+    .line 1949
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2517,14 +2530,14 @@
 
     invoke-direct {p0, v3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1898
+    .line 1950
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "eDisconnectRsn"
 
     invoke-virtual {v3, v4, p3}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1906
+    .line 1958
     :cond_1
     :goto_1
     :try_start_0
@@ -2544,33 +2557,33 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1907
+    .line 1959
     return-void
 
-    .line 1888
+    .line 1940
     :cond_2
     const/4 v3, 0x1
 
     if-ne p2, v3, :cond_3
 
-    .line 1889
+    .line 1941
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1891
+    .line 1943
     :cond_3
     const/4 v0, 0x5
 
     goto :goto_0
 
-    .line 1900
+    .line 1952
     :cond_4
     const/4 v3, 0x6
 
     if-ne p3, v3, :cond_1
 
-    .line 1901
+    .line 1953
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2591,7 +2604,7 @@
 
     invoke-direct {p0, v3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1902
+    .line 1954
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "eDisconnectRsn"
@@ -2600,11 +2613,11 @@
 
     goto :goto_1
 
-    .line 1908
+    .line 1960
     :catch_0
     move-exception v1
 
-    .line 1909
+    .line 1961
     .local v1, e:Landroid/os/RemoteException;
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
@@ -2621,21 +2634,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2283
+    .line 2337
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v2, :cond_0
 
-    .line 2284
+    .line 2338
     const-string v2, "Ims interface is null !!"
 
     invoke-direct {p0, v2}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2292
+    .line 2346
     :goto_0
     return-object v1
 
-    .line 2289
+    .line 2343
     :cond_0
     :try_start_0
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -2648,11 +2661,11 @@
 
     goto :goto_0
 
-    .line 2290
+    .line 2344
     :catch_0
     move-exception v0
 
-    .line 2291
+    .line 2345
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
@@ -2664,7 +2677,7 @@
     .parameter "sessionID"
 
     .prologue
-    .line 1519
+    .line 1571
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
 
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
@@ -2690,12 +2703,12 @@
     .prologue
     const/16 v4, 0x8
 
-    .line 1311
+    .line 1363
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v2, :cond_0
 
-    .line 1312
+    .line 1364
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v3, "Cannot hold call R[Service Not Up]"
@@ -2704,24 +2717,24 @@
 
     throw v2
 
-    .line 1315
+    .line 1367
     :cond_0
     const/4 v1, -0x1
 
-    .line 1316
+    .line 1368
     .local v1, retval:I
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v2}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1317
+    .line 1369
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v3, "appType"
 
     invoke-virtual {v2, v3, v4}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1319
+    .line 1371
     :try_start_0
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -2739,14 +2752,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1324
+    .line 1376
     return-void
 
-    .line 1321
+    .line 1373
     :catch_0
     move-exception v0
 
-    .line 1322
+    .line 1374
     .local v0, e:Landroid/os/RemoteException;
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
@@ -2767,12 +2780,12 @@
     .end annotation
 
     .prologue
-    .line 1474
+    .line 1526
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v2, :cond_0
 
-    .line 1475
+    .line 1527
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v3, "Cannot hold call R[Service Not Up]"
@@ -2781,17 +2794,17 @@
 
     throw v2
 
-    .line 1478
+    .line 1530
     :cond_0
     const/4 v1, -0x1
 
-    .line 1479
+    .line 1531
     .local v1, retval:I
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v2}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1480
+    .line 1532
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v3, "appType"
@@ -2800,7 +2813,7 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1482
+    .line 1534
     :try_start_0
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -2818,14 +2831,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1488
+    .line 1540
     return-void
 
-    .line 1484
+    .line 1536
     :catch_0
     move-exception v0
 
-    .line 1485
+    .line 1537
     .local v0, e:Landroid/os/RemoteException;
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
@@ -2840,16 +2853,16 @@
     .locals 3
 
     .prologue
-    .line 1818
+    .line 1870
     const/4 v1, 0x0
 
-    .line 1819
+    .line 1871
     .local v1, ret:Z
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-eqz v2, :cond_0
 
-    .line 1821
+    .line 1873
     :try_start_0
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -2859,20 +2872,20 @@
 
     move-result v1
 
-    .line 1827
+    .line 1879
     :cond_0
     :goto_0
     return v1
 
-    .line 1822
+    .line 1874
     :catch_0
     move-exception v0
 
-    .line 1823
+    .line 1875
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    .line 1824
+    .line 1876
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
@@ -2882,16 +2895,16 @@
     .locals 3
 
     .prologue
-    .line 1805
+    .line 1857
     const/4 v1, 0x0
 
-    .line 1806
+    .line 1858
     .local v1, ret:Z
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-eqz v2, :cond_0
 
-    .line 1808
+    .line 1860
     :try_start_0
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -2901,20 +2914,20 @@
 
     move-result v1
 
-    .line 1814
+    .line 1866
     :cond_0
     :goto_0
     return v1
 
-    .line 1809
+    .line 1861
     :catch_0
     move-exception v0
 
-    .line 1810
+    .line 1862
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    .line 1811
+    .line 1863
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
@@ -2929,16 +2942,16 @@
     .end annotation
 
     .prologue
-    .line 1831
+    .line 1883
     const/4 v1, 0x0
 
-    .line 1832
+    .line 1884
     .local v1, ret:Z
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-eqz v3, :cond_0
 
-    .line 1834
+    .line 1886
     :try_start_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -2948,38 +2961,38 @@
 
     move-result v2
 
-    .line 1835
+    .line 1887
     .local v2, retVal:I
     const/4 v3, 0x1
 
     if-ne v2, v3, :cond_1
 
-    .line 1836
+    .line 1888
     const/4 v1, 0x1
 
-    .line 1845
+    .line 1897
     .end local v2           #retVal:I
     :cond_0
     :goto_0
     return v1
 
-    .line 1838
+    .line 1890
     .restart local v2       #retVal:I
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 1840
+    .line 1892
     .end local v2           #retVal:I
     :catch_0
     move-exception v0
 
-    .line 1841
+    .line 1893
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    .line 1842
+    .line 1894
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
@@ -2991,21 +3004,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2297
+    .line 2351
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v2, :cond_0
 
-    .line 2298
+    .line 2352
     const-string v2, "Ims interface is null !!"
 
     invoke-direct {p0, v2}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2305
+    .line 2359
     :goto_0
     return v1
 
-    .line 2302
+    .line 2356
     :cond_0
     :try_start_0
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -3018,15 +3031,74 @@
 
     goto :goto_0
 
-    .line 2303
+    .line 2357
     :catch_0
     move-exception v0
 
-    .line 2304
+    .line 2358
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
+.end method
+
+.method public isImsForbidden()Z
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/samsung/commonimsservice/IMSException;
+        }
+    .end annotation
+
+    .prologue
+    .line 2364
+    iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
+
+    if-nez v1, :cond_0
+
+    .line 2365
+    const-string v1, "Ims interface is null !!"
+
+    invoke-direct {p0, v1}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
+
+    .line 2366
+    new-instance v1, Lcom/samsung/commonimsservice/IMSException;
+
+    const-string v2, "Cannot check for isImsForbidden"
+
+    invoke-direct {v1, v2}, Lcom/samsung/commonimsservice/IMSException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 2369
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
+
+    invoke-interface {v1}, Lcom/sec/android/internal/ims/IIMSService;->isImsForbidden()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    .line 2370
+    :catch_0
+    move-exception v0
+
+    .line 2371
+    .local v0, e:Landroid/os/RemoteException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    .line 2372
+    new-instance v1, Lcom/samsung/commonimsservice/IMSException;
+
+    const-string v2, "Cannot check for isImsForbidden"
+
+    invoke-direct {v1, v2}, Lcom/samsung/commonimsservice/IMSException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 .end method
 
 .method public isMuted(I)Z
@@ -3034,7 +3106,7 @@
     .parameter "sessionID"
 
     .prologue
-    .line 1426
+    .line 1478
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3061,7 +3133,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1427
+    .line 1479
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v0}, Landroid/media/AudioManager;->isMicrophoneMute()Z
@@ -3090,12 +3162,12 @@
 
     const/4 v7, 0x5
 
-    .line 1691
+    .line 1743
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v5, :cond_0
 
-    .line 1692
+    .line 1744
     new-instance v5, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v6, "Cannot make media call R[Service Not Up]"
@@ -3104,11 +3176,11 @@
 
     throw v5
 
-    .line 1695
+    .line 1747
     :cond_0
     const/4 v3, -0x1
 
-    .line 1697
+    .line 1749
     .local v3, sessid:I
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mContext:Landroid/content/Context;
 
@@ -3122,7 +3194,7 @@
 
     move-result-object v4
 
-    .line 1698
+    .line 1750
     .local v4, uriPrefix:Ljava/lang/String;
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mContext:Landroid/content/Context;
 
@@ -3136,11 +3208,11 @@
 
     move-result-object v0
 
-    .line 1699
+    .line 1751
     .local v0, dialType:Ljava/lang/String;
     if-nez p1, :cond_1
 
-    .line 1700
+    .line 1752
     new-instance v5, Lcom/samsung/commonimsservice/IMSException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -3171,30 +3243,30 @@
 
     throw v5
 
-    .line 1702
+    .line 1754
     :cond_1
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v5}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1704
+    .line 1756
     if-ne p2, v7, :cond_3
 
-    .line 1705
+    .line 1757
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "AppType"
 
     invoke-virtual {v5, v6, v9}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1706
+    .line 1758
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "CallType"
 
     invoke-virtual {v5, v6, v7}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1718
+    .line 1770
     :goto_0
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
@@ -3202,10 +3274,10 @@
 
     invoke-virtual {v5, v6, p1}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1719
+    .line 1771
     if-ne p2, v8, :cond_2
 
-    .line 1720
+    .line 1772
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-direct {p0, v5, p1}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->setUriListForConference(Lcom/samsung/commonimsservice/ImsParams;Ljava/lang/String;)Lcom/samsung/commonimsservice/ImsParams;
@@ -3214,11 +3286,11 @@
 
     iput-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
-    .line 1723
+    .line 1775
     :cond_2
     const/4 v1, 0x1
 
-    .line 1724
+    .line 1776
     .local v1, dialTypeVal:I
     if-eqz v0, :cond_7
 
@@ -3230,7 +3302,7 @@
 
     if-nez v5, :cond_7
 
-    .line 1725
+    .line 1777
     const-string v5, "1"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3239,10 +3311,10 @@
 
     if-eqz v5, :cond_6
 
-    .line 1726
+    .line 1778
     const/4 v1, 0x3
 
-    .line 1733
+    .line 1785
     :goto_1
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -3280,17 +3352,17 @@
 
     invoke-direct {p0, v5}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1734
+    .line 1786
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "RmtUriType"
 
     invoke-virtual {v5, v6, v1}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1736
+    .line 1788
     if-eqz v4, :cond_8
 
-    .line 1737
+    .line 1789
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "RmtUriPrefix"
@@ -3299,16 +3371,16 @@
 
     invoke-virtual {v5, v6, v7}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1744
+    .line 1796
     :goto_2
     iget-object v6, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsEventListener:Lcom/sec/android/ims/IMSEventListener;
 
     monitor-enter v6
 
-    .line 1746
+    .line 1798
     if-ne p2, v8, :cond_9
 
-    .line 1747
+    .line 1799
     :try_start_0
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -3331,7 +3403,7 @@
 
     move-result v3
 
-    .line 1754
+    .line 1806
     :goto_3
     :try_start_1
     monitor-exit v6
@@ -3340,19 +3412,19 @@
 
     return v3
 
-    .line 1707
+    .line 1759
     .end local v1           #dialTypeVal:I
     :cond_3
     if-ne p2, v10, :cond_4
 
-    .line 1708
+    .line 1760
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "AppType"
 
     invoke-virtual {v5, v6, v9}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1709
+    .line 1761
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "CallType"
@@ -3361,18 +3433,18 @@
 
     goto/16 :goto_0
 
-    .line 1710
+    .line 1762
     :cond_4
     if-ne p2, v8, :cond_5
 
-    .line 1711
+    .line 1763
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "AppType"
 
     invoke-virtual {v5, v6, v9}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1712
+    .line 1764
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "CallType"
@@ -3381,7 +3453,7 @@
 
     goto/16 :goto_0
 
-    .line 1714
+    .line 1766
     :cond_5
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
@@ -3391,7 +3463,7 @@
 
     invoke-virtual {v5, v6, v7}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1715
+    .line 1767
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "CallType"
@@ -3402,29 +3474,29 @@
 
     goto/16 :goto_0
 
-    .line 1728
+    .line 1780
     .restart local v1       #dialTypeVal:I
     :cond_6
     const/4 v1, 0x1
 
     goto/16 :goto_1
 
-    .line 1731
+    .line 1783
     :cond_7
     const/4 v1, 0x1
 
     goto/16 :goto_1
 
-    .line 1739
+    .line 1791
     :cond_8
     const-string v5, "UriPrefix is NULL"
 
     invoke-direct {p0, v5}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1740
+    .line 1792
     const-string v4, "Sip"
 
-    .line 1741
+    .line 1793
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v6, "RmtUriPrefix"
@@ -3435,7 +3507,7 @@
 
     goto :goto_2
 
-    .line 1749
+    .line 1801
     :cond_9
     :try_start_2
     iget-object v5, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -3461,11 +3533,11 @@
 
     goto :goto_3
 
-    .line 1751
+    .line 1803
     :catch_0
     move-exception v2
 
-    .line 1752
+    .line 1804
     .local v2, e:Landroid/os/RemoteException;
     :try_start_3
     new-instance v5, Lcom/samsung/commonimsservice/IMSException;
@@ -3476,7 +3548,7 @@
 
     throw v5
 
-    .line 1755
+    .line 1807
     .end local v2           #e:Landroid/os/RemoteException;
     :catchall_0
     move-exception v5
@@ -3493,7 +3565,7 @@
     .parameter "listener"
 
     .prologue
-    .line 2150
+    .line 2204
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3520,7 +3592,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2151
+    .line 2205
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mIMSCallStateListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -3529,7 +3601,7 @@
 
     if-nez v0, :cond_0
 
-    .line 2152
+    .line 2206
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3556,16 +3628,16 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2153
+    .line 2207
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mIMSCallStateListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 2157
+    .line 2211
     :goto_0
     return-void
 
-    .line 2155
+    .line 2209
     :cond_0
     const-string v0, "Can\'t registered for call state change"
 
@@ -3579,7 +3651,7 @@
     .parameter "regListener"
 
     .prologue
-    .line 2160
+    .line 2214
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3606,7 +3678,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2161
+    .line 2215
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mIMSRegListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -3615,7 +3687,7 @@
 
     if-nez v0, :cond_0
 
-    .line 2162
+    .line 2216
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3642,16 +3714,16 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2163
+    .line 2217
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mIMSRegListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 2167
+    .line 2221
     :goto_0
     return-void
 
-    .line 2165
+    .line 2219
     :cond_0
     const-string v0, "Can\'t registered for register status state change"
 
@@ -3665,7 +3737,7 @@
     .parameter "connListener"
 
     .prologue
-    .line 2170
+    .line 2224
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3692,7 +3764,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2171
+    .line 2225
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mServiceConnectionListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -3701,7 +3773,7 @@
 
     if-nez v0, :cond_0
 
-    .line 2172
+    .line 2226
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3728,25 +3800,25 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 2173
+    .line 2227
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mServiceConnectionListener:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 2174
+    .line 2228
     iget-boolean v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->serviceConnStatus:Z
 
     if-eqz v0, :cond_1
 
-    .line 2175
+    .line 2229
     invoke-interface {p1}, Lcom/samsung/commonimsservice/IImsServiceConnectionListener;->onConnected()V
 
-    .line 2180
+    .line 2234
     :cond_0
     :goto_0
     return-void
 
-    .line 2177
+    .line 2231
     :cond_1
     invoke-interface {p1}, Lcom/samsung/commonimsservice/IImsServiceConnectionListener;->onDisconnected()V
 
@@ -3764,12 +3836,12 @@
     .end annotation
 
     .prologue
-    .line 1849
+    .line 1901
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v3, :cond_0
 
-    .line 1850
+    .line 1902
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v4, "Cannot reject call R[Service Not Up]"
@@ -3778,30 +3850,30 @@
 
     throw v3
 
-    .line 1853
+    .line 1905
     :cond_0
     const/4 v2, -0x1
 
-    .line 1854
+    .line 1906
     .local v2, svcRet:I
     const/4 v0, -0x1
 
-    .line 1856
+    .line 1908
     .local v0, callType:I
     const/4 v3, 0x2
 
     if-ne p2, v3, :cond_1
 
-    .line 1857
+    .line 1909
     const/4 v0, 0x2
 
-    .line 1864
+    .line 1916
     :goto_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v3}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1866
+    .line 1918
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "eRejectRsn"
@@ -3810,14 +3882,14 @@
 
     invoke-virtual {v3, v4, v5}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1867
+    .line 1919
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "eVVFtrType"
 
     invoke-virtual {v3, v4, v0}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1870
+    .line 1922
     :try_start_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -3835,31 +3907,31 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1875
+    .line 1927
     return-void
 
-    .line 1858
+    .line 1910
     :cond_1
     const/4 v3, 0x1
 
     if-ne p2, v3, :cond_2
 
-    .line 1859
+    .line 1911
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1861
+    .line 1913
     :cond_2
     const/4 v0, 0x5
 
     goto :goto_0
 
-    .line 1871
+    .line 1923
     :catch_0
     move-exception v1
 
-    .line 1872
+    .line 1924
     .local v1, e:Landroid/os/RemoteException;
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
@@ -3882,16 +3954,16 @@
     .end annotation
 
     .prologue
-    const/4 v5, 0x6
+    const/4 v4, 0x6
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    .line 1915
+    .line 1967
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v3, :cond_0
 
-    .line 1916
+    .line 1968
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v4, "Cannot reject call R[Service Not Up]"
@@ -3900,33 +3972,33 @@
 
     throw v3
 
-    .line 1919
+    .line 1971
     :cond_0
     const/4 v2, -0x1
 
-    .line 1920
+    .line 1972
     .local v2, svcRet:I
     const/4 v0, -0x1
 
-    .line 1922
+    .line 1974
     .local v0, callType:I
-    if-ne p2, v4, :cond_2
+    if-ne p2, v5, :cond_2
 
-    .line 1923
+    .line 1975
     const/4 v0, 0x2
 
-    .line 1930
+    .line 1982
     :goto_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v3}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1933
+    .line 1985
     const/4 v3, 0x4
 
     if-ne p3, v3, :cond_4
 
-    .line 1934
+    .line 1986
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -3953,14 +4025,14 @@
 
     invoke-direct {p0, v3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1935
+    .line 1987
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "eRejectRsn"
 
     invoke-virtual {v3, v4, p3}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1946
+    .line 1998
     :cond_1
     :goto_1
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
@@ -3969,7 +4041,7 @@
 
     invoke-virtual {v3, v4, v0}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1949
+    .line 2001
     :try_start_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -3987,31 +4059,31 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1954
+    .line 2006
     return-void
 
-    .line 1924
+    .line 1976
     :cond_2
     const/4 v3, 0x1
 
     if-ne p2, v3, :cond_3
 
-    .line 1925
+    .line 1977
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1927
+    .line 1979
     :cond_3
     const/4 v0, 0x5
 
     goto :goto_0
 
-    .line 1937
+    .line 1989
     :cond_4
-    if-ne p3, v5, :cond_5
+    if-ne p3, v4, :cond_5
 
-    .line 1938
+    .line 1990
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -4038,7 +4110,7 @@
 
     invoke-direct {p0, v3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1939
+    .line 1991
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "eRejectRsn"
@@ -4047,11 +4119,16 @@
 
     goto :goto_1
 
-    .line 1941
+    .line 1993
     :cond_5
-    if-ne p3, v4, :cond_1
+    if-eq p3, v5, :cond_6
 
-    .line 1942
+    const/4 v3, 0x7
+
+    if-ne p3, v3, :cond_1
+
+    .line 1994
+    :cond_6
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -4078,20 +4155,20 @@
 
     invoke-direct {p0, v3}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1943
+    .line 1995
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "eRejectRsn"
 
-    invoke-virtual {v3, v4, p3}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
+    invoke-virtual {v3, v4, v5}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
     goto :goto_1
 
-    .line 1950
+    .line 2002
     :catch_0
     move-exception v1
 
-    .line 1951
+    .line 2003
     .local v1, e:Landroid/os/RemoteException;
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4112,12 +4189,12 @@
     .end annotation
 
     .prologue
-    .line 1593
+    .line 1645
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v2, :cond_0
 
-    .line 1594
+    .line 1646
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v3, "Cannot reject change request R[Service Not Up]"
@@ -4126,17 +4203,17 @@
 
     throw v2
 
-    .line 1597
+    .line 1649
     :cond_0
     const/4 v0, -0x1
 
-    .line 1598
+    .line 1650
     .local v0, callId:I
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v2}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1599
+    .line 1651
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v3, "Type"
@@ -4145,7 +4222,7 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1602
+    .line 1654
     :try_start_0
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -4163,14 +4240,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1606
+    .line 1658
     return-void
 
-    .line 1603
+    .line 1655
     :catch_0
     move-exception v1
 
-    .line 1604
+    .line 1656
     .local v1, e:Landroid/os/RemoteException;
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4190,12 +4267,12 @@
     .end annotation
 
     .prologue
-    .line 2207
+    .line 2261
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-eqz v1, :cond_0
 
-    .line 2209
+    .line 2263
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -4203,15 +4280,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2217
+    .line 2271
     :goto_0
     return-void
 
-    .line 2210
+    .line 2264
     :catch_0
     move-exception v0
 
-    .line 2211
+    .line 2265
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4221,7 +4298,7 @@
 
     throw v1
 
-    .line 2214
+    .line 2268
     .end local v0           #e:Landroid/os/RemoteException;
     :cond_0
     const-string v1, "Ims interface is null stop we can not reset camera ID now!!"
@@ -4243,12 +4320,12 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1327
+    .line 1379
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v2, :cond_0
 
-    .line 1328
+    .line 1380
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v3, "Cannot resume call R[Service Not Up]"
@@ -4257,17 +4334,17 @@
 
     throw v2
 
-    .line 1331
+    .line 1383
     :cond_0
     const/4 v1, -0x1
 
-    .line 1332
+    .line 1384
     .local v1, retval:I
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v2}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1333
+    .line 1385
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v3, "appType"
@@ -4276,14 +4353,14 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1334
+    .line 1386
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v3, "ssId"
 
     invoke-virtual {v2, v3, v5}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1336
+    .line 1388
     :try_start_0
     iget-object v2, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -4301,14 +4378,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1342
+    .line 1394
     return-void
 
-    .line 1338
+    .line 1390
     :catch_0
     move-exception v0
 
-    .line 1339
+    .line 1391
     .local v0, e:Landroid/os/RemoteException;
     new-instance v2, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4325,10 +4402,10 @@
     .parameter "code"
 
     .prologue
-    .line 1609
+    .line 1661
     const/4 v1, 0x0
 
-    .line 1610
+    .line 1662
     .local v1, ret:Z
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -4336,13 +4413,13 @@
 
     move v2, v1
 
-    .line 1626
+    .line 1678
     .end local v1           #ret:Z
     .local v2, ret:I
     :goto_0
     return v2
 
-    .line 1614
+    .line 1666
     .end local v2           #ret:I
     .restart local v1       #ret:Z
     :cond_0
@@ -4350,14 +4427,14 @@
 
     invoke-virtual {v3}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 1615
+    .line 1667
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "keyvalue"
 
     invoke-virtual {v3, v4, p2}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1616
+    .line 1668
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     const-string v4, "KeyeventType"
@@ -4366,7 +4443,7 @@
 
     invoke-virtual {v3, v4, v5}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 1619
+    .line 1671
     :try_start_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -4384,22 +4461,22 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1621
+    .line 1673
     const/4 v1, 0x1
 
     :goto_1
     move v2, v1
 
-    .line 1626
+    .line 1678
     .restart local v2       #ret:I
     goto :goto_0
 
-    .line 1622
+    .line 1674
     .end local v2           #ret:I
     :catch_0
     move-exception v0
 
-    .line 1623
+    .line 1675
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -4415,12 +4492,12 @@
     .end annotation
 
     .prologue
-    .line 2244
+    .line 2298
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 2245
+    .line 2299
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot swipe video surface R[Service Not Up]"
@@ -4429,7 +4506,7 @@
 
     throw v1
 
-    .line 2249
+    .line 2303
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -4438,14 +4515,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2253
+    .line 2307
     return-void
 
-    .line 2250
+    .line 2304
     :catch_0
     move-exception v0
 
-    .line 2251
+    .line 2305
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4466,12 +4543,12 @@
     .end annotation
 
     .prologue
-    .line 2232
+    .line 2286
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 2233
+    .line 2287
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot swipe video surface R[Service Not Up]"
@@ -4480,7 +4557,7 @@
 
     throw v1
 
-    .line 2237
+    .line 2291
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -4489,14 +4566,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2241
+    .line 2295
     return-void
 
-    .line 2238
+    .line 2292
     :catch_0
     move-exception v0
 
-    .line 2239
+    .line 2293
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4505,6 +4582,47 @@
     invoke-direct {v1, v2}, Lcom/samsung/commonimsservice/IMSException;-><init>(Ljava/lang/String;)V
 
     throw v1
+.end method
+
+.method public setAudioMode(I)V
+    .locals 2
+    .parameter "mode"
+
+    .prologue
+    .line 2393
+    iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
+
+    if-nez v1, :cond_0
+
+    .line 2394
+    const-string v1, "Ims interface is null !!"
+
+    invoke-direct {p0, v1}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
+
+    .line 2403
+    :goto_0
+    return-void
+
+    .line 2399
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
+
+    invoke-interface {v1, p1}, Lcom/sec/android/internal/ims/IIMSService;->setAudioMode(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    .line 2400
+    :catch_0
+    move-exception v0
+
+    .line 2401
+    .local v0, e:Landroid/os/RemoteException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_0
 .end method
 
 .method public setAutoResponse(II)V
@@ -4518,12 +4636,12 @@
     .end annotation
 
     .prologue
-    .line 1777
+    .line 1829
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 1778
+    .line 1830
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot set auto response R[Service Not Up]"
@@ -4532,17 +4650,17 @@
 
     throw v1
 
-    .line 1781
+    .line 1833
     :cond_0
     const/4 v1, -0x1
 
     if-ne p2, v1, :cond_1
 
-    .line 1790
+    .line 1842
     :goto_0
     return-void
 
-    .line 1786
+    .line 1838
     :cond_1
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -4557,11 +4675,11 @@
 
     goto :goto_0
 
-    .line 1787
+    .line 1839
     :catch_0
     move-exception v0
 
-    .line 1788
+    .line 1840
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4582,12 +4700,12 @@
     .end annotation
 
     .prologue
-    .line 1793
+    .line 1845
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 1794
+    .line 1846
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot hold call R[Service Not Up]"
@@ -4596,7 +4714,7 @@
 
     throw v1
 
-    .line 1798
+    .line 1850
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -4605,14 +4723,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1802
+    .line 1854
     return-void
 
-    .line 1799
+    .line 1851
     :catch_0
     move-exception v0
 
-    .line 1800
+    .line 1852
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4623,10 +4741,11 @@
     throw v1
 .end method
 
-.method public setDisplay(ILandroid/view/SurfaceHolder;)V
+.method public setDisplay(ILandroid/view/SurfaceHolder;Ljava/lang/String;)V
     .locals 5
     .parameter "sessionID"
     .parameter "holder"
+    .parameter "frameSize"
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/samsung/commonimsservice/IMSException;
@@ -4634,12 +4753,12 @@
     .end annotation
 
     .prologue
-    .line 1461
+    .line 1513
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 1462
+    .line 1514
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot set display R[Service Not Up]"
@@ -4648,7 +4767,7 @@
 
     throw v1
 
-    .line 1466
+    .line 1518
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -4673,18 +4792,18 @@
 
     move-result v4
 
-    invoke-interface {v1, v2, v3, v4}, Lcom/sec/android/internal/ims/IIMSService;->startVideoRenderer(Landroid/view/Surface;II)V
+    invoke-interface {v1, v2, v3, v4, p3}, Lcom/sec/android/internal/ims/IIMSService;->startVideoRenderer(Landroid/view/Surface;IILjava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1471
+    .line 1523
     return-void
 
-    .line 1467
+    .line 1519
     :catch_0
     move-exception v0
 
-    .line 1468
+    .line 1520
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4701,12 +4820,12 @@
     .parameter "speakerMode"
 
     .prologue
-    .line 1457
+    .line 1509
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v0, p2}, Landroid/media/AudioManager;->setSpeakerphoneOn(Z)V
 
-    .line 1458
+    .line 1510
     return-void
 .end method
 
@@ -4718,14 +4837,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1508
+    .line 1560
     if-gez p2, :cond_0
 
-    .line 1516
+    .line 1568
     :goto_0
     return-void
 
-    .line 1510
+    .line 1562
     :cond_0
     invoke-virtual {p0, p1}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->getMaxVolume(I)I
 
@@ -4733,7 +4852,7 @@
 
     if-le p2, v0, :cond_1
 
-    .line 1511
+    .line 1563
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
 
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
@@ -4746,7 +4865,7 @@
 
     goto :goto_0
 
-    .line 1513
+    .line 1565
     :cond_1
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
 
@@ -4767,12 +4886,12 @@
     .end annotation
 
     .prologue
-    .line 1523
+    .line 1575
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 1524
+    .line 1576
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot hold call R[Service Not Up]"
@@ -4781,7 +4900,7 @@
 
     throw v1
 
-    .line 1528
+    .line 1580
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -4790,14 +4909,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1533
+    .line 1585
     return-void
 
-    .line 1529
+    .line 1581
     :catch_0
     move-exception v0
 
-    .line 1530
+    .line 1582
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4823,12 +4942,12 @@
     .end annotation
 
     .prologue
-    .line 1378
+    .line 1430
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v0, :cond_0
 
-    .line 1379
+    .line 1431
     new-instance v0, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v1, "Cannot start camera R[Service Not Up]"
@@ -4837,11 +4956,11 @@
 
     throw v0
 
-    .line 1383
+    .line 1435
     :cond_0
     if-eqz p3, :cond_1
 
-    .line 1384
+    .line 1436
     :try_start_0
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -4875,13 +4994,13 @@
 
     invoke-interface/range {v0 .. v7}, Lcom/sec/android/internal/ims/IIMSService;->startCamera(Landroid/view/Surface;IIIZZLjava/lang/String;)V
 
-    .line 1393
+    .line 1445
     :goto_0
     const/4 v0, 0x0
 
     return v0
 
-    .line 1388
+    .line 1440
     :cond_1
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -4905,11 +5024,11 @@
 
     goto :goto_0
 
-    .line 1389
+    .line 1441
     :catch_0
     move-exception v8
 
-    .line 1390
+    .line 1442
     .local v8, e:Landroid/os/RemoteException;
     new-instance v0, Lcom/samsung/commonimsservice/IMSException;
 
@@ -4930,13 +5049,13 @@
     .end annotation
 
     .prologue
-    .line 1549
+    .line 1601
     invoke-virtual {p0, p1}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->startAudio(I)V
 
-    .line 1550
+    .line 1602
     invoke-virtual {p0, p1}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->startVideo(I)V
 
-    .line 1551
+    .line 1603
     return-void
 .end method
 
@@ -4950,12 +5069,12 @@
     .end annotation
 
     .prologue
-    .line 1536
+    .line 1588
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 1537
+    .line 1589
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Start video failed R[Service not up]"
@@ -4964,7 +5083,7 @@
 
     throw v1
 
-    .line 1541
+    .line 1593
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -4973,14 +5092,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1546
+    .line 1598
     return-void
 
-    .line 1542
+    .line 1594
     :catch_0
     move-exception v0
 
-    .line 1543
+    .line 1595
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -5001,12 +5120,12 @@
     .end annotation
 
     .prologue
-    .line 1630
+    .line 1682
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 1631
+    .line 1683
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot stop camera R[Service Not Up]"
@@ -5015,7 +5134,7 @@
 
     throw v1
 
-    .line 1635
+    .line 1687
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -5024,20 +5143,20 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1640
+    .line 1692
     const/4 v1, 0x0
 
     return v1
 
-    .line 1636
+    .line 1688
     :catch_0
     move-exception v0
 
-    .line 1637
+    .line 1689
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    .line 1638
+    .line 1690
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Camera not stopped"
@@ -5057,12 +5176,12 @@
     .end annotation
 
     .prologue
-    .line 2220
+    .line 2274
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 2221
+    .line 2275
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot swipe video surface R[Service Not Up]"
@@ -5071,7 +5190,7 @@
 
     throw v1
 
-    .line 2225
+    .line 2279
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -5080,14 +5199,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2229
+    .line 2283
     return-void
 
-    .line 2226
+    .line 2280
     :catch_0
     move-exception v0
 
-    .line 2227
+    .line 2281
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -5107,12 +5226,12 @@
     .end annotation
 
     .prologue
-    .line 1412
+    .line 1464
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 1413
+    .line 1465
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot switch camera R[Service Not Up]"
@@ -5121,7 +5240,7 @@
 
     throw v1
 
-    .line 1417
+    .line 1469
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -5130,14 +5249,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1422
+    .line 1474
     return-void
 
-    .line 1418
+    .line 1470
     :catch_0
     move-exception v0
 
-    .line 1419
+    .line 1471
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -5153,7 +5272,7 @@
     .parameter "sessionID"
 
     .prologue
-    .line 1562
+    .line 1614
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -5180,7 +5299,7 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1564
+    .line 1616
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v0}, Landroid/media/AudioManager;->isMicrophoneMute()Z
@@ -5189,14 +5308,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 1565
+    .line 1617
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->setMicrophoneMute(Z)V
 
-    .line 1571
+    .line 1623
     :goto_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -5224,10 +5343,10 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
 
-    .line 1573
+    .line 1625
     return-void
 
-    .line 1568
+    .line 1620
     :cond_0
     iget-object v0, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mAudioManager:Landroid/media/AudioManager;
 
@@ -5252,12 +5371,12 @@
     .prologue
     const/4 v4, 0x3
 
-    .line 2036
+    .line 2088
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v3, :cond_0
 
-    .line 2037
+    .line 2089
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v4, "Cannot upgrade call R[Service Not Up]"
@@ -5266,32 +5385,32 @@
 
     throw v3
 
-    .line 2040
+    .line 2092
     :cond_0
     const/4 v2, -0x1
 
-    .line 2041
+    .line 2093
     .local v2, svcId:I
     const/4 v0, -0x1
 
-    .line 2043
+    .line 2095
     .local v0, appType:I
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
     invoke-virtual {v3}, Lcom/samsung/commonimsservice/ImsParams;->clearAll()V
 
-    .line 2045
+    .line 2097
     const/4 v3, 0x5
 
     if-ne v3, p3, :cond_3
 
-    .line 2046
+    .line 2098
     if-ne v4, p2, :cond_2
 
-    .line 2047
+    .line 2099
     const/4 v0, 0x5
 
-    .line 2052
+    .line 2104
     :goto_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
@@ -5299,7 +5418,7 @@
 
     invoke-virtual {v3, v4, v0}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 2054
+    .line 2106
     :try_start_0
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -5317,22 +5436,22 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2074
+    .line 2126
     :cond_1
     :goto_1
     return-void
 
-    .line 2049
+    .line 2101
     :cond_2
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 2055
+    .line 2107
     :catch_0
     move-exception v1
 
-    .line 2056
+    .line 2108
     .local v1, e:Landroid/os/RemoteException;
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
@@ -5342,18 +5461,18 @@
 
     throw v3
 
-    .line 2058
+    .line 2110
     .end local v1           #e:Landroid/os/RemoteException;
     :cond_3
     if-ne p3, v4, :cond_1
 
-    .line 2060
+    .line 2112
     if-ne v4, p2, :cond_4
 
-    .line 2061
+    .line 2113
     const/4 v0, 0x7
 
-    .line 2065
+    .line 2117
     :goto_2
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->params:Lcom/samsung/commonimsservice/ImsParams;
 
@@ -5361,7 +5480,7 @@
 
     invoke-virtual {v3, v4, v0}, Lcom/samsung/commonimsservice/ImsParams;->set(Ljava/lang/String;I)V
 
-    .line 2068
+    .line 2120
     :try_start_1
     iget-object v3, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
@@ -5381,11 +5500,11 @@
 
     goto :goto_1
 
-    .line 2069
+    .line 2121
     :catch_1
     move-exception v1
 
-    .line 2070
+    .line 2122
     .restart local v1       #e:Landroid/os/RemoteException;
     new-instance v3, Lcom/samsung/commonimsservice/IMSException;
 
@@ -5395,7 +5514,7 @@
 
     throw v3
 
-    .line 2063
+    .line 2115
     .end local v1           #e:Landroid/os/RemoteException;
     :cond_4
     const/4 v0, 0x2
@@ -5415,12 +5534,12 @@
     .end annotation
 
     .prologue
-    .line 1398
+    .line 1450
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
 
     if-nez v1, :cond_0
 
-    .line 1399
+    .line 1451
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
     const-string v2, "Cannot start camera R[Service Not Up]"
@@ -5429,7 +5548,7 @@
 
     throw v1
 
-    .line 1402
+    .line 1454
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
@@ -5438,14 +5557,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1409
+    .line 1461
     return-void
 
-    .line 1404
+    .line 1456
     :catch_0
     move-exception v0
 
-    .line 1405
+    .line 1457
     .local v0, e:Landroid/os/RemoteException;
     new-instance v1, Lcom/samsung/commonimsservice/IMSException;
 
@@ -5454,4 +5573,72 @@
     invoke-direct {v1, v2}, Lcom/samsung/commonimsservice/IMSException;-><init>(Ljava/lang/String;)V
 
     throw v1
+.end method
+
+.method public writeErrorData(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
+    .parameter "errorCode"
+    .parameter "errorString"
+
+    .prologue
+    .line 2378
+    iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
+
+    if-nez v1, :cond_0
+
+    .line 2391
+    :goto_0
+    return-void
+
+    .line 2385
+    :cond_0
+    :try_start_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Ims interface is writeErrorData... !!errorCode"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "...errorString"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Lcom/samsung/commonimsservice/SamsungAPCommonService;->log(Ljava/lang/String;)V
+
+    .line 2386
+    iget-object v1, p0, Lcom/samsung/commonimsservice/SamsungAPCommonService;->mImsInterface:Lcom/sec/android/internal/ims/IIMSService;
+
+    invoke-interface {v1, p1, p2}, Lcom/sec/android/internal/ims/IIMSService;->writeErrorData(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    .line 2387
+    :catch_0
+    move-exception v0
+
+    .line 2389
+    .local v0, e:Landroid/os/RemoteException;
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_0
 .end method

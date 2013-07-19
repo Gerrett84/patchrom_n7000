@@ -322,7 +322,7 @@
     <string name="turn_on_radio">Vezeték nélküli funkció bekapcsolása</string>
     <string name="turn_off_radio">Vezeték nélküli funkció kikapcsolása</string>
     <string name="screen_lock">Képernyőzár</string>
-    <string name="power_off">Kikapcsolás</string>
+    <string name="power_off">Kikapcsolás ideje</string>
     <string name="silent_mode_silent">Csengő kikapcsolva</string>
     <string name="silent_mode_vibrate">Csengés rezgéssel</string>
     <string name="silent_mode_ring">Csengő bekapcsolva</string>
@@ -339,7 +339,7 @@
     <string name="global_action_lock">Képernyőzár</string>
     <string name="global_action_power_off">Kikapcsolás</string>
     <string name="global_action_restart">Újraindít</string>
-    <string name="global_action_sound_mode_mute">Néma</string>
+    <string name="global_action_sound_mode_mute">Némít</string>
     <string name="global_action_sound_mode_vibrate">Rezgés</string>
     <string name="global_action_sound_mode_sound">Hang</string>
     <string name="global_action_toggle_silent_mode">Csendes mód</string>
@@ -361,7 +361,7 @@
     <string name="data_usage_disable_mobile">Letiltja a mobil internetkapcsolatot?</string>
     <string name="global_action_insert_sim_card">Helyezze be a SIM kártyát</string>
     <string name="global_action_insert_sim_card_message">Hálózati szolgáltatások eléréséhez helyezze be a SIM kártyát</string>
-    <string name="globalactions_silent_mode_mute">Néma</string>
+    <string name="globalactions_silent_mode_mute">Némít</string>
     <string name="globalactions_silent_mode_vibrate">Rezgés</string>
     <string name="globalactions_silent_mode_sound">Hang</string>
     <string name="safeMode">Biztonságos mód</string>
@@ -413,6 +413,7 @@
     <string name="permdesc_mdmKioskMode">Az eszköz viselkedésének szabályozása Kioszk üzemmódban</string>
     <string name="tether_usb_restrict">A biztonsági irányelv korlátozza az USB-internetmegosztás használatát</string>
     <string name="tether_wifi_restrict">A biztonsági irányelv korlátozza a Wi-Fi internetmegosztás használatát</string>
+    <string name="data_call_restriction">A biztonsági irányelv korlátozza a mobil internetkapcsolat használatát</string>
     <string name="dpm_wifi_blocked_network">A biztonsági irányelv blokkolja ennek a Wi-Fi hálózatnak a használatát</string>
     <string name="dpm_wifi_misc_wifi_disabled">A biztonsági irányelv korlátozza a Wi-Fi használatát</string>
     <string name="dpm_wifi_misc_network_insecure">A biztonsági irányelv korlátozza a nem biztonságos Wi-Fi hálózatok használatát</string>
@@ -624,7 +625,7 @@
     <string name="permdesc_writeSocialStream">Lehetővé teszi az alkalmazás számára, hogy megjelenítse ismerősei közösségi oldalakon szereplő frissítéseit. Legyen elővigyázatos, amikor információt tesz közzé -- így az alkalmazás olyan üzeneteket hozhat létre, amelyek látszólag egy ismerőstől érkeztek. Megjegyzés: előfordulhat, hogy ez nincs minden közösségi hálózaton engedélyezve.</string>
     <string name="permlab_readCalendar">Naptári események és bizalmas adatok olvasása</string>
     <string name="permdesc_readCalendar">Lehetővé teszi az alkalmazás számára a telefonján tárolt összes naptári esemény beolvasását, beleértve az ismerősök vagy munkatársak eseményeit is. Az alkalmazás így megoszthatja vagy elmentheti az Ön naptáradatait azok titkos vagy bizalmas jellegétől függetlenül.</string>
-    <string name="permlab_writeCalendar">naptári események hozzáadása vagy módosítása, e-mailek küldése a vendégeknek a tulajdonosok tudomása nélkül</string>
+    <string name="permlab_writeCalendar">Naptári események hozzáadása vagy módosítása és e-mail küldése a vendégeknek a házigazda tudta nélkül</string>
     <string name="permdesc_writeCalendar">Lehetővé teszi az alkalmazás számára a telefonon módosítható események hozzáadását, törlését vagy módosítását, beleértve az ismerősök vagy munkatársak eseményeit is. Az engedéllyel rendelkező alkalmazás üzeneteket küldhet, amelyek úgy tűnhetnek, hogy a naptár tulajdonosától származnak, illetve módosíthatják az eseményeket a tulajdonosok tudta nélkül.</string>
     <string name="permlab_accessMockLocation">hamis helymeghatározó források létrehozása tesztelésre</string>
     <string name="permdesc_accessMockLocation">Lehetővé teszi az alkalmazás számára, hogy az hamis helymeghatározó forrásokat hozzon létre tesztelés céljára. Engedélyezése esetén rosszindulatú alkalmazások felülírhatják a valódi helymeghatározó források, pl. a GPS és a mobilszolgáltatók által nyújtott helyadatokat és/vagy állapotot, illetve figyelhetik és tetszőleges webhelyen jelenthetik az Ön helyzetét</string>
@@ -714,7 +715,7 @@
     <string name="permdesc_getAccounts">Lehetővé teszi az alkalmazás számára a hozzáférést a telefon által ismert fiókok listájához</string>
     <string name="permlab_authenticateAccounts">Működés fiókhitelesítőként</string>
     <string name="permdesc_authenticateAccounts">Lehetővé teszi az alkalmazás számára a Fiókkezelő fiókhitelesítő funkciójának használatát. Ebbe beletartozik a fióklétrehozás és a jelszóellenőrzés</string>
-    <string name="permlab_manageAccounts">fiókok hozzáadása vagy eltávolítása</string>
+    <string name="permlab_manageAccounts">Fiókok hozzáadása vagy eltávolítása</string>
     <string name="permdesc_manageAccounts">Lehetővé teszi az alkalmazás számára fiókok hozzáadását és eltávolítását, valamint a jelszó törlését</string>
     <string name="permlab_useCredentials">Fiók hitelesítő adatainak használata</string>
     <string name="permdesc_useCredentials">Lehetővé teszi az alkalmazás számára hitelesítési tokenek kérését</string>
@@ -736,7 +737,7 @@
     <string name="permdesc_changeWifiState">Lehetővé teszi az alkalmazás számára kapcsolat létesítését és megszakítását a Wi-Fi hozzáférési pontokkal, valamint a konfigurált Wi-Fi-hálózatok módosítását</string>
     <string name="permlab_changeWifiMulticastState">Wi-Fi multicast fogadás engedélyezése</string>
     <string name="permdesc_changeWifiMulticastState">Lehetővé teszi az alkalmazás számára, hogy olyan csomagokat fogadjon, amelyeket nem csak a telefonjának, hanem egy Wi-Fi hálózat minden eszközének elküldtek többirányú címek használatával. Több energiát használ, mint a nem többirányú üzemmód.</string>
-    <string name="permlab_bluetoothAdmin">Bluetooth-beállítások elérése</string>
+    <string name="permlab_bluetoothAdmin">Bluetooth-beállítások</string>
     <string name="permdesc_bluetoothAdmin">Lehetővé teszi az alkalmazás számára a helyi Bluetooth-telefon konfigurálását, valamint távoli eszközök észlelését és a készülék párosítását ezekkel</string>
     <string name="permlab_accessWimaxState">WiMAX-állapot megtekintése</string>
     <string name="permdesc_accessWimaxState">Lehetővé teszi az alkalmazás számára, hogy ellenőrizze, a WiMax engedélyezve van-e, valamint hogy információt gyűjtsön a csatlakoztatott WiMax-hálózatokról.</string>
@@ -826,6 +827,7 @@
     <string name="policydesc_allow_desktopsync">Eszközszinkronizálás használatának tiltása</string>
     <string name="policylab_require_storagecard_encryption">SD-kártya titkosításának beállítása</string>
     <string name="policydesc_require_storagecard_encryption">Titkosítani kell az SD-kártyán lévő alkalmazást</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth-kapcsolat bontva</string>
     <string name="bluetooth_security_mode_disable">A biztonsági irányelv korlátozza a Bluetooth-kapcsolat használatát</string>
     <string name="bluetooth_security_mode_handsfree">A biztonsági irányelv a szabadkezes funkciókra korlátozza a Bluetooth-kapcsolat használatát</string>
     <string name="phoneTypeCustom">Egyedi</string>
@@ -905,7 +907,7 @@
     <string name="keyguard_password_entry_touch_hint">Érintse meg a jelszó megadásához</string>
     <string name="keyguard_password_enter_password_code">Adja meg a feloldó jelszót</string>
     <string name="keyguard_password_enter_pin_password_code">Adja meg a PIN kódot a feloldáshoz</string>
-    <string name="keyguard_password_wrong_pin_code">Helytelen PIN kód.</string>
+    <string name="keyguard_password_wrong_pin_code">Helytelen PIN kód</string>
     <string name="keyguard_pin_accepted">Kód elfogadva</string>
     <string name="keyguard_label_text">A feloldáshoz nyomja meg a Menü, majd a 0 gombot</string>
     <string name="emergency_call_dialog_number_for_display">Segélyhívó szám</string>
@@ -942,8 +944,9 @@
     <string name="lockscreen_network_locked_message">Hálózat lezárva</string>
     <string name="lockscreen_sim_puk_locked_message">A SIM kártyán PUK-zár van</string>
     <string name="lockscreen_sim_puk_locked_instructions">Lapozza fel a felhasználói kézikönyvet, vagy forduljon az ügyfélszolgálathoz</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM kártya zárolva</string>
+    <string name="lockscreen_sim_locked_message">SIM kártya lezárva</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">SIM kártya feloldása…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">%1$d alkalommal helytelenül rajzolta le a feloldómintát. Próbálja újra %2$d másodperc múlva</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">%1$d alkalommal helytelen jelszót adott meg. Próbálja újra %2$d másodperc múlva</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 blokkolva. A PIN1 feloldásához írja be a PUK1 kódot</string>
@@ -996,6 +999,7 @@
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">Azonos ezzel:</string>
     <string name="autofill_billing_designator_re">Számla</string>
+    <string name="autofill_shipping_designator_re">Hajó</string>
     <string name="autofill_phone_suffix_re">Titulus</string>
     <string name="autofill_name_on_card_contextual_re">Név</string>
     <string name="autofill_province">Tartomány</string>
@@ -1010,7 +1014,7 @@
     <string name="autofill_parish">Körzet</string>
     <string name="autofill_area">Terület</string>
     <string name="autofill_emirate">Emirátus</string>
-    <string name="permlab_readHistoryBookmarks">internetes könyvjelzők és előzmények olvasása</string>
+    <string name="permlab_readHistoryBookmarks">Internetes előzmények és kedvencek olvasása</string>
     <string name="permdesc_readHistoryBookmarks">Lehetővé teszi az alkalmazások számára a böngészővel meglátogatott valamennyi URL, valamint a böngésző könyvjelzőinek olvasását</string>
     <string name="permlab_writeHistoryBookmarks">internetes könyvjelzők és előzmények írása</string>
     <string name="permdesc_writeHistoryBookmarks">Lehetővé teszi az alkalmazás számára, hogy az módosítsa a telefonon tárolt internetes előzményeket és kedvenceket. Engedélyezése esetén rosszindulatú alkalmazások törölhetik vagy megváltoztathatják ezeket az adatokat</string>
@@ -1089,10 +1093,12 @@
     <string name="editTextMenuTitle">Műveletek szöveggel</string>
     <string name="low_internal_storage_view_title">Majdnem megtelt a memória</string>
     <string name="low_internal_storage_view_text">Előfordulhat, hogy a rendszer bizonyos funkciói nem fognak működni</string>
+    <string name="full_internal_storage_view_text">Hiba történhet, mert az eszköz memóriája megtelt. Töröljön tételeket</string>
     <string name="loading">Betöltés…</string>
     <string name="capital_on">Be</string>
     <string name="capital_off">Ki</string>
     <string name="whichApplication">Művelet befejezése a következő segítségével:</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Alapértelmezett használat ehhez a művelethez</string>
     <string name="clearDefaultHintMsg">A Beállítások > Alkalmazáskezelő > Összes pontban törölheti az alapértelmezett alkalmazásbeállításokat</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1161,7 +1167,7 @@ Szeretné bezárni?"</string>
     <string name="wifi_notification_no_network_message">Wi-Fi beállítások megnyitása</string>
     <string name="wifi_notification_not_connected">Van elérhető Wi-Fi hálózat</string>
     <string name="wifi_notification_not_connected_message">Van elérhető nyílt Wi-Fi hálózat</string>
-    <string name="wifi_notification_connected">Kapcsolódva: %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Érintse meg a Wi-Fi konfigurálásához</string>
     <string name="wifi_notification_connected_secure">Titkosított</string>
     <string name="wifi_notification_connected_open">Megnyitás</string>
@@ -1175,7 +1181,7 @@ Szeretné bezárni?"</string>
     <string name="wifi_p2p_enabled_notification_title">Wi-Fi Direct bekapcsolva</string>
     <string name="wifi_p2p_enabled_notification_message">Érintse meg a beá. módosításához</string>
     <string name="accept">Elfogad</string>
-    <string name="decline">Elutasít</string>
+    <string name="decline">Elutasítás</string>
     <string name="wifi_p2p_invitation_sent_title">Meghívás elküldve</string>
     <string name="wifi_p2p_invitation_to_connect_title">Meghívás kapcsolódásra</string>
     <string name="wifi_p2p_from_message">Feladó:</string>
@@ -1191,9 +1197,9 @@ Szeretné bezárni?"</string>
     <string name="select_character">Karakter beszúrása</string>
     <string name="sms_control_default_app_name">Ismeretlen alkalmazás</string>
     <string name="sms_control_title">SMS küldése…</string>
-    <string name="sms_control_message">Több SMS üzenet küldésére készül. Érintse meg az OK gombot a folytatáshoz vagy a Mégse gombot a küldés leállításához</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Mégse</string>
+    <string name="sms_control_message">A(z) &lt;b>%s&lt;/b> nagyszámú SMS üzenetet küld. Engedélyezi az alkalmazás számára az üzenetküldés folytatását?</string>
+    <string name="sms_control_yes">Engedélyezés</string>
+    <string name="sms_control_no">Elutasítás</string>
     <string name="sim_removed_title">SIM kártya eltávolítva</string>
     <string name="sim_removed_message">A mobilhálózat mindaddig nem lesz elérhető, amíg újra nem indítja az eszközt egy érvényes SIM kártyával</string>
     <string name="sim_done_button">Kész</string>
@@ -1287,7 +1293,7 @@ Szeretné bezárni?"</string>
     <string name="activity_list_empty">Nem található megfelelő tevékenység</string>
     <string name="permlab_pkgUsageStats">összetevő-használati statisztikák frissítése</string>
     <string name="permdesc_pkgUsageStats">Lehetővé teszi az összegyűjtött összetevő-használati statisztikák módosítását. Normál alkalmazások esetében nem használatos</string>
-    <string name="permlab_copyProtectedData">Lehetővé teszi az alapértelmezett tárolószolgáltatás számára a tartalommásolást. Normál alkalmazások esetében nem használatos</string>
+    <string name="permlab_copyProtectedData">Tartalom másolása</string>
     <string name="permdesc_copyProtectedData">Lehetővé teszi az alapértelmezett tárolószolgáltatás számára a tartalommásolást. Normál alkalmazások esetében nem használatos</string>
     <string name="permlab_route_media_output">Médiakimenet irányítása</string>
     <string name="permdesc_route_media_output">Lehetővé teszi az alkalmazás számára, hogy külső eszközökre irányítsa a médiakimenetet</string>
@@ -1386,8 +1392,8 @@ a(z) %s fiókhoz"</string>
     <string name="time_picker_decrement_minute_button">Perc csökkentése</string>
     <string name="time_picker_increment_hour_button">Óra növelése</string>
     <string name="time_picker_decrement_hour_button">Óra csökkentése</string>
-    <string name="time_picker_increment_set_pm_button">du beállítása</string>
-    <string name="time_picker_decrement_set_am_button">de beállítása</string>
+    <string name="time_picker_increment_set_pm_button">Du. beállítása</string>
+    <string name="time_picker_decrement_set_am_button">De. beállítása</string>
     <string name="date_picker_increment_month_button">Hónap növelése</string>
     <string name="date_picker_decrement_month_button">Hónap csökkentése</string>
     <string name="date_picker_increment_day_button">Nap növelése</string>
@@ -1427,10 +1433,11 @@ a(z) %s fiókhoz"</string>
     <string name="action_bar_home_description">Navigálás haza</string>
     <string name="action_bar_up_description">Navigálás felfelé</string>
     <string name="action_menu_overflow_description">További opciók</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Átváltás az előző méretre</string>
     <string name="storage_internal">Eszközmemória</string>
     <string name="storage_sd_card">SD-kártya</string>
     <string name="storage_usb">Belső tárhely</string>
-    <string name="extract_edit_menu_button">Szerkesztés…</string>
+    <string name="extract_edit_menu_button">Szerkeszt</string>
     <string name="data_usage_warning_title">Adathasználati figyelmeztetés</string>
     <string name="data_usage_warning_body">Érintse meg a használat és a beállítások megtekintéséhez</string>
     <string name="data_usage_3g_limit_title">2G-3G adatkapcsolat letiltva</string>
@@ -1460,7 +1467,7 @@ a(z) %s fiókhoz"</string>
     <string name="fingerprints">Ujjlenyomatok</string>
     <string name="sha256_fingerprint">SHA-256 ujjlenyomat:</string>
     <string name="sha1_fingerprint">SHA-1 ujjlenyomat:</string>
-    <string name="activity_chooser_view_see_all">Összes</string>
+    <string name="activity_chooser_view_see_all">Összes megjelenítése</string>
     <string name="activity_chooser_view_dialog_title_default">Tevékenység kiválasztása</string>
     <string name="share_action_provider_share_with">Megosztás a következőkkel</string>
     <string name="status_bar_device_locked">Eszköz lezárva</string>
@@ -1516,6 +1523,8 @@ a(z) %s fiókhoz"</string>
     <string name="lockscreen_fmapp_name">FM rádió</string>
     <string name="lockscreen_clock_dualclock_home">Otthoni</string>
     <string name="lockscreen_clock_dualclock_roaming">Roaming</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Szöul</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Roaming</string>
     <string name="lockscreen_clock_dualclock_popup_title">Kettős óra</string>
     <string name="lockscreen_clock_dualclock_popup_message">Válasszon hazai várost a második óra megjelenítéséhez a zárolt képernyőn. Megnyitja a Beállításokat?</string>
     <string name="lockscreen_ticker_no_data_to_display">Nincs megjeleníthető adat</string>
@@ -1552,7 +1561,7 @@ a(z) %s fiókhoz"</string>
     <string name="lockscreen_2ndLock_instructions2">Adja meg a tartalék PIN kódot a feloldáshoz</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">%1$d alkalommal helytelenül rajzolta le a feloldómintát. Próbálja újra %2$d másodperc múlva</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">%1$d alkalommal helytelenül rajzolta le a feloldómintát. További %2$d sikertelen próbálkozás esetén Google-bejelentkezéssel vagy tartalék PIN kóddal kell majd feloldania az eszközt. %3$d másodperc múlva újra próbálkozhat</string>
     <string name="lockscreen_carrier_noservice">(Nincs szolgáltatás)</string>
     <string name="rescan_network">Elérhető hálózat keresése</string>
     <string name="AutoUpdateOfTimeAndDate">Idő és dátum automatikus frissítése</string>
@@ -1563,6 +1572,8 @@ a(z) %s fiókhoz"</string>
     <string name="capabilitymanager_managed_errortitle">Hiba</string>
     <string name="security_policy_title">Biztonsági irányelvek</string>
     <string name="security_policy_summary">Titkosítási irányelvek érkeztek a távoli adminisztrátortól</string>
+    <string name="sdcard_unmount_policy_noti_title">SD-kártya leválasztva az IT-irányelv értelmében</string>
+    <string name="sdcard_unmount_policy_noti_content">Érintse meg az SD-kártya csatolásához</string>
     <string name="sdcard_encrypt_title_notification">SD-kártya titkosítása</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">SD-kártya titkosítása…</string>
     <string name="sdcard_encrypt_notification">SD-kártya titkosítva</string>
@@ -1586,7 +1597,7 @@ a(z) %s fiókhoz"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1628,7 +1639,7 @@ a(z) %s fiókhoz"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">A megadott értékek az érvényes tartományon kívül vannak. Ellenőrizze az értékeket, és próbálja újra</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1650,6 +1661,8 @@ a(z) %s fiókhoz"</string>
     <string name="SS_USB_TETHERING_ENABLED">USB-internetmegosztás engedélyezve</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Wi-Fi internetmegosztás engedélyezve</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Internetmegosztás engedélyezve (Wi-Fi és USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Az eszköz blokkolva. Kihasználta a jelszómegadási kísérletek maximális számát. Az eszköz blokkolása a helyreállítási jelszóval oldható fel. Helytelen helyreállítási jelszó megadása esetén minden adat törlődik</string>
+    <string name="recovery_password_required">Az eszköz blokkolása a helyreállítási jelszóval oldható fel</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Betárcsázós hálózat engedélyezve</string>
@@ -1683,12 +1696,21 @@ a(z) %s fiókhoz"</string>
     <string name="lockscreen_ticker_logo_news_tts">Hírek</string>
     <string name="lockscreen_ticker_logo_stock_tts">Részvény</string>
     <string name="lockscreen_ticker_refresh_tts">Frissítés</string>
+    <string name="SS_ALWAYS_ON_TOP">Mindig felül</string>
+    <string name="SS_MINIMISE">Kis méret</string>
+    <string name="SS_MAXIMISE">Teljes méret</string>
+    <string name="SS_CLOSE_APPLICATION">Alkalmazás bezárása</string>
+    <string name="spengesture_media_scanning">Nem lehet körülvágni a képet. Nem fut a médiakeresés</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN blokkolva</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Forduljon a szolgáltatóhoz a SIM kártya feloldása érdekében</string>
     <string name="resolver_guide_title">Alapértelmezések törlése</string>
     <string name="operation_not_allowed">A művelet nincs engedélyezve</string>
     <string name="exceeded_maxlength">Túllépte a maximális üzenetméretet</string>
     <string name="dont_show_again_message">Ne jelenjen meg ismét</string>
     <string name="set_bing_as_default">A Bing legyen az alapértelmezett kereső?</string>
     <string name="ms_domain_site">Microsoft tartomány webhelye</string>
+    <string name="unsupported_in_popupbrowser">Az Előugró böngésző nem támogatja ezt a funkciót</string>
+    <string name="find_on_page_abb">Keresés az oldalon</string>
     <string name="tw_clipboard_already_exists">Már létezik</string>
     <string name="tw_clipboard_no_items_to_paste">Nincs beilleszthető tétel</string>
     <string name="tw_clipboard_save_in_memo">Mentés a Jegyzetek közé</string>
@@ -1704,7 +1726,10 @@ a(z) %s fiókhoz"</string>
     <string name="tw_clipboard_delete_all">Törli az összeset?</string>
     <string name="tw_clipboard_edit">Szerkeszt</string>
     <string name="tw_clipboard_done">Kész</string>
-    <string name="tw_clipboard_save">Mentés</string>
+    <string name="tw_clipboard_save">Ment</string>
     <string name="tw_clipboard_no_item">Nincs tétel</string>
     <string name="tw_clipboard_delete_all_from_clipboard">A védettek kivételével minden tételt törölt a vágólapról</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Beillesztve a vágólapról</string>
+    <string name="Roaming_Auto_Dialing">PIN blokkolva</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

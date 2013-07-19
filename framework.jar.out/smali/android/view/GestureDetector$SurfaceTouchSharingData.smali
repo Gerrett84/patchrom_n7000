@@ -102,12 +102,12 @@
 
     const/4 v2, 0x0
 
-    .line 343
+    .line 338
     iput-object p1, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->this$0:Landroid/view/GestureDetector;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 344
+    .line 339
     filled-new-array {v4, v3}, [I
 
     move-result-object v0
@@ -122,7 +122,7 @@
 
     iput-object v0, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
 
-    .line 345
+    .line 340
     filled-new-array {v4, v3}, [I
 
     move-result-object v0
@@ -137,7 +137,7 @@
 
     iput-object v0, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
 
-    .line 346
+    .line 341
     filled-new-array {v4, v3}, [I
 
     move-result-object v0
@@ -152,7 +152,7 @@
 
     iput-object v0, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Ssd:[[I
 
-    .line 347
+    .line 342
     filled-new-array {v4, v3}, [I
 
     move-result-object v0
@@ -167,7 +167,7 @@
 
     iput-object v0, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sed:[[F
 
-    .line 348
+    .line 343
     filled-new-array {v4, v3}, [I
 
     move-result-object v0
@@ -182,7 +182,7 @@
 
     iput-object v0, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sad:[[I
 
-    .line 349
+    .line 344
     filled-new-array {v4, v3}, [I
 
     move-result-object v0
@@ -197,87 +197,87 @@
 
     iput-object v0, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SSsd:[[I
 
-    .line 350
+    .line 345
     new-array v0, v4, [I
 
     iput-object v0, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Major:[I
 
-    .line 351
+    .line 346
     new-array v0, v4, [I
 
     iput-object v0, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Minor:[I
 
-    .line 352
+    .line 347
     new-array v0, v3, [I
 
     iput-object v0, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Nd:[I
 
-    .line 353
+    .line 348
     new-array v0, v3, [I
 
     iput-object v0, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Actiond:[I
 
-    .line 355
+    .line 350
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SvarX:F
 
-    .line 356
+    .line 351
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SvarY:F
 
-    .line 358
+    .line 353
     iput v5, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mTouchCnt:I
 
-    .line 359
+    .line 354
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mMaxSize:F
 
-    .line 362
+    .line 357
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumX:F
 
-    .line 363
+    .line 358
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumY:F
 
-    .line 364
+    .line 359
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
 
-    .line 365
+    .line 360
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumAngle:F
 
-    .line 366
+    .line 361
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumEccen:F
 
-    .line 367
+    .line 362
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumMajor:F
 
-    .line 368
+    .line 363
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumMinor:F
 
-    .line 369
+    .line 364
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanX:F
 
-    .line 370
+    .line 365
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanY:F
 
-    .line 371
+    .line 366
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->preSumSize:F
 
-    .line 374
+    .line 369
     iput v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->DiffAngle:F
 
-    .line 377
+    .line 372
     iput-boolean v5, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mIsRotated:Z
 
-    .line 379
+    .line 374
     iput v5, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mSettingPalmSweep:I
 
-    .line 380
+    .line 375
     iput v5, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mSettingPalmTouch:I
 
-    .line 381
+    .line 376
     iput v5, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mSettingTapAndTwist:I
 
-    .line 383
+    .line 378
     iput-wide v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mLastPalmSweepTouchUpTime:D
 
-    .line 384
+    .line 379
     iput-wide v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mTimeGapUPDown:D
 
     return-void
@@ -289,7 +289,7 @@
     .parameter "x1"
 
     .prologue
-    .line 343
+    .line 338
     invoke-direct {p0, p1}, Landroid/view/GestureDetector$SurfaceTouchSharingData;-><init>(Landroid/view/GestureDetector;)V
 
     return-void
@@ -305,7 +305,7 @@
 
     const/4 v7, 0x0
 
-    .line 526
+    .line 520
     const/4 v1, 0x0
 
     .local v1, j:I
@@ -314,7 +314,7 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 527
+    .line 521
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -323,58 +323,58 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 528
+    .line 522
     iget-object v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
 
     aget-object v2, v2, v1
 
     aput v7, v2, v0
 
-    .line 529
+    .line 523
     iget-object v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
 
     aget-object v2, v2, v1
 
     aput v7, v2, v0
 
-    .line 530
+    .line 524
     iget-object v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Ssd:[[I
 
     aget-object v2, v2, v1
 
     aput v7, v2, v0
 
-    .line 531
+    .line 525
     iget-object v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sed:[[F
 
     aget-object v2, v2, v1
 
     aput v8, v2, v0
 
-    .line 532
+    .line 526
     iget-object v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sad:[[I
 
     aget-object v2, v2, v1
 
     aput v7, v2, v0
 
-    .line 527
+    .line 521
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 534
+    .line 528
     :cond_0
     iget-object v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Major:[I
 
     aput v7, v2, v1
 
-    .line 526
+    .line 520
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 537
+    .line 531
     .end local v0           #i:I
     :cond_1
     iget-object v2, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Nd:[I
@@ -393,16 +393,16 @@
 
     aput v7, v2, v7
 
-    .line 538
+    .line 532
     iput v7, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mTouchCnt:I
 
-    .line 539
+    .line 533
     iput v8, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->preSumSize:F
 
-    .line 540
+    .line 534
     iput v8, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mMaxSize:F
 
-    .line 541
+    .line 535
     return-void
 .end method
 
@@ -417,14 +417,14 @@
 
     const/4 v11, 0x1
 
-    .line 389
+    .line 384
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v7
 
     iput v7, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mAction:I
 
-    .line 390
+    .line 385
     iget-object v7, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Actiond:[I
 
     iget-object v8, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Actiond:[I
@@ -433,7 +433,7 @@
 
     aput v8, v7, v13
 
-    .line 391
+    .line 386
     iget-object v7, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Actiond:[I
 
     iget-object v8, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Actiond:[I
@@ -442,21 +442,21 @@
 
     aput v8, v7, v11
 
-    .line 392
+    .line 387
     iget-object v7, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Actiond:[I
 
     iget v8, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mAction:I
 
     aput v8, v7, v12
 
-    .line 395
+    .line 390
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v7
 
     if-nez v7, :cond_2
 
-    .line 398
+    .line 393
     :try_start_0
     iget-object v7, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->this$0:Landroid/view/GestureDetector;
 
@@ -470,26 +470,26 @@
 
     check-cast v6, Landroid/view/WindowManager;
 
-    .line 399
+    .line 394
     .local v6, wm:Landroid/view/WindowManager;
     invoke-interface {v6}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
     move-result-object v1
 
-    .line 401
+    .line 396
     .local v1, disp:Landroid/view/Display;
     new-instance v3, Landroid/util/DisplayMetrics;
 
     invoke-direct {v3}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 402
+    .line 397
     .local v3, metrics:Landroid/util/DisplayMetrics;
     invoke-virtual {v1, v3}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
-    .line 404
+    .line 399
     const/4 v0, 0x1
 
-    .line 405
+    .line 400
     .local v0, bitMask:I
     invoke-virtual {v1}, Landroid/view/Display;->getRotation()I
 
@@ -499,14 +499,14 @@
 
     if-nez v7, :cond_1
 
-    .line 406
+    .line 401
     const/4 v7, 0x0
 
     iput-boolean v7, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mIsRotated:Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 418
+    .line 413
     .end local v0           #bitMask:I
     .end local v1           #disp:Landroid/view/Display;
     .end local v3           #metrics:Landroid/util/DisplayMetrics;
@@ -518,7 +518,7 @@
 
     long-to-double v4, v7
 
-    .line 419
+    .line 414
     .local v4, tCurrentTime:D
     iget-wide v7, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mLastPalmSweepTouchUpTime:D
 
@@ -526,7 +526,7 @@
 
     iput-wide v7, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mTimeGapUPDown:D
 
-    .line 420
+    .line 415
     iget-wide v7, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mTimeGapUPDown:D
 
     const-wide/16 v9, 0x0
@@ -555,16 +555,16 @@
 
     if-ne v7, v11, :cond_0
 
-    .line 421
+    .line 416
     iput v13, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mAction:I
 
-    .line 426
+    .line 421
     .end local v4           #tCurrentTime:D
     :cond_0
     :goto_1
     return-void
 
-    .line 408
+    .line 403
     .restart local v0       #bitMask:I
     .restart local v1       #disp:Landroid/view/Display;
     .restart local v3       #metrics:Landroid/util/DisplayMetrics;
@@ -579,7 +579,7 @@
 
     goto :goto_0
 
-    .line 411
+    .line 406
     .end local v0           #bitMask:I
     .end local v1           #disp:Landroid/view/Display;
     .end local v3           #metrics:Landroid/util/DisplayMetrics;
@@ -587,11 +587,11 @@
     :catch_0
     move-exception v2
 
-    .line 413
+    .line 408
     .local v2, e:Ljava/lang/Exception;
     iput-boolean v12, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mIsRotated:Z
 
-    .line 414
+    .line 409
     const-string v7, "GestureDetector"
 
     const-string v8, "[Surface Touch] Default Rotate = false"
@@ -600,7 +600,7 @@
 
     goto :goto_0
 
-    .line 423
+    .line 418
     .end local v2           #e:Ljava/lang/Exception;
     :cond_2
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
@@ -609,7 +609,7 @@
 
     if-ne v7, v11, :cond_0
 
-    .line 424
+    .line 419
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v7
@@ -634,45 +634,45 @@
 
     const/4 v7, 0x0
 
-    .line 429
+    .line 424
     iput-object p1, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mMotionEvent:Landroid/view/MotionEvent;
 
-    .line 432
+    .line 427
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumX:F
 
-    .line 433
+    .line 428
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumY:F
 
-    .line 434
+    .line 429
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
 
-    .line 435
+    .line 430
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumAngle:F
 
-    .line 436
+    .line 431
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumEccen:F
 
-    .line 437
+    .line 432
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanX:F
 
-    .line 438
+    .line 433
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanY:F
 
-    .line 439
+    .line 434
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumMajor:F
 
-    .line 440
+    .line 435
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumMinor:F
 
-    .line 443
+    .line 438
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->DiffAngle:F
 
-    .line 445
+    .line 440
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v0
 
-    .line 447
+    .line 442
     .local v0, N:I
     const/4 v2, 0x0
 
@@ -680,14 +680,14 @@
     :goto_0
     if-ge v2, v0, :cond_1
 
-    .line 448
+    .line 443
     const/4 v1, 0x1
 
     .local v1, i:I
     :goto_1
     if-ltz v1, :cond_0
 
-    .line 449
+    .line 444
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
 
     aget-object v3, v3, v2
@@ -702,7 +702,7 @@
 
     aput v5, v3, v4
 
-    .line 450
+    .line 445
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
 
     aget-object v3, v3, v2
@@ -717,7 +717,7 @@
 
     aput v5, v3, v4
 
-    .line 451
+    .line 446
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Ssd:[[I
 
     aget-object v3, v3, v2
@@ -732,7 +732,7 @@
 
     aput v5, v3, v4
 
-    .line 452
+    .line 447
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sed:[[F
 
     aget-object v3, v3, v2
@@ -747,7 +747,7 @@
 
     aput v5, v3, v4
 
-    .line 453
+    .line 448
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sad:[[I
 
     aget-object v3, v3, v2
@@ -762,7 +762,7 @@
 
     aput v5, v3, v4
 
-    .line 454
+    .line 449
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SSsd:[[I
 
     aget-object v3, v3, v2
@@ -777,18 +777,18 @@
 
     aput v5, v3, v4
 
-    .line 448
+    .line 443
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
 
-    .line 447
+    .line 442
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 458
+    .line 453
     .end local v1           #i:I
     :cond_1
     const/4 v1, 0x0
@@ -797,7 +797,7 @@
     :goto_2
     if-ge v1, v0, :cond_2
 
-    .line 459
+    .line 454
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
 
     aget-object v3, v3, v1
@@ -810,7 +810,7 @@
 
     aput v4, v3, v7
 
-    .line 460
+    .line 455
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
 
     aget-object v3, v3, v1
@@ -823,7 +823,7 @@
 
     aput v4, v3, v7
 
-    .line 461
+    .line 456
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Ssd:[[I
 
     aget-object v3, v3, v1
@@ -836,7 +836,7 @@
 
     aput v4, v3, v7
 
-    .line 462
+    .line 457
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sad:[[I
 
     aget-object v3, v3, v1
@@ -849,7 +849,7 @@
 
     aput v4, v3, v7
 
-    .line 463
+    .line 458
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sed:[[F
 
     aget-object v3, v3, v1
@@ -860,7 +860,7 @@
 
     aput v4, v3, v7
 
-    .line 464
+    .line 459
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Major:[I
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getSurfaceMajor(I)F
@@ -871,7 +871,7 @@
 
     aput v4, v3, v1
 
-    .line 465
+    .line 460
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Minor:[I
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getSurfaceMinor(I)F
@@ -882,12 +882,12 @@
 
     aput v4, v3, v1
 
-    .line 458
+    .line 453
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
-    .line 468
+    .line 463
     :cond_2
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Nd:[I
 
@@ -897,7 +897,7 @@
 
     aput v4, v3, v9
 
-    .line 469
+    .line 464
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Nd:[I
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Nd:[I
@@ -906,24 +906,24 @@
 
     aput v4, v3, v8
 
-    .line 470
+    .line 465
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Nd:[I
 
     aput v0, v3, v7
 
-    .line 472
+    .line 467
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mTouchCnt:I
 
     add-int/lit8 v3, v3, 0x1
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mTouchCnt:I
 
-    .line 474
+    .line 469
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mTouchCnt:I
 
     if-ne v3, v8, :cond_3
 
-    .line 475
+    .line 470
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
 
     aget-object v3, v3, v7
@@ -935,47 +935,47 @@
     aget v4, v4, v7
 
     aput v4, v3, v8
+
+    .line 471
+    iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
+
+    aget-object v3, v3, v7
+
+    iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
+
+    aget-object v4, v4, v7
+
+    aget v4, v4, v7
+
+    aput v4, v3, v8
+
+    .line 472
+    iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
+
+    aget-object v3, v3, v7
+
+    iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
+
+    aget-object v4, v4, v7
+
+    aget v4, v4, v8
+
+    aput v4, v3, v9
+
+    .line 473
+    iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
+
+    aget-object v3, v3, v7
+
+    iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
+
+    aget-object v4, v4, v7
+
+    aget v4, v4, v8
+
+    aput v4, v3, v9
 
     .line 476
-    iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
-
-    aget-object v3, v3, v7
-
-    iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
-
-    aget-object v4, v4, v7
-
-    aget v4, v4, v7
-
-    aput v4, v3, v8
-
-    .line 477
-    iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
-
-    aget-object v3, v3, v7
-
-    iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
-
-    aget-object v4, v4, v7
-
-    aget v4, v4, v8
-
-    aput v4, v3, v9
-
-    .line 478
-    iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
-
-    aget-object v3, v3, v7
-
-    iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
-
-    aget-object v4, v4, v7
-
-    aget v4, v4, v8
-
-    aput v4, v3, v9
-
-    .line 481
     :cond_3
     const/4 v1, 0x0
 
@@ -986,7 +986,7 @@
 
     if-ge v1, v3, :cond_4
 
-    .line 482
+    .line 477
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumX:F
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
@@ -1001,7 +1001,7 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumX:F
 
-    .line 483
+    .line 478
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumY:F
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
@@ -1016,7 +1016,7 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumY:F
 
-    .line 484
+    .line 479
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Ssd:[[I
@@ -1031,7 +1031,7 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
 
-    .line 485
+    .line 480
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumAngle:F
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sad:[[I
@@ -1046,7 +1046,7 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumAngle:F
 
-    .line 486
+    .line 481
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumEccen:F
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sed:[[F
@@ -1059,7 +1059,7 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumEccen:F
 
-    .line 487
+    .line 482
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumMajor:F
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Major:[I
@@ -1072,7 +1072,7 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumMajor:F
 
-    .line 488
+    .line 483
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumMinor:F
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Minor:[I
@@ -1085,12 +1085,12 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumMinor:F
 
-    .line 481
+    .line 476
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_3
 
-    .line 490
+    .line 485
     :cond_4
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumX:F
 
@@ -1104,7 +1104,7 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanX:F
 
-    .line 491
+    .line 486
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumY:F
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Nd:[I
@@ -1117,7 +1117,18 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SmeanY:F
 
-    .line 498
+    .line 490
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getSumSize()Ljava/lang/Float;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/Float;->floatValue()F
+
+    move-result v3
+
+    iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
+
+    .line 492
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mMaxSize:F
 
     iget v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
@@ -1130,7 +1141,7 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->mMaxSize:F
 
-    .line 501
+    .line 495
     :cond_5
     iget-object v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Actiond:[I
 
@@ -1146,24 +1157,24 @@
 
     if-ne v3, v4, :cond_6
 
-    .line 502
+    .line 496
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->preSumSize:F
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
 
-    .line 505
+    .line 499
     :cond_6
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SsumSize:F
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->preSumSize:F
 
-    .line 507
+    .line 501
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SvarX:F
 
-    .line 508
+    .line 502
     iput v6, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SvarY:F
 
-    .line 510
+    .line 504
     const/4 v1, 0x0
 
     :goto_4
@@ -1173,7 +1184,7 @@
 
     if-ge v1, v3, :cond_7
 
-    .line 511
+    .line 505
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SvarX:F
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Sxd:[[I
@@ -1214,7 +1225,7 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SvarX:F
 
-    .line 512
+    .line 506
     iget v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SvarY:F
 
     iget-object v4, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->Syd:[[I
@@ -1255,12 +1266,12 @@
 
     iput v3, p0, Landroid/view/GestureDetector$SurfaceTouchSharingData;->SvarY:F
 
-    .line 510
+    .line 504
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_4
 
-    .line 515
+    .line 509
     :cond_7
     sget-boolean v3, Landroid/view/GestureDetector;->DEBUG:Z
 
@@ -1274,7 +1285,7 @@
 
     move-result-object v3
 
-    const-string v4, "motion_engine"
+    const-string/jumbo v4, "motion_engine"
 
     invoke-static {v3, v4, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -1288,13 +1299,13 @@
 
     if-ge v3, v4, :cond_8
 
-    .line 516
+    .line 510
     const/4 v1, 0x0
 
     :goto_5
     if-ge v1, v0, :cond_8
 
-    .line 517
+    .line 511
     const-string v3, "GestureDetector"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1515,12 +1526,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 516
+    .line 510
     add-int/lit8 v1, v1, 0x1
 
     goto/16 :goto_5
 
-    .line 522
+    .line 516
     :cond_8
     return-void
 .end method

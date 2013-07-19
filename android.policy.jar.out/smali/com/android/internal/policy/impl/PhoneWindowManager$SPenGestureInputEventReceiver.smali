@@ -29,16 +29,16 @@
     .parameter "view"
 
     .prologue
-    .line 565
+    .line 649
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    .line 566
+    .line 650
     invoke-direct {p0, p2, p3}, Landroid/view/InputEventReceiver;-><init>(Landroid/view/InputChannel;Landroid/os/Looper;)V
 
-    .line 567
+    .line 651
     iput-object p4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/widget/SPenGestureView;
 
-    .line 568
+    .line 652
     return-void
 .end method
 
@@ -47,7 +47,7 @@
     .parameter "event"
 
     .prologue
-    .line 571
+    .line 655
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSPenGestureView:Lcom/android/internal/widget/SPenGestureView;
@@ -58,7 +58,7 @@
 
     if-nez v0, :cond_1
 
-    .line 572
+    .line 656
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mIsVisibleSPenGestureView:Z
@@ -68,14 +68,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 573
+    .line 657
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/widget/SPenGestureView;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/SPenGestureView;->setVisibility(I)V
 
-    .line 574
+    .line 658
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     const/4 v1, 0x0
@@ -83,7 +83,7 @@
     #setter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mIsVisibleSPenGestureView:Z
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$002(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
-    .line 575
+    .line 659
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/widget/SPenGestureView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -94,18 +94,16 @@
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->GlanceViewOn()Z
-
-    move-result v2
+    iget-boolean v2, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStateGlance:Z
 
     invoke-virtual {v0, p1, v1, v2}, Lcom/android/internal/widget/SPenGestureView;->addSPenEvent(Landroid/view/MotionEvent;ZZ)V
 
-    .line 580
+    .line 664
     :cond_0
     :goto_0
     return-void
 
-    .line 578
+    .line 662
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -127,30 +125,30 @@
     .prologue
     const/4 v5, 0x2
 
-    .line 584
+    .line 668
     const/4 v1, 0x0
 
-    .line 586
+    .line 670
     .local v1, handled:Z
     :try_start_0
     instance-of v3, p1, Landroid/view/MotionEvent;
 
     if-eqz v3, :cond_2
 
-    .line 587
+    .line 671
     move-object v0, p1
 
     check-cast v0, Landroid/view/MotionEvent;
 
     move-object v2, v0
 
-    .line 589
+    .line 673
     .local v2, motionEvent:Landroid/view/MotionEvent;
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/widget/SPenGestureView;
 
     if-eqz v3, :cond_1
 
-    .line 590
+    .line 674
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Landroid/view/MotionEvent;->getToolType(I)I
@@ -167,7 +165,7 @@
 
     if-ne v3, v4, :cond_1
 
-    .line 591
+    .line 675
     :cond_0
     invoke-virtual {v2}, Landroid/view/MotionEvent;->getButtonState()I
 
@@ -177,7 +175,7 @@
 
     if-ne v3, v5, :cond_4
 
-    .line 592
+    .line 676
     invoke-virtual {v2}, Landroid/view/MotionEvent;->getAction()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -186,21 +184,21 @@
 
     packed-switch v3, :pswitch_data_0
 
-    .line 617
+    .line 701
     :cond_1
     :goto_0
     :pswitch_0
     const/4 v1, 0x1
 
-    .line 639
+    .line 704
     .end local v2           #motionEvent:Landroid/view/MotionEvent;
     :cond_2
     invoke-virtual {p0, p1, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
-    .line 641
+    .line 706
     return-void
 
-    .line 596
+    .line 680
     .restart local v2       #motionEvent:Landroid/view/MotionEvent;
     :pswitch_1
     :try_start_1
@@ -214,7 +212,7 @@
 
     if-nez v3, :cond_1
 
-    .line 597
+    .line 681
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mIsVisibleSPenGestureView:Z
@@ -224,14 +222,14 @@
 
     if-nez v3, :cond_3
 
-    .line 598
+    .line 682
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/widget/SPenGestureView;
 
     const/4 v4, 0x0
 
     invoke-virtual {v3, v4}, Lcom/android/internal/widget/SPenGestureView;->setVisibility(I)V
 
-    .line 599
+    .line 683
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     const/4 v4, 0x1
@@ -239,7 +237,7 @@
     #setter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mIsVisibleSPenGestureView:Z
     invoke-static {v3, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$002(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
-    .line 601
+    .line 685
     :cond_3
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/widget/SPenGestureView;
 
@@ -251,9 +249,7 @@
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    invoke-virtual {v5}, Lcom/android/internal/policy/impl/PhoneWindowManager;->GlanceViewOn()Z
-
-    move-result v5
+    iget-boolean v5, v5, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStateGlance:Z
 
     invoke-virtual {v3, v2, v4, v5}, Lcom/android/internal/widget/SPenGestureView;->addSPenEvent(Landroid/view/MotionEvent;ZZ)V
     :try_end_1
@@ -261,7 +257,7 @@
 
     goto :goto_0
 
-    .line 639
+    .line 704
     .end local v2           #motionEvent:Landroid/view/MotionEvent;
     :catchall_0
     move-exception v3
@@ -270,7 +266,7 @@
 
     throw v3
 
-    .line 607
+    .line 691
     .restart local v2       #motionEvent:Landroid/view/MotionEvent;
     :pswitch_2
     :try_start_2
@@ -278,7 +274,7 @@
 
     goto :goto_0
 
-    .line 613
+    .line 697
     :cond_4
     invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager$SPenGestureInputEventReceiver;->disableSPenGestureView(Landroid/view/MotionEvent;)V
     :try_end_2
@@ -286,7 +282,7 @@
 
     goto :goto_0
 
-    .line 592
+    .line 676
     nop
 
     :pswitch_data_0

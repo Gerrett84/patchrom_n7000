@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 254
+    .line 265
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 257
+    .line 268
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -52,27 +52,27 @@
 
     if-nez v1, :cond_1
 
-    .line 276
+    .line 287
     .end local p1
     :cond_0
     :goto_0
     return-void
 
-    .line 259
+    .line 270
     .restart local p1
     :cond_1
     instance-of v1, p1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
     if-eqz v1, :cond_0
 
-    .line 260
+    .line 271
     invoke-virtual {p1}, Landroid/view/View;->hasWindowFocus()Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    .line 261
+    .line 272
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->TAG:Ljava/lang/String;
@@ -109,7 +109,7 @@
     :cond_2
     move-object v1, p1
 
-    .line 264
+    .line 275
     check-cast v1, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;
 
     #getter for: Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$ShortcutItem;->mIntent:Landroid/content/Intent;
@@ -119,7 +119,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 266
+    .line 277
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -129,7 +129,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 271
+    .line 282
     :goto_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
 
@@ -145,7 +145,7 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 272
+    .line 283
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;->getContext()Landroid/content/Context;
@@ -162,7 +162,7 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 274
+    .line 285
     :cond_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
 
@@ -175,12 +175,12 @@
 
     goto :goto_0
 
-    .line 267
+    .line 278
     .restart local p1
     :catch_0
     move-exception v0
 
-    .line 268
+    .line 279
     .local v0, e:Landroid/os/RemoteException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleShortcutWidget$3;->this$0:Lcom/android/internal/policy/impl/sec/CircleShortcutWidget;
 

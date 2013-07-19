@@ -34,31 +34,31 @@
     .prologue
     const/16 v3, 0xa
 
-    .line 520
+    .line 523
     iput-object p1, p0, Landroid/hardware/scontext/SContextService$EventPool;->this$0:Landroid/hardware/scontext/SContextService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 521
+    .line 524
     new-instance v1, Ljava/lang/Object;
 
     invoke-direct/range {v1 .. v1}, Ljava/lang/Object;-><init>()V
 
     iput-object v1, p0, Landroid/hardware/scontext/SContextService$EventPool;->mLockEventPool:Ljava/lang/Object;
 
-    .line 522
+    .line 525
     new-array v1, v3, [Landroid/hardware/scontext/SContextEvent;
 
     iput-object v1, p0, Landroid/hardware/scontext/SContextService$EventPool;->events:[Landroid/hardware/scontext/SContextEvent;
 
-    .line 524
+    .line 527
     const/4 v0, 0x0
 
     .local v0, i:I
     :goto_0
     if-ge v0, v3, :cond_0
 
-    .line 525
+    .line 528
     iget-object v1, p0, Landroid/hardware/scontext/SContextService$EventPool;->events:[Landroid/hardware/scontext/SContextEvent;
 
     new-instance v2, Landroid/hardware/scontext/SContextEvent;
@@ -67,12 +67,12 @@
 
     aput-object v2, v1, v0
 
-    .line 524
+    .line 527
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 527
+    .line 530
     :cond_0
     return-void
 .end method
@@ -83,16 +83,16 @@
     .locals 5
 
     .prologue
-    .line 530
+    .line 533
     const/4 v1, 0x0
 
-    .line 531
+    .line 534
     .local v1, scontextEvent:Landroid/hardware/scontext/SContextEvent;
     iget-object v3, p0, Landroid/hardware/scontext/SContextService$EventPool;->mLockEventPool:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 532
+    .line 535
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -101,7 +101,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 533
+    .line 536
     :try_start_0
     iget-object v2, p0, Landroid/hardware/scontext/SContextService$EventPool;->events:[Landroid/hardware/scontext/SContextEvent;
 
@@ -109,45 +109,45 @@
 
     if-eqz v2, :cond_2
 
-    .line 534
+    .line 537
     iget-object v2, p0, Landroid/hardware/scontext/SContextService$EventPool;->events:[Landroid/hardware/scontext/SContextEvent;
 
     aget-object v1, v2, v0
 
-    .line 535
+    .line 538
     iget-object v2, p0, Landroid/hardware/scontext/SContextService$EventPool;->events:[Landroid/hardware/scontext/SContextEvent;
 
     const/4 v4, 0x0
 
     aput-object v4, v2, v0
 
-    .line 539
+    .line 542
     :cond_0
     monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 540
+    .line 543
     if-nez v1, :cond_1
 
-    .line 541
+    .line 544
     new-instance v1, Landroid/hardware/scontext/SContextEvent;
 
     .end local v1           #scontextEvent:Landroid/hardware/scontext/SContextEvent;
     invoke-direct {v1}, Landroid/hardware/scontext/SContextEvent;-><init>()V
 
-    .line 543
+    .line 546
     .restart local v1       #scontextEvent:Landroid/hardware/scontext/SContextEvent;
     :cond_1
     return-object v1
 
-    .line 532
+    .line 535
     :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 539
+    .line 542
     :catchall_0
     move-exception v2
 
@@ -164,12 +164,12 @@
     .parameter "scontextEvent"
 
     .prologue
-    .line 547
+    .line 550
     iget-object v2, p0, Landroid/hardware/scontext/SContextService$EventPool;->mLockEventPool:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 548
+    .line 551
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -178,7 +178,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 549
+    .line 552
     :try_start_0
     iget-object v1, p0, Landroid/hardware/scontext/SContextService$EventPool;->events:[Landroid/hardware/scontext/SContextEvent;
 
@@ -186,25 +186,25 @@
 
     if-nez v1, :cond_1
 
-    .line 550
+    .line 553
     iget-object v1, p0, Landroid/hardware/scontext/SContextService$EventPool;->events:[Landroid/hardware/scontext/SContextEvent;
 
     aput-object p1, v1, v0
 
-    .line 554
+    .line 557
     :cond_0
     monitor-exit v2
 
-    .line 555
+    .line 558
     return-void
 
-    .line 548
+    .line 551
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 554
+    .line 557
     :catchall_0
     move-exception v1
 

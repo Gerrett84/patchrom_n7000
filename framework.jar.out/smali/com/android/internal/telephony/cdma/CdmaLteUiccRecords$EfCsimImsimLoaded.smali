@@ -327,7 +327,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "min present="
+    const-string/jumbo v9, "min present="
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -378,7 +378,7 @@
 
     iget-object v7, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimImsimLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
-    const-string v8, "min not present"
+    const-string/jumbo v8, "min not present"
 
     invoke-virtual {v7, v8}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->log(Ljava/lang/String;)V
 

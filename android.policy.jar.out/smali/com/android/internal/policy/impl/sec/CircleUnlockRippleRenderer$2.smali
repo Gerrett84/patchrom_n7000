@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 1046
+    .line 1100
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     iput p2, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$2;->val$pIntensity:F
@@ -51,7 +51,7 @@
     .locals 7
 
     .prologue
-    .line 1050
+    .line 1104
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
@@ -73,7 +73,7 @@
     #calls: Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->ripple(FFF)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->access$000(Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;FFF)V
 
-    .line 1051
+    .line 1105
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
@@ -82,7 +82,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->stopLongPressCheck(Landroid/view/View;)V
 
-    .line 1052
+    .line 1106
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
@@ -103,7 +103,7 @@
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->startLongPressCheck(Landroid/view/View;FFJF)V
 
-    .line 1053
+    .line 1107
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer$2;->this$0:Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;
 
     const/4 v1, 0x0
@@ -111,6 +111,6 @@
     #setter for: Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->mLongPressRunnable:Ljava/lang/Runnable;
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;->access$102(Lcom/android/internal/policy/impl/sec/CircleUnlockRippleRenderer;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
-    .line 1055
+    .line 1109
     return-void
 .end method

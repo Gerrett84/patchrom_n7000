@@ -59,25 +59,25 @@
     .local p2, objects:Ljava/util/List;,"Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
     const/4 v1, -0x1
 
-    .line 258
+    .line 265
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0, p2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
-    .line 253
+    .line 260
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mIsSinglePane:Z
 
-    .line 254
+    .line 261
     iput v1, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mSelectedId:I
 
-    .line 255
-    const v0, 0x10900bb
+    .line 262
+    const v0, 0x10900c0
 
     iput v0, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mHeaderItemLayoutResID:I
 
-    .line 259
+    .line 266
     const-string v0, "layout_inflater"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -88,10 +88,10 @@
 
     iput-object v0, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 260
+    .line 267
     iput v1, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mSelectedId:I
 
-    .line 261
+    .line 268
     return-void
 .end method
 
@@ -112,14 +112,14 @@
     .end annotation
 
     .prologue
-    .line 264
+    .line 271
     .local p2, objects:Ljava/util/List;,"Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
     invoke-direct {p0, p1, p2}, Landroid/preference/PreferenceActivity$HeaderAdapter;-><init>(Landroid/content/Context;Ljava/util/List;)V
 
-    .line 265
+    .line 272
     iput p3, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mHeaderItemLayoutResID:I
 
-    .line 266
+    .line 273
     return-void
 .end method
 
@@ -141,14 +141,14 @@
     .end annotation
 
     .prologue
-    .line 269
+    .line 276
     .local p2, objects:Ljava/util/List;,"Ljava/util/List<Landroid/preference/PreferenceActivity$Header;>;"
     invoke-direct {p0, p1, p2, p3}, Landroid/preference/PreferenceActivity$HeaderAdapter;-><init>(Landroid/content/Context;Ljava/util/List;I)V
 
-    .line 270
+    .line 277
     iput-boolean p4, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mIsSinglePane:Z
 
-    .line 271
+    .line 278
     return-void
 .end method
 
@@ -158,7 +158,7 @@
     .locals 1
 
     .prologue
-    .line 278
+    .line 285
     iget v0, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mSelectedId:I
 
     return v0
@@ -173,10 +173,8 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 286
     if-nez p2, :cond_1
 
-    .line 287
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity$HeaderAdapter;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -187,7 +185,7 @@
 
     move-result-object v3
 
-    .line 289
+    .line 296
     .local v3, view:Landroid/view/View;
     new-instance v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;
 
@@ -195,7 +193,7 @@
 
     invoke-direct {v1, v4}, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;-><init>(Landroid/preference/PreferenceActivity$1;)V
 
-    .line 290
+    .line 297
     .local v1, holder:Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;
     const v4, 0x1020006
 
@@ -207,7 +205,7 @@
 
     iput-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 291
+    .line 298
     const v4, 0x1020016
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -218,7 +216,7 @@
 
     iput-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 292
+    .line 299
     const v4, 0x1020010
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -229,10 +227,10 @@
 
     iput-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
-    .line 293
+    .line 300
     invoke-virtual {v3, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 300
+    .line 307
     :goto_0
     invoke-virtual {p0, p1}, Landroid/preference/PreferenceActivity$HeaderAdapter;->getItem(I)Ljava/lang/Object;
 
@@ -240,7 +238,7 @@
 
     check-cast v0, Landroid/preference/PreferenceActivity$Header;
 
-    .line 301
+    .line 308
     .local v0, header:Landroid/preference/PreferenceActivity$Header;
     iget-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
@@ -254,7 +252,7 @@
 
     invoke-static {v4, v5}, Landroid/preference/PreferenceActivity$Injector;->setIconVisible(Landroid/widget/ImageView;I)V
 
-    .line 302
+    .line 309
     iget-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity$HeaderAdapter;->getContext()Landroid/content/Context;
@@ -271,7 +269,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 303
+    .line 310
     invoke-virtual {p0}, Landroid/preference/PreferenceActivity$HeaderAdapter;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -284,7 +282,7 @@
 
     move-result-object v2
 
-    .line 304
+    .line 311
     .local v2, summary:Ljava/lang/CharSequence;
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -305,7 +303,7 @@
     :goto_1
     iget v4, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mHeaderItemLayoutResID:I
 
-    const v5, 0x10900bb
+    const v5, 0x10900c0
 
     if-eq v4, v5, :cond_0
 
@@ -313,12 +311,12 @@
 
     if-nez v4, :cond_0
 
-    .line 313
+    .line 320
     iget v4, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mSelectedId:I
 
     if-ne v4, p1, :cond_3
 
-    .line 314
+    .line 321
     iget-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
     sget-object v5, Landroid/graphics/Typeface;->DEFAULT:Landroid/graphics/Typeface;
@@ -327,12 +325,12 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;I)V
 
-    .line 320
+    .line 327
     :cond_0
     :goto_2
     return-object v3
 
-    .line 295
+    .line 302
     .end local v0           #header:Landroid/preference/PreferenceActivity$Header;
     .end local v1           #holder:Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;
     .end local v2           #summary:Ljava/lang/CharSequence;
@@ -340,7 +338,7 @@
     :cond_1
     move-object v3, p2
 
-    .line 296
+    .line 303
     .restart local v3       #view:Landroid/view/View;
     invoke-virtual {v3}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -351,7 +349,7 @@
     .restart local v1       #holder:Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;
     goto :goto_0
 
-    .line 308
+    .line 315
     .restart local v0       #header:Landroid/preference/PreferenceActivity$Header;
     .restart local v2       #summary:Ljava/lang/CharSequence;
     :cond_2
@@ -363,7 +361,7 @@
 
     goto :goto_1
 
-    .line 316
+    .line 323
     :cond_3
     iget-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
@@ -379,9 +377,9 @@
     .parameter "nSelId"
 
     .prologue
-    .line 274
+    .line 281
     iput p1, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mSelectedId:I
 
-    .line 275
+    .line 282
     return-void
 .end method

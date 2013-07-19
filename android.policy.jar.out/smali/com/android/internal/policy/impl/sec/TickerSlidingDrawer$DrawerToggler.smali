@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 988
+    .line 989
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$DrawerToggler;->this$0:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 988
+    .line 989
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$DrawerToggler;-><init>(Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;)V
 
     return-void
@@ -54,7 +54,7 @@
     .parameter "v"
 
     .prologue
-    .line 990
+    .line 991
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$DrawerToggler;->this$0:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->mLocked:Z
@@ -64,11 +64,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 1002
+    .line 1003
     :goto_0
     return-void
 
-    .line 997
+    .line 998
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$DrawerToggler;->this$0:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
@@ -79,14 +79,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 998
+    .line 999
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$DrawerToggler;->this$0:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;->animateToggle()V
 
     goto :goto_0
 
-    .line 1000
+    .line 1001
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer$DrawerToggler;->this$0:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 

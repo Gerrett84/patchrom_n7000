@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1674
+    .line 1689
     iput-object p1, p0, Landroid/widget/SearchView$11;->this$0:Landroid/widget/SearchView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "s"
 
     .prologue
-    .line 1684
+    .line 1699
     return-void
 .end method
 
@@ -54,7 +54,7 @@
     .parameter "after"
 
     .prologue
-    .line 1676
+    .line 1691
     return-void
 .end method
 
@@ -66,12 +66,12 @@
     .parameter "after"
 
     .prologue
-    .line 1680
+    .line 1695
     iget-object v0, p0, Landroid/widget/SearchView$11;->this$0:Landroid/widget/SearchView;
 
     #calls: Landroid/widget/SearchView;->onTextChanged(Ljava/lang/CharSequence;)V
     invoke-static {v0, p1}, Landroid/widget/SearchView;->access$1900(Landroid/widget/SearchView;Ljava/lang/CharSequence;)V
 
-    .line 1681
+    .line 1696
     return-void
 .end method

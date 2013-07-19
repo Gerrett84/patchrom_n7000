@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1901
+    .line 2005
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$8$1;->this$1:Lcom/android/internal/policy/impl/LockPatternKeyguardView$8;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,14 +38,14 @@
     .locals 1
 
     .prologue
-    .line 1903
+    .line 2007
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$8$1;->this$1:Lcom/android/internal/policy/impl/LockPatternKeyguardView$8;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$8;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #calls: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->formatExtStorage()I
-    invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3200(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)I
+    invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$3300(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)I
 
-    .line 1904
+    .line 2008
     return-void
 .end method

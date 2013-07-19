@@ -116,6 +116,10 @@
 
 .field public static final UPDATE_RESOURCES:I = 0x22080
 
+.field public static final WFD_PAUSE:Ljava/lang/String; = "android.intent.action.WFD_PAUSE"
+
+.field public static final WFD_RESUME:Ljava/lang/String; = "android.intent.action.WFD_RESUME"
+
 .field public static final WFD_SESSION_ENABLED:Ljava/lang/String; = "com.samsung.wfd.WFD_SESSION_ENABLED"
 
 .field public static final WFD_SESSION_ESTABLISHED:Ljava/lang/String; = "com.samsung.wfd.WFD_SESSION_ESTABLISHED"
@@ -132,13 +136,15 @@
 
 .field public static final WFD_STATE_P2P_CONNECTED:I = 0x3
 
-.field public static final WFD_STATE_SESSION_ESTABLISHED:I = 0x4
+.field public static final WFD_STATE_SESSION_ESTABLISHED:I = 0x5
 
-.field public static final WFD_STATE_SESSION_STARTING:I = 0x9
+.field public static final WFD_STATE_SESSION_STARTING:I = 0x4
 
 .field public static final WFD_STATE_SESSION_TEARDOWNING:I = 0x0
 
-.field public static final WFD_STATE_UNKNOWN:I = 0x5
+.field public static final WFD_STATE_UNKNOWN:I = -0x1
+
+.field public static final WFD_STOP:Ljava/lang/String; = "android.intent.action.WFD_STOP"
 
 .field public static final WFD_TEARDOWN_FOR_AUDIO_OUT:Ljava/lang/String; = "android.intent.action.WFD_TEARDOWN_FOR_AUDIO_OUT"
 
@@ -237,13 +243,13 @@
     .parameter "service"
 
     .prologue
-    .line 340
+    .line 353
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 341
+    .line 354
     iput-object p1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
-    .line 342
+    .line 355
     return-void
 .end method
 
@@ -253,19 +259,19 @@
     .locals 2
 
     .prologue
-    .line 569
+    .line 582
     invoke-virtual {p0}, Lcom/samsung/wfd/WfdManager;->getWfdState()I
 
     move-result v0
 
-    const/4 v1, 0x4
+    const/4 v1, 0x5
 
     if-ne v0, v1, :cond_0
 
-    .line 570
+    .line 583
     const/4 v0, 0x1
 
-    .line 572
+    .line 585
     :goto_0
     return v0
 
@@ -279,7 +285,7 @@
     .locals 2
 
     .prologue
-    .line 577
+    .line 590
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -289,15 +295,15 @@
 
     move-result v1
 
-    .line 579
+    .line 592
     :goto_0
     return v1
 
-    .line 578
+    .line 591
     :catch_0
     move-exception v0
 
-    .line 579
+    .line 592
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -308,7 +314,7 @@
     .locals 2
 
     .prologue
-    .line 602
+    .line 615
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -318,15 +324,15 @@
 
     move-result v1
 
-    .line 604
+    .line 617
     :goto_0
     return v1
 
-    .line 603
+    .line 616
     :catch_0
     move-exception v0
 
-    .line 604
+    .line 617
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -339,7 +345,7 @@
     .parameter "nFontSize"
 
     .prologue
-    .line 594
+    .line 607
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -349,15 +355,15 @@
 
     move-result v1
 
-    .line 596
+    .line 609
     :goto_0
     return v1
 
-    .line 595
+    .line 608
     :catch_0
     move-exception v0
 
-    .line 596
+    .line 609
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -369,7 +375,7 @@
     .parameter "subtitle"
 
     .prologue
-    .line 619
+    .line 632
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -379,15 +385,15 @@
 
     move-result v1
 
-    .line 621
+    .line 634
     :goto_0
     return v1
 
-    .line 620
+    .line 633
     :catch_0
     move-exception v0
 
-    .line 621
+    .line 634
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -399,7 +405,7 @@
     .parameter "bStatus"
 
     .prologue
-    .line 585
+    .line 598
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -409,15 +415,15 @@
 
     move-result v1
 
-    .line 587
+    .line 600
     :goto_0
     return v1
 
-    .line 586
+    .line 599
     :catch_0
     move-exception v0
 
-    .line 587
+    .line 600
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -429,7 +435,7 @@
     .parameter "bStatus"
 
     .prologue
-    .line 610
+    .line 623
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -439,15 +445,15 @@
 
     move-result v1
 
-    .line 612
+    .line 625
     :goto_0
     return v1
 
-    .line 611
+    .line 624
     :catch_0
     move-exception v0
 
-    .line 612
+    .line 625
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -459,14 +465,14 @@
     .parameter "c"
 
     .prologue
-    .line 479
+    .line 492
     if-nez p1, :cond_0
 
-    .line 481
+    .line 494
     :goto_0
     return-void
 
-    .line 480
+    .line 493
     :cond_0
     iget-object v0, p1, Lcom/samsung/wfd/WfdManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -482,14 +488,14 @@
     .parameter "c"
 
     .prologue
-    .line 469
+    .line 482
     if-nez p1, :cond_0
 
-    .line 471
+    .line 484
     :goto_0
     return-void
 
-    .line 470
+    .line 483
     :cond_0
     iget-object v0, p1, Lcom/samsung/wfd/WfdManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -504,10 +510,10 @@
     .locals 4
 
     .prologue
-    .line 673
+    .line 686
     const/4 v1, 0x0
 
-    .line 674
+    .line 687
     .local v1, frame:Lcom/samsung/ScreenCapture/CaptureImg;
     :try_start_0
     iget-object v2, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
@@ -518,17 +524,17 @@
 
     move-result-object v1
 
-    .line 679
+    .line 692
     .end local v1           #frame:Lcom/samsung/ScreenCapture/CaptureImg;
     :goto_0
     return-object v1
 
-    .line 677
+    .line 690
     .restart local v1       #frame:Lcom/samsung/ScreenCapture/CaptureImg;
     :catch_0
     move-exception v0
 
-    .line 678
+    .line 691
     .local v0, e:Landroid/os/RemoteException;
     const-string v2, "WfdManager"
 
@@ -536,7 +542,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 679
+    .line 692
     const/4 v1, 0x0
 
     goto :goto_0
@@ -546,7 +552,7 @@
     .locals 2
 
     .prologue
-    .line 641
+    .line 654
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -556,15 +562,15 @@
 
     move-result-object v1
 
-    .line 643
+    .line 656
     :goto_0
     return-object v1
 
-    .line 642
+    .line 655
     :catch_0
     move-exception v0
 
-    .line 643
+    .line 656
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -575,7 +581,7 @@
     .locals 2
 
     .prologue
-    .line 505
+    .line 518
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -585,15 +591,15 @@
 
     move-result-object v1
 
-    .line 507
+    .line 520
     :goto_0
     return-object v1
 
-    .line 506
+    .line 519
     :catch_0
     move-exception v0
 
-    .line 507
+    .line 520
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -604,7 +610,7 @@
     .locals 2
 
     .prologue
-    .line 561
+    .line 574
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -614,15 +620,15 @@
 
     move-result v1
 
-    .line 563
+    .line 576
     :goto_0
     return v1
 
-    .line 562
+    .line 575
     :catch_0
     move-exception v0
 
-    .line 563
+    .line 576
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -633,7 +639,7 @@
     .locals 2
 
     .prologue
-    .line 553
+    .line 566
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -643,15 +649,15 @@
 
     move-result v1
 
-    .line 555
+    .line 568
     :goto_0
     return v1
 
-    .line 554
+    .line 567
     :catch_0
     move-exception v0
 
-    .line 555
+    .line 568
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -667,29 +673,29 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 451
+    .line 464
     invoke-virtual {p0}, Lcom/samsung/wfd/WfdManager;->getMessenger()Landroid/os/Messenger;
 
     move-result-object v1
 
-    .line 452
+    .line 465
     .local v1, messenger:Landroid/os/Messenger;
     if-nez v1, :cond_1
 
     move-object v0, v2
 
-    .line 459
+    .line 472
     :cond_0
     :goto_0
     return-object v0
 
-    .line 454
+    .line 467
     :cond_1
     new-instance v0, Lcom/samsung/wfd/WfdManager$Channel;
 
     invoke-direct {v0, p2, p3}, Lcom/samsung/wfd/WfdManager$Channel;-><init>(Landroid/os/Looper;Lcom/samsung/wfd/WfdManager$ChannelListener;)V
 
-    .line 455
+    .line 468
     .local v0, c:Lcom/samsung/wfd/WfdManager$Channel;
     iget-object v3, v0, Lcom/samsung/wfd/WfdManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -703,7 +709,7 @@
 
     move-object v0, v2
 
-    .line 459
+    .line 472
     goto :goto_0
 .end method
 
@@ -712,14 +718,14 @@
     .parameter "c"
 
     .prologue
-    .line 499
+    .line 512
     if-nez p1, :cond_0
 
-    .line 501
+    .line 514
     :goto_0
     return-void
 
-    .line 500
+    .line 513
     :cond_0
     iget-object v0, p1, Lcom/samsung/wfd/WfdManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -735,14 +741,14 @@
     .parameter "c"
 
     .prologue
-    .line 494
+    .line 507
     if-nez p1, :cond_0
 
-    .line 496
+    .line 509
     :goto_0
     return-void
 
-    .line 495
+    .line 508
     :cond_0
     iget-object v0, p1, Lcom/samsung/wfd/WfdManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -758,7 +764,7 @@
     .parameter "option"
 
     .prologue
-    .line 521
+    .line 534
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -768,15 +774,15 @@
 
     move-result v1
 
-    .line 523
+    .line 536
     :goto_0
     return v1
 
-    .line 522
+    .line 535
     :catch_0
     move-exception v0
 
-    .line 523
+    .line 536
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -788,7 +794,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 513
+    .line 526
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -798,15 +804,15 @@
 
     move-result v1
 
-    .line 515
+    .line 528
     :goto_0
     return v1
 
-    .line 514
+    .line 527
     :catch_0
     move-exception v0
 
-    .line 515
+    .line 528
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -817,7 +823,7 @@
     .locals 2
 
     .prologue
-    .line 537
+    .line 550
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -827,15 +833,15 @@
 
     move-result v1
 
-    .line 539
+    .line 552
     :goto_0
     return v1
 
-    .line 538
+    .line 551
     :catch_0
     move-exception v0
 
-    .line 539
+    .line 552
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -847,7 +853,7 @@
     .parameter "option"
 
     .prologue
-    .line 545
+    .line 558
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -857,15 +863,15 @@
 
     move-result v1
 
-    .line 547
+    .line 560
     :goto_0
     return v1
 
-    .line 546
+    .line 559
     :catch_0
     move-exception v0
 
-    .line 547
+    .line 560
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -876,7 +882,7 @@
     .locals 2
 
     .prologue
-    .line 529
+    .line 542
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -886,15 +892,15 @@
 
     move-result v1
 
-    .line 531
+    .line 544
     :goto_0
     return v1
 
-    .line 530
+    .line 543
     :catch_0
     move-exception v0
 
-    .line 531
+    .line 544
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -908,14 +914,14 @@
     .parameter "aHeight"
 
     .prologue
-    .line 652
+    .line 665
     const-string v0, "WfdManager"
 
     const-string v1, "startCapture"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 654
+    .line 667
     :try_start_0
     iget-object v0, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -923,11 +929,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 658
+    .line 671
     :goto_0
     return-void
 
-    .line 655
+    .line 668
     :catch_0
     move-exception v0
 
@@ -939,14 +945,14 @@
     .parameter "c"
 
     .prologue
-    .line 484
+    .line 497
     if-nez p1, :cond_0
 
-    .line 486
+    .line 499
     :goto_0
     return-void
 
-    .line 485
+    .line 498
     :cond_0
     iget-object v0, p1, Lcom/samsung/wfd/WfdManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -962,14 +968,14 @@
     .parameter "dummy"
 
     .prologue
-    .line 627
+    .line 640
     const-string v0, "WfdManager"
 
     const-string v1, "NOP startWFDSession"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 629
+    .line 642
     return-void
 .end method
 
@@ -977,14 +983,14 @@
     .locals 2
 
     .prologue
-    .line 661
+    .line 674
     const-string v0, "WfdManager"
 
     const-string v1, "stopCapture"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 663
+    .line 676
     :try_start_0
     iget-object v0, p0, Lcom/samsung/wfd/WfdManager;->mService:Lcom/samsung/wfd/IWfdManager;
 
@@ -992,11 +998,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 667
+    .line 680
     :goto_0
     return-void
 
-    .line 664
+    .line 677
     :catch_0
     move-exception v0
 
@@ -1008,14 +1014,14 @@
     .parameter "c"
 
     .prologue
-    .line 489
+    .line 502
     if-nez p1, :cond_0
 
-    .line 491
+    .line 504
     :goto_0
     return-void
 
-    .line 490
+    .line 503
     :cond_0
     iget-object v0, p1, Lcom/samsung/wfd/WfdManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 

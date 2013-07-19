@@ -73,10 +73,10 @@
     .parameter "hasFocus"
 
     .prologue
-    .line 182
+    .line 183
     invoke-super {p0, p1}, Landroid/widget/TextView;->dispatchWindowFocusChanged(Z)V
 
-    .line 185
+    .line 186
     invoke-virtual {p0}, Landroid/widget/EditText;->isFocused()Z
 
     move-result v0
@@ -85,12 +85,17 @@
 
     if-eqz p1, :cond_0
 
-    .line 188
+    .line 189
     instance-of v0, p0, Landroid/inputmethodservice/ExtractEditText;
 
     if-nez v0, :cond_0
 
-    .line 189
+    .line 190
+    iget-object v0, p0, Landroid/widget/EditText;->mClipExMgr:Landroid/sec/clipboard/ClipboardExManager;
+
+    if-eqz v0, :cond_0
+
+    .line 191
     iget-object v0, p0, Landroid/widget/EditText;->mClipExMgr:Landroid/sec/clipboard/ClipboardExManager;
 
     const/4 v1, 0x2
@@ -99,7 +104,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/sec/clipboard/ClipboardExManager;->updateData(ILandroid/sec/clipboard/IClipboardDataPasteEvent;)V
 
-    .line 194
+    .line 196
     :cond_0
     return-void
 .end method
@@ -197,17 +202,22 @@
     .line 172
     iget-object v0, p0, Landroid/widget/EditText;->mClipExMgr:Landroid/sec/clipboard/ClipboardExManager;
 
+    if-eqz v0, :cond_0
+
+    .line 173
+    iget-object v0, p0, Landroid/widget/EditText;->mClipExMgr:Landroid/sec/clipboard/ClipboardExManager;
+
     const/4 v1, 0x2
 
     iget-object v2, p0, Landroid/widget/TextView;->mPasteEvent:Landroid/widget/TextView$IClipboardDataPasteEventImpl;
 
     invoke-virtual {v0, v1, v2}, Landroid/sec/clipboard/ClipboardExManager;->updateData(ILandroid/sec/clipboard/IClipboardDataPasteEvent;)V
 
-    .line 177
+    .line 178
     :cond_0
     invoke-super {p0, p1, p2, p3}, Landroid/widget/TextView;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
-    .line 178
+    .line 179
     return-void
 .end method
 
@@ -218,14 +228,14 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 199
+    .line 201
     invoke-virtual {p0}, Landroid/widget/EditText;->isHoveringUIEnabled()Z
 
     move-result v1
 
     if-ne v1, v2, :cond_0
 
-    .line 201
+    .line 203
     :try_start_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -241,7 +251,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 202
+    .line 204
     const/4 v1, 0x2
 
     const/4 v2, -0x1
@@ -250,7 +260,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 210
+    .line 212
     :cond_0
     :goto_0
     invoke-super {p0, p1}, Landroid/widget/TextView;->onHoverEvent(Landroid/view/MotionEvent;)Z
@@ -259,7 +269,7 @@
 
     return v1
 
-    .line 203
+    .line 205
     :cond_1
     :try_start_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
@@ -270,7 +280,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 204
+    .line 206
     const/4 v1, 0x1
 
     const/4 v2, -0x1
@@ -281,11 +291,11 @@
 
     goto :goto_0
 
-    .line 206
+    .line 208
     :catch_0
     move-exception v0
 
-    .line 207
+    .line 209
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "TextView"
 

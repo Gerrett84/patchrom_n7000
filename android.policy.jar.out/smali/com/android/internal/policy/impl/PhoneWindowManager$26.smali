@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 5856
+    .line 6848
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,19 +35,232 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 5858
+    const/4 v3, 0x0
+
+    .line 6850
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 5859
+    .line 6851
     .local v0, action:Ljava/lang/String;
-    const-string v1, "android.intent.action.BOOT_COMPLETED"
+    const-string v1, "android.intent.action.SWEEP_LEFT"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 6852
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->keyguardOn()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 6853
+    const-string v1, "WindowManager"
+
+    const-string v2, "Sweep LEFT, but keyguard on"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 6891
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 6856
+    :cond_1
+    const-string v1, "WindowManager"
+
+    const-string v2, "Sweep LEFT, so takeScreenshot"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 6857
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    iget-object v1, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    #getter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordLongPress:Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$1600(Lcom/android/internal/policy/impl/PhoneWindowManager;)Ljava/lang/Runnable;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    goto :goto_0
+
+    .line 6860
+    :cond_2
+    const-string v1, "android.intent.action.SWEEP_RIGHT"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    .line 6861
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->keyguardOn()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    .line 6862
+    const-string v1, "WindowManager"
+
+    const-string v2, "Sweep RIGHT, but keyguard on"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 6865
+    :cond_3
+    const-string v1, "WindowManager"
+
+    const-string v2, "Sweep RIGHT, so takeScreenshot"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 6866
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    iget-object v1, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    #getter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordLongPress:Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$1600(Lcom/android/internal/policy/impl/PhoneWindowManager;)Ljava/lang/Runnable;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    goto :goto_0
+
+    .line 6869
+    :cond_4
+    const-string v1, "android.intent.action.SWEEP_DOWN"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    .line 6870
+    const-string v1, "WindowManager"
+
+    const-string v2, "SWEEP DOWN"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 6874
+    :cond_5
+    const-string v1, "android.intent.action.TOUCH_CAPTURE_BTN"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    .line 6875
+    const-string v1, "WindowManager"
+
+    const-string v2, "takeScreenshot by capture button"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 6876
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    iget-object v1, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    #getter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordLongPress:Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$1600(Lcom/android/internal/policy/impl/PhoneWindowManager;)Ljava/lang/Runnable;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    goto :goto_0
+
+    .line 6878
+    :cond_6
+    const-string v1, "com.android.internal.policy.impl.sec.glanceview.eventinfo"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    .line 6879
+    const-string v1, "WindowManager"
+
+    const-string v2, "glanceview.eventinfo is received."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 6880
+    const-string v1, "isStart"
+
+    invoke-virtual {p2, v1, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    .line 6881
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStateGlance:Z
+
+    goto/16 :goto_0
+
+    .line 6882
+    :cond_7
+    const-string v1, "isEnd"
+
+    invoke-virtual {p2, v1, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 6883
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    iput-boolean v3, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStateGlance:Z
+
+    goto/16 :goto_0
+
+    .line 6885
+    :cond_8
+    const-string v1, "android.intent.action.SHOW_GLOBAL_ACTIONS"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -55,29 +268,24 @@
 
     if-eqz v1, :cond_0
 
-    .line 5860
+    .line 6886
+    const-string v1, "WindowManager"
+
+    const-string v2, "GlobalActions Show is received."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 6887
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    iget-object v1, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+    const-string v2, "globalactions"
 
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->sendCloseSystemWindows(Ljava/lang/String;)V
 
-    move-result-object v1
-
-    const-string v2, "com.sec.feature.spen_usp"
-
-    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 5862
+    .line 6888
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->readPenState()V
+    invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->showGlobalActionsDialog()V
 
-    .line 5865
-    :cond_0
-    return-void
+    goto/16 :goto_0
 .end method

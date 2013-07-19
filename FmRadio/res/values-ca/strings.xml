@@ -94,13 +94,13 @@ L'auricular funciona com a antena de ràdio. Connecti l'auricular"</string>
     <string name="toast_unavailable_in_tvout_mode">No disponible en mode sortida de TV</string>
     <string name="mute">Silenci</string>
     <string name="seeking">Cercant…</string>
-    <string name="via_earphone">Pels auriculars</string>
-    <string name="via_speaker">Per altaveu</string>
+    <string name="via_earphone">Reproduir pels auriculars</string>
+    <string name="via_speaker">Reproduir per altaveu</string>
     <string name="normal_frequency">Freqüència normal</string>
     <string name="tag">Etq</string>
     <string name="stop">Aturar</string>
     <string name="recording">Gravant…</string>
-    <string name="memory_full">Gravació detinguda. Memòria plena</string>
+    <string name="memory_full">Memòria plena</string>
     <string name="cancel_recording">Cancel·lar la gravació?</string>
     <string name="change_frequency">Canviar freqüència</string>
     <string name="enter_frequency">Introdueixi freqüència</string>
@@ -126,11 +126,14 @@ L'auricular funciona com a antena de ràdio. Connecti l'auricular"</string>
     <string name="tags">Etiquetes</string>
     <string name="tags_now_broadcasting">Nova difusió</string>
     <string name="tags_no_information">No hi ha informació</string>
+    <string name="tags_music_history">Historial de música</string>
     <string name="tags_music_title">Títol</string>
     <string name="tags_music_album">Àlbum</string>
     <string name="tags_music_artist">Artista</string>
+    <string name="tags_music_band">Grup</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">"Pàgina d'inici"</string>
+    <string name="tags_interact_hotline">"Línia d'assistència permanent"</string>
     <string name="tags_interact_studio">Estudi</string>
     <string name="tags_interact_other">Altres</string>
     <string name="tags_interact_centre">Centre</string>
@@ -176,4 +179,14 @@ Després de gravar ràdio, es mostraran fitxers gravats"</string>
     <string name="dialog_one_item_deleted">"S'esborrarà aquest element"</string>
     <string name="dialog_multiple_items_deleted">"S'esborraran %d elements"</string>
     <string name="dialog_all_items_deleted">"S'esborraran tots els elements"</string>
+    <string name="turning_on">Activant…</string>
+    <string name="not_enough_memory_recording_will_stop">"No hi ha prou memòria. La gravació s'aturarà en %d segons"</string>
+    <string name="low_batt_msg">Bateria baixa</string>
+    <string name="no_play_during_call">No es pot reproduir durant la trucada</string>
+    <string name="unable_delete">No es pot esborrar</string>
+    <string name="playing">Reprod…</string>
+    <string name="tts_play_button">Reproduir</string>
+    <string name="tts_previous_button">Anterior</string>
+    <string name="tts_Next_button">Següent</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

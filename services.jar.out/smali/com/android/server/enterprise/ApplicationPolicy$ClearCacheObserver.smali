@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 1214
+    .line 1190
     iput-object p1, p0, Lcom/android/server/enterprise/ApplicationPolicy$ClearCacheObserver;->this$0:Lcom/android/server/enterprise/ApplicationPolicy;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageDataObserver$Stub;-><init>()V
@@ -44,7 +44,7 @@
     .parameter "x1"
 
     .prologue
-    .line 1214
+    .line 1190
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/ApplicationPolicy$ClearCacheObserver;-><init>(Lcom/android/server/enterprise/ApplicationPolicy;)V
 
     return-void
@@ -58,31 +58,31 @@
     .parameter "succeeded"
 
     .prologue
-    .line 1220
+    .line 1196
     monitor-enter p0
 
-    .line 1221
+    .line 1197
     const/4 v0, 0x1
 
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/enterprise/ApplicationPolicy$ClearCacheObserver;->finished:Z
 
-    .line 1222
+    .line 1198
     iput-object p1, p0, Lcom/android/server/enterprise/ApplicationPolicy$ClearCacheObserver;->packageName:Ljava/lang/String;
 
-    .line 1223
+    .line 1199
     iput-boolean p2, p0, Lcom/android/server/enterprise/ApplicationPolicy$ClearCacheObserver;->success:Z
 
-    .line 1224
+    .line 1200
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 1225
+    .line 1201
     monitor-exit p0
 
-    .line 1226
+    .line 1202
     return-void
 
-    .line 1225
+    .line 1201
     :catchall_0
     move-exception v0
 

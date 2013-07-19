@@ -1,9 +1,6 @@
 .class Landroid/hardware/scontext/SContextService$2;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "SContextService.java"
-
-# interfaces
-.implements Landroid/hardware/contextaware/CAListener;
 
 
 # annotations
@@ -27,122 +24,44 @@
     .parameter
 
     .prologue
-    .line 392
+    .line 453
     iput-object p1, p0, Landroid/hardware/scontext/SContextService$2;->this$0:Landroid/hardware/scontext/SContextService;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onContextChanged(Landroid/hardware/contextaware/CAEvent;)V
-    .locals 4
-    .parameter "event"
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 2
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    .line 396
-    invoke-virtual {p1}, Landroid/hardware/contextaware/CAEvent;->getEvent()I
-
-    move-result v1
-
-    sget v2, Landroid/hardware/contextaware/CAEvent;->PEDOMETER:I
-
-    if-ne v1, v2, :cond_0
-
-    .line 397
-    invoke-virtual {p1}, Landroid/hardware/contextaware/CAEvent;->getPedometerContext()Landroid/hardware/contextaware/CAPedometerContext;
+    .line 456
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 399
-    .local v0, pedometerContext:Landroid/hardware/contextaware/CAPedometerContext;
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService$2;->this$0:Landroid/hardware/scontext/SContextService;
+    const-string v1, "android.intent.action.SCREEN_ON"
 
-    #getter for: Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-    invoke-static {v1}, Landroid/hardware/scontext/SContextService;->access$300(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v1
+    move-result v0
 
-    invoke-virtual {v0}, Landroid/hardware/contextaware/CAPedometerContext;->getStepCount()J
+    if-eqz v0, :cond_0
 
-    move-result-wide v2
+    .line 457
+    iget-object v0, p0, Landroid/hardware/scontext/SContextService$2;->this$0:Landroid/hardware/scontext/SContextService;
 
-    iput-wide v2, v1, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->mStepCount:J
+    const/4 v1, 0x0
 
-    .line 400
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService$2;->this$0:Landroid/hardware/scontext/SContextService;
+    #calls: Landroid/hardware/scontext/SContextService;->setLEDNotification(Z)V
+    invoke-static {v0, v1}, Landroid/hardware/scontext/SContextService;->access$200(Landroid/hardware/scontext/SContextService;Z)V
 
-    #getter for: Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-    invoke-static {v1}, Landroid/hardware/scontext/SContextService;->access$300(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Landroid/hardware/contextaware/CAPedometerContext;->getCalorie()D
-
-    move-result-wide v2
-
-    iput-wide v2, v1, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->mCalorie:D
-
-    .line 401
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService$2;->this$0:Landroid/hardware/scontext/SContextService;
-
-    #getter for: Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-    invoke-static {v1}, Landroid/hardware/scontext/SContextService;->access$300(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Landroid/hardware/contextaware/CAPedometerContext;->getDistance()D
-
-    move-result-wide v2
-
-    iput-wide v2, v1, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->mDistance:D
-
-    .line 402
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService$2;->this$0:Landroid/hardware/scontext/SContextService;
-
-    #getter for: Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-    invoke-static {v1}, Landroid/hardware/scontext/SContextService;->access$300(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Landroid/hardware/contextaware/CAPedometerContext;->getSpeed()D
-
-    move-result-wide v2
-
-    iput-wide v2, v1, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->mSpeed:D
-
-    .line 403
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService$2;->this$0:Landroid/hardware/scontext/SContextService;
-
-    #getter for: Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-    invoke-static {v1}, Landroid/hardware/scontext/SContextService;->access$300(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Landroid/hardware/contextaware/CAPedometerContext;->getStepStatus()I
-
-    move-result v2
-
-    iput v2, v1, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->mStepStatus:I
-
-    .line 404
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService$2;->this$0:Landroid/hardware/scontext/SContextService;
-
-    const/4 v2, 0x2
-
-    iget-object v3, p0, Landroid/hardware/scontext/SContextService$2;->this$0:Landroid/hardware/scontext/SContextService;
-
-    #getter for: Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-    invoke-static {v3}, Landroid/hardware/scontext/SContextService;->access$300(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v2, v3}, Landroid/hardware/scontext/SContextService;->updateSContext(ILandroid/hardware/scontext/ISContextContexts;)V
-
-    .line 406
-    .end local v0           #pedometerContext:Landroid/hardware/contextaware/CAPedometerContext;
+    .line 459
     :cond_0
     return-void
 .end method

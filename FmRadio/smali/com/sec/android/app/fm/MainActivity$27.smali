@@ -3,7 +3,7 @@
 .source "MainActivity.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 7836
+    .line 4417
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$27;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,34 +37,18 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 3
-    .parameter
-    .parameter
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 2
+    .parameter "dialog"
 
     .prologue
-    .line 7842
+    .line 4421
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$27;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    const/4 v1, 0x1
+    const/16 v1, 0xb
 
-    #setter for: Lcom/sec/android/app/fm/MainActivity;->mMyApps:Z
-    invoke-static {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->access$7002(Lcom/sec/android/app/fm/MainActivity;Z)Z
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->removeDialog(I)V
 
-    .line 7844
-    new-instance v0, Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/sec/android/app/fm/MainActivity$27;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    const-class v2, Lcom/sec/android/app/fm/RecordedFileListActivity;
-
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    .line 7846
-    iget-object v1, p0, Lcom/sec/android/app/fm/MainActivity$27;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    invoke-virtual {v1, v0}, Lcom/sec/android/app/fm/MainActivity;->startActivity(Landroid/content/Intent;)V
-
-    .line 7848
+    .line 4422
     return-void
 .end method

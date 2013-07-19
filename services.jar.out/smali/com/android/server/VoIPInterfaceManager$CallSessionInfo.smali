@@ -48,53 +48,53 @@
 
     const/4 v1, 0x0
 
-    .line 95
+    .line 80
     iput-object p1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->this$0:Lcom/android/server/VoIPInterfaceManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 96
+    .line 81
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->IDLE:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     iput-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->mCurrCallState:Lcom/android/server/VoIPInterfaceManager$CallState;
 
-    .line 97
+    .line 82
     iput-object v1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->packageName:Ljava/lang/String;
 
-    .line 98
+    .line 83
     iput-object v1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->actionName:Ljava/lang/String;
 
-    .line 99
+    .line 84
     iput-object v1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->callNumber:Ljava/lang/String;
 
-    .line 100
+    .line 85
     iput-object v1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->remotePartyNumber:Ljava/lang/String;
 
-    .line 102
+    .line 87
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->useBTCall:Ljava/lang/Boolean;
 
-    .line 103
+    .line 88
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->useHoldCall:Ljava/lang/Boolean;
 
-    .line 105
+    .line 90
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->isIncoming:Ljava/lang/Boolean;
 
-    .line 108
+    .line 93
     iput v2, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->callCountInThisSession:I
 
-    .line 110
+    .line 95
     iput-object v1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->clientCallback:Landroid/os/IVoIPCallbackInterface;
 
     return-void
@@ -106,7 +106,7 @@
     .parameter "x1"
 
     .prologue
-    .line 95
+    .line 80
     iput-object p1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->useBTCall:Ljava/lang/Boolean;
 
     return-object p1
@@ -118,7 +118,7 @@
     .parameter "x1"
 
     .prologue
-    .line 95
+    .line 80
     iput-object p1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->useHoldCall:Ljava/lang/Boolean;
 
     return-object p1
@@ -129,7 +129,7 @@
     .parameter "x0"
 
     .prologue
-    .line 95
+    .line 80
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->callNumber:Ljava/lang/String;
 
     return-object v0
@@ -140,7 +140,7 @@
     .parameter "x0"
 
     .prologue
-    .line 95
+    .line 80
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->mCurrCallState:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     return-object v0
@@ -152,34 +152,34 @@
     .locals 2
 
     .prologue
-    .line 122
+    .line 107
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 123
+    .line 108
     const/4 v0, 0x0
 
     :try_start_0
     iput-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->packageName:Ljava/lang/String;
 
-    .line 124
+    .line 109
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->actionName:Ljava/lang/String;
 
-    .line 125
+    .line 110
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->callNumber:Ljava/lang/String;
 
-    .line 126
+    .line 111
     monitor-exit v1
 
-    .line 127
+    .line 112
     return-void
 
-    .line 126
+    .line 111
     :catchall_0
     move-exception v0
 
@@ -194,7 +194,7 @@
     .locals 3
 
     .prologue
-    .line 181
+    .line 166
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->this$0:Lcom/android/server/VoIPInterfaceManager;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -220,7 +220,7 @@
     #calls: Lcom/android/server/VoIPInterfaceManager;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/server/VoIPInterfaceManager;->access$000(Lcom/android/server/VoIPInterfaceManager;Ljava/lang/String;)V
 
-    .line 182
+    .line 167
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->useBTCall:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -234,12 +234,12 @@
     .locals 2
 
     .prologue
-    .line 200
+    .line 185
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 201
+    .line 186
     :try_start_0
     iget v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->callCountInThisSession:I
 
@@ -247,7 +247,7 @@
 
     return v0
 
-    .line 202
+    .line 187
     :catchall_0
     move-exception v0
 
@@ -262,7 +262,7 @@
     .locals 1
 
     .prologue
-    .line 190
+    .line 175
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->clientCallback:Landroid/os/IVoIPCallbackInterface;
 
     return-object v0
@@ -272,12 +272,12 @@
     .locals 2
 
     .prologue
-    .line 170
+    .line 155
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 171
+    .line 156
     :try_start_0
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->mCurrCallState:Lcom/android/server/VoIPInterfaceManager$CallState;
 
@@ -285,7 +285,7 @@
 
     return-object v0
 
-    .line 172
+    .line 157
     :catchall_0
     move-exception v0
 
@@ -300,12 +300,12 @@
     .locals 2
 
     .prologue
-    .line 226
+    .line 211
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 227
+    .line 212
     :try_start_0
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->isIncoming:Ljava/lang/Boolean;
 
@@ -317,7 +317,7 @@
 
     return v0
 
-    .line 228
+    .line 213
     :catchall_0
     move-exception v0
 
@@ -332,7 +332,7 @@
     .locals 1
 
     .prologue
-    .line 186
+    .line 171
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->useHoldCall:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -346,12 +346,12 @@
     .locals 2
 
     .prologue
-    .line 130
+    .line 115
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 131
+    .line 116
     :try_start_0
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->packageName:Ljava/lang/String;
 
@@ -359,7 +359,7 @@
 
     return-object v0
 
-    .line 132
+    .line 117
     :catchall_0
     move-exception v0
 
@@ -374,12 +374,12 @@
     .locals 2
 
     .prologue
-    .line 142
+    .line 127
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 143
+    .line 128
     :try_start_0
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->callNumber:Ljava/lang/String;
 
@@ -387,7 +387,7 @@
 
     return-object v0
 
-    .line 144
+    .line 129
     :catchall_0
     move-exception v0
 
@@ -402,12 +402,12 @@
     .locals 2
 
     .prologue
-    .line 212
+    .line 197
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 213
+    .line 198
     :try_start_0
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->remotePartyNumber:Ljava/lang/String;
 
@@ -415,7 +415,7 @@
 
     return-object v0
 
-    .line 214
+    .line 199
     :catchall_0
     move-exception v0
 
@@ -430,12 +430,12 @@
     .locals 2
 
     .prologue
-    .line 136
+    .line 121
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 137
+    .line 122
     :try_start_0
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->actionName:Ljava/lang/String;
 
@@ -443,7 +443,7 @@
 
     return-object v0
 
-    .line 138
+    .line 123
     :catchall_0
     move-exception v0
 
@@ -458,12 +458,12 @@
     .locals 4
 
     .prologue
-    .line 147
+    .line 132
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 148
+    .line 133
     :try_start_0
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->packageName:Ljava/lang/String;
 
@@ -481,7 +481,7 @@
 
     if-nez v0, :cond_1
 
-    .line 149
+    .line 134
     :cond_0
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->this$0:Lcom/android/server/VoIPInterfaceManager;
 
@@ -490,7 +490,7 @@
     #calls: Lcom/android/server/VoIPInterfaceManager;->log(Ljava/lang/String;)V
     invoke-static {v0, v2}, Lcom/android/server/VoIPInterfaceManager;->access$000(Lcom/android/server/VoIPInterfaceManager;Ljava/lang/String;)V
 
-    .line 150
+    .line 135
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->this$0:Lcom/android/server/VoIPInterfaceManager;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -552,16 +552,16 @@
     #calls: Lcom/android/server/VoIPInterfaceManager;->log(Ljava/lang/String;)V
     invoke-static {v0, v2}, Lcom/android/server/VoIPInterfaceManager;->access$000(Lcom/android/server/VoIPInterfaceManager;Ljava/lang/String;)V
 
-    .line 152
+    .line 137
     const/4 v0, 0x0
 
     monitor-exit v1
 
-    .line 158
+    .line 143
     :goto_0
     return v0
 
-    .line 155
+    .line 140
     :cond_1
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->this$0:Lcom/android/server/VoIPInterfaceManager;
 
@@ -570,7 +570,7 @@
     #calls: Lcom/android/server/VoIPInterfaceManager;->log(Ljava/lang/String;)V
     invoke-static {v0, v2}, Lcom/android/server/VoIPInterfaceManager;->access$000(Lcom/android/server/VoIPInterfaceManager;Ljava/lang/String;)V
 
-    .line 156
+    .line 141
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->this$0:Lcom/android/server/VoIPInterfaceManager;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -632,14 +632,14 @@
     #calls: Lcom/android/server/VoIPInterfaceManager;->log(Ljava/lang/String;)V
     invoke-static {v0, v2}, Lcom/android/server/VoIPInterfaceManager;->access$000(Lcom/android/server/VoIPInterfaceManager;Ljava/lang/String;)V
 
-    .line 158
+    .line 143
     const/4 v0, 0x1
 
     monitor-exit v1
 
     goto :goto_0
 
-    .line 160
+    .line 145
     :catchall_0
     move-exception v0
 
@@ -655,7 +655,7 @@
     .parameter "useBT"
 
     .prologue
-    .line 176
+    .line 161
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->this$0:Lcom/android/server/VoIPInterfaceManager;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -679,14 +679,14 @@
     #calls: Lcom/android/server/VoIPInterfaceManager;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/server/VoIPInterfaceManager;->access$000(Lcom/android/server/VoIPInterfaceManager;Ljava/lang/String;)V
 
-    .line 177
+    .line 162
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->useBTCall:Ljava/lang/Boolean;
 
-    .line 178
+    .line 163
     return-void
 .end method
 
@@ -695,22 +695,22 @@
     .parameter "count"
 
     .prologue
-    .line 194
+    .line 179
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 195
+    .line 180
     :try_start_0
     iput p1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->callCountInThisSession:I
 
-    .line 196
+    .line 181
     monitor-exit v1
 
-    .line 197
+    .line 182
     return-void
 
-    .line 196
+    .line 181
     :catchall_0
     move-exception v0
 
@@ -729,31 +729,31 @@
     .parameter "cb"
 
     .prologue
-    .line 113
+    .line 98
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 114
+    .line 99
     :try_start_0
     iput-object p1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->packageName:Ljava/lang/String;
 
-    .line 115
+    .line 100
     iput-object p2, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->actionName:Ljava/lang/String;
 
-    .line 116
+    .line 101
     iput-object p3, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->callNumber:Ljava/lang/String;
 
-    .line 117
+    .line 102
     iput-object p4, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->clientCallback:Landroid/os/IVoIPCallbackInterface;
 
-    .line 118
+    .line 103
     monitor-exit v1
 
-    .line 119
+    .line 104
     return-void
 
-    .line 118
+    .line 103
     :catchall_0
     move-exception v0
 
@@ -769,22 +769,22 @@
     .parameter "mCallState"
 
     .prologue
-    .line 164
+    .line 149
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 165
+    .line 150
     :try_start_0
     iput-object p1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->mCurrCallState:Lcom/android/server/VoIPInterfaceManager$CallState;
 
-    .line 166
+    .line 151
     monitor-exit v1
 
-    .line 167
+    .line 152
     return-void
 
-    .line 166
+    .line 151
     :catchall_0
     move-exception v0
 
@@ -800,7 +800,7 @@
     .parameter "direction"
 
     .prologue
-    .line 222
+    .line 207
     iget-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->this$0:Lcom/android/server/VoIPInterfaceManager;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -824,14 +824,14 @@
     #calls: Lcom/android/server/VoIPInterfaceManager;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/server/VoIPInterfaceManager;->access$000(Lcom/android/server/VoIPInterfaceManager;Ljava/lang/String;)V
 
-    .line 223
+    .line 208
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->isIncoming:Ljava/lang/Boolean;
 
-    .line 224
+    .line 209
     return-void
 .end method
 
@@ -840,22 +840,22 @@
     .parameter "number"
 
     .prologue
-    .line 206
+    .line 191
     const-class v1, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;
 
     monitor-enter v1
 
-    .line 207
+    .line 192
     :try_start_0
     iput-object p1, p0, Lcom/android/server/VoIPInterfaceManager$CallSessionInfo;->remotePartyNumber:Ljava/lang/String;
 
-    .line 208
+    .line 193
     monitor-exit v1
 
-    .line 209
+    .line 194
     return-void
 
-    .line 208
+    .line 193
     :catchall_0
     move-exception v0
 

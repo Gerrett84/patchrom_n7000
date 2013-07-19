@@ -32,18 +32,18 @@
     .parameter
 
     .prologue
-    .line 4400
+    .line 4571
     iput-object p1, p0, Landroid/webkit/WebViewCore$ImageSelectionCopiedData;->this$0:Landroid/webkit/WebViewCore;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4401
+    .line 4572
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/webkit/WebViewCore$ImageSelectionCopiedData;->imageRect:Landroid/graphics/Rect;
 
-    .line 4403
+    .line 4574
     return-void
 .end method

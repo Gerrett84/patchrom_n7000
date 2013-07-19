@@ -18,6 +18,8 @@
 
 .field private mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
+.field private mSimID:I
+
 .field private mWallpaperPath:Ljava/lang/String;
 
 
@@ -32,7 +34,7 @@
 
     const/4 v0, 0x1
 
-    .line 38
+    .line 39
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     .line 22
@@ -53,10 +55,10 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->PORTRAIT_WALLPAPER_IMAGE_PATH:Ljava/lang/String;
 
-    .line 40
+    .line 41
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mContext:Landroid/content/Context;
 
-    .line 43
+    .line 44
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -74,16 +76,16 @@
     :cond_0
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mIsLiveWallpaper:Z
 
-    .line 44
+    .line 45
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mIsLiveWallpaper:Z
 
     if-eqz v0, :cond_1
 
-    .line 60
+    .line 61
     :goto_0
     return-void
 
-    .line 48
+    .line 49
     :cond_1
     new-instance v0, Landroid/widget/ImageView;
 
@@ -91,38 +93,38 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
-    .line 49
+    .line 50
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     sget-object v1, Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 51
+    .line 52
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     invoke-virtual {p0, v0, v3, v3}, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->addView(Landroid/view/View;II)V
 
-    .line 54
+    .line 55
     invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->enhancedLockScreen()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 55
+    .line 56
     invoke-static {}, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->getInstance()Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mEnhancedWallpaper:Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
 
-    .line 56
+    .line 57
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->setEnhancedLockScreenWallpaper()V
 
     goto :goto_0
 
-    .line 58
+    .line 59
     :cond_2
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->setLockScreenWallpaper()V
 
@@ -133,16 +135,16 @@
     .locals 9
 
     .prologue
-    const v8, 0x1080402
+    const v8, 0x108041e
 
-    .line 111
+    .line 116
     new-instance v1, Ljava/io/File;
 
     const-string v7, "//system/wallpaper/lockscreen_default_wallpaper.jpg"
 
     invoke-direct {v1, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 112
+    .line 117
     .local v1, file:Ljava/io/File;
     new-instance v2, Ljava/io/File;
 
@@ -150,7 +152,7 @@
 
     invoke-direct {v2, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 113
+    .line 118
     .local v2, fileMultiCSC:Ljava/io/File;
     new-instance v4, Ljava/io/File;
 
@@ -158,7 +160,7 @@
 
     invoke-direct {v4, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 114
+    .line 119
     .local v4, filePng:Ljava/io/File;
     new-instance v3, Ljava/io/File;
 
@@ -166,11 +168,11 @@
 
     invoke-direct {v3, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 115
+    .line 120
     .local v3, fileMultiCSCPng:Ljava/io/File;
     const/4 v5, 0x0
 
-    .line 116
+    .line 121
     .local v5, is:Ljava/io/InputStream;
     invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
@@ -178,7 +180,7 @@
 
     if-eqz v7, :cond_0
 
-    .line 118
+    .line 123
     :try_start_0
     new-instance v5, Ljava/io/FileInputStream;
 
@@ -187,7 +189,7 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 143
+    .line 148
     .restart local v5       #is:Ljava/io/InputStream;
     :goto_0
     new-instance v6, Landroid/graphics/drawable/BitmapDrawable;
@@ -198,24 +200,24 @@
 
     invoke-direct {v6, v7, v5}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Ljava/io/InputStream;)V
 
-    .line 146
+    .line 151
     .local v6, tempBitmapDrawable:Landroid/graphics/drawable/BitmapDrawable;
     :try_start_1
     invoke-virtual {v5}, Ljava/io/InputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
 
-    .line 150
+    .line 155
     :goto_1
     return-object v6
 
-    .line 119
+    .line 124
     .end local v5           #is:Ljava/io/InputStream;
     .end local v6           #tempBitmapDrawable:Landroid/graphics/drawable/BitmapDrawable;
     :catch_0
     move-exception v0
 
-    .line 120
+    .line 125
     .local v0, e:Ljava/io/IOException;
     iget-object v7, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mContext:Landroid/content/Context;
 
@@ -227,11 +229,11 @@
 
     move-result-object v5
 
-    .line 121
+    .line 126
     .restart local v5       #is:Ljava/io/InputStream;
     goto :goto_0
 
-    .line 122
+    .line 127
     .end local v0           #e:Ljava/io/IOException;
     :cond_0
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
@@ -240,7 +242,7 @@
 
     if-eqz v7, :cond_1
 
-    .line 124
+    .line 129
     :try_start_2
     new-instance v5, Ljava/io/FileInputStream;
 
@@ -252,12 +254,12 @@
     .restart local v5       #is:Ljava/io/InputStream;
     goto :goto_0
 
-    .line 125
+    .line 130
     .end local v5           #is:Ljava/io/InputStream;
     :catch_1
     move-exception v0
 
-    .line 126
+    .line 131
     .restart local v0       #e:Ljava/io/IOException;
     iget-object v7, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mContext:Landroid/content/Context;
 
@@ -269,11 +271,11 @@
 
     move-result-object v5
 
-    .line 127
+    .line 132
     .restart local v5       #is:Ljava/io/InputStream;
     goto :goto_0
 
-    .line 128
+    .line 133
     .end local v0           #e:Ljava/io/IOException;
     :cond_1
     invoke-virtual {v4}, Ljava/io/File;->exists()Z
@@ -282,7 +284,7 @@
 
     if-eqz v7, :cond_2
 
-    .line 130
+    .line 135
     :try_start_3
     new-instance v5, Ljava/io/FileInputStream;
 
@@ -294,12 +296,12 @@
     .restart local v5       #is:Ljava/io/InputStream;
     goto :goto_0
 
-    .line 131
+    .line 136
     .end local v5           #is:Ljava/io/InputStream;
     :catch_2
     move-exception v0
 
-    .line 132
+    .line 137
     .restart local v0       #e:Ljava/io/IOException;
     iget-object v7, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mContext:Landroid/content/Context;
 
@@ -311,11 +313,11 @@
 
     move-result-object v5
 
-    .line 133
+    .line 138
     .restart local v5       #is:Ljava/io/InputStream;
     goto :goto_0
 
-    .line 134
+    .line 139
     .end local v0           #e:Ljava/io/IOException;
     :cond_2
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
@@ -324,7 +326,7 @@
 
     if-eqz v7, :cond_3
 
-    .line 136
+    .line 141
     :try_start_4
     new-instance v5, Ljava/io/FileInputStream;
 
@@ -336,12 +338,12 @@
     .restart local v5       #is:Ljava/io/InputStream;
     goto :goto_0
 
-    .line 137
+    .line 142
     .end local v5           #is:Ljava/io/InputStream;
     :catch_3
     move-exception v0
 
-    .line 138
+    .line 143
     .restart local v0       #e:Ljava/io/IOException;
     iget-object v7, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mContext:Landroid/content/Context;
 
@@ -353,11 +355,11 @@
 
     move-result-object v5
 
-    .line 139
+    .line 144
     .restart local v5       #is:Ljava/io/InputStream;
     goto :goto_0
 
-    .line 141
+    .line 146
     .end local v0           #e:Ljava/io/IOException;
     :cond_3
     iget-object v7, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mContext:Landroid/content/Context;
@@ -372,12 +374,12 @@
 
     goto :goto_0
 
-    .line 147
+    .line 152
     .restart local v6       #tempBitmapDrawable:Landroid/graphics/drawable/BitmapDrawable;
     :catch_4
     move-exception v0
 
-    .line 148
+    .line 153
     .restart local v0       #e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
@@ -388,7 +390,7 @@
     .locals 2
 
     .prologue
-    .line 70
+    .line 71
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mEnhancedWallpaper:Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->getLockscreenBackground()Landroid/graphics/drawable/BitmapDrawable;
@@ -397,7 +399,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 71
+    .line 72
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mEnhancedWallpaper:Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
@@ -408,22 +410,22 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 72
+    .line 73
     const-string v0, "WallpaperWidget"
 
     const-string v1, "Re-used Wallpaper bitmap"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 77
+    .line 78
     :goto_0
     return-void
 
-    .line 74
+    .line 75
     :cond_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->setLockScreenWallpaper()V
 
-    .line 75
+    .line 76
     const-string v0, "WallpaperWidget"
 
     const-string v1, "Created Wallpaper bitmap"
@@ -437,7 +439,7 @@
     .locals 6
 
     .prologue
-    .line 82
+    .line 83
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -452,37 +454,54 @@
 
     iput-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mWallpaperPath:Ljava/lang/String;
 
-    .line 84
+    .line 85
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mWallpaperPath:Ljava/lang/String;
 
     if-nez v4, :cond_0
 
-    .line 85
+    .line 86
     const-string v4, "/data/data/com.sec.android.gallery3d/lockscreen_wallpaper.jpg"
 
     iput-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mWallpaperPath:Ljava/lang/String;
 
-    .line 88
+    .line 89
     :cond_0
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/MultiSimUtils;->isMultiSIMDevice()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    .line 90
+    iget-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mContext:Landroid/content/Context;
+
+    invoke-static {v4}, Lcom/android/internal/policy/impl/sec/MultiSimUtils;->getCurrentWallpaper(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v4
+
+    iput-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mWallpaperPath:Ljava/lang/String;
+
+    .line 93
+    :cond_1
     new-instance v1, Ljava/io/File;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mWallpaperPath:Ljava/lang/String;
 
     invoke-direct {v1, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 89
+    .line 94
     .local v1, file:Ljava/io/File;
     const/4 v2, 0x0
 
-    .line 91
+    .line 96
     .local v2, tempBitmap:Landroid/graphics/drawable/BitmapDrawable;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
-    .line 93
+    .line 98
     :try_start_0
     new-instance v3, Landroid/graphics/drawable/BitmapDrawable;
 
@@ -496,7 +515,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 94
+    .line 99
     .end local v2           #tempBitmap:Landroid/graphics/drawable/BitmapDrawable;
     .local v3, tempBitmap:Landroid/graphics/drawable/BitmapDrawable;
     :try_start_1
@@ -508,7 +527,7 @@
 
     move-object v2, v3
 
-    .line 104
+    .line 109
     .end local v3           #tempBitmap:Landroid/graphics/drawable/BitmapDrawable;
     .restart local v2       #tempBitmap:Landroid/graphics/drawable/BitmapDrawable;
     :goto_0
@@ -516,29 +535,43 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    .line 105
+    .line 110
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mEnhancedWallpaper:Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;
 
     invoke-virtual {v4, v2}, Lcom/android/internal/policy/impl/sec/EnhancedWallpaperWidget;->setLockscreenBackground(Landroid/graphics/drawable/BitmapDrawable;)V
 
-    .line 107
-    :cond_1
+    .line 112
+    :cond_2
     return-void
 
-    .line 95
+    .line 100
     :catch_0
     move-exception v0
 
-    .line 96
+    .line 101
     .local v0, ex:Ljava/lang/Exception;
     :goto_1
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->setDefaultWallpaper()Landroid/graphics/drawable/BitmapDrawable;
 
     move-result-object v2
 
-    .line 97
+    .line 102
+    iget-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
+
+    invoke-virtual {v4, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_0
+
+    .line 105
+    .end local v0           #ex:Ljava/lang/Exception;
+    :cond_3
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->setDefaultWallpaper()Landroid/graphics/drawable/BitmapDrawable;
+
+    move-result-object v2
+
+    .line 106
     iget-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     invoke-virtual {v4, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -546,20 +579,6 @@
     goto :goto_0
 
     .line 100
-    .end local v0           #ex:Ljava/lang/Exception;
-    :cond_2
-    invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->setDefaultWallpaper()Landroid/graphics/drawable/BitmapDrawable;
-
-    move-result-object v2
-
-    .line 101
-    iget-object v4, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
-
-    invoke-virtual {v4, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
-
-    .line 95
     .end local v2           #tempBitmap:Landroid/graphics/drawable/BitmapDrawable;
     .restart local v3       #tempBitmap:Landroid/graphics/drawable/BitmapDrawable;
     :catch_1
@@ -574,24 +593,39 @@
 
 
 # virtual methods
+.method public changeWallpaperBySimId(I)V
+    .locals 0
+    .parameter "simId"
+
+    .prologue
+    .line 161
+    iput p1, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mSimID:I
+
+    .line 162
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->setLockScreenWallpaper()V
+
+    .line 163
+    return-void
+.end method
+
 .method public cleanUp()V
     .locals 2
 
     .prologue
-    .line 65
+    .line 66
     const-string v0, "WallpaperWidget"
 
     const-string v1, "cleanUp()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 66
+    .line 67
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/WallpaperWidget;->mLockScreenWallpaperImage:Landroid/widget/ImageView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 67
+    .line 68
     return-void
 .end method

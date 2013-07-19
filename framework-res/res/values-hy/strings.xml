@@ -269,7 +269,7 @@
     <string name="turn_on_radio">Միացնել անլարը</string>
     <string name="turn_off_radio">Անջատել անլարը</string>
     <string name="screen_lock">Վահանակողպեք</string>
-    <string name="power_off">Սնուցումն անջատված է</string>
+    <string name="power_off">Հոսանքի անջատման ժամանակը</string>
     <string name="silent_mode_vibrate">Զանգի հնչերանգի թրթռում</string>
     <string name="shutdown_progress">Անջատվում է…</string>
     <string name="shutdown_confirm">Սարքը հիմա կանջատվի</string>
@@ -279,10 +279,10 @@
     <string name="no_recent_tasks">Վերջին գործադիրներ չկան</string>
     <string name="global_actions">Սարքի ընտրանքներ</string>
     <string name="global_action_lock">Վահանակողպեք</string>
-    <string name="global_action_power_off">Սնուցումն անջատված է</string>
+    <string name="global_action_power_off">Անջատել հոսանքը</string>
     <string name="global_action_restart">Վերագործարկել</string>
     <string name="global_action_sound_mode_mute">Անձայն</string>
-    <string name="global_action_sound_mode_vibrate">Թրթռալ</string>
+    <string name="global_action_sound_mode_vibrate">Թռթռացնել</string>
     <string name="global_action_sound_mode_sound">Ձայն</string>
     <string name="global_action_toggle_silent_mode">Անձայն ռեժիմ</string>
     <string name="global_action_silent_mode_on_status">Ձայնն ԱՆՋԱՏՎԱԾ է</string>
@@ -304,7 +304,7 @@
     <string name="global_action_insert_sim_card">Տեղադրեք SIM քարտ</string>
     <string name="global_action_insert_sim_card_message">Տեղադրեք SIM քարտը՝ ցանցային ծառայություններ մտնելու համար</string>
     <string name="globalactions_silent_mode_mute">Անձայն</string>
-    <string name="globalactions_silent_mode_vibrate">Թրթռալ</string>
+    <string name="globalactions_silent_mode_vibrate">Թռթռացնել</string>
     <string name="globalactions_silent_mode_sound">Ձայն</string>
     <string name="safeMode">Ապահով աշխատակերպ</string>
     <string name="permlab_mdmApplications">Կառավարել ծրագրերը</string>
@@ -355,6 +355,7 @@
     <string name="permdesc_mdmKioskMode">Վերահսկել սարքի վարքը Կրպակի ռեժիմում</string>
     <string name="tether_usb_restrict">Անվտանգության քաղաքականությունը սահմանափակում է USB տեղակապման օգտագործումը</string>
     <string name="tether_wifi_restrict">Անվտանգության քաղաքականությունը սահմանափակում է Wi-Fi-ի տեղակապումը</string>
+    <string name="data_call_restriction">Անվտանգության քաղաքականությունը սահմանափակում է շարժական տվյալների օգտագործումը</string>
     <string name="dpm_wifi_blocked_network">Անվտանգության քաղաքականությունն արգելափակում է այս Wi-Fi ցանցի օգտագործումը</string>
     <string name="dpm_wifi_misc_wifi_disabled">Անվտանգության քաղաքականությունը սահմանափակում է Wi-Fi-ի օգտագործումը</string>
     <string name="dpm_wifi_misc_network_insecure">Անվտանգության քաղաքականությունը սահմանափակում է անապահով Wi-Fi ցանցերի օգտագործումը</string>
@@ -538,6 +539,7 @@
     <string name="permlab_readSocialStream">Կարդացեք Ձեր սոցիալական տվյալների հոսքը</string>
     <string name="permlab_writeSocialStream">Փակցրեք Ձեր սոցիալական տվյալների հոսքը</string>
     <string name="permlab_readCalendar">Կարդացեք օրացուցային իրադարձություններ և գաղտնի տեղեկատվություն</string>
+    <string name="permlab_writeCalendar">Ավելացնել կամ փոփոխել օրացուցային իրադարձությունները և էլ. նամակներ ուղարկել հյուրերին՝ առանց կազմակերպչի գիտության</string>
     <string name="permlab_accessMockLocation">տեղադրության կեղծ պաշարներ` փորձարկման համար</string>
     <string name="permdesc_accessMockLocation">Թույլ է տալիս, որ ծրագիրը շինծու տեղորոշման աղբյուրներ ստեղծի փորձարկման համար: Թույլատրված լինելու դեպքում չարամիտ ծրագրերը կարող են բացասել տեղը և/կամ կարգավիճակը, որը ստացվել է իսկական տեղորոշման աղբյուրներից, ինչպիսիք են GPS-ը կամ օպերատորները, կամ Ձեր տեղը դիտարկել և հաղորդել պատահական կայքերին</string>
     <string name="permlab_accessLocationExtraCommands">Մատչել հավելյալ տեղադրություն տրամադրողի հրամաններին</string>
@@ -625,6 +627,7 @@
     <string name="permdesc_getAccounts">Թույլ է տալիս, որ այս ծրագիրը մուտք գործի հեռախոսին հայտնի հաշիվների ցանկ</string>
     <string name="permlab_authenticateAccounts">Գործել որպես հաշիվը նույնականացնող</string>
     <string name="permdesc_authenticateAccounts">Թույլ է տալիս, որ ծրագիրն օգտագործի Հաշիվների կառավարչի՝ հաշիվը նույնականացնող հնարավորությունը: Դա ներառում է հաշիվների ստեղծում և գաղտնաբառերի կառավարում</string>
+    <string name="permlab_manageAccounts">Ավելացնել կամ հեռացնել հաշիվներ</string>
     <string name="permdesc_manageAccounts">Թույլ է տալիս, որ ծրագիրը ավելացնի կամ հեռացնի հաշիվներ և վերացնի Ձեր գաղտնաբառը</string>
     <string name="permlab_useCredentials">Օգտագործել հաշվի նույնականացման երաշխավորագրերը</string>
     <string name="permdesc_useCredentials">Թույլ է տալիս, որ ծրագիրը պահանջի նույնականացման հետքանշիչներ</string>
@@ -644,6 +647,7 @@
     <string name="permlab_changeWifiState">փոխել Wi-Fi-ի վիճակը</string>
     <string name="permdesc_changeWifiState">Թույլ է տալիս, որ ծրագիրը միացնի Wi-Fi մուտքի կետերն ու դրանք անջատի և փոփոխություններ կատարի կազմաձևված Wi-Fi ցանցերում</string>
     <string name="permlab_changeWifiMulticastState">Թույլ տալ Wi-Fi բազմահասցե ընդունում</string>
+    <string name="permlab_bluetoothAdmin">Bluetooth-ի կայվածքներ</string>
     <string name="permdesc_bluetoothAdmin">Թույլատրում է գործադրին կազմաձևել տեղային Bluetooth հեռախոսը և հայտնաբերել ու զուգակցել այն հեռակա սարքերի հետ</string>
     <string name="permlab_accessWimaxState">Դիտել WiMAX-ի կարգավիճակը</string>
     <string name="permlab_changeWimaxState">Փոխել WiMAX-ի կարգավիճակը</string>
@@ -725,6 +729,7 @@
     <string name="policydesc_allow_desktopsync">Արգելել աշխատասեղանի համաժամացման օգտագործումը</string>
     <string name="policylab_require_storagecard_encryption">Նախադրել SD քարտի ծածկագրում</string>
     <string name="policydesc_require_storagecard_encryption">Պահանջել, որ SD քարտում եղած ծրագիրը ծածկագրվի</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth-ն անջատվել է</string>
     <string name="bluetooth_security_mode_disable">Անվտանգության քաղաքականությունը սահմանափակում է Bluetooth կապի օգտագործումը</string>
     <string name="bluetooth_security_mode_handsfree">Անվտանգության քաղաքականությունը սահմանափակում է Bluetooth կապի օգտագործումը՝ թույլ տալով միայն ձեռնազատ հնարավորություններ</string>
     <string name="phoneTypeCustom">Կարգավորել</string>
@@ -796,14 +801,16 @@
     <string name="sipAddressTypeHome">Տուն</string>
     <string name="sipAddressTypeWork">Աշխատանք</string>
     <string name="sipAddressTypeOther">Այլ</string>
+    <string name="keyguard_password_enter_pin_code">Մուտքագրեք PIN կոդը</string>
     <string name="keyguard_password_enter_puk_code">Մուտքագրել PUK և նոր PIN</string>
     <string name="keyguard_password_entry_touch_hint">Թակել՝ գաղտնաբառը մուտքագրելու համար</string>
     <string name="keyguard_password_enter_password_code">Մուտքագրել գաղտնաբառ արգելաբացելու համար</string>
     <string name="keyguard_password_enter_pin_password_code">Արգելաբացելու համար մուտքագրել PIN</string>
+    <string name="keyguard_password_wrong_pin_code">Սխալ PIN կոդ</string>
     <string name="keyguard_pin_accepted">Ծածկագիրն ընդունված է</string>
     <string name="keyguard_label_text">Ապակողպելու համար սեղմե՛ք Ցանկ, ապա` 0</string>
     <string name="emergency_call_dialog_number_for_display">Վթարային համար</string>
-    <string name="lockscreen_carrier_default">Ծռյթյն չկա</string>
+    <string name="lockscreen_carrier_default">Ծառայություն չկա</string>
     <string name="lockscreen_screen_locked">Վահանը կողպված է</string>
     <string name="lockscreen_instructions_when_pattern_enabled">Սեղմե՛ք Ցանկ` վթարային կանչն ապակողպելու կամ տեղադրելու համար</string>
     <string name="lockscreen_instructions_when_pattern_disabled">Սեղմե՛ք Ցանկ` ապակողպելու համար</string>
@@ -826,8 +833,9 @@
     <string name="lockscreen_network_locked_message">Ցանցը կողպված է</string>
     <string name="lockscreen_sim_puk_locked_message">SIM քարտը կողպված է PUK-ով</string>
     <string name="lockscreen_sim_puk_locked_instructions">Տե՛ս՝ «Օգտագործողի ուղեցույց» կամ «Սպասարկման ծառայություն»</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM քարտը կողպված է</string>
+    <string name="lockscreen_sim_locked_message">SIM քարտը կողպված է</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">SIM քարտն արգելաբացվում է…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Արգելաբացման սխալ նախշ է գծվել %1$d անգամ: Նորից փորձեք %2$d վայրկյանից</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Սխալ գաղտնաբառ է մուտքագրվել %1$d անգամ: Նորից փորձեք %2$d վայրկյանից</string>
     <string name="lockscreen_sim_pin_blocked">PIN1-ն արգելափակված է: Մուտքագրել PUK1՝ PIN1-ն արգելաբացելու համար</string>
@@ -866,6 +874,7 @@
     <string name="autofill_this_form">Ավտոլցոնում</string>
     <string name="autofill_address_type_same_as_re">Նույնը, ինչ</string>
     <string name="autofill_billing_designator_re">Հաշիվ</string>
+    <string name="autofill_shipping_designator_re">Նավ</string>
     <string name="autofill_phone_suffix_re">Ածանց</string>
     <string name="autofill_name_on_card_contextual_re">Անուն</string>
     <string name="autofill_province">Գավառ</string>
@@ -879,6 +888,7 @@
     <string name="autofill_prefecture">Պրեֆեկտուրա</string>
     <string name="autofill_parish">Եկեղեցական ծուխ</string>
     <string name="autofill_area">Տարածք</string>
+    <string name="permlab_readHistoryBookmarks">Կարդալ ինտերնետի պատմությունը և էջանիշերը</string>
     <string name="permdesc_readHistoryBookmarks">Թույլ է տալիս, որ ծրագիրը կարդա բոլոր URL-ները, որոնք այցելել է Զննարկիչը, և Զննարկչի բոլոր էջանիշերը</string>
     <string name="permdesc_writeHistoryBookmarks">Թույլ է տալիս, որ ծրագիրը փոփոխի ինտերնետի պատմությունը և Ձեր հեռախոսում պահվող էջանիշերը: Թույլատրված լինելու դեպքում չարամիտ ծրագրերը կարող են ջնջել կամ փոփոխել այդպիսի տվյալները</string>
     <string name="permlab_setAlarm">Նախադրել տագնապ</string>
@@ -943,10 +953,12 @@
     <string name="inputMethod">Ներմուծման մեթոդ</string>
     <string name="low_internal_storage_view_title">Հիշողությունը գրեթե լիքն է</string>
     <string name="low_internal_storage_view_text">Հնարավոր է՝ համակարգի որոշ գործառույթներ չեն աշխատում</string>
+    <string name="full_internal_storage_view_text">Սխալ է տեղի ունեցել, որովհետև սարքի հիշողությունը լիքն է: Վերացրեք որոշ տարրեր</string>
     <string name="loading">Բեռնում է…</string>
     <string name="capital_on">Միացնել</string>
     <string name="capital_off">Անջատել</string>
     <string name="whichApplication">Կատարել գործողույթունն` օգտագործելով</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Օգտագործել ըստ լռելյայնի` այս գործողության համար</string>
     <string name="clearDefaultHintMsg">Մաքրեք կանխադրված ծրագրի դրվածքները՝ գնալով Դրվածքներ > Ծրագրերի վարիչ > Բոլոր</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1004,7 +1016,7 @@
     <string name="wifi_notification_no_network_message">Բացել Wi-Fi կարգավորումները</string>
     <string name="wifi_notification_not_connected">Առկա են Wi-Fi ցանցեր</string>
     <string name="wifi_notification_not_connected_message">Բացել առկա Wi-Fi ցանցերը</string>
-    <string name="wifi_notification_connected">Կապակցված է %1$s-ին</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Թակել՝ կազմաձևելու Wi-Fi-ը</string>
     <string name="wifi_notification_connected_secure">Անվտանգ</string>
     <string name="wifi_notification_connected_open">Բացել</string>
@@ -1031,9 +1043,9 @@
     <string name="select_character">Զետեղել գրանշան</string>
     <string name="sms_control_default_app_name">Անհայտ ծրագիր</string>
     <string name="sms_control_title">Ուղարկվում է SMS…</string>
-    <string name="sms_control_message">Ուղարկվում եմ մեծ թվով SMS հաղորդագրություններ: Թակել OK շարունակելու համար, կամ Դադարեցնել՝ ուղարկումը կանգնեցնելու համար</string>
-    <string name="sms_control_yes">OK</string>
-    <string name="sms_control_no">Չեղարկել</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> մեծ թվով SMS հաղորդագրություններ է ուղարկում. թույլատրե՞լ, որ այս ծրագիրը շարունակի հաղորդագրություններ ուղարկել:</string>
+    <string name="sms_control_yes">Թույլատրել</string>
+    <string name="sms_control_no">Մերժել</string>
     <string name="sim_removed_title">SIM քարտը հեռացված է</string>
     <string name="sim_removed_message">Շարժական կապի ցանցն անմատչելի կլինի, քանի դեռ չեք վերագործարկել տեղադրված վավեր SIM քարտով</string>
     <string name="sim_done_button">Արված է</string>
@@ -1111,7 +1123,7 @@
     <string name="activity_list_empty">Համապատասխան գործունեությունն գտնված չէ</string>
     <string name="permlab_pkgUsageStats">արդիացնել բաղադրիչի օգտագործման վիճակագրությունը</string>
     <string name="permdesc_pkgUsageStats">Թույլատրում է բաղադրիչների օգտագործման հավաքված վիճակագրության փոփոխում։ Ենթակա չէ սովորական գործադիրներով օգտագործելու</string>
-    <string name="permlab_copyProtectedData">Թույլ է տալիս, որ կանխադրված կոնտեյներային ծառայությունը պատճենի բովանդակությունը: Նախատեսված չէ սովորական ծրագրերի կողմից օգտագործման համար</string>
+    <string name="permlab_copyProtectedData">Պատճենել բովանդակությունը</string>
     <string name="permdesc_copyProtectedData">Թույլ է տալիս, որ կանխադրված կոնտեյներային ծառայությունը պատճենի բովանդակությունը: Նախատեսված չէ սովորական ծրագրերի կողմից օգտագործման համար</string>
     <string name="permlab_route_media_output">Երթուղել մեդիա արտադրանքը</string>
     <string name="permdesc_route_media_output">Թույլ է տալիս, որ ծրագիրը մեդիա արտադրանքը երթուղի դեպի այլ արտաքին սարքեր</string>
@@ -1242,10 +1254,11 @@
     <string name="action_bar_home_description">Նավարկել դեպի տուն</string>
     <string name="action_bar_up_description">Նավարկել վեր</string>
     <string name="action_menu_overflow_description">Այլ ընտրանքներ</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Փոխել նախորդ չափին</string>
     <string name="storage_internal">Սարքի հիշողություն</string>
     <string name="storage_sd_card">SD քարտ</string>
     <string name="storage_usb">USB պահոց</string>
-    <string name="extract_edit_menu_button">Խմբագրել…</string>
+    <string name="extract_edit_menu_button">Խմբագրել</string>
     <string name="data_usage_warning_title">Տվյալների օգտագործման նախազգուշացում</string>
     <string name="data_usage_warning_body">Թակեք՝ օգտագործումն ու դրվածքները դիտելու համար</string>
     <string name="data_usage_3g_limit_title">2G-3G տվյալները կասեցված են</string>
@@ -1274,7 +1287,7 @@
     <string name="fingerprints">Դրոշմահետքեր</string>
     <string name="sha256_fingerprint">SHA-256 դրոշմահետք՝</string>
     <string name="sha1_fingerprint">SHA-1 դրոշմահետք՝</string>
-    <string name="activity_chooser_view_see_all">Տես բլր</string>
+    <string name="activity_chooser_view_see_all">Տես բոլորը</string>
     <string name="activity_chooser_view_dialog_title_default">Ընտրել գործունեություն</string>
     <string name="share_action_provider_share_with">Համօգտագործել հետևյալի հետ՝</string>
     <string name="status_bar_device_locked">Սարքը կողպված է</string>
@@ -1329,6 +1342,8 @@
     <string name="lockscreen_fmapp_name">FM Ռադիո</string>
     <string name="lockscreen_clock_dualclock_home">Տուն</string>
     <string name="lockscreen_clock_dualclock_roaming">Ռոումինգ</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Սեուլի ժամանակ</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Ռոումինգ</string>
     <string name="lockscreen_clock_dualclock_popup_title">Երկակի ժամացույց</string>
     <string name="lockscreen_clock_dualclock_popup_message">Ընտրեք ելակետային քաղաքը՝ կողպված էկրանի վրա կրկնակի ժամացույց ցուցադրելու համար. գնա՞լ Դրվածքներ:</string>
     <string name="lockscreen_ticker_no_data_to_display">Ցուցադրելու տվյալ չկա</string>
@@ -1365,7 +1380,7 @@
     <string name="lockscreen_2ndLock_instructions2">Արգելաբացելու համար մուտքագրեք կրկնօրինակման PIN-ը</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">OK</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Դուք սխալ եք նկարել ձեր ապակողպման նմուշը %1$d անգամ։ Փորձեք կրկին %2$d վայրկյանից։</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Արգելաբացման սխալ նախշ է գծվել %1$d անգամ: %2$d փորձ է մնացել, նախքան Ձեզնից կպահանջվի արգելաբացել սարքը՝ օգտվելով Ձեր Google մուտքից կամ կրկնօրինակման PIN-ից: Նորից փորձեք %3$d վայրկյանից</string>
     <string name="lockscreen_carrier_noservice">(ծառայություն առկա չէ)</string>
     <string name="rescan_network">Հասանելի ցանցի որոնում</string>
     <string name="AutoUpdateOfTimeAndDate">Ժամանակի և ամսաթվի թարմացում ավտոմատ կերպով</string>
@@ -1376,6 +1391,8 @@
     <string name="capabilitymanager_managed_errortitle">Սխալ</string>
     <string name="security_policy_title">Անվտանգության քաղաքականություններ</string>
     <string name="security_policy_summary">Ծածկագրման քաղաքականություններ են ստացվել հեռավոր վարիչից</string>
+    <string name="sdcard_unmount_policy_noti_title">SD քարտն ապասարվել է ՏՏ քաղաքականության պատճառով</string>
+    <string name="sdcard_unmount_policy_noti_content">Թակեք՝ SD քարտը սարելու համար</string>
     <string name="sdcard_encrypt_title_notification">SD քարտի ծածկագրում</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">SD քարտը ծածկագրվում է…</string>
     <string name="sdcard_encrypt_notification">SD քարտը ծածկագրվեց</string>
@@ -1399,7 +1416,7 @@
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1433,7 +1450,7 @@
     <string name="StrUnknownSubscriber">Unregistered subscriber. Check your registration status and try again</string>
     <string name="StrBearerSvcNotProvisoned">Unregistered service. Contact customer centre to register service</string>
     <string name="StrTelesrviceNotProvisoned">Unregistered service. Contact customer centre to register service</string>
-    <string name="StrCallBarred">Սահմանափակ ծառայություն: Արգելաբացեք մտից կանչերը և նորից փորձեք</string>
+    <string name="StrCallBarred">Սահմանափակ ծառայություն: Արգելաբացեք մուտքային զանգերը և նորից փորձեք</string>
     <string name="StrIllegalSSOperation">Invalid service code. Check service code and try again</string>
     <string name="StrSSErrStatus">Failed to connect due to network problem. Please try again</string>
     <string name="StrSSNotAvailable">Undefined additional service. Please contact customer centre</string>
@@ -1441,7 +1458,7 @@
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Մուտքագրված արժեքները թույլատրելի արժեքների տիրույթից դուրս են: Ստուգեք արժեքները և նորից փորձեք</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1463,6 +1480,8 @@
     <string name="SS_USB_TETHERING_ENABLED">USB տեղակապումն ընձեռված է</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Wi-Fi տեղակապումն ընձեռված է</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Տեղակապումն ընձեռված է (Wi-Fi և USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Սարքն արգելափակվեց: Գաղտնաբառի մուտքագրման փորձերի առավելագույն քանակը լրացել է: Վերականգնման գաղտնաբառ է պահանջվում՝ սարքն արգելաբացելու համար: Եթե մուտքագրեք վերականգնման սխալ գաղտնաբառ, բոլոր տվյալները կմաքրվեն</string>
+    <string name="recovery_password_required">Վերականգնման գաղտնաբառ է պահանջվում՝ սարքն արգելաբացելու համար</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Կոմուտացման ցանցի ստեղծումն ընձեռված է</string>
@@ -1496,12 +1515,21 @@
     <string name="lockscreen_ticker_logo_news_tts">Նորություններ</string>
     <string name="lockscreen_ticker_logo_stock_tts">Բաժնետոմս</string>
     <string name="lockscreen_ticker_refresh_tts">Թարմացնել</string>
+    <string name="SS_ALWAYS_ON_TOP">Միշտ վերևում</string>
+    <string name="SS_MINIMISE">Նվազարկել</string>
+    <string name="SS_MAXIMISE">Առավելարկել</string>
+    <string name="SS_CLOSE_APPLICATION">Փակել ծրագիրը</string>
+    <string name="spengesture_media_scanning">Անհնար է նկարը կադրավորել. միջոցների տեսածրիչը գործում է</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN-ը արգելափակված է</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Ձեր SIM քարտը արգելաբացելու համար դիմեք Ձեր ծառայության մատակարարին:</string>
     <string name="resolver_guide_title">Մաքրել լռելյայնները</string>
     <string name="operation_not_allowed">Գործողությունը թույլատրված չէ</string>
     <string name="exceeded_maxlength">Գերազանցել եք հաղորդագրության առավելագույն չափը</string>
     <string name="dont_show_again_message">Չցուցադրել կրկին</string>
     <string name="set_bing_as_default">Bing-ը դնե՞լ որպես կանխադրված որոնիչ:</string>
     <string name="ms_domain_site">Microsoft տիրույթի կայք</string>
+    <string name="unsupported_in_popupbrowser">Չապահովվող գործառույթ Ելնող Զննարկչում</string>
+    <string name="find_on_page_abb">Գտնել էջում</string>
     <string name="tw_clipboard_already_exists">Արդեն գոյություն ունի</string>
     <string name="tw_clipboard_no_items_to_paste">Կպցնելու տարրեր չկան</string>
     <string name="tw_clipboard_save_in_memo">Պահպանել Հուշագրերում</string>
@@ -1515,9 +1543,12 @@
     <string name="tw_ids_com_body_unlock_in_clipboard">Արգելաբացել գզրոցից</string>
     <string name="tw_clipboard_clear">Մաքրել</string>
     <string name="tw_clipboard_delete_all">Ջնջե՞լ բոլորը</string>
-    <string name="tw_clipboard_edit">Խմբագրել</string>
-    <string name="tw_clipboard_done">Կատարված է</string>
-    <string name="tw_clipboard_save">Պահպանել</string>
+    <string name="tw_clipboard_edit">Խմբգլ</string>
+    <string name="tw_clipboard_done">Պտրստ</string>
+    <string name="tw_clipboard_save">Պհպնլ</string>
     <string name="tw_clipboard_no_item">Տարրեր չկան</string>
     <string name="tw_clipboard_delete_all_from_clipboard">Բոլոր տարրերը, բացի կողպված տարրերից, վերացվել են գզրոցից</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Կպցվել է գզրոցից</string>
+    <string name="Roaming_Auto_Dialing">PIN-ը արգելափակված է</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

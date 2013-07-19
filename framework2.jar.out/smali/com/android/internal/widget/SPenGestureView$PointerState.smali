@@ -43,30 +43,30 @@
     .prologue
     const/16 v1, 0x20
 
-    .line 208
+    .line 231
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 209
+    .line 232
     iput v1, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->ESTIMATE_TRACE_DEFAULT_SIZE:I
 
-    .line 210
+    .line 233
     new-array v0, v1, [F
 
     iput-object v0, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceX:[F
 
-    .line 211
+    .line 234
     new-array v0, v1, [F
 
     iput-object v0, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceY:[F
 
-    .line 214
+    .line 237
     new-instance v0, Landroid/view/MotionEvent$PointerCoords;
 
     invoke-direct {v0}, Landroid/view/MotionEvent$PointerCoords;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mCoords:Landroid/view/MotionEvent$PointerCoords;
 
-    .line 218
+    .line 241
     new-instance v0, Landroid/view/VelocityTracker$Estimator;
 
     invoke-direct {v0}, Landroid/view/VelocityTracker$Estimator;-><init>()V
@@ -76,80 +76,80 @@
     return-void
 .end method
 
-.method static synthetic access$2300(Lcom/android/internal/widget/SPenGestureView$PointerState;)Z
+.method static synthetic access$2700(Lcom/android/internal/widget/SPenGestureView$PointerState;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 208
+    .line 231
     iget-boolean v0, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mCurDown:Z
 
     return v0
 .end method
 
-.method static synthetic access$2302(Lcom/android/internal/widget/SPenGestureView$PointerState;Z)Z
+.method static synthetic access$2702(Lcom/android/internal/widget/SPenGestureView$PointerState;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 208
+    .line 231
     iput-boolean p1, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mCurDown:Z
 
     return p1
 .end method
 
-.method static synthetic access$2400(Lcom/android/internal/widget/SPenGestureView$PointerState;)Landroid/view/MotionEvent$PointerCoords;
+.method static synthetic access$2800(Lcom/android/internal/widget/SPenGestureView$PointerState;)Landroid/view/MotionEvent$PointerCoords;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 208
+    .line 231
     iget-object v0, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mCoords:Landroid/view/MotionEvent$PointerCoords;
 
     return-object v0
 .end method
 
-.method static synthetic access$2502(Lcom/android/internal/widget/SPenGestureView$PointerState;I)I
+.method static synthetic access$2902(Lcom/android/internal/widget/SPenGestureView$PointerState;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 208
+    .line 231
     iput p1, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mToolType:I
 
     return p1
 .end method
 
-.method static synthetic access$2600(Lcom/android/internal/widget/SPenGestureView$PointerState;)I
+.method static synthetic access$3000(Lcom/android/internal/widget/SPenGestureView$PointerState;)I
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 208
+    .line 231
     iget v0, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceCount:I
 
     return v0
 .end method
 
-.method static synthetic access$2700(Lcom/android/internal/widget/SPenGestureView$PointerState;)[F
+.method static synthetic access$3100(Lcom/android/internal/widget/SPenGestureView$PointerState;)[F
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 208
+    .line 231
     iget-object v0, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceX:[F
 
     return-object v0
 .end method
 
-.method static synthetic access$2800(Lcom/android/internal/widget/SPenGestureView$PointerState;)[F
+.method static synthetic access$3200(Lcom/android/internal/widget/SPenGestureView$PointerState;)[F
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 208
+    .line 231
     iget-object v0, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceY:[F
 
     return-object v0
@@ -165,24 +165,24 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 225
+    .line 248
     iget-object v3, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceX:[F
 
     array-length v2, v3
 
-    .line 226
+    .line 249
     .local v2, traceCapacity:I
     iget v3, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceCount:I
 
     if-ne v3, v2, :cond_0
 
-    .line 227
+    .line 250
     mul-int/lit8 v2, v2, 0x2
 
-    .line 228
+    .line 251
     new-array v0, v2, [F
 
-    .line 229
+    .line 252
     .local v0, newTraceX:[F
     iget-object v3, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceX:[F
 
@@ -190,13 +190,13 @@
 
     invoke-static {v3, v5, v0, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 230
+    .line 253
     iput-object v0, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceX:[F
 
-    .line 232
+    .line 255
     new-array v1, v2, [F
 
-    .line 233
+    .line 256
     .local v1, newTraceY:[F
     iget-object v3, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceY:[F
 
@@ -204,10 +204,10 @@
 
     invoke-static {v3, v5, v1, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 234
+    .line 257
     iput-object v1, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceY:[F
 
-    .line 237
+    .line 260
     .end local v0           #newTraceX:[F
     .end local v1           #newTraceY:[F
     :cond_0
@@ -217,21 +217,21 @@
 
     aput p1, v3, v4
 
-    .line 238
+    .line 261
     iget-object v3, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceY:[F
 
     iget v4, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceCount:I
 
     aput p2, v3, v4
 
-    .line 239
+    .line 262
     iget v3, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceCount:I
 
     add-int/lit8 v3, v3, 0x1
 
     iput v3, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceCount:I
 
-    .line 240
+    .line 263
     return-void
 .end method
 
@@ -239,11 +239,11 @@
     .locals 1
 
     .prologue
-    .line 221
+    .line 244
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/widget/SPenGestureView$PointerState;->mTraceCount:I
 
-    .line 222
+    .line 245
     return-void
 .end method

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 185
+    .line 173
     iput-object p1, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "msg"
 
     .prologue
-    .line 188
+    .line 176
     move-object/from16 v0, p1
 
     iget v0, v0, Landroid/os/Message;->what:I
@@ -48,15 +48,15 @@
 
     packed-switch v16, :pswitch_data_0
 
-    .line 294
+    .line 282
     :goto_0
     return-void
 
-    .line 190
+    .line 178
     :pswitch_0
     monitor-enter p0
 
-    .line 191
+    .line 179
     :try_start_0
     invoke-static {}, Lcom/android/server/DockObserver;->access$000()Ljava/lang/String;
 
@@ -114,7 +114,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 193
+    .line 181
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
@@ -130,7 +130,7 @@
 
     move-result-object v4
 
-    .line 195
+    .line 183
     .local v4, cr:Landroid/content/ContentResolver;
     const-string v16, "device_provisioned"
 
@@ -146,7 +146,7 @@
 
     if-nez v16, :cond_0
 
-    .line 197
+    .line 185
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
@@ -185,7 +185,7 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 198
+    .line 186
     invoke-static {}, Lcom/android/server/DockObserver;->access$000()Ljava/lang/String;
 
     move-result-object v16
@@ -194,12 +194,12 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 199
+    .line 187
     monitor-exit p0
 
     goto/16 :goto_0
 
-    .line 291
+    .line 279
     .end local v4           #cr:Landroid/content/ContentResolver;
     :catchall_0
     move-exception v16
@@ -210,7 +210,7 @@
 
     throw v16
 
-    .line 203
+    .line 191
     .restart local v4       #cr:Landroid/content/ContentResolver;
     :cond_0
     :try_start_1
@@ -222,7 +222,7 @@
 
     invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 204
+    .line 192
     .local v6, intent:Landroid/content/Intent;
     const/high16 v16, 0x2000
 
@@ -230,7 +230,7 @@
 
     invoke-virtual {v6, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 205
+    .line 193
     const-string v16, "android.intent.extra.DOCK_STATE"
 
     move-object/from16 v0, p0
@@ -250,7 +250,7 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 206
+    .line 194
     const-string v16, "android.intent.extra.SMART_DOCK_STATE"
 
     move-object/from16 v0, p0
@@ -270,16 +270,16 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 209
+    .line 197
     invoke-static {}, Landroid/server/BluetoothService;->readDockBluetoothAddress()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 210
+    .line 198
     .local v2, address:Ljava/lang/String;
     if-eqz v2, :cond_1
 
-    .line 211
+    .line 199
     const-string v16, "android.bluetooth.device.extra.DEVICE"
 
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
@@ -298,7 +298,7 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 216
+    .line 204
     :cond_1
     const-string v16, "dock_sounds_enabled"
 
@@ -320,10 +320,10 @@
 
     if-ne v0, v1, :cond_f
 
-    .line 219
+    .line 207
     const/4 v15, 0x0
 
-    .line 220
+    .line 208
     .local v15, whichSound:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -338,7 +338,7 @@
 
     if-nez v16, :cond_6
 
-    .line 221
+    .line 209
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
@@ -415,11 +415,11 @@
 
     if-ne v0, v1, :cond_5
 
-    .line 225
+    .line 213
     :cond_2
     const-string v15, "desk_undock_sound"
 
-    .line 241
+    .line 229
     :cond_3
     :goto_1
     move-object/from16 v0, p0
@@ -441,13 +441,13 @@
 
     check-cast v3, Landroid/media/AudioManager;
 
-    .line 242
+    .line 230
     .local v3, audioManager:Landroid/media/AudioManager;
     invoke-virtual {v3}, Landroid/media/AudioManager;->getRingerMode()I
 
     move-result v10
 
-    .line 244
+    .line 232
     .local v10, ringerMode:I
     invoke-static {}, Lcom/android/server/DockObserver;->access$000()Ljava/lang/String;
 
@@ -475,10 +475,10 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 245
+    .line 233
     if-eqz v15, :cond_4
 
-    .line 246
+    .line 234
     const/16 v16, 0x1
 
     move/from16 v0, v16
@@ -504,12 +504,12 @@
 
     if-ne v0, v1, :cond_9
 
-    .line 248
+    .line 236
     new-instance v14, Landroid/os/SystemVibrator;
 
     invoke-direct {v14}, Landroid/os/SystemVibrator;-><init>()V
 
-    .line 249
+    .line 237
     .local v14, vibrator:Landroid/os/Vibrator;
     const-wide/16 v16, 0x3e8
 
@@ -517,7 +517,7 @@
 
     invoke-virtual {v14, v0, v1}, Landroid/os/Vibrator;->vibrate(J)V
 
-    .line 289
+    .line 277
     .end local v3           #audioManager:Landroid/media/AudioManager;
     .end local v10           #ringerMode:I
     .end local v14           #vibrator:Landroid/os/Vibrator;
@@ -532,7 +532,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 290
+    .line 278
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
@@ -548,12 +548,12 @@
 
     invoke-virtual {v0, v6}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 291
+    .line 279
     monitor-exit p0
 
     goto/16 :goto_0
 
-    .line 226
+    .line 214
     .restart local v15       #whichSound:Ljava/lang/String;
     :cond_5
     move-object/from16 v0, p0
@@ -575,12 +575,12 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 227
+    .line 215
     const-string v15, "car_undock_sound"
 
     goto/16 :goto_1
 
-    .line 230
+    .line 218
     :cond_6
     move-object/from16 v0, p0
 
@@ -658,13 +658,13 @@
 
     if-ne v0, v1, :cond_8
 
-    .line 234
+    .line 222
     :cond_7
     const-string v15, "desk_dock_sound"
 
     goto/16 :goto_1
 
-    .line 235
+    .line 223
     :cond_8
     move-object/from16 v0, p0
 
@@ -685,12 +685,12 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 236
+    .line 224
     const-string v15, "car_dock_sound"
 
     goto/16 :goto_1
 
-    .line 251
+    .line 239
     .restart local v3       #audioManager:Landroid/media/AudioManager;
     .restart local v10       #ringerMode:I
     :cond_9
@@ -698,7 +698,7 @@
 
     move-result-object v12
 
-    .line 252
+    .line 240
     .local v12, soundPath:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/DockObserver;->access$000()Ljava/lang/String;
 
@@ -726,10 +726,10 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 253
+    .line 241
     if-eqz v12, :cond_4
 
-    .line 254
+    .line 242
     new-instance v16, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
@@ -754,7 +754,7 @@
 
     move-result-object v13
 
-    .line 255
+    .line 243
     .local v13, soundUri:Landroid/net/Uri;
     invoke-static {}, Lcom/android/server/DockObserver;->access$000()Ljava/lang/String;
 
@@ -782,10 +782,10 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 256
+    .line 244
     if-eqz v13, :cond_4
 
-    .line 257
+    .line 245
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
@@ -803,11 +803,11 @@
 
     move-result-object v11
 
-    .line 258
+    .line 246
     .local v11, sfx:Landroid/media/Ringtone;
     if-eqz v11, :cond_4
 
-    .line 262
+    .line 250
     const-string v16, "audioParam;outDevice"
 
     move-object/from16 v0, v16
@@ -816,11 +816,11 @@
 
     move-result-object v9
 
-    .line 263
+    .line 251
     .local v9, path:Ljava/lang/String;
     const/4 v7, 0x0
 
-    .line 264
+    .line 252
     .local v7, isHDMI:Z
     if-eqz v9, :cond_a
 
@@ -834,7 +834,7 @@
 
     if-eqz v16, :cond_c
 
-    .line 269
+    .line 257
     :cond_a
     :goto_3
     const/16 v16, 0x1
@@ -845,7 +845,7 @@
 
     move-result v8
 
-    .line 270
+    .line 258
     .local v8, masterStreamVolume:I
     int-to-float v0, v8
 
@@ -859,7 +859,7 @@
 
     mul-float v5, v16, v17
 
-    .line 272
+    .line 260
     .local v5, dockSoundVolume:F
     if-eqz v8, :cond_b
 
@@ -869,7 +869,7 @@
 
     if-eq v10, v0, :cond_e
 
-    .line 273
+    .line 261
     :cond_b
     invoke-static {}, Lcom/android/server/DockObserver;->access$000()Ljava/lang/String;
 
@@ -881,7 +881,7 @@
 
     goto/16 :goto_2
 
-    .line 266
+    .line 254
     .end local v5           #dockSoundVolume:F
     .end local v8           #masterStreamVolume:I
     :cond_c
@@ -911,7 +911,7 @@
 
     goto :goto_4
 
-    .line 275
+    .line 263
     .restart local v5       #dockSoundVolume:F
     .restart local v8       #masterStreamVolume:I
     :cond_e
@@ -921,17 +921,17 @@
 
     invoke-virtual {v11, v0}, Landroid/media/Ringtone;->setStreamType(I)V
 
-    .line 276
+    .line 264
     invoke-virtual {v11, v5, v5}, Landroid/media/Ringtone;->setVolume(FF)V
 
-    .line 277
+    .line 265
     if-nez v7, :cond_4
 
     invoke-virtual {v11}, Landroid/media/Ringtone;->play()V
 
     goto/16 :goto_2
 
-    .line 286
+    .line 274
     .end local v3           #audioManager:Landroid/media/AudioManager;
     .end local v5           #dockSoundVolume:F
     .end local v7           #isHDMI:Z
@@ -955,7 +955,7 @@
 
     goto/16 :goto_2
 
-    .line 188
+    .line 176
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

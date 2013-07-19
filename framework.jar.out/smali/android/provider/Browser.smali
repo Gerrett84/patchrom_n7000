@@ -1271,7 +1271,7 @@
 
     .prologue
     .line 198
-    const v0, 0x10404ea
+    const v0, 0x10404f4
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1316,7 +1316,7 @@
 
     .line 221
     .local v0, i:Landroid/content/Intent;
-    const/high16 v2, 0x1000
+    const v2, 0x10008000
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 

@@ -85,11 +85,17 @@
 
 .field public static final CDMA_OTA_PROVISION_STATUS_COMMITTED:I = 0x8
 
+.field public static final CDMA_OTA_PROVISION_STATUS_FAILURES_EXCESS_SPC:I = 0x11
+
 .field public static final CDMA_OTA_PROVISION_STATUS_IMSI_DOWNLOADED:I = 0x6
+
+.field public static final CDMA_OTA_PROVISION_STATUS_LOCK_CODE_PASSWORD_SET:I = 0x12
 
 .field public static final CDMA_OTA_PROVISION_STATUS_MDN_DOWNLOADED:I = 0x5
 
 .field public static final CDMA_OTA_PROVISION_STATUS_NAM_DOWNLOADED:I = 0x4
+
+.field public static final CDMA_OTA_PROVISION_STATUS_OK_OTAPAVERIFY:I = 0xf
 
 .field public static final CDMA_OTA_PROVISION_STATUS_OTAPA_ABORTED:I = 0xb
 
@@ -99,11 +105,19 @@
 
 .field public static final CDMA_OTA_PROVISION_STATUS_PRL_DOWNLOADED:I = 0x7
 
+.field public static final CDMA_OTA_PROVISION_STATUS_PROGRAMMING:I = 0xc
+
+.field public static final CDMA_OTA_PROVISION_STATUS_PROGRESS:I = 0x10
+
 .field public static final CDMA_OTA_PROVISION_STATUS_SPC_RETRIES_EXCEEDED:I = 0x1
 
 .field public static final CDMA_OTA_PROVISION_STATUS_SPL_UNLOCKED:I = 0x0
 
 .field public static final CDMA_OTA_PROVISION_STATUS_SSD_UPDATED:I = 0x3
+
+.field public static final CDMA_OTA_PROVISION_STATUS_SUCCESSFUL:I = 0xd
+
+.field public static final CDMA_OTA_PROVISION_STATUS_UNSUCCESSFUL:I = 0xe
 
 .field public static final CDMA_RM_AFFILIATED:I = 0x1
 
@@ -126,6 +140,8 @@
 .field public static final CDMA_SUBSCRIPTION_NV:I = 0x1
 
 .field public static final CDMA_SUBSCRIPTION_RUIM_SIM:I = 0x0
+
+.field public static final CURRENT_ACTIVE_DATA:Ljava/lang/String; = "net.gprs.current.data"
 
 .field public static final DATA_APN_KEY:Ljava/lang/String; = "apn"
 
@@ -168,6 +184,44 @@
 .field public static final FEATURE_ENABLE_VZW800:Ljava/lang/String; = "enable800APN"
 
 .field public static final FEATURE_ENABLE_WAP:Ljava/lang/String; = "enableWAP"
+
+.field public static final LGT_CDMA_OTAPA_CALL_START_MODE:I = 0x10
+
+.field public static final LGT_CDMA_OTAPA_CALL_STOP_MODE:I = 0xf
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_A_KEY_EXCHANGED:I = 0x1
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_COMMITTED:I = 0x7
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_FAILURES_EXCESS_SPC:I = 0xd
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_IMSI_DOWNLOADED:I = 0x5
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_LOCK_CODE_PASSWORD_SET:I = 0xe
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_MDN_DOWNLOADED:I = 0x4
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_NAM_DOWNLOADED:I = 0x3
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_OTAPA_STOPPED:I = 0x11
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_OTAPA_VERIFY:I = 0xb
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_PRL_DOWNLOADED:I = 0x6
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_PROGRAMMING:I = 0x8
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_PROGRESS:I = 0xc
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_SPC_RETRIES_EXCEEDED:I = 0x12
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_SPL_UNLOCKED:I = 0x0
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_SSD_UPDATED:I = 0x2
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_SUCCESSFUL:I = 0x9
+
+.field public static final LGT_CDMA_OTA_PROVISION_STATUS_UNSUCCESSFUL:I = 0xa
 
 .field public static final LTE_ON_CDMA_FALSE:I = 0x0
 
@@ -359,6 +413,14 @@
     .end annotation
 .end method
 
+.method public abstract dial(Ljava/lang/String;Lcom/android/internal/telephony/Call$CallType;)Lcom/android/internal/telephony/Connection;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/internal/telephony/CallStateException;
+        }
+    .end annotation
+.end method
+
 .method public abstract dial(Ljava/lang/String;Lcom/android/internal/telephony/UUSInfo;)Lcom/android/internal/telephony/Connection;
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -376,6 +438,14 @@
 .end method
 
 .method public abstract dialVideoCall(Ljava/lang/String;)Lcom/android/internal/telephony/Connection;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/android/internal/telephony/CallStateException;
+        }
+    .end annotation
+.end method
+
+.method public abstract dialVideoCall(Ljava/lang/String;Lcom/android/internal/telephony/Call$CallType;)Lcom/android/internal/telephony/Connection;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/CallStateException;

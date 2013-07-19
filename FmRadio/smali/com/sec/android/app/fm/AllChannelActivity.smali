@@ -56,10 +56,10 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 83
+    .line 104
     sput-object v0, Lcom/sec/android/app/fm/AllChannelActivity;->cl_normal:Landroid/content/res/ColorStateList;
 
-    .line 84
+    .line 106
     sput-object v0, Lcom/sec/android/app/fm/AllChannelActivity;->cl_yellow:Landroid/content/res/ColorStateList;
 
     return-void
@@ -71,40 +71,40 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 54
+    .line 56
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 59
+    .line 64
     iput-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
-    .line 60
+    .line 66
     iput-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mScanFinishedDialog:Landroid/app/AlertDialog;
 
-    .line 61
+    .line 68
     iput-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mDeleteDialog:Landroid/app/Dialog;
 
-    .line 62
+    .line 70
     iput-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRenameDialog:Lcom/sec/android/app/fm/ui/RenameDialog;
 
-    .line 81
+    .line 100
     iput-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
 
-    .line 82
+    .line 102
     const/high16 v0, -0x4080
 
     iput v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSavedSelectedFreq:F
 
-    .line 87
+    .line 110
     iput-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->unableScanToast:Landroid/widget/Toast;
 
-    .line 90
+    .line 114
     new-instance v0, Lcom/sec/android/app/fm/AllChannelActivity$1;
 
     invoke-direct {v0, p0}, Lcom/sec/android/app/fm/AllChannelActivity$1;-><init>(Lcom/sec/android/app/fm/AllChannelActivity;)V
 
     iput-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mCallback:Lcom/sec/android/app/fm/MainActivity$Callback;
 
-    .line 864
+    .line 911
     return-void
 .end method
 
@@ -118,27 +118,27 @@
 
     const/high16 v6, -0x4080
 
-    .line 620
+    .line 663
     sget-object v5, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v5}, Lcom/sec/android/app/fm/MainActivity;->getCurrentChannel()F
 
     move-result v1
 
-    .line 621
+    .line 664
     .local v1, freq:F
     cmpl-float v5, v1, v6
 
     if-eqz v5, :cond_0
 
-    .line 622
+    .line 665
     sget-object v5, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v5, v1}, Lcom/sec/android/app/fm/MainActivity;->getChannel(F)Lcom/sec/android/app/fm/data/Channel;
 
     move-result-object v0
 
-    .line 623
+    .line 666
     .local v0, channel:Lcom/sec/android/app/fm/data/Channel;
     if-nez v0, :cond_0
 
@@ -152,7 +152,7 @@
 
     if-lez v5, :cond_0
 
-    .line 624
+    .line 667
     invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v5
@@ -161,11 +161,11 @@
 
     move-result v4
 
-    .line 625
+    .line 668
     .local v4, tFreq:F
     float-to-int v3, v4
 
-    .line 626
+    .line 669
     .local v3, freqInt:I
     mul-float v5, v4, v7
 
@@ -173,13 +173,13 @@
 
     float-to-int v2, v5
 
-    .line 628
+    .line 671
     .local v2, freqDec:I
     cmpl-float v5, v4, v6
 
     if-eqz v5, :cond_0
 
-    .line 629
+    .line 672
     sget-object v5, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     const/4 v6, 0x0
@@ -188,7 +188,7 @@
 
     invoke-virtual {v5, v4, v6, v7}, Lcom/sec/android/app/fm/MainActivity;->tune(FLandroid/view/View;I)V
 
-    .line 630
+    .line 673
     const v5, 0x7f0a0004
 
     const/4 v6, 0x2
@@ -219,7 +219,7 @@
 
     invoke-virtual {v5}, Landroid/widget/Toast;->show()V
 
-    .line 638
+    .line 682
     .end local v0           #channel:Lcom/sec/android/app/fm/data/Channel;
     .end local v2           #freqDec:I
     .end local v3           #freqInt:I
@@ -233,7 +233,7 @@
     .parameter "x0"
 
     .prologue
-    .line 54
+    .line 56
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     return-object v0
@@ -244,7 +244,7 @@
     .parameter "x0"
 
     .prologue
-    .line 54
+    .line 56
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mScanFinishedDialog:Landroid/app/AlertDialog;
 
     return-object v0
@@ -255,7 +255,7 @@
     .parameter "x0"
 
     .prologue
-    .line 54
+    .line 56
     invoke-direct {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->refreshScanIcon()V
 
     return-void
@@ -266,7 +266,7 @@
     .parameter "x0"
 
     .prologue
-    .line 54
+    .line 56
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
 
     return-object v0
@@ -278,7 +278,7 @@
     .parameter "x1"
 
     .prologue
-    .line 54
+    .line 56
     iput-object p1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
 
     return-object p1
@@ -289,7 +289,7 @@
     .parameter "x0"
 
     .prologue
-    .line 54
+    .line 56
     iget v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSavedSelectedFreq:F
 
     return v0
@@ -300,7 +300,7 @@
     .parameter "x0"
 
     .prologue
-    .line 54
+    .line 56
     invoke-direct {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->CheckDelete_Already_Tuened()V
 
     return-void
@@ -311,7 +311,7 @@
     .parameter "x0"
 
     .prologue
-    .line 54
+    .line 56
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mMaxFavoriteToast:Landroid/widget/Toast;
 
     return-object v0
@@ -323,7 +323,7 @@
     .parameter "x1"
 
     .prologue
-    .line 54
+    .line 56
     iput-object p1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mMaxFavoriteToast:Landroid/widget/Toast;
 
     return-object p1
@@ -334,7 +334,7 @@
     .parameter "x0"
 
     .prologue
-    .line 54
+    .line 56
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mMenu:Landroid/view/Menu;
 
     return-object v0
@@ -345,7 +345,7 @@
     .parameter "x0"
 
     .prologue
-    .line 54
+    .line 56
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mChannelListView:Landroid/widget/ListView;
 
     return-object v0
@@ -360,7 +360,7 @@
 
     const/4 v4, 0x0
 
-    .line 446
+    .line 480
     invoke-static {}, Lcom/sec/android/app/fm/FMRadioFeature;->GetFrequencySpace()I
 
     move-result v0
@@ -369,7 +369,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 447
+    .line 481
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string v1, "%.2f"
@@ -386,7 +386,7 @@
 
     move-result-object v0
 
-    .line 449
+    .line 483
     :goto_0
     return-object v0
 
@@ -416,14 +416,14 @@
     .prologue
     const/4 v2, 0x3
 
-    .line 1139
+    .line 1186
     const-string v0, "AllChannelActivity"
 
     const-string v1, "refresh Scan Icon"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secV(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1140
+    .line 1187
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mMenu:Landroid/view/Menu;
 
     if-eqz v0, :cond_0
@@ -438,7 +438,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1141
+    .line 1189
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity;->mAudioManager:Landroid/media/AudioManager;
@@ -449,18 +449,18 @@
 
     if-eqz v0, :cond_1
 
-    .line 1142
+    .line 1190
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mMenu:Landroid/view/Menu;
 
     invoke-interface {v0, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f02013e
+    const v1, 0x7f020108
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 1143
+    .line 1191
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mMenu:Landroid/view/Menu;
 
     invoke-interface {v0, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
@@ -471,12 +471,12 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 1149
+    .line 1198
     :cond_0
     :goto_0
     return-void
 
-    .line 1145
+    .line 1193
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mMenu:Landroid/view/Menu;
 
@@ -484,11 +484,11 @@
 
     move-result-object v0
 
-    const v1, 0x7f02013d
+    const v1, 0x7f020107
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 1146
+    .line 1195
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mMenu:Landroid/view/Menu;
 
     invoke-interface {v0, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
@@ -506,30 +506,30 @@
     .locals 2
 
     .prologue
-    .line 1078
+    .line 1123
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 1080
+    .line 1125
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "com.sec.android.app.fm.RESTORE_FINISH"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 1082
-    new-instance v1, Lcom/sec/android/app/fm/AllChannelActivity$9;
+    .line 1127
+    new-instance v1, Lcom/sec/android/app/fm/AllChannelActivity$10;
 
-    invoke-direct {v1, p0}, Lcom/sec/android/app/fm/AllChannelActivity$9;-><init>(Lcom/sec/android/app/fm/AllChannelActivity;)V
+    invoke-direct {v1, p0}, Lcom/sec/android/app/fm/AllChannelActivity$10;-><init>(Lcom/sec/android/app/fm/AllChannelActivity;)V
 
     iput-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackupRestoreReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 1101
+    .line 1146
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackupRestoreReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v1, v0}, Lcom/sec/android/app/fm/AllChannelActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 1103
+    .line 1148
     return-void
 .end method
 
@@ -538,7 +538,7 @@
     .parameter "freq"
 
     .prologue
-    .line 641
+    .line 685
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v4, v4, Lcom/sec/android/app/fm/MainActivity;->mChannelList:Ljava/util/ArrayList;
@@ -549,22 +549,22 @@
 
     if-nez v4, :cond_0
 
-    .line 642
+    .line 686
     const/high16 v4, -0x4080
 
-    .line 655
+    .line 699
     :goto_0
     return v4
 
-    .line 643
+    .line 687
     :cond_0
     const/high16 v2, 0x4348
 
-    .line 644
+    .line 688
     .local v2, least:F
     const/4 v3, 0x0
 
-    .line 645
+    .line 689
     .local v3, pos:I
     const/4 v1, 0x0
 
@@ -580,7 +580,7 @@
 
     if-ge v1, v4, :cond_2
 
-    .line 647
+    .line 691
     invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
 
     move-result v5
@@ -603,25 +603,25 @@
 
     move-result v0
 
-    .line 648
+    .line 692
     .local v0, diff:F
     cmpg-float v4, v0, v2
 
     if-gez v4, :cond_1
 
-    .line 649
+    .line 693
     move v2, v0
 
-    .line 650
+    .line 694
     move v3, v1
 
-    .line 645
+    .line 689
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 653
+    .line 697
     .end local v0           #diff:F
     :cond_2
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -664,7 +664,7 @@
 
     invoke-virtual {v4, v5}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 655
+    .line 699
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v4, v4, Lcom/sec/android/app/fm/MainActivity;->mChannelList:Ljava/util/ArrayList;
@@ -686,7 +686,7 @@
     .prologue
     const/4 v6, -0x1
 
-    .line 1126
+    .line 1172
     const v3, 0x1020004
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/AllChannelActivity;->findViewById(I)Landroid/view/View;
@@ -695,16 +695,16 @@
 
     check-cast v1, Landroid/widget/FrameLayout;
 
-    .line 1127
+    .line 1173
     .local v1, layout:Landroid/widget/FrameLayout;
     invoke-virtual {v1}, Landroid/widget/FrameLayout;->removeAllViews()V
 
-    .line 1129
+    .line 1175
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v3
 
-    const v4, 0x7f03000b
+    const v4, 0x7f030012
 
     const/4 v5, 0x0
 
@@ -712,22 +712,22 @@
 
     move-result-object v0
 
-    .line 1130
+    .line 1176
     .local v0, emptyView:Landroid/view/View;
     new-instance v2, Landroid/view/ViewGroup$LayoutParams;
 
     invoke-direct {v2, v6, v6}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 1132
+    .line 1178
     .local v2, params:Landroid/view/ViewGroup$LayoutParams;
     invoke-virtual {v1, v0, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1134
+    .line 1180
     iget-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mChannelListView:Landroid/widget/ListView;
 
     invoke-virtual {v3, v1}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
 
-    .line 1135
+    .line 1181
     return-void
 .end method
 
@@ -735,22 +735,22 @@
     .locals 1
 
     .prologue
-    .line 1107
+    .line 1152
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackupRestoreReceiver:Landroid/content/BroadcastReceiver;
 
     if-eqz v0, :cond_0
 
-    .line 1109
+    .line 1154
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackupRestoreReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/AllChannelActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 1111
+    .line 1156
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackupRestoreReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 1115
+    .line 1160
     :cond_0
     return-void
 .end method
@@ -767,20 +767,20 @@
 
     const/high16 v5, -0x4080
 
-    .line 583
+    .line 625
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRenameDialog:Lcom/sec/android/app/fm/ui/RenameDialog;
 
-    invoke-virtual {v4}, Lcom/sec/android/app/fm/ui/RenameDialog;->getRenamedString()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/sec/android/app/fm/ui/RenameDialog;->getText()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 585
+    .line 627
     .local v3, freqRename:Ljava/lang/String;
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
 
     if-eqz v4, :cond_0
 
-    .line 586
+    .line 628
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
 
     iget v4, v4, Lcom/sec/android/app/fm/data/Channel;->mFreqMHz:F
@@ -789,7 +789,7 @@
 
     move-result-object v2
 
-    .line 592
+    .line 634
     .local v2, freq:Ljava/lang/Float;
     :goto_0
     invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
@@ -800,7 +800,7 @@
 
     if-eqz v4, :cond_3
 
-    .line 593
+    .line 635
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
@@ -811,23 +811,23 @@
 
     move-result-object v0
 
-    .line 594
+    .line 636
     .local v0, channel:Lcom/sec/android/app/fm/data/Channel;
     if-eqz v0, :cond_2
 
     if-eqz v3, :cond_2
 
-    .line 595
+    .line 637
     iput-object v3, v0, Lcom/sec/android/app/fm/data/Channel;->mFreqName:Ljava/lang/String;
 
-    .line 597
+    .line 639
     invoke-static {}, Lcom/sec/android/app/fm/data/ChannelStore;->getInstance()Lcom/sec/android/app/fm/data/ChannelStore;
 
     move-result-object v4
 
     invoke-virtual {v4}, Lcom/sec/android/app/fm/data/ChannelStore;->store()V
 
-    .line 599
+    .line 641
     :try_start_0
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -835,17 +835,17 @@
     :try_end_0
     .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 613
+    .line 657
     .end local v0           #channel:Lcom/sec/android/app/fm/data/Channel;
     :goto_1
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     invoke-virtual {v4}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 614
+    .line 658
     return-void
 
-    .line 587
+    .line 629
     .end local v2           #freq:Ljava/lang/Float;
     :cond_0
     iget v4, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSavedSelectedFreq:F
@@ -854,7 +854,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 588
+    .line 630
     iget v4, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSavedSelectedFreq:F
 
     invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -864,7 +864,7 @@
     .restart local v2       #freq:Ljava/lang/Float;
     goto :goto_0
 
-    .line 590
+    .line 632
     .end local v2           #freq:Ljava/lang/Float;
     :cond_1
     invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -874,12 +874,12 @@
     .restart local v2       #freq:Ljava/lang/Float;
     goto :goto_0
 
-    .line 600
+    .line 642
     .restart local v0       #channel:Lcom/sec/android/app/fm/data/Channel;
     :catch_0
     move-exception v1
 
-    .line 602
+    .line 644
     .local v1, e:Lcom/samsung/media/fmradio/FMPlayerException;
     :try_start_1
     invoke-virtual {v1}, Lcom/samsung/media/fmradio/FMPlayerException;->printStackTrace()V
@@ -888,13 +888,13 @@
 
     goto :goto_1
 
-    .line 603
+    .line 645
     :catch_1
     move-exception v4
 
     goto :goto_1
 
-    .line 608
+    .line 650
     .end local v1           #e:Lcom/samsung/media/fmradio/FMPlayerException;
     :cond_2
     invoke-static {p0, v7, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
@@ -905,7 +905,7 @@
 
     goto :goto_1
 
-    .line 611
+    .line 654
     .end local v0           #channel:Lcom/sec/android/app/fm/data/Channel;
     :cond_3
     invoke-static {p0, v7, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
@@ -922,13 +922,13 @@
     .parameter "newConfig"
 
     .prologue
-    .line 1121
+    .line 1167
     invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 1122
+    .line 1168
     invoke-direct {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->setEmptView()V
 
-    .line 1123
+    .line 1169
     return-void
 .end method
 
@@ -937,14 +937,14 @@
     .parameter "item"
 
     .prologue
-    .line 404
+    .line 439
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 415
+    .line 450
     :goto_0
     invoke-super {p0, p1}, Landroid/app/Activity;->onContextItemSelected(Landroid/view/MenuItem;)Z
 
@@ -952,7 +952,7 @@
 
     return v0
 
-    .line 406
+    .line 441
     :pswitch_0
     const/4 v0, 0x6
 
@@ -960,7 +960,7 @@
 
     goto :goto_0
 
-    .line 409
+    .line 444
     :pswitch_1
     const/4 v0, 0x7
 
@@ -968,7 +968,7 @@
 
     goto :goto_0
 
-    .line 404
+    .line 439
     :pswitch_data_0
     .packed-switch 0x4
         :pswitch_0
@@ -981,38 +981,45 @@
     .parameter "savedInstanceState"
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    .line 235
+    .line 270
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 236
+    .line 271
+    const-string v2, "AllChannelActivity"
+
+    const-string v3, "onCreate() is called"
+
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 272
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-nez v2, :cond_0
 
-    .line 237
+    .line 273
     const-string v2, "AllChannelActivity"
 
     const-string v3, "onCreate - MainActivity._instance is null"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 238
+    .line 274
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->finish()V
 
-    .line 388
+    .line 423
     :goto_0
     return-void
 
-    .line 241
+    .line 277
     :cond_0
-    const/high16 v2, 0x7f03
+    const v2, 0x7f030002
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/fm/AllChannelActivity;->setContentView(I)V
 
-    .line 242
-    const v2, 0x7f070002
+    .line 278
+    const v2, 0x7f070004
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/fm/AllChannelActivity;->findViewById(I)Landroid/view/View;
 
@@ -1022,29 +1029,29 @@
 
     iput-object v2, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mChannelListView:Landroid/widget/ListView;
 
-    .line 244
+    .line 280
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v2
 
-    invoke-virtual {v2, v3}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/app/ActionBar;->setHomeButtonEnabled(Z)V
 
-    .line 245
+    .line 281
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->getActionBar()Landroid/app/ActionBar;
 
     move-result-object v2
 
-    invoke-virtual {v2, v3}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
-    .line 249
+    .line 285
     invoke-direct {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->setEmptView()V
 
-    .line 252
+    .line 288
     const v2, 0x7f0a001f
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/fm/AllChannelActivity;->setTitle(I)V
 
-    .line 255
+    .line 291
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v2, :cond_1
@@ -1055,18 +1062,18 @@
 
     if-eqz v2, :cond_1
 
-    .line 257
+    .line 293
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v3, v2, Lcom/sec/android/app/fm/MainActivity;->mChannelList:Ljava/util/ArrayList;
 
     monitor-enter v3
 
-    .line 258
+    .line 294
     :try_start_0
     new-instance v2, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
-    const v4, 0x7f030004
+    const v4, 0x7f030006
 
     sget-object v5, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -1076,42 +1083,42 @@
 
     iput-object v2, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
-    .line 261
+    .line 296
     iget-object v2, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mChannelListView:Landroid/widget/ListView;
 
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     invoke-virtual {v2, v4}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 262
+    .line 297
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mCallback:Lcom/sec/android/app/fm/MainActivity$Callback;
 
     invoke-virtual {v2, v4}, Lcom/sec/android/app/fm/MainActivity;->registerCallback(Lcom/sec/android/app/fm/MainActivity$Callback;)V
 
-    .line 264
+    .line 299
     iget-object v2, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     invoke-virtual {v2}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 265
+    .line 300
     monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 269
+    .line 304
     :cond_1
     if-eqz p1, :cond_2
 
-    .line 270
+    .line 305
     const-string v2, "FMApp"
 
     const-string v3, "AllChannelActivity : onCreate savedinstancestate"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 271
+    .line 306
     const-string v2, "selected_freq"
 
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;)F
@@ -1120,20 +1127,20 @@
 
     iput v2, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSavedSelectedFreq:F
 
-    .line 278
+    .line 312
     :cond_2
     :try_start_1
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f02011b
+    const v3, 0x7f0200e9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
     move-result-object v1
 
-    .line 279
+    .line 314
     .local v1, xpp:Landroid/content/res/XmlResourceParser;
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->getResources()Landroid/content/res/Resources;
 
@@ -1147,7 +1154,7 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 286
+    .line 322
     .end local v1           #xpp:Landroid/content/res/XmlResourceParser;
     :cond_3
     :goto_1
@@ -1156,13 +1163,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f02011a
+    const v3, 0x7f0200e8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
     move-result-object v1
 
-    .line 303
+    .line 340
     .restart local v1       #xpp:Landroid/content/res/XmlResourceParser;
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->getResources()Landroid/content/res/Resources;
 
@@ -1176,7 +1183,7 @@
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 308
+    .line 346
     .end local v1           #xpp:Landroid/content/res/XmlResourceParser;
     :cond_4
     :goto_2
@@ -1186,7 +1193,7 @@
 
     iput-object v2, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mHandler:Landroid/os/Handler;
 
-    .line 340
+    .line 378
     iget-object v2, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mChannelListView:Landroid/widget/ListView;
 
     new-instance v3, Lcom/sec/android/app/fm/AllChannelActivity$2;
@@ -1195,17 +1202,17 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 384
+    .line 419
     invoke-direct {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->registerRestoreReceiver()V
 
-    .line 386
+    .line 421
     iget-object v2, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mChannelListView:Landroid/widget/ListView;
 
     invoke-virtual {p0, v2}, Lcom/sec/android/app/fm/AllChannelActivity;->registerForContextMenu(Landroid/view/View;)V
 
     goto/16 :goto_0
 
-    .line 265
+    .line 300
     :catchall_0
     move-exception v2
 
@@ -1216,17 +1223,17 @@
 
     throw v2
 
-    .line 280
+    .line 315
     :catch_0
     move-exception v0
 
-    .line 281
+    .line 316
     .local v0, e:Ljava/lang/Exception;
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v2, :cond_3
 
-    .line 282
+    .line 317
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1255,18 +1262,18 @@
 
     goto :goto_1
 
-    .line 304
+    .line 341
     .end local v0           #e:Ljava/lang/Exception;
     :catch_1
     move-exception v0
 
-    .line 305
+    .line 342
     .restart local v0       #e:Ljava/lang/Exception;
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v2, :cond_4
 
-    .line 306
+    .line 343
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1305,21 +1312,21 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 422
+    .line 456
     if-nez p3, :cond_0
 
-    .line 423
+    .line 457
     const-string v4, "AllChannelActivity"
 
     const-string v5, "onCreateContextMenu - menuInfo is null"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 442
+    .line 477
     :goto_0
     return-void
 
-    .line 429
+    .line 463
     :cond_0
     :try_start_0
     move-object v0, p3
@@ -1330,7 +1337,7 @@
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 434
+    .line 468
     .local v2, info:Landroid/widget/AdapterView$AdapterContextMenuInfo;
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -1348,7 +1355,7 @@
 
     iput-object v4, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
 
-    .line 435
+    .line 469
     sget-object v4, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v4, v4, Lcom/sec/android/app/fm/MainActivity;->mChannelList:Ljava/util/ArrayList;
@@ -1365,7 +1372,7 @@
 
     iget v3, v4, Lcom/sec/android/app/fm/data/Channel;->mFreqMHz:F
 
-    .line 437
+    .line 472
     .local v3, selectedFreq:F
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -1379,17 +1386,7 @@
 
     move-result-object v4
 
-    const-string v5, " "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const v5, 0x7f0a0029
-
-    invoke-virtual {p0, v5}, Lcom/sec/android/app/fm/AllChannelActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
+    const-string v5, " MHz"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1401,32 +1398,32 @@
 
     invoke-interface {p1, v4}, Landroid/view/ContextMenu;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
 
-    .line 438
+    .line 473
     const/4 v4, 0x4
 
     const v5, 0x7f0a00a6
 
     invoke-interface {p1, v7, v4, v7, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
-    .line 439
+    .line 474
     const/4 v4, 0x5
 
     const v5, 0x7f0a0025
 
     invoke-interface {p1, v7, v4, v7, v5}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
-    .line 441
+    .line 476
     invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onCreateContextMenu(Landroid/view/ContextMenu;Landroid/view/View;Landroid/view/ContextMenu$ContextMenuInfo;)V
 
     goto :goto_0
 
-    .line 430
+    .line 464
     .end local v2           #info:Landroid/widget/AdapterView$AdapterContextMenuInfo;
     .end local v3           #selectedFreq:F
     :catch_0
     move-exception v1
 
-    .line 431
+    .line 465
     .local v1, e:Ljava/lang/ClassCastException;
     goto :goto_0
 .end method
@@ -1446,23 +1443,23 @@
 
     const/4 v7, 0x0
 
-    .line 459
+    .line 493
     packed-switch p1, :pswitch_data_0
 
-    .line 577
+    .line 619
     :pswitch_0
     const/4 v3, 0x0
 
     :goto_0
     return-object v3
 
-    .line 463
+    .line 497
     :pswitch_1
     iget-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     if-nez v3, :cond_0
 
-    .line 464
+    .line 498
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v3, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -1503,13 +1500,13 @@
 
     iput-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
-    .line 491
+    .line 523
     :cond_0
     iget-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mAlertDialog:Landroid/app/AlertDialog;
 
     goto :goto_0
 
-    .line 494
+    .line 526
     :pswitch_2
     iget-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mScanFinishedDialog:Landroid/app/AlertDialog;
 
@@ -1519,7 +1516,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 495
+    .line 527
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v3, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -1566,23 +1563,23 @@
 
     iput-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mScanFinishedDialog:Landroid/app/AlertDialog;
 
-    .line 507
+    .line 539
     :cond_1
     iget-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mScanFinishedDialog:Landroid/app/AlertDialog;
 
     goto :goto_0
 
-    .line 511
+    .line 543
     :pswitch_3
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 512
+    .line 544
     .local v2, twalertdialog3:Landroid/app/AlertDialog$Builder;
     invoke-virtual {v2, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 513
+    .line 545
     const/4 v3, 0x2
 
     new-array v3, v3, [Ljava/lang/String;
@@ -1609,19 +1606,19 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 541
+    .line 573
     invoke-virtual {v2}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v3
 
     goto/16 :goto_0
 
-    .line 543
+    .line 575
     .end local v2           #twalertdialog3:Landroid/app/AlertDialog$Builder;
     :pswitch_4
     const/4 v1, 0x0
 
-    .line 544
+    .line 576
     .local v1, deletemsg:Ljava/lang/String;
     const v3, 0x7f0a00ca
 
@@ -1629,23 +1626,23 @@
 
     move-result-object v1
 
-    .line 545
+    .line 577
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 546
+    .line 578
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     const v3, 0x7f0a00a6
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 547
+    .line 579
     const v3, 0x7f0a00ca
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 548
+    .line 580
     new-instance v3, Lcom/sec/android/app/fm/AllChannelActivity$7;
 
     invoke-direct {v3, p0}, Lcom/sec/android/app/fm/AllChannelActivity$7;-><init>(Lcom/sec/android/app/fm/AllChannelActivity;)V
@@ -1658,14 +1655,14 @@
 
     invoke-virtual {v3, v6, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 564
+    .line 597
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v3
 
     goto/16 :goto_0
 
-    .line 566
+    .line 599
     .end local v0           #builder:Landroid/app/AlertDialog$Builder;
     .end local v1           #deletemsg:Ljava/lang/String;
     :pswitch_5
@@ -1675,16 +1672,25 @@
 
     invoke-direct {v4, p0}, Lcom/sec/android/app/fm/AllChannelActivity$8;-><init>(Lcom/sec/android/app/fm/AllChannelActivity;)V
 
-    invoke-direct {v3, p0, v4}, Lcom/sec/android/app/fm/ui/RenameDialog;-><init>(Landroid/content/Context;Landroid/content/DialogInterface$OnClickListener;)V
+    invoke-direct {v3, p0, v7, v4}, Lcom/sec/android/app/fm/ui/RenameDialog;-><init>(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;)V
 
     iput-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRenameDialog:Lcom/sec/android/app/fm/ui/RenameDialog;
 
-    .line 574
+    .line 609
+    iget-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRenameDialog:Lcom/sec/android/app/fm/ui/RenameDialog;
+
+    new-instance v4, Lcom/sec/android/app/fm/AllChannelActivity$9;
+
+    invoke-direct {v4, p0}, Lcom/sec/android/app/fm/AllChannelActivity$9;-><init>(Lcom/sec/android/app/fm/AllChannelActivity;)V
+
+    invoke-virtual {v3, v4}, Lcom/sec/android/app/fm/ui/RenameDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
+    .line 616
     iget-object v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRenameDialog:Lcom/sec/android/app/fm/ui/RenameDialog;
 
     goto/16 :goto_0
 
-    .line 459
+    .line 493
     nop
 
     :pswitch_data_0
@@ -1703,10 +1709,10 @@
     .parameter "menu"
 
     .prologue
-    .line 733
+    .line 778
     iput-object p1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mMenu:Landroid/view/Menu;
 
-    .line 734
+    .line 779
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
     move-result v0
@@ -1718,33 +1724,33 @@
     .locals 2
 
     .prologue
-    .line 848
+    .line 894
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 849
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    .line 895
+    const-string v0, "AllChannelActivity"
 
-    const-string v1, "ondestroy"
+    const-string v1, "onDestroy() is called"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 850
+    .line 896
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v0, :cond_0
 
-    .line 851
+    .line 897
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mCallback:Lcom/sec/android/app/fm/MainActivity$Callback;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->unregisterCallback(Lcom/sec/android/app/fm/MainActivity$Callback;)V
 
-    .line 855
+    .line 901
     :cond_0
     invoke-direct {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->unregisterRestoreReceiver()V
 
-    .line 857
+    .line 903
     return-void
 .end method
 
@@ -1754,17 +1760,17 @@
     .parameter "arg1"
 
     .prologue
-    .line 722
+    .line 769
     const/4 v0, 0x4
 
     if-ne p1, v0, :cond_0
 
-    .line 723
+    .line 770
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackKey:Z
 
-    .line 725
+    .line 772
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
@@ -1782,18 +1788,18 @@
 
     const/4 v3, 0x1
 
-    .line 787
+    .line 834
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 841
+    .line 886
     :goto_0
     return v3
 
-    .line 790
+    .line 837
     :sswitch_0
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -1801,10 +1807,10 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 791
+    .line 838
     iput-boolean v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackKey:Z
 
-    .line 792
+    .line 839
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/sec/android/app/fm/RemoveChannelActivity;
@@ -1815,7 +1821,7 @@
 
     goto :goto_0
 
-    .line 797
+    .line 844
     :sswitch_1
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -1823,10 +1829,10 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 798
+    .line 845
     iput-boolean v3, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackKey:Z
 
-    .line 799
+    .line 846
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/sec/android/app/fm/RenameChannelActivity;
@@ -1837,7 +1843,7 @@
 
     goto :goto_0
 
-    .line 803
+    .line 850
     :sswitch_2
     invoke-static {}, Lcom/sec/android/app/fm/WorkerThread;->getInstance()Lcom/sec/android/app/fm/WorkerThread;
 
@@ -1847,7 +1853,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 804
+    .line 851
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1902,7 +1908,7 @@
 
     goto :goto_0
 
-    .line 815
+    .line 860
     :cond_0
     :try_start_0
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
@@ -1919,7 +1925,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 816
+    .line 862
     const v0, 0x7f0a0008
 
     const/4 v1, 0x0
@@ -1934,16 +1940,16 @@
 
     goto :goto_0
 
-    .line 821
+    .line 866
     :catch_0
     move-exception v0
 
-    .line 822
+    .line 867
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v1, v0}, Lcom/sec/android/app/fm/MainActivity;->error(Ljava/lang/Exception;)V
 
-    .line 825
+    .line 870
     :cond_1
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -1955,12 +1961,12 @@
 
     if-eqz v0, :cond_3
 
-    .line 826
+    .line 871
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->unableScanToast:Landroid/widget/Toast;
 
     if-nez v0, :cond_2
 
-    .line 827
+    .line 872
     const/4 v0, 0x0
 
     invoke-static {p0, v0, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -1969,7 +1975,7 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->unableScanToast:Landroid/widget/Toast;
 
-    .line 828
+    .line 873
     :cond_2
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->unableScanToast:Landroid/widget/Toast;
 
@@ -1977,14 +1983,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Toast;->setText(I)V
 
-    .line 829
+    .line 874
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->unableScanToast:Landroid/widget/Toast;
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     goto/16 :goto_0
 
-    .line 831
+    .line 876
     :cond_3
     const/4 v0, 0x5
 
@@ -1992,13 +1998,13 @@
 
     goto/16 :goto_0
 
-    .line 835
+    .line 880
     :sswitch_3
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->finish()V
 
     goto/16 :goto_0
 
-    .line 787
+    .line 834
     nop
 
     :sswitch_data_0
@@ -2016,29 +2022,29 @@
     .parameter "dialog"
 
     .prologue
-    .line 660
+    .line 704
     packed-switch p1, :pswitch_data_0
 
-    .line 668
+    .line 712
     :goto_0
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onPrepareDialog(ILandroid/app/Dialog;)V
 
-    .line 669
+    .line 713
     return-void
 
     :pswitch_0
     move-object v0, p2
 
-    .line 662
+    .line 706
     check-cast v0, Lcom/sec/android/app/fm/ui/RenameDialog;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
 
-    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/ui/RenameDialog;->setChannel(Lcom/sec/android/app/fm/data/Channel;)Lcom/sec/android/app/fm/ui/RenameDialog;
+    invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/ui/RenameDialog;->setText(Lcom/sec/android/app/fm/data/Channel;)V
 
     goto :goto_0
 
-    .line 660
+    .line 704
     :pswitch_data_0
     .packed-switch 0x7
         :pswitch_0
@@ -2060,24 +2066,24 @@
 
     const/4 v2, 0x0
 
-    .line 741
+    .line 787
     invoke-interface {p1}, Landroid/view/Menu;->clear()V
 
-    .line 744
+    .line 790
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-nez v1, :cond_0
 
-    .line 745
+    .line 791
     invoke-super {p0, p1}, Landroid/app/Activity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
     move-result v1
 
-    .line 779
+    .line 825
     :goto_0
     return v1
 
-    .line 747
+    .line 792
     :cond_0
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -2085,14 +2091,14 @@
 
     if-nez v1, :cond_1
 
-    .line 748
+    .line 793
     invoke-super {p0, p1}, Landroid/app/Activity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
     move-result v1
 
     goto :goto_0
 
-    .line 752
+    .line 797
     :cond_1
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -2104,14 +2110,14 @@
 
     if-nez v1, :cond_3
 
-    .line 753
+    .line 798
     const v1, 0x7f0a001b
 
     invoke-interface {p1, v2, v4, v4, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 754
+    .line 799
     .local v0, menuItem:Landroid/view/MenuItem;
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -2123,37 +2129,37 @@
 
     if-eqz v1, :cond_2
 
-    .line 755
-    const v1, 0x7f02013e
+    .line 800
+    const v1, 0x7f020108
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 756
+    .line 801
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 761
+    .line 806
     :goto_1
     invoke-interface {v0, v6}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 762
+    .line 808
     invoke-super {p0, p1}, Landroid/app/Activity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
     move-result v1
 
     goto :goto_0
 
-    .line 758
+    .line 803
     :cond_2
-    const v1, 0x7f02013d
+    const v1, 0x7f020107
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 759
+    .line 804
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     goto :goto_1
 
-    .line 765
+    .line 811
     .end local v0           #menuItem:Landroid/view/MenuItem;
     :cond_3
     const v1, 0x7f0a00a6
@@ -2162,32 +2168,32 @@
 
     move-result-object v0
 
-    .line 766
+    .line 812
     .restart local v0       #menuItem:Landroid/view/MenuItem;
-    const v1, 0x7f020138
+    const v1, 0x7f020104
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 767
+    .line 813
     const v1, 0x7f0a0025
 
     invoke-interface {p1, v2, v5, v5, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 768
-    const v1, 0x7f02013c
+    .line 814
+    const v1, 0x7f020106
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 769
+    .line 815
     const v1, 0x7f0a001b
 
     invoke-interface {p1, v2, v4, v4, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 770
+    .line 816
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v1, v1, Lcom/sec/android/app/fm/MainActivity;->mAudioManager:Landroid/media/AudioManager;
@@ -2198,32 +2204,32 @@
 
     if-eqz v1, :cond_4
 
-    .line 771
-    const v1, 0x7f02013e
+    .line 817
+    const v1, 0x7f020108
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 772
+    .line 818
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 777
+    .line 823
     :goto_2
     invoke-interface {v0, v6}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 779
+    .line 825
     invoke-super {p0, p1}, Landroid/app/Activity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
     move-result v1
 
     goto :goto_0
 
-    .line 774
+    .line 820
     :cond_4
-    const v1, 0x7f02013d
+    const v1, 0x7f020107
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 775
+    .line 821
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     goto :goto_2
@@ -2233,15 +2239,22 @@
     .locals 3
 
     .prologue
-    .line 676
+    .line 720
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 678
+    .line 721
+    const-string v0, "AllChannelActivity"
+
+    const-string v1, "onResume() is called"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 723
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v0, :cond_0
 
-    .line 679
+    .line 724
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2270,7 +2283,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;Z)V
 
-    .line 685
+    .line 729
     :cond_0
     invoke-static {}, Lcom/sec/android/app/fm/data/ChannelStore;->getInstance()Lcom/sec/android/app/fm/data/ChannelStore;
 
@@ -2278,29 +2291,29 @@
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/data/ChannelStore;->load()V
 
-    .line 689
+    .line 733
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     if-eqz v0, :cond_1
 
-    .line 690
+    .line 734
     iget-object v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mRadioArrayAdapter:Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/AllChannelActivity$RadioItemAdapter;->notifyDataSetChanged()V
 
-    .line 692
+    .line 736
     :cond_1
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackKey:Z
 
-    .line 694
+    .line 738
     invoke-direct {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->refreshScanIcon()V
 
-    .line 696
+    .line 740
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->invalidateOptionsMenu()V
 
-    .line 698
+    .line 742
     return-void
 .end method
 
@@ -2309,17 +2322,17 @@
     .parameter "outState"
 
     .prologue
-    .line 393
+    .line 428
     invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 394
+    .line 429
     const-string v1, "FMApp"
 
     const-string v2, "AllChannelActivity : onSaveInstanceState"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 395
+    .line 430
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
 
     if-nez v1, :cond_0
@@ -2332,7 +2345,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 396
+    .line 431
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSelectedChannel:Lcom/sec/android/app/fm/data/Channel;
 
@@ -2347,7 +2360,7 @@
 
     move-result-object v0
 
-    .line 397
+    .line 433
     .local v0, freq:Ljava/lang/Float;
     const-string v1, "selected_freq"
 
@@ -2357,12 +2370,12 @@
 
     invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
 
-    .line 399
+    .line 435
     .end local v0           #freq:Ljava/lang/Float;
     :cond_1
     return-void
 
-    .line 396
+    .line 431
     :cond_2
     iget v1, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mSavedSelectedFreq:F
 
@@ -2370,25 +2383,32 @@
 .end method
 
 .method protected onStop()V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 704
+    .line 749
+    const-string v0, "AllChannelActivity"
+
+    const-string v1, "onStop() is called"
+
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 750
     iget-boolean v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackKey:Z
 
     if-nez v0, :cond_2
 
-    .line 706
+    .line 752
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v0, :cond_0
 
-    .line 707
+    .line 753
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/MainActivity;->checkBGPlayingSetting()V
 
-    .line 709
+    .line 755
     :cond_0
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->getApplicationContext()Landroid/content/Context;
 
@@ -2396,24 +2416,24 @@
 
     if-eqz v0, :cond_1
 
-    .line 710
+    .line 756
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->widgetRefresh(Landroid/content/Context;)V
 
-    .line 712
+    .line 758
     :cond_1
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/sec/android/app/fm/AllChannelActivity;->mBackKey:Z
 
-    .line 714
+    .line 760
     :cond_2
     invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
-    .line 715
+    .line 761
     return-void
 .end method
 
@@ -2422,7 +2442,7 @@
     .parameter "view"
 
     .prologue
-    .line 1049
+    .line 1090
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -2433,9 +2453,9 @@
 
     move-result-object v0
 
-    .line 1052
+    .line 1093
     .local v0, fontSize:Ljava/lang/String;
-    const v2, 0x7f070006
+    const v2, 0x7f070008
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2443,13 +2463,13 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 1055
+    .line 1096
     .local v1, txtChannelFreq:Landroid/widget/TextView;
     if-eqz v0, :cond_0
 
     if-eqz v1, :cond_0
 
-    .line 1056
+    .line 1097
     :try_start_0
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -2457,12 +2477,12 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 1071
+    .line 1116
     :cond_0
     :goto_0
     return-void
 
-    .line 1060
+    .line 1101
     :pswitch_0
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->getResources()Landroid/content/res/Resources;
 
@@ -2478,13 +2498,13 @@
 
     goto :goto_0
 
-    .line 1070
+    .line 1113
     :catch_0
     move-exception v2
 
     goto :goto_0
 
-    .line 1064
+    .line 1106
     :pswitch_1
     invoke-virtual {p0}, Lcom/sec/android/app/fm/AllChannelActivity;->getResources()Landroid/content/res/Resources;
 
@@ -2502,7 +2522,7 @@
 
     goto :goto_0
 
-    .line 1056
+    .line 1097
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

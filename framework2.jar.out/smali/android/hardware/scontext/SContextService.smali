@@ -21,17 +21,7 @@
 
 
 # instance fields
-.field private final mCAApproachListener:Landroid/hardware/contextaware/CAListener;
-
-.field private final mCAAutoRotationListener:Landroid/hardware/contextaware/CAListener;
-
-.field private final mCAMotionListener:Landroid/hardware/contextaware/CAListener;
-
-.field private final mCAMovementListener:Landroid/hardware/contextaware/CAListener;
-
-.field private final mCAPedometerListener:Landroid/hardware/contextaware/CAListener;
-
-.field private final mCAStepCountAlertListener:Landroid/hardware/contextaware/CAListener;
+.field private final mCAListener:Landroid/hardware/contextaware/CAListener;
 
 .field private final mContext:Landroid/content/Context;
 
@@ -66,235 +56,240 @@
 
 .field private mSContextStepCountAlertContext:Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
 
-.field private mThread:Landroid/os/HandlerThread;
+.field mScreenReceiver:Landroid/content/BroadcastReceiver;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .locals 3
     .parameter "context"
 
     .prologue
-    const/4 v1, 0x0
-
-    .line 70
-    invoke-direct {p0}, Landroid/hardware/scontext/ISContextService$Stub;-><init>()V
-
-    .line 52
-    iput-object v1, p0, Landroid/hardware/scontext/SContextService;->mThread:Landroid/os/HandlerThread;
-
-    .line 54
-    iput-object v1, p0, Landroid/hardware/scontext/SContextService;->mHandler:Landroid/hardware/scontext/SContextService$ServiceHandler;
-
-    .line 56
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
-
-    .line 58
-    iput-object v1, p0, Landroid/hardware/scontext/SContextService;->mEventPool:Landroid/hardware/scontext/SContextService$EventPool;
-
-    .line 60
-    iput-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
-
-    .line 380
-    new-instance v0, Landroid/hardware/scontext/SContextService$1;
-
-    invoke-direct {v0, p0}, Landroid/hardware/scontext/SContextService$1;-><init>(Landroid/hardware/scontext/SContextService;)V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mCAApproachListener:Landroid/hardware/contextaware/CAListener;
-
-    .line 392
-    new-instance v0, Landroid/hardware/scontext/SContextService$2;
-
-    invoke-direct {v0, p0}, Landroid/hardware/scontext/SContextService$2;-><init>(Landroid/hardware/scontext/SContextService;)V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mCAPedometerListener:Landroid/hardware/contextaware/CAListener;
-
-    .line 409
-    new-instance v0, Landroid/hardware/scontext/SContextService$3;
-
-    invoke-direct {v0, p0}, Landroid/hardware/scontext/SContextService$3;-><init>(Landroid/hardware/scontext/SContextService;)V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mCAStepCountAlertListener:Landroid/hardware/contextaware/CAListener;
-
-    .line 421
-    new-instance v0, Landroid/hardware/scontext/SContextService$4;
-
-    invoke-direct {v0, p0}, Landroid/hardware/scontext/SContextService$4;-><init>(Landroid/hardware/scontext/SContextService;)V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mCAMotionListener:Landroid/hardware/contextaware/CAListener;
-
-    .line 434
-    new-instance v0, Landroid/hardware/scontext/SContextService$5;
-
-    invoke-direct {v0, p0}, Landroid/hardware/scontext/SContextService$5;-><init>(Landroid/hardware/scontext/SContextService;)V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mCAMovementListener:Landroid/hardware/contextaware/CAListener;
-
-    .line 447
-    new-instance v0, Landroid/hardware/scontext/SContextService$6;
-
-    invoke-direct {v0, p0}, Landroid/hardware/scontext/SContextService$6;-><init>(Landroid/hardware/scontext/SContextService;)V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mCAAutoRotationListener:Landroid/hardware/contextaware/CAListener;
-
-    .line 71
-    iput-object p1, p0, Landroid/hardware/scontext/SContextService;->mContext:Landroid/content/Context;
-
-    .line 72
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v0
-
-    const-string v1, "com.sec.feature.sensorhub"
-
-    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 74
-    new-instance v0, Landroid/os/HandlerThread;
-
-    const-string v1, "scontext"
-
-    invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mThread:Landroid/os/HandlerThread;
-
-    .line 75
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+    const/4 v2, 0x0
 
     .line 77
-    new-instance v0, Landroid/hardware/scontext/SContextService$ServiceHandler;
+    invoke-direct {p0}, Landroid/hardware/scontext/ISContextService$Stub;-><init>()V
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mThread:Landroid/os/HandlerThread;
+    .line 55
+    iput-object v2, p0, Landroid/hardware/scontext/SContextService;->mHandler:Landroid/hardware/scontext/SContextService$ServiceHandler;
 
-    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+    .line 57
+    iput-object v2, p0, Landroid/hardware/scontext/SContextService;->mEventPool:Landroid/hardware/scontext/SContextService$EventPool;
+
+    .line 59
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v1, p0, Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
+
+    .line 61
+    iput-object v2, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+
+    .line 65
+    iput-object v2, p0, Landroid/hardware/scontext/SContextService;->mSContextApproachContext:Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
+
+    .line 67
+    iput-object v2, p0, Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
+
+    .line 69
+    iput-object v2, p0, Landroid/hardware/scontext/SContextService;->mSContextStepCountAlertContext:Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
+
+    .line 71
+    iput-object v2, p0, Landroid/hardware/scontext/SContextService;->mSContextMotionContext:Landroid/hardware/scontext/SContextContexts$SContextMotionContext;
+
+    .line 73
+    iput-object v2, p0, Landroid/hardware/scontext/SContextService;->mSContextMovementContext:Landroid/hardware/scontext/SContextContexts$SContextMovementContext;
+
+    .line 75
+    iput-object v2, p0, Landroid/hardware/scontext/SContextService;->mSContextAutoRotationContext:Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;
+
+    .line 414
+    new-instance v1, Landroid/hardware/scontext/SContextService$1;
+
+    invoke-direct {v1, p0}, Landroid/hardware/scontext/SContextService$1;-><init>(Landroid/hardware/scontext/SContextService;)V
+
+    iput-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
+
+    .line 453
+    new-instance v1, Landroid/hardware/scontext/SContextService$2;
+
+    invoke-direct {v1, p0}, Landroid/hardware/scontext/SContextService$2;-><init>(Landroid/hardware/scontext/SContextService;)V
+
+    iput-object v1, p0, Landroid/hardware/scontext/SContextService;->mScreenReceiver:Landroid/content/BroadcastReceiver;
+
+    .line 78
+    iput-object p1, p0, Landroid/hardware/scontext/SContextService;->mContext:Landroid/content/Context;
+
+    .line 79
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Landroid/hardware/scontext/SContextService$ServiceHandler;-><init>(Landroid/hardware/scontext/SContextService;Landroid/os/Looper;)V
+    const-string v2, "com.sec.feature.sensorhub"
 
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mHandler:Landroid/hardware/scontext/SContextService$ServiceHandler;
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    .line 79
-    new-instance v0, Landroid/hardware/scontext/SContextService$EventPool;
+    move-result v1
 
-    invoke-direct {v0, p0}, Landroid/hardware/scontext/SContextService$EventPool;-><init>(Landroid/hardware/scontext/SContextService;)V
+    if-eqz v1, :cond_0
 
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mEventPool:Landroid/hardware/scontext/SContextService$EventPool;
+    .line 80
+    new-instance v0, Landroid/os/HandlerThread;
+
+    const-string v1, "context_aware"
+
+    invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
     .line 81
-    invoke-virtual {p0}, Landroid/hardware/scontext/SContextService;->createSContextService()V
+    .local v0, handlerThread:Landroid/os/HandlerThread;
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
     .line 82
-    invoke-direct {p0, p0}, Landroid/hardware/scontext/SContextService;->addSContextListener(Landroid/hardware/scontext/ISContextListener;)V
+    new-instance v1, Landroid/hardware/scontext/SContextService$ServiceHandler;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-direct {v1, p0, v2}, Landroid/hardware/scontext/SContextService$ServiceHandler;-><init>(Landroid/hardware/scontext/SContextService;Landroid/os/Looper;)V
+
+    iput-object v1, p0, Landroid/hardware/scontext/SContextService;->mHandler:Landroid/hardware/scontext/SContextService$ServiceHandler;
+
+    .line 83
+    new-instance v1, Landroid/hardware/scontext/SContextService$EventPool;
+
+    invoke-direct {v1, p0}, Landroid/hardware/scontext/SContextService$EventPool;-><init>(Landroid/hardware/scontext/SContextService;)V
+
+    iput-object v1, p0, Landroid/hardware/scontext/SContextService;->mEventPool:Landroid/hardware/scontext/SContextService$EventPool;
 
     .line 84
-    :cond_0
-    const-string v0, "SContextService"
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContext:Landroid/content/Context;
 
-    const-string v1, "SContextService()"
+    const-string v2, "context_aware"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/hardware/contextaware/ContextAwareManager;
+
+    iput-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
     .line 85
+    invoke-direct {p0, p0}, Landroid/hardware/scontext/SContextService;->addSContextListener(Landroid/hardware/scontext/ISContextListener;)V
+
+    .line 87
+    .end local v0           #handlerThread:Landroid/os/HandlerThread;
+    :cond_0
+    const-string v1, "SContextService"
+
+    const-string v2, "SContextService()"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 88
     return-void
 .end method
 
-.method static synthetic access$200(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
+.method static synthetic access$1000(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextService$EventPool;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 49
+    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mEventPool:Landroid/hardware/scontext/SContextService$EventPool;
+
+    return-object v0
+.end method
+
+.method static synthetic access$200(Landroid/hardware/scontext/SContextService;Z)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 49
+    invoke-direct {p0, p1}, Landroid/hardware/scontext/SContextService;->setLEDNotification(Z)V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 49
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextApproachContext:Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
 
     return-object v0
 .end method
 
-.method static synthetic access$300(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
+.method static synthetic access$400(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 49
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
 
     return-object v0
 .end method
 
-.method static synthetic access$400(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
+.method static synthetic access$500(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 49
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextStepCountAlertContext:Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
 
     return-object v0
 .end method
 
-.method static synthetic access$500(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextMotionContext;
+.method static synthetic access$600(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextMotionContext;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 49
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextMotionContext:Landroid/hardware/scontext/SContextContexts$SContextMotionContext;
 
     return-object v0
 .end method
 
-.method static synthetic access$600(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextMovementContext;
+.method static synthetic access$700(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextMovementContext;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 49
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextMovementContext:Landroid/hardware/scontext/SContextContexts$SContextMovementContext;
 
     return-object v0
 .end method
 
-.method static synthetic access$700(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;
+.method static synthetic access$800(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 49
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextAutoRotationContext:Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;
 
     return-object v0
 .end method
 
-.method static synthetic access$800(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
+.method static synthetic access$900(Landroid/hardware/scontext/SContextService;)Ljava/util/ArrayList;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 49
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic access$900(Landroid/hardware/scontext/SContextService;)Landroid/hardware/scontext/SContextService$EventPool;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 45
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mEventPool:Landroid/hardware/scontext/SContextService$EventPool;
 
     return-object v0
 .end method
@@ -304,21 +299,21 @@
     .parameter "listener"
 
     .prologue
-    .line 88
+    .line 91
     invoke-static {}, Landroid/hardware/scontext/SContextUpdateContext;->getInstance()Landroid/hardware/scontext/SContextUpdateContext;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/hardware/scontext/SContextUpdateContext;->addListener(Landroid/hardware/scontext/ISContextListener;)V
 
-    .line 89
+    .line 92
     const-string v0, "SContextService"
 
     const-string v1, "addSContextListener()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 90
+    .line 93
     return-void
 .end method
 
@@ -328,17 +323,17 @@
     .parameter "str"
 
     .prologue
-    .line 248
+    .line 247
     const-string v1, ""
 
-    .line 250
+    .line 249
     .local v1, client:Ljava/lang/String;
     :try_start_0
     invoke-static {p1}, Landroid/hardware/scontext/ISContextCallback$Stub;->asInterface(Landroid/os/IBinder;)Landroid/hardware/scontext/ISContextCallback;
 
     move-result-object v0
 
-    .line 251
+    .line 250
     .local v0, cb:Landroid/hardware/scontext/ISContextCallback;
     invoke-interface {v0}, Landroid/hardware/scontext/ISContextCallback;->getListenerInfo()Ljava/lang/String;
     :try_end_0
@@ -346,7 +341,7 @@
 
     move-result-object v1
 
-    .line 255
+    .line 254
     .end local v0           #cb:Landroid/hardware/scontext/ISContextCallback;
     :goto_0
     const-string v3, "SContextService"
@@ -355,7 +350,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "  ."
+    const-string v5, "\t."
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -397,21 +392,124 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 258
+    .line 256
     iget-object v3, p0, Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/lang/Object;->notify()V
 
-    .line 259
+    .line 257
     return-void
 
-    .line 252
+    .line 251
     :catch_0
     move-exception v2
 
-    .line 253
+    .line 252
     .local v2, e:Landroid/os/RemoteException;
     invoke-virtual {v2}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
+.method private setLEDNotification(Z)V
+    .locals 10
+    .parameter "ledOn"
+
+    .prologue
+    const/16 v9, 0x1428
+
+    const/16 v8, 0x3e8
+
+    const/16 v7, 0xff
+
+    const/4 v6, 0x0
+
+    .line 260
+    const-string v3, "SContextService"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "setLEDNotification() LED ON : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 261
+    const/16 v0, 0x1428
+
+    .line 262
+    .local v0, LED_NOTIF_ID:I
+    iget-object v3, p0, Landroid/hardware/scontext/SContextService;->mContext:Landroid/content/Context;
+
+    const-string v4, "notification"
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/NotificationManager;
+
+    .line 263
+    .local v2, notiMgr:Landroid/app/NotificationManager;
+    if-eqz p1, :cond_0
+
+    .line 264
+    new-instance v1, Landroid/app/Notification;
+
+    invoke-direct {v1}, Landroid/app/Notification;-><init>()V
+
+    .line 265
+    .local v1, noti:Landroid/app/Notification;
+    invoke-static {v7, v6, v6, v7}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v3
+
+    iput v3, v1, Landroid/app/Notification;->ledARGB:I
+
+    .line 266
+    iget v3, v1, Landroid/app/Notification;->flags:I
+
+    or-int/lit8 v3, v3, 0x1
+
+    iput v3, v1, Landroid/app/Notification;->flags:I
+
+    .line 267
+    iget v3, v1, Landroid/app/Notification;->flags:I
+
+    or-int/lit16 v3, v3, 0x100
+
+    iput v3, v1, Landroid/app/Notification;->flags:I
+
+    .line 268
+    iput v8, v1, Landroid/app/Notification;->ledOnMS:I
+
+    .line 269
+    iput v8, v1, Landroid/app/Notification;->ledOffMS:I
+
+    .line 270
+    invoke-virtual {v2, v9, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
+
+    .line 274
+    .end local v1           #noti:Landroid/app/Notification;
+    :goto_0
+    return-void
+
+    .line 272
+    :cond_0
+    invoke-virtual {v2, v9}, Landroid/app/NotificationManager;->cancel(I)V
 
     goto :goto_0
 .end method
@@ -526,7 +624,7 @@
 
     goto :goto_0
 
-    .line 244
+    .line 243
     .end local v0           #i:Landroid/hardware/scontext/SContextService$Listener;
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v3           #j:Ljava/lang/Integer;
@@ -545,184 +643,204 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 245
+    .line 244
     return-void
 .end method
 
 
 # virtual methods
 .method public addSContextService(I)V
-    .locals 4
+    .locals 5
     .parameter "service"
 
     .prologue
-    .line 318
+    .line 334
     invoke-virtual {p0, p1}, Landroid/hardware/scontext/SContextService;->resetSContextService(I)V
 
-    .line 319
+    .line 336
     packed-switch p1, :pswitch_data_0
 
-    .line 347
+    .line 372
     :goto_0
+    const-string v1, "SContextService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "addSContextService() : service = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 373
     return-void
 
-    .line 321
+    .line 339
     :pswitch_0
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+    new-instance v0, Landroid/content/IntentFilter;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAApproachListener:Landroid/hardware/contextaware/CAListener;
+    const-string v1, "android.intent.action.SCREEN_ON"
 
-    sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->GESTURE_APPROACH_SERVICE:Ljava/lang/String;
+    invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
+    .line 340
+    .local v0, filter:Landroid/content/IntentFilter;
+    const-string v1, "android.intent.action.SCREEN_OFF"
 
-    .line 346
-    :goto_1
-    const-string v0, "SContextService"
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    .line 341
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v2, p0, Landroid/hardware/scontext/SContextService;->mScreenReceiver:Landroid/content/BroadcastReceiver;
 
-    const-string v2, "addSContextService() : service = "
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 342
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    move-result-object v1
+    iget-object v2, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    sget-object v3, Landroid/hardware/contextaware/ContextAwareManager;->GESTURE_APPROACH_SERVICE:Ljava/lang/String;
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 324
+    .line 346
+    .end local v0           #filter:Landroid/content/IntentFilter;
     :pswitch_1
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAPedometerListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v2, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
+
+    sget-object v3, Landroid/hardware/contextaware/ContextAwareManager;->PEDOMETER_SERVICE:Ljava/lang/String;
+
+    invoke-virtual {v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
+
+    .line 347
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
     sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->PEDOMETER_SERVICE:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
+    const/4 v3, 0x3
 
-    .line 325
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+    iget-object v4, p0, Landroid/hardware/scontext/SContextService;->mSContext:Landroid/hardware/scontext/SContext;
 
-    sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->PEDOMETER_SERVICE:Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/hardware/scontext/SContext;->getHeight()F
 
-    const/4 v2, 0x3
+    move-result v4
 
-    iget-object v3, p0, Landroid/hardware/scontext/SContextService;->mSContext:Landroid/hardware/scontext/SContext;
+    invoke-virtual {v1, v2, v3, v4}, Landroid/hardware/contextaware/ContextAwareManager;->setCAProperty(Ljava/lang/String;IF)V
 
-    invoke-virtual {v3}, Landroid/hardware/scontext/SContext;->getHeight()F
+    .line 348
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    move-result v3
+    sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->PEDOMETER_SERVICE:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->setCAProperty(Ljava/lang/String;IF)V
+    const/4 v3, 0x2
 
-    .line 326
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+    iget-object v4, p0, Landroid/hardware/scontext/SContextService;->mSContext:Landroid/hardware/scontext/SContext;
 
-    sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->PEDOMETER_SERVICE:Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/hardware/scontext/SContext;->getWeight()F
 
-    const/4 v2, 0x2
+    move-result v4
 
-    iget-object v3, p0, Landroid/hardware/scontext/SContextService;->mSContext:Landroid/hardware/scontext/SContext;
+    invoke-virtual {v1, v2, v3, v4}, Landroid/hardware/contextaware/ContextAwareManager;->setCAProperty(Ljava/lang/String;IF)V
 
-    invoke-virtual {v3}, Landroid/hardware/scontext/SContext;->getWeight()F
+    goto :goto_0
 
-    move-result v3
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->setCAProperty(Ljava/lang/String;IF)V
-
-    goto :goto_1
-
-    .line 330
+    .line 352
     :pswitch_2
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAStepCountAlertListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v2, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
+
+    sget-object v3, Landroid/hardware/contextaware/ContextAwareManager;->STEP_COUNT_ALERT_SERVICE:Ljava/lang/String;
+
+    invoke-virtual {v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
+
+    .line 353
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
     sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->STEP_COUNT_ALERT_SERVICE:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
+    const/4 v3, 0x4
 
-    .line 331
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+    iget-object v4, p0, Landroid/hardware/scontext/SContextService;->mSContext:Landroid/hardware/scontext/SContext;
 
-    sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->STEP_COUNT_ALERT_SERVICE:Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/hardware/scontext/SContext;->getStepCount()I
 
-    const/4 v2, 0x4
+    move-result v4
 
-    iget-object v3, p0, Landroid/hardware/scontext/SContextService;->mSContext:Landroid/hardware/scontext/SContext;
+    invoke-virtual {v1, v2, v3, v4}, Landroid/hardware/contextaware/ContextAwareManager;->setCAProperty(Ljava/lang/String;II)V
 
-    invoke-virtual {v3}, Landroid/hardware/scontext/SContext;->getStepCount()I
+    goto :goto_0
 
-    move-result v3
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->setCAProperty(Ljava/lang/String;II)V
-
-    goto :goto_1
-
-    .line 334
+    .line 357
     :pswitch_3
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAMotionListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v2, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
 
-    sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->MOTION_SERVICE:Ljava/lang/String;
+    sget-object v3, Landroid/hardware/contextaware/ContextAwareManager;->MOTION_SERVICE:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 337
+    .line 361
     :pswitch_4
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAMovementListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v2, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
 
-    sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->MOVEMENT_SERVICE:Ljava/lang/String;
+    sget-object v3, Landroid/hardware/contextaware/ContextAwareManager;->MOVEMENT_SERVICE:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto/16 :goto_0
 
-    .line 340
+    .line 365
     :pswitch_5
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAAutoRotationListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v2, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
+
+    sget-object v3, Landroid/hardware/contextaware/ContextAwareManager;->AUTO_ROTATION_SERVICE:Ljava/lang/String;
+
+    invoke-virtual {v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
+
+    .line 366
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
     sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->AUTO_ROTATION_SERVICE:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
+    const/4 v3, 0x5
 
-    .line 341
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+    iget-object v4, p0, Landroid/hardware/scontext/SContextService;->mSContext:Landroid/hardware/scontext/SContext;
 
-    sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->AUTO_ROTATION_SERVICE:Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/hardware/scontext/SContext;->getDeviceType()I
 
-    const/4 v2, 0x5
+    move-result v4
 
-    iget-object v3, p0, Landroid/hardware/scontext/SContextService;->mSContext:Landroid/hardware/scontext/SContext;
+    invoke-virtual {v1, v2, v3, v4}, Landroid/hardware/contextaware/ContextAwareManager;->setCAProperty(Ljava/lang/String;II)V
 
-    invoke-virtual {v3}, Landroid/hardware/scontext/SContext;->getDeviceType()I
+    goto/16 :goto_0
 
-    move-result v3
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->setCAProperty(Ljava/lang/String;II)V
-
-    goto/16 :goto_1
-
-    .line 319
+    .line 336
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -734,110 +852,40 @@
     .end packed-switch
 .end method
 
-.method public createSContextService()V
-    .locals 2
-
-    .prologue
-    .line 262
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContext:Landroid/content/Context;
-
-    const-string v1, "context_aware"
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/hardware/contextaware/ContextAwareManager;
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
-
-    .line 264
-    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
-
-    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextApproachContext:Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
-
-    .line 265
-    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-
-    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
-
-    .line 266
-    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
-
-    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextStepCountAlertContext:Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
-
-    .line 267
-    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextMotionContext;
-
-    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextMotionContext;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextMotionContext:Landroid/hardware/scontext/SContextContexts$SContextMotionContext;
-
-    .line 268
-    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextMovementContext;
-
-    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextMovementContext;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextMovementContext:Landroid/hardware/scontext/SContextContexts$SContextMovementContext;
-
-    .line 269
-    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;
-
-    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;-><init>()V
-
-    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextAutoRotationContext:Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;
-
-    .line 270
-    const-string v0, "SContextService"
-
-    const-string v1, "createSContextService()"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 271
-    return-void
-.end method
-
 .method public initializeSContextService(I)V
     .locals 4
     .parameter "service"
 
     .prologue
-    .line 306
+    .line 322
     const/4 v0, 0x3
 
     if-ne p1, v0, :cond_0
 
-    .line 307
+    .line 323
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextStepCountAlertContext:Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
 
     invoke-virtual {v0}, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;->clear()V
 
-    .line 308
+    .line 324
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAStepCountAlertListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
 
     sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->STEP_COUNT_ALERT_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->unregisterListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
 
-    .line 309
+    .line 325
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAStepCountAlertListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
 
     sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->STEP_COUNT_ALERT_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->registerListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
 
-    .line 310
+    .line 326
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
     sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->STEP_COUNT_ALERT_SERVICE:Ljava/lang/String;
@@ -852,7 +900,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/hardware/contextaware/ContextAwareManager;->setCAProperty(Ljava/lang/String;II)V
 
-    .line 314
+    .line 330
     :goto_0
     const-string v0, "SContextService"
 
@@ -876,10 +924,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 315
+    .line 331
     return-void
 
-    .line 312
+    .line 328
     :cond_0
     invoke-virtual {p0, p1}, Landroid/hardware/scontext/SContextService;->resetSContextService(I)V
 
@@ -1074,8 +1122,11 @@
     .line 185
     invoke-virtual {p0, v4}, Landroid/hardware/scontext/SContextService;->addSContextService(I)V
 
-    .line 191
+    .line 189
     :cond_2
+    invoke-direct {p0}, Landroid/hardware/scontext/SContextService;->showListenerList()V
+
+    .line 191
     #getter for: Landroid/hardware/scontext/SContextService$Listener;->mServices:Ljava/util/HashSet;
     invoke-static {v2}, Landroid/hardware/scontext/SContextService$Listener;->access$000(Landroid/hardware/scontext/SContextService$Listener;)Ljava/util/HashSet;
 
@@ -1147,25 +1198,11 @@
     .parameter "service"
 
     .prologue
-    .line 350
+    .line 376
     packed-switch p1, :pswitch_data_0
 
-    .line 373
+    .line 406
     :goto_0
-    return-void
-
-    .line 352
-    :pswitch_0
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
-
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAApproachListener:Landroid/hardware/contextaware/CAListener;
-
-    sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->GESTURE_APPROACH_SERVICE:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->unregisterListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
-
-    .line 372
-    :goto_1
     const-string v0, "SContextService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1188,69 +1225,91 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 407
+    return-void
+
+    .line 379
+    :pswitch_0
+    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mScreenReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    .line 380
+    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
+
+    sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->GESTURE_APPROACH_SERVICE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->unregisterListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
+
     goto :goto_0
 
-    .line 355
+    .line 384
     :pswitch_1
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAPedometerListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
 
     sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->PEDOMETER_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->unregisterListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 358
+    .line 388
     :pswitch_2
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAStepCountAlertListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
 
     sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->STEP_COUNT_ALERT_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->unregisterListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 361
+    .line 392
     :pswitch_3
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAMotionListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
 
     sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->MOTION_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->unregisterListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 364
+    .line 396
     :pswitch_4
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAMovementListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
 
     sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->MOVEMENT_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->unregisterListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 367
+    .line 400
     :pswitch_5
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
-    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAAutoRotationListener:Landroid/hardware/contextaware/CAListener;
+    iget-object v1, p0, Landroid/hardware/scontext/SContextService;->mCAListener:Landroid/hardware/contextaware/CAListener;
 
     sget-object v2, Landroid/hardware/contextaware/ContextAwareManager;->AUTO_ROTATION_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/hardware/contextaware/ContextAwareManager;->unregisterListener(Landroid/hardware/contextaware/CAListener;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 350
+    .line 376
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1267,28 +1326,11 @@
     .parameter "service"
 
     .prologue
-    .line 274
+    .line 277
     packed-switch p1, :pswitch_data_0
 
-    .line 303
+    .line 318
     :goto_0
-    return-void
-
-    .line 276
-    :pswitch_0
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextApproachContext:Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
-
-    invoke-virtual {v0}, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;->clear()V
-
-    .line 277
-    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
-
-    sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->GESTURE_APPROACH_SERVICE:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/hardware/contextaware/ContextAwareManager;->resetCAService(Ljava/lang/String;)V
-
-    .line 302
-    :goto_1
     const-string v0, "SContextService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1311,84 +1353,144 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    .line 319
+    return-void
 
     .line 280
+    :pswitch_0
+    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
+
+    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextApproachContext:Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
+
+    .line 281
+    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextApproachContext:Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
+
+    invoke-virtual {v0}, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;->clear()V
+
+    .line 282
+    iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
+
+    sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->GESTURE_APPROACH_SERVICE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/hardware/contextaware/ContextAwareManager;->resetCAService(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 286
     :pswitch_1
+    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
+
+    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
+
+    .line 287
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextPedometerContext:Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
 
     invoke-virtual {v0}, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;->clear()V
 
-    .line 281
+    .line 288
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
     sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->PEDOMETER_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/hardware/contextaware/ContextAwareManager;->resetCAService(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 284
+    .line 292
     :pswitch_2
+    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
+
+    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextStepCountAlertContext:Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
+
+    .line 293
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextStepCountAlertContext:Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
 
     invoke-virtual {v0}, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;->clear()V
 
-    .line 285
+    .line 294
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
     sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->STEP_COUNT_ALERT_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/hardware/contextaware/ContextAwareManager;->resetCAService(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 288
+    .line 298
     :pswitch_3
+    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextMotionContext;
+
+    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextMotionContext;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextMotionContext:Landroid/hardware/scontext/SContextContexts$SContextMotionContext;
+
+    .line 299
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextMotionContext:Landroid/hardware/scontext/SContextContexts$SContextMotionContext;
 
     invoke-virtual {v0}, Landroid/hardware/scontext/SContextContexts$SContextMotionContext;->clear()V
 
-    .line 289
+    .line 300
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
     sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->MOTION_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/hardware/contextaware/ContextAwareManager;->resetCAService(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 292
+    .line 304
     :pswitch_4
+    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextMovementContext;
+
+    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextMovementContext;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextMovementContext:Landroid/hardware/scontext/SContextContexts$SContextMovementContext;
+
+    .line 305
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextMovementContext:Landroid/hardware/scontext/SContextContexts$SContextMovementContext;
 
     invoke-virtual {v0}, Landroid/hardware/scontext/SContextContexts$SContextMovementContext;->clear()V
 
-    .line 293
+    .line 306
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
     sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->MOVEMENT_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/hardware/contextaware/ContextAwareManager;->resetCAService(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 296
+    .line 310
     :pswitch_5
+    new-instance v0, Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;
+
+    invoke-direct {v0}, Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;-><init>()V
+
+    iput-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextAutoRotationContext:Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;
+
+    .line 311
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mSContextAutoRotationContext:Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;
 
     invoke-virtual {v0}, Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;->clear()V
 
-    .line 297
+    .line 312
     iget-object v0, p0, Landroid/hardware/scontext/SContextService;->mContextAwareManager:Landroid/hardware/contextaware/ContextAwareManager;
 
     sget-object v1, Landroid/hardware/contextaware/ContextAwareManager;->AUTO_ROTATION_SERVICE:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/hardware/contextaware/ContextAwareManager;->resetCAService(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto/16 :goto_0
 
-    .line 274
+    .line 277
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1406,7 +1508,7 @@
     .parameter "scontext"
 
     .prologue
-    .line 94
+    .line 97
     monitor-enter p0
 
     :try_start_0
@@ -1416,13 +1518,20 @@
 
     move-result-object v7
 
-    .line 95
+    .line 98
     .local v7, scontextEvent:Landroid/hardware/scontext/SContextEvent;
     iget-object v9, v7, Landroid/hardware/scontext/SContextEvent;->scontext:Landroid/hardware/scontext/SContext;
 
     invoke-virtual {v9, p1}, Landroid/hardware/scontext/SContext;->setType(I)V
 
-    .line 96
+    .line 99
+    invoke-static {}, Ljava/lang/System;->nanoTime()J
+
+    move-result-wide v9
+
+    iput-wide v9, v7, Landroid/hardware/scontext/SContextEvent;->timestamp:J
+
+    .line 100
     const-string v9, "SContextService"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1444,54 +1553,13 @@
     move-result-object v10
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 98
-    packed-switch p1, :pswitch_data_0
-
-    .line 155
-    .end local p2
-    :cond_0
-    :goto_0
-    monitor-exit p0
-
-    return-void
-
-    .line 100
-    .restart local p2
-    :pswitch_0
-    :try_start_1
-    new-instance v1, Landroid/hardware/scontext/SContextApproach;
-
-    invoke-direct {v1}, Landroid/hardware/scontext/SContextApproach;-><init>()V
-
-    .line 101
-    .local v1, approachContext:Landroid/hardware/scontext/SContextApproach;
-    move-object v0, p2
-
-    check-cast v0, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
-
-    move-object v9, v0
-
-    iget v9, v9, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;->mApproach:I
-
-    invoke-virtual {v1, v9}, Landroid/hardware/scontext/SContextApproach;->setApproach(I)V
 
     .line 102
-    invoke-virtual {v7, v1}, Landroid/hardware/scontext/SContextEvent;->setApproachContext(Landroid/hardware/scontext/SContextApproach;)V
-
-    .line 103
-    check-cast p2, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
-
-    .end local p2
-    iget-wide v9, p2, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;->mTimestamp:J
-
-    iput-wide v9, v7, Landroid/hardware/scontext/SContextEvent;->timestamp:J
+    packed-switch p1, :pswitch_data_0
 
     .line 148
-    .end local v1           #approachContext:Landroid/hardware/scontext/SContextApproach;
-    :goto_1
+    .end local p2
+    :goto_0
     iget-object v9, p0, Landroid/hardware/scontext/SContextService;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
@@ -1518,13 +1586,42 @@
     iget-object v9, p0, Landroid/hardware/scontext/SContextService;->mHandler:Landroid/hardware/scontext/SContextService$ServiceHandler;
 
     invoke-virtual {v9, v5}, Landroid/hardware/scontext/SContextService$ServiceHandler;->sendMessage(Landroid/os/Message;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 155
+    .end local v5           #msg:Landroid/os/Message;
+    :cond_0
+    monitor-exit p0
+
+    return-void
+
+    .line 105
+    .restart local p2
+    :pswitch_0
+    :try_start_1
+    new-instance v1, Landroid/hardware/scontext/SContextApproach;
+
+    invoke-direct {v1}, Landroid/hardware/scontext/SContextApproach;-><init>()V
+
+    .line 106
+    .local v1, approachContext:Landroid/hardware/scontext/SContextApproach;
+    check-cast p2, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;
+
+    .end local p2
+    iget v9, p2, Landroid/hardware/scontext/SContextContexts$SContextApproachContext;->mApproach:I
+
+    invoke-virtual {v1, v9}, Landroid/hardware/scontext/SContextApproach;->setApproach(I)V
+
+    .line 107
+    invoke-virtual {v7, v1}, Landroid/hardware/scontext/SContextEvent;->setApproachContext(Landroid/hardware/scontext/SContextApproach;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    .line 94
-    .end local v5           #msg:Landroid/os/Message;
+    .line 97
+    .end local v1           #approachContext:Landroid/hardware/scontext/SContextApproach;
     .end local v7           #scontextEvent:Landroid/hardware/scontext/SContextEvent;
     :catchall_0
     move-exception v9
@@ -1533,7 +1630,7 @@
 
     throw v9
 
-    .line 106
+    .line 111
     .restart local v7       #scontextEvent:Landroid/hardware/scontext/SContextEvent;
     .restart local p2
     :pswitch_1
@@ -1542,7 +1639,7 @@
 
     invoke-direct {v6}, Landroid/hardware/scontext/SContextPedometer;-><init>()V
 
-    .line 107
+    .line 112
     .local v6, pedometerContext:Landroid/hardware/scontext/SContextPedometer;
     move-object v0, p2
 
@@ -1554,7 +1651,7 @@
 
     invoke-virtual {v6, v9, v10}, Landroid/hardware/scontext/SContextPedometer;->setStepCount(J)V
 
-    .line 108
+    .line 113
     move-object v0, p2
 
     check-cast v0, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
@@ -1565,7 +1662,7 @@
 
     invoke-virtual {v6, v9, v10}, Landroid/hardware/scontext/SContextPedometer;->setCalorie(D)V
 
-    .line 109
+    .line 114
     move-object v0, p2
 
     check-cast v0, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
@@ -1576,7 +1673,7 @@
 
     invoke-virtual {v6, v9, v10}, Landroid/hardware/scontext/SContextPedometer;->setDistance(D)V
 
-    .line 110
+    .line 115
     move-object v0, p2
 
     check-cast v0, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
@@ -1587,7 +1684,7 @@
 
     invoke-virtual {v6, v9, v10}, Landroid/hardware/scontext/SContextPedometer;->setSpeed(D)V
 
-    .line 111
+    .line 116
     check-cast p2, Landroid/hardware/scontext/SContextContexts$SContextPedometerContext;
 
     .end local p2
@@ -1595,19 +1692,12 @@
 
     invoke-virtual {v6, v9}, Landroid/hardware/scontext/SContextPedometer;->setStepStatus(I)V
 
-    .line 112
+    .line 117
     invoke-virtual {v7, v6}, Landroid/hardware/scontext/SContextEvent;->setPedometerContext(Landroid/hardware/scontext/SContextPedometer;)V
 
-    .line 113
-    invoke-static {}, Ljava/lang/System;->nanoTime()J
+    goto :goto_0
 
-    move-result-wide v9
-
-    iput-wide v9, v7, Landroid/hardware/scontext/SContextEvent;->timestamp:J
-
-    goto :goto_1
-
-    .line 116
+    .line 121
     .end local v6           #pedometerContext:Landroid/hardware/scontext/SContextPedometer;
     .restart local p2
     :pswitch_2
@@ -1615,32 +1705,21 @@
 
     invoke-direct {v8}, Landroid/hardware/scontext/SContextStepCountAlert;-><init>()V
 
-    .line 117
+    .line 122
     .local v8, stepCountAlertContext:Landroid/hardware/scontext/SContextStepCountAlert;
-    move-object v0, p2
-
-    check-cast v0, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
-
-    move-object v9, v0
-
-    iget v9, v9, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;->mAlert:I
-
-    invoke-virtual {v8, v9}, Landroid/hardware/scontext/SContextStepCountAlert;->setAlert(I)V
-
-    .line 118
-    invoke-virtual {v7, v8}, Landroid/hardware/scontext/SContextEvent;->setStepCountAlertContext(Landroid/hardware/scontext/SContextStepCountAlert;)V
-
-    .line 119
     check-cast p2, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;
 
     .end local p2
-    iget-wide v9, p2, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;->mTimestamp:J
+    iget v9, p2, Landroid/hardware/scontext/SContextContexts$SContextStepCountAlertContext;->mAlert:I
 
-    iput-wide v9, v7, Landroid/hardware/scontext/SContextEvent;->timestamp:J
+    invoke-virtual {v8, v9}, Landroid/hardware/scontext/SContextStepCountAlert;->setAlert(I)V
 
-    goto :goto_1
+    .line 123
+    invoke-virtual {v7, v8}, Landroid/hardware/scontext/SContextEvent;->setStepCountAlertContext(Landroid/hardware/scontext/SContextStepCountAlert;)V
 
-    .line 122
+    goto :goto_0
+
+    .line 127
     .end local v8           #stepCountAlertContext:Landroid/hardware/scontext/SContextStepCountAlert;
     .restart local p2
     :pswitch_3
@@ -1648,7 +1727,7 @@
 
     invoke-direct {v3}, Landroid/hardware/scontext/SContextMotion;-><init>()V
 
-    .line 124
+    .line 128
     .local v3, motionContext:Landroid/hardware/scontext/SContextMotion;
     check-cast p2, Landroid/hardware/scontext/SContextContexts$SContextMotionContext;
 
@@ -1657,19 +1736,12 @@
 
     invoke-virtual {v3, v9}, Landroid/hardware/scontext/SContextMotion;->setType(I)V
 
-    .line 125
+    .line 129
     invoke-virtual {v7, v3}, Landroid/hardware/scontext/SContextEvent;->setMotionContext(Landroid/hardware/scontext/SContextMotion;)V
 
-    .line 126
-    invoke-static {}, Ljava/lang/System;->nanoTime()J
+    goto :goto_0
 
-    move-result-wide v9
-
-    iput-wide v9, v7, Landroid/hardware/scontext/SContextEvent;->timestamp:J
-
-    goto/16 :goto_1
-
-    .line 130
+    .line 133
     .end local v3           #motionContext:Landroid/hardware/scontext/SContextMotion;
     .restart local p2
     :pswitch_4
@@ -1677,7 +1749,7 @@
 
     invoke-direct {v4}, Landroid/hardware/scontext/SContextMovement;-><init>()V
 
-    .line 132
+    .line 134
     .local v4, movementContext:Landroid/hardware/scontext/SContextMovement;
     check-cast p2, Landroid/hardware/scontext/SContextContexts$SContextMovementContext;
 
@@ -1686,19 +1758,12 @@
 
     invoke-virtual {v4, v9}, Landroid/hardware/scontext/SContextMovement;->setAction(I)V
 
-    .line 133
+    .line 135
     invoke-virtual {v7, v4}, Landroid/hardware/scontext/SContextEvent;->setMovementContext(Landroid/hardware/scontext/SContextMovement;)V
 
-    .line 134
-    invoke-static {}, Ljava/lang/System;->nanoTime()J
+    goto/16 :goto_0
 
-    move-result-wide v9
-
-    iput-wide v9, v7, Landroid/hardware/scontext/SContextEvent;->timestamp:J
-
-    goto/16 :goto_1
-
-    .line 138
+    .line 139
     .end local v4           #movementContext:Landroid/hardware/scontext/SContextMovement;
     .restart local p2
     :pswitch_5
@@ -1706,7 +1771,7 @@
 
     invoke-direct {v2}, Landroid/hardware/scontext/SContextAutoRotation;-><init>()V
 
-    .line 139
+    .line 140
     .local v2, autoRotationContext:Landroid/hardware/scontext/SContextAutoRotation;
     check-cast p2, Landroid/hardware/scontext/SContextContexts$SContextAutoRotationContext;
 
@@ -1715,23 +1780,14 @@
 
     invoke-virtual {v2, v9}, Landroid/hardware/scontext/SContextAutoRotation;->setAngle(I)V
 
-    .line 140
-    invoke-virtual {v7, v2}, Landroid/hardware/scontext/SContextEvent;->setAutoRotationContext(Landroid/hardware/scontext/SContextAutoRotation;)V
-
     .line 141
-    invoke-static {}, Ljava/lang/System;->nanoTime()J
-
-    move-result-wide v9
-
-    iput-wide v9, v7, Landroid/hardware/scontext/SContextEvent;->timestamp:J
+    invoke-virtual {v7, v2}, Landroid/hardware/scontext/SContextEvent;->setAutoRotationContext(Landroid/hardware/scontext/SContextAutoRotation;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    .line 98
-    nop
-
+    .line 102
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1956,14 +2012,14 @@
     .parameter "scontext"
 
     .prologue
-    .line 376
+    .line 410
     invoke-static {}, Landroid/hardware/scontext/SContextUpdateContext;->getInstance()Landroid/hardware/scontext/SContextUpdateContext;
 
     move-result-object v0
 
     invoke-virtual {v0, p1, p2}, Landroid/hardware/scontext/SContextUpdateContext;->reportMessage(ILandroid/hardware/scontext/ISContextContexts;)V
 
-    .line 377
+    .line 411
     const-string v0, "SContextService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1986,6 +2042,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 378
+    .line 412
     return-void
 .end method

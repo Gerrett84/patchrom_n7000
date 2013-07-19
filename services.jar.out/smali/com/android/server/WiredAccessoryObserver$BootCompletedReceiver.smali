@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 220
+    .line 222
     iput-object p1, p0, Lcom/android/server/WiredAccessoryObserver$BootCompletedReceiver;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 220
+    .line 222
     invoke-direct {p0, p1}, Lcom/android/server/WiredAccessoryObserver$BootCompletedReceiver;-><init>(Lcom/android/server/WiredAccessoryObserver;)V
 
     return-void
@@ -52,13 +52,13 @@
     .parameter "intent"
 
     .prologue
-    .line 226
+    .line 228
     iget-object v2, p0, Lcom/android/server/WiredAccessoryObserver$BootCompletedReceiver;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     #calls: Lcom/android/server/WiredAccessoryObserver;->init()V
     invoke-static {v2}, Lcom/android/server/WiredAccessoryObserver;->access$100(Lcom/android/server/WiredAccessoryObserver;)V
 
-    .line 227
+    .line 229
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -73,7 +73,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 228
+    .line 230
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->access$200()Ljava/util/List;
 
     move-result-object v2
@@ -84,7 +84,7 @@
 
     check-cast v1, Lcom/android/server/WiredAccessoryObserver$UEventInfo;
 
-    .line 229
+    .line 231
     .local v1, uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     iget-object v2, p0, Lcom/android/server/WiredAccessoryObserver$BootCompletedReceiver;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
@@ -112,12 +112,12 @@
 
     invoke-virtual {v2, v3}, Lcom/android/server/WiredAccessoryObserver;->startObserving(Ljava/lang/String;)V
 
-    .line 227
+    .line 229
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 231
+    .line 233
     .end local v1           #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     :cond_0
     return-void

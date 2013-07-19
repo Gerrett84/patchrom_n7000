@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 812
+    .line 843
     iput-object p1, p0, Lcom/android/server/PowerManagerService$2;->this$0:Lcom/android/server/PowerManagerService;
 
     invoke-direct {p0, p2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
@@ -36,17 +36,61 @@
 
 # virtual methods
 .method protected onLooperPrepared()V
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 815
-    invoke-super {p0}, Landroid/os/HandlerThread;->onLooperPrepared()V
-
-    .line 816
+    .line 846
     iget-object v0, p0, Lcom/android/server/PowerManagerService$2;->this$0:Lcom/android/server/PowerManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/PowerManagerService;->initInThread()V
+    new-instance v1, Landroid/os/Handler;
 
-    .line 817
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    #setter for: Lcom/android/server/PowerManagerService;->mSmartSleepHandler:Landroid/os/Handler;
+    invoke-static {v0, v1}, Lcom/android/server/PowerManagerService;->access$4102(Lcom/android/server/PowerManagerService;Landroid/os/Handler;)Landroid/os/Handler;
+
+    .line 847
+    iget-object v0, p0, Lcom/android/server/PowerManagerService$2;->this$0:Lcom/android/server/PowerManagerService;
+
+    #getter for: Lcom/android/server/PowerManagerService;->mSmartSleepThread:Landroid/os/HandlerThread;
+    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$4200(Lcom/android/server/PowerManagerService;)Landroid/os/HandlerThread;
+
+    move-result-object v1
+
+    monitor-enter v1
+
+    .line 848
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/PowerManagerService$2;->this$0:Lcom/android/server/PowerManagerService;
+
+    const/4 v2, 0x1
+
+    #setter for: Lcom/android/server/PowerManagerService;->mInitComplete:Z
+    invoke-static {v0, v2}, Lcom/android/server/PowerManagerService;->access$4302(Lcom/android/server/PowerManagerService;Z)Z
+
+    .line 849
+    iget-object v0, p0, Lcom/android/server/PowerManagerService$2;->this$0:Lcom/android/server/PowerManagerService;
+
+    #getter for: Lcom/android/server/PowerManagerService;->mSmartSleepThread:Landroid/os/HandlerThread;
+    invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$4200(Lcom/android/server/PowerManagerService;)Landroid/os/HandlerThread;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
+
+    .line 850
+    monitor-exit v1
+
+    .line 851
     return-void
+
+    .line 850
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
 .end method

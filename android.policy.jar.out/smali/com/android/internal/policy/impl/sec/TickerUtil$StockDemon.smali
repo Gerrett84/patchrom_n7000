@@ -44,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 40
+    .line 41
     new-instance v0, Lcom/android/internal/policy/impl/sec/TickerUtil$StockDemon;
 
     const-string v1, "Yahoo"
@@ -69,7 +69,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/sec/TickerUtil$StockDemon;->Sina:Lcom/android/internal/policy/impl/sec/TickerUtil$StockDemon;
 
-    .line 39
+    .line 40
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/internal/policy/impl/sec/TickerUtil$StockDemon;
@@ -102,7 +102,7 @@
     .end annotation
 
     .prologue
-    .line 39
+    .line 40
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -113,7 +113,7 @@
     .parameter "name"
 
     .prologue
-    .line 39
+    .line 40
     const-class v0, Lcom/android/internal/policy/impl/sec/TickerUtil$StockDemon;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -129,7 +129,7 @@
     .locals 1
 
     .prologue
-    .line 39
+    .line 40
     sget-object v0, Lcom/android/internal/policy/impl/sec/TickerUtil$StockDemon;->$VALUES:[Lcom/android/internal/policy/impl/sec/TickerUtil$StockDemon;
 
     invoke-virtual {v0}, [Lcom/android/internal/policy/impl/sec/TickerUtil$StockDemon;->clone()Ljava/lang/Object;

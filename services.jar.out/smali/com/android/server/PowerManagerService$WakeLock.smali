@@ -26,6 +26,8 @@
 
 .field final flags:I
 
+.field isReleasedInternal:Z
+
 .field minState:I
 
 .field final monitorType:I
@@ -52,29 +54,32 @@
     .parameter "p"
 
     .prologue
-    const/4 v2, 0x0
-
     const/4 v3, 0x1
 
-    .line 1020
+    const/4 v2, 0x0
+
+    .line 1100
     iput-object p1, p0, Lcom/android/server/PowerManagerService$WakeLock;->this$0:Lcom/android/server/PowerManagerService;
 
-    .line 1021
+    .line 1101
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1055
+    .line 1135
     iput-boolean v3, p0, Lcom/android/server/PowerManagerService$WakeLock;->activated:Z
 
-    .line 1022
+    .line 1138
+    iput-boolean v2, p0, Lcom/android/server/PowerManagerService$WakeLock;->isReleasedInternal:Z
+
+    .line 1102
     iput p2, p0, Lcom/android/server/PowerManagerService$WakeLock;->flags:I
 
-    .line 1023
+    .line 1103
     iput-object p3, p0, Lcom/android/server/PowerManagerService$WakeLock;->binder:Landroid/os/IBinder;
 
-    .line 1024
+    .line 1104
     iput-object p4, p0, Lcom/android/server/PowerManagerService$WakeLock;->tag:Ljava/lang/String;
 
-    .line 1025
+    .line 1105
     #getter for: Lcom/android/server/PowerManagerService;->MY_UID:I
     invoke-static {p1}, Lcom/android/server/PowerManagerService;->access$500(Lcom/android/server/PowerManagerService;)I
 
@@ -87,10 +92,10 @@
     :goto_0
     iput v1, p0, Lcom/android/server/PowerManagerService$WakeLock;->uid:I
 
-    .line 1026
+    .line 1106
     iput p6, p0, Lcom/android/server/PowerManagerService$WakeLock;->pid:I
 
-    .line 1027
+    .line 1107
     #getter for: Lcom/android/server/PowerManagerService;->MY_UID:I
     invoke-static {p1}, Lcom/android/server/PowerManagerService;->access$500(Lcom/android/server/PowerManagerService;)I
 
@@ -118,7 +123,7 @@
 
     if-nez v1, :cond_3
 
-    .line 1030
+    .line 1110
     :cond_0
     and-int/lit8 v1, p2, 0x3f
 
@@ -129,7 +134,7 @@
     :goto_1
     iput v1, p0, Lcom/android/server/PowerManagerService$WakeLock;->monitorType:I
 
-    .line 1037
+    .line 1117
     :goto_2
     const/4 v1, 0x0
 
@@ -138,23 +143,23 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1041
+    .line 1121
     :goto_3
     return-void
 
     :cond_1
     move v1, p5
 
-    .line 1025
+    .line 1105
     goto :goto_0
 
     :cond_2
     move v1, v3
 
-    .line 1030
+    .line 1110
     goto :goto_1
 
-    .line 1034
+    .line 1114
     :cond_3
     const/4 v1, -0x1
 
@@ -162,11 +167,11 @@
 
     goto :goto_2
 
-    .line 1038
+    .line 1118
     :catch_0
     move-exception v0
 
-    .line 1039
+    .line 1119
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/PowerManagerService$WakeLock;->binderDied()V
 
@@ -179,7 +184,7 @@
     .locals 5
 
     .prologue
-    .line 1043
+    .line 1123
     iget-object v0, p0, Lcom/android/server/PowerManagerService$WakeLock;->this$0:Lcom/android/server/PowerManagerService;
 
     #getter for: Lcom/android/server/PowerManagerService;->mLocks:Lcom/android/server/PowerManagerService$LockList;
@@ -189,7 +194,7 @@
 
     monitor-enter v1
 
-    .line 1044
+    .line 1124
     :try_start_0
     const-string v0, "PowerManagerService"
 
@@ -197,7 +202,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1045
+    .line 1125
     iget-object v0, p0, Lcom/android/server/PowerManagerService$WakeLock;->this$0:Lcom/android/server/PowerManagerService;
 
     iget-object v2, p0, Lcom/android/server/PowerManagerService$WakeLock;->binder:Landroid/os/IBinder;
@@ -209,13 +214,13 @@
     #calls: Lcom/android/server/PowerManagerService;->releaseWakeLockLocked(Landroid/os/IBinder;IZ)V
     invoke-static {v0, v2, v3, v4}, Lcom/android/server/PowerManagerService;->access$700(Lcom/android/server/PowerManagerService;Landroid/os/IBinder;IZ)V
 
-    .line 1046
+    .line 1126
     monitor-exit v1
 
-    .line 1047
+    .line 1127
     return-void
 
-    .line 1046
+    .line 1126
     :catchall_0
     move-exception v0
 

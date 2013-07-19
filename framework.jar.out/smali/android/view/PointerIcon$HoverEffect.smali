@@ -17,7 +17,9 @@
 # instance fields
 .field private mHoverSound:Landroid/media/SoundPool;
 
-.field private final mIvt:[B
+.field private final mIvt_Phone:[B
+
+.field private final mIvt_Tablet:[B
 
 .field private mSoundId:I
 
@@ -28,34 +30,77 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 796
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    const/16 v1, 0x1a
 
-    .line 797
+    .line 827
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 828
     const-string v0, "/media/audio/ui/HoverPointer.ogg"
 
     iput-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->soundURIs:Ljava/lang/String;
 
-    .line 801
+    .line 832
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/PointerIcon$HoverEffect;->mSoundId:I
 
-    .line 804
-    const/16 v0, 0x1a
-
-    new-array v0, v0, [B
+    .line 835
+    new-array v0, v1, [B
 
     fill-array-data v0, :array_0
 
-    iput-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mIvt:[B
+    iput-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mIvt_Tablet:[B
+
+    .line 844
+    new-array v0, v1, [B
+
+    fill-array-data v0, :array_1
+
+    iput-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mIvt_Phone:[B
 
     return-void
 
+    .line 835
+    nop
+
     :array_0
+    .array-data 0x1
+        0x1t
+        0x0t
+        0x1t
+        0x0t
+        0x12t
+        0x0t
+        0x0t
+        0x0t
+        0x0t
+        0x0t
+        0x30t
+        0x0t
+        0x0t
+        0xat
+        0x0t
+        0x0t
+        0x0t
+        0x0t
+        0x20t
+        0x0t
+        0x0t
+        0x0t
+        0x7ft
+        0x0t
+        0x0t
+        0xa2t
+    .end array-data
+
+    .line 844
+    nop
+
+    :array_1
     .array-data 0x1
         0x1t
         0x0t
@@ -91,7 +136,7 @@
     .parameter "x0"
 
     .prologue
-    .line 796
+    .line 827
     invoke-direct {p0}, Landroid/view/PointerIcon$HoverEffect;-><init>()V
 
     return-void
@@ -110,19 +155,19 @@
 
     const/4 v4, 0x1
 
-    .line 814
+    .line 854
     iget-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mHoverSound:Landroid/media/SoundPool;
 
     if-nez v0, :cond_0
 
-    .line 815
+    .line 855
     new-instance v0, Landroid/media/SoundPool;
 
     invoke-direct {v0, v4, v4, v5}, Landroid/media/SoundPool;-><init>(III)V
 
     iput-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mHoverSound:Landroid/media/SoundPool;
 
-    .line 818
+    .line 858
     :cond_0
     iget v0, p0, Landroid/view/PointerIcon$HoverEffect;->mSoundId:I
 
@@ -130,7 +175,7 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 819
+    .line 859
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -153,7 +198,7 @@
 
     move-result-object v8
 
-    .line 820
+    .line 860
     .local v8, soundPath:Ljava/lang/String;
     iget-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mHoverSound:Landroid/media/SoundPool;
 
@@ -163,7 +208,7 @@
 
     iput v0, p0, Landroid/view/PointerIcon$HoverEffect;->mSoundId:I
 
-    .line 823
+    .line 863
     .end local v8           #soundPath:Ljava/lang/String;
     :cond_1
     iget-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mHoverSound:Landroid/media/SoundPool;
@@ -178,7 +223,7 @@
 
     move-result v7
 
-    .line 824
+    .line 864
     .local v7, ret:I
     return-void
 .end method
@@ -188,12 +233,12 @@
     .parameter "type"
 
     .prologue
-    .line 827
+    .line 867
     iget-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mVibrator:Landroid/os/SystemVibrator;
 
     if-nez v0, :cond_0
 
-    .line 828
+    .line 868
     invoke-static {}, Landroid/view/PointerIcon;->access$300()Landroid/content/Context;
 
     move-result-object v0
@@ -208,14 +253,32 @@
 
     iput-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mVibrator:Landroid/os/SystemVibrator;
 
-    .line 830
+    .line 871
     :cond_0
+    invoke-static {}, Landroid/util/GeneralUtil;->isPhone()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 872
     iget-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mVibrator:Landroid/os/SystemVibrator;
 
-    iget-object v1, p0, Landroid/view/PointerIcon$HoverEffect;->mIvt:[B
+    iget-object v1, p0, Landroid/view/PointerIcon$HoverEffect;->mIvt_Phone:[B
 
     invoke-virtual {v0, v1}, Landroid/os/SystemVibrator;->vibrateImmVibe([B)V
 
-    .line 831
+    .line 876
+    :goto_0
     return-void
+
+    .line 874
+    :cond_1
+    iget-object v0, p0, Landroid/view/PointerIcon$HoverEffect;->mVibrator:Landroid/os/SystemVibrator;
+
+    iget-object v1, p0, Landroid/view/PointerIcon$HoverEffect;->mIvt_Tablet:[B
+
+    invoke-virtual {v0, v1}, Landroid/os/SystemVibrator;->vibrateImmVibe([B)V
+
+    goto :goto_0
 .end method

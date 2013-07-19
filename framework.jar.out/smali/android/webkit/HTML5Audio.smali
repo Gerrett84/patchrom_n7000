@@ -67,6 +67,8 @@
 
 .field private mNativePointer:I
 
+.field private mPausedByAudioFocusLoss:Z
+
 .field private mProcessingOnEnd:Z
 
 .field private mState:I
@@ -132,7 +134,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 210
+    .line 211
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     .line 73
@@ -149,30 +151,33 @@
     .line 78
     iput-boolean v1, p0, Landroid/webkit/HTML5Audio;->mProcessingOnEnd:Z
 
-    .line 89
-    iput-boolean v1, p0, Landroid/webkit/HTML5Audio;->mIsRegisteredListener:Z
+    .line 80
+    iput-boolean v1, p0, Landroid/webkit/HTML5Audio;->mPausedByAudioFocusLoss:Z
 
     .line 90
+    iput-boolean v1, p0, Landroid/webkit/HTML5Audio;->mIsRegisteredListener:Z
+
+    .line 91
     new-instance v0, Landroid/webkit/HTML5Audio$1;
 
     invoke-direct {v0, p0}, Landroid/webkit/HTML5Audio$1;-><init>(Landroid/webkit/HTML5Audio;)V
 
     iput-object v0, p0, Landroid/webkit/HTML5Audio;->mMotionListener:Landroid/hardware/motion/MRListener;
 
-    .line 212
+    .line 213
     iput p2, p0, Landroid/webkit/HTML5Audio;->mNativePointer:I
 
-    .line 213
+    .line 214
     invoke-direct {p0}, Landroid/webkit/HTML5Audio;->resetMediaPlayer()V
 
-    .line 214
+    .line 215
     invoke-virtual {p1}, Landroid/webkit/WebViewCore;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/webkit/HTML5Audio;->mContext:Landroid/content/Context;
 
-    .line 215
+    .line 216
     new-instance v0, Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;
 
     invoke-virtual {p1}, Landroid/webkit/WebViewCore;->getContext()Landroid/content/Context;
@@ -191,7 +196,7 @@
 
     iput-object v0, p0, Landroid/webkit/HTML5Audio;->mIsPrivateBrowsingEnabledGetter:Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;
 
-    .line 217
+    .line 218
     return-void
 .end method
 
@@ -210,14 +215,14 @@
     .locals 2
 
     .prologue
-    .line 370
+    .line 385
     iget v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
     sget v1, Landroid/webkit/HTML5Audio;->PREPARED:I
 
     if-lt v0, v1, :cond_0
 
-    .line 371
+    .line 386
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->getDuration()I
@@ -230,7 +235,7 @@
 
     div-float/2addr v0, v1
 
-    .line 373
+    .line 388
     :goto_0
     return v0
 
@@ -259,35 +264,35 @@
     .locals 2
 
     .prologue
-    .line 325
+    .line 340
     iget v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
     sget v1, Landroid/webkit/HTML5Audio;->STARTED:I
 
     if-ne v0, v1, :cond_1
 
-    .line 326
+    .line 341
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
 
     if-eqz v0, :cond_0
 
-    .line 327
+    .line 342
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
 
     invoke-virtual {v0}, Ljava/util/Timer;->purge()I
 
-    .line 329
+    .line 344
     :cond_0
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->pause()V
 
-    .line 330
+    .line 345
     sget v0, Landroid/webkit/HTML5Audio;->PAUSED:I
 
     iput v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
-    .line 334
+    .line 349
     :cond_1
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
@@ -297,19 +302,19 @@
 
     if-eqz v0, :cond_2
 
-    .line 335
+    .line 350
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
     iget-object v1, p0, Landroid/webkit/HTML5Audio;->mMotionListener:Landroid/hardware/motion/MRListener;
 
     invoke-virtual {v0, v1}, Landroid/hardware/motion/MotionRecognitionManager;->unregisterListener(Landroid/hardware/motion/MRListener;)V
 
-    .line 336
+    .line 351
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/webkit/HTML5Audio;->mIsRegisteredListener:Z
 
-    .line 338
+    .line 353
     :cond_2
     return-void
 .end method
@@ -320,15 +325,15 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 288
+    .line 303
     iget-object v2, p0, Landroid/webkit/HTML5Audio;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
     if-nez v2, :cond_0
 
-    .line 289
+    .line 304
     iget-object v2, p0, Landroid/webkit/HTML5Audio;->mContext:Landroid/content/Context;
 
-    const-string v3, "motion_recognition"
+    const-string/jumbo v3, "motion_recognition"
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -338,7 +343,7 @@
 
     iput-object v2, p0, Landroid/webkit/HTML5Audio;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
-    .line 291
+    .line 306
     :cond_0
     iget-object v2, p0, Landroid/webkit/HTML5Audio;->mMotionSensorManager:Landroid/hardware/motion/MotionRecognitionManager;
 
@@ -346,10 +351,10 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/hardware/motion/MotionRecognitionManager;->registerListenerEvent(Landroid/hardware/motion/MRListener;I)V
 
-    .line 292
+    .line 307
     iput-boolean v4, p0, Landroid/webkit/HTML5Audio;->mIsRegisteredListener:Z
 
-    .line 294
+    .line 309
     iget v2, p0, Landroid/webkit/HTML5Audio;->mState:I
 
     sget v3, Landroid/webkit/HTML5Audio;->COMPLETE:I
@@ -360,22 +365,22 @@
 
     if-ne v2, v4, :cond_2
 
-    .line 296
+    .line 311
     iget-object v2, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v2}, Landroid/media/MediaPlayer;->start()V
 
-    .line 297
+    .line 312
     sget v2, Landroid/webkit/HTML5Audio;->STARTED:I
 
     iput v2, p0, Landroid/webkit/HTML5Audio;->mState:I
 
-    .line 322
+    .line 337
     :cond_1
     :goto_0
     return-void
 
-    .line 301
+    .line 316
     :cond_2
     iget v2, p0, Landroid/webkit/HTML5Audio;->mState:I
 
@@ -393,18 +398,18 @@
 
     if-eqz v2, :cond_3
 
-    .line 302
+    .line 317
     invoke-direct {p0}, Landroid/webkit/HTML5Audio;->resetMediaPlayer()V
 
-    .line 303
+    .line 318
     iget-object v2, p0, Landroid/webkit/HTML5Audio;->mUrl:Ljava/lang/String;
 
     invoke-direct {p0, v2}, Landroid/webkit/HTML5Audio;->setDataSource(Ljava/lang/String;)V
 
-    .line 304
+    .line 319
     iput-boolean v4, p0, Landroid/webkit/HTML5Audio;->mAskToPlay:Z
 
-    .line 307
+    .line 322
     :cond_3
     iget v2, p0, Landroid/webkit/HTML5Audio;->mState:I
 
@@ -412,7 +417,7 @@
 
     if-lt v2, v3, :cond_1
 
-    .line 308
+    .line 323
     iget-object v2, p0, Landroid/webkit/HTML5Audio;->mContext:Landroid/content/Context;
 
     const-string v3, "audio"
@@ -423,7 +428,7 @@
 
     check-cast v0, Landroid/media/AudioManager;
 
-    .line 309
+    .line 324
     .local v0, audioManager:Landroid/media/AudioManager;
     const/4 v2, 0x3
 
@@ -431,23 +436,23 @@
 
     move-result v1
 
-    .line 312
+    .line 327
     .local v1, result:I
     if-ne v1, v4, :cond_4
 
-    .line 313
+    .line 328
     iget-object v2, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v2}, Landroid/media/MediaPlayer;->start()V
 
-    .line 314
+    .line 329
     sget v2, Landroid/webkit/HTML5Audio;->STARTED:I
 
     iput v2, p0, Landroid/webkit/HTML5Audio;->mState:I
 
     goto :goto_0
 
-    .line 318
+    .line 333
     :cond_4
     const-string v2, "HTML5Audio"
 
@@ -455,12 +460,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 319
+    .line 334
     iget-object v2, p0, Landroid/webkit/HTML5Audio;->mContext:Landroid/content/Context;
 
     iget-object v3, p0, Landroid/webkit/HTML5Audio;->mContext:Landroid/content/Context;
 
-    const v4, 0x104073b
+    const v4, 0x104076a
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -481,55 +486,55 @@
     .locals 1
 
     .prologue
-    .line 220
+    .line 221
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     if-nez v0, :cond_1
 
-    .line 221
+    .line 222
     new-instance v0, Landroid/media/MediaPlayer;
 
     invoke-direct {v0}, Landroid/media/MediaPlayer;-><init>()V
 
     iput-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    .line 225
+    .line 226
     :goto_0
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, p0}, Landroid/media/MediaPlayer;->setOnBufferingUpdateListener(Landroid/media/MediaPlayer$OnBufferingUpdateListener;)V
 
-    .line 226
+    .line 227
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, p0}, Landroid/media/MediaPlayer;->setOnCompletionListener(Landroid/media/MediaPlayer$OnCompletionListener;)V
 
-    .line 227
+    .line 228
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, p0}, Landroid/media/MediaPlayer;->setOnErrorListener(Landroid/media/MediaPlayer$OnErrorListener;)V
 
-    .line 228
+    .line 229
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, p0}, Landroid/media/MediaPlayer;->setOnPreparedListener(Landroid/media/MediaPlayer$OnPreparedListener;)V
 
-    .line 229
+    .line 230
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, p0}, Landroid/media/MediaPlayer;->setOnSeekCompleteListener(Landroid/media/MediaPlayer$OnSeekCompleteListener;)V
 
-    .line 231
+    .line 232
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
 
     if-eqz v0, :cond_0
 
-    .line 232
+    .line 233
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
 
     invoke-virtual {v0}, Ljava/util/Timer;->cancel()V
 
-    .line 234
+    .line 235
     :cond_0
     new-instance v0, Ljava/util/Timer;
 
@@ -537,15 +542,15 @@
 
     iput-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
 
-    .line 235
+    .line 236
     sget v0, Landroid/webkit/HTML5Audio;->IDLE:I
 
     iput v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
-    .line 236
+    .line 237
     return-void
 
-    .line 223
+    .line 224
     :cond_1
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
@@ -561,7 +566,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 341
+    .line 356
     iget-boolean v0, p0, Landroid/webkit/HTML5Audio;->mProcessingOnEnd:Z
 
     if-ne v0, v2, :cond_0
@@ -574,10 +579,10 @@
 
     if-nez p1, :cond_0
 
-    .line 342
+    .line 357
     iput-boolean v2, p0, Landroid/webkit/HTML5Audio;->mLoopEnabled:Z
 
-    .line 344
+    .line 359
     :cond_0
     iget v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
@@ -585,12 +590,12 @@
 
     if-lt v0, v1, :cond_1
 
-    .line 345
+    .line 360
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, p1}, Landroid/media/MediaPlayer;->seekTo(I)V
 
-    .line 347
+    .line 362
     :cond_1
     return-void
 .end method
@@ -602,10 +607,10 @@
     .prologue
     const/16 v6, 0x80
 
-    .line 239
+    .line 240
     iput-object p1, p0, Landroid/webkit/HTML5Audio;->mUrl:Ljava/lang/String;
 
-    .line 241
+    .line 242
     :try_start_0
     iget v4, p0, Landroid/webkit/HTML5Audio;->mState:I
 
@@ -613,10 +618,10 @@
 
     if-eq v4, v5, :cond_0
 
-    .line 242
+    .line 243
     invoke-direct {p0}, Landroid/webkit/HTML5Audio;->resetMediaPlayer()V
 
-    .line 244
+    .line 245
     :cond_0
     invoke-static {}, Landroid/webkit/CookieManager;->getInstance()Landroid/webkit/CookieManager;
 
@@ -632,22 +637,22 @@
 
     move-result-object v0
 
-    .line 246
+    .line 247
     .local v0, cookieValue:Ljava/lang/String;
     new-instance v3, Ljava/util/HashMap;
 
     invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
-    .line 248
+    .line 249
     .local v3, headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     if-eqz v0, :cond_1
 
-    .line 249
+    .line 250
     const-string v4, "Cookie"
 
     invoke-interface {v3, v4, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 251
+    .line 252
     :cond_1
     iget-object v4, p0, Landroid/webkit/HTML5Audio;->mIsPrivateBrowsingEnabledGetter:Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;
 
@@ -657,42 +662,42 @@
 
     if-eqz v4, :cond_2
 
-    .line 252
+    .line 253
     const-string/jumbo v4, "x-hide-urls-from-log"
 
     const-string/jumbo v5, "true"
 
     invoke-interface {v3, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 255
+    .line 256
     :cond_2
     iget-object v4, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v4, p1, v3}, Landroid/media/MediaPlayer;->setDataSource(Ljava/lang/String;Ljava/util/Map;)V
 
-    .line 256
+    .line 257
     sget v4, Landroid/webkit/HTML5Audio;->INITIALIZED:I
 
     iput v4, p0, Landroid/webkit/HTML5Audio;->mState:I
 
-    .line 257
+    .line 258
     iget-object v4, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v4}, Landroid/media/MediaPlayer;->prepareAsync()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 263
+    .line 264
     .end local v0           #cookieValue:Ljava/lang/String;
     .end local v3           #headers:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :goto_0
     return-void
 
-    .line 258
+    .line 259
     :catch_0
     move-exception v2
 
-    .line 259
+    .line 260
     .local v2, e:Ljava/io/IOException;
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -724,7 +729,7 @@
 
     move-result-object v1
 
-    .line 260
+    .line 261
     .local v1, debugUrl:Ljava/lang/String;
     :goto_1
     const-string v4, "HTML5Audio"
@@ -759,7 +764,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 261
+    .line 262
     invoke-direct {p0}, Landroid/webkit/HTML5Audio;->resetMediaPlayer()V
 
     goto :goto_0
@@ -768,7 +773,7 @@
     :cond_3
     move-object v1, p1
 
-    .line 259
+    .line 260
     goto :goto_1
 .end method
 
@@ -777,19 +782,19 @@
     .parameter "volume"
 
     .prologue
-    .line 351
+    .line 366
     iget v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
     sget v1, Landroid/webkit/HTML5Audio;->PREPARED:I
 
     if-lt v0, v1, :cond_0
 
-    .line 352
+    .line 367
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0, p1, p1}, Landroid/media/MediaPlayer;->setVolume(FF)V
 
-    .line 354
+    .line 369
     :cond_0
     return-void
 .end method
@@ -798,27 +803,27 @@
     .locals 1
 
     .prologue
-    .line 363
+    .line 378
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->release()V
 
-    .line 364
+    .line 379
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    .line 365
+    .line 380
     sget v0, Landroid/webkit/HTML5Audio;->ERROR:I
 
     iput v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
-    .line 366
+    .line 381
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/webkit/HTML5Audio;->mNativePointer:I
 
-    .line 367
+    .line 382
     return-void
 .end method
 
@@ -829,17 +834,17 @@
     .parameter "msg"
 
     .prologue
-    .line 144
+    .line 145
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 156
+    .line 157
     :cond_0
     :goto_0
     return-void
 
-    .line 147
+    .line 148
     :pswitch_0
     :try_start_0
     iget v2, p0, Landroid/webkit/HTML5Audio;->mState:I
@@ -856,14 +861,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 148
+    .line 149
     iget-object v2, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v2}, Landroid/media/MediaPlayer;->getCurrentPosition()I
 
     move-result v1
 
-    .line 149
+    .line 150
     .local v1, position:I
     iget v2, p0, Landroid/webkit/HTML5Audio;->mNativePointer:I
 
@@ -873,12 +878,12 @@
 
     goto :goto_0
 
-    .line 151
+    .line 152
     .end local v1           #position:I
     :catch_0
     move-exception v0
 
-    .line 152
+    .line 153
     .local v0, e:Ljava/lang/IllegalStateException;
     sget v2, Landroid/webkit/HTML5Audio;->ERROR:I
 
@@ -886,7 +891,7 @@
 
     goto :goto_0
 
-    .line 144
+    .line 145
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0
@@ -898,16 +903,65 @@
     .parameter "focusChange"
 
     .prologue
-    .line 267
+    .line 268
     packed-switch p1, :pswitch_data_0
 
-    .line 283
+    .line 298
     :cond_0
     :goto_0
+    :pswitch_0
     return-void
 
-    .line 270
-    :pswitch_0
+    .line 271
+    :pswitch_1
+    iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
+
+    if-nez v0, :cond_1
+
+    .line 272
+    invoke-direct {p0}, Landroid/webkit/HTML5Audio;->resetMediaPlayer()V
+
+    goto :goto_0
+
+    .line 273
+    :cond_1
+    iget-boolean v0, p0, Landroid/webkit/HTML5Audio;->mPausedByAudioFocusLoss:Z
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Landroid/webkit/HTML5Audio;->mState:I
+
+    sget v1, Landroid/webkit/HTML5Audio;->ERROR:I
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
+
+    invoke-virtual {v0}, Landroid/media/MediaPlayer;->isPlaying()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 274
+    iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
+
+    invoke-virtual {v0}, Landroid/media/MediaPlayer;->start()V
+
+    .line 275
+    sget v0, Landroid/webkit/HTML5Audio;->STARTED:I
+
+    iput v0, p0, Landroid/webkit/HTML5Audio;->mState:I
+
+    .line 276
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/webkit/HTML5Audio;->mPausedByAudioFocusLoss:Z
+
+    goto :goto_0
+
+    .line 282
+    :pswitch_2
     iget v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
     sget v1, Landroid/webkit/HTML5Audio;->ERROR:I
@@ -922,20 +976,20 @@
 
     if-eqz v0, :cond_0
 
-    .line 271
+    .line 283
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->stop()V
 
-    .line 272
+    .line 284
     sget v0, Landroid/webkit/HTML5Audio;->STOPPED:I
 
     iput v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
     goto :goto_0
 
-    .line 280
-    :pswitch_1
+    .line 292
+    :pswitch_3
     iget v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
     sget v1, Landroid/webkit/HTML5Audio;->ERROR:I
@@ -950,16 +1004,24 @@
 
     if-eqz v0, :cond_0
 
+    .line 293
     invoke-direct {p0}, Landroid/webkit/HTML5Audio;->pause()V
+
+    .line 294
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/webkit/HTML5Audio;->mPausedByAudioFocusLoss:Z
 
     goto :goto_0
 
-    .line 267
+    .line 268
     :pswitch_data_0
     .packed-switch -0x3
-        :pswitch_1
-        :pswitch_1
+        :pswitch_3
+        :pswitch_3
+        :pswitch_2
         :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
@@ -969,12 +1031,12 @@
     .parameter "percent"
 
     .prologue
-    .line 164
+    .line 165
     iget v0, p0, Landroid/webkit/HTML5Audio;->mNativePointer:I
 
     invoke-direct {p0, p2, v0}, Landroid/webkit/HTML5Audio;->nativeOnBuffering(II)V
 
-    .line 165
+    .line 166
     return-void
 .end method
 
@@ -987,36 +1049,36 @@
 
     const/4 v1, 0x0
 
-    .line 169
+    .line 170
     sget v0, Landroid/webkit/HTML5Audio;->COMPLETE:I
 
     iput v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
-    .line 170
+    .line 171
     iput-boolean v2, p0, Landroid/webkit/HTML5Audio;->mProcessingOnEnd:Z
 
-    .line 171
+    .line 172
     iget v0, p0, Landroid/webkit/HTML5Audio;->mNativePointer:I
 
     invoke-direct {p0, v0}, Landroid/webkit/HTML5Audio;->nativeOnEnded(I)V
 
-    .line 172
+    .line 173
     iput-boolean v1, p0, Landroid/webkit/HTML5Audio;->mProcessingOnEnd:Z
 
-    .line 173
+    .line 174
     iget-boolean v0, p0, Landroid/webkit/HTML5Audio;->mLoopEnabled:Z
 
     if-ne v0, v2, :cond_0
 
-    .line 174
+    .line 175
     iget v0, p0, Landroid/webkit/HTML5Audio;->mNativePointer:I
 
     invoke-direct {p0, v0}, Landroid/webkit/HTML5Audio;->nativeOnRequestPlay(I)V
 
-    .line 175
+    .line 176
     iput-boolean v1, p0, Landroid/webkit/HTML5Audio;->mLoopEnabled:Z
 
-    .line 177
+    .line 178
     :cond_0
     return-void
 .end method
@@ -1028,20 +1090,20 @@
     .parameter "extra"
 
     .prologue
-    .line 181
+    .line 182
     sget v0, Landroid/webkit/HTML5Audio;->ERROR:I
 
     iput v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
-    .line 182
+    .line 183
     invoke-direct {p0}, Landroid/webkit/HTML5Audio;->resetMediaPlayer()V
 
-    .line 183
+    .line 184
     sget v0, Landroid/webkit/HTML5Audio;->IDLE:I
 
     iput v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
-    .line 184
+    .line 185
     const/4 v0, 0x0
 
     return v0
@@ -1056,17 +1118,17 @@
 
     const/4 v6, 0x0
 
-    .line 189
+    .line 190
     sget v0, Landroid/webkit/HTML5Audio;->PREPARED:I
 
     iput v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
-    .line 190
+    .line 191
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
 
     if-eqz v0, :cond_0
 
-    .line 191
+    .line 192
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
 
     new-instance v1, Landroid/webkit/HTML5Audio$TimeupdateTask;
@@ -1079,7 +1141,7 @@
 
     invoke-virtual/range {v0 .. v5}, Ljava/util/Timer;->schedule(Ljava/util/TimerTask;JJ)V
 
-    .line 194
+    .line 195
     :cond_0
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->getDuration()I
 
@@ -1089,18 +1151,18 @@
 
     invoke-direct {p0, v0, v6, v6, v1}, Landroid/webkit/HTML5Audio;->nativeOnPrepared(IIII)V
 
-    .line 195
+    .line 196
     iget-boolean v0, p0, Landroid/webkit/HTML5Audio;->mAskToPlay:Z
 
     if-eqz v0, :cond_1
 
-    .line 196
+    .line 197
     iput-boolean v6, p0, Landroid/webkit/HTML5Audio;->mAskToPlay:Z
 
-    .line 197
+    .line 198
     invoke-direct {p0}, Landroid/webkit/HTML5Audio;->play()V
 
-    .line 199
+    .line 200
     :cond_1
     return-void
 .end method
@@ -1110,7 +1172,7 @@
     .parameter "mp"
 
     .prologue
-    .line 203
+    .line 204
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->getCurrentPosition()I
 
     move-result v0
@@ -1119,6 +1181,6 @@
 
     invoke-direct {p0, v0, v1}, Landroid/webkit/HTML5Audio;->nativeOnTimeupdate(II)V
 
-    .line 204
+    .line 205
     return-void
 .end method

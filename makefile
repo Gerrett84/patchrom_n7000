@@ -12,7 +12,7 @@ local-out-zip-file := MIUI_note.zip
 local-previous-target-dir := ~/workspace/ota_base/note
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := OriginalSettings FmRadio
+local-modified-apps := Camera OriginalSettings FmRadio
 
 local-modified-jars :=
 
@@ -42,11 +42,8 @@ local-pre-zip-misc:
 	cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
 	cp stockrom/system/app/FFFFFFFF000000000000000000000001.drbin $(ZIP_DIR)/system/app
-	cp -r stockrom/data/app/ $(ZIP_DIR)/data/app
 	cp -r stockrom/system/app/mcRegistry $(ZIP_DIR)/system/app
-	rm -rf $(ZIP_DIR)/system/sipdb
-	rm -rf $(ZIP_DIR)/system/hdic
-	rm -rf $(ZIP_DIR)/system/T9DB
+	cp -r stockrom/data/app/ $(ZIP_DIR)/data/app
 	rm -rf $(ZIP_DIR)/system/csc
 	rm -rf $(pre_install_data_packages)
 	for apk in $(ZIP_DIR)/data/media/preinstall_apps/*.apk; do\
@@ -55,6 +52,7 @@ local-pre-zip-misc:
 	more $(pre_install_data_packages) | wc -l > $(ZIP_DIR)/system/etc/enforcecopyinglibpackages.txt
 	more $(pre_install_data_packages) >> $(ZIP_DIR)/system/etc/enforcecopyinglibpackages.txt
 	$(TOOL_DIR)/gen_res_conf.sh other/res_overlay_conf.txt $(ZIP_DIR)/system/app $(ZIP_DIR)/system/etc
+	cp other/install-recovery.sh $(ZIP_DIR)/system/etc/install-recovery.sh
 
 out/framework2.jar : out/framework.jar
 

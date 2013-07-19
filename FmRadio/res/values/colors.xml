@@ -28,7 +28,7 @@
     <color name="rds_txt_color">#ffffffff</color>
     <color name="rds_info_color">#ffa6a3a3</color>
     <color name="color5">#ffa2a2a2</color>
-    <color name="rec_text">#ff9f1212</color>
+    <color name="rec_text">#ffe50b0b</color>
     <color name="channel_frequency_text">#ffd7d7d7</color>
     <color name="channel_name_text">#ff898989</color>
     <color name="tags_category_color">#ffd2d2d2</color>

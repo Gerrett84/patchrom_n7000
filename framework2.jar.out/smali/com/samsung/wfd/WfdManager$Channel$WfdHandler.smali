@@ -25,13 +25,13 @@
     .parameter "looper"
 
     .prologue
-    .line 403
+    .line 416
     iput-object p1, p0, Lcom/samsung/wfd/WfdManager$Channel$WfdHandler;->this$0:Lcom/samsung/wfd/WfdManager$Channel;
 
-    .line 404
+    .line 417
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 405
+    .line 418
     return-void
 .end method
 
@@ -42,7 +42,7 @@
     .parameter "message"
 
     .prologue
-    .line 409
+    .line 422
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager$Channel$WfdHandler;->this$0:Lcom/samsung/wfd/WfdManager$Channel;
 
     iget v2, p1, Landroid/os/Message;->arg2:I
@@ -51,13 +51,13 @@
 
     move-result-object v0
 
-    .line 410
+    .line 423
     .local v0, listener:Ljava/lang/Object;
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 418
+    .line 431
     const-string v1, "WfdManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -80,12 +80,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 421
+    .line 434
     :cond_0
     :goto_0
     return-void
 
-    .line 412
+    .line 425
     :pswitch_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager$Channel$WfdHandler;->this$0:Lcom/samsung/wfd/WfdManager$Channel;
 
@@ -96,7 +96,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 413
+    .line 426
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager$Channel$WfdHandler;->this$0:Lcom/samsung/wfd/WfdManager$Channel;
 
     #getter for: Lcom/samsung/wfd/WfdManager$Channel;->mChannelListener:Lcom/samsung/wfd/WfdManager$ChannelListener;
@@ -106,7 +106,7 @@
 
     invoke-interface {v1}, Lcom/samsung/wfd/WfdManager$ChannelListener;->onChannelDisconnected()V
 
-    .line 414
+    .line 427
     iget-object v1, p0, Lcom/samsung/wfd/WfdManager$Channel$WfdHandler;->this$0:Lcom/samsung/wfd/WfdManager$Channel;
 
     const/4 v2, 0x0
@@ -116,7 +116,7 @@
 
     goto :goto_0
 
-    .line 410
+    .line 423
     :pswitch_data_0
     .packed-switch 0x11004
         :pswitch_0

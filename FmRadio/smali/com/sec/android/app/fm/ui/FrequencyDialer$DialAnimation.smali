@@ -27,15 +27,15 @@
     .parameter
 
     .prologue
-    .line 532
+    .line 589
     iput-object p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     invoke-direct {p0}, Landroid/view/animation/Animation;-><init>()V
 
-    .line 533
+    .line 590
     invoke-virtual {p0, p0}, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 534
+    .line 591
     return-void
 .end method
 
@@ -47,7 +47,7 @@
     .parameter "t"
 
     .prologue
-    .line 540
+    .line 596
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -70,7 +70,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;)V
 
-    .line 541
+    .line 597
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
@@ -109,7 +109,7 @@
     #setter for: Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
     invoke-static {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->access$002(Lcom/sec/android/app/fm/ui/FrequencyDialer;J)J
 
-    .line 542
+    .line 598
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
@@ -122,12 +122,12 @@
     #calls: Lcom/sec/android/app/fm/ui/FrequencyDialer;->calculatePositionFreqOfDialerPoint(J)F
     invoke-static {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->access$300(Lcom/sec/android/app/fm/ui/FrequencyDialer;J)F
 
-    .line 543
+    .line 599
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
 
-    .line 544
+    .line 600
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     #getter for: Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
@@ -144,10 +144,10 @@
 
     invoke-interface {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onFreqChanged(J)V
 
-    .line 545
+    .line 601
     invoke-super {p0, p1, p2}, Landroid/view/animation/Animation;->applyTransformation(FLandroid/view/animation/Transformation;)V
 
-    .line 546
+    .line 602
     return-void
 .end method
 
@@ -156,14 +156,14 @@
     .parameter "arg0"
 
     .prologue
-    .line 551
+    .line 607
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     const-string v1, "onAnimationEnd"
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;)V
 
-    .line 552
+    .line 608
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
@@ -176,7 +176,7 @@
     #setter for: Lcom/sec/android/app/fm/ui/FrequencyDialer;->mFrequency:J
     invoke-static {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->access$002(Lcom/sec/android/app/fm/ui/FrequencyDialer;J)J
 
-    .line 553
+    .line 609
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
@@ -189,12 +189,12 @@
     #calls: Lcom/sec/android/app/fm/ui/FrequencyDialer;->calculatePositionFreqOfDialerPoint(J)F
     invoke-static {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->access$300(Lcom/sec/android/app/fm/ui/FrequencyDialer;J)F
 
-    .line 554
+    .line 610
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->invalidate()V
 
-    .line 555
+    .line 611
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     #getter for: Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
@@ -211,7 +211,17 @@
 
     invoke-interface {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onFreqChanged(J)V
 
-    .line 556
+    .line 612
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
+
+    #getter for: Lcom/sec/android/app/fm/ui/FrequencyDialer;->isStart:Z
+    invoke-static {v0}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->access$500(Lcom/sec/android/app/fm/ui/FrequencyDialer;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 613
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     #getter for: Lcom/sec/android/app/fm/ui/FrequencyDialer;->mOnDegreeChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;
@@ -223,7 +233,8 @@
 
     invoke-interface {v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDialer$OnDegreeChangeListener;->onTouchDial(I)V
 
-    .line 557
+    .line 615
+    :cond_0
     return-void
 .end method
 
@@ -232,7 +243,7 @@
     .parameter "arg0"
 
     .prologue
-    .line 563
+    .line 621
     return-void
 .end method
 
@@ -241,13 +252,13 @@
     .parameter "arg0"
 
     .prologue
-    .line 568
+    .line 626
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDialer$DialAnimation;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDialer;
 
     const-string v1, "onAnimationStart"
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDialer;->log(Ljava/lang/String;)V
 
-    .line 569
+    .line 627
     return-void
 .end method

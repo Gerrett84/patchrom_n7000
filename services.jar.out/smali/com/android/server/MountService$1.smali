@@ -57,7 +57,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     .line 591
     const-string v3, "MountService"
@@ -99,13 +99,63 @@
     #calls: Lcom/android/server/MountService;->notifyVolumeStateChange(Ljava/lang/String;Ljava/lang/String;II)V
     invoke-static {v3, v4, v5, v2, v6}, Lcom/android/server/MountService;->access$700(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;II)V
 
-    .line 669
+    .line 677
     :cond_0
     :goto_0
     return-void
 
-    .line 603
+    .line 605
     :cond_1
+    invoke-static {}, Landroid/dirEncryption/DirEncryptionManager;->isEncryptionFeatureEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 606
+    iget-object v2, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    new-instance v3, Landroid/dirEncryption/DirEncryptionManager;
+
+    iget-object v4, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    #getter for: Lcom/android/server/MountService;->mContext:Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/server/MountService;->access$800(Lcom/android/server/MountService;)Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Landroid/dirEncryption/DirEncryptionManager;-><init>(Landroid/content/Context;)V
+
+    iput-object v3, v2, Lcom/android/server/MountService;->mDem:Landroid/dirEncryption/DirEncryptionManager;
+
+    .line 607
+    iget-object v2, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    new-instance v3, Lcom/android/server/MountService$DirEncryptListner;
+
+    iget-object v4, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    invoke-direct {v3, v4}, Lcom/android/server/MountService$DirEncryptListner;-><init>(Lcom/android/server/MountService;)V
+
+    #setter for: Lcom/android/server/MountService;->mDirEncryptListner:Lcom/android/server/MountService$DirEncryptListner;
+    invoke-static {v2, v3}, Lcom/android/server/MountService;->access$902(Lcom/android/server/MountService;Lcom/android/server/MountService$DirEncryptListner;)Lcom/android/server/MountService$DirEncryptListner;
+
+    .line 608
+    iget-object v2, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    iget-object v2, v2, Lcom/android/server/MountService;->mDem:Landroid/dirEncryption/DirEncryptionManager;
+
+    iget-object v3, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    #getter for: Lcom/android/server/MountService;->mDirEncryptListner:Lcom/android/server/MountService$DirEncryptListner;
+    invoke-static {v3}, Lcom/android/server/MountService;->access$900(Lcom/android/server/MountService;)Lcom/android/server/MountService$DirEncryptListner;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/dirEncryption/DirEncryptionManager;->registerListener(Landroid/os/storage/IDirEncryptServiceListener;)V
+
+    .line 611
+    :cond_2
     new-instance v2, Lcom/android/server/MountService$1$1;
 
     invoke-direct {v2, p0}, Lcom/android/server/MountService$1$1;-><init>(Lcom/android/server/MountService$1;)V
@@ -114,8 +164,8 @@
 
     goto :goto_0
 
-    .line 664
-    :cond_2
+    .line 672
+    :cond_3
     const-string v3, "android.hardware.usb.action.USB_STATE"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -124,14 +174,14 @@
 
     if-eqz v3, :cond_0
 
-    .line 665
+    .line 673
     const-string v3, "connected"
 
     invoke-virtual {p2, v3, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     const-string v3, "mass_storage"
 
@@ -139,22 +189,22 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
-    .line 667
+    .line 675
     .local v1, available:Z
     :goto_1
     iget-object v2, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
 
     #calls: Lcom/android/server/MountService;->notifyShareAvailabilityChange(Z)V
-    invoke-static {v2, v1}, Lcom/android/server/MountService;->access$1400(Lcom/android/server/MountService;Z)V
+    invoke-static {v2, v1}, Lcom/android/server/MountService;->access$1600(Lcom/android/server/MountService;Z)V
 
     goto :goto_0
 
     .end local v1           #available:Z
-    :cond_3
+    :cond_4
     move v1, v2
 
-    .line 665
+    .line 673
     goto :goto_1
 .end method

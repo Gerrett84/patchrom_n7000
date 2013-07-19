@@ -15,6 +15,12 @@
 
 .field private final MENU_CONTEXT_GOTO_RSSI_TEST:I
 
+.field private final MENU_CONTEXT_GOTO_SOFTMUTE_TEST:I
+
+.field private final MENU_CONTEXT_GOTO_SOFTMUTE_TEST_STE:I
+
+.field private final MENU_CONTEXT_GOTO_VOLUMESETTING_TEST:I
+
 .field i:I
 
 .field private mCancelButton:Landroid/widget/Button;
@@ -42,9 +48,11 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 7
+    .locals 8
 
     .prologue
+    const/4 v7, 0x3
+
     const/4 v6, 0x2
 
     const/4 v5, 0x1
@@ -53,32 +61,32 @@
 
     const/16 v3, 0x9
 
-    .line 24
+    .line 25
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     .line 27
     iput v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->MAX_REG_COUNT:I
 
-    .line 28
+    .line 29
     iget v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->MAX_REG_COUNT:I
 
     new-array v0, v0, [Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mTextLabel:[Landroid/widget/TextView;
 
-    .line 29
+    .line 31
     iget v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->MAX_REG_COUNT:I
 
     new-array v0, v0, [Landroid/widget/EditText;
 
     iput-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
-    .line 31
+    .line 33
     const-string v0, "###"
 
     iput-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
-    .line 32
+    .line 35
     new-array v0, v3, [Ljava/lang/String;
 
     const-string v1, "RSSI"
@@ -93,11 +101,9 @@
 
     aput-object v1, v0, v6
 
-    const/4 v1, 0x3
+    const-string v1, "RSSI_2"
 
-    const-string v2, "RSSI_2"
-
-    aput-object v2, v0, v1
+    aput-object v1, v0, v7
 
     const/4 v1, 0x4
 
@@ -131,57 +137,70 @@
 
     iput-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->registerName:[Ljava/lang/String;
 
-    .line 34
+    .line 39
     new-array v0, v3, [I
 
     fill-array-data v0, :array_0
 
     iput-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mTextViewId:[I
 
-    .line 37
+    .line 44
     new-array v0, v3, [I
 
     fill-array-data v0, :array_1
 
     iput-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditTextId:[I
 
-    .line 40
+    .line 49
     iput v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
 
-    .line 45
+    .line 57
     iput v5, p0, Lcom/sec/android/app/fm/HwTunningActivity;->MENU_CONTEXT_GOTO_RSSI_TEST:I
 
-    .line 46
+    .line 59
     iput v6, p0, Lcom/sec/android/app/fm/HwTunningActivity;->MENU_CONTEXT_GOTO_INTENNA_TEST:I
+
+    .line 61
+    iput v7, p0, Lcom/sec/android/app/fm/HwTunningActivity;->MENU_CONTEXT_GOTO_SOFTMUTE_TEST:I
+
+    .line 63
+    const/4 v0, 0x4
+
+    iput v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->MENU_CONTEXT_GOTO_VOLUMESETTING_TEST:I
+
+    .line 64
+    const/4 v0, 0x5
+
+    iput v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->MENU_CONTEXT_GOTO_SOFTMUTE_TEST_STE:I
 
     return-void
 
-    .line 34
+    .line 39
     :array_0
     .array-data 0x4
-        0xet 0x0t 0x7t 0x7ft
-        0x10t 0x0t 0x7t 0x7ft
-        0x12t 0x0t 0x7t 0x7ft
+        0x11t 0x0t 0x7t 0x7ft
+        0x13t 0x0t 0x7t 0x7ft
         0x15t 0x0t 0x7t 0x7ft
         0x18t 0x0t 0x7t 0x7ft
         0x1bt 0x0t 0x7t 0x7ft
-        0x1dt 0x0t 0x7t 0x7ft
-        0x1ft 0x0t 0x7t 0x7ft
-        0x21t 0x0t 0x7t 0x7ft
-    .end array-data
-
-    .line 37
-    :array_1
-    .array-data 0x4
-        0xft 0x0t 0x7t 0x7ft
-        0x11t 0x0t 0x7t 0x7ft
-        0x13t 0x0t 0x7t 0x7ft
-        0x16t 0x0t 0x7t 0x7ft
-        0x19t 0x0t 0x7t 0x7ft
-        0x1ct 0x0t 0x7t 0x7ft
         0x1et 0x0t 0x7t 0x7ft
         0x20t 0x0t 0x7t 0x7ft
         0x22t 0x0t 0x7t 0x7ft
+        0x24t 0x0t 0x7t 0x7ft
+    .end array-data
+
+    .line 44
+    :array_1
+    .array-data 0x4
+        0x12t 0x0t 0x7t 0x7ft
+        0x14t 0x0t 0x7t 0x7ft
+        0x16t 0x0t 0x7t 0x7ft
+        0x19t 0x0t 0x7t 0x7ft
+        0x1ct 0x0t 0x7t 0x7ft
+        0x1ft 0x0t 0x7t 0x7ft
+        0x21t 0x0t 0x7t 0x7ft
+        0x23t 0x0t 0x7t 0x7ft
+        0x25t 0x0t 0x7t 0x7ft
     .end array-data
 .end method
 
@@ -189,7 +208,7 @@
     .locals 2
 
     .prologue
-    .line 184
+    .line 191
     :try_start_0
     iget-object v1, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
@@ -197,15 +216,15 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 189
+    .line 195
     :goto_0
     return-void
 
-    .line 185
+    .line 192
     :catch_0
     move-exception v0
 
-    .line 187
+    .line 193
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -218,8 +237,8 @@
     .prologue
     const/16 v7, 0x8
 
-    .line 56
-    const v3, 0x7f070023
+    .line 72
+    const v3, 0x7f070026
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/HwTunningActivity;->findViewById(I)Landroid/view/View;
 
@@ -229,20 +248,20 @@
 
     iput-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mOkButton:Landroid/widget/Button;
 
-    .line 57
+    .line 73
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mOkButton:Landroid/widget/Button;
 
     invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 58
+    .line 74
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mOkButton:Landroid/widget/Button;
 
-    const-string v4, "Apply"
+    const-string v4, "Save"
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 60
-    const v3, 0x7f070024
+    .line 76
+    const v3, 0x7f070027
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/HwTunningActivity;->findViewById(I)Landroid/view/View;
 
@@ -252,20 +271,20 @@
 
     iput-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mCancelButton:Landroid/widget/Button;
 
-    .line 61
+    .line 77
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mCancelButton:Landroid/widget/Button;
 
     invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 62
+    .line 78
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mCancelButton:Landroid/widget/Button;
 
     const-string v4, "Cancel"
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 64
-    const v3, 0x7f070025
+    .line 80
+    const v3, 0x7f070028
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/HwTunningActivity;->findViewById(I)Landroid/view/View;
 
@@ -275,20 +294,20 @@
 
     iput-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mSkipValue:Landroid/widget/Button;
 
-    .line 65
+    .line 81
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mSkipValue:Landroid/widget/Button;
 
     invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 66
+    .line 82
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mSkipValue:Landroid/widget/Button;
 
-    const-string v4, "Skip Value"
+    const-string v4, "Apply Value for scan"
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 68
-    const v3, 0x7f070026
+    .line 84
+    const v3, 0x7f070029
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/HwTunningActivity;->findViewById(I)Landroid/view/View;
 
@@ -298,20 +317,20 @@
 
     iput-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mThailandApplyButton:Landroid/widget/Button;
 
-    .line 69
+    .line 85
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mThailandApplyButton:Landroid/widget/Button;
 
     invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 70
+    .line 86
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mThailandApplyButton:Landroid/widget/Button;
 
     const-string v4, "ThaiUI_Apply"
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 72
-    const v3, 0x7f070027
+    .line 88
+    const v3, 0x7f07002a
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/HwTunningActivity;->findViewById(I)Landroid/view/View;
 
@@ -321,19 +340,19 @@
 
     iput-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mThailandCancelButton:Landroid/widget/Button;
 
-    .line 73
+    .line 89
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mThailandCancelButton:Landroid/widget/Button;
 
     invoke-virtual {v3, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 74
+    .line 90
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mThailandCancelButton:Landroid/widget/Button;
 
     const-string v4, "ThaiUI_Cancel"
 
     invoke-virtual {v3, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 76
+    .line 92
     const-string v3, "FMPlayer"
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/HwTunningActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -344,7 +363,7 @@
 
     iput-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
-    .line 83
+    .line 99
     const/4 v3, 0x0
 
     iput v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
@@ -356,7 +375,7 @@
 
     if-ge v3, v4, :cond_0
 
-    .line 85
+    .line 100
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mTextLabel:[Landroid/widget/TextView;
 
     iget v5, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
@@ -375,7 +394,7 @@
 
     aput-object v3, v4, v5
 
-    .line 86
+    .line 101
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mTextLabel:[Landroid/widget/TextView;
 
     iget v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
@@ -390,7 +409,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 87
+    .line 102
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
     iget v5, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
@@ -409,7 +428,7 @@
 
     aput-object v3, v4, v5
 
-    .line 83
+    .line 99
     iget v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
 
     add-int/lit8 v3, v3, 0x1
@@ -418,9 +437,9 @@
 
     goto :goto_0
 
-    .line 91
+    .line 106
     :cond_0
-    const v3, 0x7f070014
+    const v3, 0x7f070017
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/HwTunningActivity;->findViewById(I)Landroid/view/View;
 
@@ -428,9 +447,9 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 92
+    .line 107
     .local v1, layout_rssi_2:Landroid/widget/LinearLayout;
-    const v3, 0x7f070017
+    const v3, 0x7f07001a
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/HwTunningActivity;->findViewById(I)Landroid/view/View;
 
@@ -438,9 +457,9 @@
 
     check-cast v2, Landroid/widget/LinearLayout;
 
-    .line 93
+    .line 108
     .local v2, layout_snr_2:Landroid/widget/LinearLayout;
-    const v3, 0x7f07001a
+    const v3, 0x7f07001d
 
     invoke-virtual {p0, v3}, Lcom/sec/android/app/fm/HwTunningActivity;->findViewById(I)Landroid/view/View;
 
@@ -448,17 +467,17 @@
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    .line 95
+    .line 110
     .local v0, layout_cnt_2:Landroid/widget/LinearLayout;
     invoke-virtual {v1, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 96
+    .line 111
     invoke-virtual {v2, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 97
+    .line 112
     invoke-virtual {v0, v7}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 100
+    .line 115
     return-void
 .end method
 
@@ -466,7 +485,7 @@
     .locals 7
 
     .prologue
-    .line 123
+    .line 135
     :try_start_0
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
@@ -474,7 +493,7 @@
 
     move-result v1
 
-    .line 124
+    .line 136
     .local v1, ret:I
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
@@ -496,9 +515,9 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 125
+    .line 137
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
     const/4 v5, 0x0
@@ -513,14 +532,14 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 128
+    .line 139
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v4}, Lcom/samsung/media/fmradio/FMPlayer;->getSNR_th()I
 
     move-result v1
 
-    .line 129
+    .line 140
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -541,9 +560,9 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 130
+    .line 141
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
     const/4 v5, 0x1
@@ -558,14 +577,14 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 133
+    .line 143
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v4}, Lcom/samsung/media/fmradio/FMPlayer;->getCnt_th()I
 
     move-result v1
 
-    .line 134
+    .line 144
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -586,9 +605,9 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 135
+    .line 145
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
     const/4 v5, 0x2
@@ -603,14 +622,14 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 154
+    .line 162
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v4}, Lcom/samsung/media/fmradio/FMPlayer;->GetAF_th()I
 
     move-result v1
 
-    .line 155
+    .line 163
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -631,9 +650,9 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 156
+    .line 164
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
     const/4 v5, 0x6
@@ -648,14 +667,14 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 158
+    .line 166
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v4}, Lcom/samsung/media/fmradio/FMPlayer;->GetAFValid_th()I
 
     move-result v1
 
-    .line 159
+    .line 167
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -676,9 +695,9 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 160
+    .line 168
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
     const/4 v5, 0x7
@@ -693,14 +712,14 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 162
+    .line 170
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v4}, Lcom/samsung/media/fmradio/FMPlayer;->getCurrentRSSI()J
 
     move-result-wide v2
 
-    .line 163
+    .line 171
     .local v2, retVal:J
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
@@ -722,9 +741,9 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 164
+    .line 172
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
     const/16 v5, 0x8
@@ -743,17 +762,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 179
+    .line 187
     .end local v1           #ret:I
     .end local v2           #retVal:J
     :goto_0
     return-void
 
-    .line 168
+    .line 176
     :catch_0
     move-exception v0
 
-    .line 171
+    .line 178
     .local v0, e:Ljava/lang/Exception;
     :try_start_1
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
@@ -762,7 +781,7 @@
 
     goto :goto_0
 
-    .line 172
+    .line 179
     :catch_1
     move-exception v4
 
@@ -773,7 +792,7 @@
     .locals 2
 
     .prologue
-    .line 104
+    .line 118
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
@@ -785,7 +804,7 @@
 
     if-ge v0, v1, :cond_2
 
-    .line 107
+    .line 120
     iget v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
 
     const/4 v1, 0x3
@@ -804,7 +823,7 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 104
+    .line 118
     :cond_0
     :goto_1
     iget v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
@@ -815,7 +834,7 @@
 
     goto :goto_0
 
-    .line 112
+    .line 126
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
@@ -829,7 +848,7 @@
 
     goto :goto_1
 
-    .line 115
+    .line 129
     :cond_2
     return-void
 .end method
@@ -838,7 +857,7 @@
     .locals 7
 
     .prologue
-    .line 193
+    .line 198
     const/4 v3, 0x0
 
     iput v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
@@ -850,7 +869,7 @@
 
     if-ge v3, v4, :cond_2
 
-    .line 196
+    .line 200
     iget v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
 
     const/4 v4, 0x3
@@ -869,7 +888,7 @@
 
     if-ne v3, v4, :cond_1
 
-    .line 193
+    .line 198
     :cond_0
     :goto_1
     iget v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
@@ -880,7 +899,7 @@
 
     goto :goto_0
 
-    .line 199
+    .line 204
     :cond_1
     iget-object v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
@@ -900,7 +919,7 @@
 
     aput-object v3, v4, v5
 
-    .line 201
+    .line 206
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
     iget v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
@@ -917,7 +936,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 203
+    .line 207
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mEditReg:[Landroid/widget/EditText;
 
     iget v4, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
@@ -932,7 +951,7 @@
 
     move-result-object v2
 
-    .line 204
+    .line 208
     .local v2, ret:Ljava/lang/String;
     const/16 v3, 0xa
 
@@ -940,29 +959,29 @@
 
     move-result v0
 
-    .line 206
+    .line 210
     .local v0, Value:I
     iget v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->i:I
 
     packed-switch v3, :pswitch_data_0
 
-    .line 318
+    .line 329
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     const-string v4, "Write : No valid data"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
-    .line 212
+    .line 215
     :pswitch_0
     :try_start_0
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
     invoke-virtual {v3, v0}, Lcom/samsung/media/fmradio/FMPlayer;->setRSSI_th(I)V
 
-    .line 213
+    .line 216
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -983,17 +1002,17 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
-    .line 214
+    .line 217
     :catch_0
     move-exception v1
 
-    .line 217
+    .line 219
     .local v1, e:Ljava/lang/Exception;
     :try_start_1
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
@@ -1002,13 +1021,13 @@
 
     goto :goto_1
 
-    .line 218
+    .line 220
     :catch_1
     move-exception v3
 
     goto :goto_1
 
-    .line 226
+    .line 230
     .end local v1           #e:Ljava/lang/Exception;
     :pswitch_1
     :try_start_2
@@ -1016,7 +1035,7 @@
 
     invoke-virtual {v3, v0}, Lcom/samsung/media/fmradio/FMPlayer;->setSNR_th(I)V
 
-    .line 227
+    .line 231
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1037,17 +1056,17 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
     goto/16 :goto_1
 
-    .line 228
+    .line 232
     :catch_2
     move-exception v1
 
-    .line 231
+    .line 234
     .restart local v1       #e:Ljava/lang/Exception;
     :try_start_3
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
@@ -1056,13 +1075,13 @@
 
     goto/16 :goto_1
 
-    .line 232
+    .line 235
     :catch_3
     move-exception v3
 
     goto/16 :goto_1
 
-    .line 238
+    .line 243
     .end local v1           #e:Ljava/lang/Exception;
     :pswitch_2
     :try_start_4
@@ -1070,7 +1089,7 @@
 
     invoke-virtual {v3, v0}, Lcom/samsung/media/fmradio/FMPlayer;->setCnt_th(I)V
 
-    .line 239
+    .line 244
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1091,17 +1110,17 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_4
 
     goto/16 :goto_1
 
-    .line 240
+    .line 245
     :catch_4
     move-exception v1
 
-    .line 243
+    .line 247
     .restart local v1       #e:Ljava/lang/Exception;
     :try_start_5
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
@@ -1110,13 +1129,13 @@
 
     goto/16 :goto_1
 
-    .line 244
+    .line 248
     :catch_5
     move-exception v3
 
     goto/16 :goto_1
 
-    .line 250
+    .line 256
     .end local v1           #e:Ljava/lang/Exception;
     :pswitch_3
     :try_start_6
@@ -1124,7 +1143,7 @@
 
     invoke-virtual {v3, v0}, Lcom/samsung/media/fmradio/FMPlayer;->setRSSI_th_2(I)V
 
-    .line 251
+    .line 257
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1145,17 +1164,17 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_6
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_6
 
     goto/16 :goto_1
 
-    .line 252
+    .line 258
     :catch_6
     move-exception v1
 
-    .line 255
+    .line 260
     .restart local v1       #e:Ljava/lang/Exception;
     :try_start_7
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
@@ -1164,13 +1183,13 @@
 
     goto/16 :goto_1
 
-    .line 256
+    .line 261
     :catch_7
     move-exception v3
 
     goto/16 :goto_1
 
-    .line 262
+    .line 269
     .end local v1           #e:Ljava/lang/Exception;
     :pswitch_4
     :try_start_8
@@ -1178,7 +1197,7 @@
 
     invoke-virtual {v3, v0}, Lcom/samsung/media/fmradio/FMPlayer;->setSNR_th_2(I)V
 
-    .line 263
+    .line 270
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1199,17 +1218,17 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_8
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_8
 
     goto/16 :goto_1
 
-    .line 264
+    .line 271
     :catch_8
     move-exception v1
 
-    .line 267
+    .line 273
     .restart local v1       #e:Ljava/lang/Exception;
     :try_start_9
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
@@ -1218,13 +1237,13 @@
 
     goto/16 :goto_1
 
-    .line 268
+    .line 274
     :catch_9
     move-exception v3
 
     goto/16 :goto_1
 
-    .line 274
+    .line 282
     .end local v1           #e:Ljava/lang/Exception;
     :pswitch_5
     :try_start_a
@@ -1232,7 +1251,7 @@
 
     invoke-virtual {v3, v0}, Lcom/samsung/media/fmradio/FMPlayer;->setCnt_th_2(I)V
 
-    .line 275
+    .line 283
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1253,17 +1272,17 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_a
     .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_a
 
     goto/16 :goto_1
 
-    .line 276
+    .line 284
     :catch_a
     move-exception v1
 
-    .line 279
+    .line 286
     .restart local v1       #e:Ljava/lang/Exception;
     :try_start_b
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
@@ -1272,13 +1291,13 @@
 
     goto/16 :goto_1
 
-    .line 280
+    .line 287
     :catch_b
     move-exception v3
 
     goto/16 :goto_1
 
-    .line 286
+    .line 295
     .end local v1           #e:Ljava/lang/Exception;
     :pswitch_6
     :try_start_c
@@ -1286,7 +1305,7 @@
 
     invoke-virtual {v3, v0}, Lcom/samsung/media/fmradio/FMPlayer;->SetAF_th(I)V
 
-    .line 287
+    .line 296
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1307,17 +1326,17 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_c
     .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_c
 
     goto/16 :goto_1
 
-    .line 288
+    .line 297
     :catch_c
     move-exception v1
 
-    .line 291
+    .line 299
     .restart local v1       #e:Ljava/lang/Exception;
     :try_start_d
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
@@ -1326,13 +1345,13 @@
 
     goto/16 :goto_1
 
-    .line 292
+    .line 300
     :catch_d
     move-exception v3
 
     goto/16 :goto_1
 
-    .line 298
+    .line 308
     .end local v1           #e:Ljava/lang/Exception;
     :pswitch_7
     :try_start_e
@@ -1340,7 +1359,7 @@
 
     invoke-virtual {v3, v0}, Lcom/samsung/media/fmradio/FMPlayer;->SetAFValid_th(I)V
 
-    .line 299
+    .line 309
     iget-object v3, p0, Lcom/sec/android/app/fm/HwTunningActivity;->LOG_TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1361,17 +1380,17 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_e
     .catch Ljava/lang/Exception; {:try_start_e .. :try_end_e} :catch_e
 
     goto/16 :goto_1
 
-    .line 300
+    .line 310
     :catch_e
     move-exception v1
 
-    .line 303
+    .line 312
     .restart local v1       #e:Ljava/lang/Exception;
     :try_start_f
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
@@ -1380,20 +1399,20 @@
 
     goto/16 :goto_1
 
-    .line 304
+    .line 313
     :catch_f
     move-exception v3
 
     goto/16 :goto_1
 
-    .line 323
+    .line 334
     .end local v0           #Value:I
     .end local v1           #e:Ljava/lang/Exception;
     .end local v2           #ret:Ljava/lang/String;
     :cond_2
     return-void
 
-    .line 206
+    .line 210
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1410,196 +1429,231 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 4
     .parameter "v"
 
     .prologue
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    .line 337
+    .line 349
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
-    move-result v0
+    move-result v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
-    .line 387
+    .line 414
     :goto_0
     return-void
 
-    .line 340
+    .line 352
     :pswitch_0
-    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->writeThreshold()V
+    :try_start_0
+    iget-object v1, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
-    .line 341
-    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->uiclear()V
+    invoke-virtual {v1}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
 
-    .line 342
-    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->readThreshold()V
+    move-result v1
 
-    .line 344
-    const-string v0, "Apply Complete~!!"
-
-    invoke-static {p0, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    goto :goto_0
-
-    .line 347
-    :pswitch_1
-    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->uiclear()V
-
-    .line 348
-    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->readThreshold()V
-
-    .line 350
-    const-string v0, "Cancel~!!"
-
-    invoke-static {p0, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    goto :goto_0
+    if-nez v1, :cond_0
 
     .line 353
-    :pswitch_2
-    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->SkipTuning_Value()V
+    const-string v1, "Play FMRadio before setting~!!"
 
-    .line 354
-    const-string v0, "Skipped Hardcoding Tuning values!!"
+    const/4 v2, 0x0
 
-    invoke-static {p0, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    goto :goto_0
-
-    .line 358
-    :pswitch_3
-    :try_start_0
-    invoke-static {}, Lcom/sec/android/app/fm/FMRadioFeature;->ForceApply_ThailandFunction()V
-
-    .line 359
-    iget-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
-
-    invoke-virtual {v0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 360
-    const-string v0, "Please turn on Radio"
-
-    const/4 v1, 0x1
-
-    invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 368
-    :goto_1
-    const-string v0, "ForceApply_ThailandFunction"
-
-    invoke-static {p0, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
     goto :goto_0
 
-    .line 362
-    :cond_0
-    :try_start_1
-    iget-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
-
-    const/4 v1, 0x5
-
-    invoke-virtual {v0, v1}, Lcom/samsung/media/fmradio/FMPlayer;->setChannelSpacing(I)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_1
-
-    .line 364
+    .line 357
     :catch_0
     move-exception v0
 
-    goto :goto_1
+    .line 358
+    .local v0, e:Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 371
-    :pswitch_4
-    invoke-static {}, Lcom/sec/android/app/fm/FMRadioFeature;->Recovery_ThailandFunction()V
+    .line 361
+    .end local v0           #e:Ljava/lang/Exception;
+    :cond_0
+    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->writeThreshold()V
 
-    .line 373
-    :try_start_2
-    iget-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
+    .line 362
+    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->uiclear()V
 
-    invoke-virtual {v0}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+    .line 363
+    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->readThreshold()V
 
-    move-result v0
+    .line 365
+    const-string v1, "Saved Complete~!!"
 
-    if-nez v0, :cond_1
+    invoke-static {p0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    .line 374
-    const-string v0, "Please turn on Radio"
+    move-result-object v1
 
-    const/4 v1, 0x1
-
-    invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
-
-    .line 381
-    :goto_2
-    const-string v0, "Recovery_ThailandFunction"
-
-    invoke-static {p0, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
     goto :goto_0
 
+    .line 369
+    :pswitch_1
+    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->uiclear()V
+
+    .line 370
+    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->readThreshold()V
+
+    .line 372
+    const-string v1, "Cancel~!!"
+
+    invoke-static {p0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    goto :goto_0
+
+    .line 375
+    :pswitch_2
+    invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->SkipTuning_Value()V
+
     .line 376
+    const-string v1, "Applied value for scan!!"
+
+    invoke-static {p0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    goto :goto_0
+
+    .line 381
+    :pswitch_3
+    :try_start_1
+    invoke-static {}, Lcom/sec/android/app/fm/FMRadioFeature;->ForceApply_ThailandFunction()V
+
+    .line 382
+    iget-object v1, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
+
+    invoke-virtual {v1}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 383
+    const-string v1, "Please turn on Radio"
+
+    const/4 v2, 0x1
+
+    invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+
+    .line 392
+    :goto_1
+    const-string v1, "ForceApply_ThailandFunction"
+
+    invoke-static {p0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    goto :goto_0
+
+    .line 386
     :cond_1
-    :try_start_3
-    iget-object v0, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
+    :try_start_2
+    iget-object v1, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
 
-    const/16 v1, 0xa
+    const/4 v2, 0x5
 
-    invoke-virtual {v0, v1}, Lcom/samsung/media/fmradio/FMPlayer;->setChannelSpacing(I)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    invoke-virtual {v1, v2}, Lcom/samsung/media/fmradio/FMPlayer;->setChannelSpacing(I)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 378
+    .line 388
     :catch_1
-    move-exception v0
+    move-exception v1
+
+    goto :goto_1
+
+    .line 396
+    :pswitch_4
+    invoke-static {}, Lcom/sec/android/app/fm/FMRadioFeature;->Recovery_ThailandFunction()V
+
+    .line 398
+    :try_start_3
+    iget-object v1, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
+
+    invoke-virtual {v1}, Lcom/samsung/media/fmradio/FMPlayer;->isOn()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    .line 399
+    const-string v1, "Please turn on Radio"
+
+    const/4 v2, 0x1
+
+    invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+
+    .line 407
+    :goto_2
+    const-string v1, "Recovery_ThailandFunction"
+
+    invoke-static {p0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    goto/16 :goto_0
+
+    .line 402
+    :cond_2
+    :try_start_4
+    iget-object v1, p0, Lcom/sec/android/app/fm/HwTunningActivity;->mPlayer:Lcom/samsung/media/fmradio/FMPlayer;
+
+    const/16 v2, 0xa
+
+    invoke-virtual {v1, v2}, Lcom/samsung/media/fmradio/FMPlayer;->setChannelSpacing(I)V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
 
     goto :goto_2
 
-    .line 337
+    .line 404
+    :catch_2
+    move-exception v1
+
+    goto :goto_2
+
+    .line 349
     :pswitch_data_0
-    .packed-switch 0x7f070023
+    .packed-switch 0x7f070026
         :pswitch_0
         :pswitch_1
         :pswitch_2
@@ -1613,21 +1667,21 @@
     .parameter "savedInstanceState"
 
     .prologue
-    .line 327
+    .line 338
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 329
-    const v0, 0x7f030006
+    .line 340
+    const v0, 0x7f030009
 
     invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/HwTunningActivity;->setContentView(I)V
 
-    .line 331
+    .line 342
     invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->initialize()V
 
-    .line 332
+    .line 343
     invoke-direct {p0}, Lcom/sec/android/app/fm/HwTunningActivity;->readThreshold()V
 
-    .line 334
+    .line 345
     return-void
 .end method
 
@@ -1636,10 +1690,10 @@
     .parameter "menu"
 
     .prologue
-    .line 392
+    .line 419
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 393
+    .line 420
     const/4 v0, 0x1
 
     return v0
@@ -1652,25 +1706,25 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 409
+    .line 444
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
-    .line 411
+    .line 446
     if-ne v1, v0, :cond_0
 
-    .line 412
+    .line 447
     new-instance v1, Landroid/content/Intent;
 
     const-class v2, Lcom/sec/android/app/fm/RssiTestActivity;
 
     invoke-direct {v1, p0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 413
+    .line 448
     invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/HwTunningActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 425
+    .line 487
     :goto_0
     return v0
 
@@ -1691,17 +1745,17 @@
 
     const/4 v1, 0x0
 
-    .line 398
+    .line 425
     invoke-super {p0, p1}, Landroid/app/Activity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 399
+    .line 426
     invoke-interface {p1}, Landroid/view/Menu;->clear()V
 
-    .line 400
+    .line 427
     const-string v0, "RSSI test"
 
     invoke-interface {p1, v1, v2, v1, v0}, Landroid/view/Menu;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    .line 404
+    .line 439
     return v2
 .end method

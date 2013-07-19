@@ -30,17 +30,17 @@
     .parameter
 
     .prologue
-    .line 955
+    .line 972
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$MySimpleOnScaleGestureListener;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     invoke-direct {p0}, Landroid/view/ScaleGestureDetector$SimpleOnScaleGestureListener;-><init>()V
 
-    .line 956
+    .line 973
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/wm/WindowManagerService$MySimpleOnScaleGestureListener;->mOnScaleEndCalled:Z
 
-    .line 957
+    .line 974
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.android.multiwindow.GESTURE_PINCH_OPEN"
@@ -49,7 +49,7 @@
 
     iput-object v0, p0, Lcom/android/server/wm/WindowManagerService$MySimpleOnScaleGestureListener;->mPinchOpenIntent:Landroid/content/Intent;
 
-    .line 958
+    .line 975
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.android.multiwindow.GESTURE_PINCH_CLOSE"
@@ -70,7 +70,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 962
+    .line 979
     invoke-virtual {p1}, Landroid/view/ScaleGestureDetector;->getScaleFactor()F
 
     move-result v0
@@ -81,15 +81,15 @@
 
     if-lez v0, :cond_1
 
-    .line 963
+    .line 980
     iget-boolean v0, p0, Lcom/android/server/wm/WindowManagerService$MySimpleOnScaleGestureListener;->mOnScaleEndCalled:Z
 
     if-eqz v0, :cond_0
 
-    .line 964
+    .line 981
     iput-boolean v2, p0, Lcom/android/server/wm/WindowManagerService$MySimpleOnScaleGestureListener;->mOnScaleEndCalled:Z
 
-    .line 965
+    .line 982
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$MySimpleOnScaleGestureListener;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
@@ -98,14 +98,14 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 973
+    .line 990
     :cond_0
     :goto_0
     const/4 v0, 0x1
 
     return v0
 
-    .line 967
+    .line 984
     :cond_1
     invoke-virtual {p1}, Landroid/view/ScaleGestureDetector;->getScaleFactor()F
 
@@ -117,15 +117,15 @@
 
     if-gez v0, :cond_0
 
-    .line 968
+    .line 985
     iget-boolean v0, p0, Lcom/android/server/wm/WindowManagerService$MySimpleOnScaleGestureListener;->mOnScaleEndCalled:Z
 
     if-eqz v0, :cond_0
 
-    .line 969
+    .line 986
     iput-boolean v2, p0, Lcom/android/server/wm/WindowManagerService$MySimpleOnScaleGestureListener;->mOnScaleEndCalled:Z
 
-    .line 970
+    .line 987
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$MySimpleOnScaleGestureListener;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
@@ -142,7 +142,7 @@
     .parameter "detector"
 
     .prologue
-    .line 978
+    .line 995
     const/4 v0, 0x1
 
     return v0
@@ -153,11 +153,11 @@
     .parameter "detector"
 
     .prologue
-    .line 983
+    .line 1000
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/wm/WindowManagerService$MySimpleOnScaleGestureListener;->mOnScaleEndCalled:Z
 
-    .line 984
+    .line 1001
     return-void
 .end method

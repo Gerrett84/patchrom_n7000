@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2849
+    .line 2882
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "isChecked"
 
     .prologue
-    .line 2853
+    .line 2886
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$7;->this$0:Lcom/android/server/InputMethodManagerService;
 
     #getter for: Lcom/android/server/InputMethodManagerService;->mWindowManagerService:Lcom/android/server/wm/WindowManagerService;
@@ -53,6 +53,6 @@
 
     invoke-virtual {v0, p2}, Lcom/android/server/wm/WindowManagerService;->setHardKeyboardEnabled(Z)V
 
-    .line 2854
+    .line 2887
     return-void
 .end method

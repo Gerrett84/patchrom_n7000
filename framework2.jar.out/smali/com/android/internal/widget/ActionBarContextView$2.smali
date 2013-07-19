@@ -154,8 +154,6 @@
 
     aget v11, v6, v11
 
-    add-int/2addr v11, v8
-
     const/4 v12, 0x1
 
     aget v12, v6, v12

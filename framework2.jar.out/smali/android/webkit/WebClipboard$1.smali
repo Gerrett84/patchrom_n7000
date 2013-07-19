@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 91
+    .line 107
     iput-object p1, p0, Landroid/webkit/WebClipboard$1;->this$0:Landroid/webkit/WebClipboard;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,16 +39,16 @@
     .parameter "msg"
 
     .prologue
-    .line 95
+    .line 111
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 100
+    .line 116
     :goto_0
     return-void
 
-    .line 97
+    .line 113
     :pswitch_0
     iget-object v0, p0, Landroid/webkit/WebClipboard$1;->this$0:Landroid/webkit/WebClipboard;
 
@@ -57,7 +57,7 @@
 
     goto :goto_0
 
-    .line 95
+    .line 111
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

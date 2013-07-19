@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 858
+    .line 913
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,11 +43,11 @@
     .parameter "arg1"
 
     .prologue
-    .line 862
+    .line 917
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$1800(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$2000(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -61,21 +61,21 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 863
-    invoke-static {}, Lcom/android/internal/policy/impl/sec/ClockWidget;->access$1700()Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+    .line 918
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/ClockWidget;->access$1900()Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/internal/policy/impl/sec/ClockWidget;->access$1700()Lcom/android/internal/policy/impl/KeyguardScreenCallback;
+    invoke-static {}, Lcom/android/internal/policy/impl/sec/ClockWidget;->access$1900()Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$1900(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$2100(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -89,7 +89,7 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->recreateMe(Landroid/content/res/Configuration;)V
 
-    .line 864
+    .line 919
     :cond_0
     return-void
 .end method

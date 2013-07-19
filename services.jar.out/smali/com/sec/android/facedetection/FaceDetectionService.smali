@@ -63,6 +63,8 @@
 
 .field private mHandlerThread:Landroid/os/HandlerThread;
 
+.field private mIsFailed:Z
+
 .field private mLastDeviceOrientation:I
 
 .field private mMainHandler:Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;
@@ -90,7 +92,7 @@
 
     const/4 v3, 0x0
 
-    .line 297
+    .line 307
     invoke-direct {p0}, Lcom/sec/android/facedetection/IFaceDetectionService$Stub;-><init>()V
 
     .line 79
@@ -98,21 +100,24 @@
 
     iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->TAG:Ljava/lang/String;
 
-    .line 105
-    new-instance v1, Ljava/util/concurrent/locks/ReentrantLock;
-
-    invoke-direct {v1}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
-
-    iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock:Ljava/util/concurrent/locks/Lock;
+    .line 104
+    iput-boolean v3, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mIsFailed:Z
 
     .line 106
     new-instance v1, Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-direct {v1}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
 
-    iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock2:Ljava/util/concurrent/locks/Lock;
+    iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock:Ljava/util/concurrent/locks/Lock;
 
     .line 107
+    new-instance v1, Ljava/util/concurrent/locks/ReentrantLock;
+
+    invoke-direct {v1}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
+
+    iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock2:Ljava/util/concurrent/locks/Lock;
+
+    .line 108
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->newCondition()Ljava/util/concurrent/locks/Condition;
@@ -121,7 +126,7 @@
 
     iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->complete:Ljava/util/concurrent/locks/Condition;
 
-    .line 108
+    .line 109
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock2:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->newCondition()Ljava/util/concurrent/locks/Condition;
@@ -130,19 +135,19 @@
 
     iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->callback:Ljava/util/concurrent/locks/Condition;
 
-    .line 298
+    .line 308
     iput-object p1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mContext:Landroid/content/Context;
 
-    .line 299
+    .line 309
     iput-object v2, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mCameraDevice:Lcom/sec/android/seccamera/SecCamera;
 
-    .line 300
+    .line 310
     iput v3, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mNumOfListener:I
 
-    .line 301
+    .line 311
     iput-object v2, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mFaces:[Lcom/sec/android/facedetection/SecFace;
 
-    .line 303
+    .line 313
     new-instance v1, Landroid/os/HandlerThread;
 
     const-string v2, "FaceDetection Handler"
@@ -151,12 +156,12 @@
 
     iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mHandlerThread:Landroid/os/HandlerThread;
 
-    .line 304
+    .line 314
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mHandlerThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v1}, Landroid/os/HandlerThread;->start()V
 
-    .line 306
+    .line 316
     new-instance v1, Landroid/os/HandlerThread;
 
     const-string v2, "FaceDetection Callback Handler"
@@ -165,12 +170,12 @@
 
     iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mCallbackThread:Landroid/os/HandlerThread;
 
-    .line 307
+    .line 317
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mCallbackThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v1}, Landroid/os/HandlerThread;->start()V
 
-    .line 309
+    .line 319
     new-instance v1, Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;
 
     iget-object v2, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mHandlerThread:Landroid/os/HandlerThread;
@@ -183,7 +188,7 @@
 
     iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mMainHandler:Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;
 
-    .line 311
+    .line 321
     new-instance v1, Landroid/app/ProgressDialog;
 
     iget-object v2, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mContext:Landroid/content/Context;
@@ -192,7 +197,7 @@
 
     iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->progressDialog:Landroid/app/ProgressDialog;
 
-    .line 312
+    .line 322
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->progressDialog:Landroid/app/ProgressDialog;
 
     new-instance v2, Lcom/sec/android/facedetection/FaceDetectionService$1;
@@ -201,24 +206,24 @@
 
     invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)V
 
-    .line 318
+    .line 328
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->progressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v1, v4}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
 
-    .line 319
+    .line 329
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->progressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v1, v3}, Landroid/app/ProgressDialog;->setCancelable(Z)V
 
-    .line 320
+    .line 330
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->progressDialog:Landroid/app/ProgressDialog;
 
     const-string v2, "Fatal System Error!\nNow Dumping Log...\nDo not turn off!\nIt will take about 1 min."
 
     invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 321
+    .line 331
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->progressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v1}, Landroid/app/ProgressDialog;->getWindow()Landroid/view/Window;
@@ -229,7 +234,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setType(I)V
 
-    .line 322
+    .line 332
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->progressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v1}, Landroid/app/ProgressDialog;->getWindow()Landroid/view/Window;
@@ -238,7 +243,7 @@
 
     invoke-virtual {v1, v5, v5}, Landroid/view/Window;->setFlags(II)V
 
-    .line 324
+    .line 334
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->progressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v1}, Landroid/app/ProgressDialog;->getWindow()Landroid/view/Window;
@@ -249,14 +254,14 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 326
+    .line 336
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
     iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mHandler:Landroid/os/Handler;
 
-    .line 328
+    .line 338
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mContext:Landroid/content/Context;
 
     const-string v2, "power"
@@ -267,7 +272,7 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 329
+    .line 339
     .local v0, pm:Landroid/os/PowerManager;
     const-string v1, "FaceDetectionService"
 
@@ -277,7 +282,7 @@
 
     iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 330
+    .line 340
     const-string v1, "statusbar"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -290,14 +295,14 @@
 
     iput-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mStatusService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    .line 332
+    .line 342
     const-string v1, "FaceDetectionService"
 
     const-string v2, "FaceDetectionService Started."
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 333
+    .line 343
     return-void
 .end method
 
@@ -380,6 +385,18 @@
     return v0
 .end method
 
+.method static synthetic access$402(Lcom/sec/android/facedetection/FaceDetectionService;I)I
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 78
+    iput p1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mLastDeviceOrientation:I
+
+    return p1
+.end method
+
 .method static synthetic access$500(Lcom/sec/android/facedetection/FaceDetectionService;)Landroid/app/ProgressDialog;
     .locals 1
     .parameter "x0"
@@ -417,27 +434,27 @@
     .locals 2
 
     .prologue
-    .line 387
+    .line 397
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mMainHandler:Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;->removeMessages(I)V
 
-    .line 388
+    .line 398
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/sec/android/facedetection/FaceDetectionService;->sendMessageAndWait(I)V
 
-    .line 389
+    .line 399
     return-void
 .end method
 
 .method private declared-synchronized decreaseListener()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 409
+    .line 420
     monitor-enter p0
 
     :try_start_0
@@ -447,15 +464,15 @@
 
     iput v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mNumOfListener:I
 
-    .line 410
+    .line 421
     iget v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mNumOfListener:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
-    .line 412
+    .line 423
     invoke-direct {p0}, Lcom/sec/android/facedetection/FaceDetectionService;->closeCamera()V
 
-    .line 413
+    .line 424
     invoke-static {}, Landroid/app/ActivityManagerNative;->isSystemReady()Z
 
     move-result v0
@@ -466,7 +483,7 @@
 
     invoke-direct {p0, v0}, Lcom/sec/android/facedetection/FaceDetectionService;->showIcon(Z)V
 
-    .line 415
+    .line 426
     :cond_0
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -476,27 +493,62 @@
 
     if-eqz v0, :cond_1
 
-    .line 416
+    .line 427
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 417
+    .line 428
     const-string v0, "FaceDetectionService"
 
     const-string v1, "mWakeLock.release() in FD"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 431
+    :cond_1
+    iget-boolean v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mIsFailed:Z
+
+    if-eqz v0, :cond_3
+
+    .line 433
+    iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mContext:Landroid/content/Context;
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "faceservice_failed"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 421
-    :cond_1
+    .line 441
+    :cond_2
+    :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 409
+    .line 437
+    :cond_3
+    :try_start_1
+    iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mContext:Landroid/content/Context;
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "faceservice_disabled"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    .line 420
     :catchall_0
     move-exception v0
 
@@ -512,7 +564,7 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 451
+    .line 471
     invoke-direct {p0, p1, v0, v0}, Lcom/sec/android/facedetection/FaceDetectionService;->getFaceInfoInternal(ZII)[Lcom/sec/android/facedetection/SecFace;
 
     move-result-object v0
@@ -529,10 +581,15 @@
     .prologue
     const/4 v8, 0x2
 
-    .line 456
+    .line 476
     monitor-enter p0
 
+    const/4 v4, 0x0
+
     :try_start_0
+    iput-boolean v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mIsFailed:Z
+
+    .line 478
     iget-object v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mCameraDevice:Lcom/sec/android/seccamera/SecCamera;
 
     if-eqz v4, :cond_0
@@ -549,44 +606,49 @@
 
     if-eqz v4, :cond_2
 
-    .line 459
+    .line 481
     :cond_0
+    const/4 v4, 0x1
+
+    iput-boolean v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mIsFailed:Z
+
+    .line 482
     const/4 v4, 0x0
 
     new-array v3, v4, [Lcom/sec/android/facedetection/SecFace;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 572
+    .line 594
     :cond_1
     :goto_0
     monitor-exit p0
 
     return-object v3
 
-    .line 485
+    .line 508
     :cond_2
     :try_start_1
     iput p2, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mLastDeviceOrientation:I
 
-    .line 486
+    .line 509
     iput p3, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mCurrentDeviceOrientation:I
 
-    .line 488
+    .line 511
     if-eqz p1, :cond_6
 
-    .line 489
+    .line 512
     const/4 v4, 0x3
 
     invoke-direct {p0, v4}, Lcom/sec/android/facedetection/FaceDetectionService;->sendMessageAndWait(I)V
 
-    .line 493
+    .line 516
     :goto_1
     iget-object v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock2:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v4}, Ljava/util/concurrent/locks/Lock;->lock()V
 
-    .line 496
+    .line 519
     const-string v4, "FaceDetectionService"
 
     const-string v5, "WAIT FOR CALLBACK"
@@ -595,14 +657,14 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 498
+    .line 521
     const/4 v2, 0x2
 
-    .line 499
+    .line 522
     .local v2, iRetryCount:I
     const/4 v1, 0x0
 
-    .line 501
+    .line 524
     .local v1, iBlinkCount:I
     const/4 v0, 0x0
 
@@ -610,13 +672,13 @@
     :goto_2
     if-ge v0, v2, :cond_4
 
-    .line 504
+    .line 527
     const/4 v4, 0x0
 
     :try_start_2
     iput-object v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mFaces:[Lcom/sec/android/facedetection/SecFace;
 
-    .line 505
+    .line 528
     iget-object v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->callback:Ljava/util/concurrent/locks/Condition;
 
     const-wide/32 v5, 0x23c34600
@@ -640,7 +702,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 527
+    .line 550
     :cond_3
     :goto_3
     :try_start_3
@@ -654,7 +716,7 @@
 
     if-lez v4, :cond_7
 
-    .line 531
+    .line 554
     :cond_4
     const-string v4, "FaceDetectionService"
 
@@ -688,54 +750,43 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 533
+    .line 556
     const/4 v3, 0x0
 
-    .line 535
+    .line 558
     .local v3, ret:[Lcom/sec/android/facedetection/SecFace;
     if-ne v2, v8, :cond_9
 
-    .line 537
+    .line 560
     iget-object v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mFaces:[Lcom/sec/android/facedetection/SecFace;
 
     if-nez v4, :cond_8
 
-    .line 539
+    .line 562
     const/4 v4, 0x0
 
     new-array v3, v4, [Lcom/sec/android/facedetection/SecFace;
 
-    .line 557
+    .line 580
     :cond_5
     :goto_4
     const/4 v4, 0x2
 
     invoke-direct {p0, v4}, Lcom/sec/android/facedetection/FaceDetectionService;->sendMessageAndWait(I)V
 
-    .line 559
+    .line 582
     iget-object v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock2:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v4}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    .line 562
+    .line 585
     if-eqz v3, :cond_b
 
     array-length v4, v3
 
     if-lez v4, :cond_b
 
-    .line 564
-    iget-object v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mContext:Landroid/content/Context;
-
-    new-instance v5, Landroid/content/Intent;
-
-    const-string v6, "faceservice_disabled"
-
-    invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 571
+    .line 593
     :goto_5
     if-nez v3, :cond_1
 
@@ -743,9 +794,9 @@
 
     new-array v3, v4, [Lcom/sec/android/facedetection/SecFace;
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 491
+    .line 514
     .end local v0           #i:I
     .end local v1           #iBlinkCount:I
     .end local v2           #iRetryCount:I
@@ -757,9 +808,9 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto/16 :goto_1
+    goto :goto_1
 
-    .line 456
+    .line 476
     :catchall_0
     move-exception v4
 
@@ -767,7 +818,7 @@
 
     throw v4
 
-    .line 501
+    .line 524
     .restart local v0       #i:I
     .restart local v1       #iBlinkCount:I
     .restart local v2       #iRetryCount:I
@@ -776,7 +827,7 @@
 
     goto :goto_2
 
-    .line 543
+    .line 566
     .restart local v3       #ret:[Lcom/sec/android/facedetection/SecFace;
     :cond_8
     :try_start_4
@@ -786,7 +837,7 @@
 
     new-array v3, v4, [Lcom/sec/android/facedetection/SecFace;
 
-    .line 544
+    .line 567
     const/4 v0, 0x0
 
     :goto_6
@@ -810,26 +861,26 @@
 
     goto :goto_6
 
-    .line 547
+    .line 570
     :cond_9
     const/4 v4, 0x5
 
     if-lt v1, v4, :cond_a
 
-    .line 549
+    .line 572
     const/4 v4, 0x0
 
     new-array v3, v4, [Lcom/sec/android/facedetection/SecFace;
 
     goto :goto_4
 
-    .line 553
+    .line 576
     :cond_a
     const/4 v4, 0x1
 
     new-array v3, v4, [Lcom/sec/android/facedetection/SecFace;
 
-    .line 554
+    .line 577
     const/4 v4, 0x0
 
     new-instance v5, Lcom/sec/android/facedetection/SecFace;
@@ -840,23 +891,17 @@
 
     goto :goto_4
 
-    .line 568
+    .line 590
     :cond_b
-    iget-object v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mContext:Landroid/content/Context;
+    const/4 v4, 0x1
 
-    new-instance v5, Landroid/content/Intent;
-
-    const-string v6, "faceservice_failed"
-
-    invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    iput-boolean v4, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mIsFailed:Z
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto :goto_5
 
-    .line 507
+    .line 530
     .end local v3           #ret:[Lcom/sec/android/facedetection/SecFace;
     :catch_0
     move-exception v4
@@ -868,7 +913,7 @@
     .locals 3
 
     .prologue
-    .line 393
+    .line 403
     monitor-enter p0
 
     :try_start_0
@@ -876,7 +921,7 @@
 
     if-nez v0, :cond_2
 
-    .line 395
+    .line 405
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
@@ -885,19 +930,19 @@
 
     if-nez v0, :cond_0
 
-    .line 396
+    .line 406
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 397
+    .line 407
     const-string v0, "FaceDetectionService"
 
     const-string v1, "mWakeLock.acquire() in FD"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 400
+    .line 410
     :cond_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->isSystemReady()Z
 
@@ -909,7 +954,7 @@
 
     invoke-direct {p0, v0}, Lcom/sec/android/facedetection/FaceDetectionService;->showIcon(Z)V
 
-    .line 401
+    .line 411
     :cond_1
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mContext:Landroid/content/Context;
 
@@ -921,25 +966,30 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 402
+    .line 412
     invoke-direct {p0}, Lcom/sec/android/facedetection/FaceDetectionService;->openCamera()V
 
-    .line 404
+    .line 414
     :cond_2
     iget v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mNumOfListener:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mNumOfListener:I
+
+    .line 415
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mIsFailed:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 405
+    .line 416
     monitor-exit p0
 
     return-void
 
-    .line 393
+    .line 403
     :catchall_0
     move-exception v0
 
@@ -952,19 +1002,19 @@
     .locals 2
 
     .prologue
-    .line 381
+    .line 391
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mMainHandler:Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;->removeMessages(I)V
 
-    .line 382
+    .line 392
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/sec/android/facedetection/FaceDetectionService;->sendMessageAndWait(I)V
 
-    .line 383
+    .line 393
     return-void
 .end method
 
@@ -973,17 +1023,17 @@
     .parameter "what"
 
     .prologue
-    .line 347
+    .line 357
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
 
-    .line 348
+    .line 358
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mMainHandler:Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;
 
     invoke-virtual {v0, p1}, Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;->sendEmptyMessage(I)Z
 
-    .line 349
+    .line 359
     const-string v0, "FaceDetectionService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1006,24 +1056,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 353
+    .line 363
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->complete:Ljava/util/concurrent/locks/Condition;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Condition;->awaitUninterruptibly()V
 
-    .line 375
+    .line 385
     const-string v0, "FaceDetectionService"
 
     const-string v1, "DONE!"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 376
+    .line 386
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    .line 377
+    .line 387
     return-void
 .end method
 
@@ -1031,7 +1081,7 @@
     .locals 2
 
     .prologue
-    .line 614
+    .line 636
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Lcom/sec/android/facedetection/FaceDetectionService$2;
@@ -1040,11 +1090,11 @@
 
     invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 654
+    .line 676
     .local v0, thread:Ljava/lang/Thread;
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 655
+    .line 677
     return-void
 .end method
 
@@ -1053,13 +1103,13 @@
     .parameter "show"
 
     .prologue
-    .line 338
+    .line 348
     :try_start_0
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mStatusService:Lcom/android/internal/statusbar/IStatusBarService;
 
     if-eqz v0, :cond_0
 
-    .line 339
+    .line 349
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mStatusService:Lcom/android/internal/statusbar/IStatusBarService;
 
     const-string v1, "face"
@@ -1068,12 +1118,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 343
+    .line 353
     :cond_0
     :goto_0
     return-void
 
-    .line 341
+    .line 351
     :catch_0
     move-exception v0
 
@@ -1086,17 +1136,17 @@
     .locals 2
 
     .prologue
-    .line 587
+    .line 609
     const-string v0, "FaceDetectionService"
 
     const-string v1, "FaceDetectionClient died!"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 588
+    .line 610
     invoke-direct {p0}, Lcom/sec/android/facedetection/FaceDetectionService;->decreaseListener()V
 
-    .line 589
+    .line 611
     return-void
 .end method
 
@@ -1105,14 +1155,14 @@
     .parameter "client"
 
     .prologue
-    .line 438
+    .line 458
     const-string v1, "FaceDetectionService"
 
     const-string v2, "disabled"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 439
+    .line 459
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->progressDialog:Landroid/app/ProgressDialog;
 
     if-eqz v1, :cond_0
@@ -1125,11 +1175,11 @@
 
     if-eqz v1, :cond_0
 
-    .line 447
+    .line 467
     :goto_0
     return-void
 
-    .line 442
+    .line 462
     :cond_0
     :try_start_0
     invoke-interface {p1}, Lcom/sec/android/facedetection/IFaceDetectionClient;->asBinder()Landroid/os/IBinder;
@@ -1142,17 +1192,17 @@
     :try_end_0
     .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 446
+    .line 466
     :goto_1
     invoke-direct {p0}, Lcom/sec/android/facedetection/FaceDetectionService;->decreaseListener()V
 
     goto :goto_0
 
-    .line 443
+    .line 463
     :catch_0
     move-exception v0
 
-    .line 444
+    .line 464
     .local v0, e:Ljava/util/NoSuchElementException;
     const-string v1, "FaceDetectionService"
 
@@ -1170,14 +1220,14 @@
     .parameter "args"
 
     .prologue
-    .line 593
+    .line 615
     const-string v0, "FaceDetectionService"
 
     const-string v1, "DUMP Face detection service."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 594
+    .line 616
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.DUMP"
@@ -1188,7 +1238,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 596
+    .line 618
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1239,17 +1289,17 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 610
+    .line 632
     :goto_0
     return-void
 
-    .line 604
+    .line 626
     :cond_0
     const-string v0, "FaceDetectionService is up and running!"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 605
+    .line 627
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1272,19 +1322,19 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 606
+    .line 628
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mCameraDevice:Lcom/sec/android/seccamera/SecCamera;
 
     if-eqz v0, :cond_1
 
-    .line 607
+    .line 629
     const-string v0, " Camera is opened"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 609
+    .line 631
     :cond_1
     const-string v0, " Camera is not opened"
 
@@ -1298,14 +1348,14 @@
     .parameter "client"
 
     .prologue
-    .line 425
+    .line 445
     const-string v1, "FaceDetectionService"
 
     const-string v2, "enabled"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 426
+    .line 446
     iget-object v1, p0, Lcom/sec/android/facedetection/FaceDetectionService;->progressDialog:Landroid/app/ProgressDialog;
 
     if-eqz v1, :cond_0
@@ -1318,11 +1368,11 @@
 
     if-eqz v1, :cond_0
 
-    .line 434
+    .line 454
     :goto_0
     return-void
 
-    .line 429
+    .line 449
     :cond_0
     :try_start_0
     invoke-interface {p1}, Lcom/sec/android/facedetection/IFaceDetectionClient;->asBinder()Landroid/os/IBinder;
@@ -1335,17 +1385,17 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 433
+    .line 453
     :goto_1
     invoke-direct {p0}, Lcom/sec/android/facedetection/FaceDetectionService;->increaseListener()V
 
     goto :goto_0
 
-    .line 430
+    .line 450
     :catch_0
     move-exception v0
 
-    .line 431
+    .line 451
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "FaceDetectionService"
 
@@ -1360,7 +1410,7 @@
     .locals 1
 
     .prologue
-    .line 577
+    .line 599
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/sec/android/facedetection/FaceDetectionService;->getFaceInfoInternal(Z)[Lcom/sec/android/facedetection/SecFace;
@@ -1376,7 +1426,7 @@
     .parameter "current"
 
     .prologue
-    .line 583
+    .line 605
     const/4 v0, 0x0
 
     invoke-direct {p0, v0, p1, p2}, Lcom/sec/android/facedetection/FaceDetectionService;->getFaceInfoInternal(ZII)[Lcom/sec/android/facedetection/SecFace;
@@ -1394,7 +1444,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 287
+    .line 297
     const-string v0, "FaceDetectionService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1417,36 +1467,36 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 288
+    .line 298
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mCameraDevice:Lcom/sec/android/seccamera/SecCamera;
 
-    .line 289
+    .line 299
     iget v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mNumOfListener:I
 
     if-eqz v0, :cond_0
 
-    .line 291
+    .line 301
     const-string v0, "FaceDetectionService"
 
     const-string v1, "Whatever happened to camera service, I will try to re-open camera! I have a client waiting for my service."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 292
+    .line 302
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mMainHandler:Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;
 
     invoke-virtual {v0, v3}, Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;->removeMessages(I)V
 
-    .line 293
+    .line 303
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mMainHandler:Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;
 
     const-wide/16 v1, 0xbb8
 
     invoke-virtual {v0, v3, v1, v2}, Lcom/sec/android/facedetection/FaceDetectionService$EventHandler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 295
+    .line 305
     :cond_0
     return-void
 .end method
@@ -1457,29 +1507,29 @@
     .parameter "camera"
 
     .prologue
-    .line 253
+    .line 263
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock2:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
 
-    .line 255
+    .line 265
     if-nez p1, :cond_0
 
-    .line 281
+    .line 291
     :goto_0
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->callback:Ljava/util/concurrent/locks/Condition;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Condition;->signal()V
 
-    .line 282
+    .line 292
     iget-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->lock2:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    .line 283
+    .line 293
     return-void
 
-    .line 261
+    .line 271
     :cond_0
     array-length v0, p1
 
@@ -1487,7 +1537,7 @@
 
     iput-object v0, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mFaces:[Lcom/sec/android/facedetection/SecFace;
 
-    .line 263
+    .line 273
     const/4 v7, 0x0
 
     .local v7, i:I
@@ -1496,7 +1546,7 @@
 
     if-ge v7, v0, :cond_1
 
-    .line 266
+    .line 276
     iget-object v8, p0, Lcom/sec/android/facedetection/FaceDetectionService;->mFaces:[Lcom/sec/android/facedetection/SecFace;
 
     new-instance v0, Lcom/sec/android/facedetection/SecFace;
@@ -1529,12 +1579,12 @@
 
     aput-object v0, v8, v7
 
-    .line 263
+    .line 273
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
-    .line 277
+    .line 287
     :cond_1
     const-string v0, "FaceDetectionService"
 

@@ -2,7 +2,7 @@
 <LinearLayout android:orientation="vertical" android:id="@id/clock_root" android:paddingTop="4.0dip" android:paddingBottom="6.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <view android:id="@id/secure_clock" android:layout_width="fill_parent" android:layout_height="wrap_content" android:permanentClock="true" class="com.android.internal.policy.impl.sec.ClockWidget$Clock">
-        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/clock_time_and_date" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/clock_time_and_date" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="27.0dip">
             <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <LinearLayout android:gravity="center" android:id="@id/clock_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
                     <ImageView android:id="@id/zzz_hour01" android:layout_width="wrap_content" android:layout_height="wrap_content" />

@@ -100,13 +100,13 @@
     <string name="toast_unavailable_in_tvout_mode">TV-kimenet módban nem elérhető</string>
     <string name="mute">Néma</string>
     <string name="seeking">Keresés…</string>
-    <string name="via_earphone">Fülhallgatón</string>
-    <string name="via_speaker">Hangszórón</string>
+    <string name="via_earphone">Lejátszás fülhallgatón</string>
+    <string name="via_speaker">Lejátszás hangszórón</string>
     <string name="normal_frequency">Normál frekvencia</string>
     <string name="tag">Cmk</string>
     <string name="stop">Leállít</string>
     <string name="recording">Felvétel…</string>
-    <string name="memory_full">Rögzítés leállítva. Megtelt a memória</string>
+    <string name="memory_full">Memória megtelt</string>
     <string name="cancel_recording">Megszakítja a rögzítést?</string>
     <string name="change_frequency">Frekvencia módosítása</string>
     <string name="enter_frequency">Frekvencia megadása</string>
@@ -132,11 +132,14 @@
     <string name="tags">Címkék</string>
     <string name="tags_now_broadcasting">Jelenlegi adás</string>
     <string name="tags_no_information">Nincs információ</string>
+    <string name="tags_music_history">Zeneelőzmények</string>
     <string name="tags_music_title">Cím</string>
     <string name="tags_music_album">Album</string>
     <string name="tags_music_artist">Előadó</string>
+    <string name="tags_music_band">Sáv</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Kezdőlap</string>
+    <string name="tags_interact_hotline">Hotline</string>
     <string name="tags_interact_studio">Stúdió</string>
     <string name="tags_interact_other">Egyéb</string>
     <string name="tags_interact_centre">Középre zárt</string>
@@ -182,4 +185,14 @@ Miután rögzít a rádióból, megjelennek a rögzített fájlok"</string>
     <string name="dialog_one_item_deleted">Törli ezt a tételt?</string>
     <string name="dialog_multiple_items_deleted">%d tételt törölni fog</string>
     <string name="dialog_all_items_deleted">Minden tételt törölni fog</string>
+    <string name="turning_on">Bekapcsolás…</string>
+    <string name="not_enough_memory_recording_will_stop">Kevés a memória. A rögzítés %d másodperc múlva leáll</string>
+    <string name="low_batt_msg">Az akkumulátor lemerült</string>
+    <string name="no_play_during_call">Hívás közben nem lehet lejátszani</string>
+    <string name="unable_delete">Nem törölhető</string>
+    <string name="playing">Lejátsz…</string>
+    <string name="tts_play_button">Lejátszás</string>
+    <string name="tts_previous_button">Előző</string>
+    <string name="tts_Next_button">Következő</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

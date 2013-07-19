@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2090
+    .line 2350
     iput-object p1, p0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,216 +38,261 @@
 
 # virtual methods
 .method public onPaste(Ljava/lang/String;I)V
-    .locals 21
+    .locals 22
     .parameter "htmlFragment"
     .parameter "dataType"
 
     .prologue
-    .line 2092
-    const-string v17, "HtmlComposerView"
+    .line 2352
+    const-string v18, "HtmlComposerView"
 
-    const-string v18, "SelectionUIPasteListener onPaste"
+    const-string v19, "SelectionUIPasteListener onPaste"
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2093
-    if-nez p1, :cond_0
+    .line 2354
+    move-object/from16 v0, p0
 
-    .line 2094
-    const-string v17, "HtmlComposerView"
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    const-string v18, "SelectionUIPasteListener onPaste htmlFragment == null"
+    move-object/from16 v18, v0
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    #getter for: Landroid/webkit/HtmlComposerView;->mHtmlComposerInputConnection:Landroid/webkit/HtmlComposerInputConnection;
+    invoke-static/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->access$600(Landroid/webkit/HtmlComposerView;)Landroid/webkit/HtmlComposerInputConnection;
 
-    .line 2266
+    move-result-object v18
+
+    if-nez v18, :cond_0
+
+    .line 2355
+    const-string v18, "HtmlComposerView"
+
+    const-string v19, "HtmlComposerView is already destroyed"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2542
     :goto_0
     return-void
 
-    .line 2098
+    .line 2359
     :cond_0
-    const/16 v17, 0x3
+    if-nez p1, :cond_1
+
+    .line 2360
+    const-string v18, "HtmlComposerView"
+
+    const-string v19, "SelectionUIPasteListener onPaste htmlFragment == null"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 2364
+    :cond_1
+    const/4 v15, 0x0
+
+    .line 2366
+    .local v15, result:Z
+    const/16 v18, 0x3
 
     move/from16 v0, p2
 
-    move/from16 v1, v17
+    move/from16 v1, v18
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_10
 
-    .line 2100
+    .line 2368
     new-instance v10, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v10}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    .line 2102
+    .line 2370
     .local v10, options:Landroid/graphics/BitmapFactory$Options;
     invoke-static/range {p1 .. p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v8
 
-    .line 2103
+    .line 2371
     .local v8, imageUri:Landroid/net/Uri;
     invoke-virtual {v8}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 2107
+    .line 2375
     .local v3, absoluteFilePath:Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v17 .. v17}, Landroid/webkit/HtmlComposerView;->getWebClipboard()Landroid/webkit/WebClipboard;
+    invoke-virtual/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->getWebClipboard()Landroid/webkit/WebClipboard;
 
-    move-result-object v17
+    move-result-object v18
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v3}, Landroid/webkit/WebClipboard;->getCloneFilePath(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 2108
+    .line 2376
     .local v5, dstFilePath:Ljava/lang/String;
     new-instance v9, Ljava/io/File;
 
     invoke-direct {v9, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 2110
+    .line 2378
     .local v9, mFile:Ljava/io/File;
     new-instance v13, Ljava/io/File;
 
     invoke-direct {v13, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 2111
+    .line 2379
     .local v13, originalFile:Ljava/io/File;
-    const-wide/32 v17, 0x100000
+    const-wide/32 v18, 0x100000
 
     invoke-virtual {v13}, Ljava/io/File;->length()J
 
-    move-result-wide v19
+    move-result-wide v20
 
-    cmp-long v17, v17, v19
+    cmp-long v18, v18, v20
 
-    if-gtz v17, :cond_1
+    if-gtz v18, :cond_2
 
-    .line 2113
-    const/16 v17, 0x4
+    .line 2381
+    const/16 v18, 0x4
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     iput v0, v10, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    .line 2114
-    const-string v17, "HtmlComposerView"
+    .line 2382
+    const-string v18, "HtmlComposerView"
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v19, "####################### originalFile.length() : "
+    const-string v20, "####################### originalFile.length() : "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
     invoke-virtual {v13}, Ljava/io/File;->length()J
 
-    move-result-wide v19
+    move-result-wide v20
 
-    invoke-virtual/range {v18 .. v20}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v21}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2117
-    :cond_1
-    const/4 v15, 0x0
+    .line 2385
+    :cond_2
+    const/16 v16, 0x0
 
-    .line 2120
-    .local v15, src:Landroid/graphics/Bitmap;
+    .line 2388
+    .local v16, src:Landroid/graphics/Bitmap;
     :try_start_0
     invoke-static {v3, v10}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     :try_end_0
     .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v15
+    move-result-object v16
 
-    .line 2132
-    const-string v17, "HtmlComposerView"
+    .line 2400
+    const-string v18, "HtmlComposerView"
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v19, "####################### htmlFragment : "
+    const-string v20, "####################### htmlFragment : "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
     iget v0, v10, Landroid/graphics/BitmapFactory$Options;->outHeight:I
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
-    invoke-static/range {v19 .. v19}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {v20 .. v20}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v20, " "
 
-    move-result-object v18
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v19, " "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
+    move-result-object v19
 
     iget v0, v10, Landroid/graphics/BitmapFactory$Options;->outWidth:I
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
-    invoke-static/range {v19 .. v19}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {v20 .. v20}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v19
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2134
+    .line 2402
     iget v12, v10, Landroid/graphics/BitmapFactory$Options;->outWidth:I
 
-    .line 2135
+    .line 2403
     .local v12, originWidth:I
     iget v11, v10, Landroid/graphics/BitmapFactory$Options;->outHeight:I
 
-    .line 2136
+    .line 2404
     .local v11, originHeight:I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
     #getter for: Landroid/webkit/HtmlComposerView;->mScreenWidth:I
-    invoke-static/range {v17 .. v17}, Landroid/webkit/HtmlComposerView;->access$600(Landroid/webkit/HtmlComposerView;)I
+    invoke-static/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->access$700(Landroid/webkit/HtmlComposerView;)I
 
-    move-result v17
+    move-result v18
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
+
+    move-object/from16 v19, v0
+
+    #getter for: Landroid/webkit/HtmlComposerView;->mScreenHeight:I
+    invoke-static/range {v19 .. v19}, Landroid/webkit/HtmlComposerView;->access$800(Landroid/webkit/HtmlComposerView;)I
+
+    move-result v19
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-gt v0, v1, :cond_b
 
     move-object/from16 v0, p0
 
@@ -255,213 +300,232 @@
 
     move-object/from16 v18, v0
 
-    #getter for: Landroid/webkit/HtmlComposerView;->mScreenHeight:I
+    #getter for: Landroid/webkit/HtmlComposerView;->mScreenWidth:I
     invoke-static/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->access$700(Landroid/webkit/HtmlComposerView;)I
 
     move-result v18
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-gt v0, v1, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
-
-    move-object/from16 v17, v0
-
-    #getter for: Landroid/webkit/HtmlComposerView;->mScreenWidth:I
-    invoke-static/range {v17 .. v17}, Landroid/webkit/HtmlComposerView;->access$600(Landroid/webkit/HtmlComposerView;)I
-
-    move-result v17
 
     :goto_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->getPaddingLeft()I
+    invoke-virtual/range {v19 .. v19}, Landroid/webkit/HtmlComposerView;->getPaddingLeft()I
 
-    move-result v18
+    move-result v19
 
-    sub-int v17, v17, v18
+    sub-int v18, v18, v19
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->getPaddingRight()I
+    invoke-virtual/range {v19 .. v19}, Landroid/webkit/HtmlComposerView;->getPaddingRight()I
 
-    move-result v18
+    move-result v19
 
-    sub-int v16, v17, v18
+    sub-int v17, v18, v19
 
-    .line 2137
-    .local v16, width:I
-    mul-int v17, v11, v16
+    .line 2405
+    .local v17, width:I
+    mul-int v18, v11, v17
 
-    div-int v7, v17, v12
+    div-int v7, v18, v12
 
-    .line 2139
+    .line 2407
     .local v7, height:I
-    const-wide/32 v17, 0x100000
+    const-wide/32 v18, 0x100000
 
     invoke-virtual {v13}, Ljava/io/File;->length()J
 
-    move-result-wide v19
+    move-result-wide v20
 
-    cmp-long v17, v17, v19
+    cmp-long v18, v18, v20
 
-    if-gtz v17, :cond_c
+    if-gtz v18, :cond_e
 
-    .line 2140
-    const-string v17, "HtmlComposerView"
+    .line 2408
+    const-string v18, "HtmlComposerView"
 
-    const-string v18, "####################### htmlFragment : Big Data"
+    const-string v19, "####################### htmlFragment : Big Data"
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2142
-    if-eqz v15, :cond_3
+    .line 2410
+    if-eqz v16, :cond_4
 
-    .line 2145
+    .line 2413
     :try_start_1
     new-instance v14, Ljava/io/FileOutputStream;
 
     invoke-direct {v14, v5}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
-    .line 2147
+    .line 2415
     .local v14, outStream:Ljava/io/FileOutputStream;
     invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v18
 
-    const-string v18, ".jpg"
+    const-string v19, ".jpg"
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
-    move-result v17
+    move-result v18
 
-    if-gtz v17, :cond_2
+    if-gtz v18, :cond_3
 
     invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v18
 
-    const-string v18, ".jpeg"
+    const-string v19, ".jpeg"
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
-    move-result v17
+    move-result v18
 
-    if-lez v17, :cond_a
+    if-lez v18, :cond_c
 
-    .line 2149
-    :cond_2
-    const-string v17, "HtmlComposerView"
+    .line 2417
+    :cond_3
+    const-string v18, "HtmlComposerView"
 
-    const-string v18, "####################### htmlFragment : Bitmap.CompressFormat.JPEG"
+    const-string v19, "####################### htmlFragment : Bitmap.CompressFormat.JPEG"
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2150
-    sget-object v17, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
+    .line 2418
+    sget-object v18, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
 
-    const/16 v18, 0x64
+    const/16 v19, 0x64
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v16
 
-    move/from16 v1, v18
+    move-object/from16 v1, v18
 
-    invoke-virtual {v15, v0, v1, v14}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+    move/from16 v2, v19
 
-    .line 2151
+    invoke-virtual {v0, v1, v2, v14}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+
+    .line 2419
     invoke-virtual {v14}, Ljava/io/FileOutputStream;->flush()V
 
-    .line 2152
+    .line 2420
     invoke-virtual {v14}, Ljava/io/FileOutputStream;->close()V
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 2189
+    .line 2457
     .end local v14           #outStream:Ljava/io/FileOutputStream;
-    :cond_3
+    :cond_4
     :goto_2
     invoke-static {v9}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
-    move-result-object v17
+    move-result-object v18
 
-    invoke-virtual/range {v17 .. v17}, Landroid/net/Uri;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2191
+    .line 2459
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget-boolean v0, v0, Landroid/webkit/HtmlComposerView;->DEBUG:Z
 
-    move/from16 v17, v0
+    move/from16 v18, v0
 
-    if-eqz v17, :cond_4
+    if-eqz v18, :cond_5
 
-    .line 2192
-    const-string v17, "HtmlComposerView"
+    .line 2460
+    const-string v18, "HtmlComposerView"
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    new-instance v19, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v19, "####################### htmlFragment : "
+    const-string v20, "####################### htmlFragment : "
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2195
-    :cond_4
-    if-eqz v16, :cond_d
+    .line 2463
+    :cond_5
+    if-eqz v17, :cond_f
 
-    .line 2197
-    move/from16 v0, v16
+    .line 2465
+    move/from16 v0, v17
 
-    if-le v0, v12, :cond_5
+    if-le v0, v12, :cond_6
 
-    .line 2199
-    move/from16 v16, v12
+    .line 2467
+    move/from16 v17, v12
 
-    .line 2200
+    .line 2468
     move v7, v11
 
-    .line 2203
-    :cond_5
-    const-wide/16 v17, 0x0
+    .line 2471
+    :cond_6
+    const-wide/16 v18, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
+
+    move-object/from16 v20, v0
+
+    #getter for: Landroid/webkit/HtmlComposerView;->mZoomFactor:F
+    invoke-static/range {v20 .. v20}, Landroid/webkit/HtmlComposerView;->access$1000(Landroid/webkit/HtmlComposerView;)F
+
+    move-result v20
+
+    const/high16 v21, 0x42c8
+
+    div-float v20, v20, v21
+
+    move/from16 v0, v20
+
+    float-to-double v0, v0
+
+    move-wide/from16 v20, v0
+
+    cmpg-double v18, v18, v20
+
+    if-gez v18, :cond_7
+
+    .line 2472
+    mul-int/lit8 v18, v17, 0x64
+
+    move/from16 v0, v18
+
+    int-to-float v0, v0
+
+    move/from16 v18, v0
 
     move-object/from16 v0, p0
 
@@ -470,95 +534,63 @@
     move-object/from16 v19, v0
 
     #getter for: Landroid/webkit/HtmlComposerView;->mZoomFactor:F
-    invoke-static/range {v19 .. v19}, Landroid/webkit/HtmlComposerView;->access$900(Landroid/webkit/HtmlComposerView;)F
+    invoke-static/range {v19 .. v19}, Landroid/webkit/HtmlComposerView;->access$1000(Landroid/webkit/HtmlComposerView;)F
 
     move-result v19
 
-    const/high16 v20, 0x42c8
+    div-float v18, v18, v19
 
-    div-float v19, v19, v20
-
-    move/from16 v0, v19
-
-    float-to-double v0, v0
-
-    move-wide/from16 v19, v0
-
-    cmpg-double v17, v17, v19
-
-    if-gez v17, :cond_6
-
-    .line 2204
-    mul-int/lit8 v17, v16, 0x64
-
-    move/from16 v0, v17
-
-    int-to-float v0, v0
-
-    move/from16 v17, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
-
-    move-object/from16 v18, v0
-
-    #getter for: Landroid/webkit/HtmlComposerView;->mZoomFactor:F
-    invoke-static/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->access$900(Landroid/webkit/HtmlComposerView;)F
-
-    move-result v18
-
-    div-float v17, v17, v18
-
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     float-to-int v0, v0
 
-    move/from16 v16, v0
+    move/from16 v17, v0
 
-    .line 2205
-    mul-int/lit8 v17, v7, 0x64
+    .line 2473
+    mul-int/lit8 v18, v7, 0x64
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     int-to-float v0, v0
 
-    move/from16 v17, v0
+    move/from16 v18, v0
 
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
+
+    move-object/from16 v19, v0
+
+    #getter for: Landroid/webkit/HtmlComposerView;->mZoomFactor:F
+    invoke-static/range {v19 .. v19}, Landroid/webkit/HtmlComposerView;->access$1000(Landroid/webkit/HtmlComposerView;)F
+
+    move-result v19
+
+    div-float v18, v18, v19
+
+    move/from16 v0, v18
+
+    float-to-int v7, v0
+
+    .line 2476
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
     move-object/from16 v18, v0
 
-    #getter for: Landroid/webkit/HtmlComposerView;->mZoomFactor:F
-    invoke-static/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->access$900(Landroid/webkit/HtmlComposerView;)F
-
-    move-result v18
-
-    div-float v17, v17, v18
-
-    move/from16 v0, v17
-
-    float-to-int v7, v0
-
-    .line 2208
-    :cond_6
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v16
+    move/from16 v2, v17
 
-    invoke-virtual {v0, v1, v2, v7}, Landroid/webkit/HtmlComposerView;->insertImage(Ljava/lang/String;II)V
+    invoke-virtual {v0, v1, v2, v7}, Landroid/webkit/HtmlComposerView;->insertImage(Ljava/lang/String;II)Z
 
-    .line 2258
+    move-result v15
+
+    .line 2526
     .end local v3           #absoluteFilePath:Ljava/lang/String;
     .end local v5           #dstFilePath:Ljava/lang/String;
     .end local v7           #height:I
@@ -568,195 +600,252 @@
     .end local v11           #originHeight:I
     .end local v12           #originWidth:I
     .end local v13           #originalFile:Ljava/io/File;
-    .end local v15           #src:Landroid/graphics/Bitmap;
-    .end local v16           #width:I
+    .end local v16           #src:Landroid/graphics/Bitmap;
+    .end local v17           #width:I
     :goto_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
+    const/16 v19, 0x1
+
+    invoke-virtual/range {v18 .. v19}, Landroid/webkit/HtmlComposerView;->setCaretForEdit(Z)V
+
+    .line 2528
     const/16 v18, 0x1
 
-    invoke-virtual/range {v17 .. v18}, Landroid/webkit/HtmlComposerView;->setCaretForEdit(Z)V
+    move/from16 v0, v18
 
-    .line 2259
+    if-ne v0, v15, :cond_8
+
+    .line 2529
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    const/16 v18, 0x1
+    #getter for: Landroid/webkit/HtmlComposerView;->mToastForClipboard:Landroid/widget/Toast;
+    invoke-static/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->access$1100(Landroid/webkit/HtmlComposerView;)Landroid/widget/Toast;
 
-    invoke-virtual/range {v17 .. v18}, Landroid/webkit/HtmlComposerView;->textChangedForWatcher(Z)V
+    move-result-object v18
 
-    .line 2262
+    if-nez v18, :cond_14
+
+    .line 2530
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v17 .. v17}, Landroid/webkit/HtmlComposerView;->getContext()Landroid/content/Context;
-
-    move-result-object v17
-
-    invoke-static/range {v17 .. v17}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_7
-
-    .line 2263
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v19, v0
 
-    sget v18, Landroid/webkit/HtmlComposerView;->operSel:I
+    #getter for: Landroid/webkit/HtmlComposerView;->mContext:Landroid/content/Context;
+    invoke-static/range {v19 .. v19}, Landroid/webkit/HtmlComposerView;->access$1200(Landroid/webkit/HtmlComposerView;)Landroid/content/Context;
 
-    invoke-virtual/range {v17 .. v18}, Landroid/webkit/HtmlComposerView;->invokeTexttoSpeech(I)V
+    move-result-object v19
 
-    .line 2265
-    :cond_7
+    const v20, 0x1040783
+
+    const/16 v21, 0x0
+
+    invoke-static/range {v19 .. v21}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object v19
+
+    #setter for: Landroid/webkit/HtmlComposerView;->mToastForClipboard:Landroid/widget/Toast;
+    invoke-static/range {v18 .. v19}, Landroid/webkit/HtmlComposerView;->access$1102(Landroid/webkit/HtmlComposerView;Landroid/widget/Toast;)Landroid/widget/Toast;
+
+    .line 2534
+    :goto_4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    const/16 v18, 0x0
+    #getter for: Landroid/webkit/HtmlComposerView;->mToastForClipboard:Landroid/widget/Toast;
+    invoke-static/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->access$1100(Landroid/webkit/HtmlComposerView;)Landroid/widget/Toast;
 
-    invoke-virtual/range {v17 .. v18}, Landroid/webkit/HtmlComposerView;->UpdateRichTextToolbar(Z)V
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/widget/Toast;->show()V
+
+    .line 2538
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->getContext()Landroid/content/Context;
+
+    move-result-object v18
+
+    invoke-static/range {v18 .. v18}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
+
+    move-result v18
+
+    if-eqz v18, :cond_9
+
+    .line 2539
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
+
+    move-object/from16 v18, v0
+
+    sget v19, Landroid/webkit/HtmlComposerView;->operSel:I
+
+    invoke-virtual/range {v18 .. v19}, Landroid/webkit/HtmlComposerView;->invokeTexttoSpeech(I)V
+
+    .line 2541
+    :cond_9
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x0
+
+    invoke-virtual/range {v18 .. v19}, Landroid/webkit/HtmlComposerView;->UpdateRichTextToolbar(Z)V
 
     goto/16 :goto_0
 
-    .line 2121
+    .line 2389
     .restart local v3       #absoluteFilePath:Ljava/lang/String;
     .restart local v5       #dstFilePath:Ljava/lang/String;
     .restart local v8       #imageUri:Landroid/net/Uri;
     .restart local v9       #mFile:Ljava/io/File;
     .restart local v10       #options:Landroid/graphics/BitmapFactory$Options;
     .restart local v13       #originalFile:Ljava/io/File;
-    .restart local v15       #src:Landroid/graphics/Bitmap;
+    .restart local v16       #src:Landroid/graphics/Bitmap;
     :catch_0
     move-exception v6
 
-    .line 2122
+    .line 2390
     .local v6, e:Ljava/lang/OutOfMemoryError;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mNotificationCallback:Landroid/webkit/HtmlComposerView$HtmlComposerNotificationToApp;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    if-eqz v17, :cond_8
+    if-eqz v18, :cond_a
 
-    .line 2123
+    .line 2391
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mNotificationCallback:Landroid/webkit/HtmlComposerView$HtmlComposerNotificationToApp;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    const/16 v18, 0x1
-
-    const/16 v19, 0x0
+    const/16 v19, 0x1
 
     const/16 v20, 0x0
 
-    invoke-interface/range {v17 .. v20}, Landroid/webkit/HtmlComposerView$HtmlComposerNotificationToApp;->onNotification(ILjava/lang/Exception;Ljava/lang/String;)V
+    const/16 v21, 0x0
 
-    .line 2126
-    :cond_8
+    invoke-interface/range {v18 .. v21}, Landroid/webkit/HtmlComposerView$HtmlComposerNotificationToApp;->onNotification(ILjava/lang/Exception;Ljava/lang/String;)V
+
+    .line 2394
+    :cond_a
     const/4 v9, 0x0
 
-    .line 2127
+    .line 2395
     const/4 v13, 0x0
 
-    .line 2128
+    .line 2396
     const/4 v10, 0x0
 
-    .line 2130
+    .line 2398
     goto/16 :goto_0
 
-    .line 2136
+    .line 2404
     .end local v6           #e:Ljava/lang/OutOfMemoryError;
     .restart local v11       #originHeight:I
     .restart local v12       #originWidth:I
-    :cond_9
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
     #getter for: Landroid/webkit/HtmlComposerView;->mScreenHeight:I
-    invoke-static/range {v17 .. v17}, Landroid/webkit/HtmlComposerView;->access$700(Landroid/webkit/HtmlComposerView;)I
+    invoke-static/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->access$800(Landroid/webkit/HtmlComposerView;)I
 
-    move-result v17
+    move-result v18
 
     goto/16 :goto_1
 
-    .line 2154
+    .line 2422
     .restart local v7       #height:I
     .restart local v14       #outStream:Ljava/io/FileOutputStream;
-    .restart local v16       #width:I
-    :cond_a
+    .restart local v17       #width:I
+    :cond_c
     :try_start_2
     invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v18
 
-    const-string v18, "png"
+    const-string v19, "png"
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
-    move-result v17
+    move-result v18
 
-    if-lez v17, :cond_b
+    if-lez v18, :cond_d
 
-    .line 2156
-    const-string v17, "HtmlComposerView"
+    .line 2424
+    const-string v18, "HtmlComposerView"
 
-    const-string v18, "####################### htmlFragment : Bitmap.CompressFormat.PNG"
+    const-string v19, "####################### htmlFragment : Bitmap.CompressFormat.PNG"
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2157
-    sget-object v17, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+    .line 2425
+    sget-object v18, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
-    const/16 v18, 0x64
+    const/16 v19, 0x64
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v16
 
-    move/from16 v1, v18
+    move-object/from16 v1, v18
 
-    invoke-virtual {v15, v0, v1, v14}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+    move/from16 v2, v19
 
-    .line 2158
+    invoke-virtual {v0, v1, v2, v14}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+
+    .line 2426
     invoke-virtual {v14}, Ljava/io/FileOutputStream;->flush()V
 
-    .line 2159
+    .line 2427
     invoke-virtual {v14}, Ljava/io/FileOutputStream;->close()V
     :try_end_2
     .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
@@ -764,71 +853,101 @@
 
     goto/16 :goto_2
 
-    .line 2170
+    .line 2438
     .end local v14           #outStream:Ljava/io/FileOutputStream;
     :catch_1
     move-exception v6
 
-    .line 2171
+    .line 2439
     .local v6, e:Ljava/io/FileNotFoundException;
     invoke-virtual {v6}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 2163
+    .line 2431
     .end local v6           #e:Ljava/io/FileNotFoundException;
     .restart local v14       #outStream:Ljava/io/FileOutputStream;
-    :cond_b
-    const/16 v17, 0x1
+    :cond_d
+    const/16 v18, 0x1
 
     :try_start_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
     #calls: Landroid/webkit/HtmlComposerView;->copyFile(Ljava/lang/String;Ljava/lang/String;)Z
-    invoke-static {v0, v3, v5}, Landroid/webkit/HtmlComposerView;->access$800(Landroid/webkit/HtmlComposerView;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v0, v3, v5}, Landroid/webkit/HtmlComposerView;->access$900(Landroid/webkit/HtmlComposerView;Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v18
+    move-result v19
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_4
 
-    .line 2165
-    const-string v17, "HtmlComposerView"
+    .line 2433
+    const-string v18, "HtmlComposerView"
 
-    const-string v18, "####################### onPaste : copyFile Fail !!!"
+    const-string v19, "####################### onPaste : copyFile Fail !!!"
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_3} :catch_1
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
     goto/16 :goto_0
 
-    .line 2174
+    .line 2442
     .end local v14           #outStream:Ljava/io/FileOutputStream;
     :catch_2
     move-exception v6
 
-    .line 2175
+    .line 2443
     .local v6, e:Ljava/io/IOException;
     invoke-virtual {v6}, Ljava/io/IOException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 2182
+    .line 2450
     .end local v6           #e:Ljava/io/IOException;
-    :cond_c
-    const/16 v17, 0x1
+    :cond_e
+    const/16 v18, 0x1
 
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    #calls: Landroid/webkit/HtmlComposerView;->copyFile(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v0, v3, v5}, Landroid/webkit/HtmlComposerView;->access$900(Landroid/webkit/HtmlComposerView;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v19
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    if-eq v0, v1, :cond_4
+
+    .line 2452
+    const-string v18, "HtmlComposerView"
+
+    const-string v19, "####################### onPaste : copyFile Fail !!!"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    .line 2480
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
@@ -837,43 +956,15 @@
 
     move-object/from16 v0, v18
 
-    #calls: Landroid/webkit/HtmlComposerView;->copyFile(Ljava/lang/String;Ljava/lang/String;)Z
-    invoke-static {v0, v3, v5}, Landroid/webkit/HtmlComposerView;->access$800(Landroid/webkit/HtmlComposerView;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v18
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-eq v0, v1, :cond_3
-
-    .line 2184
-    const-string v17, "HtmlComposerView"
-
-    const-string v18, "####################### onPaste : copyFile Fail !!!"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    .line 2212
-    :cond_d
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v1}, Landroid/webkit/HtmlComposerView;->insertImage(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/webkit/HtmlComposerView;->insertImage(Ljava/lang/String;)Z
+
+    move-result v15
 
     goto/16 :goto_3
 
-    .line 2216
+    .line 2484
     .end local v3           #absoluteFilePath:Ljava/lang/String;
     .end local v5           #dstFilePath:Ljava/lang/String;
     .end local v7           #height:I
@@ -883,80 +974,70 @@
     .end local v11           #originHeight:I
     .end local v12           #originWidth:I
     .end local v13           #originalFile:Ljava/io/File;
-    .end local v15           #src:Landroid/graphics/Bitmap;
-    .end local v16           #width:I
-    :cond_e
-    const/16 v17, 0x4
+    .end local v16           #src:Landroid/graphics/Bitmap;
+    .end local v17           #width:I
+    :cond_10
+    const/16 v18, 0x4
 
     move/from16 v0, p2
 
-    move/from16 v1, v17
+    move/from16 v1, v18
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_13
 
-    .line 2217
-    const-string v17, "(?i)(?:line)[-|\\s]?(height)[\\s]?[\\=|\\:][\\s]?[s0-9][^;|\\\"]+ [\\s]?"
+    .line 2485
+    const-string v18, "(?i)(?:(l|L)(i|I)(n|N)(e|E))(-)(h|H)(e|E)(i|I)(g|G)(h|H)(t|T)[\\s]*[\\=\\:][\\s]*([a-zA-Z]+|[0-9]+([a-zA-Z]+|%)|[0-9]+((.)[0-9]+|))[;\\s]?"
 
-    const-string v18, ""
+    const-string v19, ""
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v19
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2223
+    .line 2491
     :try_start_4
-    const-string v17, "<p"
+    const-string v18, "<p"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v17
+    move-result v18
 
-    if-nez v17, :cond_f
+    if-nez v18, :cond_11
 
-    .line 2225
-    const-string v17, "<p"
+    .line 2493
+    const-string v18, "<p"
 
-    const-string v18, "<span"
+    const-string v19, "<span"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v19
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2226
+    .line 2494
     new-instance v4, Ljava/lang/StringBuilder;
 
     move-object/from16 v0, p1
 
     invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 2227
+    .line 2495
     .local v4, b:Ljava/lang/StringBuilder;
-    const-string v17, "/p>"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
-
-    move-result v17
-
     const-string v18, "/p>"
 
     move-object/from16 v0, p1
@@ -967,72 +1048,72 @@
 
     move-result v18
 
-    add-int/lit8 v18, v18, 0x3
+    const-string v19, "/p>"
 
-    const-string v19, "/span>"
+    move-object/from16 v0, p1
 
-    move/from16 v0, v17
+    move-object/from16 v1, v19
 
-    move/from16 v1, v18
+    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
-    move-object/from16 v2, v19
+    move-result v19
+
+    add-int/lit8 v19, v19, 0x3
+
+    const-string v20, "/span>"
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    move-object/from16 v2, v20
 
     invoke-virtual {v4, v0, v1, v2}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2228
+    .line 2496
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2231
+    .line 2499
     .end local v4           #b:Ljava/lang/StringBuilder;
-    :cond_f
-    const-string v17, "<div"
+    :cond_11
+    const-string v18, "<div"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v17
+    move-result v18
 
-    if-nez v17, :cond_10
+    if-nez v18, :cond_12
 
-    .line 2233
-    const-string v17, "<div"
+    .line 2501
+    const-string v18, "<div"
 
-    const-string v18, "<span"
+    const-string v19, "<span"
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v19
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 2234
+    .line 2502
     new-instance v4, Ljava/lang/StringBuilder;
 
     move-object/from16 v0, p1
 
     invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 2235
+    .line 2503
     .restart local v4       #b:Ljava/lang/StringBuilder;
-    const-string v17, "/div>"
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
-
-    move-result v17
-
     const-string v18, "/div>"
 
     move-object/from16 v0, p1
@@ -1043,210 +1124,243 @@
 
     move-result v18
 
-    add-int/lit8 v18, v18, 0x5
+    const-string v19, "/div>"
 
-    const-string v19, "/span>"
+    move-object/from16 v0, p1
 
-    move/from16 v0, v17
+    move-object/from16 v1, v19
 
-    move/from16 v1, v18
+    invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
-    move-object/from16 v2, v19
+    move-result v19
+
+    add-int/lit8 v19, v19, 0x5
+
+    const-string v20, "/span>"
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
+
+    move-object/from16 v2, v20
 
     invoke-virtual {v4, v0, v1, v2}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2236
+    .line 2504
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     :try_end_4
     .catch Ljava/lang/OutOfMemoryError; {:try_start_4 .. :try_end_4} :catch_3
 
     move-result-object p1
 
-    .line 2244
+    .line 2512
     .end local v4           #b:Ljava/lang/StringBuilder;
-    :cond_10
-    :goto_4
+    :cond_12
+    :goto_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    sget-object v18, Landroid/webkit/HtmlComposerView$InsertionPosition;->INSERT_AT_CURSOR:Landroid/webkit/HtmlComposerView$InsertionPosition;
+    sget-object v19, Landroid/webkit/HtmlComposerView$InsertionPosition;->INSERT_AT_CURSOR:Landroid/webkit/HtmlComposerView$InsertionPosition;
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v19
 
-    invoke-virtual {v0, v1, v2}, Landroid/webkit/HtmlComposerView;->insertContent(Ljava/lang/CharSequence;Landroid/webkit/HtmlComposerView$InsertionPosition;)V
+    invoke-virtual {v0, v1, v2}, Landroid/webkit/HtmlComposerView;->insertContent(Ljava/lang/CharSequence;Landroid/webkit/HtmlComposerView$InsertionPosition;)Z
 
-    .line 2246
+    move-result v15
+
+    .line 2514
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     iput-object v0, v1, Landroid/webkit/HtmlComposerView;->clpBrdStrg:Ljava/lang/String;
 
-    .line 2247
-    const v17, 0x102040a
+    .line 2515
+    const v18, 0x102040a
 
-    sput v17, Landroid/webkit/HtmlComposerView;->operSel:I
+    sput v18, Landroid/webkit/HtmlComposerView;->operSel:I
 
-    .line 2248
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
-
-    move-object/from16 v17, v0
-
+    .line 2516
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
     move-object/from16 v18, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->clpBrdStrg:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    const-string v19, "<.*?>"
+    const-string v20, "<.*?>"
 
-    const-string v20, ""
+    const-string v21, ""
 
-    invoke-virtual/range {v18 .. v20}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v19 .. v21}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     iput-object v0, v1, Landroid/webkit/HtmlComposerView;->clpBrdStrg:Ljava/lang/String;
 
     goto/16 :goto_3
 
-    .line 2238
+    .line 2506
     :catch_3
     move-exception v6
 
-    .line 2239
+    .line 2507
     .local v6, e:Ljava/lang/OutOfMemoryError;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mNotificationCallback:Landroid/webkit/HtmlComposerView$HtmlComposerNotificationToApp;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    if-eqz v17, :cond_10
+    if-eqz v18, :cond_12
 
-    .line 2240
+    .line 2508
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->mNotificationCallback:Landroid/webkit/HtmlComposerView$HtmlComposerNotificationToApp;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    const/16 v18, 0x1
-
-    const/16 v19, 0x0
+    const/16 v19, 0x1
 
     const/16 v20, 0x0
 
-    invoke-interface/range {v17 .. v20}, Landroid/webkit/HtmlComposerView$HtmlComposerNotificationToApp;->onNotification(ILjava/lang/Exception;Ljava/lang/String;)V
+    const/16 v21, 0x0
 
-    goto :goto_4
+    invoke-interface/range {v18 .. v21}, Landroid/webkit/HtmlComposerView$HtmlComposerNotificationToApp;->onNotification(ILjava/lang/Exception;Ljava/lang/String;)V
 
-    .line 2251
+    goto :goto_5
+
+    .line 2519
     .end local v6           #e:Ljava/lang/OutOfMemoryError;
-    :cond_11
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    sget-object v18, Landroid/webkit/HtmlComposerView$InsertionPosition;->INSERT_AT_CURSOR:Landroid/webkit/HtmlComposerView$InsertionPosition;
+    sget-object v19, Landroid/webkit/HtmlComposerView$InsertionPosition;->INSERT_AT_CURSOR:Landroid/webkit/HtmlComposerView$InsertionPosition;
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v19
 
-    invoke-virtual {v0, v1, v2}, Landroid/webkit/HtmlComposerView;->insertContent(Ljava/lang/CharSequence;Landroid/webkit/HtmlComposerView$InsertionPosition;)V
+    invoke-virtual {v0, v1, v2}, Landroid/webkit/HtmlComposerView;->insertContent(Ljava/lang/CharSequence;Landroid/webkit/HtmlComposerView$InsertionPosition;)Z
 
-    .line 2253
+    move-result v15
+
+    .line 2521
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     iput-object v0, v1, Landroid/webkit/HtmlComposerView;->clpBrdStrg:Ljava/lang/String;
 
-    .line 2254
-    const v17, 0x102040a
+    .line 2522
+    const v18, 0x102040a
 
-    sput v17, Landroid/webkit/HtmlComposerView;->operSel:I
+    sput v18, Landroid/webkit/HtmlComposerView;->operSel:I
 
-    .line 2255
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
-
-    move-object/from16 v17, v0
-
+    .line 2523
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
 
     move-object/from16 v18, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
 
     iget-object v0, v0, Landroid/webkit/HtmlComposerView;->clpBrdStrg:Ljava/lang/String;
 
-    move-object/from16 v18, v0
+    move-object/from16 v19, v0
 
-    const-string v19, "<.*?>"
+    const-string v20, "<.*?>"
 
-    const-string v20, ""
+    const-string v21, ""
 
-    invoke-virtual/range {v18 .. v20}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual/range {v19 .. v21}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     iput-object v0, v1, Landroid/webkit/HtmlComposerView;->clpBrdStrg:Ljava/lang/String;
 
     goto/16 :goto_3
+
+    .line 2532
+    :cond_14
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/webkit/HtmlComposerView$SelectionUIPasteListener;->this$0:Landroid/webkit/HtmlComposerView;
+
+    move-object/from16 v18, v0
+
+    #getter for: Landroid/webkit/HtmlComposerView;->mToastForClipboard:Landroid/widget/Toast;
+    invoke-static/range {v18 .. v18}, Landroid/webkit/HtmlComposerView;->access$1100(Landroid/webkit/HtmlComposerView;)Landroid/widget/Toast;
+
+    move-result-object v18
+
+    const v19, 0x1040783
+
+    invoke-virtual/range {v18 .. v19}, Landroid/widget/Toast;->setText(I)V
+
+    goto/16 :goto_4
 .end method

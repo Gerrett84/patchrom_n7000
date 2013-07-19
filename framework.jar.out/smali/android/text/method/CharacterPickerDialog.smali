@@ -221,7 +221,7 @@
     invoke-virtual {p0, v2}, Landroid/text/method/CharacterPickerDialog;->setContentView(I)V
 
     .line 77
-    const v2, 0x102028f
+    const v2, 0x1020298
 
     invoke-virtual {p0, v2}, Landroid/text/method/CharacterPickerDialog;->findViewById(I)Landroid/view/View;
 
@@ -245,7 +245,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/GridView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 81
-    const v2, 0x1020290
+    const v2, 0x1020299
 
     invoke-virtual {p0, v2}, Landroid/text/method/CharacterPickerDialog;->findViewById(I)Landroid/view/View;
 

@@ -3,12 +3,12 @@
 .source "PhoneWindowManager.java"
 
 # interfaces
-.implements Landroid/view/InputEventReceiver$Factory;
+.implements Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/internal/policy/impl/PhoneWindowManager;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/internal/policy/impl/PhoneWindowManager;->launchHomeFromHotKey()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,6 +20,8 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
+.field final synthetic val$screenOnListener:Landroid/view/WindowManagerPolicy$ScreenOnListener;
+
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
@@ -27,7 +29,7 @@
     .parameter
 
     .prologue
-    .line 3707
+    .line 4089
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,18 +39,54 @@
 
 
 # virtual methods
-.method public createInputEventReceiver(Landroid/view/InputChannel;Landroid/os/Looper;)Landroid/view/InputEventReceiver;
+.method public onKeyguardExitResult(Z)V
     .locals 2
-    .parameter "inputChannel"
-    .parameter "looper"
+    .parameter "success"
 
     .prologue
-    .line 3711
-    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindowManager$HideNavInputEventReceiver;
+    .line 4091
+    if-eqz p1, :cond_0
 
-    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    .line 4093
+    :try_start_0
+    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    invoke-direct {v0, v1, p1, p2}, Lcom/android/internal/policy/impl/PhoneWindowManager$HideNavInputEventReceiver;-><init>(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/InputChannel;Landroid/os/Looper;)V
+    move-result-object v0
 
-    return-object v0
+    invoke-interface {v0}, Landroid/app/IActivityManager;->stopAppSwitches()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 4096
+    :goto_0
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    const-string v1, "homekey"
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->sendCloseSystemWindows(Ljava/lang/String;)V
+
+    .line 4097
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->startDockOrHome()V
+
+    .line 4102
+    :goto_1
+    return-void
+
+    .line 4100
+    :cond_0
+    const-string v0, "WindowManager"
+
+    const-string v1, "Disabled Home Launching Case #2"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 4094
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method

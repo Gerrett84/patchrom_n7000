@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1212
+    .line 1031
     iput-object p1, p0, Lcom/samsung/wfd/WfdService$2;->this$0:Lcom/samsung/wfd/WfdService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,8 +42,8 @@
     .parameter "reason"
 
     .prologue
-    .line 1219
-    const-string v0, "WfdService"
+    .line 1038
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService$2;->this$0:Lcom/samsung/wfd/WfdService;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -63,9 +63,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    .line 1220
+    .line 1039
     return-void
 .end method
 
@@ -73,26 +73,26 @@
     .locals 2
 
     .prologue
-    .line 1214
-    const-string v0, "WfdService"
+    .line 1033
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService$2;->this$0:Lcom/samsung/wfd/WfdService;
 
     const-string v1, " remove group success"
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    .line 1215
+    .line 1034
     iget-object v0, p0, Lcom/samsung/wfd/WfdService$2;->this$0:Lcom/samsung/wfd/WfdService;
 
     const/4 v1, 0x1
 
     #setter for: Lcom/samsung/wfd/WfdService;->mWifiP2pTrigger:Z
-    invoke-static {v0, v1}, Lcom/samsung/wfd/WfdService;->access$3302(Lcom/samsung/wfd/WfdService;Z)Z
+    invoke-static {v0, v1}, Lcom/samsung/wfd/WfdService;->access$3602(Lcom/samsung/wfd/WfdService;Z)Z
 
-    .line 1216
+    .line 1035
     iget-object v0, p0, Lcom/samsung/wfd/WfdService$2;->this$0:Lcom/samsung/wfd/WfdService;
 
     #getter for: Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
-    invoke-static {v0}, Lcom/samsung/wfd/WfdService;->access$500(Lcom/samsung/wfd/WfdService;)Lcom/samsung/wfd/WfdService$WfdStateMachine;
+    invoke-static {v0}, Lcom/samsung/wfd/WfdService;->access$900(Lcom/samsung/wfd/WfdService;)Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     move-result-object v0
 
@@ -100,6 +100,6 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->sendMessage(I)V
 
-    .line 1217
+    .line 1036
     return-void
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 965
+    .line 1065
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$12;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,15 +41,15 @@
     .locals 2
 
     .prologue
-    .line 967
+    .line 1067
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$12;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iget-object v0, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mClearButton:Landroid/widget/Button;
 
-    const/4 v1, 0x0
+    const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 968
+    .line 1068
     return-void
 .end method

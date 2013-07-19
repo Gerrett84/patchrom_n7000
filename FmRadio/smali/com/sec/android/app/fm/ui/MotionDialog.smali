@@ -16,137 +16,158 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 4
+    .locals 6
     .parameter "context"
 
     .prologue
-    .line 30
-    invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
+    const/4 v5, 0x0
 
     .line 31
+    invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
+
+    .line 32
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object v1
+    move-result-object v2
 
-    const v2, 0x7f03000a
+    const v3, 0x7f030011
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 32
-    .local v0, layout:Landroid/view/View;
-    const v1, 0x7f070074
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/CheckBox;
-
-    iput-object v1, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mCheck:Landroid/widget/CheckBox;
-
     .line 33
-    iget-object v1, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mCheck:Landroid/widget/CheckBox;
+    .local v0, layout:Landroid/view/View;
+    const v2, 0x7f070082
 
-    new-instance v2, Lcom/sec/android/app/fm/ui/MotionDialog$1;
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-direct {v2, p0}, Lcom/sec/android/app/fm/ui/MotionDialog$1;-><init>(Lcom/sec/android/app/fm/ui/MotionDialog;)V
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    check-cast v2, Landroid/widget/CheckBox;
 
-    .line 40
-    iget-object v1, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mCheck:Landroid/widget/CheckBox;
+    iput-object v2, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mCheck:Landroid/widget/CheckBox;
 
-    new-instance v2, Lcom/sec/android/app/fm/ui/MotionDialog$2;
+    .line 34
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mCheck:Landroid/widget/CheckBox;
 
-    invoke-direct {v2, p0, p1}, Lcom/sec/android/app/fm/ui/MotionDialog$2;-><init>(Lcom/sec/android/app/fm/ui/MotionDialog;Landroid/content/Context;)V
+    new-instance v3, Lcom/sec/android/app/fm/ui/MotionDialog$1;
 
-    invoke-virtual {v1, v2}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-direct {v3, p0}, Lcom/sec/android/app/fm/ui/MotionDialog$1;-><init>(Lcom/sec/android/app/fm/ui/MotionDialog;)V
 
-    .line 49
-    const v1, 0x7f070073
+    invoke-virtual {v2, v3}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 41
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mCheck:Landroid/widget/CheckBox;
+
+    new-instance v3, Lcom/sec/android/app/fm/ui/MotionDialog$2;
+
+    invoke-direct {v3, p0, p1}, Lcom/sec/android/app/fm/ui/MotionDialog$2;-><init>(Lcom/sec/android/app/fm/ui/MotionDialog;Landroid/content/Context;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    .line 50
+    const-string v2, "SettingsPreference"
+
+    invoke-virtual {p1, v2, v5}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/TextView;
+    .line 52
+    .local v1, sp:Landroid/content/SharedPreferences;
+    iget-object v2, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mCheck:Landroid/widget/CheckBox;
 
-    iput-object v1, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mTextMotionDisabled:Landroid/widget/TextView;
+    const-string v3, "motion"
 
-    .line 51
-    const v1, 0x7f070072
+    const/4 v4, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-interface {v1, v3, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result-object v1
+    move-result v3
 
-    check-cast v1, Landroid/widget/ImageView;
-
-    iput-object v1, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mImageMotion:Landroid/widget/ImageView;
+    invoke-virtual {v2, v3}, Landroid/widget/CheckBox;->setChecked(Z)V
 
     .line 53
-    const v1, 0x7f0a00ba
+    const v2, 0x7f070081
 
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/ui/MotionDialog;->setTitle(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/TextView;
+
+    iput-object v2, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mTextMotionDisabled:Landroid/widget/TextView;
 
     .line 55
-    invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/MotionDialog;->setView(Landroid/view/View;)V
+    const v2, 0x7f070080
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/ImageView;
+
+    iput-object v2, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mImageMotion:Landroid/widget/ImageView;
 
     .line 57
-    const/4 v1, -0x1
+    const v2, 0x7f0a00ba
 
-    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    const v3, 0x7f0a00bf
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v1, v2, p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-
-    .line 58
-    const/4 v1, -0x2
-
-    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    const v3, 0x7f0a00be
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v1, v2, p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+    invoke-virtual {p0, v2}, Lcom/sec/android/app/fm/ui/MotionDialog;->setTitle(I)V
 
     .line 59
-    const/4 v1, -0x3
+    invoke-virtual {p0, v0}, Lcom/sec/android/app/fm/ui/MotionDialog;->setView(Landroid/view/View;)V
+
+    .line 61
+    const/4 v2, -0x1
 
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v3
 
-    const v3, 0x7f0a0027
+    const v4, 0x7f0a00bf
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {p0, v1, v2, p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-
-    .line 61
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v1}, Lcom/sec/android/app/fm/ui/MotionDialog;->setIcon(I)V
+    invoke-virtual {p0, v2, v3, p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
     .line 62
+    const/4 v2, -0x2
+
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    const v4, 0x7f0a00be
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v2, v3, p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+
+    .line 63
+    const/4 v2, -0x3
+
+    invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    const v4, 0x7f0a0027
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v2, v3, p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+
+    .line 65
+    invoke-virtual {p0, v5}, Lcom/sec/android/app/fm/ui/MotionDialog;->setIcon(I)V
+
+    .line 66
     return-void
 .end method
 
@@ -166,7 +187,7 @@
 
     const/4 v3, 0x0
 
-    .line 89
+    .line 93
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -203,33 +224,33 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 91
+    .line 95
     invoke-virtual {p0, v7}, Lcom/sec/android/app/fm/ui/MotionDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 92
+    .line 96
     invoke-virtual {p0, v6}, Lcom/sec/android/app/fm/ui/MotionDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 93
+    .line 97
     invoke-virtual {p0, v5}, Lcom/sec/android/app/fm/ui/MotionDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v1
 
     invoke-virtual {v1, v3}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 94
+    .line 98
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mTextMotionDisabled:Landroid/widget/TextView;
 
     invoke-virtual {v1, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 101
+    .line 105
     :goto_0
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mImageMotion:Landroid/widget/ImageView;
 
@@ -239,21 +260,21 @@
 
     check-cast v0, Landroid/graphics/drawable/AnimationDrawable;
 
-    .line 102
+    .line 106
     .local v0, ani:Landroid/graphics/drawable/AnimationDrawable;
     if-eqz v0, :cond_0
 
-    .line 103
+    .line 107
     invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
 
-    .line 104
+    .line 108
     :cond_0
     invoke-super {p0}, Landroid/app/AlertDialog;->onAttachedToWindow()V
 
-    .line 105
+    .line 109
     return-void
 
-    .line 96
+    .line 100
     .end local v0           #ani:Landroid/graphics/drawable/AnimationDrawable;
     :cond_1
     invoke-virtual {p0, v7}, Lcom/sec/android/app/fm/ui/MotionDialog;->getButton(I)Landroid/widget/Button;
@@ -262,21 +283,21 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 97
+    .line 101
     invoke-virtual {p0, v6}, Lcom/sec/android/app/fm/ui/MotionDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v1
 
     invoke-virtual {v1, v3}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 98
+    .line 102
     invoke-virtual {p0, v5}, Lcom/sec/android/app/fm/ui/MotionDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 99
+    .line 103
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mTextMotionDisabled:Landroid/widget/TextView;
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setVisibility(I)V
@@ -292,15 +313,15 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 66
+    .line 70
     packed-switch p2, :pswitch_data_0
 
-    .line 85
+    .line 89
     :goto_0
     :pswitch_0
     return-void
 
-    .line 68
+    .line 72
     :pswitch_1
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->getContext()Landroid/content/Context;
 
@@ -314,7 +335,7 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 69
+    .line 73
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -327,20 +348,20 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 71
+    .line 75
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.sec.motions.MOTIONS_SETTINGS_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 72
+    .line 76
     .local v0, settingIntent:Landroid/content/Intent;
     const-string v1, "isEnable"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 73
+    .line 77
     invoke-virtual {p0}, Lcom/sec/android/app/fm/ui/MotionDialog;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -349,7 +370,7 @@
 
     goto :goto_0
 
-    .line 66
+    .line 70
     nop
 
     :pswitch_data_0
@@ -360,20 +381,45 @@
     .end packed-switch
 .end method
 
+.method public onRestoreInstanceState(Landroid/os/Bundle;)V
+    .locals 2
+    .parameter "savedInstanceState"
+
+    .prologue
+    .line 127
+    invoke-super {p0, p1}, Landroid/app/AlertDialog;->onRestoreInstanceState(Landroid/os/Bundle;)V
+
+    .line 128
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mCheck:Landroid/widget/CheckBox;
+
+    if-eqz v0, :cond_0
+
+    .line 129
+    iget-object v0, p0, Lcom/sec/android/app/fm/ui/MotionDialog;->mCheck:Landroid/widget/CheckBox;
+
+    const v1, 0x7f0a00bd
+
+    invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setText(I)V
+
+    .line 131
+    :cond_0
+    return-void
+.end method
+
 .method public onWindowFocusChanged(Z)V
     .locals 1
     .parameter "hasFocus"
 
     .prologue
-    .line 110
+    .line 114
     if-eqz p1, :cond_0
 
-    .line 111
+    .line 115
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v0, :cond_0
 
-    .line 112
+    .line 116
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     iget-object v0, v0, Lcom/sec/android/app/fm/MainActivity;->mAudioManager:Landroid/media/AudioManager;
@@ -384,15 +430,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 113
+    .line 117
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/MainActivity;->startBargeIn()V
 
-    .line 117
+    .line 121
     :cond_0
     invoke-super {p0, p1}, Landroid/app/AlertDialog;->onWindowFocusChanged(Z)V
 
-    .line 118
+    .line 122
     return-void
 .end method

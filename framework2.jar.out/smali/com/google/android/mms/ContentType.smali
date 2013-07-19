@@ -28,6 +28,8 @@
 
 .field public static final AUDIO_ASF:Ljava/lang/String; = "audio/x-ms-asf"
 
+.field public static final AUDIO_EVRC:Ljava/lang/String; = "audio/evrc"
+
 .field public static final AUDIO_FLAC:Ljava/lang/String; = "audio/flac"
 
 .field public static final AUDIO_IMELODY:Ljava/lang/String; = "audio/imelody"
@@ -235,392 +237,392 @@
     .locals 2
 
     .prologue
-    .line 106
+    .line 107
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    .line 107
+    .line 108
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
 
-    .line 108
+    .line 109
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    .line 109
+    .line 110
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
 
-    .line 111
+    .line 112
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
 
-    .line 112
+    .line 113
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    .line 113
+    .line 114
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
 
-    .line 116
+    .line 117
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "text/plain"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 117
+    .line 118
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "text/html"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 118
+    .line 119
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "text/x-vCalendar"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 119
+    .line 120
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "text/x-vCard"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 120
+    .line 121
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "text/x-vNote"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 121
+    .line 122
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "text/x-vtodo"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 123
+    .line 124
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "image/jpeg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 124
+    .line 125
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "image/gif"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 125
+    .line 126
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "image/vnd.wap.wbmp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 126
+    .line 127
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "image/png"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 127
+    .line 128
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "image/jpg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 129
+    .line 130
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "image/bmp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 130
+    .line 131
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "image/x-bmp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 131
+    .line 132
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "image/x-ms-bmp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 133
+    .line 134
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/aac"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 134
+    .line 135
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/aac-adts"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 135
+    .line 136
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/amr"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 136
+    .line 137
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/imelody"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 137
+    .line 138
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "text/x-imelody"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 138
+    .line 139
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/mid"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 139
+    .line 140
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/midi"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 140
+    .line 141
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/mp3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 141
+    .line 142
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/mpeg3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 142
+    .line 143
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/mpeg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 143
+    .line 144
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/mpg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 144
+    .line 145
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-mid"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 145
+    .line 146
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-midi"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 146
+    .line 147
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-mp3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 147
+    .line 148
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-mpeg3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 148
+    .line 149
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-mpeg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 149
+    .line 150
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-mpg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 150
+    .line 151
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/3gpp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 151
+    .line 152
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "application/ogg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 152
+    .line 153
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/wav"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 153
+    .line 154
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/wave"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 154
+    .line 155
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-wav"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 155
+    .line 156
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-wave"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 156
+    .line 157
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/flac"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 157
+    .line 158
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "application/x-flac"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 158
+    .line 159
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-ms-wma"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 159
+    .line 160
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/m4a"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 160
+    .line 161
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/mobile-xmf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 161
+    .line 162
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/xmf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 162
+    .line 163
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-xmf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 163
+    .line 164
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/x-ms-asf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 164
+    .line 165
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/amr-wb"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 165
+    .line 166
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/qcelp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 166
+    .line 167
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/vnd.qcelp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 167
+    .line 168
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/qcp"
@@ -630,410 +632,417 @@
     .line 169
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/3gpp"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 170
-    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
-
-    const-string v1, "video/3gpp2"
+    const-string v1, "audio/evrc"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 171
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/h263"
+    const-string v1, "video/3gpp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 172
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/mp4"
+    const-string v1, "video/3gpp2"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 173
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/3gp"
+    const-string v1, "video/h263"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 174
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/avi"
+    const-string v1, "video/mp4"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 175
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/x-ms-wmv"
+    const-string v1, "video/3gp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 176
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/x-ms-asf"
+    const-string v1, "video/avi"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 177
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/divx"
+    const-string v1, "video/x-ms-wmv"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 178
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
+
+    const-string v1, "video/x-ms-asf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 179
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "application/smil"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 180
-    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
-
-    const-string v1, "application/vnd.wap.xhtml+xml"
+    const-string v1, "video/divx"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 181
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "application/xhtml+xml"
+    const-string v1, "application/smil"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 182
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
+
+    const-string v1, "application/vnd.wap.xhtml+xml"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 183
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
-    const-string v1, "application/vnd.oma.drm.content"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 184
-    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
-
-    const-string v1, "application/vnd.oma.drm.message"
+    const-string v1, "application/xhtml+xml"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 185
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
+    const-string v1, "application/vnd.oma.drm.content"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 186
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
+
+    const-string v1, "application/vnd.oma.drm.message"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 187
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
+
     const-string v1, "application/vnd.oma.drm.rights+wbxml"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 188
-    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
-
-    const-string v1, "image/jpeg"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 189
-    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
-
-    const-string v1, "image/gif"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 190
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "image/vnd.wap.wbmp"
+    const-string v1, "image/jpeg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 191
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "image/png"
+    const-string v1, "image/gif"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 192
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "image/jpg"
+    const-string v1, "image/vnd.wap.wbmp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 193
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "image/bmp"
+    const-string v1, "image/png"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 194
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "image/x-bmp"
+    const-string v1, "image/jpg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 195
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
 
+    const-string v1, "image/bmp"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 196
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
+
+    const-string v1, "image/x-bmp"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 197
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
+
     const-string v1, "image/x-ms-bmp"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 198
-    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
-
-    const-string v1, "audio/aac"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 199
-    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
-
-    const-string v1, "audio/aac-adts"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 200
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/amr"
+    const-string v1, "audio/aac"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 201
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/imelody"
+    const-string v1, "audio/aac-adts"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 202
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "text/x-imelody"
+    const-string v1, "audio/amr"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 203
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mid"
+    const-string v1, "audio/imelody"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 204
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/midi"
+    const-string v1, "text/x-imelody"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 205
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mp3"
+    const-string v1, "audio/mid"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 206
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mpeg3"
+    const-string v1, "audio/midi"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 207
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mpeg"
+    const-string v1, "audio/mp3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 208
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mpg"
+    const-string v1, "audio/mpeg3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 209
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mp4"
+    const-string v1, "audio/mpeg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 210
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-mid"
+    const-string v1, "audio/mpg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 211
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-midi"
+    const-string v1, "audio/mp4"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 212
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-mp3"
+    const-string v1, "audio/x-mid"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 213
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-mpeg3"
+    const-string v1, "audio/x-midi"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 214
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-mpeg"
+    const-string v1, "audio/x-mp3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 215
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-mpg"
+    const-string v1, "audio/x-mpeg3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 216
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/3gpp"
+    const-string v1, "audio/x-mpeg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 217
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "application/ogg"
+    const-string v1, "audio/x-mpg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 218
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/wav"
+    const-string v1, "audio/3gpp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 219
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/wave"
+    const-string v1, "application/ogg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 220
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-wav"
+    const-string v1, "audio/wav"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 221
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-wave"
+    const-string v1, "audio/wave"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 222
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/flac"
+    const-string v1, "audio/x-wav"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 223
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "application/x-flac"
+    const-string v1, "audio/x-wave"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 224
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-ms-wma"
+    const-string v1, "audio/flac"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 225
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/m4a"
+    const-string v1, "application/x-flac"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 226
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mobile-xmf"
+    const-string v1, "audio/x-ms-wma"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 227
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/xmf"
+    const-string v1, "audio/m4a"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 228
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-xmf"
+    const-string v1, "audio/mobile-xmf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 229
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-ms-asf"
+    const-string v1, "audio/xmf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 230
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/amr-wb"
+    const-string v1, "audio/x-xmf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 231
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/qcelp"
+    const-string v1, "audio/x-ms-asf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 232
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/vnd.qcelp"
+    const-string v1, "audio/amr-wb"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 233
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
+
+    const-string v1, "audio/qcelp"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 234
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
+
+    const-string v1, "audio/vnd.qcelp"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 235
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
     const-string v1, "audio/qcp"
@@ -1041,447 +1050,461 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 236
-    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/3gpp"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 237
-    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
-
-    const-string v1, "video/3gpp2"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 238
-    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
-
-    const-string v1, "video/h263"
+    const-string v1, "audio/evrc"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 239
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/mp4"
+    const-string v1, "video/3gpp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 240
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/3gp"
+    const-string v1, "video/3gpp2"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 241
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/avi"
+    const-string v1, "video/h263"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 242
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/x-ms-wmv"
+    const-string v1, "video/mp4"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 243
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/x-ms-asf"
+    const-string v1, "video/3gp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 244
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
 
+    const-string v1, "video/avi"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 245
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
+
+    const-string v1, "video/x-ms-wmv"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 246
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
+
+    const-string v1, "video/x-ms-asf"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 247
+    sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
+
     const-string v1, "video/divx"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 248
-    sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
-
-    const-string v1, "image/jpeg"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 249
-    sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
-
-    const-string v1, "image/jpg"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 250
-    sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
-
-    const-string v1, "image/gif"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 251
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "image/vnd.wap.wbmp"
+    const-string v1, "image/jpeg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 252
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "image/png"
+    const-string v1, "image/jpg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 253
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "image/bmp"
+    const-string v1, "image/gif"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 254
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "image/x-bmp"
+    const-string v1, "image/vnd.wap.wbmp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 255
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "image/x-ms-bmp"
+    const-string v1, "image/png"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 256
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
+
+    const-string v1, "image/bmp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 257
-    sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/aac"
+    const-string v1, "image/x-bmp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 258
-    sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsImageTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/aac-adts"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 259
-    sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
-
-    const-string v1, "audio/amr"
+    const-string v1, "image/x-ms-bmp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 260
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/imelody"
+    const-string v1, "audio/aac"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 261
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "text/x-imelody"
+    const-string v1, "audio/aac-adts"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 262
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mid"
+    const-string v1, "audio/amr"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 263
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/midi"
+    const-string v1, "audio/imelody"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 264
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mp3"
+    const-string v1, "text/x-imelody"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 265
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mpeg3"
+    const-string v1, "audio/mid"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 266
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mpeg"
+    const-string v1, "audio/midi"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 267
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mpg"
+    const-string v1, "audio/mp3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 268
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mp4"
+    const-string v1, "audio/mpeg3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 269
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-mid"
+    const-string v1, "audio/mpeg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 270
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-midi"
+    const-string v1, "audio/mpg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 271
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-mp3"
+    const-string v1, "audio/mp4"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 272
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-mpeg3"
+    const-string v1, "audio/x-mid"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 273
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-mpeg"
+    const-string v1, "audio/x-midi"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 274
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-mpg"
+    const-string v1, "audio/x-mp3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 275
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/3gpp"
+    const-string v1, "audio/x-mpeg3"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 276
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "application/ogg"
+    const-string v1, "audio/x-mpeg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 277
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "application/vnd.smaf"
+    const-string v1, "audio/x-mpg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 278
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/wav"
+    const-string v1, "audio/3gpp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 279
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/wave"
+    const-string v1, "application/ogg"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 280
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-wav"
+    const-string v1, "application/vnd.smaf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 281
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-wave"
+    const-string v1, "audio/wav"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 282
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/flac"
+    const-string v1, "audio/wave"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 283
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "application/x-flac"
+    const-string v1, "audio/x-wav"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 284
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-ms-wma"
+    const-string v1, "audio/x-wave"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 285
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/m4a"
+    const-string v1, "audio/flac"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 286
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/mobile-xmf"
+    const-string v1, "application/x-flac"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 287
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/xmf"
+    const-string v1, "audio/x-ms-wma"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 288
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-xmf"
+    const-string v1, "audio/m4a"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 289
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/x-ms-asf"
+    const-string v1, "audio/mobile-xmf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 290
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/amr-wb"
+    const-string v1, "audio/xmf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 291
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/qcelp"
+    const-string v1, "audio/x-xmf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 292
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/vnd.qcelp"
+    const-string v1, "audio/x-ms-asf"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 293
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "audio/qcp"
+    const-string v1, "audio/amr-wb"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 294
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
+
+    const-string v1, "audio/qcelp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 295
-    sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/3gpp"
+    const-string v1, "audio/vnd.qcelp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 296
-    sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/3gpp2"
+    const-string v1, "audio/qcp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 297
-    sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsAudioTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/h263"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 298
-    sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
-
-    const-string v1, "video/mp4"
+    const-string v1, "audio/evrc"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 299
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/3gp"
+    const-string v1, "video/3gpp"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 300
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/avi"
+    const-string v1, "video/3gpp2"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 301
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/x-ms-wmv"
+    const-string v1, "video/h263"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 302
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/x-ms-asf"
+    const-string v1, "video/mp4"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 303
     sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
 
-    const-string v1, "video/divx"
+    const-string v1, "video/3gp"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 304
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
+
+    const-string v1, "video/avi"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 305
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
+
+    const-string v1, "video/x-ms-wmv"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 306
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
+
+    const-string v1, "video/x-ms-asf"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 307
+    sget-object v0, Lcom/google/android/mms/ContentType;->sIsVideoTypes:Ljava/util/ArrayList;
+
+    const-string v1, "video/divx"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 309
     return-void
 .end method
 
@@ -1489,10 +1512,10 @@
     .locals 0
 
     .prologue
-    .line 307
+    .line 311
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 308
+    .line 312
     return-void
 .end method
 
@@ -1509,7 +1532,7 @@
     .end annotation
 
     .prologue
-    .line 362
+    .line 366
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedAudioTypes:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -1534,7 +1557,7 @@
     .end annotation
 
     .prologue
-    .line 357
+    .line 361
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedImageTypes:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -1559,7 +1582,7 @@
     .end annotation
 
     .prologue
-    .line 372
+    .line 376
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -1584,7 +1607,7 @@
     .end annotation
 
     .prologue
-    .line 367
+    .line 371
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedVideoTypes:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
@@ -1601,7 +1624,7 @@
     .parameter "contentType"
 
     .prologue
-    .line 336
+    .line 340
     if-eqz p0, :cond_1
 
     const-string v0, "audio/"
@@ -1637,7 +1660,7 @@
     .parameter "contentType"
 
     .prologue
-    .line 345
+    .line 349
     if-eqz p0, :cond_1
 
     const-string v0, "application/vnd.oma.drm.content"
@@ -1681,7 +1704,7 @@
     .parameter "contentType"
 
     .prologue
-    .line 332
+    .line 336
     if-eqz p0, :cond_1
 
     const-string v0, "image/"
@@ -1717,7 +1740,7 @@
     .parameter "contentType"
 
     .prologue
-    .line 319
+    .line 323
     invoke-static {p0}, Lcom/google/android/mms/ContentType;->isAudioType(Ljava/lang/String;)Z
 
     move-result v0
@@ -1746,7 +1769,7 @@
     .parameter "contentType"
 
     .prologue
-    .line 315
+    .line 319
     invoke-static {p0}, Lcom/google/android/mms/ContentType;->isImageType(Ljava/lang/String;)Z
 
     move-result v0
@@ -1775,7 +1798,7 @@
     .parameter "contentType"
 
     .prologue
-    .line 311
+    .line 315
     if-eqz p0, :cond_0
 
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
@@ -1802,7 +1825,7 @@
     .parameter "contentType"
 
     .prologue
-    .line 323
+    .line 327
     invoke-static {p0}, Lcom/google/android/mms/ContentType;->isVideoType(Ljava/lang/String;)Z
 
     move-result v0
@@ -1831,7 +1854,7 @@
     .parameter "contentType"
 
     .prologue
-    .line 327
+    .line 331
     if-eqz p0, :cond_0
 
     const-string v0, "text/"
@@ -1858,7 +1881,7 @@
     .parameter "contentType"
 
     .prologue
-    .line 352
+    .line 356
     if-eqz p0, :cond_0
 
     const-string v0, "*"
@@ -1885,7 +1908,7 @@
     .parameter "contentType"
 
     .prologue
-    .line 340
+    .line 344
     if-eqz p0, :cond_1
 
     const-string v0, "video/"

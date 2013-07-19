@@ -47,12 +47,12 @@
     .parameter "args"
 
     .prologue
-    .line 155
+    .line 159
     iget-object v0, p0, Lcom/android/internal/telephony/PhoneSubInfoProxy;->mPhoneSubInfo:Lcom/android/internal/telephony/PhoneSubInfo;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/internal/telephony/PhoneSubInfo;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
-    .line 156
+    .line 160
     return-void
 .end method
 
@@ -116,7 +116,7 @@
     .locals 1
 
     .prologue
-    .line 165
+    .line 169
     iget-object v0, p0, Lcom/android/internal/telephony/PhoneSubInfoProxy;->mPhoneSubInfo:Lcom/android/internal/telephony/PhoneSubInfo;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneSubInfo;->getImeiInCDMAGSMPhone()Ljava/lang/String;
@@ -228,7 +228,7 @@
     .locals 1
 
     .prologue
-    .line 143
+    .line 147
     iget-object v0, p0, Lcom/android/internal/telephony/PhoneSubInfoProxy;->mPhoneSubInfo:Lcom/android/internal/telephony/PhoneSubInfo;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneSubInfo;->getSktImsiM()Ljava/lang/String;
@@ -242,7 +242,7 @@
     .locals 1
 
     .prologue
-    .line 150
+    .line 154
     iget-object v0, p0, Lcom/android/internal/telephony/PhoneSubInfoProxy;->mPhoneSubInfo:Lcom/android/internal/telephony/PhoneSubInfo;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneSubInfo;->getSktIrm()Ljava/lang/String;
@@ -256,7 +256,7 @@
     .locals 1
 
     .prologue
-    .line 159
+    .line 163
     iget-object v0, p0, Lcom/android/internal/telephony/PhoneSubInfoProxy;->mPhoneSubInfo:Lcom/android/internal/telephony/PhoneSubInfo;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneSubInfo;->getSponImsi()[Ljava/lang/String;
@@ -306,6 +306,20 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public hasIsim()Z
+    .locals 1
+
+    .prologue
+    .line 139
+    iget-object v0, p0, Lcom/android/internal/telephony/PhoneSubInfoProxy;->mPhoneSubInfo:Lcom/android/internal/telephony/PhoneSubInfo;
+
+    invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneSubInfo;->hasIsim()Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public setmPhoneSubInfo(Lcom/android/internal/telephony/PhoneSubInfo;)V

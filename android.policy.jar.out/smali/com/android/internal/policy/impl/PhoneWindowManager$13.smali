@@ -3,12 +3,12 @@
 .source "PhoneWindowManager.java"
 
 # interfaces
-.implements Landroid/view/WindowManagerPolicy$OnKeyguardExitResult;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/PhoneWindowManager;->launchHomeFromHotKey()V
+    value = Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptKeyBeforeDispatching(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;I)J
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 3606
+    .line 3700
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$13;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,54 +37,24 @@
 
 
 # virtual methods
-.method public onKeyguardExitResult(Z)V
-    .locals 2
-    .parameter "success"
+.method public run()V
+    .locals 1
 
     .prologue
-    .line 3608
-    if-eqz p1, :cond_0
-
-    .line 3610
-    :try_start_0
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Landroid/app/IActivityManager;->stopAppSwitches()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 3613
-    :goto_0
+    .line 3702
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$13;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    const-string v1, "homekey"
+    iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->gpuFreqReq:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->sendCloseSystemWindows(Ljava/lang/String;)V
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
 
-    .line 3614
+    .line 3703
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$13;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->startDockOrHome()V
+    iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->gpuFreqReq:Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
-    .line 3619
-    :goto_1
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->doFrequencyRequest()V
+
+    .line 3704
     return-void
-
-    .line 3617
-    :cond_0
-    const-string v0, "WindowManager"
-
-    const-string v1, "Disabled Home Launching Case #2"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-
-    .line 3611
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
 .end method

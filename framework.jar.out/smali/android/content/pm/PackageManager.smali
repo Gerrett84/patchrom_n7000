@@ -27,6 +27,7 @@
 .field public static final COMPONENT_ENABLED_STATE_DISABLED_USER:I = 0x3
 
 .field public static final COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART:I = 0x40000000
+
 .field public static final COMPONENT_ENABLED_STATE_ENABLED:I = 0x1
 
 .field public static final COMPONENT_ENABLED_STATE_SHOW_FLOATING_WINDOW:I = 0x8000000
@@ -92,6 +93,10 @@
 .field public static final FEATURE_MINI_MODE_TRAY:Ljava/lang/String; = "com.sec.feature.minimode_tray"
 
 .field public static final FEATURE_MULTIWINDOW:Ljava/lang/String; = "com.sec.feature.multiwindow"
+
+.field public static final FEATURE_MULTIWINDOW_DOWNLOADABLE:Ljava/lang/String; = "com.sec.feature.multiwindow.downloadable"
+
+.field public static final FEATURE_MULTIWINDOW_MULTIINSTANCE:Ljava/lang/String; = "com.sec.feature.multiwindow.multiinstance"
 
 .field public static final FEATURE_MULTIWINDOW_PHONE:Ljava/lang/String; = "com.sec.feature.multiwindow.phone"
 
@@ -342,7 +347,7 @@
     .parameter "packageName"
 
     .prologue
-    .line 2802
+    .line 2815
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -421,7 +426,7 @@
     .parameter "requestedPackageName"
 
     .prologue
-    .line 2813
+    .line 2826
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -546,7 +551,7 @@
     .parameter "packageItemName"
 
     .prologue
-    .line 2032
+    .line 2045
     const/4 v0, 0x0
 
     return-object v0
@@ -557,7 +562,7 @@
     .parameter "packageItemName"
 
     .prologue
-    .line 2021
+    .line 2034
     const/4 v0, 0x0
 
     return-object v0
@@ -625,47 +630,47 @@
 
     const/4 v8, 0x0
 
-    .line 2268
+    .line 2281
     new-instance v11, Landroid/content/pm/PackageParser;
 
     invoke-direct {v11, p1}, Landroid/content/pm/PackageParser;-><init>(Ljava/lang/String;)V
 
-    .line 2269
+    .line 2282
     .local v11, packageParser:Landroid/content/pm/PackageParser;
     new-instance v10, Landroid/util/DisplayMetrics;
 
     invoke-direct {v10}, Landroid/util/DisplayMetrics;-><init>()V
 
-    .line 2270
+    .line 2283
     .local v10, metrics:Landroid/util/DisplayMetrics;
     invoke-virtual {v10}, Landroid/util/DisplayMetrics;->setToDefaults()V
 
-    .line 2271
+    .line 2284
     new-instance v12, Ljava/io/File;
 
     invoke-direct {v12, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 2272
+    .line 2285
     .local v12, sourceFile:Ljava/io/File;
     invoke-virtual {v11, v12, p1, v10, v8}, Landroid/content/pm/PackageParser;->parsePackage(Ljava/io/File;Ljava/lang/String;Landroid/util/DisplayMetrics;I)Landroid/content/pm/PackageParser$Package;
 
     move-result-object v0
 
-    .line 2274
+    .line 2287
     .local v0, pkg:Landroid/content/pm/PackageParser$Package;
     if-nez v0, :cond_0
 
-    .line 2280
+    .line 2293
     :goto_0
     return-object v1
 
-    .line 2277
+    .line 2290
     :cond_0
     and-int/lit8 v2, p2, 0x40
 
     if-eqz v2, :cond_1
 
-    .line 2278
+    .line 2291
     invoke-virtual {v11, v0, v8}, Landroid/content/pm/PackageParser;->collectCertificates(Landroid/content/pm/PackageParser$Package;I)Z
 
     :cond_1
@@ -677,7 +682,7 @@
 
     move v9, v8
 
-    .line 2280
+    .line 2293
     invoke-static/range {v0 .. v9}, Landroid/content/pm/PackageParser;->generatePackageInfo(Landroid/content/pm/PackageParser$Package;[IIJJLjava/util/HashSet;ZI)Landroid/content/pm/PackageInfo;
 
     move-result-object v1

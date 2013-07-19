@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/sec/android/app/fm/MainActivity;->registerBroadcastScreen(Z)V
+    value = Lcom/sec/android/app/fm/MainActivity;->registerBroadcastReceiverTurningOn(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 13170
+    .line 7358
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$40;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,35 +35,16 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 1
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 13176
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    .line 7361
+    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$40;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    move-result-object v0
+    invoke-virtual {v0}, Lcom/sec/android/app/fm/MainActivity;->showTurningOnText()V
 
-    .line 13178
-    .local v0, action:Ljava/lang/String;
-    if-eqz v0, :cond_0
-
-    .line 13180
-    const-string v1, "android.intent.action.SCREEN_ON"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 13182
-    iget-object v1, p0, Lcom/sec/android/app/fm/MainActivity$40;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    invoke-virtual {v1}, Lcom/sec/android/app/fm/MainActivity;->checkBGPlayingSetting()V
-
-    .line 13188
-    :cond_0
+    .line 7362
     return-void
 .end method

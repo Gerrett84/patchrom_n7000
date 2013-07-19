@@ -31,7 +31,7 @@
     .parameter
 
     .prologue
-    .line 753
+    .line 754
     iput-object p1, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -44,17 +44,17 @@
     .parameter "dirty"
 
     .prologue
-    .line 826
+    .line 827
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v6, v6, Landroid/view/SurfaceView;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v6}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 831
+    .line 832
     const/4 v0, 0x0
 
-    .line 832
+    .line 833
     .local v0, c:Landroid/graphics/Canvas;
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
@@ -68,17 +68,17 @@
 
     if-eqz v6, :cond_2
 
-    .line 833
+    .line 834
     if-nez p1, :cond_1
 
-    .line 834
+    .line 835
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v6, v6, Landroid/view/SurfaceView;->mTmpDirty:Landroid/graphics/Rect;
 
     if-nez v6, :cond_0
 
-    .line 835
+    .line 836
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     new-instance v7, Landroid/graphics/Rect;
@@ -87,7 +87,7 @@
 
     iput-object v7, v6, Landroid/view/SurfaceView;->mTmpDirty:Landroid/graphics/Rect;
 
-    .line 837
+    .line 838
     :cond_0
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
@@ -99,12 +99,12 @@
 
     invoke-virtual {v6, v7}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 838
+    .line 839
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object p1, v6, Landroid/view/SurfaceView;->mTmpDirty:Landroid/graphics/Rect;
 
-    .line 842
+    .line 843
     :cond_1
     :try_start_0
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
@@ -117,12 +117,12 @@
 
     move-result-object v0
 
-    .line 849
+    .line 850
     :cond_2
     :goto_0
     if-eqz v0, :cond_3
 
-    .line 850
+    .line 851
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -131,17 +131,17 @@
 
     iput-wide v7, v6, Landroid/view/SurfaceView;->mLastLockTime:J
 
-    .line 869
+    .line 870
     .end local v0           #c:Landroid/graphics/Canvas;
     :goto_1
     return-object v0
 
-    .line 843
+    .line 844
     .restart local v0       #c:Landroid/graphics/Canvas;
     :catch_0
     move-exception v1
 
-    .line 844
+    .line 845
     .local v1, e:Ljava/lang/Exception;
     const-string v6, "SurfaceHolder"
 
@@ -151,14 +151,14 @@
 
     goto :goto_0
 
-    .line 857
+    .line 858
     .end local v1           #e:Ljava/lang/Exception;
     :cond_3
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
-    .line 858
+    .line 859
     .local v4, now:J
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
@@ -168,13 +168,13 @@
 
     add-long v2, v6, v8
 
-    .line 859
+    .line 860
     .local v2, nextTime:J
     cmp-long v6, v2, v4
 
     if-lez v6, :cond_4
 
-    .line 861
+    .line 862
     sub-long v6, v2, v4
 
     :try_start_1
@@ -182,31 +182,31 @@
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 864
+    .line 865
     :goto_2
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
-    .line 866
+    .line 867
     :cond_4
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iput-wide v4, v6, Landroid/view/SurfaceView;->mLastLockTime:J
 
-    .line 867
+    .line 868
     iget-object v6, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v6, v6, Landroid/view/SurfaceView;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v6}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 869
+    .line 870
     const/4 v0, 0x0
 
     goto :goto_1
 
-    .line 862
+    .line 863
     :catch_1
     move-exception v6
 
@@ -220,14 +220,14 @@
     .parameter "callback"
 
     .prologue
-    .line 762
+    .line 763
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v1, v0, Landroid/view/SurfaceView;->mCallbacks:Ljava/util/ArrayList;
 
     monitor-enter v1
 
-    .line 765
+    .line 766
     :try_start_0
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
@@ -239,21 +239,21 @@
 
     if-nez v0, :cond_0
 
-    .line 766
+    .line 767
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v0, v0, Landroid/view/SurfaceView;->mCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 768
+    .line 769
     :cond_0
     monitor-exit v1
 
-    .line 769
+    .line 770
     return-void
 
-    .line 768
+    .line 769
     :catchall_0
     move-exception v0
 
@@ -268,7 +268,7 @@
     .locals 1
 
     .prologue
-    .line 878
+    .line 879
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v0, v0, Landroid/view/SurfaceView;->mSurface:Landroid/view/Surface;
@@ -280,7 +280,7 @@
     .locals 1
 
     .prologue
-    .line 882
+    .line 883
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v0, v0, Landroid/view/SurfaceView;->mSurfaceFrame:Landroid/graphics/Rect;
@@ -292,7 +292,7 @@
     .locals 1
 
     .prologue
-    .line 758
+    .line 759
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-boolean v0, v0, Landroid/view/SurfaceView;->mIsCreating:Z
@@ -304,7 +304,7 @@
     .locals 1
 
     .prologue
-    .line 818
+    .line 819
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Landroid/view/SurfaceView$4;->internalLockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
@@ -319,7 +319,7 @@
     .parameter "dirty"
 
     .prologue
-    .line 822
+    .line 823
     invoke-direct {p0, p1}, Landroid/view/SurfaceView$4;->internalLockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
 
     move-result-object v0
@@ -332,14 +332,14 @@
     .parameter "callback"
 
     .prologue
-    .line 772
+    .line 773
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v1, v0, Landroid/view/SurfaceView;->mCallbacks:Ljava/util/ArrayList;
 
     monitor-enter v1
 
-    .line 773
+    .line 774
     :try_start_0
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
@@ -347,13 +347,13 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 774
+    .line 775
     monitor-exit v1
 
-    .line 775
+    .line 776
     return-void
 
-    .line 774
+    .line 775
     :catchall_0
     move-exception v0
 
@@ -370,7 +370,7 @@
     .parameter "height"
 
     .prologue
-    .line 778
+    .line 779
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget v0, v0, Landroid/view/SurfaceView;->mRequestedWidth:I
@@ -383,23 +383,23 @@
 
     if-eq v0, p2, :cond_1
 
-    .line 779
+    .line 780
     :cond_0
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iput p1, v0, Landroid/view/SurfaceView;->mRequestedWidth:I
 
-    .line 780
+    .line 781
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iput p2, v0, Landroid/view/SurfaceView;->mRequestedHeight:I
 
-    .line 781
+    .line 782
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     invoke-virtual {v0}, Landroid/view/SurfaceView;->requestLayout()V
 
-    .line 783
+    .line 784
     :cond_1
     return-void
 .end method
@@ -411,34 +411,34 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 796
+    .line 797
     const/4 v0, -0x1
 
     if-ne p1, v0, :cond_0
 
-    .line 797
+    .line 798
     const/4 p1, 0x4
 
-    .line 799
+    .line 800
     :cond_0
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iput p1, v0, Landroid/view/SurfaceView;->mRequestedFormat:I
 
-    .line 800
+    .line 801
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v0, v0, Landroid/view/SurfaceView;->mWindow:Landroid/view/SurfaceView$MyWindow;
 
     if-eqz v0, :cond_1
 
-    .line 801
+    .line 802
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     #calls: Landroid/view/SurfaceView;->updateWindow(ZZ)V
     invoke-static {v0, v1, v1}, Landroid/view/SurfaceView;->access$000(Landroid/view/SurfaceView;ZZ)V
 
-    .line 803
+    .line 804
     :cond_1
     return-void
 .end method
@@ -450,7 +450,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 812
+    .line 813
     iget-object v2, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v2, v2, Landroid/view/SurfaceView;->mHandler:Landroid/os/Handler;
@@ -459,24 +459,24 @@
 
     move-result-object v0
 
-    .line 813
+    .line 814
     .local v0, msg:Landroid/os/Message;
     if-eqz p1, :cond_0
 
     :goto_0
     iput v1, v0, Landroid/os/Message;->arg1:I
 
-    .line 814
+    .line 815
     iget-object v1, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v1, v1, Landroid/view/SurfaceView;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 815
+    .line 816
     return-void
 
-    .line 813
+    .line 814
     :cond_0
     const/4 v1, 0x0
 
@@ -489,7 +489,7 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 786
+    .line 787
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget v0, v0, Landroid/view/SurfaceView;->mRequestedWidth:I
@@ -502,7 +502,7 @@
 
     if-eq v0, v2, :cond_1
 
-    .line 787
+    .line 788
     :cond_0
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
@@ -512,12 +512,12 @@
 
     iput v2, v0, Landroid/view/SurfaceView;->mRequestedWidth:I
 
-    .line 788
+    .line 789
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     invoke-virtual {v0}, Landroid/view/SurfaceView;->requestLayout()V
 
-    .line 790
+    .line 791
     :cond_1
     return-void
 .end method
@@ -529,7 +529,7 @@
     .end annotation
 
     .prologue
-    .line 809
+    .line 810
     return-void
 .end method
 
@@ -538,20 +538,20 @@
     .parameter "canvas"
 
     .prologue
-    .line 873
+    .line 874
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v0, v0, Landroid/view/SurfaceView;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {v0, p1}, Landroid/view/Surface;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
 
-    .line 874
+    .line 875
     iget-object v0, p0, Landroid/view/SurfaceView$4;->this$0:Landroid/view/SurfaceView;
 
     iget-object v0, v0, Landroid/view/SurfaceView;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 875
+    .line 876
     return-void
 .end method

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 586
+    .line 590
     iput-object p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogDisabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 589
+    .line 593
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
     move-result v0
@@ -70,7 +70,7 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$300(Ljava/lang/String;)V
 
-    .line 590
+    .line 594
     :cond_0
     return-void
 .end method
@@ -80,19 +80,19 @@
     .parameter "msg"
 
     .prologue
-    .line 594
+    .line 598
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 614
+    .line 618
     :goto_0
     const/4 v2, 0x0
 
     :goto_1
     return v2
 
-    .line 596
+    .line 600
     :pswitch_0
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogDisabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -103,7 +103,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 597
+    .line 601
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogDisabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v3, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogDisabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -116,19 +116,19 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1000(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 598
+    .line 602
     :cond_0
     const/4 v2, 0x1
 
     goto :goto_1
 
-    .line 600
+    .line 604
     :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/content/Intent;
 
-    .line 601
+    .line 605
     .local v0, intent:Landroid/content/Intent;
     const-string v2, "networkInfo"
 
@@ -138,7 +138,7 @@
 
     check-cast v1, Landroid/net/NetworkInfo;
 
-    .line 604
+    .line 608
     .local v1, networkInfo:Landroid/net/NetworkInfo;
     sget-object v2, Landroid/net/wifi/WifiWatchdogStateMachine$4;->$SwitchMap$android$net$NetworkInfo$DetailedState:[I
 
@@ -156,7 +156,7 @@
 
     goto :goto_0
 
-    .line 606
+    .line 610
     :pswitch_2
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$200()Z
 
@@ -169,7 +169,7 @@
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$300(Ljava/lang/String;)V
 
-    .line 607
+    .line 611
     :cond_1
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogDisabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -184,14 +184,14 @@
 
     goto :goto_0
 
-    .line 594
+    .line 598
     :pswitch_data_0
     .packed-switch 0x21001
         :pswitch_0
         :pswitch_1
     .end packed-switch
 
-    .line 604
+    .line 608
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_2

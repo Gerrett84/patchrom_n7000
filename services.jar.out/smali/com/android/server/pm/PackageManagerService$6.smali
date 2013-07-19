@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 6777
+    .line 6815
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iput p2, p0, Lcom/android/server/pm/PackageManagerService$6;->val$nextState:I
@@ -55,7 +55,7 @@
     .parameter "intent"
 
     .prologue
-    .line 6780
+    .line 6818
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
@@ -66,13 +66,13 @@
 
     move-result-object v0
 
-    .line 6781
+    .line 6819
     .local v0, msg:Landroid/os/Message;
     iget v1, p0, Lcom/android/server/pm/PackageManagerService$6;->val$scanId:I
 
     iput v1, v0, Landroid/os/Message;->arg1:I
 
-    .line 6782
+    .line 6820
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
@@ -83,6 +83,6 @@
 
     invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 6783
+    .line 6821
     return-void
 .end method

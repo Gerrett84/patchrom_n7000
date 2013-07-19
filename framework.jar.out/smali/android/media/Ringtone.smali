@@ -244,7 +244,7 @@
 
     .line 142
     .local v6, actualTitle:Ljava/lang/String;
-    const v1, 0x10404fb
+    const v1, 0x1040505
 
     new-array v2, v11, [Ljava/lang/Object;
 
@@ -263,7 +263,7 @@
     if-nez v10, :cond_1
 
     .line 173
-    const v1, 0x10404fe
+    const v1, 0x1040508
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -347,7 +347,7 @@
     .line 150
     :cond_5
     :try_start_2
-    const-string v1, "media"
+    const-string/jumbo v1, "media"
 
     invoke-virtual {v1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -691,7 +691,6 @@
     .parameter "uri"
 
     .prologue
-
     invoke-virtual {p0, p1}, Landroid/media/Ringtone;->setUriOrig(Landroid/net/Uri;)Z
 
     return-void

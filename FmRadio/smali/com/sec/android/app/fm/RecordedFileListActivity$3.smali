@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 186
+    .line 198
     iput-object p1, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$3;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,7 +40,7 @@
     .parameter "selfChange"
 
     .prologue
-    .line 189
+    .line 201
     invoke-static {}, Lcom/sec/android/app/fm/RecordedFileListActivity;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -63,13 +63,13 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 190
+    .line 202
     iget-object v0, p0, Lcom/sec/android/app/fm/RecordedFileListActivity$3;->this$0:Lcom/sec/android/app/fm/RecordedFileListActivity;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/RecordedFileListActivity;->invalidateOptionsMenu()V
 
-    .line 191
+    .line 203
     return-void
 .end method

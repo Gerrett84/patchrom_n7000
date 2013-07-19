@@ -65,7 +65,7 @@
 
 .field public static final tab_indicator_text:I = 0x1060009
 
-.field public static final tab_indicator_text_v4:I = 0x1060085
+.field public static final tab_indicator_text_v4:I = 0x1060089
 
 .field public static final tertiary_text_dark:I = 0x1060010
 
@@ -73,11 +73,11 @@
 
 .field public static final transparent:I = 0x106000d
 
-.field public static final tw_popup_button_text_holo_dark:I = 0x1060099
+.field public static final tw_popup_button_text_holo_dark:I = 0x106009d
 
-.field public static final tw_switch_off_holo_dark:I = 0x10600a6
+.field public static final tw_switch_off_holo_dark:I = 0x10600aa
 
-.field public static final tw_switch_on_holo_dark:I = 0x10600a7
+.field public static final tw_switch_on_holo_dark:I = 0x10600ab
 
 .field public static final white:I = 0x106000b
 
@@ -89,7 +89,7 @@
     .locals 0
 
     .prologue
-    .line 11221
+    .line 11287
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void

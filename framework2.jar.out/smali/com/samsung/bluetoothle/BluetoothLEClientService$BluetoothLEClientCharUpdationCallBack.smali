@@ -28,12 +28,12 @@
     .parameter
 
     .prologue
-    .line 76
+    .line 75
     iput-object p1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     invoke-direct {p0}, Lcom/samsung/bluetoothle/IBluetoothLEClientCharUpdationCallBack$Stub;-><init>()V
 
-    .line 78
+    .line 77
     return-void
 .end method
 
@@ -47,7 +47,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 123
+    .line 122
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     const-string v1, "BluetoothLEClientCharUpdationCallBack"
@@ -75,7 +75,14 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$000(Lcom/samsung/bluetoothle/BluetoothLEClientService;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 125
+    .line 124
+    if-eqz p2, :cond_2
+
+    array-length v0, p2
+
+    if-eqz v0, :cond_2
+
+    .line 126
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->isDiscoverCharByUUID:Z
@@ -83,9 +90,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    .line 126
+    .line 127
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     aget-object v1, p2, v4
@@ -93,30 +100,41 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->updateSingleChar(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v0, p1, v1}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$300(Lcom/samsung/bluetoothle/BluetoothLEClientService;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 127
+    .line 128
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     #setter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->isDiscoverCharByUUID:Z
     invoke-static {v0, v4}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$202(Lcom/samsung/bluetoothle/BluetoothLEClientService;Z)Z
 
-    .line 133
+    .line 143
+    :cond_0
     :goto_0
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     invoke-virtual {v0, v4}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->setCharDiscoveryProgress(Z)V
 
-    .line 136
+    .line 146
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->notify()V
+
+    .line 147
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    const-string v1, "BluetoothLEClientCharUpdationCallBack"
+
+    const-string v2, "notify called on this object"
+
+    #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->LogD(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$000(Lcom/samsung/bluetoothle/BluetoothLEClientService;Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/IllegalMonitorStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 140
+    .line 151
     :goto_1
     return-void
 
     .line 130
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->updateServiceChars(Ljava/lang/String;[Ljava/lang/String;)V
@@ -124,7 +142,165 @@
 
     goto :goto_0
 
-    .line 137
+    .line 134
+    :cond_2
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->isDiscoverCharByUUID:Z
+    invoke-static {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$200(Lcom/samsung/bluetoothle/BluetoothLEClientService;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 135
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->indicateDiscoverCharsByUuidFailure()V
+    invoke-static {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$500(Lcom/samsung/bluetoothle/BluetoothLEClientService;)V
+
+    .line 136
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #setter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->isDiscoverCharByUUID:Z
+    invoke-static {v0, v4}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$202(Lcom/samsung/bluetoothle/BluetoothLEClientService;Z)Z
+
+    goto :goto_0
+
+    .line 138
+    :cond_3
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->mProfile:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
+    invoke-static {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$700(Lcom/samsung/bluetoothle/BluetoothLEClientService;)Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->mServicePath:Ljava/lang/String;
+    invoke-static {v1}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$600(Lcom/samsung/bluetoothle/BluetoothLEClientService;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->updateRefreshState(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 139
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->indicateDiscoverCharsFailure()V
+    invoke-static {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$800(Lcom/samsung/bluetoothle/BluetoothLEClientService;)V
+
+    goto :goto_0
+
+    .line 148
+    :catch_0
+    move-exception v0
+
+    goto :goto_1
+.end method
+
+.method public onDiscoverCharacteristicsFailed(Ljava/lang/String;)V
+    .locals 4
+    .parameter "address"
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 154
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    const-string v1, "BluetoothLEClientCharUpdationCallBack"
+
+    const-string v2, "onDiscoverCharacteristicsFailed"
+
+    #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->LogD(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$000(Lcom/samsung/bluetoothle/BluetoothLEClientService;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 157
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->isDiscoverCharByUUID:Z
+    invoke-static {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$200(Lcom/samsung/bluetoothle/BluetoothLEClientService;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 158
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->indicateDiscoverCharsByUuidFailure()V
+    invoke-static {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$500(Lcom/samsung/bluetoothle/BluetoothLEClientService;)V
+
+    .line 159
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #setter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->isDiscoverCharByUUID:Z
+    invoke-static {v0, v3}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$202(Lcom/samsung/bluetoothle/BluetoothLEClientService;Z)Z
+
+    .line 165
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    invoke-virtual {v0, v3}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->setCharDiscoveryProgress(Z)V
+
+    .line 168
+    :try_start_0
+    invoke-virtual {p0}, Ljava/lang/Object;->notify()V
+
+    .line 169
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    const-string v1, "BluetoothLEClientCharUpdationCallBack"
+
+    const-string v2, "notify called on this object"
+
+    #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->LogD(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$000(Lcom/samsung/bluetoothle/BluetoothLEClientService;Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalMonitorStateException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 173
+    :goto_1
+    return-void
+
+    .line 161
+    :cond_1
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->mProfile:Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
+    invoke-static {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$700(Lcom/samsung/bluetoothle/BluetoothLEClientService;)Lcom/samsung/bluetoothle/BluetoothLEClientProfile;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->mServicePath:Ljava/lang/String;
+    invoke-static {v1}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$600(Lcom/samsung/bluetoothle/BluetoothLEClientService;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/bluetoothle/BluetoothLEClientProfile;->updateRefreshState(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 162
+    iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
+
+    #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->indicateDiscoverCharsFailure()V
+    invoke-static {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$800(Lcom/samsung/bluetoothle/BluetoothLEClientService;)V
+
+    goto :goto_0
+
+    .line 170
     :catch_0
     move-exception v0
 
@@ -136,7 +312,7 @@
     .parameter "charPath"
 
     .prologue
-    .line 81
+    .line 80
     iget-object v0, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     const-string v1, "BluetoothLEClientCharUpdationCallBack"
@@ -146,7 +322,7 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$000(Lcom/samsung/bluetoothle/BluetoothLEClientService;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 82
+    .line 81
     return-void
 .end method
 
@@ -156,7 +332,7 @@
     .parameter "value"
 
     .prologue
-    .line 109
+    .line 108
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     const-string v3, "BluetoothLEClientCharUpdationCallBack"
@@ -192,10 +368,10 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v2, v3, v4}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$000(Lcom/samsung/bluetoothle/BluetoothLEClientService;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 110
+    .line 109
     const/4 v0, 0x0
 
-    .line 112
+    .line 111
     .local v0, clientChar:Lcom/samsung/bluetoothle/BluetoothLEClientChar;
     const/4 v1, 0x0
 
@@ -214,7 +390,7 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 113
+    .line 112
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->mServiceChars:Ljava/util/ArrayList;
@@ -238,7 +414,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 114
+    .line 113
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->mServiceChars:Ljava/util/ArrayList;
@@ -253,22 +429,22 @@
     .end local v0           #clientChar:Lcom/samsung/bluetoothle/BluetoothLEClientChar;
     check-cast v0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;
 
-    .line 115
+    .line 114
     .restart local v0       #clientChar:Lcom/samsung/bluetoothle/BluetoothLEClientChar;
     const-string v2, "Value"
 
     invoke-virtual {v0, v2, p2}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->setProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 116
+    .line 115
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     invoke-virtual {v2, v0}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->onWatcherValueChanged(Lcom/samsung/bluetoothle/BluetoothLEClientChar;)V
 
-    .line 120
+    .line 119
     :cond_0
     return-void
 
-    .line 112
+    .line 111
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
@@ -281,7 +457,7 @@
     .parameter "status"
 
     .prologue
-    .line 85
+    .line 84
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     const-string v3, "BluetoothLEClientCharUpdationCallBack"
@@ -317,10 +493,10 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v2, v3, v4}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$000(Lcom/samsung/bluetoothle/BluetoothLEClientService;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 86
+    .line 85
     const/4 v0, 0x0
 
-    .line 88
+    .line 87
     .local v0, clientChar:Lcom/samsung/bluetoothle/BluetoothLEClientChar;
     const/4 v1, 0x0
 
@@ -339,7 +515,7 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 89
+    .line 88
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->mServiceChars:Ljava/util/ArrayList;
@@ -354,7 +530,7 @@
     .end local v0           #clientChar:Lcom/samsung/bluetoothle/BluetoothLEClientChar;
     check-cast v0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;
 
-    .line 90
+    .line 89
     .restart local v0       #clientChar:Lcom/samsung/bluetoothle/BluetoothLEClientChar;
     invoke-virtual {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->getCharPath()Ljava/lang/String;
 
@@ -366,16 +542,16 @@
 
     if-eqz v2, :cond_1
 
-    .line 93
+    .line 92
     :cond_0
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     invoke-virtual {v2, v0, p2}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->onWriteCharValue(Lcom/samsung/bluetoothle/BluetoothLEClientChar;Ljava/lang/String;)V
 
-    .line 94
+    .line 93
     return-void
 
-    .line 88
+    .line 87
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
@@ -388,7 +564,7 @@
     .parameter "status"
 
     .prologue
-    .line 97
+    .line 96
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     const-string v3, "BluetoothLEClientCharUpdationCallBack"
@@ -424,10 +600,10 @@
     #calls: Lcom/samsung/bluetoothle/BluetoothLEClientService;->LogD(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v2, v3, v4}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->access$000(Lcom/samsung/bluetoothle/BluetoothLEClientService;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 98
+    .line 97
     const/4 v0, 0x0
 
-    .line 100
+    .line 99
     .local v0, clientChar:Lcom/samsung/bluetoothle/BluetoothLEClientChar;
     const/4 v1, 0x0
 
@@ -446,7 +622,7 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 101
+    .line 100
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     #getter for: Lcom/samsung/bluetoothle/BluetoothLEClientService;->mServiceChars:Ljava/util/ArrayList;
@@ -461,7 +637,7 @@
     .end local v0           #clientChar:Lcom/samsung/bluetoothle/BluetoothLEClientChar;
     check-cast v0, Lcom/samsung/bluetoothle/BluetoothLEClientChar;
 
-    .line 102
+    .line 101
     .restart local v0       #clientChar:Lcom/samsung/bluetoothle/BluetoothLEClientChar;
     invoke-virtual {v0}, Lcom/samsung/bluetoothle/BluetoothLEClientChar;->getCharPath()Ljava/lang/String;
 
@@ -473,16 +649,16 @@
 
     if-eqz v2, :cond_1
 
-    .line 105
+    .line 104
     :cond_0
     iget-object v2, p0, Lcom/samsung/bluetoothle/BluetoothLEClientService$BluetoothLEClientCharUpdationCallBack;->this$0:Lcom/samsung/bluetoothle/BluetoothLEClientService;
 
     invoke-virtual {v2, v0, p2}, Lcom/samsung/bluetoothle/BluetoothLEClientService;->onWriteClientConfigDesc(Lcom/samsung/bluetoothle/BluetoothLEClientChar;Ljava/lang/String;)V
 
-    .line 106
+    .line 105
     return-void
 
-    .line 100
+    .line 99
     :cond_1
     add-int/lit8 v1, v1, 0x1
 

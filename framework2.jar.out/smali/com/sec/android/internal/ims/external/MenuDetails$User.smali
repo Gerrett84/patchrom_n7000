@@ -72,6 +72,8 @@
 
 .field public static final mFrameRate:Ljava/lang/String; = "mFrameRate"
 
+.field public static final mImsPdnAutoCon:Ljava/lang/String; = "mImsPdnAutoCon"
+
 .field public static final mJitterBufferSetting:Ljava/lang/String; = "mJitterBufferSetting"
 
 .field public static final mLoopback:Ljava/lang/String; = "mLoopback"

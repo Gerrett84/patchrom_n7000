@@ -26,17 +26,17 @@
     .parameter "attr"
 
     .prologue
-    .line 1636
+    .line 1683
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1637
+    .line 1684
     sget-object v1, Lcom/android/internal/R$styleable;->SpellExtraAttr:[I
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 1640
+    .line 1687
     .local v0, ta:Landroid/content/res/TypedArray;
     const/4 v1, 0x0
 
@@ -46,7 +46,7 @@
 
     iput-object v1, p0, Landroid/app/ExtraAttr;->mName:Ljava/lang/String;
 
-    .line 1641
+    .line 1688
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -55,17 +55,17 @@
 
     iput-object v1, p0, Landroid/app/ExtraAttr;->mValue:Ljava/lang/String;
 
-    .line 1643
+    .line 1690
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 1645
+    .line 1692
     invoke-direct {p0}, Landroid/app/ExtraAttr;->calculateLocalHash()I
 
     move-result v1
 
     iput v1, p0, Landroid/app/ExtraAttr;->mLocalHash:I
 
-    .line 1646
+    .line 1693
     return-void
 .end method
 
@@ -75,23 +75,23 @@
     .parameter "value"
 
     .prologue
-    .line 1648
+    .line 1695
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1649
+    .line 1696
     iput-object p1, p0, Landroid/app/ExtraAttr;->mName:Ljava/lang/String;
 
-    .line 1650
+    .line 1697
     iput-object p2, p0, Landroid/app/ExtraAttr;->mValue:Ljava/lang/String;
 
-    .line 1652
+    .line 1699
     invoke-direct {p0}, Landroid/app/ExtraAttr;->calculateLocalHash()I
 
     move-result v0
 
     iput v0, p0, Landroid/app/ExtraAttr;->mLocalHash:I
 
-    .line 1653
+    .line 1700
     return-void
 .end method
 
@@ -99,16 +99,16 @@
     .locals 2
 
     .prologue
-    .line 1656
+    .line 1703
     const/4 v0, 0x0
 
-    .line 1658
+    .line 1705
     .local v0, result:I
     iget-object v1, p0, Landroid/app/ExtraAttr;->mName:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
-    .line 1659
+    .line 1706
     iget-object v1, p0, Landroid/app/ExtraAttr;->mName:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
@@ -117,13 +117,13 @@
 
     xor-int/2addr v0, v1
 
-    .line 1662
+    .line 1709
     :cond_0
     iget-object v1, p0, Landroid/app/ExtraAttr;->mValue:Ljava/lang/String;
 
     if-eqz v1, :cond_1
 
-    .line 1663
+    .line 1710
     iget-object v1, p0, Landroid/app/ExtraAttr;->mValue:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
@@ -132,7 +132,7 @@
 
     xor-int/2addr v0, v1
 
-    .line 1666
+    .line 1713
     :cond_1
     return v0
 .end method
@@ -146,12 +146,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1684
+    .line 1731
     instance-of v2, p1, Landroid/app/ExtraAttr;
 
     if-nez v2, :cond_1
 
-    .line 1706
+    .line 1753
     :cond_0
     :goto_0
     return v1
@@ -159,10 +159,10 @@
     :cond_1
     move-object v0, p1
 
-    .line 1688
+    .line 1735
     check-cast v0, Landroid/app/ExtraAttr;
 
-    .line 1690
+    .line 1737
     .local v0, other:Landroid/app/ExtraAttr;
     iget v2, p0, Landroid/app/ExtraAttr;->mLocalHash:I
 
@@ -170,7 +170,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 1694
+    .line 1741
     iget-object v2, p0, Landroid/app/ExtraAttr;->mName:Ljava/lang/String;
 
     if-nez v2, :cond_2
@@ -203,7 +203,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1700
+    .line 1747
     :cond_4
     iget-object v2, p0, Landroid/app/ExtraAttr;->mValue:Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1706
+    .line 1753
     :cond_7
     const/4 v1, 0x1
 
@@ -248,7 +248,7 @@
     .locals 1
 
     .prologue
-    .line 1670
+    .line 1717
     iget-object v0, p0, Landroid/app/ExtraAttr;->mName:Ljava/lang/String;
 
     return-object v0
@@ -258,7 +258,7 @@
     .locals 1
 
     .prologue
-    .line 1674
+    .line 1721
     iget-object v0, p0, Landroid/app/ExtraAttr;->mValue:Ljava/lang/String;
 
     return-object v0
@@ -268,7 +268,7 @@
     .locals 1
 
     .prologue
-    .line 1679
+    .line 1726
     iget v0, p0, Landroid/app/ExtraAttr;->mLocalHash:I
 
     return v0

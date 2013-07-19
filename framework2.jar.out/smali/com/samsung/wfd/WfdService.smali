@@ -25,11 +25,13 @@
 
 .field private final WFD_CHECK_TURN_OFF_MSG:I
 
-.field private mAudioCnt:Ljava/lang/String;
+.field private mAudioCnt:I
 
 .field private mAudioManager:Landroid/media/AudioManager;
 
 .field private mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
+
+.field private mConnectedDeviceMacAddr:Ljava/lang/String;
 
 .field private mContext:Landroid/content/Context;
 
@@ -44,6 +46,8 @@
 .field private mFrequencyAp:I
 
 .field private mFrequencyWfd:I
+
+.field mGroup:Landroid/net/wifi/p2p/WifiP2pGroup;
 
 .field private mHDMIConnected:Z
 
@@ -128,173 +132,179 @@
 
     const/4 v4, 0x0
 
-    .line 249
+    .line 204
     invoke-direct {p0}, Lcom/samsung/wfd/IWfdManager$Stub;-><init>()V
 
-    .line 160
+    .line 116
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
-    .line 161
+    .line 117
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mInterface:Ljava/lang/String;
 
-    .line 162
+    .line 118
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mNotification:Landroid/app/Notification;
 
-    .line 164
+    .line 120
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mNwService:Landroid/os/INetworkManagementService;
 
-    .line 167
+    .line 123
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
-    .line 168
+    .line 124
     new-instance v1, Lcom/samsung/wfd/WfdService$1;
 
     invoke-direct {v1, p0}, Lcom/samsung/wfd/WfdService$1;-><init>(Lcom/samsung/wfd/WfdService;)V
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceConnection:Landroid/content/ServiceConnection;
 
-    .line 185
+    .line 141
     new-instance v1, Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-direct {v1, v3}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdState:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 187
+    .line 143
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
-    .line 188
+    .line 144
     new-instance v1, Lcom/android/internal/util/AsyncChannel;
 
     invoke-direct {v1}, Lcom/android/internal/util/AsyncChannel;-><init>()V
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mReplyChannel:Lcom/android/internal/util/AsyncChannel;
 
-    .line 189
+    .line 145
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mWifiChannel:Lcom/android/internal/util/AsyncChannel;
 
-    .line 191
+    .line 147
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mWfdInfo:Lcom/samsung/wfd/WfdInfo;
 
-    .line 194
+    .line 148
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
-    .line 195
+    .line 149
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    .line 196
+    .line 150
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pInfo:Landroid/net/wifi/p2p/WifiP2pInfo;
 
-    .line 197
+    .line 151
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mRemoteIP:Ljava/lang/String;
 
-    .line 198
+    .line 152
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mDongleVer:Ljava/lang/String;
 
-    .line 199
+    .line 153
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mUpdateURL:Ljava/lang/String;
 
-    .line 200
-    iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mAudioCnt:Ljava/lang/String;
+    .line 154
+    iput v4, p0, Lcom/samsung/wfd/WfdService;->mAudioCnt:I
 
-    .line 205
+    .line 159
     iput v4, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
 
-    .line 210
+    .line 164
     const/16 v1, 0x19
 
     iput v1, p0, Lcom/samsung/wfd/WfdService;->mSourceReslnBitMask:I
 
-    .line 212
+    .line 166
     iput v4, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
 
-    .line 214
+    .line 168
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mCurrentDimm:Ljava/lang/String;
 
-    .line 216
+    .line 170
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mRequestSessionControl:Ljava/lang/String;
 
-    .line 218
+    .line 172
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mNetworkInfo:Landroid/net/NetworkInfo;
 
-    .line 220
+    .line 174
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWfdEnabledFromPicker:Z
 
-    .line 221
+    .line 175
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mUseRTSPService:Z
 
-    .line 222
+    .line 176
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pConnected:Z
 
-    .line 223
+    .line 177
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pEnabled:Z
 
-    .line 224
+    .line 178
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pTrigger:Z
 
-    .line 225
+    .line 179
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
 
-    .line 227
+    .line 180
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartOngoing:Z
 
-    .line 228
+    .line 181
     iput v4, p0, Lcom/samsung/wfd/WfdService;->mFrequencyAp:I
 
-    .line 229
+    .line 182
     iput v4, p0, Lcom/samsung/wfd/WfdService;->mFrequencyWfd:I
 
-    .line 231
+    .line 184
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mHDMIConnected:Z
 
-    .line 232
+    .line 185
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mHDMITrigger:Z
 
-    .line 234
+    .line 187
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    .line 235
+    .line 188
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWaitHotspotDone:Z
 
-    .line 236
+    .line 189
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mDongleUpdateResult:Z
 
-    .line 238
+    .line 191
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mScreenStatus:Z
 
-    .line 239
+    .line 192
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWfdOffTimer:Z
 
-    .line 240
+    .line 193
     const/16 v1, 0x2bc
 
     iput v1, p0, Lcom/samsung/wfd/WfdService;->WFD_CHECK_TURN_OFF_MSG:I
 
-    .line 241
+    .line 194
     const v1, 0x493e0
 
     iput v1, p0, Lcom/samsung/wfd/WfdService;->WFD_CHECK_TURN_OFF_INTERVAL:I
 
-    .line 242
+    .line 195
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 247
+    .line 197
+    iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mConnectedDeviceMacAddr:Ljava/lang/String;
+
+    .line 198
+    iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mGroup:Landroid/net/wifi/p2p/WifiP2pGroup;
+
+    .line 202
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mIsShowingNotification:Z
 
-    .line 1988
+    .line 1772
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mSCRemoteService:Lcom/samsung/ScreenCapture/IScreenCaptureRemoteService;
 
-    .line 1989
+    .line 1773
     new-instance v1, Lcom/samsung/wfd/WfdService$3;
 
     invoke-direct {v1, p0}, Lcom/samsung/wfd/WfdService$3;-><init>(Lcom/samsung/wfd/WfdService;)V
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mSCRemoteServiceConnection:Landroid/content/ServiceConnection;
 
-    .line 250
+    .line 205
     iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
-    .line 252
+    .line 207
     const-string v1, "wifi.interface"
 
     const-string v2, "wlan0"
@@ -305,53 +315,53 @@
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mInterface:Ljava/lang/String;
 
-    .line 254
+    .line 209
     const-string v1, "wlan.wfd.status"
 
     const-string v2, "disconnected"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 259
+    .line 214
     iput-boolean v3, p0, Lcom/samsung/wfd/WfdService;->mWfdSupported:Z
 
-    .line 260
+    .line 215
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWfdEnabledFromPicker:Z
 
-    .line 261
+    .line 216
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pConnected:Z
 
-    .line 262
+    .line 217
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pEnabled:Z
 
-    .line 263
+    .line 218
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pTrigger:Z
 
-    .line 264
+    .line 219
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
 
-    .line 266
+    .line 220
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWaitHotspotDone:Z
 
-    .line 267
+    .line 221
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartOngoing:Z
 
-    .line 268
+    .line 222
     iput v4, p0, Lcom/samsung/wfd/WfdService;->mFrequencyAp:I
 
-    .line 269
+    .line 223
     iput v4, p0, Lcom/samsung/wfd/WfdService;->mFrequencyWfd:I
 
-    .line 270
+    .line 224
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mDongleUpdateResult:Z
 
-    .line 271
+    .line 225
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mScreenStatus:Z
 
-    .line 272
+    .line 226
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mWfdOffTimer:Z
 
-    .line 275
+    .line 229
     new-instance v1, Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     const-string v2, "WfdService"
@@ -362,19 +372,19 @@
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
-    .line 276
+    .line 230
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     invoke-virtual {v1}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->start()V
 
-    .line 278
+    .line 232
     new-instance v1, Lcom/samsung/wfd/WfdInfo;
 
     invoke-direct {v1}, Lcom/samsung/wfd/WfdInfo;-><init>()V
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdInfo:Lcom/samsung/wfd/WfdInfo;
 
-    .line 284
+    .line 237
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     const-string v2, "wifip2p"
@@ -389,12 +399,12 @@
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
-    .line 286
+    .line 239
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     if-eqz v1, :cond_2
 
-    .line 287
+    .line 240
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
@@ -411,22 +421,20 @@
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    .line 288
+    .line 241
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     if-nez v1, :cond_0
 
-    .line 290
-    const-string v1, "WfdService"
+    .line 243
+    const-string v1, "Failed to set up connection with wifi p2p service"
 
-    const-string v2, "Failed to set up connection with wifi p2p service"
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 291
+    .line 244
     iput-object v5, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
-    .line 297
+    .line 250
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
@@ -441,141 +449,24 @@
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 298
+    .line 251
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     if-eqz v1, :cond_1
 
-    .line 299
-    const-string v1, "WfdService"
+    .line 252
+    const-string v1, "mAudioManager is null !"
 
-    const-string v2, "mAudioManager is null !"
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 303
+    .line 256
     :cond_1
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 305
+    .line 287
     .local v0, filter:Landroid/content/IntentFilter;
-    const-string v1, "android.net.wifi.WIFI_STATE_CHANGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 306
-    const-string v1, "android.net.wifi.STATE_CHANGE"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 307
-    const-string v1, "com.samsung.wfd.P2P_CONNECTION_ESTABLISHED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 308
-    const-string v1, "com.samsung.wfd.P2P_CONNECTION_TERMINATED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 309
-    const-string v1, "com.samsung.wfd.WFD_SESSION_ESTABLISHED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 310
-    const-string v1, "com.samsung.wfd.WFD_SESSION_TERMINATED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 312
-    const-string v1, "android.net.wifi.p2p.STATE_CHANGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 313
-    const-string v1, "android.net.wifi.p2p.CONNECTION_STATE_CHANGE"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 314
-    const-string v1, "android.intent.action.WIFI_DISPLAY_REQ"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 315
-    const-string v1, "android.intent.action.WIFI_DISPLAY_RES_FROM_NATIVE"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 316
-    const-string v1, "android.intent.action.WIFI_DISPLAY_PARAM_CHANGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 317
-    const-string v1, "android.intent.action.HDMI_PLUGGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 318
-    const-string v1, "android.net.wifi.WIFI_AP_STATE_CHANGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 319
-    const-string v1, "android.intent.action.WIFI_DISPLAY_URL_FROM_NATIVE"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 320
-    const-string v1, "android.intent.action.WIFI_DISPLAY_ERROR_FROM_NATIVE"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 321
-    const-string v1, "android.intent.action.WIFIDISPLAY_WEAK_NETWORK"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 322
-    const-string v1, "com.samsung.wfd.RESULT_WFD_UPDATE"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 323
-    const-string v1, "android.intent.action.WIFIDISPLAY_CONTROL_FROM_BROKER"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 324
-    const-string v1, "android.intent.action.WFD_TEARDOWN_FOR_AUDIO_OUT"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 325
-    const-string v1, "android.intent.action.SCREEN_ON"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 326
-    const-string v1, "android.intent.action.SCREEN_OFF"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 327
-    const-string v1, "android.intent.action.WIFIDISPLAY_NOTI_HDCP_INFO_FROM_NATIVE"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 328
-    const-string v1, "android.intent.action.CONFIGURATION_CHANGED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 330
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     new-instance v2, Lcom/samsung/wfd/WfdService$WifiStateReceiver;
@@ -584,72 +475,68 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 332
+    .line 289
     iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mUseRTSPService:Z
 
-    .line 333
+    .line 290
     return-void
 
-    .line 294
+    .line 247
     .end local v0           #filter:Landroid/content/IntentFilter;
     :cond_2
-    const-string v1, "WfdService"
+    const-string v1, "mWifiP2pManager is null !"
 
-    const-string v2, "mWifiP2pManager is null !"
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
+    goto :goto_0
 .end method
 
 .method private WfdStartHDCPSuspend()V
-    .locals 6
+    .locals 5
 
     .prologue
-    .line 1392
+    .line 1218
     invoke-virtual {p0}, Lcom/samsung/wfd/WfdService;->WFDGetSuspendStatus()Z
 
     move-result v0
 
-    .line 1393
+    .line 1219
     .local v0, nRet:Z
-    const-string v3, "WfdService"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "WFDGetSuspendStatus >> "
 
-    const-string v5, "WFDGetSuspendStatus >> "
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {p0, v3}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1394
+    .line 1220
     const/4 v3, 0x1
 
     invoke-virtual {p0, v3}, Lcom/samsung/wfd/WfdService;->WFDSetSuspendStatus(Z)Z
 
     move-result v0
 
-    .line 1396
+    .line 1222
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 1397
+    .line 1223
     .local v1, r:Landroid/content/res/Resources;
-    const v3, 0x1040560
+    const v3, 0x1040571
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -657,55 +544,42 @@
 
     check-cast v2, Ljava/lang/String;
 
-    .line 1398
+    .line 1224
     .local v2, title:Ljava/lang/String;
     invoke-virtual {p0, v2}, Lcom/samsung/wfd/WfdService;->WFDPostSuspend(Ljava/lang/String;)Z
 
-    .line 1400
+    .line 1226
     return-void
 .end method
 
 .method private WfdStopHDCPSuspend()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 1405
+    .line 1231
     invoke-virtual {p0}, Lcom/samsung/wfd/WfdService;->WFDGetSuspendStatus()Z
 
     move-result v0
 
-    .line 1407
+    .line 1233
     .local v0, nRet:Z
     if-eqz v0, :cond_0
 
-    .line 1408
+    .line 1234
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->WFDSetSuspendStatus(Z)Z
 
     move-result v0
 
-    .line 1409
-    const-string v1, "WfdService"
+    .line 1235
+    const-string v1, "done WfdStopHDCPSuspend"
 
-    const-string v2, "done WfdStopHDCPSuspend"
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1412
+    .line 1238
     :cond_0
     return-void
-.end method
-
-.method static synthetic access$100(Lcom/samsung/wfd/WfdService;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 129
-    iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pEnabled:Z
-
-    return v0
 .end method
 
 .method static synthetic access$1000(Lcom/samsung/wfd/WfdService;)Ljava/lang/String;
@@ -713,8 +587,8 @@
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mDongleVer:Ljava/lang/String;
+    .line 112
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mRemoteIP:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -725,115 +599,124 @@
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
+    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mRemoteIP:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic access$1100(Lcom/samsung/wfd/WfdService;)Ljava/lang/String;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 112
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mUpdateURL:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1102(Lcom/samsung/wfd/WfdService;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
+    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mUpdateURL:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic access$1200(Lcom/samsung/wfd/WfdService;)I
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 112
+    iget v0, p0, Lcom/samsung/wfd/WfdService;->mAudioCnt:I
+
+    return v0
+.end method
+
+.method static synthetic access$1202(Lcom/samsung/wfd/WfdService;I)I
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
+    iput p1, p0, Lcom/samsung/wfd/WfdService;->mAudioCnt:I
+
+    return p1
+.end method
+
+.method static synthetic access$1300(Lcom/samsung/wfd/WfdService;)Ljava/lang/String;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 112
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mDongleVer:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1302(Lcom/samsung/wfd/WfdService;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
     iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mDongleVer:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method static synthetic access$102(Lcom/samsung/wfd/WfdService;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 129
-    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pEnabled:Z
-
-    return p1
-.end method
-
-.method static synthetic access$1100(Lcom/samsung/wfd/WfdService;I)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 129
-    invoke-direct {p0, p1}, Lcom/samsung/wfd/WfdService;->setWfdState(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$1200(Lcom/samsung/wfd/WfdService;I)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 129
-    invoke-direct {p0, p1}, Lcom/samsung/wfd/WfdService;->broadcastWfdSessionState(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$1300(Lcom/samsung/wfd/WfdService;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 129
-    invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->broadcastDongleVerToFota()V
-
-    return-void
-.end method
-
-.method static synthetic access$1400(Lcom/samsung/wfd/WfdService;)Z
+.method static synthetic access$1400(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mUseRTSPService:Z
+    .line 112
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    return v0
+    return-object v0
 .end method
 
-.method static synthetic access$1402(Lcom/samsung/wfd/WfdService;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 129
-    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mUseRTSPService:Z
-
-    return p1
-.end method
-
-.method static synthetic access$1502(Lcom/samsung/wfd/WfdService;Landroid/net/wifi/p2p/WifiP2pInfo;)Landroid/net/wifi/p2p/WifiP2pInfo;
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 129
-    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pInfo:Landroid/net/wifi/p2p/WifiP2pInfo;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1600(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager;
+.method static synthetic access$1500(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
+    .line 112
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     return-object v0
 .end method
 
-.method static synthetic access$1702(Lcom/samsung/wfd/WfdService;Z)Z
+.method static synthetic access$1600(Lcom/samsung/wfd/WfdService;I)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
-    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pConnected:Z
+    .line 112
+    invoke-direct {p0, p1}, Lcom/samsung/wfd/WfdService;->broadcastWfdSessionState(I)V
 
-    return p1
+    return-void
+.end method
+
+.method static synthetic access$1700(Lcom/samsung/wfd/WfdService;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 112
+    invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->broadcastDongleVerToFota()V
+
+    return-void
 .end method
 
 .method static synthetic access$1800(Lcom/samsung/wfd/WfdService;)Z
@@ -841,8 +724,8 @@
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mDongleUpdateResult:Z
+    .line 112
+    iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mUseRTSPService:Z
 
     return v0
 .end method
@@ -853,22 +736,22 @@
     .parameter "x1"
 
     .prologue
-    .line 129
-    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mDongleUpdateResult:Z
+    .line 112
+    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mUseRTSPService:Z
 
     return p1
 .end method
 
-.method static synthetic access$1900(Lcom/samsung/wfd/WfdService;I)V
+.method static synthetic access$1902(Lcom/samsung/wfd/WfdService;Landroid/net/wifi/p2p/WifiP2pInfo;)Landroid/net/wifi/p2p/WifiP2pInfo;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
-    invoke-direct {p0, p1}, Lcom/samsung/wfd/WfdService;->sendWfdBrokerStartForPopup(I)V
+    .line 112
+    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pInfo:Landroid/net/wifi/p2p/WifiP2pInfo;
 
-    return-void
+    return-object p1
 .end method
 
 .method static synthetic access$200(Lcom/samsung/wfd/WfdService;)Z
@@ -876,31 +759,20 @@
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWfdEnabledFromPicker:Z
+    .line 112
+    iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pEnabled:Z
 
     return v0
 .end method
 
-.method static synthetic access$2000(Lcom/samsung/wfd/WfdService;)I
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 129
-    iget v0, p0, Lcom/samsung/wfd/WfdService;->mFrequencyWfd:I
-
-    return v0
-.end method
-
-.method static synthetic access$2002(Lcom/samsung/wfd/WfdService;I)I
+.method static synthetic access$2002(Lcom/samsung/wfd/WfdService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
-    iput p1, p0, Lcom/samsung/wfd/WfdService;->mFrequencyWfd:I
+    .line 112
+    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pConnected:Z
 
     return p1
 .end method
@@ -911,55 +783,68 @@
     .parameter "x1"
 
     .prologue
-    .line 129
-    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWfdEnabledFromPicker:Z
+    .line 112
+    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pEnabled:Z
 
     return p1
 .end method
 
-.method static synthetic access$2100(Lcom/samsung/wfd/WfdService;)I
+.method static synthetic access$2100(Lcom/samsung/wfd/WfdService;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget v0, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
+    .line 112
+    iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mDongleUpdateResult:Z
 
     return v0
 .end method
 
-.method static synthetic access$2102(Lcom/samsung/wfd/WfdService;I)I
+.method static synthetic access$2102(Lcom/samsung/wfd/WfdService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
-    iput p1, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
+    .line 112
+    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mDongleUpdateResult:Z
 
     return p1
 .end method
 
-.method static synthetic access$2200(Lcom/samsung/wfd/WfdService;)I
+.method static synthetic access$2200(Lcom/samsung/wfd/WfdService;I)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
+    invoke-direct {p0, p1}, Lcom/samsung/wfd/WfdService;->sendWfdBrokerStartForPopup(I)V
+
+    return-void
+.end method
+
+.method static synthetic access$2300(Lcom/samsung/wfd/WfdService;)I
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget v0, p0, Lcom/samsung/wfd/WfdService;->mSourceReslnBitMask:I
+    .line 112
+    iget v0, p0, Lcom/samsung/wfd/WfdService;->mFrequencyWfd:I
 
     return v0
 .end method
 
-.method static synthetic access$2300(Lcom/samsung/wfd/WfdService;)V
+.method static synthetic access$2302(Lcom/samsung/wfd/WfdService;I)I
     .locals 0
     .parameter "x0"
+    .parameter "x1"
 
     .prologue
-    .line 129
-    invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->broadcastWfdSessionInfo()V
+    .line 112
+    iput p1, p0, Lcom/samsung/wfd/WfdService;->mFrequencyWfd:I
 
-    return-void
+    return p1
 .end method
 
 .method static synthetic access$2400(Lcom/samsung/wfd/WfdService;)I
@@ -967,8 +852,8 @@
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget v0, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
+    .line 112
+    iget v0, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
 
     return v0
 .end method
@@ -979,56 +864,32 @@
     .parameter "x1"
 
     .prologue
-    .line 129
-    iput p1, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
+    .line 112
+    iput p1, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
 
     return p1
 .end method
 
-.method static synthetic access$2500(Lcom/samsung/wfd/WfdService;)Ljava/lang/String;
+.method static synthetic access$2500(Lcom/samsung/wfd/WfdService;)I
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mCurrentDimm:Ljava/lang/String;
+    .line 112
+    iget v0, p0, Lcom/samsung/wfd/WfdService;->mSourceReslnBitMask:I
 
-    return-object v0
+    return v0
 .end method
 
-.method static synthetic access$2502(Lcom/samsung/wfd/WfdService;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$2600(Lcom/samsung/wfd/WfdService;)V
     .locals 0
     .parameter "x0"
-    .parameter "x1"
 
     .prologue
-    .line 129
-    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mCurrentDimm:Ljava/lang/String;
+    .line 112
+    invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->broadcastWfdSessionInfo()V
 
-    return-object p1
-.end method
-
-.method static synthetic access$2600(Lcom/samsung/wfd/WfdService;)Ljava/lang/String;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 129
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mRequestSessionControl:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2602(Lcom/samsung/wfd/WfdService;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 129
-    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mRequestSessionControl:Ljava/lang/String;
-
-    return-object p1
+    return-void
 .end method
 
 .method static synthetic access$2700(Lcom/samsung/wfd/WfdService;)I
@@ -1036,8 +897,8 @@
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget v0, p0, Lcom/samsung/wfd/WfdService;->mFrequencyAp:I
+    .line 112
+    iget v0, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
 
     return v0
 .end method
@@ -1048,79 +909,113 @@
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
+    iput p1, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
+
+    return p1
+.end method
+
+.method static synthetic access$2800(Lcom/samsung/wfd/WfdService;)Ljava/lang/String;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 112
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mCurrentDimm:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2802(Lcom/samsung/wfd/WfdService;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
+    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mCurrentDimm:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic access$2900(Lcom/samsung/wfd/WfdService;)Ljava/lang/String;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 112
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mRequestSessionControl:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2902(Lcom/samsung/wfd/WfdService;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
+    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mRequestSessionControl:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic access$300(Lcom/samsung/wfd/WfdService;)Ljava/util/concurrent/atomic/AtomicInteger;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 112
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdState:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    return-object v0
+.end method
+
+.method static synthetic access$3000(Lcom/samsung/wfd/WfdService;)I
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    .line 112
+    iget v0, p0, Lcom/samsung/wfd/WfdService;->mFrequencyAp:I
+
+    return v0
+.end method
+
+.method static synthetic access$3002(Lcom/samsung/wfd/WfdService;I)I
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
     iput p1, p0, Lcom/samsung/wfd/WfdService;->mFrequencyAp:I
 
     return p1
 .end method
 
-.method static synthetic access$2800(Lcom/samsung/wfd/WfdService;)Z
+.method static synthetic access$3100(Lcom/samsung/wfd/WfdService;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
+    .line 112
     iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWaitHotspotDone:Z
 
     return v0
 .end method
 
-.method static synthetic access$2802(Lcom/samsung/wfd/WfdService;Z)Z
+.method static synthetic access$3102(Lcom/samsung/wfd/WfdService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
     iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWaitHotspotDone:Z
 
     return p1
-.end method
-
-.method static synthetic access$2902(Lcom/samsung/wfd/WfdService;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 129
-    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mHDMIConnected:Z
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/samsung/wfd/WfdService;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 129
-    invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->startWfdRoutine()V
-
-    return-void
-.end method
-
-.method static synthetic access$3000(Lcom/samsung/wfd/WfdService;I)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 129
-    invoke-direct {p0, p1}, Lcom/samsung/wfd/WfdService;->sendToWfdPickerControlInfo(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$3100(Lcom/samsung/wfd/WfdService;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 129
-    invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->WfdStartHDCPSuspend()V
-
-    return-void
 .end method
 
 .method static synthetic access$3202(Lcom/samsung/wfd/WfdService;Z)Z
@@ -1129,135 +1024,148 @@
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
+    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mHDMIConnected:Z
+
+    return p1
+.end method
+
+.method static synthetic access$3300(Lcom/samsung/wfd/WfdService;I)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
+    invoke-direct {p0, p1}, Lcom/samsung/wfd/WfdService;->sendToWfdPickerControlInfo(I)V
+
+    return-void
+.end method
+
+.method static synthetic access$3400(Lcom/samsung/wfd/WfdService;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 112
+    invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->WfdStartHDCPSuspend()V
+
+    return-void
+.end method
+
+.method static synthetic access$3502(Lcom/samsung/wfd/WfdService;Z)Z
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
     iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mScreenStatus:Z
 
     return p1
 .end method
 
-.method static synthetic access$3300(Lcom/samsung/wfd/WfdService;)Z
+.method static synthetic access$3600(Lcom/samsung/wfd/WfdService;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
+    .line 112
     iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pTrigger:Z
 
     return v0
 .end method
 
-.method static synthetic access$3302(Lcom/samsung/wfd/WfdService;Z)Z
+.method static synthetic access$3602(Lcom/samsung/wfd/WfdService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
     iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pTrigger:Z
 
     return p1
 .end method
 
-.method static synthetic access$3502(Lcom/samsung/wfd/WfdService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
+.method static synthetic access$3702(Lcom/samsung/wfd/WfdService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
     iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mWifiChannel:Lcom/android/internal/util/AsyncChannel;
 
     return-object p1
 .end method
 
-.method static synthetic access$3700(Lcom/samsung/wfd/WfdService;)Landroid/content/Context;
+.method static synthetic access$3800(Lcom/samsung/wfd/WfdService;)Landroid/content/Context;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
+    .line 112
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/samsung/wfd/WfdService;)Z
-    .locals 1
+.method static synthetic access$400(Lcom/samsung/wfd/WfdService;I)V
+    .locals 0
     .parameter "x0"
+    .parameter "x1"
 
     .prologue
-    .line 129
-    iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
+    .line 112
+    invoke-direct {p0, p1}, Lcom/samsung/wfd/WfdService;->setWfdState(I)V
 
-    return v0
+    return-void
 .end method
 
-.method static synthetic access$4000(Lcom/samsung/wfd/WfdService;)Z
+.method static synthetic access$4100(Lcom/samsung/wfd/WfdService;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
+    .line 112
     iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartOngoing:Z
 
     return v0
 .end method
 
-.method static synthetic access$4002(Lcom/samsung/wfd/WfdService;Z)Z
+.method static synthetic access$4102(Lcom/samsung/wfd/WfdService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
     iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartOngoing:Z
 
     return p1
 .end method
 
-.method static synthetic access$402(Lcom/samsung/wfd/WfdService;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 129
-    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
-
-    return p1
-.end method
-
-.method static synthetic access$4200(Lcom/samsung/wfd/WfdService;)Landroid/content/ServiceConnection;
+.method static synthetic access$4300(Lcom/samsung/wfd/WfdService;)Landroid/content/ServiceConnection;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
+    .line 112
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceConnection:Landroid/content/ServiceConnection;
 
     return-object v0
 .end method
 
-.method static synthetic access$4500(Lcom/samsung/wfd/WfdService;)V
+.method static synthetic access$4600(Lcom/samsung/wfd/WfdService;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 129
+    .line 112
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->WfdStopHDCPSuspend()V
 
     return-void
-.end method
-
-.method static synthetic access$4800(Lcom/samsung/wfd/WfdService;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 129
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-
-    return-object v0
 .end method
 
 .method static synthetic access$4902(Lcom/samsung/wfd/WfdService;Z)Z
@@ -1266,135 +1174,148 @@
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
     iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWfdOffTimer:Z
 
     return p1
 .end method
 
-.method static synthetic access$500(Lcom/samsung/wfd/WfdService;)Lcom/samsung/wfd/WfdService$WfdStateMachine;
+.method static synthetic access$500(Lcom/samsung/wfd/WfdService;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+    .line 112
+    iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWfdEnabledFromPicker:Z
 
-    return-object v0
+    return v0
 .end method
 
-.method static synthetic access$5000(Lcom/samsung/wfd/WfdService;I)V
+.method static synthetic access$5002(Lcom/samsung/wfd/WfdService;Lcom/samsung/wfd/WfdInfo;)Lcom/samsung/wfd/WfdInfo;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
+    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mWfdInfo:Lcom/samsung/wfd/WfdInfo;
+
+    return-object p1
+.end method
+
+.method static synthetic access$502(Lcom/samsung/wfd/WfdService;Z)Z
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
+    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWfdEnabledFromPicker:Z
+
+    return p1
+.end method
+
+.method static synthetic access$5100(Lcom/samsung/wfd/WfdService;I)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 112
     invoke-direct {p0, p1}, Lcom/samsung/wfd/WfdService;->broadcastIntent2HDMI(I)V
 
     return-void
 .end method
 
-.method static synthetic access$5100(Lcom/samsung/wfd/WfdService;)Lcom/android/internal/util/AsyncChannel;
+.method static synthetic access$5200(Lcom/samsung/wfd/WfdService;)Lcom/android/internal/util/AsyncChannel;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
+    .line 112
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mReplyChannel:Lcom/android/internal/util/AsyncChannel;
 
     return-object v0
 .end method
 
-.method static synthetic access$5200(Lcom/samsung/wfd/WfdService;)Landroid/app/Notification;
+.method static synthetic access$5300(Lcom/samsung/wfd/WfdService;)Landroid/app/Notification;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
+    .line 112
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mNotification:Landroid/app/Notification;
 
     return-object v0
 .end method
 
-.method static synthetic access$5202(Lcom/samsung/wfd/WfdService;Landroid/app/Notification;)Landroid/app/Notification;
+.method static synthetic access$5302(Lcom/samsung/wfd/WfdService;Landroid/app/Notification;)Landroid/app/Notification;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
     iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mNotification:Landroid/app/Notification;
 
     return-object p1
 .end method
 
-.method static synthetic access$5300(Lcom/samsung/wfd/WfdService;)Z
+.method static synthetic access$5400(Lcom/samsung/wfd/WfdService;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
+    .line 112
     iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mIsShowingNotification:Z
 
     return v0
 .end method
 
-.method static synthetic access$5302(Lcom/samsung/wfd/WfdService;Z)Z
+.method static synthetic access$5402(Lcom/samsung/wfd/WfdService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
+    .line 112
     iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mIsShowingNotification:Z
 
     return p1
 .end method
 
-.method static synthetic access$600(Lcom/samsung/wfd/WfdService;)Ljava/util/concurrent/atomic/AtomicInteger;
+.method static synthetic access$600(Lcom/samsung/wfd/WfdService;)V
+    .locals 0
+    .parameter "x0"
+
+    .prologue
+    .line 112
+    invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->startWfdRoutine()V
+
+    return-void
+.end method
+
+.method static synthetic access$700(Lcom/samsung/wfd/WfdService;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdState:Ljava/util/concurrent/atomic/AtomicInteger;
+    .line 112
+    iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
 
-    return-object v0
+    return v0
 .end method
 
-.method static synthetic access$700(Lcom/samsung/wfd/WfdService;)Ljava/lang/String;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 129
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mRemoteIP:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$702(Lcom/samsung/wfd/WfdService;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$702(Lcom/samsung/wfd/WfdService;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 129
-    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mRemoteIP:Ljava/lang/String;
+    .line 112
+    iput-boolean p1, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
 
-    return-object p1
-.end method
-
-.method static synthetic access$800(Lcom/samsung/wfd/WfdService;)Ljava/lang/String;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 129
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mUpdateURL:Ljava/lang/String;
-
-    return-object v0
+    return p1
 .end method
 
 .method static synthetic access$802(Lcom/samsung/wfd/WfdService;Ljava/lang/String;)Ljava/lang/String;
@@ -1403,50 +1324,36 @@
     .parameter "x1"
 
     .prologue
-    .line 129
-    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mUpdateURL:Ljava/lang/String;
+    .line 112
+    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mConnectedDeviceMacAddr:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method static synthetic access$900(Lcom/samsung/wfd/WfdService;)Ljava/lang/String;
+.method static synthetic access$900(Lcom/samsung/wfd/WfdService;)Lcom/samsung/wfd/WfdService$WfdStateMachine;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 129
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mAudioCnt:Ljava/lang/String;
+    .line 112
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     return-object v0
-.end method
-
-.method static synthetic access$902(Lcom/samsung/wfd/WfdService;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 129
-    iput-object p1, p0, Lcom/samsung/wfd/WfdService;->mAudioCnt:Ljava/lang/String;
-
-    return-object p1
 .end method
 
 .method private broadcastDongleVerToFota()V
     .locals 4
 
     .prologue
-    .line 426
-    const-string v2, "WfdService"
+    .line 373
+    const-string v2, "broadcastDongleVerToFota"
 
-    const-string v3, "broadcastDongleVerToFota"
+    invoke-virtual {p0, v2}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 428
+    .line 375
     const-string v0, "com.samsung.wfd.START_WFD"
 
-    .line 430
+    .line 377
     .local v0, ACTION_START_WFD:Ljava/lang/String;
     new-instance v1, Landroid/content/Intent;
 
@@ -1454,537 +1361,525 @@
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 432
+    .line 379
     .local v1, intent:Landroid/content/Intent;
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mDongleVer:Ljava/lang/String;
 
     if-eqz v2, :cond_0
 
-    .line 434
+    .line 381
     const-string v2, "version"
 
     iget-object v3, p0, Lcom/samsung/wfd/WfdService;->mDongleVer:Ljava/lang/String;
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 437
+    .line 384
     :cond_0
     const/16 v2, 0x20
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 438
+    .line 385
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 439
+    .line 386
     return-void
 .end method
 
 .method private broadcastIntent2HDMI(I)V
-    .locals 6
+    .locals 5
     .parameter "state"
 
     .prologue
-    const/4 v5, 0x1
-
     const/4 v4, 0x0
 
-    .line 338
-    const-string v1, "WfdService"
+    const/4 v3, 0x1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    .line 294
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "broadcastIntent2HDMI:"
+    const-string v2, "broadcastIntent2HDMI: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, " "
 
-    move-result-object v2
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
 
-    .line 340
+    iget-boolean v2, p0, Lcom/samsung/wfd/WfdService;->mHDMIConnected:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/samsung/wfd/WfdService;->mHDMITrigger:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
+
+    .line 296
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.HDMI_PLUGGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 341
+    .line 297
     .local v0, intent:Landroid/content/Intent;
     const/high16 v1, 0x800
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 343
+    .line 299
     iget-boolean v1, p0, Lcom/samsung/wfd/WfdService;->mHDMIConnected:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 345
-    packed-switch p1, :pswitch_data_0
+    .line 300
+    if-nez p1, :cond_0
 
-    .line 352
-    const-string v1, "WfdService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "no send broadcastIntent2HDMI:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 378
-    :goto_0
-    return-void
-
-    .line 348
-    :pswitch_0
+    .line 302
     const-string v1, "state"
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 349
-    iput-boolean v5, p0, Lcom/samsung/wfd/WfdService;->mHDMITrigger:Z
+    .line 303
+    iput-boolean v3, p0, Lcom/samsung/wfd/WfdService;->mHDMITrigger:Z
 
-    .line 375
-    :goto_1
+    .line 322
+    :goto_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 376
-    const-string v1, "WfdService"
+    .line 323
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "send broadcastIntent2HDMI:"
 
-    const-string v3, "send broadcastIntent2HDMI:"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .line 325
+    :goto_1
+    return-void
 
-    goto :goto_0
-
-    .line 357
+    .line 305
     :cond_0
-    iget-boolean v1, p0, Lcom/samsung/wfd/WfdService;->mHDMITrigger:Z
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    if-eqz v1, :cond_1
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 359
-    packed-switch p1, :pswitch_data_1
+    const-string v2, "no send broadcastIntent2HDMI:"
 
-    .line 366
-    const-string v1, "WfdService"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, "no send broadcastIntent2HDMI:"
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    .line 362
-    :pswitch_1
-    const-string v1, "state"
-
-    invoke-virtual {v0, v1, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    .line 363
-    iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mHDMITrigger:Z
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     goto :goto_1
 
-    .line 370
+    .line 308
     :cond_1
-    const-string v1, "WfdService"
+    iget-boolean v1, p0, Lcom/samsung/wfd/WfdService;->mHDMITrigger:Z
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    if-eqz v1, :cond_3
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    .line 309
+    if-ne p1, v3, :cond_2
 
-    const-string v3, "HDMI is not triggered! no send broadcastIntent2HDMI:"
+    .line 311
+    const-string v1, "state"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .line 312
+    iput-boolean v4, p0, Lcom/samsung/wfd/WfdService;->mHDMITrigger:Z
 
     goto :goto_0
 
-    .line 345
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-    .end packed-switch
+    .line 314
+    :cond_2
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    .line 359
-    :pswitch_data_1
-    .packed-switch 0x1
-        :pswitch_1
-    .end packed-switch
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "no send broadcastIntent2HDMI:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    .line 318
+    :cond_3
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "HDMI is not triggered! no send broadcastIntent2HDMI:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
+
+    goto :goto_1
 .end method
 
 .method private broadcastWfdSessionInfo()V
-    .locals 4
+    .locals 3
 
     .prologue
-    .line 443
-    const-string v1, "WfdService"
+    .line 390
+    const-string v1, "broadcastWfdSessionInfo"
 
-    const-string v2, "broadcastWfdSessionInfo"
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 444
+    .line 391
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.WIFI_DISPLAY_RES"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 445
+    .line 392
     .local v0, activityIntent:Landroid/content/Intent;
     const/high16 v1, 0x800
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 447
+    .line 394
     const-string v1, "state"
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 448
+    .line 395
     const-string v1, "resBitMask"
 
     iget v2, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 449
+    .line 396
     const-string v1, "curRes"
 
     iget v2, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 450
-    const-string v1, "WfdService"
+    .line 397
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "s:1 ResBit:"
 
-    const-string v3, "s:1 ResBit:"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    iget v2, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
 
-    iget v3, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    const-string v2, " ResIn:"
 
-    const-string v3, " ResIn:"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    iget v2, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
 
-    iget v3, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 451
+    .line 398
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 452
+    .line 399
     return-void
 .end method
 
 .method private broadcastWfdSessionState(I)V
-    .locals 9
+    .locals 8
     .parameter "state"
 
     .prologue
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    const/high16 v6, 0x800
+    const/high16 v5, 0x800
 
-    .line 383
-    const-string v3, "WfdService"
+    .line 329
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "broadcastWfdSessionState: "
 
-    const-string v5, "broadcastWfdSessionState:"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {p0, v3}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 384
+    .line 330
     new-instance v0, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.WIFI_DISPLAY"
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 385
+    .line 331
     .local v0, activityIntent:Landroid/content/Intent;
-    invoke-virtual {v0, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v0, v5}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 387
+    .line 333
     const-string v3, "state"
 
     invoke-virtual {v0, v3, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 388
+    .line 334
     const-string v3, "resBitMask"
 
     iget v4, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 389
+    .line 335
     const-string v3, "curRes"
 
     iget v4, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 391
-    iget-object v3, p0, Lcom/samsung/wfd/WfdService;->mAudioCnt:Ljava/lang/String;
+    .line 337
+    iget v3, p0, Lcom/samsung/wfd/WfdService;->mAudioCnt:I
 
     if-eqz v3, :cond_2
 
-    .line 392
+    .line 338
     const-string v3, "count"
 
-    iget-object v4, p0, Lcom/samsung/wfd/WfdService;->mAudioCnt:Ljava/lang/String;
-
-    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v4
+    iget v4, p0, Lcom/samsung/wfd/WfdService;->mAudioCnt:I
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 396
+    .line 342
     :goto_0
-    const-string v3, "WfdService"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "s:"
 
-    const-string v5, "s:"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    const-string v4, " ResBit:"
 
-    const-string v5, " ResBit:"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    iget v4, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
 
-    iget v5, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    const-string v4, " ResIn:"
 
-    const-string v5, " ResIn:"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    iget v4, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
 
-    iget v5, p0, Lcom/samsung/wfd/WfdService;->mCurrentResln:I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {p0, v3}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 397
+    .line 343
     iget-object v3, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 400
-    const-string v3, "WfdService"
+    .line 346
+    const-string v3, "broadcastWfdSessionInfo << to AllShare!"
 
-    const-string v4, "broadcastWfdSessionInfo << to AllShare!"
+    invoke-virtual {p0, v3}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 401
+    .line 347
     new-instance v2, Landroid/content/Intent;
 
     const-string v3, "com.sec.android.allshare.intent.action.CAST_GETSTATE"
 
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 402
+    .line 348
     .local v2, mAllShareCastState:Landroid/content/Intent;
-    invoke-virtual {v2, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v2, v5}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 403
-    if-ne p1, v8, :cond_3
+    .line 349
+    if-ne p1, v7, :cond_3
 
-    .line 404
+    .line 350
     const-string v3, "com.sec.android.allshare.intent.extra.CAST_STATE"
 
-    invoke-virtual {v2, v3, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v2, v3, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 406
+    .line 352
     iget-object v3, p0, Lcom/samsung/wfd/WfdService;->mRemoteIP:Ljava/lang/String;
 
     if-eqz v3, :cond_0
 
-    .line 407
+    .line 353
     const-string v3, "com.sec.android.allshare.intent.extra.CAST_IPADDR"
 
     iget-object v4, p0, Lcom/samsung/wfd/WfdService;->mRemoteIP:Ljava/lang/String;
 
     invoke-virtual {v2, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 412
+    .line 359
     :cond_0
     :goto_1
     iget-object v3, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3, v2}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 415
+    .line 362
     if-nez p1, :cond_1
 
-    .line 417
+    .line 364
     new-instance v1, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.WIFIDISPLAY_NOTI_CONNECTION_MODE"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 418
+    .line 365
     .local v1, intent_chage_transport_mode:Landroid/content/Intent;
-    invoke-virtual {v1, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v1, v5}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 419
+    .line 366
     const-string v3, "CONNECTION_MODE"
 
-    invoke-virtual {v1, v3, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v1, v3, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 420
+    .line 367
     iget-object v3, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3, v1}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 422
+    .line 369
     .end local v1           #intent_chage_transport_mode:Landroid/content/Intent;
     :cond_1
     return-void
 
-    .line 394
+    .line 340
     .end local v2           #mAllShareCastState:Landroid/content/Intent;
     :cond_2
     const-string v3, "count"
@@ -1995,12 +1890,12 @@
 
     goto :goto_0
 
-    .line 410
+    .line 357
     .restart local v2       #mAllShareCastState:Landroid/content/Intent;
     :cond_3
     const-string v3, "com.sec.android.allshare.intent.extra.CAST_STATE"
 
-    invoke-virtual {v2, v3, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v2, v3, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     goto :goto_1
 .end method
@@ -2009,7 +1904,7 @@
     .locals 3
 
     .prologue
-    .line 1046
+    .line 862
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.ACCESS_WIFI_STATE"
@@ -2018,7 +1913,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1048
+    .line 864
     return-void
 .end method
 
@@ -2026,7 +1921,7 @@
     .locals 3
 
     .prologue
-    .line 1051
+    .line 867
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.CHANGE_WIFI_STATE"
@@ -2035,7 +1930,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1053
+    .line 869
     return-void
 .end method
 
@@ -2043,7 +1938,7 @@
     .locals 4
 
     .prologue
-    .line 1058
+    .line 874
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2056,7 +1951,7 @@
 
     move-result-object v0
 
-    .line 1060
+    .line 876
     .local v0, id:Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2093,12 +1988,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1080
+    .line 897
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     if-nez v0, :cond_0
 
-    .line 1081
+    .line 898
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     const-string v2, "wifi"
@@ -2111,26 +2006,24 @@
 
     iput-object v0, p0, Lcom/samsung/wfd/WfdService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    .line 1084
+    .line 901
     :cond_0
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     if-nez v0, :cond_1
 
-    .line 1085
-    const-string v0, "WfdService"
+    .line 902
+    const-string v0, "isHotspotOn >> No wifiManager."
 
-    const-string v2, "isHotspotOn >> No wifiManager."
-
-    invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v0}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     move v0, v1
 
-    .line 1101
+    .line 918
     :goto_0
     return v0
 
-    .line 1089
+    .line 906
     :cond_1
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -2140,32 +2033,28 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1097
-    const-string v0, "WfdService"
+    .line 914
+    const-string v0, "Hotspot is Off"
 
-    const-string v2, "Hotspot is Off"
-
-    invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v0}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     move v0, v1
 
-    .line 1101
+    .line 918
     goto :goto_0
 
-    .line 1093
+    .line 910
     :pswitch_0
-    const-string v0, "WfdService"
+    const-string v0, "Hotspot is ON"
 
-    const-string v1, "Hotspot is ON"
+    invoke-virtual {p0, v0}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1094
+    .line 911
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1089
+    .line 906
     nop
 
     :pswitch_data_0
@@ -2179,7 +2068,7 @@
     .locals 1
 
     .prologue
-    .line 1127
+    .line 944
     const/4 v0, 0x0
 
     return v0
@@ -2189,280 +2078,244 @@
     .locals 1
 
     .prologue
-    .line 1168
+    .line 987
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private sendToWfdPickerControlInfo(I)V
-    .locals 4
+    .locals 3
     .parameter "cause"
 
     .prologue
-    .line 466
-    const-string v1, "WfdService"
+    .line 420
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "sendToWfdPickerControlInfo << "
 
-    const-string v3, "sendToWfdPickerControlInfo << "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 468
+    .line 422
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.WIFIDISPLAY_CONTROL_FROM_SERVICE"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 469
+    .line 423
     .local v0, intent:Landroid/content/Intent;
     const/high16 v1, 0x800
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 470
+    .line 424
     const-string v1, "cause"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 471
+    .line 425
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 472
+    .line 426
     return-void
 .end method
 
 .method private sendWfdBrokerStartForPopup(I)V
-    .locals 4
+    .locals 3
     .parameter "cause"
 
     .prologue
-    .line 476
+    .line 430
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.samsung.wfd.LAUNCH_WFD_POPUP"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 477
+    .line 431
     .local v0, intent:Landroid/content/Intent;
     const/high16 v1, 0x1080
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 479
+    .line 433
     packed-switch p1, :pswitch_data_0
 
-    .line 533
+    .line 483
     :pswitch_0
-    const-string v1, "WfdService"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "sendWfdStartForPopup:"
 
-    const-string v3, "sendWfdStartForPopup:"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->loge(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 539
+    .line 489
     :goto_0
     return-void
 
-    .line 483
+    .line 437
     :pswitch_1
-    const-string v1, "WfdService"
+    const-string v1, "sendWfdStartForPopup << POPUP_CAUSE_TERMINATE"
 
-    const-string v2, "sendWfdStartForPopup << POPUP_CAUSE_TERMINATE"
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 537
+    .line 487
     :goto_1
     const-string v1, "cause"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 538
+    .line 488
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 
-    .line 487
+    .line 441
     :pswitch_2
-    const-string v1, "WfdService"
+    const-string v1, "sendWfdStartForPopup << POPUP_CAUSE_P2P_BUSY"
 
-    const-string v2, "sendWfdStartForPopup << POPUP_CAUSE_P2P_BUSY"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     goto :goto_1
 
-    .line 492
+    .line 446
     :pswitch_3
-    const-string v1, "WfdService"
+    const-string v1, "sendWfdStartForPopup << POPUP_CAUSE_CONNECTION_DISCONNECT"
 
-    const-string v2, "sendWfdStartForPopup << POPUP_CAUSE_CONNECTION_DISCONNECT"
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 493
+    .line 447
     iget-boolean v1, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
 
     if-eqz v1, :cond_0
 
-    .line 494
-    const-string v1, "WfdService"
+    .line 448
+    const-string v1, "do not show disconnect popup when restart!"
 
-    const-string v2, "do not show disconnect popup when restart!"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 497
+    .line 451
     :cond_0
-    iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
-
-    const v2, 0x22068
-
-    invoke-virtual {v1, v2}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->sendMessage(I)V
+    invoke-virtual {p0}, Lcom/samsung/wfd/WfdService;->setWfdTerminate()Z
 
     goto :goto_1
 
-    .line 502
+    .line 456
     :pswitch_4
-    const-string v1, "WfdService"
+    const-string v1, "sendWfdStartForPopup << POPUP_CAUSE_RESTART"
 
-    const-string v2, "sendWfdStartForPopup << POPUP_CAUSE_DISCONNECT"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     goto :goto_1
 
-    .line 506
+    .line 460
     :pswitch_5
-    const-string v1, "WfdService"
+    const-string v1, "sendWfdStartForPopup << POPUP_CAUSE_HDMI_BUSY"
 
-    const-string v2, "sendWfdStartForPopup << POPUP_CAUSE_RESTART"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     goto :goto_1
 
-    .line 510
+    .line 464
     :pswitch_6
-    const-string v1, "WfdService"
+    const-string v1, "sendWfdStartForPopup << POPUP_CAUSE_HOTSPOT_BUSY"
 
-    const-string v2, "sendWfdStartForPopup << POPUP_CAUSE_HDMI_BUSY"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     goto :goto_1
 
-    .line 514
+    .line 468
     :pswitch_7
-    const-string v1, "WfdService"
+    const-string v1, "sendWfdStartForPopup << POPUP_CAUSE_SBEAM_BUSY"
 
-    const-string v2, "sendWfdStartForPopup << POPUP_CAUSE_HOTSPOT_BUSY"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     goto :goto_1
 
-    .line 518
+    .line 472
     :pswitch_8
-    const-string v1, "WfdService"
+    const-string v1, "sendWfdStartForPopup << POPUP_CAUSE_DONGLE_UPDATE"
 
-    const-string v2, "sendWfdStartForPopup << POPUP_CAUSE_SBEAM_BUSY"
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-
-    .line 522
-    :pswitch_9
-    const-string v1, "WfdService"
-
-    const-string v2, "sendWfdStartForPopup << POPUP_CAUSE_DONGLE_UPDATE"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 523
+    .line 473
     const-string v1, "url"
 
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mUpdateURL:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 524
+    .line 474
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mUpdateURL:Ljava/lang/String;
 
     goto :goto_1
 
-    .line 528
-    :pswitch_a
-    const-string v1, "WfdService"
+    .line 478
+    :pswitch_9
+    const-string v1, "sendWfdStartForPopup << POPUP_CAUSE_SPLIT_WINDOW"
 
-    const-string v2, "sendWfdStartForPopup << POPUP_CAUSE_SPLIT_WINDOW"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     goto :goto_1
 
-    .line 479
+    .line 433
+    nop
+
     :pswitch_data_0
     .packed-switch 0x22070
         :pswitch_1
-        :pswitch_4
+        :pswitch_0
         :pswitch_2
+        :pswitch_4
         :pswitch_5
         :pswitch_6
         :pswitch_7
-        :pswitch_8
         :pswitch_0
-        :pswitch_9
+        :pswitch_8
         :pswitch_0
         :pswitch_0
         :pswitch_3
         :pswitch_0
         :pswitch_0
         :pswitch_0
-        :pswitch_a
+        :pswitch_9
     .end packed-switch
 .end method
 
@@ -2474,12 +2327,12 @@
 
     const/4 v1, 0x0
 
-    .line 1105
+    .line 922
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     if-nez v0, :cond_0
 
-    .line 1106
+    .line 923
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     const-string v3, "wifi"
@@ -2492,26 +2345,24 @@
 
     iput-object v0, p0, Lcom/samsung/wfd/WfdService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    .line 1109
+    .line 926
     :cond_0
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     if-nez v0, :cond_1
 
-    .line 1110
-    const-string v0, "WfdService"
+    .line 927
+    const-string v0, "setHotspotOff >> No wifiManager."
 
-    const-string v2, "setHotspotOff >> No wifiManager."
-
-    invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v0}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
     move v0, v1
 
-    .line 1117
+    .line 934
     :goto_0
     return v0
 
-    .line 1114
+    .line 931
     :cond_1
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -2519,12 +2370,12 @@
 
     invoke-virtual {v0, v3, v1}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 1115
+    .line 932
     iput-boolean v2, p0, Lcom/samsung/wfd/WfdService;->mWaitHotspotDone:Z
 
     move v0, v2
 
-    .line 1117
+    .line 934
     goto :goto_0
 .end method
 
@@ -2532,104 +2383,150 @@
     .locals 1
 
     .prologue
-    .line 1132
+    .line 949
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method private setWfdState(I)V
-    .locals 4
+    .locals 3
     .parameter "wfdState"
 
     .prologue
-    .line 455
+    .line 402
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdState:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v1, p1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
-    .line 457
-    const-string v1, "WfdService"
+    .line 404
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "setWfdState: "
 
-    const-string v3, "setWfdState: "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .line 405
+    iget-boolean v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pEnabled:Z
 
-    .line 459
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdState:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    if-ne v1, v2, :cond_0
+
+    .line 406
+    const-string v1, "setWfdState just returned"
+
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
+
+    .line 417
+    :goto_0
+    return-void
+
+    .line 409
+    :cond_0
+    iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdState:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_1
+
+    iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->isWiFiConnected(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 410
+    iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+
+    #calls: Lcom/samsung/wfd/WfdService$WfdStateMachine;->disableWiFiP2P()V
+    invoke-static {v1}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->access$100(Lcom/samsung/wfd/WfdService$WfdStateMachine;)V
+
+    .line 413
+    :cond_1
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.samsung.wfd.STATE_CHANGED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 460
+    .line 414
     .local v0, intent:Landroid/content/Intent;
     const/high16 v1, 0x800
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 461
+    .line 415
     const-string v1, "wfd_state"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 462
+    .line 416
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 463
-    return-void
+    goto :goto_0
 .end method
 
 .method private startWfdRoutine()V
     .locals 5
 
     .prologue
-    .line 542
-    const v0, 0xc000
+    .line 492
+    const-string v0, "49152"
 
-    .line 544
-    .local v0, lWfdPort:I
-    const-string v1, "WfdService"
+    .line 494
+    .local v0, lWfdPort:Ljava/lang/String;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Settting ctrl port:"
 
-    const-string v3, "Settting ctrl port:"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 546
+    .line 496
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     if-eqz v1, :cond_0
@@ -2638,20 +2535,25 @@
 
     if-nez v1, :cond_1
 
-    .line 547
+    .line 497
     :cond_0
-    const-string v1, "WfdService"
+    const-string v1, "startWfdRoutine failed"
 
-    const-string v2, "startWfdRoutine failed"
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 557
+    .line 507
     :goto_0
     return-void
 
-    .line 552
+    .line 500
     :cond_1
+    new-instance v1, Lcom/samsung/wfd/WfdInfo;
+
+    invoke-direct {v1}, Lcom/samsung/wfd/WfdInfo;-><init>()V
+
+    iput-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdInfo:Lcom/samsung/wfd/WfdInfo;
+
+    .line 502
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
@@ -2660,7 +2562,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->setWfdParam(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Ljava/lang/String;)V
 
-    .line 553
+    .line 503
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
@@ -2669,7 +2571,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->setWfdParam(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Ljava/lang/String;)V
 
-    .line 554
+    .line 504
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
@@ -2684,11 +2586,7 @@
 
     move-result-object v3
 
-    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -2698,7 +2596,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->setWfdParam(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Ljava/lang/String;)V
 
-    .line 555
+    .line 505
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
@@ -2707,7 +2605,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/net/wifi/p2p/WifiP2pManager;->setWfdParam(Landroid/net/wifi/p2p/WifiP2pManager$Channel;Ljava/lang/String;)V
 
-    .line 556
+    .line 506
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
@@ -2722,17 +2620,15 @@
 
 # virtual methods
 .method public WFDGetSubtitleStatus()Z
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 1316
-    const-string v0, "WfdService"
+    .line 1142
+    const-string v0, "WFDGetSubtitleStatus :"
 
-    const-string v1, "WFDGetSubtitleStatus :"
+    invoke-virtual {p0, v0}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1317
+    .line 1143
     const/4 v0, 0x0
 
     return v0
@@ -2744,12 +2640,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1350
+    .line 1176
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
     if-eqz v2, :cond_0
 
-    .line 1352
+    .line 1178
     :try_start_0
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
@@ -2759,16 +2655,16 @@
 
     move-result v1
 
-    .line 1360
+    .line 1186
     :cond_0
     :goto_0
     return v1
 
-    .line 1353
+    .line 1179
     :catch_0
     move-exception v0
 
-    .line 1354
+    .line 1180
     .local v0, e:Landroid/os/RemoteException;
     goto :goto_0
 .end method
@@ -2779,12 +2675,12 @@
     .parameter "nFontSize"
 
     .prologue
-    .line 1337
+    .line 1163
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
     if-eqz v1, :cond_0
 
-    .line 1339
+    .line 1165
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
@@ -2792,18 +2688,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1344
+    .line 1170
     :cond_0
     const/4 v1, 0x1
 
     :goto_0
     return v1
 
-    .line 1340
+    .line 1166
     :catch_0
     move-exception v0
 
-    .line 1341
+    .line 1167
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2815,12 +2711,12 @@
     .parameter "subtitle"
 
     .prologue
-    .line 1380
+    .line 1206
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
     if-eqz v1, :cond_0
 
-    .line 1382
+    .line 1208
     :try_start_0
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
@@ -2828,18 +2724,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1387
+    .line 1213
     :cond_0
     const/4 v1, 0x1
 
     :goto_0
     return v1
 
-    .line 1383
+    .line 1209
     :catch_0
     move-exception v0
 
-    .line 1384
+    .line 1210
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2847,41 +2743,39 @@
 .end method
 
 .method public WFDSetSubtitleStatus(Z)Z
-    .locals 5
+    .locals 4
     .parameter "bStatus"
 
     .prologue
     const/4 v1, 0x0
 
-    .line 1321
-    const-string v2, "WfdService"
+    .line 1147
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "WFDSetSubtitleStatus : "
 
-    const-string v4, "WFDSetSubtitleStatus : "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {p0, v2}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1322
+    .line 1148
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
     if-eqz v2, :cond_0
 
-    .line 1324
+    .line 1150
     :try_start_0
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
@@ -2889,58 +2783,56 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1332
+    .line 1158
     const/4 v1, 0x1
 
     :cond_0
     :goto_0
     return v1
 
-    .line 1325
+    .line 1151
     :catch_0
     move-exception v0
 
-    .line 1326
+    .line 1152
     .local v0, e:Landroid/os/RemoteException;
     goto :goto_0
 .end method
 
 .method public WFDSetSuspendStatus(Z)Z
-    .locals 5
+    .locals 4
     .parameter "bStatus"
 
     .prologue
     const/4 v1, 0x0
 
-    .line 1364
-    const-string v2, "WfdService"
+    .line 1190
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "WFDSetSuspendStatus : "
 
-    const-string v4, "WFDSetSuspendStatus : "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {p0, v2}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1365
+    .line 1191
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
     if-eqz v2, :cond_0
 
-    .line 1367
+    .line 1193
     :try_start_0
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mWfdSourceService:Lcom/samsung/wfd/IWfdSourceService;
 
@@ -2948,18 +2840,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1375
+    .line 1201
     const/4 v1, 0x1
 
     :cond_0
     :goto_0
     return v1
 
-    .line 1368
+    .line 1194
     :catch_0
     move-exception v0
 
-    .line 1369
+    .line 1195
     .local v0, e:Landroid/os/RemoteException;
     goto :goto_0
 .end method
@@ -2971,7 +2863,7 @@
     .parameter "args"
 
     .prologue
-    .line 1418
+    .line 1244
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.DUMP"
@@ -2982,7 +2874,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1420
+    .line 1246
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3021,16 +2913,16 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1425
+    .line 1251
     :cond_0
     return-void
 .end method
 
 .method public getFrame()Lcom/samsung/ScreenCapture/CaptureImg;
-    .locals 4
+    .locals 3
 
     .prologue
-    .line 2018
+    .line 1802
     :try_start_0
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mSCRemoteService:Lcom/samsung/ScreenCapture/IScreenCaptureRemoteService;
 
@@ -3040,23 +2932,21 @@
 
     move-result-object v1
 
-    .line 2024
+    .line 1808
     :goto_0
     return-object v1
 
-    .line 2021
+    .line 1805
     :catch_0
     move-exception v0
 
-    .line 2022
+    .line 1806
     .local v0, e:Ljava/lang/Exception;
-    const-string v2, "WfdService"
+    const-string v2, "getFrame exception"
 
-    const-string v3, "getFrame exception"
+    invoke-virtual {p0, v2}, Lcom/samsung/wfd/WfdService;->loge(Ljava/lang/String;)V
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2024
+    .line 1808
     const/4 v1, 0x0
 
     goto :goto_0
@@ -3066,13 +2956,13 @@
     .locals 2
 
     .prologue
-    .line 1308
+    .line 1134
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->enforceAccessPermission()V
 
-    .line 1309
+    .line 1135
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->enforceChangePermission()V
 
-    .line 1310
+    .line 1136
     new-instance v0, Landroid/os/Messenger;
 
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
@@ -3087,23 +2977,44 @@
 .end method
 
 .method public getWfdInfo()Lcom/samsung/wfd/WfdInfo;
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 1283
+    .line 1104
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->enforceAccessPermission()V
 
-    .line 1288
+    .line 1109
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdInfo:Lcom/samsung/wfd/WfdInfo;
+
+    if-eqz v0, :cond_0
+
+    .line 1110
+    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdInfo:Lcom/samsung/wfd/WfdInfo;
+
+    iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mConnectedDeviceMacAddr:Ljava/lang/String;
+
+    iput-object v1, v0, Lcom/samsung/wfd/WfdInfo;->coupledDeviceAddress:Ljava/lang/String;
+
+    .line 1114
+    :goto_0
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdInfo:Lcom/samsung/wfd/WfdInfo;
 
     return-object v0
+
+    .line 1112
+    :cond_0
+    const-string v0, "getWfdInfo is null"
+
+    invoke-virtual {p0, v0}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method public getWfdSinkResolution()I
     .locals 1
 
     .prologue
-    .line 1296
+    .line 1122
     iget v0, p0, Lcom/samsung/wfd/WfdService;->mResolutionBitMask:I
 
     return v0
@@ -3113,7 +3024,7 @@
     .locals 1
 
     .prologue
-    .line 1292
+    .line 1118
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdState:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
@@ -3127,7 +3038,7 @@
     .locals 2
 
     .prologue
-    .line 1300
+    .line 1126
     const-string v0, "wlan.wfd.status"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -3144,28 +3055,26 @@
 .end method
 
 .method public isWiFiConnected(Landroid/content/Context;)Z
-    .locals 4
+    .locals 3
     .parameter "context"
 
     .prologue
-    .line 1064
+    .line 880
     if-nez p1, :cond_0
 
-    .line 1065
-    const-string v2, "WfdService"
+    .line 881
+    const-string v2, "isWiFiConnected context is null"
 
-    const-string v3, "isWiFiConnected context is null"
+    invoke-virtual {p0, v2}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1066
+    .line 882
     const/4 v1, 0x0
 
-    .line 1073
+    .line 889
     :goto_0
     return v1
 
-    .line 1069
+    .line 885
     :cond_0
     const-string v2, "connectivity"
 
@@ -3175,7 +3084,7 @@
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
-    .line 1071
+    .line 887
     .local v0, manager:Landroid/net/ConnectivityManager;
     const/4 v2, 0x1
 
@@ -3187,46 +3096,72 @@
 
     move-result v1
 
-    .line 1073
+    .line 889
     .local v1, result:Z
     goto :goto_0
 .end method
 
+.method logd(Ljava/lang/String;)V
+    .locals 1
+    .parameter "s"
+
+    .prologue
+    .line 1761
+    const-string v0, "WfdService"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1762
+    return-void
+.end method
+
+.method loge(Ljava/lang/String;)V
+    .locals 1
+    .parameter "s"
+
+    .prologue
+    .line 1765
+    const-string v0, "WfdService"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1766
+    return-void
+.end method
+
 .method public setWfdEnabled(I)Z
-    .locals 5
+    .locals 4
     .parameter "option"
 
     .prologue
-    const v4, 0x2206f
+    const v3, 0x2206f
 
     const/4 v1, 0x0
 
     const/4 v0, 0x1
 
-    .line 1206
+    .line 1025
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->enforceChangePermission()V
 
-    .line 1208
+    .line 1027
     packed-switch p1, :pswitch_data_0
 
-    .line 1247
+    .line 1066
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
-    invoke-virtual {v1, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->sendMessage(I)V
+    invoke-virtual {v1, v3}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->sendMessage(I)V
 
-    .line 1248
+    .line 1067
     :goto_0
     return v0
 
-    .line 1211
+    .line 1030
     :pswitch_0
-    const-string v1, "WfdService"
+    const-string v1, "enforce to disconnect currrent p2p..."
 
-    const-string v2, "enforce to disconnect currrent p2p..."
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1212
+    .line 1031
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pManager:Landroid/net/wifi/p2p/WifiP2pManager;
 
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mChannel:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
@@ -3239,54 +3174,48 @@
 
     goto :goto_0
 
-    .line 1225
+    .line 1044
     :pswitch_1
-    const-string v2, "WfdService"
+    const-string v2, "enforce to disconnect currrent HDMI..."
 
-    const-string v3, "enforce to disconnect currrent HDMI..."
+    invoke-virtual {p0, v2}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1226
+    .line 1045
     invoke-direct {p0, v1}, Lcom/samsung/wfd/WfdService;->broadcastIntent2HDMI(I)V
 
-    .line 1227
+    .line 1046
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
-    invoke-virtual {v1, v4}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->sendMessage(I)V
+    invoke-virtual {v1, v3}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->sendMessage(I)V
 
     goto :goto_0
 
-    .line 1231
+    .line 1050
     :pswitch_2
-    const-string v0, "WfdService"
+    const-string v0, "enforce to disconnect currrent hotspot..."
 
-    const-string v2, "enforce to disconnect currrent hotspot..."
+    invoke-virtual {p0, v0}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1232
+    .line 1051
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->setHotspotOff()Z
 
     move v0, v1
 
-    .line 1235
+    .line 1054
     goto :goto_0
 
-    .line 1238
+    .line 1057
     :pswitch_3
-    const-string v1, "WfdService"
+    const-string v1, "enforce to disconnect currrent sbeam..."
 
-    const-string v2, "enforce to disconnect currrent sbeam..."
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1239
+    .line 1058
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->setSBeamOff()Z
 
     goto :goto_0
 
-    .line 1208
+    .line 1027
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -3303,27 +3232,27 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 1172
+    .line 991
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->enforceChangePermission()V
 
-    .line 1174
+    .line 993
     if-eqz p1, :cond_6
 
-    .line 1176
+    .line 995
     iget-boolean v1, p0, Lcom/samsung/wfd/WfdService;->mHDMIConnected:Z
 
     if-eqz v1, :cond_0
 
-    .line 1177
+    .line 996
     const v1, 0x22074
 
     invoke-direct {p0, v1}, Lcom/samsung/wfd/WfdService;->sendWfdBrokerStartForPopup(I)V
 
-    .line 1201
+    .line 1020
     :goto_0
     return v0
 
-    .line 1179
+    .line 998
     :cond_0
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->isHotspotOn()Z
 
@@ -3331,14 +3260,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 1180
+    .line 999
     const v1, 0x22075
 
     invoke-direct {p0, v1}, Lcom/samsung/wfd/WfdService;->sendWfdBrokerStartForPopup(I)V
 
     goto :goto_0
 
-    .line 1182
+    .line 1001
     :cond_1
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->isSBeamOn()Z
 
@@ -3346,14 +3275,14 @@
 
     if-eqz v1, :cond_2
 
-    .line 1183
+    .line 1002
     const v1, 0x22076
 
     invoke-direct {p0, v1}, Lcom/samsung/wfd/WfdService;->sendWfdBrokerStartForPopup(I)V
 
     goto :goto_0
 
-    .line 1185
+    .line 1004
     :cond_2
     iget-boolean v1, p0, Lcom/samsung/wfd/WfdService;->mWifiP2pConnected:Z
 
@@ -3363,14 +3292,14 @@
 
     if-nez v1, :cond_3
 
-    .line 1186
+    .line 1005
     const v1, 0x22072
 
     invoke-direct {p0, v1}, Lcom/samsung/wfd/WfdService;->sendWfdBrokerStartForPopup(I)V
 
     goto :goto_0
 
-    .line 1188
+    .line 1007
     :cond_3
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->isSplitWindow()Z
 
@@ -3378,33 +3307,31 @@
 
     if-eqz v1, :cond_4
 
-    .line 1189
+    .line 1008
     const v1, 0x2207f
 
     invoke-direct {p0, v1}, Lcom/samsung/wfd/WfdService;->sendWfdBrokerStartForPopup(I)V
 
     goto :goto_0
 
-    .line 1192
+    .line 1011
     :cond_4
     iget-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mUseRTSPService:Z
 
     if-eqz v0, :cond_5
 
-    .line 1193
-    const-string v0, "WfdService"
+    .line 1012
+    const-string v0, "already Wfd running..."
 
-    const-string v1, "already Wfd running..."
+    invoke-virtual {p0, v0}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1197
+    .line 1016
     :goto_1
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1195
+    .line 1014
     :cond_5
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
@@ -3414,7 +3341,7 @@
 
     goto :goto_1
 
-    .line 1200
+    .line 1019
     :cond_6
     const v1, 0x22070
 
@@ -3424,62 +3351,48 @@
 .end method
 
 .method public setWfdRestart()Z
-    .locals 3
+    .locals 1
 
     .prologue
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    .line 1258
-    invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->enforceChangePermission()V
+    .line 1080
+    iput-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
 
-    .line 1259
-    iput-boolean v2, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
+    .line 1081
+    invoke-virtual {p0}, Lcom/samsung/wfd/WfdService;->setWfdTerminate()Z
 
-    .line 1260
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
-
-    const v1, 0x22068
-
-    invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->sendMessage(I)V
-
-    .line 1261
-    return v2
+    .line 1082
+    return v0
 .end method
 
 .method public setWfdRestartOption(I)Z
-    .locals 3
+    .locals 1
     .parameter "option"
 
     .prologue
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    .line 1265
-    invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->enforceChangePermission()V
+    .line 1087
+    iput-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
 
-    .line 1266
-    iput-boolean v2, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartTrigger:Z
-
-    .line 1268
+    .line 1089
     packed-switch p1, :pswitch_data_0
 
-    .line 1278
+    .line 1099
     :goto_0
-    iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
+    invoke-virtual {p0}, Lcom/samsung/wfd/WfdService;->setWfdTerminate()Z
 
-    const v1, 0x22068
+    .line 1100
+    return v0
 
-    invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->sendMessage(I)V
-
-    .line 1279
-    return v2
-
-    .line 1271
+    .line 1092
     :pswitch_0
-    iput-boolean v2, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartOngoing:Z
+    iput-boolean v0, p0, Lcom/samsung/wfd/WfdService;->mWfdRestartOngoing:Z
 
     goto :goto_0
 
-    .line 1268
+    .line 1089
     nop
 
     :pswitch_data_0
@@ -3492,17 +3405,40 @@
     .locals 2
 
     .prologue
-    .line 1252
+    .line 1071
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "setWfdTerminate called with mUseRTSPService "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/samsung/wfd/WfdService;->mUseRTSPService:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/samsung/wfd/WfdService;->logd(Ljava/lang/String;)V
+
+    .line 1073
     invoke-direct {p0}, Lcom/samsung/wfd/WfdService;->enforceChangePermission()V
 
-    .line 1253
+    .line 1074
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mWfdStateMachine:Lcom/samsung/wfd/WfdService$WfdStateMachine;
 
     const v1, 0x22068
 
     invoke-virtual {v0, v1}, Lcom/samsung/wfd/WfdService$WfdStateMachine;->sendMessage(I)V
 
-    .line 1254
+    .line 1075
     const/4 v0, 0x1
 
     return v0
@@ -3515,37 +3451,35 @@
     .parameter "aHeight"
 
     .prologue
-    .line 2001
-    const-string v1, "WfdService"
+    .line 1785
+    const-string v1, "startCapture!"
 
-    const-string v2, "startCapture!"
+    invoke-virtual {p0, v1}, Lcom/samsung/wfd/WfdService;->loge(Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2002
+    .line 1786
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.samsung.ScreenCapture.ScreenCaptureRemoteService"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2003
+    .line 1787
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "frameType"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 2004
+    .line 1788
     const-string v1, "width"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 2005
+    .line 1789
     const-string v1, "height"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 2006
+    .line 1790
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/samsung/wfd/WfdService;->mSCRemoteServiceConnection:Landroid/content/ServiceConnection;
@@ -3554,7 +3488,7 @@
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
-    .line 2007
+    .line 1791
     return-void
 .end method
 
@@ -3562,20 +3496,18 @@
     .locals 2
 
     .prologue
-    .line 2010
-    const-string v0, "WfdService"
+    .line 1794
+    const-string v0, "stopCapture!"
 
-    const-string v1, "stopCapture!"
+    invoke-virtual {p0, v0}, Lcom/samsung/wfd/WfdService;->loge(Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2011
+    .line 1795
     iget-object v0, p0, Lcom/samsung/wfd/WfdService;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/samsung/wfd/WfdService;->mSCRemoteServiceConnection:Landroid/content/ServiceConnection;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    .line 2012
+    .line 1796
     return-void
 .end method

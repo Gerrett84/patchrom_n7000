@@ -26,7 +26,7 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.statusbar.IStatusBarService"
 
-.field static final TRANSACTION_applyEDMPolicy:I = 0x19
+.field static final TRANSACTION_applyEDMPolicy:I = 0x1a
 
 .field static final TRANSACTION_cancelPreloadRecentApps:I = 0x13
 
@@ -39,6 +39,8 @@
 .field static final TRANSACTION_hideCallView:I = 0x17
 
 .field static final TRANSACTION_isScreenCaptureEnabled:I = 0x18
+
+.field static final TRANSACTION_isStatusBarExpandEnabled:I = 0x19
 
 .field static final TRANSACTION_onClearAllNotifications:I = 0xd
 
@@ -166,7 +168,7 @@
     .line 39
     sparse-switch p1, :sswitch_data_0
 
-    .line 314
+    .line 322
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v1
@@ -1067,19 +1069,56 @@
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 309
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/statusbar/IStatusBarService$Stub;->applyEDMPolicy()V
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/statusbar/IStatusBarService$Stub;->isStatusBarExpandEnabled()Z
+
+    move-result v15
 
     .line 310
+    .restart local v15       #_result:Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 311
+    if-eqz v15, :cond_6
+
+    const/4 v1, 0x1
+
+    :goto_7
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 312
+    const/4 v1, 0x1
+
+    goto/16 :goto_0
+
+    .line 311
+    :cond_6
+    const/4 v1, 0x0
+
+    goto :goto_7
+
+    .line 316
+    .end local v15           #_result:Z
+    :sswitch_1a
+    const-string v1, "com.android.internal.statusbar.IStatusBarService"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 317
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/statusbar/IStatusBarService$Stub;->applyEDMPolicy()V
+
+    .line 318
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 319
     const/4 v1, 0x1
 
     goto/16 :goto_0
 
     .line 39
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -1107,6 +1146,7 @@
         0x17 -> :sswitch_17
         0x18 -> :sswitch_18
         0x19 -> :sswitch_19
+        0x1a -> :sswitch_1a
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

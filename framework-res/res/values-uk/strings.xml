@@ -316,13 +316,13 @@
     <string name="contentServiceSyncNotificationTitle">Синхронізація</string>
     <string name="contentServiceTooManyDeletesNotificationDesc">Видалено забагато %s</string>
     <string name="low_memory">Місце збереження на телефоні заповнено! Видаліть деякі файли, щоб звільнити місце</string>
-    <string name="me">Від мене</string>
+    <string name="me">Я</string>
     <string name="power_dialog">Опції телефону</string>
     <string name="silent_mode">Режим без звуку</string>
     <string name="turn_on_radio">Увімкнути безпроводову мережу</string>
     <string name="turn_off_radio">Вимкнути безпроводову мережу</string>
     <string name="screen_lock">Блокування екрана</string>
-    <string name="power_off">Живлення вимк.</string>
+    <string name="power_off">Час вимкнення живлення</string>
     <string name="silent_mode_silent">Дзвінок вимкнено</string>
     <string name="silent_mode_vibrate">Сповіщення про виклик вібрацією</string>
     <string name="silent_mode_ring">Дзвінок увімкнено</string>
@@ -339,7 +339,7 @@
     <string name="global_action_lock">Блокування екрана</string>
     <string name="global_action_power_off">Живлення вимк.</string>
     <string name="global_action_restart">Перезапустити</string>
-    <string name="global_action_sound_mode_mute">Вимк. звук</string>
+    <string name="global_action_sound_mode_mute">Вимк.звук</string>
     <string name="global_action_sound_mode_vibrate">Вібрація</string>
     <string name="global_action_sound_mode_sound">Звук</string>
     <string name="global_action_toggle_silent_mode">Режим без звуку</string>
@@ -361,7 +361,7 @@
     <string name="data_usage_disable_mobile">Вимкнути підключення мобільних даних?</string>
     <string name="global_action_insert_sim_card">Вставте SIM-картку</string>
     <string name="global_action_insert_sim_card_message">Щоб отримати доступ до послуг мережі, вставте SIM-картку</string>
-    <string name="globalactions_silent_mode_mute">Вимк. звук</string>
+    <string name="globalactions_silent_mode_mute">Вимк.звук</string>
     <string name="globalactions_silent_mode_vibrate">Вібрація</string>
     <string name="globalactions_silent_mode_sound">Звук</string>
     <string name="safeMode">Безпечний режим</string>
@@ -413,6 +413,7 @@
     <string name="permdesc_mdmKioskMode">Керування пристроєм у режимі спільного використання</string>
     <string name="tether_usb_restrict">Використання прив’язки USB обмежено політикою безпеки</string>
     <string name="tether_wifi_restrict">Використання прив’язки Wi-Fi обмежено політикою безпеки</string>
+    <string name="data_call_restriction">Використання мобільних даних обмежено політикою безпеки</string>
     <string name="dpm_wifi_blocked_network">Використання цієї мережі Wi-Fi заборонено політикою безпеки</string>
     <string name="dpm_wifi_misc_wifi_disabled">Використання мережі Wi-Fi обмежено політикою безпеки</string>
     <string name="dpm_wifi_misc_network_insecure">Використання незахищених мереж Wi-Fi обмежено політикою безпеки</string>
@@ -624,7 +625,7 @@
     <string name="permdesc_writeSocialStream">Дозволяє програмі відображати оновлення із соціальних мереж від ваших друзів. Будьте обережні, надаючи доступ до інформації – це дозволяє програмі створювати повідомлення, які надходять ніби від друга. Зауважте: цей дозвіл не можна застосовувати в усіх соціальних мережах.</string>
     <string name="permlab_readCalendar">Перегляд подій календаря та конфіденційної інформації</string>
     <string name="permdesc_readCalendar">Дозволяє програмі читати всі події календаря, збережені в телефоні, включно з подіями друзів або співробітників. Це може дозволити програмі надсилати або зберігати дані календаря, незалежно від конфіденційності або закритості.</string>
-    <string name="permlab_writeCalendar">додавати та змінювати події календаря, а також надсилати гостям електронні листи без відома власників</string>
+    <string name="permlab_writeCalendar">Додавання або змінення подій календаря та надсилання повідомлень Email гостям без відома господаря</string>
     <string name="permdesc_writeCalendar">Дозволяє програмі додавати, видаляти та змінювати події, які можна редагувати на телефоні, включно з подіями друзів або співробітників. Це може дозволити програмі надсилати повідомлення, які надходитимуть ніби від власників календарів, або змінювати події без відома власників.</string>
     <string name="permlab_accessMockLocation">пусті джерела розташування для тестування</string>
     <string name="permdesc_accessMockLocation">Дає змогу програмі створювати пусті джерела розташування для тестування. Якщо дозволити це, шкідливі програми можуть замінювати розташування та/або стан, надані справжніми джерелами розташування, наприклад GPS або операторами, або відстежувати дані про розташування та надсилати їх на випадкові веб-сайти</string>
@@ -714,7 +715,7 @@
     <string name="permdesc_getAccounts">Дає змогу програмі отримати доступ до списку облікових записів, збережених на телефоні</string>
     <string name="permlab_authenticateAccounts">Використання в якості аутентифікатора облікових записів</string>
     <string name="permdesc_authenticateAccounts">Дає змогу програмі використовувати функцію аутентифікації облікових записів диспетчера облікових записів. Вона дає змогу створювати облікові записи та керувати паролями</string>
-    <string name="permlab_manageAccounts">додавати або видаляти облікові записи</string>
+    <string name="permlab_manageAccounts">Додати або видалити облікові записи</string>
     <string name="permdesc_manageAccounts">Дає змогу програмі додавати та видаляти облікові записи, а також видаляти пароль</string>
     <string name="permlab_useCredentials">Використовувати облікові дані аутентифікації облікового запису</string>
     <string name="permdesc_useCredentials">Дає змогу програмі запитувати маркери аутентифікації</string>
@@ -736,7 +737,7 @@
     <string name="permdesc_changeWifiState">Дає змогу програмі підключатися до або відключатися від точок доступу Wi-Fi, а також змінювати настроєні мережі Wi-Fi</string>
     <string name="permlab_changeWifiMulticastState">Дозволити багатоадресний прийом у мережі Wi-Fi</string>
     <string name="permdesc_changeWifiMulticastState">Дозволяє програмі отримувати пакети, надіслані за допомогою групової адресації на всі пристрої в мережі Wi-Fi, а не лише на ваш телефон. Використовує більше заряду, ніж режим небагатоадресних пакетів.</string>
-    <string name="permlab_bluetoothAdmin">отримувати доступ до налаштувань Bluetooth</string>
+    <string name="permlab_bluetoothAdmin">Установки Bluetooth</string>
     <string name="permdesc_bluetoothAdmin">Дає змогу програмі настроювати місцевий телефон Bluetooth, а також знаходити та підключатися до віддалених пристроїв</string>
     <string name="permlab_accessWimaxState">Переглянути стан WiMAX</string>
     <string name="permdesc_accessWimaxState">Дозволяє програмі визначати, чи ввімкнено WiMAX, а також переглядати інформацію про будь-які під’єднані мережі WiMAX.</string>
@@ -826,6 +827,7 @@
     <string name="policydesc_allow_desktopsync">Заборона використання синхронізації з комп’ютером</string>
     <string name="policylab_require_storagecard_encryption">Встановлення шифрування карти пам’яті</string>
     <string name="policydesc_require_storagecard_encryption">Потрібне шифрування програми, яка зберігається на карті пам’яті</string>
+    <string name="bluetooth_has_been_disconnected">Bluetooth відключено</string>
     <string name="bluetooth_security_mode_disable">"Використання з'єднання Bluetooth обмежено політикою безпеки"</string>
     <string name="bluetooth_security_mode_handsfree">"Використання з'єднання Bluetooth обмежено політикою безпеки тільки щодо функцій комплекту \"Вільні руки\""</string>
     <string name="phoneTypeCustom">Особливий</string>
@@ -905,7 +907,7 @@
     <string name="keyguard_password_entry_touch_hint">Натисніть, щоб ввести пароль</string>
     <string name="keyguard_password_enter_password_code">Введіть пароль, щоб розблокувати</string>
     <string name="keyguard_password_enter_pin_password_code">Введіть PIN-код, щоб розблокувати</string>
-    <string name="keyguard_password_wrong_pin_code">Неправильний PIN-код.</string>
+    <string name="keyguard_password_wrong_pin_code">Хибний PIN-код</string>
     <string name="keyguard_pin_accepted">Код прийнято</string>
     <string name="keyguard_label_text">Щоб розблокувати, натисніть «Меню», а потім «0»</string>
     <string name="emergency_call_dialog_number_for_display">Номер екстреного виклику</string>
@@ -942,8 +944,9 @@
     <string name="lockscreen_network_locked_message">Мережу заблоковано</string>
     <string name="lockscreen_sim_puk_locked_message">SIM-картку заблоковано PUK-кодом</string>
     <string name="lockscreen_sim_puk_locked_instructions">Див. посібник користувача або зверніться до інформаційного центру</string>
-    <string name="lockscreen_sim_locked_message">SIM/RUIM-картку заблоковано</string>
+    <string name="lockscreen_sim_locked_message">SIM-картку заблоковано</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">Розблокування SIM-картки…</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Хибний зразок розблокування накреслено декілька разів (%1$d). Спробуйте ще раз через %2$d сек.</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">Хибний пароль введено %1$d рази(-ів). Спробуйте ще раз через %2$d сек.</string>
     <string name="lockscreen_sim_pin_blocked">Код PIN1 заблоковано. Введіть код PUK1, щоб розблокувати код PIN1</string>
@@ -996,6 +999,7 @@
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">Збігається з</string>
     <string name="autofill_billing_designator_re">Рахунок</string>
+    <string name="autofill_shipping_designator_re">Корабель</string>
     <string name="autofill_phone_suffix_re">Суфікс</string>
     <string name="autofill_name_on_card_contextual_re">"Ім'я"</string>
     <string name="autofill_province">Провінція</string>
@@ -1010,7 +1014,7 @@
     <string name="autofill_parish">Парафія</string>
     <string name="autofill_area">Площа</string>
     <string name="autofill_emirate">Емірат</string>
-    <string name="permlab_readHistoryBookmarks">читати веб-закладки й історію</string>
+    <string name="permlab_readHistoryBookmarks">Зчитування історії браузера та закладок</string>
     <string name="permdesc_readHistoryBookmarks">Дозволяє програмі зчитувати всі URL-адреси, відвідані браузером, а також всі закладки браузера</string>
     <string name="permlab_writeHistoryBookmarks">писати у веб-закладки й історію</string>
     <string name="permdesc_writeHistoryBookmarks">Дає змогу програмі змінювати історію браузера та закладки, збережені на телефоні. Якщо дозволити це, шкідливі програми можуть стирати або змінювати такі дані</string>
@@ -1089,10 +1093,12 @@
     <string name="editTextMenuTitle">Дії з текстом</string>
     <string name="low_internal_storage_view_title">Пам’ять майже заповнено</string>
     <string name="low_internal_storage_view_text">Деякі функції системи можуть не працювати</string>
+    <string name="full_internal_storage_view_text">"Може статися помилка, оскільки пам’ять пристрою заповнено. Видаліть декілька об'єктів"</string>
     <string name="loading">Завантаження…</string>
     <string name="capital_on">Увімк.</string>
     <string name="capital_off">Вимк.</string>
     <string name="whichApplication">Завершити дію за допомогою</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Використати за замовчуванням для цієї дії</string>
     <string name="clearDefaultHintMsg">Очистіть стандартні установки, для цього відкрийте \"Установки\" > \"Диспетчер програм\" > \"Усі\"</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1161,7 +1167,7 @@
     <string name="wifi_notification_no_network_message">Відкрити установки Wi-Fi</string>
     <string name="wifi_notification_not_connected">Доступні мережі Wi-Fi</string>
     <string name="wifi_notification_not_connected_message">Відкрити доступні мережі Wi-Fi</string>
-    <string name="wifi_notification_connected">Підключено до %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Натисніть, щоб настроїти Wi-Fi</string>
     <string name="wifi_notification_connected_secure">Захищений</string>
     <string name="wifi_notification_connected_open">Відкрити</string>
@@ -1175,7 +1181,7 @@
     <string name="wifi_p2p_enabled_notification_title">Wi-Fi Direct увімкнено</string>
     <string name="wifi_p2p_enabled_notification_message">Натисніть, щоб змінити установки</string>
     <string name="accept">Прийн.</string>
-    <string name="decline">Відхил.</string>
+    <string name="decline">Відхилити</string>
     <string name="wifi_p2p_invitation_sent_title">Запрошення надіслано</string>
     <string name="wifi_p2p_invitation_to_connect_title">Запрошення до підключення</string>
     <string name="wifi_p2p_from_message">Від:</string>
@@ -1191,9 +1197,9 @@
     <string name="select_character">Вставити символ</string>
     <string name="sms_control_default_app_name">Невідома програма</string>
     <string name="sms_control_title">Надсилання SMS…</string>
-    <string name="sms_control_message">Надсилається багато SMS-повідомлень. Натисніть \"OK\", щоб продовжити, або \"Скасувати\", щоб перервати надсилання</string>
-    <string name="sms_control_yes">ОК</string>
-    <string name="sms_control_no">Скасув.</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> надсилає велику кількість SMS-повідомлень. Дозволити цій програмі продовжувати надсилати повідомлення?</string>
+    <string name="sms_control_yes">Дозволити</string>
+    <string name="sms_control_no">Відмовити</string>
     <string name="sim_removed_title">SIM-картку видалено</string>
     <string name="sim_removed_message">Мобільна мережа буде недоступна, доки не буде вставлено припустиму SIM-картку та виконано перезавантаження</string>
     <string name="sim_done_button">Готово</string>
@@ -1287,7 +1293,7 @@
     <string name="activity_list_empty">Не знайдено відповідних справ</string>
     <string name="permlab_pkgUsageStats">оновити статистику використання компонентів</string>
     <string name="permdesc_pkgUsageStats">Дає змогу змінювати зібрану статистику використання компонентів. Не для використання звичайними програмами</string>
-    <string name="permlab_copyProtectedData">Дає змогу стандартній службі накопичення копіювати вміст. Не для використання звичайними програмами</string>
+    <string name="permlab_copyProtectedData">Копіювання вмісту</string>
     <string name="permdesc_copyProtectedData">Дає змогу стандартній службі накопичення копіювати вміст. Не для використання звичайними програмами</string>
     <string name="permlab_route_media_output">Спрямування виводу мультимедійних даних</string>
     <string name="permdesc_route_media_output">Дозволяє програмі спрямовувати вивід мультимедійних даних на інші зовнішні пристрої</string>
@@ -1427,10 +1433,11 @@
     <string name="action_bar_home_description">Перейти додому</string>
     <string name="action_bar_up_description">Перехід вгору</string>
     <string name="action_menu_overflow_description">Інші опції</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Попередній розмір</string>
     <string name="storage_internal">Пам’ять пристрою</string>
     <string name="storage_sd_card">SD-карта</string>
     <string name="storage_usb">Внутрішня пам’ять</string>
-    <string name="extract_edit_menu_button">Редагувати…</string>
+    <string name="extract_edit_menu_button">Редагувати</string>
     <string name="data_usage_warning_title">Попередження стосовно використання даних</string>
     <string name="data_usage_warning_body">Нат., щоб переглянути відомості про використ. та установки</string>
     <string name="data_usage_3g_limit_title">Використання даних 2G/3G вимкнено</string>
@@ -1460,7 +1467,7 @@
     <string name="fingerprints">Цифрові підписи</string>
     <string name="sha256_fingerprint">Цифровий підпис SHA-256:</string>
     <string name="sha1_fingerprint">Цифровий підпис SHA-1:</string>
-    <string name="activity_chooser_view_see_all">Пер.всі</string>
+    <string name="activity_chooser_view_see_all">Переглянути всі</string>
     <string name="activity_chooser_view_dialog_title_default">Вибір заходу</string>
     <string name="share_action_provider_share_with">Спільний доступ для</string>
     <string name="status_bar_device_locked">Пристрій заблоковано</string>
@@ -1516,6 +1523,8 @@
     <string name="lockscreen_fmapp_name">FM-радіо</string>
     <string name="lockscreen_clock_dualclock_home">Домашній</string>
     <string name="lockscreen_clock_dualclock_roaming">Роумінг</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Сеул</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Роумінг</string>
     <string name="lockscreen_clock_dualclock_popup_title">Подвійний годинник</string>
     <string name="lockscreen_clock_dualclock_popup_message">Виберіть місто проживання для відображення подвійного годинника на екрані блокування. Перейти до установок?</string>
     <string name="lockscreen_ticker_no_data_to_display">Немає даних для відображення</string>
@@ -1552,7 +1561,7 @@
     <string name="lockscreen_2ndLock_instructions2">Введіть резервний PIN-код для розблокування</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">ОК</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Зразок розблокування хибно накреслено %1$d рази(-ів). Спробуйте ще раз через %2$d секунд.</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">Хибний зразок розблокування накреслено %1$d разів. Залишилося кілька спроб (%2$d), перш ніж вам буде надіслано запит на розблокування пристрою за допомогою реєстрації Google або резервного PIN-коду. Спробуйте ще раз через %3$d секунд</string>
     <string name="lockscreen_carrier_noservice">(Немає мережі)</string>
     <string name="rescan_network">Пошук доступної мережі</string>
     <string name="AutoUpdateOfTimeAndDate">Автоматичне оновлення часу і дати</string>
@@ -1563,6 +1572,8 @@
     <string name="capabilitymanager_managed_errortitle">Помилка</string>
     <string name="security_policy_title">Політики безпеки</string>
     <string name="security_policy_summary">Політики шифрування отримано від віддаленого адміністратора</string>
+    <string name="sdcard_unmount_policy_noti_title">Карту пам’яті відключено через IT-політику</string>
+    <string name="sdcard_unmount_policy_noti_content">Натисніть, щоб підключити карту пам’яті</string>
     <string name="sdcard_encrypt_title_notification">Шифрування карти пам’яті</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">Шифрування карти пам’яті…</string>
     <string name="sdcard_encrypt_notification">Карту пам’яті зашифровано</string>
@@ -1586,7 +1597,7 @@
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1628,7 +1639,7 @@
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">Введені значення виходять за межі дійсного діапазону. Перевірте значення та спробуйте ще раз</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1650,6 +1661,8 @@
     <string name="SS_USB_TETHERING_ENABLED">Прив’язку USB ввімкнено</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Прив’язку Wi-Fi ввімкнено</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Прив’язку ввімкнено (Wi-Fi та USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">Пристрій заблоковано. Досягнуто максимальної кількості спроб введення пароля. Потрібне відновлення пароля для розблокування пристрою. У разі введення хибного пароля відновлення всі дані буде стерто.</string>
+    <string name="recovery_password_required">Потрібне відновлення пароля для розблокування пристрою</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Віддалене з’єднання ввімкнено</string>
@@ -1683,12 +1696,21 @@
     <string name="lockscreen_ticker_logo_news_tts">Новини</string>
     <string name="lockscreen_ticker_logo_stock_tts">Котирування</string>
     <string name="lockscreen_ticker_refresh_tts">Оновити</string>
+    <string name="SS_ALWAYS_ON_TOP">Поверх інших вікон</string>
+    <string name="SS_MINIMISE">Згорнути</string>
+    <string name="SS_MAXIMISE">Збільшити</string>
+    <string name="SS_CLOSE_APPLICATION">Закриття програми</string>
+    <string name="spengesture_media_scanning">Неможливо обітнути зображення. Запущено сканер медіафайлів</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN блоковано</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">"Зверніться до оператора зв'язку, щоб розблокувати SIM-картку"</string>
     <string name="resolver_guide_title">Очистити стандартні установки</string>
     <string name="operation_not_allowed">Операція не дозволена</string>
     <string name="exceeded_maxlength">Перевищено максимальний розмір повідомлення</string>
     <string name="dont_show_again_message">Більше не показувати</string>
     <string name="set_bing_as_default">Встановити Bing як систему пошуку за замовчуванням?</string>
     <string name="ms_domain_site">Сайт домену Microsoft</string>
+    <string name="unsupported_in_popupbrowser">Функція не підтримується у Поп-ап браузері</string>
+    <string name="find_on_page_abb">Знайти на стор.</string>
     <string name="tw_clipboard_already_exists">Вже існує</string>
     <string name="tw_clipboard_no_items_to_paste">Немає об’єктів для вставлення</string>
     <string name="tw_clipboard_save_in_memo">Зберегти в нагадуванні</string>
@@ -1702,9 +1724,12 @@
     <string name="tw_ids_com_body_unlock_in_clipboard">Розблокувати в буфері обміну</string>
     <string name="tw_clipboard_clear">Очист.</string>
     <string name="tw_clipboard_delete_all">Видалити всі?</string>
-    <string name="tw_clipboard_edit">Редагувати</string>
-    <string name="tw_clipboard_done">Готово</string>
-    <string name="tw_clipboard_save">Зберегти</string>
+    <string name="tw_clipboard_edit">Редаг.</string>
+    <string name="tw_clipboard_done">Гот.</string>
+    <string name="tw_clipboard_save">Зберег.</string>
     <string name="tw_clipboard_no_item">Немає об’єктів</string>
     <string name="tw_clipboard_delete_all_from_clipboard">"Всі об'єкти, крім заблокованих, видалено з буфера обміну"</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Вставлено з буфера обміну</string>
+    <string name="Roaming_Auto_Dialing">PIN блоковано</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

@@ -27,15 +27,31 @@
 
 .field public static WINDOW_MODE_OPTION_COMMON_FIXED_SIZE:I
 
+.field public static WINDOW_MODE_OPTION_COMMON_FORCE_TITLE_BAR:I
+
 .field public static WINDOW_MODE_OPTION_COMMON_HIDDEN:I
 
 .field public static WINDOW_MODE_OPTION_COMMON_INHERIT:I
 
 .field public static WINDOW_MODE_OPTION_COMMON_MINIMIZED:I
 
+.field public static WINDOW_MODE_OPTION_COMMON_NO_ARRANGE:I
+
+.field public static WINDOW_MODE_OPTION_COMMON_NO_CONTROLBAR:I
+
 .field public static WINDOW_MODE_OPTION_COMMON_PINUP:I
 
 .field public static WINDOW_MODE_OPTION_COMMON_RESIZE:I
+
+.field public static WINDOW_MODE_OPTION_SPLIT_ZONE_A:I
+
+.field public static WINDOW_MODE_OPTION_SPLIT_ZONE_B:I
+
+.field public static WINDOW_MODE_OPTION_SPLIT_ZONE_FULL:I
+
+.field public static WINDOW_MODE_OPTION_SPLIT_ZONE_MASK:I
+
+.field public static WINDOW_MODE_OPTION_SPLIT_ZONE_UNKNOWN:I
 
 
 # direct methods
@@ -43,8 +59,8 @@
     .locals 7
 
     .prologue
-    .line 18
-    const/16 v4, 0xa
+    .line 31
+    const/16 v4, 0x12
 
     new-array v4, v4, [Ljava/lang/String;
 
@@ -108,14 +124,62 @@
 
     aput-object v6, v4, v5
 
+    const/16 v5, 0xa
+
+    const-string v6, "WINDOW_MODE_OPTION_COMMON_NO_CONTROLBAR"
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0xb
+
+    const-string v6, "WINDOW_MODE_OPTION_COMMON_FORCE_TITLE_BAR"
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0xc
+
+    const-string v6, "WINDOW_MODE_OPTION_COMMON_NO_ARRANGE"
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0xd
+
+    const-string v6, "WINDOW_MODE_OPTION_SPLIT_ZONE_MASK"
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0xe
+
+    const-string v6, "WINDOW_MODE_OPTION_SPLIT_ZONE_UNKNOWN"
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0xf
+
+    const-string v6, "WINDOW_MODE_OPTION_SPLIT_ZONE_B"
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x10
+
+    const-string v6, "WINDOW_MODE_OPTION_SPLIT_ZONE_A"
+
+    aput-object v6, v4, v5
+
+    const/16 v5, 0x11
+
+    const-string v6, "WINDOW_MODE_OPTION_SPLIT_ZONE_FULL"
+
+    aput-object v6, v4, v5
+
     sput-object v4, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;->FIELD_NAMES:[Ljava/lang/String;
 
-    .line 32
+    .line 53
     sget-object v4, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;->FIELD_NAMES:[Ljava/lang/String;
 
     array-length v0, v4
 
-    .line 33
+    .line 54
     .local v0, N:I
     const/4 v2, 0x0
 
@@ -123,7 +187,7 @@
     :goto_0
     if-ge v2, v0, :cond_0
 
-    .line 35
+    .line 56
     :try_start_0
     const-class v4, Landroid/view/WindowManagerPolicy;
 
@@ -135,7 +199,7 @@
 
     move-result-object v3
 
-    .line 36
+    .line 57
     .local v3, src:Ljava/lang/reflect/Field;
     const-class v4, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;
 
@@ -147,7 +211,7 @@
 
     move-result-object v1
 
-    .line 37
+    .line 58
     .local v1, dst:Ljava/lang/reflect/Field;
     invoke-virtual {v3, v3}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
 
@@ -159,7 +223,7 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 33
+    .line 54
     .end local v1           #dst:Ljava/lang/reflect/Field;
     .end local v3           #src:Ljava/lang/reflect/Field;
     :goto_1
@@ -167,23 +231,23 @@
 
     goto :goto_0
 
-    .line 43
+    .line 64
     :cond_0
     return-void
 
-    .line 40
+    .line 61
     :catch_0
     move-exception v4
 
     goto :goto_1
 
-    .line 39
+    .line 60
     :catch_1
     move-exception v4
 
     goto :goto_1
 
-    .line 38
+    .line 59
     :catch_2
     move-exception v4
 
@@ -194,7 +258,7 @@
     .locals 0
 
     .prologue
-    .line 6
+    .line 10
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -205,7 +269,7 @@
     .parameter "windowMode"
 
     .prologue
-    .line 46
+    .line 67
     sget v0, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;->WINDOW_MODE_MASK:I
 
     and-int/2addr v0, p0
@@ -218,7 +282,7 @@
     .parameter "windowMode"
 
     .prologue
-    .line 49
+    .line 70
     sget v0, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;->WINDOW_MODE_MASK:I
 
     xor-int/lit8 v0, v0, -0x1

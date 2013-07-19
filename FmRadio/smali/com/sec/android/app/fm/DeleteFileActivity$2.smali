@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 164
+    .line 171
     iput-object p1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$2;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
     .end annotation
 
     .prologue
-    .line 168
+    .line 175
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     invoke-static {}, Lcom/sec/android/app/fm/DeleteFileActivity;->access$200()Ljava/lang/String;
 
@@ -78,10 +78,10 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 169
-    const v1, 0x7f070080
+    .line 176
+    const v1, 0x7f070091
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -89,7 +89,7 @@
 
     check-cast v0, Landroid/widget/CheckBox;
 
-    .line 171
+    .line 178
     .local v0, checkBox:Landroid/widget/CheckBox;
     invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
 
@@ -97,7 +97,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 172
+    .line 179
     iget-object v1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$2;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     #getter for: Lcom/sec/android/app/fm/DeleteFileActivity;->mSelectedItems:Ljava/util/HashMap;
@@ -111,7 +111,7 @@
 
     invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 176
+    .line 183
     :goto_0
     iget-object v1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$2;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
@@ -146,18 +146,18 @@
     :goto_1
     invoke-virtual {v2, v1}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    .line 178
+    .line 185
     invoke-virtual {v0}, Landroid/widget/CheckBox;->performClick()Z
 
-    .line 180
+    .line 187
     iget-object v1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$2;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
     invoke-virtual {v1}, Lcom/sec/android/app/fm/DeleteFileActivity;->invalidateOptionsMenu()V
 
-    .line 181
+    .line 188
     return-void
 
-    .line 174
+    .line 181
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/fm/DeleteFileActivity$2;->this$0:Lcom/sec/android/app/fm/DeleteFileActivity;
 
@@ -180,7 +180,7 @@
 
     goto :goto_0
 
-    .line 176
+    .line 183
     :cond_1
     const/4 v1, 0x0
 

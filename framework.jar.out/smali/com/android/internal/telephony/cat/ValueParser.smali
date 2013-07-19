@@ -2986,6 +2986,16 @@
 
     if-nez v32, :cond_4
 
+    const-string v32, "520"
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v32
+
+    if-nez v32, :cond_4
+
     const-string v32, "405"
 
     move-object/from16 v0, v32

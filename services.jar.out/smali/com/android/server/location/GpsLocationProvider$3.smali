@@ -29,7 +29,7 @@
     .parameter
 
     .prologue
-    .line 631
+    .line 642
     iput-object p1, p0, Lcom/android/server/location/GpsLocationProvider$3;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .locals 7
 
     .prologue
-    .line 637
+    .line 648
     :cond_0
     :goto_0
     const/16 v4, 0x5dc
@@ -51,7 +51,7 @@
     :try_start_0
     new-array v0, v4, [B
 
-    .line 639
+    .line 650
     .local v0, buf:[B
     new-instance v2, Ljava/net/DatagramPacket;
 
@@ -59,7 +59,7 @@
 
     invoke-direct {v2, v0, v4}, Ljava/net/DatagramPacket;-><init>([BI)V
 
-    .line 640
+    .line 651
     .local v2, packet:Ljava/net/DatagramPacket;
     new-instance v4, Ljava/net/DatagramSocket;
 
@@ -69,12 +69,12 @@
 
     iput-object v4, p0, Lcom/android/server/location/GpsLocationProvider$3;->socket:Ljava/net/DatagramSocket;
 
-    .line 645
+    .line 656
     iget-object v4, p0, Lcom/android/server/location/GpsLocationProvider$3;->socket:Ljava/net/DatagramSocket;
 
     invoke-virtual {v4, v2}, Ljava/net/DatagramSocket;->receive(Ljava/net/DatagramPacket;)V
 
-    .line 647
+    .line 658
     new-instance v3, Ljava/lang/String;
 
     const/4 v4, 0x0
@@ -85,7 +85,7 @@
 
     invoke-direct {v3, v0, v4, v5}, Ljava/lang/String;-><init>([BII)V
 
-    .line 649
+    .line 660
     .local v3, supl_init:Ljava/lang/String;
     invoke-virtual {v2}, Ljava/net/DatagramPacket;->getLength()I
 
@@ -93,7 +93,7 @@
 
     if-lez v4, :cond_1
 
-    .line 650
+    .line 661
     iget-object v4, p0, Lcom/android/server/location/GpsLocationProvider$3;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     invoke-virtual {v2}, Ljava/net/DatagramPacket;->getData()[B
@@ -107,7 +107,7 @@
     #calls: Lcom/android/server/location/GpsLocationProvider;->native_agps_ni_message([BI)V
     invoke-static {v4, v5, v6}, Lcom/android/server/location/GpsLocationProvider;->access$800(Lcom/android/server/location/GpsLocationProvider;[BI)V
 
-    .line 652
+    .line 663
     :cond_1
     iget-object v4, p0, Lcom/android/server/location/GpsLocationProvider$3;->socket:Ljava/net/DatagramSocket;
 
@@ -117,20 +117,20 @@
 
     goto :goto_0
 
-    .line 653
+    .line 664
     .end local v0           #buf:[B
     .end local v2           #packet:Ljava/net/DatagramPacket;
     .end local v3           #supl_init:Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 654
+    .line 665
     .local v1, e:Ljava/io/IOException;
     iget-object v4, p0, Lcom/android/server/location/GpsLocationProvider$3;->socket:Ljava/net/DatagramSocket;
 
     if-eqz v4, :cond_0
 
-    .line 655
+    .line 666
     iget-object v4, p0, Lcom/android/server/location/GpsLocationProvider$3;->socket:Ljava/net/DatagramSocket;
 
     invoke-virtual {v4}, Ljava/net/DatagramSocket;->close()V

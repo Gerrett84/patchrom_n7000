@@ -49,7 +49,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 57
+    .line 56
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
@@ -67,35 +67,35 @@
 
     iput-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->CDFS_FUNCTION:Ljava/lang/String;
 
-    .line 46
+    .line 45
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->isAdbOnByToolLauncher:Z
 
-    .line 53
+    .line 52
     iput-object v1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->mStorageManager:Landroid/os/storage/StorageManager;
 
-    .line 54
+    .line 53
     iput-object v1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->usbManager:Landroid/hardware/usb/UsbManager;
 
-    .line 58
+    .line 57
     const-string v0, "KiesUsbManager"
 
     const-string v1, "KiesUsbManager"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 60
+    .line 59
     iput-object p1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->context:Landroid/content/Context;
 
-    .line 61
+    .line 60
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->mContentResolver:Landroid/content/ContentResolver;
 
-    .line 62
+    .line 61
     new-instance v0, Landroid/os/HandlerThread;
 
     const-string v1, "KiesUsbManager"
@@ -104,12 +104,12 @@
 
     iput-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->mHandlerThread:Landroid/os/HandlerThread;
 
-    .line 63
+    .line 62
     iget-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->mHandlerThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
-    .line 64
+    .line 63
     new-instance v0, Lcom/android/server/KiesConnectivity/KiesUsbManager$KiesUsbManagerHandler;
 
     iget-object v1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->mHandlerThread:Landroid/os/HandlerThread;
@@ -122,7 +122,7 @@
 
     iput-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->mHandler:Landroid/os/Handler;
 
-    .line 65
+    .line 64
     iget-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->context:Landroid/content/Context;
 
     const-string v1, "storage"
@@ -135,7 +135,7 @@
 
     iput-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->mStorageManager:Landroid/os/storage/StorageManager;
 
-    .line 66
+    .line 65
     iget-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->context:Landroid/content/Context;
 
     const-string v1, "usb"
@@ -148,7 +148,7 @@
 
     iput-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->usbManager:Landroid/hardware/usb/UsbManager;
 
-    .line 68
+    .line 67
     return-void
 .end method
 
@@ -158,7 +158,7 @@
 
     .prologue
     .line 34
-    invoke-direct {p0}, Lcom/android/server/KiesConnectivity/KiesUsbManager;->setCDFSEject()V
+    invoke-direct {p0}, Lcom/android/server/KiesConnectivity/KiesUsbManager;->setUsbCurrentSettingMode()V
 
     return-void
 .end method
@@ -185,47 +185,6 @@
     return-object v0
 .end method
 
-.method private getUsbCurrentSettingMode()Ljava/lang/String;
-    .locals 4
-
-    .prologue
-    .line 181
-    const-string v1, "persist.sys.usb.config"
-
-    const-string v2, "adb"
-
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 183
-    .local v0, mDefaultFunctions:Ljava/lang/String;
-    const-string v1, "KiesUsbManager"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "getUsbCurrentSettingMode() -> persist.sys.usb.config : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 186
-    return-object v0
-.end method
-
 .method private isAdbEnabled()Z
     .locals 5
 
@@ -234,10 +193,10 @@
 
     const/4 v2, 0x0
 
-    .line 71
+    .line 70
     const/4 v0, 0x0
 
-    .line 73
+    .line 72
     .local v0, enabled:I
     iget-object v3, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->context:Landroid/content/Context;
 
@@ -251,10 +210,10 @@
 
     move-result v0
 
-    .line 75
+    .line 74
     if-ne v0, v1, :cond_0
 
-    .line 78
+    .line 77
     :goto_0
     return v1
 
@@ -265,7 +224,7 @@
 .end method
 
 .method private saveISOToFile(Z)Z
-    .locals 6
+    .locals 7
     .parameter "bInsert"
 
     .prologue
@@ -273,12 +232,19 @@
 
     const/4 v4, 0x0
 
-    .line 88
+    .line 87
     const/4 v1, 0x0
 
-    .line 90
+    .line 89
     .local v1, fout:Ljava/io/FileOutputStream;
     if-eqz p1, :cond_3
+
+    .line 91
+    const-string v5, "KiesUsbManager"
+
+    const-string v6, "saveISOToFile ISO setCDFSInsert"
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 93
     :try_start_0
@@ -319,7 +285,7 @@
     :goto_0
     move-object v1, v2
 
-    .line 126
+    .line 125
     .end local v2           #fout:Ljava/io/FileOutputStream;
     .restart local v1       #fout:Ljava/io/FileOutputStream;
     :goto_1
@@ -367,8 +333,15 @@
     :goto_5
     throw v3
 
-    .line 113
+    .line 110
     :cond_3
+    const-string v5, "KiesUsbManager"
+
+    const-string v6, "saveISOToFile ISO setCDFSEject"
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 112
     :try_start_5
     new-instance v2, Ljava/io/FileOutputStream;
 
@@ -379,7 +352,7 @@
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
 
-    .line 114
+    .line 113
     .end local v1           #fout:Ljava/io/FileOutputStream;
     .restart local v2       #fout:Ljava/io/FileOutputStream;
     :try_start_6
@@ -394,10 +367,10 @@
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_8
 
-    .line 120
+    .line 119
     if-eqz v2, :cond_4
 
-    .line 121
+    .line 120
     :try_start_7
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_7
@@ -407,21 +380,21 @@
     :goto_6
     move-object v1, v2
 
-    .line 126
+    .line 125
     .end local v2           #fout:Ljava/io/FileOutputStream;
     .restart local v1       #fout:Ljava/io/FileOutputStream;
     goto :goto_1
 
-    .line 115
+    .line 114
     :catch_1
     move-exception v0
 
-    .line 120
+    .line 119
     .restart local v0       #e:Ljava/io/IOException;
     :goto_7
     if-eqz v1, :cond_5
 
-    .line 121
+    .line 120
     :try_start_8
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
     :try_end_8
@@ -431,25 +404,25 @@
     :goto_8
     move v3, v4
 
-    .line 116
+    .line 115
     goto :goto_1
 
-    .line 119
+    .line 118
     .end local v0           #e:Ljava/io/IOException;
     :catchall_1
     move-exception v3
 
-    .line 120
+    .line 119
     :goto_9
     if-eqz v1, :cond_6
 
-    .line 121
+    .line 120
     :try_start_9
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
 
-    .line 119
+    .line 118
     :cond_6
     :goto_a
     throw v3
@@ -488,42 +461,42 @@
 
     goto :goto_0
 
-    .line 122
+    .line 121
     .end local v2           #fout:Ljava/io/FileOutputStream;
     .restart local v1       #fout:Ljava/io/FileOutputStream;
     :catch_5
     move-exception v0
 
-    .line 123
+    .line 122
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_8
 
-    .line 122
+    .line 121
     .end local v0           #e:Ljava/io/IOException;
     :catch_6
     move-exception v0
 
-    .line 123
+    .line 122
     .restart local v0       #e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_a
 
-    .line 122
+    .line 121
     .end local v0           #e:Ljava/io/IOException;
     .end local v1           #fout:Ljava/io/FileOutputStream;
     .restart local v2       #fout:Ljava/io/FileOutputStream;
     :catch_7
     move-exception v0
 
-    .line 123
+    .line 122
     .restart local v0       #e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_6
 
-    .line 119
+    .line 118
     .end local v0           #e:Ljava/io/IOException;
     :catchall_2
     move-exception v3
@@ -534,7 +507,7 @@
     .restart local v1       #fout:Ljava/io/FileOutputStream;
     goto :goto_9
 
-    .line 115
+    .line 114
     .end local v1           #fout:Ljava/io/FileOutputStream;
     .restart local v2       #fout:Ljava/io/FileOutputStream;
     :catch_8
@@ -575,14 +548,14 @@
     .locals 2
 
     .prologue
-    .line 144
+    .line 152
     const-string v0, "KiesUsbManager"
 
     const-string v1, "setCDFSEject"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 148
+    .line 153
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/server/KiesConnectivity/KiesUsbManager;->saveISOToFile(Z)Z
@@ -591,14 +564,14 @@
 
     if-nez v0, :cond_0
 
-    .line 150
+    .line 154
     const-string v0, "KiesUsbManager"
 
     const-string v1, "setCDFSEject : fail to write the file"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 155
+    .line 156
     :cond_0
     return-void
 .end method
@@ -607,14 +580,14 @@
     .locals 2
 
     .prologue
-    .line 133
+    .line 145
     const-string v0, "KiesUsbManager"
 
     const-string v1, "setCDFSInsert"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 136
+    .line 146
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/android/server/KiesConnectivity/KiesUsbManager;->saveISOToFile(Z)Z
@@ -623,23 +596,143 @@
 
     if-nez v0, :cond_0
 
-    .line 137
+    .line 147
     const-string v0, "KiesUsbManager"
 
     const-string v1, "setCDFSInsert : fail to write the file"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 141
+    .line 149
     :cond_0
     return-void
 .end method
 
-.method private declared-synchronized startCDFSEjectTimer()V
+.method private setUsbCurrentSettingMode()V
     .locals 4
 
     .prologue
-    .line 157
+    const/4 v3, 0x0
+
+    .line 131
+    invoke-virtual {p0}, Lcom/android/server/KiesConnectivity/KiesUsbManager;->stopCDFSEjectTimer()V
+
+    .line 132
+    const-string v1, "sys.usb.config"
+
+    const-string v2, "none"
+
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 134
+    .local v0, config:Ljava/lang/String;
+    const-string v1, "mass_storage"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "mass_storage,adb"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "mass_storage,acm"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "mass_storage,acm,adb"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 135
+    :cond_0
+    invoke-direct {p0}, Lcom/android/server/KiesConnectivity/KiesUsbManager;->isAdbEnabled()Z
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_2
+
+    .line 136
+    iget-object v1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->usbManager:Landroid/hardware/usb/UsbManager;
+
+    const-string v2, "mtp,adb"
+
+    invoke-virtual {v1, v2, v3}, Landroid/hardware/usb/UsbManager;->setCurrentFunction(Ljava/lang/String;Z)V
+
+    .line 141
+    :goto_0
+    const-string v1, "KiesUsbManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "setUsbCurrentSettingMode : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 143
+    :cond_1
+    return-void
+
+    .line 139
+    :cond_2
+    iget-object v1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->usbManager:Landroid/hardware/usb/UsbManager;
+
+    const-string v2, "mtp"
+
+    invoke-virtual {v1, v2, v3}, Landroid/hardware/usb/UsbManager;->setCurrentFunction(Ljava/lang/String;Z)V
+
+    goto :goto_0
+.end method
+
+
+# virtual methods
+.method public getHandler()Landroid/os/Handler;
+    .locals 1
+
+    .prologue
+    .line 82
+    iget-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method public declared-synchronized startCDFSEjectTimer()V
+    .locals 4
+
+    .prologue
+    .line 159
     monitor-enter p0
 
     :try_start_0
@@ -649,34 +742,40 @@
 
     .line 165
     .local v0, myTask:Ljava/util/TimerTask;
+    iget-object v1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->cdfsEjectTimer:Ljava/util/Timer;
+
+    if-nez v1, :cond_0
+
+    .line 166
     new-instance v1, Ljava/util/Timer;
 
     invoke-direct {v1}, Ljava/util/Timer;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->cdfsEjectTimer:Ljava/util/Timer;
 
-    .line 166
+    .line 167
     iget-object v1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->cdfsEjectTimer:Ljava/util/Timer;
 
-    const-wide/16 v2, 0x4e20
+    const-wide/16 v2, 0x7530
 
     invoke-virtual {v1, v0, v2, v3}, Ljava/util/Timer;->schedule(Ljava/util/TimerTask;J)V
 
     .line 168
     const-string v1, "KiesUsbManager"
 
-    const-string v2, "startCDFSEjectTimer"
+    const-string v2, "startCDFSEjectTimer -> 30 seconds start"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 169
+    .line 170
+    :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 157
+    .line 159
     .end local v0           #myTask:Ljava/util/TimerTask;
     :catchall_0
     move-exception v1
@@ -686,11 +785,11 @@
     throw v1
 .end method
 
-.method private declared-synchronized stopCDFSEjectTimer()V
+.method public declared-synchronized stopCDFSEjectTimer()V
     .locals 2
 
     .prologue
-    .line 172
+    .line 173
     monitor-enter p0
 
     :try_start_0
@@ -698,12 +797,17 @@
 
     if-eqz v0, :cond_0
 
-    .line 173
+    .line 174
     iget-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->cdfsEjectTimer:Ljava/util/Timer;
 
     invoke-virtual {v0}, Ljava/util/Timer;->cancel()V
 
     .line 175
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->cdfsEjectTimer:Ljava/util/Timer;
+
+    .line 176
     const-string v0, "KiesUsbManager"
 
     const-string v1, "stopCDFSEjectTimer"
@@ -712,29 +816,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 177
+    .line 178
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 172
+    .line 173
     :catchall_0
     move-exception v0
 
     monitor-exit p0
 
     throw v0
-.end method
-
-
-# virtual methods
-.method public getHandler()Landroid/os/Handler;
-    .locals 1
-
-    .prologue
-    .line 83
-    iget-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager;->mHandler:Landroid/os/Handler;
-
-    return-object v0
 .end method

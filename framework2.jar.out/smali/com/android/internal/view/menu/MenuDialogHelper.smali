@@ -376,7 +376,7 @@
 
     move-result-object v5
 
-    const v6, 0x10103fa
+    const v6, 0x10103fd
 
     invoke-virtual {v5, v6, v4, v8}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
@@ -395,7 +395,7 @@
 
     move-result-object v6
 
-    const v7, 0x109010c
+    const v7, 0x1090112
 
     invoke-direct {v5, v6, v7}, Lcom/android/internal/view/menu/ListMenuPresenter;-><init>(Landroid/content/Context;I)V
 
@@ -513,7 +513,7 @@
 
     move-result-object v6
 
-    const v7, 0x1090095
+    const v7, 0x109009a
 
     invoke-direct {v5, v6, v7}, Lcom/android/internal/view/menu/ListMenuPresenter;-><init>(Landroid/content/Context;I)V
 

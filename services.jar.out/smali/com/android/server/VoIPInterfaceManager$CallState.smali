@@ -62,7 +62,7 @@
 
     const/4 v3, 0x0
 
-    .line 78
+    .line 63
     new-instance v0, Lcom/android/server/VoIPInterfaceManager$CallState;
 
     const-string v1, "IDLE"
@@ -153,7 +153,7 @@
 
     sput-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->DISCONNECTING:Lcom/android/server/VoIPInterfaceManager$CallState;
 
-    .line 75
+    .line 60
     const/16 v0, 0xa
 
     new-array v0, v0, [Lcom/android/server/VoIPInterfaceManager$CallState;
@@ -224,7 +224,7 @@
     .end annotation
 
     .prologue
-    .line 75
+    .line 60
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -235,7 +235,7 @@
     .parameter "name"
 
     .prologue
-    .line 75
+    .line 60
     const-class v0, Lcom/android/server/VoIPInterfaceManager$CallState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -251,7 +251,7 @@
     .locals 1
 
     .prologue
-    .line 75
+    .line 60
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->$VALUES:[Lcom/android/server/VoIPInterfaceManager$CallState;
 
     invoke-virtual {v0}, [Lcom/android/server/VoIPInterfaceManager$CallState;->clone()Ljava/lang/Object;
@@ -269,7 +269,7 @@
     .locals 1
 
     .prologue
-    .line 84
+    .line 69
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->ACTIVE:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     if-ne p0, v0, :cond_0
@@ -289,7 +289,7 @@
     .locals 1
 
     .prologue
-    .line 87
+    .line 72
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->ALERTING:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     if-ne p0, v0, :cond_0
@@ -309,7 +309,7 @@
     .locals 1
 
     .prologue
-    .line 83
+    .line 68
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->DIALING:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     if-ne p0, v0, :cond_0
@@ -329,7 +329,7 @@
     .locals 1
 
     .prologue
-    .line 92
+    .line 77
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->DISCONNECTED:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     if-ne p0, v0, :cond_0
@@ -349,7 +349,7 @@
     .locals 1
 
     .prologue
-    .line 91
+    .line 76
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->DISCONNECTING:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     if-ne p0, v0, :cond_0
@@ -369,7 +369,7 @@
     .locals 1
 
     .prologue
-    .line 85
+    .line 70
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->HOLDING:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     if-ne p0, v0, :cond_0
@@ -389,7 +389,7 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 66
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->IDLE:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     if-ne p0, v0, :cond_0
@@ -409,7 +409,7 @@
     .locals 1
 
     .prologue
-    .line 88
+    .line 73
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->INCOMING:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     if-ne p0, v0, :cond_0
@@ -429,7 +429,7 @@
     .locals 1
 
     .prologue
-    .line 82
+    .line 67
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->RINGING:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     if-ne p0, v0, :cond_0
@@ -449,7 +449,7 @@
     .locals 1
 
     .prologue
-    .line 89
+    .line 74
     sget-object v0, Lcom/android/server/VoIPInterfaceManager$CallState;->WAITING:Lcom/android/server/VoIPInterfaceManager$CallState;
 
     if-ne p0, v0, :cond_0

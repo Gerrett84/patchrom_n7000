@@ -4,6 +4,10 @@
 
 
 # static fields
+.field public static final DISABLE_SUBSCRIBE_AND_READ_TIMERS_FROM_ACS:Ljava/lang/String; = "0"
+
+.field public static final DISABLE_SUBSCRIBE_AND_READ_TIMERS_FROM_DB:Ljava/lang/String; = "2"
+
 .field public static final DefaultConfigKTServerServiceId:Ljava/lang/String; = "VOLTE"
 
 .field public static final DefaultConfigSKTServerServiceId:Ljava/lang/String; = "VOLTE"
@@ -22,7 +26,7 @@
 
 .field public static final DefaultmAudioBitRate:Ljava/lang/String; = "8"
 
-.field public static final DefaultmAudioCodecMode:Ljava/lang/String; = "octet-aligned"
+.field public static DefaultmAudioCodecMode:Ljava/lang/String; = null
 
 .field public static final DefaultmAudioFirst:Ljava/lang/String; = " "
 
@@ -34,7 +38,7 @@
 
 .field public static DefaultmBitRate:Ljava/lang/String; = null
 
-.field public static final DefaultmCodecBandwidthVal:Ljava/lang/String; = "30"
+.field public static DefaultmCodecBandwidthVal:Ljava/lang/String; = null
 
 .field public static final DefaultmCommercialPcscfIPVal:Ljava/lang/String; = "10.113.13.211"
 
@@ -49,6 +53,8 @@
 .field public static DefaultmEnableQos:Ljava/lang/String; = null
 
 .field public static DefaultmFrameRate:Ljava/lang/String; = null
+
+.field public static DefaultmImsPdnAutoCon:Ljava/lang/String; = null
 
 .field public static final DefaultmJitterBufferSettingVal:Ljava/lang/String; = "1"
 
@@ -76,6 +82,10 @@
 
 .field public static final DefaultmPrefCscfIp3:Ljava/lang/String; = " "
 
+.field public static final DefaultmPrefCscfIp4:Ljava/lang/String; = ""
+
+.field public static final DefaultmPrefCscfIp5:Ljava/lang/String; = ""
+
 .field public static final DefaultmPrefCscfIpCnt:Ljava/lang/String; = "1"
 
 .field public static DefaultmPrefCscfPort:Ljava/lang/String; = null
@@ -94,13 +104,13 @@
 
 .field public static DefaultmPrefXdmIpforWiFi:Ljava/lang/String; = null
 
-.field public static final DefaultmPrivateUserIdentity:Ljava/lang/String; = "111"
+.field public static final DefaultmPrivateUserIdentity:Ljava/lang/String; = "unknown"
 
 .field public static DefaultmPublicUserIdentity:Ljava/lang/String; = null
 
 .field public static DefaultmQosAware:Ljava/lang/String; = null
 
-.field public static final DefaultmRegisterTimer:Ljava/lang/String; = "600000"
+.field public static DefaultmRegisterTimer:Ljava/lang/String; = null
 
 .field public static final DefaultmReservedVal1:Ljava/lang/String; = "1"
 
@@ -110,9 +120,9 @@
 
 .field public static final DefaultmReservedVal4:Ljava/lang/String; = null
 
-.field public static final DefaultmReservedVal5:Ljava/lang/String; = "  "
+.field public static DefaultmReservedVal5:Ljava/lang/String; = null
 
-.field public static final DefaultmReservedVal6:Ljava/lang/String; = "  "
+.field public static DefaultmReservedVal6:Ljava/lang/String; = null
 
 .field public static final DefaultmReservedVal7:Ljava/lang/String; = "  "
 
@@ -120,11 +130,11 @@
 
 .field public static DefaultmSessionExpire:Ljava/lang/String; = null
 
-.field public static final DefaultmSipTimerF:Ljava/lang/String; = "44000"
+.field public static DefaultmSipTimerF:Ljava/lang/String; = null
 
-.field public static final DefaultmSipTimerT1:Ljava/lang/String; = "2000"
+.field public static DefaultmSipTimerT1:Ljava/lang/String; = null
 
-.field public static final DefaultmSipTimerT2:Ljava/lang/String; = "16000"
+.field public static DefaultmSipTimerT2:Ljava/lang/String; = null
 
 .field public static final DefaultmSubscriberTimer:Ljava/lang/String; = "600000"
 
@@ -143,6 +153,8 @@
 .field public static final HIDDEN_MENU_VALUE_VOLTE_BLOCKED:Ljava/lang/String; = "VT"
 
 .field public static final HIDDEN_MENU_VALUE_VOLTE_PREFERED:Ljava/lang/String; = "VoLTE:VT"
+
+.field public static final SEND_SUBSCRIBE:Ljava/lang/String; = "1"
 
 .field public static final mDefaultSKTPwd:Ljava/lang/String; = "upwd"
 
@@ -248,6 +260,8 @@
 
 .field public mFrameRateVal:Ljava/lang/String;
 
+.field public mImsPdnAutoConVal:Ljava/lang/String;
+
 .field public mJitterBufferSettingVal:Ljava/lang/String;
 
 .field public mLoopbackVal:Ljava/lang/String;
@@ -273,6 +287,10 @@
 .field public mPrefCscfIpVal2:Ljava/lang/String;
 
 .field public mPrefCscfIpVal3:Ljava/lang/String;
+
+.field public mPrefCscfIpVal4:Ljava/lang/String;
+
+.field public mPrefCscfIpVal5:Ljava/lang/String;
 
 .field public mPrefCscfPortVal:Ljava/lang/String;
 
@@ -378,112 +396,147 @@
     .locals 1
 
     .prologue
-    .line 249
+    .line 255
     const-string v0, "pcscf1.lteims.co.kr"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDns:Ljava/lang/String;
 
-    .line 252
+    .line 258
     const-string v0, "wifi.lteims.co.kr"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDnsforWiFi:Ljava/lang/String;
 
-    .line 254
+    .line 260
     const-string v0, "107.108.208.221"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfIp:Ljava/lang/String;
 
-    .line 264
+    .line 274
     const-string v0, "lte-lguplus.co.kr"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDomain:Ljava/lang/String;
 
-    .line 268
+    .line 278
     const-string v0, "5060"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPort:Ljava/lang/String;
 
-    .line 271
+    .line 281
     const-string v0, "5060"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPortforLTE:Ljava/lang/String;
 
-    .line 273
+    .line 283
     const-string v0, "5060"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPortforWiFi:Ljava/lang/String;
 
-    .line 275
+    .line 285
     const-string v0, "255"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmDns:Ljava/lang/String;
 
-    .line 277
+    .line 287
     const-string v0, "1"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmIp:Ljava/lang/String;
 
-    .line 281
+    .line 291
     const-string v0, "1"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmIpforWiFi:Ljava/lang/String;
 
-    .line 293
+    .line 303
     const-string v0, "2000$16000$44000"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmEnableQos:Ljava/lang/String;
 
     .line 304
-    const-string v0, "SKT-LTE-VT1.0 SHV-E210S_AND/1.0"
+    const-string v0, "2000"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSipTimerT1:Ljava/lang/String;
+
+    .line 306
+    const-string v0, "16000"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSipTimerT2:Ljava/lang/String;
+
+    .line 308
+    const-string v0, "44000"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSipTimerF:Ljava/lang/String;
+
+    .line 314
+    const-string v0, "SKT-LTE-VoLTE1.0 SHV-E210S_AND/1.0"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmQosAware:Ljava/lang/String;
 
-    .line 310
+    .line 320
     const-string v0, "0"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAutoTest:Ljava/lang/String;
 
-    .line 315
+    .line 325
     const-string v0, "1"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefNwType:Ljava/lang/String;
 
-    .line 322
+    .line 332
     const-string v0, "7"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmFrameRate:Ljava/lang/String;
 
-    .line 324
+    .line 334
     const-string v0, "1024000"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBitRate:Ljava/lang/String;
 
-    .line 330
-    const-string v0, "111"
+    .line 339
+    const-string v0, "octet-aligned"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAudioCodecMode:Ljava/lang/String;
+
+    .line 340
+    const-string v0, "unknown"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPublicUserIdentity:Ljava/lang/String;
 
-    .line 339
+    .line 345
+    const-string v0, "600000"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmRegisterTimer:Ljava/lang/String;
+
+    .line 349
     const-string v0, "90"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSessionExpire:Ljava/lang/String;
 
-    .line 341
+    .line 351
     const-string v0, "1234"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAudioPort:Ljava/lang/String;
 
-    .line 343
+    .line 353
     const-string v0, "1254"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmVideoPort:Ljava/lang/String;
 
-    .line 383
+    .line 361
+    const-string v0, "41"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmCodecBandwidthVal:Ljava/lang/String;
+
+    .line 391
     const-string v0, "Internet PDN"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPDN:Ljava/lang/String;
 
     .line 393
+    const-string v0, "ON"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmImsPdnAutoCon:Ljava/lang/String;
+
+    .line 403
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
@@ -491,6 +544,16 @@
     move-result-object v0
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmReservedVal4:Ljava/lang/String;
+
+    .line 409
+    const-string v0, "  "
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmReservedVal5:Ljava/lang/String;
+
+    .line 410
+    const-string v0, "  "
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmReservedVal6:Ljava/lang/String;
 
     return-void
 .end method
@@ -501,51 +564,51 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 418
+    .line 431
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 363
+    .line 373
     const-string v1, "Android 1.0"
 
     iput-object v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmProductName:Ljava/lang/String;
 
-    .line 365
+    .line 375
     const-string v1, "Release"
 
     iput-object v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBuildType:Ljava/lang/String;
 
-    .line 367
+    .line 377
     const-string v1, "1.0"
 
     iput-object v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBuildRelVersion:Ljava/lang/String;
 
-    .line 369
+    .line 379
     const-string v1, "CL1.0"
 
     iput-object v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBuildIncrmntal:Ljava/lang/String;
 
-    .line 371
+    .line 381
     const-string v1, "2.3"
 
     iput-object v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBuildSdk:Ljava/lang/String;
 
-    .line 411
+    .line 421
     iput-boolean v2, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isSKT:Z
 
-    .line 412
+    .line 422
     iput-boolean v2, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isLGT:Z
 
-    .line 413
+    .line 423
     iput-boolean v2, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isKTT:Z
 
-    .line 420
+    .line 433
     const-string v1, "ro.csc.sales_code"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 421
+    .line 434
     .local v0, salesCode:Ljava/lang/String;
     const-string v1, "SKT"
 
@@ -555,7 +618,7 @@
 
     iput-boolean v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isSKT:Z
 
-    .line 422
+    .line 435
     const-string v1, "LGT"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -564,7 +627,7 @@
 
     iput-boolean v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isLGT:Z
 
-    .line 423
+    .line 436
     const-string v1, "KTT"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -573,7 +636,7 @@
 
     iput-boolean v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isKTT:Z
 
-    .line 425
+    .line 438
     const-string v1, "Hidden Menu data"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -598,7 +661,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 426
+    .line 439
     const-string v1, "Hidden Menu data"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -623,7 +686,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 427
+    .line 440
     const-string v1, "Hidden Menu data"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -648,27 +711,51 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 428
+    .line 441
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/external/HiddenMenuData;->settoDefaultValues()V
 
-    .line 429
+    .line 442
     return-void
 .end method
 
 
 # virtual methods
 .method public getDefaultUserAgentVal()Ljava/lang/String;
-    .locals 1
+    .locals 3
 
     .prologue
-    .line 602
+    .line 638
     const/4 v0, 0x0
 
-    .line 603
+    .line 639
     .local v0, mString:Ljava/lang/String;
-    const-string v0, "SKT-LTE-VoLTE1.0 SHV-E210S_AND/1.0"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    .line 604
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "SKT-LTE-VoLTE1.0 "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-object v2, Landroid/os/Build;->MODEL:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "_AND/1.0"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 640
     return-object v0
 .end method
 
@@ -676,10 +763,10 @@
     .locals 3
 
     .prologue
-    .line 608
+    .line 644
     const/4 v0, 0x0
 
-    .line 609
+    .line 645
     .local v0, mString:Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -707,7 +794,7 @@
 
     move-result-object v0
 
-    .line 610
+    .line 646
     return-object v0
 .end method
 
@@ -715,16 +802,16 @@
     .locals 3
 
     .prologue
-    .line 615
+    .line 651
     const/4 v0, 0x0
 
-    .line 616
+    .line 652
     .local v0, bImsEnabledonWiFi:Z
     iget-boolean v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isLGT:Z
 
     if-eqz v1, :cond_1
 
-    .line 617
+    .line 653
     iget-object v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mWiFiSettingVal:Ljava/lang/String;
 
     const-string v2, "1"
@@ -735,15 +822,15 @@
 
     if-eqz v1, :cond_0
 
-    .line 618
+    .line 654
     const/4 v0, 0x1
 
-    .line 627
+    .line 663
     :cond_0
     :goto_0
     return v0
 
-    .line 623
+    .line 659
     :cond_1
     iget-object v1, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mVideoProfileVal:Ljava/lang/String;
 
@@ -755,7 +842,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 624
+    .line 660
     const/4 v0, 0x1
 
     goto :goto_0
@@ -765,7 +852,7 @@
     .locals 2
 
     .prologue
-    .line 437
+    .line 450
     const-string v0, "eng"
 
     sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -774,730 +861,836 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
-    .line 438
+    .line 451
     const-string v0, "255"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmDns:Ljava/lang/String;
 
-    .line 443
+    .line 456
     :goto_0
     iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isSKT:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
-    .line 444
+    .line 457
     const-string v0, "mss.nate.com"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDns:Ljava/lang/String;
 
-    .line 445
+    .line 458
     const-string v0, "abc.sktelecom.com"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDnsforWiFi:Ljava/lang/String;
 
-    .line 446
+    .line 459
     const-string v0, "220.103.220.10"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfIp:Ljava/lang/String;
 
-    .line 447
+    .line 460
     const-string v0, "sktims.net"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDomain:Ljava/lang/String;
 
-    .line 448
+    .line 461
     const-string v0, "5076"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPort:Ljava/lang/String;
 
-    .line 449
+    .line 462
     const-string v0, "5075"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPortforWiFi:Ljava/lang/String;
 
-    .line 450
+    .line 463
     const-string v0, "1"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmIpforWiFi:Ljava/lang/String;
 
-    .line 451
+    .line 464
     const-string v0, "2000$16000$44000"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmEnableQos:Ljava/lang/String;
 
-    .line 452
+    .line 465
     const-string v0, "0"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAutoTest:Ljava/lang/String;
 
-    .line 453
+    .line 466
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/external/HiddenMenuData;->getDefaultUserAgentVal()Ljava/lang/String;
 
     move-result-object v0
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmQosAware:Ljava/lang/String;
 
-    .line 454
-    const-string v0, "1"
+    .line 467
+    const-string v0, "0"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefNwType:Ljava/lang/String;
 
-    .line 455
+    .line 468
     const-string v0, "15"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmFrameRate:Ljava/lang/String;
 
-    .line 456
+    .line 469
     const-string v0, "512000"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBitRate:Ljava/lang/String;
 
-    .line 457
-    const-string v0, "1000"
+    .line 470
+    const-string v0, "unknown"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPublicUserIdentity:Ljava/lang/String;
 
-    .line 458
+    .line 471
     const-string v0, "180"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSessionExpire:Ljava/lang/String;
 
-    .line 459
+    .line 472
     const-string v0, "7010"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAudioPort:Ljava/lang/String;
 
-    .line 460
+    .line 473
     const-string v0, "7012"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmVideoPort:Ljava/lang/String;
 
-    .line 461
+    .line 474
     const-string v0, "IMS PDN"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPDN:Ljava/lang/String;
 
-    .line 480
+    .line 475
+    const-string v0, "octet-aligned"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAudioCodecMode:Ljava/lang/String;
+
+    .line 476
+    const-string v0, "41"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmCodecBandwidthVal:Ljava/lang/String;
+
+    .line 508
     :cond_0
     :goto_1
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDns:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfDnsVal:Ljava/lang/String;
 
-    .line 481
+    .line 509
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDnsforWiFi:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfDnsforWiFiVal:Ljava/lang/String;
 
-    .line 482
+    .line 510
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfIp:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfIpVal:Ljava/lang/String;
 
-    .line 484
+    .line 512
     const-string v0, " "
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfIpVal2:Ljava/lang/String;
 
-    .line 485
+    .line 513
     const-string v0, " "
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfIpVal3:Ljava/lang/String;
 
-    .line 486
+    .line 515
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfIpVal4:Ljava/lang/String;
+
+    .line 516
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfIpVal5:Ljava/lang/String;
+
+    .line 518
     const-string v0, "1"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfIpCnt:Ljava/lang/String;
 
-    .line 488
+    .line 520
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDomain:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfDomainVal:Ljava/lang/String;
 
-    .line 489
+    .line 521
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPort:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfPortVal:Ljava/lang/String;
 
-    .line 490
+    .line 522
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPortforLTE:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfPortforLTEVal:Ljava/lang/String;
 
-    .line 491
+    .line 523
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPortforWiFi:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefCscfPortforWiFiVal:Ljava/lang/String;
 
-    .line 493
+    .line 525
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmDns:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefXdmDnsVal:Ljava/lang/String;
 
-    .line 494
+    .line 526
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmIp:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefXdmIpVal:Ljava/lang/String;
 
-    .line 495
+    .line 527
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmIpforWiFi:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefXdmIpforWiFiVal:Ljava/lang/String;
 
-    .line 496
+    .line 528
     const-string v0, "AMR-WB,AMR-NB,EVRC"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefAudioCodecVal:Ljava/lang/String;
 
-    .line 497
+    .line 529
     const-string v0, "H264,H263"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefVideoCodecVal:Ljava/lang/String;
 
-    .line 498
+    .line 530
     const-string v0, "End To End Call"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mLoopbackVal:Ljava/lang/String;
 
-    .line 499
+    .line 531
     const-string v0, "1"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAlwaysOnVal:Ljava/lang/String;
 
-    .line 500
+    .line 532
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmEnableQos:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mEnableQosVal:Ljava/lang/String;
 
-    .line 501
-    const-string v0, "2000"
+    .line 533
+    sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSipTimerT1:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mSipTimerT1Val:Ljava/lang/String;
 
-    .line 502
-    const-string v0, "16000"
+    .line 534
+    sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSipTimerT2:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mSipTimerT2Val:Ljava/lang/String;
 
-    .line 503
-    const-string v0, "44000"
+    .line 535
+    sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSipTimerF:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mSipTimerFVal:Ljava/lang/String;
 
-    .line 505
+    .line 537
     iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isLGT:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    .line 506
+    .line 538
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmDns:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mVideoProfileVal:Ljava/lang/String;
 
-    .line 507
+    .line 539
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmDns:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAudioFirstVal:Ljava/lang/String;
 
-    .line 508
+    .line 540
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmDns:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mQosAwareVal:Ljava/lang/String;
 
-    .line 509
+    .line 541
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmDns:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mVTDebuggingVal:Ljava/lang/String;
 
-    .line 510
+    .line 542
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmDns:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAutoTestVal:Ljava/lang/String;
 
-    .line 519
+    .line 551
     :goto_2
     iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isKTT:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
-    .line 520
+    .line 552
     const-string v0, "https://128.134.98.231/Config"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mConfigServerUrl:Ljava/lang/String;
 
-    .line 521
+    .line 553
     const-string v0, "VOLTE"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mConfigServerServiceId:Ljava/lang/String;
 
-    .line 522
+    .line 554
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/external/HiddenMenuData;->getKTUserAgentVal()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mQosAwareVal:Ljava/lang/String;
 
-    .line 525
+    .line 557
     :cond_1
     :goto_3
     const-string v0, "VOLTE"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mConfigServerServiceId:Ljava/lang/String;
 
-    .line 528
+    .line 560
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefNwType:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrefNwTypeVal:Ljava/lang/String;
 
-    .line 529
+    .line 561
     const-string v0, "LTE"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mCurrLatchedNwVal:Ljava/lang/String;
 
-    .line 530
+    .line 562
     const-string v0, "3GPP-E-UTRAN;utran-cell-id-3gpp=4500527089c403"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAccessNwInfoVal:Ljava/lang/String;
 
-    .line 531
+    .line 563
     const-string v0, "vga"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mCurrDispFormatVal:Ljava/lang/String;
 
-    .line 532
+    .line 564
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmFrameRate:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mFrameRateVal:Ljava/lang/String;
 
-    .line 533
+    .line 565
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBitRate:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mBitRateVal:Ljava/lang/String;
 
-    .line 534
+    .line 566
     const-string v0, "1"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mDynamicBitRateVal:Ljava/lang/String;
 
-    .line 535
-    const-string v0, "octet-aligned"
+    .line 567
+    sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAudioCodecMode:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAudioCodecModeVal:Ljava/lang/String;
 
-    .line 536
+    .line 568
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPublicUserIdentity:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPublicUserIdentityVal:Ljava/lang/String;
 
-    .line 537
-    const-string v0, "111"
+    .line 569
+    const-string v0, "unknown"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPrivateUserIdentityVal:Ljava/lang/String;
 
-    .line 538
-    const-string v0, "600000"
+    .line 570
+    sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmRegisterTimer:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mRegisterTimerVal:Ljava/lang/String;
 
-    .line 539
+    .line 571
     const-string v0, "600000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mSubscriberTimerVal:Ljava/lang/String;
 
-    .line 540
+    .line 572
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSessionExpire:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mSessionExpireVal:Ljava/lang/String;
 
-    .line 541
+    .line 573
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAudioPort:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAudioPortVal:Ljava/lang/String;
 
-    .line 542
+    .line 574
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmVideoPort:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mVideoPortVal:Ljava/lang/String;
 
-    .line 543
+    .line 575
     const-string v0, "Commercial"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPcscfTypeVal:Ljava/lang/String;
 
-    .line 544
-    const-string v0, "30"
+    .line 576
+    sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmCodecBandwidthVal:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mCodecBandwidthVal:Ljava/lang/String;
 
-    .line 545
+    .line 577
     const-string v0, "On"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAecVal:Ljava/lang/String;
 
-    .line 546
+    .line 578
     const-string v0, "On"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mNsVal:Ljava/lang/String;
 
-    .line 547
+    .line 579
     const-string v0, "Off"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mVadVal:Ljava/lang/String;
 
-    .line 548
+    .line 580
     const-string v0, " "
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mUserAgentVal:Ljava/lang/String;
 
-    .line 549
+    .line 581
     const-string v0, "10.113.13.211"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mCommercialPcscfIPVal:Ljava/lang/String;
 
-    .line 550
+    .line 582
     const-string v0, "1"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mEnableIMSOnRoamingVal:Ljava/lang/String;
 
-    .line 551
+    .line 583
     iget-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmProductName:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mProductName:Ljava/lang/String;
 
-    .line 552
+    .line 584
     iget-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBuildType:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mBuildType:Ljava/lang/String;
 
-    .line 553
+    .line 585
     iget-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBuildRelVersion:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mBuildRelVersion:Ljava/lang/String;
 
-    .line 554
+    .line 586
     iget-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBuildIncrmntal:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mBuildIncrmntal:Ljava/lang/String;
 
-    .line 555
+    .line 587
     iget-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmBuildSdk:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mBuildSdk:Ljava/lang/String;
 
-    .line 556
+    .line 588
     const-string v0, "0"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mWiFiSettingVal:Ljava/lang/String;
 
-    .line 557
+    .line 589
     const-string v0, "8"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAudioBitRateVal:Ljava/lang/String;
 
-    .line 558
+    .line 590
     const-string v0, "6"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAMRBundlingRateVal:Ljava/lang/String;
 
-    .line 559
+    .line 591
     const-string v0, "1"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAudioVideoTxVal:Ljava/lang/String;
 
-    .line 560
+    .line 592
     const-string v0, "1"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mJitterBufferSettingVal:Ljava/lang/String;
 
-    .line 561
+    .line 593
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPDN:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPDNVal:Ljava/lang/String;
 
-    .line 562
+    .line 594
+    sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmImsPdnAutoCon:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mImsPdnAutoConVal:Ljava/lang/String;
+
+    .line 595
     iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isSKT:Z
 
     if-nez v0, :cond_2
 
     iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isKTT:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
-    .line 563
+    .line 596
     :cond_2
     const-string v0, "1"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mEnableConfigServerAccess:Ljava/lang/String;
 
-    .line 566
+    .line 599
     :goto_4
     const-string v0, "1"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mReservedVal1:Ljava/lang/String;
 
-    .line 567
-    const-string v0, "VoLTE:VT"
+    .line 600
+    iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isSKT:Z
+
+    if-nez v0, :cond_3
+
+    iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isKTT:Z
+
+    if-eqz v0, :cond_b
+
+    .line 601
+    :cond_3
+    const-string v0, "VT"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mReservedVal2:Ljava/lang/String;
 
-    .line 568
+    .line 604
+    :goto_5
     const-string v0, "  "
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mReservedVal3:Ljava/lang/String;
 
-    .line 569
+    .line 605
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmReservedVal4:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mReservedVal4:Ljava/lang/String;
 
-    .line 570
-    const-string v0, "  "
+    .line 606
+    sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmReservedVal5:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mReservedVal5:Ljava/lang/String;
 
-    .line 571
-    const-string v0, "  "
+    .line 607
+    sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmReservedVal6:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mReservedVal6:Ljava/lang/String;
 
-    .line 574
+    .line 610
     const-string v0, "2000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerA:Ljava/lang/String;
 
-    .line 575
+    .line 611
     const-string v0, "44000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerB:Ljava/lang/String;
 
-    .line 576
+    .line 612
     const-string v0, "72000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerC:Ljava/lang/String;
 
-    .line 577
+    .line 613
     const-string v0, "32000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerD:Ljava/lang/String;
 
-    .line 578
+    .line 614
     const-string v0, "2000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerE:Ljava/lang/String;
 
-    .line 579
+    .line 615
     const-string v0, "44000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerF:Ljava/lang/String;
 
-    .line 580
+    .line 616
     const-string v0, "2000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerG:Ljava/lang/String;
 
-    .line 581
+    .line 617
     const-string v0, "36000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerH:Ljava/lang/String;
 
-    .line 582
+    .line 618
     const-string v0, "17000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerI:Ljava/lang/String;
 
-    .line 583
+    .line 619
     const-string v0, "32000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerJ:Ljava/lang/String;
 
-    .line 584
+    .line 620
     const-string v0, "17000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimerK:Ljava/lang/String;
 
-    .line 585
+    .line 621
     const-string v0, "2000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimer1:Ljava/lang/String;
 
-    .line 586
+    .line 622
     const-string v0, "16000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimer2:Ljava/lang/String;
 
-    .line 587
+    .line 623
     const-string v0, "17000"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mTimer4:Ljava/lang/String;
 
-    .line 588
+    .line 624
     const-string v0, "uname"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mUname:Ljava/lang/String;
 
-    .line 589
+    .line 625
     const-string v0, "upwd"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mPwd:Ljava/lang/String;
 
-    .line 590
+    .line 626
     const-string v0, "domain"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mRealm:Ljava/lang/String;
 
-    .line 594
+    .line 630
     iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isSKT:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    .line 595
+    .line 631
     const-string v0, "  "
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mReservedVal7:Ljava/lang/String;
 
-    .line 596
+    .line 632
     const-string v0, "  "
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mReservedVal8:Ljava/lang/String;
 
-    .line 599
-    :cond_3
+    .line 635
+    :cond_4
     return-void
 
-    .line 440
-    :cond_4
+    .line 453
+    :cond_5
     const-string v0, "100"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmDns:Ljava/lang/String;
 
     goto/16 :goto_0
 
-    .line 462
-    :cond_5
+    .line 477
+    :cond_6
     iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isLGT:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
-    .line 464
+    .line 479
     const-string v0, "10.113.13.75"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfIp:Ljava/lang/String;
 
-    .line 465
+    .line 480
     const-string v0, "lte-lguplus.co.kr"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDomain:Ljava/lang/String;
 
-    .line 466
+    .line 481
     const-string v0, "IMS PDN"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPDN:Ljava/lang/String;
 
+    .line 482
+    const-string v0, "octet-aligned"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAudioCodecMode:Ljava/lang/String;
+
+    .line 483
+    const-string v0, "41"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmCodecBandwidthVal:Ljava/lang/String;
+
     goto/16 :goto_1
 
-    .line 468
-    :cond_6
+    .line 485
+    :cond_7
     iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isKTT:Z
 
     if-eqz v0, :cond_0
 
-    .line 469
+    .line 486
     const-string v0, "125.144.129.7"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfIp:Ljava/lang/String;
 
-    .line 470
+    .line 487
     const-string v0, "ims.kt.com"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfDomain:Ljava/lang/String;
 
-    .line 471
+    .line 488
     const-string v0, "5065"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPortforWiFi:Ljava/lang/String;
 
-    .line 472
+    .line 489
     const-string v0, "5080"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPort:Ljava/lang/String;
 
-    .line 473
+    .line 490
     const-string v0, "5080"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefCscfPortforLTE:Ljava/lang/String;
 
-    .line 474
-    const-string v0, "11890"
+    .line 491
+    invoke-virtual {p0}, Lcom/sec/android/internal/ims/external/HiddenMenuData;->getKTUserAgentVal()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmQosAware:Ljava/lang/String;
+
+    .line 492
+    const-string v0, "49152"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAudioPort:Ljava/lang/String;
 
-    .line 475
+    .line 493
+    const-string v0, "49154"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmVideoPort:Ljava/lang/String;
+
+    .line 494
+    const-string v0, "28800"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmRegisterTimer:Ljava/lang/String;
+
+    .line 495
     const-string v0, "0"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmIp:Ljava/lang/String;
 
-    .line 476
+    .line 496
     const-string v0, "IMS PDN"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPDN:Ljava/lang/String;
 
-    .line 477
-    const-string v0, "180"
+    .line 497
+    const-string v0, "360"
 
     sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSessionExpire:Ljava/lang/String;
 
+    .line 499
+    const-string v0, "bandwidth-efficient;octet-aligned"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAudioCodecMode:Ljava/lang/String;
+
+    .line 500
+    const-string v0, "0.0.0.0"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmReservedVal5:Ljava/lang/String;
+
+    .line 501
+    const-string v0, "178000"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmReservedVal6:Ljava/lang/String;
+
+    .line 502
+    const-string v0, "41"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmCodecBandwidthVal:Ljava/lang/String;
+
+    .line 503
+    const-string v0, "1000"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSipTimerT1:Ljava/lang/String;
+
+    .line 504
+    const-string v0, "2000"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSipTimerT2:Ljava/lang/String;
+
+    .line 505
+    const-string v0, "8000"
+
+    sput-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmSipTimerF:Ljava/lang/String;
+
     goto/16 :goto_1
 
-    .line 512
-    :cond_7
+    .line 544
+    :cond_8
     const-string v0, "0"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mVideoProfileVal:Ljava/lang/String;
 
-    .line 513
+    .line 545
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmPrefXdmDns:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAudioFirstVal:Ljava/lang/String;
 
-    .line 514
+    .line 546
     invoke-virtual {p0}, Lcom/sec/android/internal/ims/external/HiddenMenuData;->getDefaultUserAgentVal()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mQosAwareVal:Ljava/lang/String;
 
-    .line 515
+    .line 547
     const-string v0, "0"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mVTDebuggingVal:Ljava/lang/String;
 
-    .line 516
+    .line 548
     sget-object v0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->DefaultmAutoTest:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mAutoTestVal:Ljava/lang/String;
 
     goto/16 :goto_2
 
-    .line 523
-    :cond_8
+    .line 555
+    :cond_9
     iget-boolean v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->isSKT:Z
 
     if-eqz v0, :cond_1
 
-    .line 524
+    .line 556
     const-string v0, "https://apcs.sktelecom.com/VoLTE/Config"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mConfigServerUrl:Ljava/lang/String;
 
     goto/16 :goto_3
 
-    .line 565
-    :cond_9
+    .line 598
+    :cond_a
     const-string v0, "0"
 
     iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mEnableConfigServerAccess:Ljava/lang/String;
 
     goto/16 :goto_4
+
+    .line 603
+    :cond_b
+    const-string v0, "VoLTE:VT"
+
+    iput-object v0, p0, Lcom/sec/android/internal/ims/external/HiddenMenuData;->mReservedVal2:Ljava/lang/String;
+
+    goto/16 :goto_5
 .end method

@@ -101,13 +101,13 @@ Slušalica funkcioniše kao radio antena i treba da bude povezana"</string>
     <string name="toast_unavailable_in_tvout_mode">Nedostupno u režimu TV-izlaza</string>
     <string name="mute">Isključi ton</string>
     <string name="seeking">Pretraga…</string>
-    <string name="via_earphone">Putem slušalica</string>
-    <string name="via_speaker">Putem zvuč.</string>
+    <string name="via_earphone">Reprodukuj preko slušalica</string>
+    <string name="via_speaker">Pusti putem zvučnika</string>
     <string name="normal_frequency">Normalna frekvencija</string>
     <string name="tag">Ozn.</string>
     <string name="stop">Stop</string>
     <string name="recording">Snimanje…</string>
-    <string name="memory_full">Snimanje je zaustavljeno. Memorija je puna</string>
+    <string name="memory_full">Memorija puna</string>
     <string name="cancel_recording">Otkaži snimanje?</string>
     <string name="change_frequency">Promeni frekvenciju</string>
     <string name="enter_frequency">Unesi frekvenciju</string>
@@ -118,7 +118,7 @@ Slušalica funkcioniše kao radio antena i treba da bude povezana"</string>
     <string name="recording_error">Greška fajla</string>
     <string name="desc_record">Snimi</string>
     <string name="desc_volume">Jačina zvuka</string>
-    <string name="desc_power">Snaga</string>
+    <string name="desc_power">Režim potrošnje</string>
     <string name="desc_prev">Prethodna stanica</string>
     <string name="desc_next">Sledeća stanica</string>
     <string name="desc_add_favorite">Dodaj omiljeno</string>
@@ -133,11 +133,14 @@ Slušalica funkcioniše kao radio antena i treba da bude povezana"</string>
     <string name="tags">Oznake</string>
     <string name="tags_now_broadcasting">Trenutno emitovanje</string>
     <string name="tags_no_information">Nema informacija</string>
+    <string name="tags_music_history">Istorija muzike</string>
     <string name="tags_music_title">Naslov</string>
     <string name="tags_music_album">Album</string>
     <string name="tags_music_artist">Umetnik</string>
+    <string name="tags_music_band">Bend</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Početna strana</string>
+    <string name="tags_interact_hotline">Vruća linija</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Ostalo</string>
     <string name="tags_interact_centre">Srednje</string>
@@ -183,4 +186,14 @@ Nakon snimanja radija, snimljeni fajlovi će se prikazati"</string>
     <string name="dialog_one_item_deleted">Ova stavka će biti obrisana</string>
     <string name="dialog_multiple_items_deleted">Biće obrisane/o %d stavke/i</string>
     <string name="dialog_all_items_deleted">Biće obrisane sve stavke</string>
+    <string name="turning_on">Uključivanje…</string>
+    <string name="not_enough_memory_recording_will_stop">Nedovoljna memorija. Snimanje će se završiti za %d sekundi</string>
+    <string name="low_batt_msg">Baterija prazna</string>
+    <string name="no_play_during_call">Nemoguće reprodukovati tokom poziva</string>
+    <string name="unable_delete">Nemoguće obrisati</string>
+    <string name="playing">Reprod…</string>
+    <string name="tts_play_button">Reprodukcija</string>
+    <string name="tts_previous_button">Prethodna</string>
+    <string name="tts_Next_button">Naredna</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

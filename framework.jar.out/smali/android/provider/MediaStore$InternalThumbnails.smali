@@ -415,7 +415,7 @@
 
     const-string/jumbo v5, "thumbnails"
 
-    const-string v7, "media"
+    const-string/jumbo v7, "media"
 
     invoke-virtual {v3, v5, v7}, Ljava/lang/String;->replaceFirst(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -448,7 +448,7 @@
 
     const/4 v3, 0x0
 
-    const-string v7, "mini_thumb_magic"
+    const-string/jumbo v7, "mini_thumb_magic"
 
     aput-object v7, v5, v3
 
@@ -857,7 +857,7 @@
 
     const/4 v3, 0x0
 
-    const-string v5, "mini_thumb_magic"
+    const-string/jumbo v5, "mini_thumb_magic"
 
     aput-object v5, v9, v3
 

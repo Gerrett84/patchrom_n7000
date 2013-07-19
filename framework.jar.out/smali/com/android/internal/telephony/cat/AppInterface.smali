@@ -14,6 +14,8 @@
 # static fields
 .field public static final CAT_CMD_ACTION:Ljava/lang/String; = "android.intent.action.stk.command"
 
+.field public static final CAT_CMD_ACTIVATE:Ljava/lang/String; = "android.intent.action.stk.activate"
+
 .field public static final CAT_SESSION_END_ACTION:Ljava/lang/String; = "android.intent.action.stk.session_end"
 
 .field public static final START_MAIN_ACTIVITY:Ljava/lang/String; = "android.intent.action.stk.start_main_activity"

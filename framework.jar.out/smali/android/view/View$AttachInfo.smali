@@ -74,6 +74,8 @@
 
 .field final mKeyDispatchState:Landroid/view/KeyEvent$DispatcherState;
 
+.field mMultiWindowFocusDrawable:Landroid/graphics/drawable/Drawable;
+
 .field mPanelParentWindowToken:Landroid/os/IBinder;
 
 .field final mPoint:Landroid/graphics/Point;
@@ -165,84 +167,84 @@
 
     const/4 v1, 0x2
 
-    .line 17879
+    .line 17967
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 17682
+    .line 17763
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mContentInsets:Landroid/graphics/Rect;
 
-    .line 17689
+    .line 17770
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mVisibleInsets:Landroid/graphics/Rect;
 
-    .line 17698
+    .line 17779
     new-instance v0, Landroid/view/ViewTreeObserver$InternalInsetsInfo;
 
     invoke-direct {v0}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mGivenInternalInsets:Landroid/view/ViewTreeObserver$InternalInsetsInfo;
 
-    .line 17706
+    .line 17787
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mScrollContainers:Ljava/util/ArrayList;
 
-    .line 17708
+    .line 17789
     new-instance v0, Landroid/view/KeyEvent$DispatcherState;
 
     invoke-direct {v0}, Landroid/view/KeyEvent$DispatcherState;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mKeyDispatchState:Landroid/view/KeyEvent$DispatcherState;
 
-    .line 17735
+    .line 17816
     iput-boolean v2, p0, Landroid/view/View$AttachInfo;->mSetIgnoreDirtyState:Z
 
-    .line 17793
+    .line 17874
     new-array v0, v1, [I
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mTransparentLocation:[I
 
-    .line 17799
+    .line 17880
     new-array v0, v1, [I
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mInvalidateChildLocation:[I
 
-    .line 17806
+    .line 17887
     new-array v0, v1, [F
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mTmpTransformLocation:[F
 
-    .line 17812
+    .line 17893
     new-instance v0, Landroid/view/ViewTreeObserver;
 
     invoke-direct {v0}, Landroid/view/ViewTreeObserver;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
-    .line 17834
+    .line 17915
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mTmpInvalRect:Landroid/graphics/Rect;
 
-    .line 17839
+    .line 17920
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mTmpTransformRect:Landroid/graphics/RectF;
 
-    .line 17844
+    .line 17925
     new-instance v0, Ljava/util/ArrayList;
 
     const/16 v1, 0x18
@@ -251,12 +253,12 @@
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mTempArrayList:Ljava/util/ArrayList;
 
-    .line 17849
+    .line 17930
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/View$AttachInfo;->mAccessibilityWindowId:I
 
-    .line 17865
+    .line 17946
     const-string v0, "debug.layout"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -265,35 +267,35 @@
 
     iput-boolean v0, p0, Landroid/view/View$AttachInfo;->mDebugLayout:Z
 
-    .line 17870
+    .line 17951
     new-instance v0, Landroid/graphics/Point;
 
     invoke-direct {v0}, Landroid/graphics/Point;-><init>()V
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mPoint:Landroid/graphics/Point;
 
-    .line 17880
+    .line 17968
     iput-object p1, p0, Landroid/view/View$AttachInfo;->mSession:Landroid/view/IWindowSession;
 
-    .line 17881
+    .line 17969
     iput-object p2, p0, Landroid/view/View$AttachInfo;->mWindow:Landroid/view/IWindow;
 
-    .line 17882
+    .line 17970
     invoke-interface {p2}, Landroid/view/IWindow;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/view/View$AttachInfo;->mWindowToken:Landroid/os/IBinder;
 
-    .line 17883
+    .line 17971
     iput-object p3, p0, Landroid/view/View$AttachInfo;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
-    .line 17884
+    .line 17972
     iput-object p4, p0, Landroid/view/View$AttachInfo;->mHandler:Landroid/os/Handler;
 
-    .line 17885
+    .line 17973
     iput-object p5, p0, Landroid/view/View$AttachInfo;->mRootCallbacks:Landroid/view/View$AttachInfo$Callbacks;
 
-    .line 17886
+    .line 17974
     return-void
 .end method

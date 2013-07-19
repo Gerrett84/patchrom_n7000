@@ -60,19 +60,24 @@
 
 
 # virtual methods
-.method public addData(Landroid/sec/clipboard/data/ClipboardData;)Z
+.method public declared-synchronized addData(Landroid/sec/clipboard/data/ClipboardData;)Z
     .locals 9
     .parameter "data"
 
     .prologue
     .line 159
+    monitor-enter p0
+
     const/4 v0, 0x1
 
     .line 160
     .local v0, Result:Z
+    :try_start_0
     iget-object v6, p0, Landroid/sec/clipboard/data/ClipboardDataMgr;->mDataList:Landroid/sec/clipboard/data/file/FileManager;
 
     invoke-virtual {v6}, Landroid/sec/clipboard/data/file/FileManager;->size()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
@@ -82,7 +87,7 @@
 
     .line 166
     .local v5, index:I
-    :try_start_0
+    :try_start_1
     iget v6, p0, Landroid/sec/clipboard/data/ClipboardDataMgr;->mMaxSize:I
 
     if-lt v4, v6, :cond_4
@@ -158,6 +163,9 @@
     const/4 v7, 0x0
 
     invoke-virtual {v6, v7, p1}, Landroid/sec/clipboard/data/file/FileManager;->add(ILandroid/sec/clipboard/data/ClipboardData;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result v0
 
@@ -165,6 +173,8 @@
     .end local v3           #i:I
     :cond_2
     :goto_1
+    monitor-exit p0
+
     return v0
 
     .line 170
@@ -179,13 +189,15 @@
     .end local v1           #deleteData:Landroid/sec/clipboard/data/ClipboardData;
     .end local v3           #i:I
     :cond_4
+    :try_start_2
     iget-object v6, p0, Landroid/sec/clipboard/data/ClipboardDataMgr;->mDataList:Landroid/sec/clipboard/data/file/FileManager;
 
     const/4 v7, 0x0
 
     invoke-virtual {v6, v7, p1}, Landroid/sec/clipboard/data/file/FileManager;->add(ILandroid/sec/clipboard/data/ClipboardData;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     move-result v0
 
@@ -195,27 +207,22 @@
     :catch_0
     move-exception v2
 
-    .line 199
-    .local v2, e:Ljava/lang/Exception;
-    sget-boolean v6, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
-
-    if-eqz v6, :cond_5
-
-    if-eqz v2, :cond_5
-
-    const-string v6, "ClipboardServiceEx"
-
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     .line 200
-    :cond_5
+    .local v2, e:Ljava/lang/Exception;
     const/4 v0, 0x0
 
     goto :goto_1
+
+    .line 159
+    .end local v2           #e:Ljava/lang/Exception;
+    .end local v4           #iSize:I
+    .end local v5           #index:I
+    :catchall_0
+    move-exception v6
+
+    monitor-exit p0
+
+    throw v6
 .end method
 
 .method public asBinder()Landroid/os/IBinder;

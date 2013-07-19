@@ -29,13 +29,15 @@
 
 .field public static final up:I = 0x1100008
 
+.field public static final whistle:I = 0x1100009
+
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 13348
+    .line 13501
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void

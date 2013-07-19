@@ -30,25 +30,29 @@
 
 .field static final TRANSACTION_checkPattern:I = 0x8
 
-.field static final TRANSACTION_checkSparePassword:I = 0x11
+.field static final TRANSACTION_checkSparePassword:I = 0x13
 
 .field static final TRANSACTION_getBoolean:I = 0x4
+
+.field static final TRANSACTION_getLockPasswordHashSize:I = 0xf
 
 .field static final TRANSACTION_getLong:I = 0x5
 
 .field static final TRANSACTION_getSignatureInfo:I = 0xe
 
+.field static final TRANSACTION_getSparePasswordHashSize:I = 0x10
+
 .field static final TRANSACTION_getString:I = 0x6
 
-.field static final TRANSACTION_havePassword:I = 0xf
+.field static final TRANSACTION_havePassword:I = 0x11
 
 .field static final TRANSACTION_havePattern:I = 0x9
 
 .field static final TRANSACTION_haveSignature:I = 0xc
 
-.field static final TRANSACTION_haveSparePassword:I = 0x12
+.field static final TRANSACTION_haveSparePassword:I = 0x14
 
-.field static final TRANSACTION_removeUser:I = 0x13
+.field static final TRANSACTION_removeUser:I = 0x15
 
 .field static final TRANSACTION_setBoolean:I = 0x1
 
@@ -56,7 +60,7 @@
 
 .field static final TRANSACTION_setLockPattern:I = 0x7
 
-.field static final TRANSACTION_setLockSparePassword:I = 0x10
+.field static final TRANSACTION_setLockSparePassword:I = 0x12
 
 .field static final TRANSACTION_setLong:I = 0x2
 
@@ -158,7 +162,7 @@
     .line 39
     sparse-switch p1, :sswitch_data_0
 
-    .line 267
+    .line 287
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v6
@@ -692,9 +696,9 @@
     .end local v0           #_arg0:I
     .end local v4           #_result:[B
     :sswitch_f
-    const-string v8, "com.android.internal.widget.ILockSettings"
+    const-string v7, "com.android.internal.widget.ILockSettings"
 
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 218
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
@@ -703,15 +707,71 @@
 
     .line 219
     .restart local v0       #_arg0:I
-    invoke-virtual {p0, v0}, Lcom/android/internal/widget/ILockSettings$Stub;->havePassword(I)Z
+    invoke-virtual {p0, v0}, Lcom/android/internal/widget/ILockSettings$Stub;->getLockPasswordHashSize(I)I
 
     move-result v4
 
     .line 220
-    .local v4, _result:Z
+    .local v4, _result:I
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 221
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 226
+    .end local v0           #_arg0:I
+    .end local v4           #_result:I
+    :sswitch_10
+    const-string v7, "com.android.internal.widget.ILockSettings"
+
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 228
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    .line 229
+    .restart local v0       #_arg0:I
+    invoke-virtual {p0, v0}, Lcom/android/internal/widget/ILockSettings$Stub;->getSparePasswordHashSize(I)I
+
+    move-result v4
+
+    .line 230
+    .restart local v4       #_result:I
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 231
+    invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    goto/16 :goto_0
+
+    .line 236
+    .end local v0           #_arg0:I
+    .end local v4           #_result:I
+    :sswitch_11
+    const-string v8, "com.android.internal.widget.ILockSettings"
+
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    .line 238
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    .line 239
+    .restart local v0       #_arg0:I
+    invoke-virtual {p0, v0}, Lcom/android/internal/widget/ILockSettings$Stub;->havePassword(I)Z
+
+    move-result v4
+
+    .line 240
+    .local v4, _result:Z
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    .line 241
     if-eqz v4, :cond_7
 
     move v7, v6
@@ -721,64 +781,64 @@
 
     goto/16 :goto_0
 
-    .line 226
+    .line 246
     .end local v0           #_arg0:I
     .end local v4           #_result:Z
-    :sswitch_10
+    :sswitch_12
     const-string v7, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 228
+    .line 248
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v0
 
-    .line 230
+    .line 250
     .local v0, _arg0:[B
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 231
+    .line 251
     .restart local v1       #_arg1:I
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->setLockSparePassword([BI)V
 
-    .line 232
+    .line 252
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_0
 
-    .line 237
+    .line 257
     .end local v0           #_arg0:[B
     .end local v1           #_arg1:I
-    :sswitch_11
+    :sswitch_13
     const-string v8, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 239
+    .line 259
     invoke-virtual {p2}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v0
 
-    .line 241
+    .line 261
     .restart local v0       #_arg0:[B
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    .line 242
+    .line 262
     .restart local v1       #_arg1:I
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/widget/ILockSettings$Stub;->checkSparePassword([BI)Z
 
     move-result v4
 
-    .line 243
+    .line 263
     .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 244
+    .line 264
     if-eqz v4, :cond_8
 
     move v7, v6
@@ -788,31 +848,31 @@
 
     goto/16 :goto_0
 
-    .line 249
+    .line 269
     .end local v0           #_arg0:[B
     .end local v1           #_arg1:I
     .end local v4           #_result:Z
-    :sswitch_12
+    :sswitch_14
     const-string v8, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 251
+    .line 271
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 252
+    .line 272
     .local v0, _arg0:I
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ILockSettings$Stub;->haveSparePassword(I)Z
 
     move-result v4
 
-    .line 253
+    .line 273
     .restart local v4       #_result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    .line 254
+    .line 274
     if-eqz v4, :cond_9
 
     move v7, v6
@@ -822,24 +882,24 @@
 
     goto/16 :goto_0
 
-    .line 259
+    .line 279
     .end local v0           #_arg0:I
     .end local v4           #_result:Z
-    :sswitch_13
+    :sswitch_15
     const-string v7, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    .line 261
+    .line 281
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 262
+    .line 282
     .restart local v0       #_arg0:I
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ILockSettings$Stub;->removeUser(I)V
 
-    .line 263
+    .line 283
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_0
@@ -868,6 +928,8 @@
         0x11 -> :sswitch_11
         0x12 -> :sswitch_12
         0x13 -> :sswitch_13
+        0x14 -> :sswitch_14
+        0x15 -> :sswitch_15
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

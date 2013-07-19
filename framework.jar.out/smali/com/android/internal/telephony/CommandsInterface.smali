@@ -175,7 +175,16 @@
 .method public abstract dial(Ljava/lang/String;ILandroid/os/Message;)V
 .end method
 
+.method public abstract dial(Ljava/lang/String;ILcom/android/internal/telephony/Call$CallType;Landroid/os/Message;)V
+.end method
+
 .method public abstract dial(Ljava/lang/String;ILcom/android/internal/telephony/UUSInfo;Landroid/os/Message;)V
+.end method
+
+.method public abstract dial(Ljava/lang/String;ILcom/android/internal/telephony/UUSInfo;Lcom/android/internal/telephony/Call$CallType;Landroid/os/Message;)V
+.end method
+
+.method public abstract dial(Ljava/lang/String;Lcom/android/internal/telephony/Call$CallType;Landroid/os/Message;)V
 .end method
 
 .method public abstract dialConferenceCall(Ljava/lang/String;ILandroid/os/Message;)V
@@ -185,6 +194,9 @@
 .end method
 
 .method public abstract dialVideoCall(Ljava/lang/String;ILandroid/os/Message;)V
+.end method
+
+.method public abstract dialVideoCall(Ljava/lang/String;ILcom/android/internal/telephony/Call$CallType;Landroid/os/Message;)V
 .end method
 
 .method public abstract exitEmergencyCallbackMode(Landroid/os/Message;)V
@@ -398,6 +410,9 @@
 .method public abstract registerForIccStatusChanged(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
+.method public abstract registerForImsRegistrationStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
+.end method
+
 .method public abstract registerForInCallVoicePrivacyOff(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
@@ -438,6 +453,9 @@
 .end method
 
 .method public abstract registerForSignalInfo(Landroid/os/Handler;ILjava/lang/Object;)V
+.end method
+
+.method public abstract registerForSipRegNotification(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
 .method public abstract registerForT53AudioControlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
@@ -491,7 +509,7 @@
 .method public abstract sendSMS(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
-.method public abstract sendSMS(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
+.method public abstract sendSMS(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
 .method public abstract sendTerminalResponse(Ljava/lang/String;Landroid/os/Message;)V
@@ -797,6 +815,9 @@
 .method public abstract unregisterForIccStatusChanged(Landroid/os/Handler;)V
 .end method
 
+.method public abstract unregisterForImsRegistrationStateChanged(Landroid/os/Handler;)V
+.end method
+
 .method public abstract unregisterForInCallVoicePrivacyOff(Landroid/os/Handler;)V
 .end method
 
@@ -837,6 +858,9 @@
 .end method
 
 .method public abstract unregisterForSignalInfo(Landroid/os/Handler;)V
+.end method
+
+.method public abstract unregisterForSipRegNotification(Landroid/os/Handler;)V
 .end method
 
 .method public abstract unregisterForT53AudioControlInfo(Landroid/os/Handler;)V

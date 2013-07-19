@@ -815,7 +815,7 @@
     .local v5, tooManyDeletesDescFormat:Ljava/lang/CharSequence;
     new-instance v2, Landroid/app/Notification;
 
-    const v6, 0x1080694
+    const v6, 0x10806ce
 
     iget-object v7, p0, Landroid/content/SyncManager$SyncHandler;->this$0:Landroid/content/SyncManager;
 
@@ -1171,7 +1171,7 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v21, "manageSyncAlarm: active sync, mTimeoutStartTime + MAX is "
+    const-string/jumbo v21, "manageSyncAlarm: active sync, mTimeoutStartTime + MAX is "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1233,7 +1233,7 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v21, "manageSyncAlarm: notificationTime is "
+    const-string/jumbo v21, "manageSyncAlarm: notificationTime is "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1270,7 +1270,7 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v21, "manageSyncAlarm: earliestTimeoutTime is "
+    const-string/jumbo v21, "manageSyncAlarm: earliestTimeoutTime is "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1307,7 +1307,7 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v21, "manageSyncAlarm: nextPeriodicEventElapsedTime is "
+    const-string/jumbo v21, "manageSyncAlarm: nextPeriodicEventElapsedTime is "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1346,7 +1346,7 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v21, "manageSyncAlarm: nextPendingEventElapsedTime is "
+    const-string/jumbo v21, "manageSyncAlarm: nextPendingEventElapsedTime is "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1420,7 +1420,7 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v21, "manageSyncAlarm: the alarmTime is too small, "
+    const-string/jumbo v21, "manageSyncAlarm: the alarmTime is too small, "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1682,7 +1682,7 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v21, "manageSyncAlarm: the alarmTime is too large, "
+    const-string/jumbo v21, "manageSyncAlarm: the alarmTime is too large, "
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2022,7 +2022,7 @@
 
     const-string v32, "SyncManager"
 
-    const-string v33, "maybeStartNextSync"
+    const-string/jumbo v33, "maybeStartNextSync"
 
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2047,7 +2047,7 @@
     .line 1877
     const-string v32, "SyncManager"
 
-    const-string v33, "maybeStartNextSync: no data connection, skipping"
+    const-string/jumbo v33, "maybeStartNextSync: no data connection, skipping"
 
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2081,7 +2081,7 @@
     .line 1884
     const-string v32, "SyncManager"
 
-    const-string v33, "maybeStartNextSync: memory low, skipping"
+    const-string/jumbo v33, "maybeStartNextSync: memory low, skipping"
 
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2120,7 +2120,7 @@
     .line 1894
     const-string v32, "SyncManager"
 
-    const-string v33, "maybeStartNextSync: accounts not known, skipping"
+    const-string/jumbo v33, "maybeStartNextSync: accounts not known, skipping"
 
     invoke-static/range {v32 .. v33}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3633,7 +3633,7 @@
     .local v1, remoteExc:Landroid/os/RemoteException;
     const-string v3, "SyncManager"
 
-    const-string v4, "maybeStartNextSync: caught a RemoteException, rescheduling"
+    const-string/jumbo v4, "maybeStartNextSync: caught a RemoteException, rescheduling"
 
     invoke-static {v3, v4, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

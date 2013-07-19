@@ -301,7 +301,7 @@
     const/4 v0, 0x0
 
     .line 144
-    const-string v1, "maxRetryCount"
+    const-string/jumbo v1, "maxRetryCount"
 
     invoke-direct {p0, v1, p1}, Lcom/android/internal/telephony/RetryManager;->validateNonNegativeInt(Ljava/lang/String;I)Z
 
@@ -543,7 +543,7 @@
     :cond_2
     aget-object v6, v3, v7
 
-    const-string v9, "max_retries"
+    const-string/jumbo v9, "max_retries"
 
     invoke-static {v6, v9}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 

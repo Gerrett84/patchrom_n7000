@@ -33,21 +33,21 @@
     .parameter "animDh"
 
     .prologue
-    .line 597
+    .line 601
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 598
+    .line 602
     iput-object p1, p0, Lcom/android/server/wm/WindowAnimator$SetAnimationParams;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
 
-    .line 599
+    .line 603
     iput-object p2, p0, Lcom/android/server/wm/WindowAnimator$SetAnimationParams;->mAnimation:Landroid/view/animation/Animation;
 
-    .line 600
+    .line 604
     iput p3, p0, Lcom/android/server/wm/WindowAnimator$SetAnimationParams;->mAnimDw:I
 
-    .line 601
+    .line 605
     iput p4, p0, Lcom/android/server/wm/WindowAnimator$SetAnimationParams;->mAnimDh:I
 
-    .line 602
+    .line 606
     return-void
 .end method

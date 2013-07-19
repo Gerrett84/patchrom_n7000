@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 289
+    .line 293
     iput-object p1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->val$success:Z
@@ -53,12 +53,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 291
+    .line 295
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->val$success:Z
 
     if-eqz v1, :cond_0
 
-    .line 293
+    .line 297
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -68,7 +68,7 @@
 
     invoke-virtual {v1, v3}, Lcom/android/internal/widget/LockPatternUtils;->setPermanentlyLocked(Z)V
 
-    .line 294
+    .line 298
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -78,7 +78,7 @@
 
     invoke-virtual {v1}, Lcom/android/internal/widget/LockPatternUtils;->clearPasswordLock()V
 
-    .line 295
+    .line 299
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -88,7 +88,7 @@
 
     invoke-virtual {v1, v3}, Lcom/android/internal/widget/LockPatternUtils;->setLockPatternEnabled(Z)V
 
-    .line 296
+    .line 300
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -100,7 +100,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->saveLockPattern(Ljava/util/List;)V
 
-    .line 297
+    .line 301
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mLogin:Landroid/widget/EditText;
@@ -110,7 +110,7 @@
 
     invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 298
+    .line 302
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->val$imm:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
@@ -126,12 +126,12 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 302
+    .line 306
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 303
+    .line 307
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "com.android.settings"
 
@@ -139,12 +139,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 304
+    .line 308
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 305
+    .line 309
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mContext:Landroid/content/Context;
@@ -154,7 +154,7 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 306
+    .line 310
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -164,7 +164,7 @@
 
     invoke-interface {v1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->reportSuccessfulUnlockAttempt()V
 
-    .line 309
+    .line 313
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -176,12 +176,12 @@
 
     invoke-interface {v1, v2}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->keyguardDone(Z)V
 
-    .line 315
+    .line 319
     .end local v0           #intent:Landroid/content/Intent;
     :goto_0
     return-void
 
-    .line 311
+    .line 315
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
@@ -190,11 +190,11 @@
 
     move-result-object v1
 
-    const v2, 0x1040417
+    const v2, 0x104041e
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 312
+    .line 316
     iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mPassword:Landroid/widget/EditText;
@@ -205,16 +205,6 @@
     const-string v2, ""
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 313
-    iget-object v1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$5;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
-
-    #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/AccountUnlockScreen;->access$400(Lcom/android/internal/policy/impl/AccountUnlockScreen;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->reportFailedUnlockAttempt()V
 
     goto :goto_0
 .end method

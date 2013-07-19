@@ -318,6 +318,97 @@
     return-object v0
 .end method
 
+.method public static getCacheSize(Landroid/content/Context;)I
+    .locals 10
+    .parameter "context"
+
+    .prologue
+    .line 458
+    const/4 v5, 0x0
+
+    .line 459
+    .local v5, size:I
+    new-instance v1, Ljava/io/File;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "webviewCacheChromium"
+
+    invoke-direct {v1, v6, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 460
+    .local v1, cacheDir:Ljava/io/File;
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    .line 461
+    invoke-virtual {v1}, Ljava/io/File;->listFiles()[Ljava/io/File;
+
+    move-result-object v0
+
+    .local v0, arr$:[Ljava/io/File;
+    array-length v4, v0
+
+    .local v4, len$:I
+    const/4 v3, 0x0
+
+    .local v3, i$:I
+    :goto_0
+    if-ge v3, v4, :cond_1
+
+    aget-object v2, v0, v3
+
+    .line 462
+    .local v2, file:Ljava/io/File;
+    invoke-virtual {v2}, Ljava/io/File;->isFile()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string v7, "f_"
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    .line 463
+    int-to-long v6, v5
+
+    invoke-virtual {v2}, Ljava/io/File;->length()J
+
+    move-result-wide v8
+
+    add-long/2addr v6, v8
+
+    long-to-int v5, v6
+
+    .line 461
+    :cond_0
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    .line 467
+    .end local v0           #arr$:[Ljava/io/File;
+    .end local v2           #file:Ljava/io/File;
+    .end local v3           #i$:I
+    .end local v4           #len$:I
+    :cond_1
+    return v5
+.end method
+
 .method static init(Landroid/content/Context;)V
     .locals 3
     .parameter "context"

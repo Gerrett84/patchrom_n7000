@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 678
+    .line 720
     iput-object p1, p0, Lcom/sec/android/app/fm/SettingsActivity$1;->this$0:Lcom/sec/android/app/fm/SettingsActivity;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 681
+    .line 723
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 682
+    .line 724
     .local v0, action:Ljava/lang/String;
     const-string v2, "android.intent.action.MEDIA_MOUNTED"
 
@@ -63,14 +63,14 @@
 
     if-eqz v2, :cond_1
 
-    .line 684
+    .line 726
     :cond_0
     iget-object v2, p0, Lcom/sec/android/app/fm/SettingsActivity$1;->this$0:Lcom/sec/android/app/fm/SettingsActivity;
 
     #calls: Lcom/sec/android/app/fm/SettingsActivity;->setInitialValues()V
     invoke-static {v2}, Lcom/sec/android/app/fm/SettingsActivity;->access$000(Lcom/sec/android/app/fm/SettingsActivity;)V
 
-    .line 686
+    .line 728
     :try_start_0
     iget-object v2, p0, Lcom/sec/android/app/fm/SettingsActivity$1;->this$0:Lcom/sec/android/app/fm/SettingsActivity;
 
@@ -85,7 +85,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 687
+    .line 729
     iget-object v2, p0, Lcom/sec/android/app/fm/SettingsActivity$1;->this$0:Lcom/sec/android/app/fm/SettingsActivity;
 
     #getter for: Lcom/sec/android/app/fm/SettingsActivity;->mRecordingLocation:Landroid/preference/ListPreference;
@@ -101,22 +101,22 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 697
+    .line 739
     :cond_1
     :goto_0
     return-void
 
-    .line 689
+    .line 731
     :catch_0
     move-exception v1
 
-    .line 690
+    .line 732
     .local v1, e:Ljava/lang/Exception;
     const-string v2, "SettingsActivity"
 
     const-string v3, "Error in dialog.dismiss()"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

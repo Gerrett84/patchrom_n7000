@@ -1279,7 +1279,7 @@
     .line 615
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "mode is invalid"
+    const-string/jumbo v2, "mode is invalid"
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

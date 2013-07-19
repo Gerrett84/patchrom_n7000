@@ -101,13 +101,13 @@ Kuular töötab raadioantennina. Ühendage kuular."</string>
     <string name="toast_unavailable_in_tvout_mode">Pole saadaval TV-väljundi režiimis</string>
     <string name="mute">Vaigista</string>
     <string name="seeking">Otsimine…</string>
-    <string name="via_earphone">Kõrvaklappide kaudu</string>
-    <string name="via_speaker">Kõlari kaudu</string>
+    <string name="via_earphone">Esita kõrvaklappide kaudu</string>
+    <string name="via_speaker">Esita valjuh. kaudu</string>
     <string name="normal_frequency">Tavaline sagedus</string>
     <string name="tag">Slt</string>
     <string name="stop">Lõpeta</string>
     <string name="recording">Salvestamine…</string>
-    <string name="memory_full">Salvestamine on peatatud. Mälu on täis</string>
+    <string name="memory_full">Mälu on täis</string>
     <string name="cancel_recording">Kas tühistada salvestamine?</string>
     <string name="change_frequency">Muuda sagedust</string>
     <string name="enter_frequency">Sisestage sagedus</string>
@@ -133,11 +133,14 @@ Kuular töötab raadioantennina. Ühendage kuular."</string>
     <string name="tags">Sildid</string>
     <string name="tags_now_broadcasting">Praegu edastatakse</string>
     <string name="tags_no_information">Teave puudub</string>
+    <string name="tags_music_history">Muusika ajalugu</string>
     <string name="tags_music_title">Pealkiri</string>
     <string name="tags_music_album">Album</string>
     <string name="tags_music_artist">Esitaja</string>
+    <string name="tags_music_band">Bänd</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Avaleht</string>
+    <string name="tags_interact_hotline">Infoliin</string>
     <string name="tags_interact_studio">Stuudio</string>
     <string name="tags_interact_other">Muu</string>
     <string name="tags_interact_centre">Keskele</string>
@@ -183,4 +186,14 @@ Pärast raadio salvestamist kuvatakse salvestatud failid"</string>
     <string name="dialog_one_item_deleted">See üksus kustutatakse</string>
     <string name="dialog_multiple_items_deleted">%d üksust kustutatakse</string>
     <string name="dialog_all_items_deleted">Kõik üksused kustutatakse</string>
+    <string name="turning_on">Sisselülitamine…</string>
+    <string name="not_enough_memory_recording_will_stop">Pole piisavalt mälu. Salvestamine lõppeb %d sekundi pärast</string>
+    <string name="low_batt_msg">Aku on peaaegu tühi</string>
+    <string name="no_play_during_call">Kõne ajal ei saa esitada</string>
+    <string name="unable_delete">Ei saa kustutada</string>
+    <string name="playing">Esitamine..</string>
+    <string name="tts_play_button">Esita</string>
+    <string name="tts_previous_button">Eelmine</string>
+    <string name="tts_Next_button">Järgmine</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

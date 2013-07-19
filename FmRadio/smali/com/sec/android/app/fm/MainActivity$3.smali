@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1621
+    .line 978
     iput-object p1, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,19 +46,19 @@
 
     const/4 v7, 0x0
 
-    .line 1627
+    .line 981
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1749
+    .line 1041
     :cond_0
     :goto_0
     return v7
 
-    .line 1631
+    .line 983
     :pswitch_0
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -71,7 +71,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 1633
+    .line 984
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     const-string v1, "Worker thread is buys ignore it"
@@ -80,7 +80,7 @@
 
     goto :goto_0
 
-    .line 1639
+    .line 987
     :cond_1
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -88,7 +88,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 1643
+    .line 989
     :try_start_0
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -100,7 +100,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 1645
+    .line 990
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     iget-wide v0, v0, Lcom/sec/android/app/fm/MainActivity;->mCurrentchannel:J
@@ -111,31 +111,12 @@
 
     if-gez v0, :cond_0
 
-    .line 1649
+    .line 992
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->mSeeking:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$3300(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/TextView;
+    invoke-virtual {v0}, Lcom/sec/android/app/fm/MainActivity;->showSeekingText()V
 
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 1651
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->mRdsPanel:Landroid/widget/LinearLayout;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$3400(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/LinearLayout;
-
-    move-result-object v0
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    .line 1653
+    .line 994
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     #getter for: Lcom/sec/android/app/fm/MainActivity;->mWorkerThread:Lcom/sec/android/app/fm/WorkerThread;
@@ -158,7 +139,7 @@
 
     if-eqz v0, :cond_3
 
-    .line 1655
+    .line 995
     :cond_2
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -166,7 +147,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 1657
+    .line 996
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-static {}, Lcom/sec/android/app/fm/WorkerThread;->getInstance()Lcom/sec/android/app/fm/WorkerThread;
@@ -176,7 +157,7 @@
     #setter for: Lcom/sec/android/app/fm/MainActivity;->mWorkerThread:Lcom/sec/android/app/fm/WorkerThread;
     invoke-static {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->access$2102(Lcom/sec/android/app/fm/MainActivity;Lcom/sec/android/app/fm/WorkerThread;)Lcom/sec/android/app/fm/WorkerThread;
 
-    .line 1663
+    .line 999
     :cond_3
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -197,7 +178,7 @@
     :try_end_0
     .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1681
+    .line 1007
     :goto_1
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -205,7 +186,7 @@
 
     goto :goto_0
 
-    .line 1671
+    .line 1002
     :cond_4
     :try_start_1
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -216,11 +197,11 @@
 
     goto :goto_1
 
-    .line 1675
+    .line 1004
     :catch_0
     move-exception v6
 
-    .line 1677
+    .line 1005
     .local v6, e:Lcom/samsung/media/fmradio/FMPlayerException;
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -228,7 +209,7 @@
 
     goto :goto_1
 
-    .line 1689
+    .line 1011
     .end local v6           #e:Lcom/samsung/media/fmradio/FMPlayerException;
     :pswitch_1
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -241,7 +222,7 @@
 
     if-lez v0, :cond_0
 
-    .line 1693
+    .line 1013
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     #getter for: Lcom/sec/android/app/fm/MainActivity;->mWorkerThread:Lcom/sec/android/app/fm/WorkerThread;
@@ -253,7 +234,7 @@
 
     if-eqz v0, :cond_5
 
-    .line 1695
+    .line 1014
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     const-string v1, "Worker thread is buys ignore it"
@@ -262,7 +243,7 @@
 
     goto/16 :goto_0
 
-    .line 1701
+    .line 1017
     :cond_5
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -270,7 +251,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 1705
+    .line 1019
     :try_start_2
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -282,31 +263,12 @@
 
     if-eqz v0, :cond_8
 
-    .line 1707
+    .line 1020
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->mSeeking:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$3300(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/TextView;
+    invoke-virtual {v0}, Lcom/sec/android/app/fm/MainActivity;->showSeekingText()V
 
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 1709
-    iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
-
-    #getter for: Lcom/sec/android/app/fm/MainActivity;->mRdsPanel:Landroid/widget/LinearLayout;
-    invoke-static {v0}, Lcom/sec/android/app/fm/MainActivity;->access$3400(Lcom/sec/android/app/fm/MainActivity;)Landroid/widget/LinearLayout;
-
-    move-result-object v0
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    .line 1711
+    .line 1022
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     #getter for: Lcom/sec/android/app/fm/MainActivity;->mWorkerThread:Lcom/sec/android/app/fm/WorkerThread;
@@ -329,7 +291,7 @@
 
     if-eqz v0, :cond_7
 
-    .line 1713
+    .line 1023
     :cond_6
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -337,7 +299,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->log(Ljava/lang/String;)V
 
-    .line 1715
+    .line 1024
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-static {}, Lcom/sec/android/app/fm/WorkerThread;->getInstance()Lcom/sec/android/app/fm/WorkerThread;
@@ -347,7 +309,7 @@
     #setter for: Lcom/sec/android/app/fm/MainActivity;->mWorkerThread:Lcom/sec/android/app/fm/WorkerThread;
     invoke-static {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->access$2102(Lcom/sec/android/app/fm/MainActivity;Lcom/sec/android/app/fm/WorkerThread;)Lcom/sec/android/app/fm/WorkerThread;
 
-    .line 1721
+    .line 1027
     :cond_7
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -368,7 +330,7 @@
     :try_end_2
     .catch Lcom/samsung/media/fmradio/FMPlayerException; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 1739
+    .line 1036
     :goto_2
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -376,7 +338,7 @@
 
     goto/16 :goto_0
 
-    .line 1729
+    .line 1031
     :cond_8
     :try_start_3
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
@@ -387,11 +349,11 @@
 
     goto :goto_2
 
-    .line 1733
+    .line 1033
     :catch_1
     move-exception v6
 
-    .line 1735
+    .line 1034
     .restart local v6       #e:Lcom/samsung/media/fmradio/FMPlayerException;
     iget-object v0, p0, Lcom/sec/android/app/fm/MainActivity$3;->this$0:Lcom/sec/android/app/fm/MainActivity;
 
@@ -399,9 +361,9 @@
 
     goto :goto_2
 
-    .line 1627
+    .line 981
     :pswitch_data_0
-    .packed-switch 0x7f07004f
+    .packed-switch 0x7f07005d
         :pswitch_1
         :pswitch_0
     .end packed-switch

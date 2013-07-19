@@ -622,7 +622,7 @@
     iput-object v6, p0, Landroid/widget/CalendarView;->mListView:Landroid/widget/ListView;
 
     .line 410
-    const v6, 0x102028e
+    const v6, 0x1020297
 
     invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -633,7 +633,7 @@
     iput-object v6, p0, Landroid/widget/CalendarView;->mDayNamesHeader:Landroid/view/ViewGroup;
 
     .line 411
-    const v6, 0x102028d
+    const v6, 0x1020296
 
     invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

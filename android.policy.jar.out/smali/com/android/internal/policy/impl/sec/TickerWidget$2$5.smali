@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 207
+    .line 209
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$2;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
     const/4 v2, 0x0
 
-    .line 209
+    .line 211
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$2;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
@@ -53,7 +53,7 @@
     #calls: Lcom/android/internal/policy/impl/sec/TickerWidget;->updateTickerData()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$700(Lcom/android/internal/policy/impl/sec/TickerWidget;)V
 
-    .line 210
+    .line 212
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$2;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
@@ -69,7 +69,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 211
+    .line 213
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$2;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
@@ -81,14 +81,14 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 212
+    .line 214
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$2;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mTickerSlidingDrawer:Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$900(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/TickerSlidingDrawer;
 
     move-result-object v0
 
@@ -98,26 +98,26 @@
 
     if-eqz v0, :cond_1
 
-    .line 213
+    .line 215
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$2;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleRefreshImage:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1000(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ImageView;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ImageView;
 
     move-result-object v0
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 214
+    .line 216
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$2;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mHandleProgressBar:Landroid/widget/ProgressBar;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1100(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ProgressBar;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1200(Lcom/android/internal/policy/impl/sec/TickerWidget;)Landroid/widget/ProgressBar;
 
     move-result-object v0
 
@@ -125,13 +125,13 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 216
+    .line 218
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$2$5;->this$1:Lcom/android/internal/policy/impl/sec/TickerWidget$2;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/TickerWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     iput-boolean v2, v0, Lcom/android/internal/policy/impl/sec/TickerWidget;->mFacebookRefreshing:Z
 
-    .line 217
+    .line 219
     return-void
 .end method

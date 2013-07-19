@@ -14,6 +14,8 @@
 
 .field public static final TAG_CSCFEATURE_CALCULATOR_ENABLE_POPUP_MSG_WHEN_EXCEED_MAX_DIGIT:Ljava/lang/String; = "CscFeature_Calculator_EnablePopupMsgWhenExceedMaxDigit"
 
+.field public static final TAG_CSCFEATURE_CLOCK_DIABLE_SAMSUNG_TTS:Ljava/lang/String; = "CscFeature_Clock_DisableSamsungTTS"
+
 .field public static final TAG_CSCFEATURE_CLOCK_DISABLEISRAELCOUNTRY:Ljava/lang/String; = "CscFeature_Clock_DisableIsraelCountry"
 
 .field public static final TAG_CSCFEATURE_CLOCK_DISABLE_3DGLOBEVIEW_INFO:Ljava/lang/String; = "CscFeature_Clock_Disable3dGlobeViewInfo"
@@ -57,6 +59,10 @@
 .field public static final TAG_CSCFEATURE_CLOCK_ENABLE_ALARMALERT_HELP_STR:Ljava/lang/String; = "CscFeature_Clock_EnableAlarmAlertHelpStr"
 
 .field public static final TAG_CSCFEATURE_CLOCK_ENABLE_ALARMSNOOZE_DEFAULT:Ljava/lang/String; = "CscFeature_Clock_EnableAlarmSnoozeDefault"
+
+.field public static final TAG_CSCFEATURE_CLOCK_ENABLE_ALARM_REPEAT_TYPE_WEEKLY_SPR:Ljava/lang/String; = "CscFeature_Clock_EnableAlarmRepeatTypeWeeklySpr"
+
+.field public static final TAG_CSCFEATURE_CLOCK_ENABLE_ALARM_VOLUME_SPR:Ljava/lang/String; = "CscFeature_Clock_EnableAlarmVolumeSpr"
 
 .field public static final TAG_CSCFEATURE_CLOCK_ENABLE_PINYIN_SORT_LIST:Ljava/lang/String; = "CscFeature_Clock_EnablePinyinSortList"
 

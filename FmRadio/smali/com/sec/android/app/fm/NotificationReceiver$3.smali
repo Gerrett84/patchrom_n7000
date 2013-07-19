@@ -26,7 +26,7 @@
     .parameter
 
     .prologue
-    .line 153
+    .line 176
     iput-object p1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     invoke-direct {p0}, Lcom/samsung/media/fmradio/FMEventListener;-><init>()V
@@ -40,12 +40,12 @@
     .locals 1
 
     .prologue
-    .line 297
+    .line 332
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->offCode:I
 
-    .line 299
+    .line 334
     return-void
 .end method
 
@@ -54,7 +54,7 @@
     .parameter "freq"
 
     .prologue
-    .line 168
+    .line 193
     return-void
 .end method
 
@@ -62,7 +62,7 @@
     .locals 0
 
     .prologue
-    .line 163
+    .line 187
     return-void
 .end method
 
@@ -75,21 +75,21 @@
 
     const/4 v5, 0x0
 
-    .line 221
+    .line 250
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v2, "[NotificationReceiver] onOff"
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 223
+    .line 252
     const-string v1, " NotificationReceiver "
 
     const-string v2, " onOff start"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 224
+    .line 253
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -103,25 +103,25 @@
 
     invoke-virtual {v1, v5}, Lcom/sec/android/app/fm/FMNotificationManager;->updatePlayButtonState(Z)V
 
-    .line 225
+    .line 254
     const/16 v1, 0xb
 
     if-ne p1, v1, :cond_3
 
-    .line 227
+    .line 256
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v2, "[NotificationReceiver] paused"
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 228
+    .line 257
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #calls: Lcom/sec/android/app/fm/NotificationReceiver;->sendOFFBroadcast()V
     invoke-static {v1}, Lcom/sec/android/app/fm/NotificationReceiver;->access$700(Lcom/sec/android/app/fm/NotificationReceiver;)V
 
-    .line 229
+    .line 258
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -137,7 +137,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 233
+    .line 262
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v1, :cond_0
@@ -150,7 +150,7 @@
 
     if-nez v1, :cond_1
 
-    .line 234
+    .line 263
     :cond_0
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
@@ -165,7 +165,7 @@
 
     invoke-virtual {v1}, Lcom/sec/android/app/fm/FMNotificationManager;->showNotification()V
 
-    .line 237
+    .line 266
     :cond_1
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
@@ -176,12 +176,12 @@
 
     if-eqz v1, :cond_2
 
-    .line 238
+    .line 267
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 239
+    .line 268
     .local v0, msg:Landroid/os/Message;
     invoke-static {}, Lcom/sec/android/app/fm/NotificationReceiver;->access$100()I
 
@@ -189,7 +189,7 @@
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 240
+    .line 269
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mHandler:Landroid/os/Handler;
@@ -199,16 +199,16 @@
 
     invoke-virtual {v1, v0, v6, v7}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 244
+    .line 273
     .end local v0           #msg:Landroid/os/Message;
     :cond_2
     invoke-static {}, Lcom/sec/android/app/fm/ui/MyProgressDialog;->cancel()V
 
-    .line 290
+    .line 324
     :goto_0
     return-void
 
-    .line 248
+    .line 277
     :cond_3
     iget v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->offCode:I
 
@@ -216,7 +216,7 @@
 
     if-ne v1, v2, :cond_7
 
-    .line 249
+    .line 278
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -226,12 +226,12 @@
 
     if-eqz v1, :cond_5
 
-    .line 250
+    .line 279
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->mEarphoneToast:Landroid/widget/Toast;
 
     if-nez v1, :cond_4
 
-    .line 251
+    .line 280
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -247,7 +247,7 @@
 
     sput-object v1, Lcom/sec/android/app/fm/MainActivity;->mEarphoneToast:Landroid/widget/Toast;
 
-    .line 252
+    .line 282
     :cond_4
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->mEarphoneToast:Landroid/widget/Toast;
 
@@ -255,16 +255,16 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Toast;->setText(I)V
 
-    .line 253
+    .line 283
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->mEarphoneToast:Landroid/widget/Toast;
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 255
+    .line 285
     :cond_5
     iput v5, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->offCode:I
 
-    .line 256
+    .line 286
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mHandler:Landroid/os/Handler;
@@ -274,7 +274,7 @@
 
     if-eqz v1, :cond_6
 
-    .line 257
+    .line 287
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mHandler:Landroid/os/Handler;
@@ -288,7 +288,7 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 259
+    .line 289
     :cond_6
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
@@ -305,13 +305,13 @@
 
     goto :goto_0
 
-    .line 263
+    .line 293
     :cond_7
     const/4 v1, 0x4
 
     if-ne p1, v1, :cond_9
 
-    .line 264
+    .line 294
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mHandler:Landroid/os/Handler;
@@ -321,7 +321,7 @@
 
     if-eqz v1, :cond_8
 
-    .line 265
+    .line 295
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mHandler:Landroid/os/Handler;
@@ -335,7 +335,7 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 267
+    .line 297
     :cond_8
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
@@ -352,18 +352,18 @@
 
     goto :goto_0
 
-    .line 269
+    .line 299
     :cond_9
     const/16 v1, 0xa
 
     if-ne p1, v1, :cond_b
 
-    .line 270
+    .line 300
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->toastTvout:Landroid/widget/Toast;
 
     if-nez v1, :cond_a
 
-    .line 271
+    .line 301
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -425,19 +425,19 @@
 
     sput-object v1, Lcom/sec/android/app/fm/MainActivity;->toastTvout:Landroid/widget/Toast;
 
-    .line 272
+    .line 306
     :cond_a
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->toastTvout:Landroid/widget/Toast;
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 274
+    .line 308
     :cond_b
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 275
+    .line 309
     .restart local v0       #msg:Landroid/os/Message;
     invoke-static {}, Lcom/sec/android/app/fm/NotificationReceiver;->access$100()I
 
@@ -445,7 +445,7 @@
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 276
+    .line 310
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -461,7 +461,7 @@
 
     if-eqz v1, :cond_d
 
-    .line 280
+    .line 314
     sget-object v1, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v1, :cond_c
@@ -474,7 +474,7 @@
 
     if-nez v1, :cond_d
 
-    .line 281
+    .line 315
     :cond_c
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
@@ -489,14 +489,14 @@
 
     invoke-virtual {v1}, Lcom/sec/android/app/fm/FMNotificationManager;->showNotification()V
 
-    .line 283
+    .line 317
     :cond_d
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #calls: Lcom/sec/android/app/fm/NotificationReceiver;->sendOFFBroadcast()V
     invoke-static {v1}, Lcom/sec/android/app/fm/NotificationReceiver;->access$700(Lcom/sec/android/app/fm/NotificationReceiver;)V
 
-    .line 285
+    .line 319
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mHandler:Landroid/os/Handler;
@@ -506,7 +506,7 @@
 
     if-eqz v1, :cond_e
 
-    .line 286
+    .line 320
     iget-object v1, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mHandler:Landroid/os/Handler;
@@ -516,7 +516,7 @@
 
     invoke-virtual {v1, v0, v6, v7}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 288
+    .line 322
     :cond_e
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
@@ -524,7 +524,7 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 289
+    .line 323
     invoke-static {}, Lcom/sec/android/app/fm/ui/MyProgressDialog;->cancel()V
 
     goto/16 :goto_0
@@ -538,17 +538,17 @@
 
     const/4 v5, 0x0
 
-    .line 174
+    .line 200
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "[NotificationReceiver] onOn"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 175
+    .line 201
     iput v5, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->offCode:I
 
-    .line 176
+    .line 202
     iget-object v0, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mHandler:Landroid/os/Handler;
@@ -558,7 +558,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 177
+    .line 203
     iget-object v0, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mHandler:Landroid/os/Handler;
@@ -572,14 +572,14 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 178
+    .line 204
     :cond_0
     iget-object v0, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #calls: Lcom/sec/android/app/fm/NotificationReceiver;->sendONBroadcast()V
     invoke-static {v0}, Lcom/sec/android/app/fm/NotificationReceiver;->access$300(Lcom/sec/android/app/fm/NotificationReceiver;)V
 
-    .line 179
+    .line 205
     iget-object v0, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #calls: Lcom/sec/android/app/fm/NotificationReceiver;->getCurrentChannel()F
@@ -587,7 +587,7 @@
 
     move-result v1
 
-    .line 182
+    .line 208
     iget-object v0, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -601,17 +601,17 @@
 
     invoke-virtual {v0, v4}, Lcom/sec/android/app/fm/FMNotificationManager;->updatePlayButtonState(Z)V
 
-    .line 183
+    .line 209
     const/high16 v0, -0x4080
 
     cmpl-float v0, v1, v0
 
     if-eqz v0, :cond_4
 
-    .line 184
+    .line 210
     const-string v0, ""
 
-    .line 185
+    .line 211
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v2, :cond_1
@@ -624,7 +624,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 186
+    .line 213
     sget-object v0, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/MainActivity;->getChannel(F)Lcom/sec/android/app/fm/data/Channel;
@@ -633,7 +633,7 @@
 
     iget-object v0, v0, Lcom/sec/android/app/fm/data/Channel;->mFreqName:Ljava/lang/String;
 
-    .line 191
+    .line 218
     :cond_1
     sget-object v2, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -647,13 +647,13 @@
 
     if-nez v2, :cond_4
 
-    .line 192
+    .line 219
     :cond_2
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 193
+    .line 220
     const-string v3, ""
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -662,15 +662,15 @@
 
     if-nez v3, :cond_3
 
-    .line 194
+    .line 221
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 195
+    .line 222
     const-string v0, " - "
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 197
+    .line 224
     :cond_3
     invoke-static {}, Lcom/sec/android/app/fm/FMRadioFeature;->GetFrequencySpace()I
 
@@ -680,7 +680,7 @@
 
     if-ne v0, v3, :cond_5
 
-    .line 198
+    .line 225
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string v3, "%.2f"
@@ -699,13 +699,13 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 202
+    .line 229
     :goto_0
     const-string v0, " MHz"
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 203
+    .line 230
     iget-object v0, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -723,7 +723,7 @@
 
     invoke-virtual {v0, v1, v5}, Lcom/sec/android/app/fm/FMNotificationManager;->showNotification(Ljava/lang/String;Z)V
 
-    .line 209
+    .line 237
     :cond_4
     iget-object v0, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
@@ -755,10 +755,10 @@
 
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->registerMediaButtonEventReceiver(Landroid/content/ComponentName;)V
 
-    .line 212
+    .line 240
     return-void
 
-    .line 200
+    .line 227
     :cond_5
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
@@ -774,7 +774,7 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 357
+    .line 396
     if-eqz p3, :cond_2
 
     invoke-virtual {p3}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -789,7 +789,7 @@
 
     if-nez v3, :cond_2
 
-    .line 358
+    .line 397
     iget-object v3, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #calls: Lcom/sec/android/app/fm/NotificationReceiver;->getCurrentChannel()F
@@ -797,7 +797,7 @@
 
     move-result v1
 
-    .line 359
+    .line 398
     .local v1, mFreq:F
     iget-object v3, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
@@ -814,7 +814,7 @@
 
     check-cast v0, Landroid/app/ActivityManager;
 
-    .line 362
+    .line 403
     .local v0, am:Landroid/app/ActivityManager;
     const/4 v3, 0x0
 
@@ -848,7 +848,7 @@
 
     if-nez v3, :cond_2
 
-    .line 366
+    .line 409
     sget-object v3, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     if-eqz v3, :cond_0
@@ -861,13 +861,13 @@
 
     if-nez v3, :cond_2
 
-    .line 367
+    .line 410
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 368
+    .line 411
     .local v2, strBuilder:Ljava/lang/StringBuilder;
     const-string v3, ""
 
@@ -877,24 +877,24 @@
 
     if-nez v3, :cond_1
 
-    .line 369
+    .line 412
     invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 370
+    .line 413
     const-string v3, " - "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 372
+    .line 415
     :cond_1
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    .line 373
+    .line 416
     const-string v3, " MHz"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 374
+    .line 417
     iget-object v3, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -912,7 +912,7 @@
 
     invoke-virtual {v3, v4, v5}, Lcom/sec/android/app/fm/FMNotificationManager;->showNotification(Ljava/lang/String;Z)V
 
-    .line 380
+    .line 424
     .end local v0           #am:Landroid/app/ActivityManager;
     .end local v1           #mFreq:F
     .end local v2           #strBuilder:Ljava/lang/StringBuilder;
@@ -927,28 +927,28 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 307
+    .line 343
     iget-object v3, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     iget-object v3, v3, Lcom/sec/android/app/fm/NotificationReceiver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     if-eqz v3, :cond_0
 
-    .line 308
+    .line 344
     iget-object v3, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     iget-object v3, v3, Lcom/sec/android/app/fm/NotificationReceiver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 309
+    .line 345
     iget-object v3, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     const/4 v4, 0x0
 
     iput-object v4, v3, Lcom/sec/android/app/fm/NotificationReceiver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 312
+    .line 348
     :cond_0
     iget-object v3, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
@@ -957,7 +957,7 @@
 
     move-result v1
 
-    .line 323
+    .line 359
     .local v1, mFreq:F
     const/high16 v3, -0x4080
 
@@ -965,10 +965,10 @@
 
     if-eqz v3, :cond_5
 
-    .line 324
+    .line 360
     const-string v0, ""
 
-    .line 325
+    .line 361
     .local v0, curChName:Ljava/lang/String;
     sget-object v3, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -982,7 +982,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 326
+    .line 363
     sget-object v3, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
     invoke-virtual {v3, v1}, Lcom/sec/android/app/fm/MainActivity;->getChannel(F)Lcom/sec/android/app/fm/data/Channel;
@@ -991,7 +991,7 @@
 
     iget-object v0, v3, Lcom/sec/android/app/fm/data/Channel;->mFreqName:Ljava/lang/String;
 
-    .line 330
+    .line 367
     :cond_1
     sget-object v3, Lcom/sec/android/app/fm/MainActivity;->_instance:Lcom/sec/android/app/fm/MainActivity;
 
@@ -1005,13 +1005,13 @@
 
     if-nez v3, :cond_4
 
-    .line 331
+    .line 368
     :cond_2
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 332
+    .line 369
     .local v2, strBuilder:Ljava/lang/StringBuilder;
     const-string v3, ""
 
@@ -1021,15 +1021,15 @@
 
     if-nez v3, :cond_3
 
-    .line 333
+    .line 370
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 334
+    .line 371
     const-string v3, " - "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 336
+    .line 373
     :cond_3
     invoke-static {}, Lcom/sec/android/app/fm/FMRadioFeature;->GetFrequencySpace()I
 
@@ -1039,7 +1039,7 @@
 
     if-ne v3, v4, :cond_6
 
-    .line 337
+    .line 374
     sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     const-string v4, "%.2f"
@@ -1060,13 +1060,13 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 341
+    .line 378
     :goto_0
     const-string v3, " MHz"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 342
+    .line 379
     iget-object v3, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -1084,7 +1084,7 @@
 
     invoke-virtual {v3, v4, v7}, Lcom/sec/android/app/fm/FMNotificationManager;->showNotification(Ljava/lang/String;Z)V
 
-    .line 345
+    .line 383
     .end local v2           #strBuilder:Ljava/lang/StringBuilder;
     :cond_4
     iget-object v3, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
@@ -1098,7 +1098,7 @@
     #setter for: Lcom/sec/android/app/fm/NotificationReceiver;->mCurrentChannel:J
     invoke-static {v3, v4, v5}, Lcom/sec/android/app/fm/NotificationReceiver;->access$802(Lcom/sec/android/app/fm/NotificationReceiver;J)J
 
-    .line 347
+    .line 385
     iget-object v3, p0, Lcom/sec/android/app/fm/NotificationReceiver$3;->this$0:Lcom/sec/android/app/fm/NotificationReceiver;
 
     #getter for: Lcom/sec/android/app/fm/NotificationReceiver;->mContext:Landroid/content/Context;
@@ -1108,12 +1108,12 @@
 
     invoke-static {v3, v1}, Lcom/sec/android/app/fm/MainActivity;->saveCurrentFreq(Landroid/content/Context;F)V
 
-    .line 351
+    .line 389
     .end local v0           #curChName:Ljava/lang/String;
     :cond_5
     return-void
 
-    .line 339
+    .line 376
     .restart local v0       #curChName:Ljava/lang/String;
     .restart local v2       #strBuilder:Ljava/lang/StringBuilder;
     :cond_6

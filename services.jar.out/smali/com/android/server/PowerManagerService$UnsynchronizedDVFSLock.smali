@@ -37,33 +37,33 @@
     .parameter "tag"
 
     .prologue
-    .line 5314
+    .line 5608
     iput-object p1, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->this$0:Lcom/android/server/PowerManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 5312
+    .line 5606
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->mHeld:Z
 
-    .line 5315
+    .line 5609
     iput p2, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->mType:I
 
-    .line 5316
+    .line 5610
     iput p3, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->mFrequency:I
 
-    .line 5317
+    .line 5611
     iput-object p4, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->mTag:Ljava/lang/String;
 
-    .line 5318
+    .line 5612
     new-instance v0, Landroid/os/Binder;
 
     invoke-direct {v0}, Landroid/os/Binder;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->mToken:Landroid/os/IBinder;
 
-    .line 5319
+    .line 5613
     return-void
 .end method
 
@@ -73,12 +73,12 @@
     .locals 9
 
     .prologue
-    .line 5322
+    .line 5616
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v7
 
-    .line 5324
+    .line 5618
     .local v7, ident:J
     :try_start_0
     iget-object v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->this$0:Lcom/android/server/PowerManagerService;
@@ -106,22 +106,22 @@
     iget-object v6, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->mTag:Ljava/lang/String;
 
     #calls: Lcom/android/server/PowerManagerService;->acquireDVFSLockLocked(IILandroid/os/IBinder;IILjava/lang/String;)V
-    invoke-static/range {v0 .. v6}, Lcom/android/server/PowerManagerService;->access$11000(Lcom/android/server/PowerManagerService;IILandroid/os/IBinder;IILjava/lang/String;)V
+    invoke-static/range {v0 .. v6}, Lcom/android/server/PowerManagerService;->access$11100(Lcom/android/server/PowerManagerService;IILandroid/os/IBinder;IILjava/lang/String;)V
 
-    .line 5325
+    .line 5619
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->mHeld:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 5327
+    .line 5621
     invoke-static {v7, v8}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 5329
+    .line 5623
     return-void
 
-    .line 5327
+    .line 5621
     :catchall_0
     move-exception v0
 
@@ -134,7 +134,7 @@
     .locals 1
 
     .prologue
-    .line 5338
+    .line 5632
     iget-boolean v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->mHeld:Z
 
     return v0
@@ -144,20 +144,20 @@
     .locals 2
 
     .prologue
-    .line 5332
+    .line 5626
     iget-object v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->this$0:Lcom/android/server/PowerManagerService;
 
     iget-object v1, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->mToken:Landroid/os/IBinder;
 
     #calls: Lcom/android/server/PowerManagerService;->releaseDVFSLockLocked(Landroid/os/IBinder;)V
-    invoke-static {v0, v1}, Lcom/android/server/PowerManagerService;->access$10700(Lcom/android/server/PowerManagerService;Landroid/os/IBinder;)V
+    invoke-static {v0, v1}, Lcom/android/server/PowerManagerService;->access$10800(Lcom/android/server/PowerManagerService;Landroid/os/IBinder;)V
 
-    .line 5333
+    .line 5627
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedDVFSLock;->mHeld:Z
 
-    .line 5334
+    .line 5628
     return-void
 .end method
 
@@ -165,7 +165,7 @@
     .locals 2
 
     .prologue
-    .line 5342
+    .line 5636
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

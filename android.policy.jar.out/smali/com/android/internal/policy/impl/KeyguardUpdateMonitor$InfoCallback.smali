@@ -18,6 +18,9 @@
 .method public abstract onClockVisibilityChanged()V
 .end method
 
+.method public abstract onCsSimStateChanged(I)V
+.end method
+
 .method public abstract onDevicePolicyManagerStateChanged()V
 .end method
 

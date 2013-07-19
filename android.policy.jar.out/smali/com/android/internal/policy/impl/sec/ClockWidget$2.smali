@@ -1,14 +1,11 @@
 .class Lcom/android/internal/policy/impl/sec/ClockWidget$2;
-.super Ljava/lang/Object;
+.super Landroid/telephony/PhoneStateListener;
 .source "ClockWidget.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/sec/ClockWidget;->onResume()V
+    value = Lcom/android/internal/policy/impl/sec/ClockWidget;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Landroid/content/res/Configuration;Lcom/android/internal/policy/impl/KeyguardScreenCallback;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,55 +24,42 @@
     .parameter
 
     .prologue
-    .line 145
+    .line 156
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
+    .locals 1
+    .parameter "serviceState"
 
     .prologue
-    const/4 v1, 0x1
-
-    .line 148
+    .line 158
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
-    #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget;->mClock:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget;->access$000(Lcom/android/internal/policy/impl/sec/ClockWidget;)Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
+    #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget;->mEmergencyCall:Lcom/android/internal/policy/impl/sec/ClockWidget$EmergencyCall;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget;->access$600(Lcom/android/internal/policy/impl/sec/ClockWidget;)Lcom/android/internal/policy/impl/sec/ClockWidget$EmergencyCall;
 
     move-result-object v0
 
-    #calls: Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->setMarquee(Z)V
-    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$100(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;Z)V
+    if-eqz v0, :cond_0
 
-    .line 149
+    .line 159
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget;
 
-    #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget;->mCharger:Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget;->access$200(Lcom/android/internal/policy/impl/sec/ClockWidget;)Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;
+    #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget;->mEmergencyCall:Lcom/android/internal/policy/impl/sec/ClockWidget$EmergencyCall;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget;->access$600(Lcom/android/internal/policy/impl/sec/ClockWidget;)Lcom/android/internal/policy/impl/sec/ClockWidget$EmergencyCall;
 
     move-result-object v0
 
-    #calls: Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->setMarquee(Z)V
-    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;->access$300(Lcom/android/internal/policy/impl/sec/ClockWidget$Charge;Z)V
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget$EmergencyCall;->updateText()V
 
-    .line 150
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$2;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget;->mWeather:Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget;->access$400(Lcom/android/internal/policy/impl/sec/ClockWidget;)Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;
-
-    move-result-object v0
-
-    #calls: Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->setMarquee(Z)V
-    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;->access$500(Lcom/android/internal/policy/impl/sec/ClockWidget$Weather;Z)V
-
-    .line 151
+    .line 161
+    :cond_0
     return-void
 .end method

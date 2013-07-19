@@ -17,6 +17,26 @@
         <item name="android:shadowRadius">0.3</item>
         <item name="android:layout_weight">1.0</item>
     </style>
+    <style name="player_volume_seekbar" parent="@touchwiz:style/TwSeekBar">
+        <item name="touchwiz:twMax">15</item>
+        <item name="touchwiz:progress">12</item>
+        <item name="touchwiz:twBackgroundDrawable">@drawable/tw_volume_scrubber_bg_dark</item>
+        <item name="touchwiz:twProgressDrawable">@drawable/tw_volume_bar_dark</item>
+        <item name="touchwiz:twIndicatorThickness">6.0dip</item>
+        <item name="touchwiz:twProgressOrientation">vertical</item>
+        <item name="touchwiz:twSeekBarThumb">@drawable/music_play_tw3_volume_progressive_point</item>
+        <item name="touchwiz:twSeekThumbFontSize">24.0sp</item>
+    </style>
+    <style name="player_seekbar">
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">15.0dip</item>
+        <item name="android:paddingRight">15.0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxHeight">9.0dip</item>
+        <item name="android:progressDrawable">@drawable/voice_recorder_player_seekbar_progressive</item>
+        <item name="android:thumb">@drawable/music_player_progressive_seek_thumb</item>
+        <item name="android:thumbOffset">20.0dip</item>
+    </style>
     <style name="TwProgressBar">
         <item name="android:maxHeight">14.0dip</item>
         <item name="android:indeterminateOnly">false</item>

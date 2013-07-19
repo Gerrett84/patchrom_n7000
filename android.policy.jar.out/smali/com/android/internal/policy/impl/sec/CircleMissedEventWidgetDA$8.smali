@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
+    value = Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/sec/CircleUnlockWidget;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Landroid/content/res/Configuration;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 486
+    .line 488
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$8;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 488
+    .line 490
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 489
+    .line 491
     .local v0, action:Ljava/lang/String;
     const-string v2, "com.android.server.NotificationManagerService.NotificationArrived"
 
@@ -71,7 +71,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 492
+    .line 494
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$8;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
@@ -86,7 +86,7 @@
 
     move-result-object v1
 
-    .line 493
+    .line 495
     .local v1, msg:Landroid/os/Message;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA$8;->this$0:Lcom/android/internal/policy/impl/sec/CircleMissedEventWidgetDA;
 
@@ -97,7 +97,7 @@
 
     invoke-virtual {v2, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 495
+    .line 497
     .end local v1           #msg:Landroid/os/Message;
     :cond_1
     return-void

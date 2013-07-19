@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 40
+    .line 53
     iput-object p1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
@@ -40,7 +40,7 @@
     .locals 3
 
     .prologue
-    .line 59
+    .line 71
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
@@ -53,7 +53,7 @@
     #setter for: Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyPosition:J
     invoke-static {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->access$002(Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;J)J
 
-    .line 60
+    .line 72
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     #getter for: Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$OnFrequencyChangeListener;
@@ -70,25 +70,25 @@
 
     invoke-interface {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$OnFrequencyChangeListener;->onFrequencyChanged(J)V
 
-    .line 61
+    .line 73
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     #calls: Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->calculateFrequencyPosition()V
     invoke-static {v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->access$400(Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;)V
 
-    .line 62
+    .line 74
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->invalidate()V
 
-    .line 63
+    .line 75
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     const-string v1, " setAnimationToFreqBar onTick  onFinish "
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->log(Ljava/lang/String;)V
 
-    .line 65
+    .line 77
     return-void
 .end method
 
@@ -97,7 +97,7 @@
     .parameter "millisUntilFinished"
 
     .prologue
-    .line 42
+    .line 56
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -120,7 +120,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->log(Ljava/lang/String;)V
 
-    .line 44
+    .line 57
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -184,7 +184,7 @@
 
     invoke-virtual {v0, v1}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->log(Ljava/lang/String;)V
 
-    .line 50
+    .line 61
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
@@ -209,7 +209,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->access$114(Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;J)J
 
-    .line 51
+    .line 62
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     iget-object v1, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
@@ -222,7 +222,7 @@
     #setter for: Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyPosition:J
     invoke-static {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->access$002(Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;J)J
 
-    .line 53
+    .line 64
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     #getter for: Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->mFrequencyChangeListener:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$OnFrequencyChangeListener;
@@ -239,17 +239,17 @@
 
     invoke-interface {v0, v1, v2}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$OnFrequencyChangeListener;->onFrequencyChanged(J)V
 
-    .line 54
+    .line 65
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     #calls: Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->calculateFrequencyPosition()V
     invoke-static {v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->access$400(Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;)V
 
-    .line 55
+    .line 66
     iget-object v0, p0, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar$1;->this$0:Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;
 
     invoke-virtual {v0}, Lcom/sec/android/app/fm/ui/FrequencyDisplayBar;->invalidate()V
 
-    .line 56
+    .line 67
     return-void
 .end method

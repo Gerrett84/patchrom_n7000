@@ -3,7 +3,7 @@
 .source "TickerWidget.java"
 
 # interfaces
-.implements Landroid/view/View$OnTouchListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 457
+    .line 541
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$11;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -37,45 +37,11 @@
 
 
 # virtual methods
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
-    .parameter "view"
-    .parameter "event"
+.method public onClick(Landroid/view/View;)V
+    .locals 0
+    .parameter "arg0"
 
     .prologue
-    .line 460
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$11;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$1600(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
-
-    .line 461
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$11;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mUnlockWidget:Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2200(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    .line 462
-    iget-object v0, p0, Lcom/android/internal/policy/impl/sec/TickerWidget$11;->this$0:Lcom/android/internal/policy/impl/sec/TickerWidget;
-
-    #getter for: Lcom/android/internal/policy/impl/sec/TickerWidget;->mUnlockWidget:Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/sec/TickerWidget;->access$2200(Lcom/android/internal/policy/impl/sec/TickerWidget;)Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p2}, Lcom/android/internal/policy/impl/sec/CircleUnlockRipple;->handleTickerTouchEvent(Landroid/view/MotionEvent;)V
-
-    .line 463
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
+    .line 545
+    return-void
 .end method

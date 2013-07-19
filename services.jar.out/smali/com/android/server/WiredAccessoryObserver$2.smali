@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 604
+    .line 615
     iput-object p1, p0, Lcom/android/server/WiredAccessoryObserver$2;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,7 +39,7 @@
     .parameter "msg"
 
     .prologue
-    .line 607
+    .line 618
     iget-object v1, p0, Lcom/android/server/WiredAccessoryObserver$2;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     iget v2, p1, Landroid/os/Message;->arg1:I
@@ -53,7 +53,7 @@
     #calls: Lcom/android/server/WiredAccessoryObserver;->setDevicesState(IILjava/lang/String;)V
     invoke-static {v1, v2, v3, v0}, Lcom/android/server/WiredAccessoryObserver;->access$700(Lcom/android/server/WiredAccessoryObserver;IILjava/lang/String;)V
 
-    .line 608
+    .line 619
     iget-object v0, p0, Lcom/android/server/WiredAccessoryObserver$2;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
     #getter for: Lcom/android/server/WiredAccessoryObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -63,6 +63,6 @@
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 609
+    .line 620
     return-void
 .end method

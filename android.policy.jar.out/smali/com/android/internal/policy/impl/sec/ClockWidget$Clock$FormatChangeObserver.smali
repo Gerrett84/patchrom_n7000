@@ -36,24 +36,24 @@
     .parameter "clock"
 
     .prologue
-    .line 797
+    .line 851
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$FormatChangeObserver;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
 
-    .line 798
+    .line 852
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 799
+    .line 853
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$FormatChangeObserver;->mClock:Ljava/lang/ref/WeakReference;
 
-    .line 800
+    .line 854
     return-void
 .end method
 
@@ -64,7 +64,7 @@
     .parameter "selfChange"
 
     .prologue
-    .line 804
+    .line 858
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$FormatChangeObserver;->mClock:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -73,24 +73,24 @@
 
     check-cast v0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
 
-    .line 805
+    .line 859
     .local v0, digitalClock:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
     if-eqz v0, :cond_0
 
-    .line 806
+    .line 860
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->refreshTime()V
 
-    .line 814
+    .line 868
     :goto_0
     return-void
 
-    .line 809
+    .line 863
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock$FormatChangeObserver;->this$0:Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;
 
     #getter for: Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$1400(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;->access$1600(Lcom/android/internal/policy/impl/sec/ClockWidget$Clock;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -104,7 +104,7 @@
 
     goto :goto_0
 
-    .line 810
+    .line 864
     :catch_0
     move-exception v1
 

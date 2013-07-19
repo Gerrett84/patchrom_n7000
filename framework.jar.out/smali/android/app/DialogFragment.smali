@@ -994,7 +994,7 @@
 
     .line 207
     :cond_0
-    const v0, 0x103031d
+    const v0, 0x1030320
 
     iput v0, p0, Landroid/app/DialogFragment;->mTheme:I
 

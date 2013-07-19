@@ -239,6 +239,14 @@
     .end annotation
 .end method
 
+.method public abstract sendDtmf(C)Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract sendRequestRawToRIL([BLandroid/os/Message;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {

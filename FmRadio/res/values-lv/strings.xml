@@ -101,13 +101,13 @@ Austiņas darbojas kā radio antena. Pievienojiet austiņas"</string>
     <string name="toast_unavailable_in_tvout_mode">Nav pieejams TV izvades režīmā</string>
     <string name="mute">Bez skaņas</string>
     <string name="seeking">Meklē…</string>
-    <string name="via_earphone">Izmantojot austiņas</string>
-    <string name="via_speaker">Pa skaļruni</string>
+    <string name="via_earphone">Atskaņot austiņās</string>
+    <string name="via_speaker">Atsk., izm. skaļruni</string>
     <string name="normal_frequency">Parastā frekvence</string>
     <string name="tag">Atz</string>
     <string name="stop">Beigt</string>
     <string name="recording">Ieraksta…</string>
-    <string name="memory_full">Ierakstīšana pārtraukta. Atmiņa pilna</string>
+    <string name="memory_full">Atmiņa pilna</string>
     <string name="cancel_recording">Vai atcelt ierakstīšanu?</string>
     <string name="change_frequency">Manīt frekvenci</string>
     <string name="enter_frequency">Ievadīt frekvenci</string>
@@ -133,11 +133,14 @@ Austiņas darbojas kā radio antena. Pievienojiet austiņas"</string>
     <string name="tags">Atzīmes</string>
     <string name="tags_now_broadcasting">Šobrīd pārraida</string>
     <string name="tags_no_information">Nav informācijas</string>
+    <string name="tags_music_history">Mūzikas vēsture</string>
     <string name="tags_music_title">Nosaukums</string>
     <string name="tags_music_album">Albums</string>
     <string name="tags_music_artist">Izpildītājs</string>
+    <string name="tags_music_band">Grupa</string>
     <string name="tags_information_url">URL</string>
     <string name="tags_programme_homepage">Sākumlapa</string>
+    <string name="tags_interact_hotline">Informatīvais dienests</string>
     <string name="tags_interact_studio">Studio</string>
     <string name="tags_interact_other">Cits</string>
     <string name="tags_interact_centre">Centrā</string>
@@ -183,4 +186,14 @@ Pēc radio ierakstīšanas tiks parādīti ierakstītie faili"</string>
     <string name="dialog_one_item_deleted">Šis objekts tiks izdzēsts</string>
     <string name="dialog_multiple_items_deleted">%d objekti tiks izdzēsti</string>
     <string name="dialog_all_items_deleted">Visi objekti tiks izdzēsti</string>
+    <string name="turning_on">Ieslēdz…</string>
+    <string name="not_enough_memory_recording_will_stop">Nepietiek atmiņas. Ierakstīšana tiks pārtraukta pēc %d sekundēm</string>
+    <string name="low_batt_msg">Akumulators gandrīz tukšs</string>
+    <string name="no_play_during_call">Sarunas laikā nevar veikt atskaņošanu</string>
+    <string name="unable_delete">Nevar izdzēst</string>
+    <string name="playing">Atskaņo…</string>
+    <string name="tts_play_button">Atskaņot</string>
+    <string name="tts_previous_button">Atpakaļ</string>
+    <string name="tts_Next_button">Tālāk</string>
+    <string name="stms_version">GT-I9300_EUR_20121121_0913</string>
 </resources>

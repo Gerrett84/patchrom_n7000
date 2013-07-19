@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1225
+    .line 1393
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -38,72 +38,129 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 6
 
     .prologue
-    .line 1228
-    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    const/4 v5, 0x0
 
-    const/4 v2, 0x0
+    .line 1395
+    const/4 v2, 0x1
 
-    iput-boolean v2, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPowerKeyHandled:Z
+    .line 1397
+    .local v2, isScreenCaptureEnabled:Z
+    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    .line 1229
-    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+    iget-boolean v3, v3, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenCaptureOn:Z
 
-    iget-object v1, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
+    if-nez v3, :cond_0
 
-    invoke-interface {v1}, Landroid/view/WindowManagerPolicy$WindowManagerFuncs;->fakeState()I
-
-    move-result v0
-
-    .line 1230
-    .local v0, state:I
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_0
-
-    .line 1231
-    const-string v1, "FakeShutdown"
-
-    const-string v2, "start fakebootup."
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1232
-    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
-
-    iget-object v1, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
-
-    invoke-interface {v1}, Landroid/view/WindowManagerPolicy$WindowManagerFuncs;->fakebootup()V
-
-    .line 1236
+    .line 1421
     :goto_0
     return-void
 
-    .line 1234
+    .line 1400
     :cond_0
-    const-string v1, "FakeShutdown"
+    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    iget-object v3, v3, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    if-nez v3, :cond_1
 
-    const-string v3, "wrong state : "
+    .line 1401
+    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v4, "statusbar"
 
-    move-result-object v2
+    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    move-result-object v2
+    invoke-static {v4}, Lcom/android/internal/statusbar/IStatusBarService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/statusbar/IStatusBarService;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v2
+    iput-object v4, v3, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    .line 1404
+    :cond_1
+    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
+
+    if-eqz v3, :cond_2
+
+    .line 1406
+    :try_start_0
+    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
+
+    invoke-interface {v3}, Lcom/android/internal/statusbar/IStatusBarService;->isScreenCaptureEnabled()Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    .line 1414
+    :cond_2
+    :goto_1
+    if-eqz v2, :cond_3
+
+    .line 1415
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v3, "android.intent.action.SCREENRECORDER"
+
+    invoke-direct {v1, v3, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    .line 1416
+    .local v1, intent:Landroid/content/Intent;
+    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    iget-object v3, v3, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    .line 1417
+    const-string v3, "WindowManager"
+
+    const-string v4, "mScreenrecordChordLongPress : startService(ACTION_SCREEN_RECORDER)"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 1407
+    .end local v1           #intent:Landroid/content/Intent;
+    :catch_0
+    move-exception v0
+
+    .line 1408
+    .local v0, e:Landroid/os/RemoteException;
+    const-string v3, "WindowManager"
+
+    const-string v4, "StatusBarService RemoteException"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1409
+    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
+
+    iput-object v5, v3, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
+
+    .line 1410
+    const/4 v2, 0x1
+
+    goto :goto_1
+
+    .line 1419
+    .end local v0           #e:Landroid/os/RemoteException;
+    :cond_3
+    const-string v3, "WindowManager"
+
+    const-string v4, "mScreenrecordChordLongPress : Disalbe screen capture"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

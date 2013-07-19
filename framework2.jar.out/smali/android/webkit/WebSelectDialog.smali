@@ -63,7 +63,7 @@
     const/4 v1, 0x0
 
     .line 168
-    const v0, 0x1030328
+    const v0, 0x103032b
 
     invoke-direct {p0, p1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
@@ -122,21 +122,21 @@
     .locals 3
 
     .prologue
-    .line 263
+    .line 248
     :try_start_0
     invoke-super {p0}, Landroid/app/Dialog;->dismiss()V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 267
+    .line 252
     :goto_0
     return-void
 
-    .line 264
+    .line 249
     :catch_0
     move-exception v0
 
-    .line 265
+    .line 250
     .local v0, e:Ljava/lang/IllegalArgumentException;
     const-string v1, "WebSelectDialog"
 
@@ -152,7 +152,7 @@
     .parameter "event"
 
     .prologue
-    .line 271
+    .line 256
     invoke-super {p0, p1}, Landroid/app/Dialog;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
@@ -255,7 +255,7 @@
     .parameter "savedInstanceState"
 
     .prologue
-    const v2, 0x105006f
+    const v2, 0x105007b
 
     .line 175
     invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
@@ -299,7 +299,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050071
+    const v2, 0x105007d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -322,7 +322,7 @@
     invoke-virtual {v0, v1}, Landroid/view/Window;->setGravity(I)V
 
     .line 188
-    const v1, 0x1090147
+    const v1, 0x1090156
 
     invoke-virtual {p0, v1}, Landroid/webkit/WebSelectDialog;->setContentView(I)V
 
@@ -370,7 +370,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050070
+    const v2, 0x105007c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -389,7 +389,7 @@
     .prologue
     const/4 v4, -0x1
 
-    .line 279
+    .line 264
     invoke-virtual {p0}, Landroid/webkit/WebSelectDialog;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -402,7 +402,7 @@
 
     move-result-object v0
 
-    .line 280
+    .line 265
     .local v0, cfg:Landroid/content/res/Configuration;
     iget v2, v0, Landroid/content/res/Configuration;->orientation:I
 
@@ -410,8 +410,8 @@
 
     if-eq v2, v3, :cond_0
 
-    .line 281
-    const v2, 0x1020462
+    .line 266
+    const v2, 0x1020474
 
     invoke-virtual {p0, v2}, Landroid/webkit/WebSelectDialog;->findViewById(I)Landroid/view/View;
 
@@ -419,23 +419,23 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 282
+    .line 267
     .local v1, contentPanelTop:Landroid/widget/LinearLayout;
     iget v2, v0, Landroid/content/res/Configuration;->orientation:I
 
     iput v2, p0, Landroid/webkit/WebSelectDialog;->mCurrentOrientation:I
 
-    .line 283
+    .line 268
     if-eqz v1, :cond_0
 
-    .line 284
+    .line 269
     iget v2, v0, Landroid/content/res/Configuration;->orientation:I
 
     const/4 v3, 0x2
 
     if-ne v2, v3, :cond_1
 
-    .line 285
+    .line 270
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
     iget v3, p0, Landroid/webkit/WebSelectDialog;->mLandscapeViewHeight:I
@@ -444,13 +444,13 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 291
+    .line 276
     .end local v1           #contentPanelTop:Landroid/widget/LinearLayout;
     :cond_0
     :goto_0
     return-void
 
-    .line 286
+    .line 271
     .restart local v1       #contentPanelTop:Landroid/widget/LinearLayout;
     :cond_1
     iget v2, v0, Landroid/content/res/Configuration;->orientation:I
@@ -459,7 +459,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 287
+    .line 272
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
     iget v3, p0, Landroid/webkit/WebSelectDialog;->mPortraitViewHeight:I
@@ -472,11 +472,9 @@
 .end method
 
 .method public rebuildView()V
-    .locals 10
+    .locals 9
 
     .prologue
-    const v9, -0x777778
-
     const/4 v8, -0x1
 
     .line 199
@@ -486,7 +484,7 @@
 
     .line 201
     .local v5, theWindow:Landroid/view/Window;
-    const v6, 0x102045f
+    const v6, 0x1020471
 
     invoke-virtual {p0, v6}, Landroid/webkit/WebSelectDialog;->findViewById(I)Landroid/view/View;
 
@@ -511,24 +509,15 @@
     invoke-virtual {v0, v6}, Landroid/widget/Button;->setFocusable(Z)V
 
     .line 205
-    iget-boolean v6, p0, Landroid/webkit/WebSelectDialog;->mNextButtonEnabled:Z
-
-    if-nez v6, :cond_2
-
-    .line 206
-    invoke-virtual {v0, v9}, Landroid/widget/Button;->setTextColor(I)V
-
-    .line 210
-    :goto_0
     invoke-virtual {v5}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v4
 
-    .line 211
+    .line 206
     .local v4, lp:Landroid/view/WindowManager$LayoutParams;
     iget-object v6, p0, Landroid/webkit/WebSelectDialog;->mWebSetting:Landroid/webkit/WebSettingsClassic;
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_2
 
     iget-object v6, p0, Landroid/webkit/WebSelectDialog;->mWebSetting:Landroid/webkit/WebSettingsClassic;
 
@@ -536,9 +525,7 @@
 
     move-result v6
 
-    #if-eqz v6, :cond_3
-
-    .line 214
+    .line 209
     :try_start_0
     const-class v6, Landroid/view/WindowManager$LayoutParams;
 
@@ -548,30 +535,30 @@
 
     move-result-object v3
 
-    .line 215
+    .line 210
     .local v3, field:Ljava/lang/reflect/Field;
     if-eqz v3, :cond_0
 
-    .line 216
+    .line 211
     const/16 v6, 0x835
 
     iput v6, v4, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 217
+    .line 212
     invoke-virtual {v5, v4}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .line 230
+    .line 225
     .end local v3           #field:Ljava/lang/reflect/Field;
     :cond_0
-    :goto_1
+    :goto_0
     iput-object v0, p0, Landroid/webkit/WebSelectDialog;->mNextButton:Landroid/view/View;
 
-    .line 232
-    const v6, 0x102045e
+    .line 227
+    const v6, 0x1020470
 
     invoke-virtual {p0, v6}, Landroid/webkit/WebSelectDialog;->findViewById(I)Landroid/view/View;
 
@@ -580,36 +567,27 @@
     .end local v0           #button:Landroid/widget/Button;
     check-cast v0, Landroid/widget/Button;
 
-    .line 233
+    .line 228
     .restart local v0       #button:Landroid/widget/Button;
     iget-object v6, p0, Landroid/webkit/WebSelectDialog;->mPrevInputListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 234
+    .line 229
     iget-boolean v6, p0, Landroid/webkit/WebSelectDialog;->mPrevButtonEnabled:Z
 
     invoke-virtual {v0, v6}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 235
-    iget-boolean v6, p0, Landroid/webkit/WebSelectDialog;->mPrevButtonEnabled:Z
-
-    if-nez v6, :cond_4
-
-    .line 236
-    invoke-virtual {v0, v9}, Landroid/widget/Button;->setTextColor(I)V
-
-    .line 240
-    :goto_2
+    .line 230
     iget-boolean v6, p0, Landroid/webkit/WebSelectDialog;->mPrevButtonEnabled:Z
 
     invoke-virtual {v0, v6}, Landroid/widget/Button;->setFocusable(Z)V
 
-    .line 241
+    .line 231
     iput-object v0, p0, Landroid/webkit/WebSelectDialog;->mPrevButton:Landroid/view/View;
 
-    .line 243
-    const v6, 0x1020461
+    .line 233
+    const v6, 0x1020473
 
     invoke-virtual {p0, v6}, Landroid/webkit/WebSelectDialog;->findViewById(I)Landroid/view/View;
 
@@ -618,41 +596,32 @@
     .end local v0           #button:Landroid/widget/Button;
     check-cast v0, Landroid/widget/Button;
 
-    .line 244
+    .line 234
     .restart local v0       #button:Landroid/widget/Button;
     iget-object v6, p0, Landroid/webkit/WebSelectDialog;->mDoneInputListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 245
+    .line 235
     iget-boolean v6, p0, Landroid/webkit/WebSelectDialog;->mDoneButtonEnabled:Z
 
     invoke-virtual {v0, v6}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 246
-    iget-boolean v6, p0, Landroid/webkit/WebSelectDialog;->mDoneButtonEnabled:Z
-
-    if-nez v6, :cond_5
-
-    .line 247
-    invoke-virtual {v0, v9}, Landroid/widget/Button;->setTextColor(I)V
-
-    .line 251
-    :goto_3
+    .line 236
     iget-boolean v6, p0, Landroid/webkit/WebSelectDialog;->mDoneButtonEnabled:Z
 
     invoke-virtual {v0, v6}, Landroid/widget/Button;->setFocusable(Z)V
 
-    .line 252
+    .line 237
     iput-object v0, p0, Landroid/webkit/WebSelectDialog;->mDoneButton:Landroid/view/View;
 
-    .line 254
+    .line 239
     iget-object v6, p0, Landroid/webkit/WebSelectDialog;->mListView:Landroid/widget/ListView;
 
     if-eqz v6, :cond_1
 
-    .line 255
-    const v6, 0x1020463
+    .line 240
+    const v6, 0x1020475
 
     invoke-virtual {p0, v6}, Landroid/webkit/WebSelectDialog;->findViewById(I)Landroid/view/View;
 
@@ -660,7 +629,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 256
+    .line 241
     .local v1, contentPanel:Landroid/widget/LinearLayout;
     iget-object v6, p0, Landroid/webkit/WebSelectDialog;->mListView:Landroid/widget/ListView;
 
@@ -670,24 +639,16 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 259
+    .line 244
     .end local v1           #contentPanel:Landroid/widget/LinearLayout;
     :cond_1
     return-void
 
-    .line 208
-    .end local v4           #lp:Landroid/view/WindowManager$LayoutParams;
-    :cond_2
-    invoke-virtual {v0, v8}, Landroid/widget/Button;->setTextColor(I)V
-
-    goto :goto_0
-
-    .line 219
-    .restart local v4       #lp:Landroid/view/WindowManager$LayoutParams;
+    .line 214
     :catch_0
     move-exception v2
 
-    .line 220
+    .line 215
     .local v2, e:Ljava/lang/SecurityException;
     const-string v6, "WebSelectDialog"
 
@@ -695,14 +656,14 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 221
+    .line 216
     .end local v2           #e:Ljava/lang/SecurityException;
     :catch_1
     move-exception v2
 
-    .line 222
+    .line 217
     .local v2, e:Ljava/lang/NoSuchFieldException;
     const-string v6, "WebSelectDialog"
 
@@ -710,14 +671,14 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 223
+    .line 218
     .end local v2           #e:Ljava/lang/NoSuchFieldException;
     :catch_2
     move-exception v2
 
-    .line 224
+    .line 219
     .local v2, e:Ljava/lang/IllegalArgumentException;
     const-string v6, "WebSelectDialog"
 
@@ -725,28 +686,16 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 228
+    .line 223
     .end local v2           #e:Ljava/lang/IllegalArgumentException;
-    :cond_3
+    :cond_2
     const/16 v6, 0xbb6
 
     iput v6, v4, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    goto :goto_1
-
-    .line 238
-    :cond_4
-    invoke-virtual {v0, v8}, Landroid/widget/Button;->setTextColor(I)V
-
-    goto :goto_2
-
-    .line 249
-    :cond_5
-    invoke-virtual {v0, v8}, Landroid/widget/Button;->setTextColor(I)V
-
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method setButtonEnabled(IZ)V
@@ -844,7 +793,7 @@
     if-eqz v1, :cond_0
 
     .line 128
-    const v1, 0x1020463
+    const v1, 0x1020475
 
     invoke-virtual {p0, v1}, Landroid/webkit/WebSelectDialog;->findViewById(I)Landroid/view/View;
 
@@ -871,9 +820,9 @@
     .locals 0
 
     .prologue
-    .line 275
+    .line 260
     invoke-super {p0}, Landroid/app/Dialog;->show()V
 
-    .line 276
+    .line 261
     return-void
 .end method

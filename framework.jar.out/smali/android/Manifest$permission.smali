@@ -15,6 +15,10 @@
 
 
 # static fields
+.field public static final ACCESS_4G_RADIO_DISABLE:Ljava/lang/String; = "android.permission.ACCESS_4G_RADIO_DISABLE"
+
+.field public static final ACCESS_4G_STATE:Ljava/lang/String; = "android.permission.ACCESS_4G_STATE"
+
 .field public static final ACCESS_CACHE_FILESYSTEM:Ljava/lang/String; = "android.permission.ACCESS_CACHE_FILESYSTEM"
 
 .field public static final ACCESS_CHECKIN_PROPERTIES:Ljava/lang/String; = "android.permission.ACCESS_CHECKIN_PROPERTIES"
@@ -105,6 +109,8 @@
 
 .field public static final CAMERA:Ljava/lang/String; = "android.permission.CAMERA"
 
+.field public static final CHANGE_4G_STATE:Ljava/lang/String; = "android.permission.CHANGE_4G_STATE"
+
 .field public static final CHANGE_BACKGROUND_DATA_SETTING:Ljava/lang/String; = "android.permission.CHANGE_BACKGROUND_DATA_SETTING"
 
 .field public static final CHANGE_COMPONENT_ENABLED_STATE:Ljava/lang/String; = "android.permission.CHANGE_COMPONENT_ENABLED_STATE"
@@ -116,6 +122,8 @@
 .field public static final CHANGE_WIFI_MULTICAST_STATE:Ljava/lang/String; = "android.permission.CHANGE_WIFI_MULTICAST_STATE"
 
 .field public static final CHANGE_WIFI_STATE:Ljava/lang/String; = "android.permission.CHANGE_WIFI_STATE"
+
+.field public static final CHANGE_WIMAX_MULTICAST_STATE:Ljava/lang/String; = "android.permission.CHANGE_WIMAX_MULTICAST_STATE"
 
 .field public static final CHANGE_WIMAX_STATE:Ljava/lang/String; = "android.permission.CHANGE_WIMAX_STATE"
 
@@ -321,6 +329,8 @@
 
 .field public static final RECEIVE_BOOT_COMPLETED:Ljava/lang/String; = "android.permission.RECEIVE_BOOT_COMPLETED"
 
+.field public static final RECEIVE_DIRECTED_SMS:Ljava/lang/String; = "android.permission.RECEIVE_DIRECTED_SMS"
+
 .field public static final RECEIVE_EMERGENCY_BROADCAST:Ljava/lang/String; = "android.permission.RECEIVE_EMERGENCY_BROADCAST"
 
 .field public static final RECEIVE_MMS:Ljava/lang/String; = "android.permission.RECEIVE_MMS"
@@ -397,6 +407,8 @@
 
 .field public static final SIGNAL_PERSISTENT_PROCESSES:Ljava/lang/String; = "android.permission.SIGNAL_PERSISTENT_PROCESSES"
 
+.field public static final SPRINT4G:Ljava/lang/String; = "com.sprint.permission.SPRINT4G"
+
 .field public static final START_ANY_ACTIVITY:Ljava/lang/String; = "android.permission.START_ANY_ACTIVITY"
 
 .field public static final STATUS_BAR:Ljava/lang/String; = "android.permission.STATUS_BAR"
@@ -454,6 +466,12 @@
 .field public static final WRITE_SYNC_SETTINGS:Ljava/lang/String; = "android.permission.WRITE_SYNC_SETTINGS"
 
 .field public static final WRITE_USER_DICTIONARY:Ljava/lang/String; = "android.permission.WRITE_USER_DICTIONARY"
+
+.field public static final receiveDetailedApplicationState:Ljava/lang/String; = "android.app.receiveDetailedApplicationState"
+
+.field public static final receiveDetailedCallState:Ljava/lang/String; = "android.phone.receiveDetailedCallState"
+
+.field public static final receivePDPContextState:Ljava/lang/String; = "android.data.receivePDPContextState"
 
 
 # direct methods

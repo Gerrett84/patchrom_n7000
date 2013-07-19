@@ -10,7 +10,7 @@
     <string name="httpErrorBadUrl">No es pot obrir la pàgina. URL no vàlida</string>
     <string name="httpErrorUnsupportedScheme">"No s'admet el protocol"</string>
     <string name="no">Cancel·lar</string>
-    <string name="ok">Accept</string>
+    <string name="ok">Acceptar</string>
     <string name="paste">Enganxar</string>
     <string name="search_go">Cercar</string>
     <string name="selectAll">Seleccionar tot</string>
@@ -322,7 +322,7 @@
     <string name="turn_on_radio">Activar la connexió sense fils</string>
     <string name="turn_off_radio">Apagar connexió sense fils</string>
     <string name="screen_lock">Bloqueig de pantalla</string>
-    <string name="power_off">Apagat</string>
+    <string name="power_off">"Hora d'apagada"</string>
     <string name="silent_mode_silent">Timbre desactivat</string>
     <string name="silent_mode_vibrate">Vibració de melodia</string>
     <string name="silent_mode_ring">Timbre activat</string>
@@ -337,10 +337,10 @@
     <string name="no_recent_tasks">No hi ha aplicacions recents</string>
     <string name="global_actions">Opcions del dispositiu</string>
     <string name="global_action_lock">Bloqueig de pantalla</string>
-    <string name="global_action_power_off">Apagat</string>
+    <string name="global_action_power_off">Apagar</string>
     <string name="global_action_restart">Reiniciar</string>
     <string name="global_action_sound_mode_mute">Silenci</string>
-    <string name="global_action_sound_mode_vibrate">Vibració</string>
+    <string name="global_action_sound_mode_vibrate">Vibrar</string>
     <string name="global_action_sound_mode_sound">So</string>
     <string name="global_action_toggle_silent_mode">Mode silenci</string>
     <string name="global_action_silent_mode_on_status">El so està desactivat</string>
@@ -362,7 +362,7 @@
     <string name="global_action_insert_sim_card">Introduir targeta SIM</string>
     <string name="global_action_insert_sim_card_message">Insereixi la targeta SIM per a accedir als serveis de xarxa</string>
     <string name="globalactions_silent_mode_mute">Silenci</string>
-    <string name="globalactions_silent_mode_vibrate">Vibració</string>
+    <string name="globalactions_silent_mode_vibrate">Vibrar</string>
     <string name="globalactions_silent_mode_sound">So</string>
     <string name="safeMode">Mode segur</string>
     <string name="permlab_mdmApplications">Administrar aplicacions</string>
@@ -413,6 +413,7 @@
     <string name="permdesc_mdmKioskMode">Controlar el comportament del dispositiu en mode Quiosc</string>
     <string name="tether_usb_restrict">"La política de seguretat restringeix l'ús de tethering USB"</string>
     <string name="tether_wifi_restrict">"La política de seguretat restringeix l'ús de tethering Wi-Fi"</string>
+    <string name="data_call_restriction">"La política de seguretat restringeix l'ús de dades mòbils"</string>
     <string name="dpm_wifi_blocked_network">"La política de seguretat bloqueja l'ús d'aquesta xarxa Wi-Fi"</string>
     <string name="dpm_wifi_misc_wifi_disabled">"La política de seguretat restringeix l'ús de Wi-Fi"</string>
     <string name="dpm_wifi_misc_network_insecure">"La política de seguretat restringeix l'ús de xarxes Wi-Fi insegures"</string>
@@ -624,7 +625,7 @@
     <string name="permdesc_writeSocialStream">"Permet que l'aplicació mostri actualitzacions socials dels teus amics. Vés amb compte en compartir informació: això permet que l'aplicació produeixi missatges que pot semblar que provinguin d'un amic. Nota: És possible que aquest permís no s'apliqui a totes les xarxes socials."</string>
     <string name="permlab_readCalendar">llegir els esdeveniments de calendari i la informació confidencial</string>
     <string name="permdesc_readCalendar">"Permet que l'aplicació llegeixi tots els esdeveniments del calendari emmagatzemats al telèfon, inclosos els dels amics o dels companys de feina. Aquesta acció pot permetre que l'aplicació comparteixi o desi les dades del teu calendari, sense tenir en compte la confidencialitat."</string>
-    <string name="permlab_writeCalendar">afegeix o modifica els esdeveniments del calendari i envia correus electrònics als clients sense el coneixement dels propietaris</string>
+    <string name="permlab_writeCalendar">"Afegir o modificar esdeveniments del calendari i enviar correus electrònics als convidats sense coneixement de l'amfitrió"</string>
     <string name="permdesc_writeCalendar">"Permet que l'aplicació afegeixi, elimini o canviï esdeveniments que pots modificar al telèfon, inclosos els d'amics o de companys de feina. Aquesta acció pot permetre que l'aplicació enviï missatges que sembli que provinguin dels propietaris del calendari o que modifiqui esdeveniments sense el coneixement dels propietaris."</string>
     <string name="permlab_accessMockLocation">"orígens d'ubicació falsos per a fer proves"</string>
     <string name="permdesc_accessMockLocation">"Permet a una aplicació crear orígens d'ubicació falsos per a avaluació. Si es permet, aplicacions malicioses podrien substituir la ubicació o l'estat que retornen els orígens d'ubicació reals com ara GPS o operadors, o supervisar i informar de la seva ubicació a llocs webs aleatoris"</string>
@@ -714,7 +715,7 @@
     <string name="permdesc_getAccounts">Permet a una aplicació accedir a la llista de comptes coneguts pel telèfon</string>
     <string name="permlab_authenticateAccounts">Actuar com a autenticador de comptes</string>
     <string name="permdesc_authenticateAccounts">"Permet a una aplicació utilitzar la opció d'autenticador de comptes de l'Administrador de comptes. Això inclou la creació de comptes i el control de les contrasenyes"</string>
-    <string name="permlab_manageAccounts">addició o eliminació de comptes</string>
+    <string name="permlab_manageAccounts">Afegir o eliminar comptes</string>
     <string name="permdesc_manageAccounts">Permet a una aplicació afegir i eliminar comptes i esborrar la seva contrasenya</string>
     <string name="permlab_useCredentials">"Utilitzar credencials autenticació d'un compte"</string>
     <string name="permdesc_useCredentials">"Permet a una aplicació sol·licitar credencials d'autenticació"</string>
@@ -736,7 +737,7 @@
     <string name="permdesc_changeWifiState">"Permet a una aplicació connectar i desconnectar de punts d'accés Wi-Fi, i fer canvis a les xarxes Wi-Fi configurades"</string>
     <string name="permlab_changeWifiMulticastState">Permetre recepció multidifusió de Wi-Fi</string>
     <string name="permdesc_changeWifiMulticastState">"Permet que l'aplicació rebi paquets enviats a tots els dispositius d'una xarxa Wi-Fi mitjançant les adreces multidifusió, no només al teu telèfon. Fa servir més energia que el mode que no és multidifusió."</string>
-    <string name="permlab_bluetoothAdmin">accés a la configuració de Bluetooth</string>
+    <string name="permlab_bluetoothAdmin">Ajustaments Bluetooth</string>
     <string name="permdesc_bluetoothAdmin">Permet que una aplicació configuri el telèfon Bluetooth local i descobrir i vincular dispositius remots</string>
     <string name="permlab_accessWimaxState">Veure estat WiMAX</string>
     <string name="permdesc_accessWimaxState">"Permet que l'aplicació determini si WiMAX està activat i que vegi la informació sobre totes les xarxes WiMAX que estan connectades."</string>
@@ -826,6 +827,7 @@
     <string name="policydesc_allow_desktopsync">"Evitar l'ús de sincronització d'escriptori"</string>
     <string name="policylab_require_storagecard_encryption">Definir xifratge de la targeta SD</string>
     <string name="policydesc_require_storagecard_encryption">"Requerir que l'aplicació de la targeta SD estigui xifrada"</string>
+    <string name="bluetooth_has_been_disconnected">"S'ha desconnectat el Bluetooth"</string>
     <string name="bluetooth_security_mode_disable">"La política de seguretat restringeix l'ús de connexió Bluetooth"</string>
     <string name="bluetooth_security_mode_handsfree">"La política de seguretat restringeix l'ús de connexió Bluetooth només a funcions de mans lliures"</string>
     <string name="phoneTypeCustom">Personalitzat</string>
@@ -898,18 +900,18 @@
     <string name="sipAddressTypeHome">Pers.</string>
     <string name="sipAddressTypeWork">Feina</string>
     <string name="sipAddressTypeOther">Altres</string>
-    <string name="keyguard_password_enter_pin_code">Introdueix el codi PIN</string>
+    <string name="keyguard_password_enter_pin_code">Escrigui el codi PIN</string>
     <string name="keyguard_password_enter_puk_code">Introdueixi el PUK i el PIN nou</string>
     <string name="keyguard_password_enter_puk_prompt">Codi PUK</string>
     <string name="keyguard_password_enter_pin_prompt">Codi PIN nou</string>
     <string name="keyguard_password_entry_touch_hint">Toqui per introduir una contrasenya</string>
     <string name="keyguard_password_enter_password_code">Introdueixi la contrasenya per desbloquejar</string>
     <string name="keyguard_password_enter_pin_password_code">Introdueixi el PIN per desbloquejar</string>
-    <string name="keyguard_password_wrong_pin_code">Codi PIN incorrecte.</string>
+    <string name="keyguard_password_wrong_pin_code">Codi PIN incorrecte</string>
     <string name="keyguard_pin_accepted">Codi acceptat</string>
     <string name="keyguard_label_text">Per desbloquejar, premi Menú i 0</string>
     <string name="emergency_call_dialog_number_for_display">"Número d'emergència"</string>
-    <string name="lockscreen_carrier_default">Sense serv</string>
+    <string name="lockscreen_carrier_default">Sense servei</string>
     <string name="lockscreen_screen_locked">Pantalla bloquejada</string>
     <string name="lockscreen_instructions_when_pattern_enabled">"Premi Menú per a desbloquejar o realitzar una trucada d'emergència"</string>
     <string name="lockscreen_instructions_when_pattern_disabled">Premi Menú per desbloquejar</string>
@@ -942,8 +944,9 @@
     <string name="lockscreen_network_locked_message">Xarxa bloquejada</string>
     <string name="lockscreen_sim_puk_locked_message">La targeta SIM està bloquejada per PUK</string>
     <string name="lockscreen_sim_puk_locked_instructions">"Consulti la Guia de l'usuari o contacti amb Atenció al client"</string>
-    <string name="lockscreen_sim_locked_message">Targeta SIM/RUIM bloquejada</string>
+    <string name="lockscreen_sim_locked_message">La targeta SIM està bloquejada</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">"S'està desbloquejant la targeta SIM…"</string>
+    <string name="lockscreen_uim_unlock_progress_dialog_message">Unlocking UIM card…</string>
     <string name="lockscreen_too_many_failed_attempts_dialog_message">Patró de desbloqueig incorrecte dibuixat %1$d cops. Torni-ho a intentar en %2$d segons</string>
     <string name="lockscreen_too_many_failed_password_attempts_dialog_message">"S'ha introduït una contrasenya incorrecta %1$d cops. Torni-ho a intentar en %2$d segons"</string>
     <string name="lockscreen_sim_pin_blocked">PIN1 bloquejat. Introdueixi PUK1 per desbloquejar PIN1</string>
@@ -996,6 +999,7 @@
     <string name="autofill_address_summary_format">$1$2$3</string>
     <string name="autofill_address_type_same_as_re">Igual que</string>
     <string name="autofill_billing_designator_re">Factura</string>
+    <string name="autofill_shipping_designator_re">Vaixell</string>
     <string name="autofill_phone_suffix_re">Sufix</string>
     <string name="autofill_name_on_card_contextual_re">Nom</string>
     <string name="autofill_province">Província</string>
@@ -1010,7 +1014,7 @@
     <string name="autofill_parish">Parròquia</string>
     <string name="autofill_area">Àrea</string>
     <string name="autofill_emirate">Emirat</string>
-    <string name="permlab_readHistoryBookmarks">"lectura dels marcadors i l'historial web"</string>
+    <string name="permlab_readHistoryBookmarks">"llegir l'historial d'Internet i els preferits"</string>
     <string name="permdesc_readHistoryBookmarks">Permet a l’aplicació llegir tots els preferits i les URL visitades del navegador</string>
     <string name="permlab_writeHistoryBookmarks">"introducció de marcadors i d'historial web"</string>
     <string name="permdesc_writeHistoryBookmarks">"Permet a una aplicació modificar l'historial d'Internet i els preferits del navegador emmagatzemats al telèfon. Si es permet, aplicacions malicioses podrien utilitzar aquesta funció per esborrar o modificar aquestes dades"</string>
@@ -1089,10 +1093,12 @@
     <string name="editTextMenuTitle">Accions de text</string>
     <string name="low_internal_storage_view_title">La memòria és gairebé plena</string>
     <string name="low_internal_storage_view_text">Algunes funcions del sistema poden no funcionar</string>
+    <string name="full_internal_storage_view_text">"Es pot produir un error perquè la memòria del dispositiu està plena. Esborri'n alguns elements"</string>
     <string name="loading">Carregant…</string>
     <string name="capital_on">Activat</string>
     <string name="capital_off">Desactivat</string>
     <string name="whichApplication">"Completar l'acció utilitzant"</string>
+    <string name="whichHomeApplication">Home selection</string>
     <string name="alwaysUse">Utilitzar de forma predeterminada per a aquesta acció</string>
     <string name="clearDefaultHintMsg">"Esborri els ajustaments d'aplicacions predeterminades anant a Ajustaments > Gestor d'aplicacions > Totes"</string>
     <string name="clearDefaultHomeHintMsg">You can change later in the settings menu. (Settings > Home selection in Personal)</string>
@@ -1161,7 +1167,7 @@ Vols tancar-la?"</string>
     <string name="wifi_notification_no_network_message">Obrir ajustaments Wi-Fi</string>
     <string name="wifi_notification_not_connected">Xarxes Wi-Fi disponibles</string>
     <string name="wifi_notification_not_connected_message">Obrir les xarxes Wi-Fi disponibles</string>
-    <string name="wifi_notification_connected">Connectat a %1$s</string>
+    <string name="wifi_notification_connected">Connected to %1$s (%2$s)</string>
     <string name="wifi_notification_connected_message">Toqui per configurar Wi-Fi</string>
     <string name="wifi_notification_connected_secure">Segur</string>
     <string name="wifi_notification_connected_open">Obrir</string>
@@ -1191,9 +1197,9 @@ Vols tancar-la?"</string>
     <string name="select_character">Introduir caràcter</string>
     <string name="sms_control_default_app_name">Aplicació desconeguda</string>
     <string name="sms_control_title">Enviant SMS…</string>
-    <string name="sms_control_message">"S'està enviant una gran quantitat de missatges SMS. Toqui Acceptar per continuar o Cancel·lar per aturar l'enviament"</string>
-    <string name="sms_control_yes">Acceptar</string>
-    <string name="sms_control_no">Cancelar</string>
+    <string name="sms_control_message">&lt;b>%s&lt;/b> està enviant una gran quantitat de missatges SMS. Permetre a aquesta aplicació continuar enviant missatges?</string>
+    <string name="sms_control_yes">Permetre</string>
+    <string name="sms_control_no">Denegar</string>
     <string name="sim_removed_title">Targeta SIM retirada</string>
     <string name="sim_removed_message">La xarxa mòbil no estarà disponible fins que reiniciï amb una targeta SIM vàlida inserida</string>
     <string name="sim_done_button">Realit</string>
@@ -1287,7 +1293,7 @@ Vols tancar-la?"</string>
     <string name="activity_list_empty">"No s'han trobat activitats coincidents"</string>
     <string name="permlab_pkgUsageStats">"actualitzar estadístiques d'ús dels components"</string>
     <string name="permdesc_pkgUsageStats">"Permet la modificació d'estadístiques d'ús de components recollides. No ho poden utilitzar les aplicacions normals"</string>
-    <string name="permlab_copyProtectedData">Permet al contenidor predeterminat copiar el contingut. Les aplicacions normals no ho utilitzen</string>
+    <string name="permlab_copyProtectedData">Copiar contingut</string>
     <string name="permdesc_copyProtectedData">Permet al contenidor predeterminat copiar el contingut. Les aplicacions normals no ho utilitzen</string>
     <string name="permlab_route_media_output">Dirigir sortida multimèdia</string>
     <string name="permdesc_route_media_output">Permet que una aplicació dirigeixi la sortida multimèdia a altres dispositius externs</string>
@@ -1399,7 +1405,7 @@ per al compte %s"</string>
     <string name="radiobutton_selected">Seleccionat</string>
     <string name="radiobutton_not_selected">"No s'han seleccionat contactes"</string>
     <string name="switch_on">Activat</string>
-    <string name="switch_off">Apagat</string>
+    <string name="switch_off">Desactivat</string>
     <string name="togglebutton_pressed">Premut</string>
     <string name="keyboardview_keycode_alt">ALT</string>
     <string name="keyboardview_keycode_cancel">Cancelar</string>
@@ -1427,10 +1433,11 @@ per al compte %s"</string>
     <string name="action_bar_home_description">Navegar a casa</string>
     <string name="action_bar_up_description">Navegar amunt</string>
     <string name="action_menu_overflow_description">Més opcions</string>
+    <string name="SS_SWITCH_TO_PREVIOUS_SIZE">Canviar a mida anterior</string>
     <string name="storage_internal">Memòria del dispositiu</string>
     <string name="storage_sd_card">Targ SD</string>
     <string name="storage_usb">Emmagatzematge USB</string>
-    <string name="extract_edit_menu_button">Editar…</string>
+    <string name="extract_edit_menu_button">Editar</string>
     <string name="data_usage_warning_title">"Advertència d'ús de dades"</string>
     <string name="data_usage_warning_body">Toqui per veure ús i ajustaments</string>
     <string name="data_usage_3g_limit_title">Connexió de dades 2G-3G deshabilitada</string>
@@ -1460,7 +1467,7 @@ per al compte %s"</string>
     <string name="fingerprints">Empremtes</string>
     <string name="sha256_fingerprint">Empremta SHA-256:</string>
     <string name="sha1_fingerprint">Empremta SHA-1:</string>
-    <string name="activity_chooser_view_see_all">Veu tot</string>
+    <string name="activity_chooser_view_see_all">Veure tot</string>
     <string name="activity_chooser_view_dialog_title_default">Seleccionar activitat</string>
     <string name="share_action_provider_share_with">Compartir amb</string>
     <string name="status_bar_device_locked">Dispositiu bloquejat</string>
@@ -1516,6 +1523,8 @@ per al compte %s"</string>
     <string name="lockscreen_fmapp_name">Ràdio FM</string>
     <string name="lockscreen_clock_dualclock_home">Pers.</string>
     <string name="lockscreen_clock_dualclock_roaming">Itinerància</string>
+    <string name="lockscreen_clock_dualclock_home_Seoul">Seül</string>
+    <string name="lockscreen_clock_dualclock_roaming_Korea">Itinerància</string>
     <string name="lockscreen_clock_dualclock_popup_title">Rellotge dual</string>
     <string name="lockscreen_clock_dualclock_popup_message">"Seleccioni la ciutat d'origen per mostrar el rellotge dual a la pantalla de bloqueig. Anar a Ajustaments?"</string>
     <string name="lockscreen_ticker_no_data_to_display">No hi ha dades per a mostrar</string>
@@ -1552,7 +1561,7 @@ per al compte %s"</string>
     <string name="lockscreen_2ndLock_instructions2">Introdueixi el PIN de còpia de seguretat per desbloquejar</string>
     <string name="lockscreen_2ndLock_password">PASSWORD</string>
     <string name="lockscreen_2ndLock_submit_button">Accept</string>
-    <string name="lockscreen_failed_attempts_almost_glogin2">Ha dibuixat el seu patró de desbloqueig de forma incorrecta %1$d vegades. Torni-ho a intentar en %2$d segons</string>
+    <string name="lockscreen_failed_attempts_almost_glogin2">"Patró de desbloqueig dibuixat incorrectament %1$d cops. Queden %2$d intents abans de demanar-li que desbloquegi el dispositiu amb l'inici de sessió de Google o el PIN de còpia de seguretat. Torni-ho a intentar en %3$d segons"</string>
     <string name="lockscreen_carrier_noservice">(Sense servei)</string>
     <string name="rescan_network">"S'està cercant una xarxa disponible"</string>
     <string name="AutoUpdateOfTimeAndDate">Actualitzar hora i data automàticament</string>
@@ -1563,6 +1572,8 @@ per al compte %s"</string>
     <string name="capabilitymanager_managed_errortitle">Error</string>
     <string name="security_policy_title">Polítiques de seguretat</string>
     <string name="security_policy_summary">"S'han rebut polítiques de seguretat de l'administrador remot"</string>
+    <string name="sdcard_unmount_policy_noti_title">Targeta SD desmuntada per política TI</string>
+    <string name="sdcard_unmount_policy_noti_content">Toqui per muntar la targeta SD</string>
     <string name="sdcard_encrypt_title_notification">Xifratge de la targeta SD</string>
     <string name="sdcard_encrypt_title_ongoing_second_storage">"S'està xifrant la targeta SD…"</string>
     <string name="sdcard_encrypt_notification">Targeta SD xifrada</string>
@@ -1586,7 +1597,7 @@ per al compte %s"</string>
     <string name="kgt_operator_name">KGT</string>
     <string name="vibo_operator_name">VIBO</string>
     <string name="twmobile_operator_name">TW Mobile</string>
-    <string name="smartone_operator_name">SmarTone HK</string>
+    <string name="smartone_operator_name">SmarTone</string>
     <string name="cmhk_operator_name">CMHK</string>
     <string name="ctc_plmn_locked_card">Locked Card</string>
     <string name="ctc_plmn_card_off">CARD OFF</string>
@@ -1628,7 +1639,7 @@ per al compte %s"</string>
     <string name="StrSSIncompatibility">Requested service cannot be carried out due to another additional service. Please contact customer centre</string>
     <string name="StrSysFailure">System error. Try again later</string>
     <string name="StrDataMissing">No value entered. Check the values and try again</string>
-    <string name="StrUnexpectedDataValue">Entered values are out of range. Check the values and try again</string>
+    <string name="StrUnexpectedDataValue">"Els valors introduïts són fora de l'interval vàlid. Comprovi'ls i torni-ho a intentar"</string>
     <string name="StrIllegalSubscriber">Unregistered subscriber. Check the values and try again</string>
     <string name="StrFacilityNotSupported">The function is not supported</string>
     <string name="StrAbsentSubscriber">No response from the carrier. Please try again</string>
@@ -1650,6 +1661,8 @@ per al compte %s"</string>
     <string name="SS_USB_TETHERING_ENABLED">Tethering USB habilitat</string>
     <string name="SS_WI_FI_TETHERING_ENABLED">Tethering Wi-Fi habilitat</string>
     <string name="SS_TETHERING_ENABLED_HWI_FI_AND_USB">Tethering habilitat (Wi-Fi i USB)</string>
+    <string name="lockscreen_failed_max_attempts_reached">"Dispositiu bloquejat. S'ha assolit el nombre màxim d'intents d'introducció de contrasenya. Cal la contrasenya de recuperació per desbloquejar el dispositiu. Si introdueix malament la contrasenya de recuperació, s'esborraran totes les dades"</string>
+    <string name="recovery_password_required">Cal la contrasenya de recuperació per desbloquejar el dispositiu</string>
     <string name="ctc_pc_modem_notification_title">CTC PC Modem</string>
     <string name="ctc_pc_modem_notification_message">Select Dial Up networking for PC Modem</string>
     <string name="zz_enabled_dun">Xarxa de marcatge habilitada</string>
@@ -1683,12 +1696,21 @@ per al compte %s"</string>
     <string name="lockscreen_ticker_logo_news_tts">Notícies</string>
     <string name="lockscreen_ticker_logo_stock_tts">Accions</string>
     <string name="lockscreen_ticker_refresh_tts">Actualitzar</string>
+    <string name="SS_ALWAYS_ON_TOP">Sempre a dalt</string>
+    <string name="SS_MINIMISE">Minimitzar</string>
+    <string name="SS_MAXIMISE">Maximitzar</string>
+    <string name="SS_CLOSE_APPLICATION">"Tancar l'aplicació"</string>
+    <string name="spengesture_media_scanning">"No es pot retallar la foto. L'escàner multimèdia està actiu"</string>
+    <string name="lockscreen_sim_puk_tmo_help_pin_blocked">PIN bloquejat</string>
+    <string name="lockscreen_sim_puk_tmo_help_contact_service_provider">Contacti amb el seu proveïdor de serveis per desbloquejar la seva targeta SIM</string>
     <string name="resolver_guide_title">Esborrar valors predeterminats</string>
     <string name="operation_not_allowed">Operació no vàlida</string>
     <string name="exceeded_maxlength">"S'ha superat la mida màxima de missatge"</string>
     <string name="dont_show_again_message">No tornar a mostrar</string>
     <string name="set_bing_as_default">Configurar Bing com el motor de cerca predeterminat?</string>
     <string name="ms_domain_site">Lloc de domini de Microsoft</string>
+    <string name="unsupported_in_popupbrowser">Funció no compatible amb el Navegador emergent</string>
+    <string name="find_on_page_abb">Cercar a pàgina</string>
     <string name="tw_clipboard_already_exists">Ja existeix</string>
     <string name="tw_clipboard_no_items_to_paste">No hi ha elements per enganxar</string>
     <string name="tw_clipboard_save_in_memo">Desar a la memòria</string>
@@ -1703,8 +1725,11 @@ per al compte %s"</string>
     <string name="tw_clipboard_clear">Esbor</string>
     <string name="tw_clipboard_delete_all">Esborrar-ho tot?</string>
     <string name="tw_clipboard_edit">Editar</string>
-    <string name="tw_clipboard_done">Finalitzat</string>
+    <string name="tw_clipboard_done">Fin.</string>
     <string name="tw_clipboard_save">Desar</string>
     <string name="tw_clipboard_no_item">No hi ha elements</string>
     <string name="tw_clipboard_delete_all_from_clipboard">"S'han esborrat tots els elements, excepte els elements bloquejats, del porta-retalls"</string>
+    <string name="tw_clipboard_pasted_from_clipboard">Enganxat des del porta-retalls</string>
+    <string name="Roaming_Auto_Dialing">PIN bloquejat</string>
+    <string name="stms_version">GT-I9300_EUR_20121119_0322</string>
 </resources>

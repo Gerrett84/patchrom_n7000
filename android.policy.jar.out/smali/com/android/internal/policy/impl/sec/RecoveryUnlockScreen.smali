@@ -59,46 +59,46 @@
 
     const/4 v9, 0x0
 
-    .line 91
+    .line 92
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 78
+    .line 79
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mUseSystemIME:Z
 
-    .line 81
+    .line 82
     iput v5, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->RECOVERY_PASSWORD_ATTEMPTS:I
 
-    .line 82
+    .line 83
     iput v9, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->recoveryAttempt:I
 
-    .line 86
+    .line 87
     iput-boolean v9, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mImeButtonVisible:Z
 
-    .line 93
+    .line 94
     iget v0, p2, Landroid/content/res/Configuration;->hardKeyboardHidden:I
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCreationHardKeyboardHidden:I
 
-    .line 94
+    .line 95
     iget v0, p2, Landroid/content/res/Configuration;->orientation:I
 
     iput v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCreationOrientation:I
 
-    .line 95
+    .line 96
     iput-object p4, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
-    .line 96
+    .line 97
     iput-object p5, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 97
+    .line 98
     iput-object p3, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    .line 99
+    .line 100
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v7
 
-    .line 100
+    .line 101
     .local v7, layoutInflater:Landroid/view/LayoutInflater;
     iget v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCreationOrientation:I
 
@@ -106,12 +106,12 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 101
-    const v0, 0x109007b
+    .line 102
+    const v0, 0x1090080
 
     invoke-virtual {v7, v0, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 106
+    .line 107
     :goto_0
     new-instance v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
@@ -127,7 +127,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
-    .line 109
+    .line 110
     const v0, 0x102022d
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->findViewById(I)Landroid/view/View;
@@ -138,8 +138,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mKeyboardView:Lcom/android/internal/widget/PasswordEntryKeyboardView;
 
-    .line 110
-    const v0, 0x1020356
+    .line 111
+    const v0, 0x1020363
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -149,12 +149,12 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
-    .line 111
+    .line 112
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     invoke-virtual {v0, p0}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
 
-    .line 113
+    .line 114
     new-instance v0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mKeyboardView:Lcom/android/internal/widget/PasswordEntryKeyboardView;
@@ -163,24 +163,24 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mKeyboardHelper:Lcom/android/internal/widget/PasswordEntryKeyboardHelper;
 
-    .line 116
+    .line 117
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mKeyboardHelper:Lcom/android/internal/widget/PasswordEntryKeyboardHelper;
 
     invoke-virtual {v0, v9}, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->setKeyboardMode(I)V
 
-    .line 117
+    .line 118
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mKeyboardView:Lcom/android/internal/widget/PasswordEntryKeyboardView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/PasswordEntryKeyboardView;->setVisibility(I)V
 
-    .line 119
+    .line 120
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 122
+    .line 123
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     invoke-static {}, Landroid/text/method/TextKeyListener;->getInstance()Landroid/text/method/TextKeyListener;
@@ -189,14 +189,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setKeyListener(Landroid/text/method/KeyListener;)V
 
-    .line 123
+    .line 124
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     const/16 v1, 0x81
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setInputType(I)V
 
-    .line 126
+    .line 127
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mKeyboardHelper:Lcom/android/internal/widget/PasswordEntryKeyboardHelper;
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -212,7 +212,7 @@
     :goto_1
     invoke-virtual {v1, v0}, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->setVibratePattern(I)V
 
-    .line 130
+    .line 131
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     new-instance v1, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen$1;
@@ -221,7 +221,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 135
+    .line 136
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     new-instance v1, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen$2;
@@ -230,8 +230,8 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 149
-    const v0, 0x1020364
+    .line 150
+    const v0, 0x1020372
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -241,8 +241,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mRecoverButton:Landroid/widget/Button;
 
-    .line 150
-    const v0, 0x102035c
+    .line 151
+    const v0, 0x1020369
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->findViewById(I)Landroid/view/View;
 
@@ -252,7 +252,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCancelButton:Landroid/widget/Button;
 
-    .line 152
+    .line 153
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mRecoverButton:Landroid/widget/Button;
 
     new-instance v1, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen$3;
@@ -261,7 +261,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 158
+    .line 159
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCancelButton:Landroid/widget/Button;
 
     new-instance v1, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen$4;
@@ -270,14 +270,14 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 165
-    const v0, 0x1020359
+    .line 166
+    const v0, 0x1020366
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->findViewById(I)Landroid/view/View;
 
     move-result-object v8
 
-    .line 166
+    .line 167
     .local v8, switchImeButton:Landroid/view/View;
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->getContext()Landroid/content/Context;
 
@@ -291,7 +291,7 @@
 
     check-cast v6, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 168
+    .line 169
     .local v6, imm:Landroid/view/inputmethod/InputMethodManager;
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mImeButtonVisible:Z
 
@@ -305,30 +305,30 @@
 
     if-eqz v0, :cond_0
 
-    .line 169
+    .line 170
     invoke-virtual {v8, v9}, Landroid/view/View;->setVisibility(I)V
 
-    .line 170
+    .line 171
     new-instance v0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen$5;
 
     invoke-direct {v0, p0, v6}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen$5;-><init>(Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;Landroid/view/inputmethod/InputMethodManager;)V
 
     invoke-virtual {v8, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 177
+    .line 178
     :cond_0
     const/high16 v0, 0x4c00
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->setBackgroundColor(I)V
 
-    .line 178
+    .line 179
     return-void
 
-    .line 103
+    .line 104
     .end local v6           #imm:Landroid/view/inputmethod/InputMethodManager;
     .end local v8           #switchImeButton:Landroid/view/View;
     :cond_1
-    const v0, 0x109007a
+    const v0, 0x109007f
 
     invoke-virtual {v7, v0, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -337,7 +337,7 @@
     :cond_2
     move v0, v9
 
-    .line 126
+    .line 127
     goto :goto_1
 .end method
 
@@ -346,7 +346,7 @@
     .parameter "x0"
 
     .prologue
-    .line 62
+    .line 63
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     return-object v0
@@ -357,7 +357,7 @@
     .parameter "x0"
 
     .prologue
-    .line 62
+    .line 63
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mResuming:Z
 
     return v0
@@ -368,7 +368,7 @@
     .parameter "x0"
 
     .prologue
-    .line 62
+    .line 63
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->verifyPasswordAndUnlock()V
 
     return-void
@@ -379,7 +379,7 @@
     .parameter "x0"
 
     .prologue
-    .line 62
+    .line 63
     iget v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->recoveryAttempt:I
 
     return v0
@@ -390,7 +390,7 @@
     .parameter "x0"
 
     .prologue
-    .line 62
+    .line 63
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     return-object v0
@@ -401,7 +401,7 @@
     .parameter "x0"
 
     .prologue
-    .line 62
+    .line 63
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     return-object v0
@@ -412,7 +412,7 @@
     .parameter "x0"
 
     .prologue
-    .line 62
+    .line 63
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mKeyboardView:Lcom/android/internal/widget/PasswordEntryKeyboardView;
 
     return-object v0
@@ -425,22 +425,22 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 293
+    .line 294
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setEnabled(Z)V
 
-    .line 294
+    .line 295
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mKeyboardView:Lcom/android/internal/widget/PasswordEntryKeyboardView;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/PasswordEntryKeyboardView;->setEnabled(Z)V
 
-    .line 295
+    .line 296
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v6
 
-    .line 296
+    .line 297
     .local v6, elapsedRealtime:J
     new-instance v0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen$6;
 
@@ -454,7 +454,7 @@
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen$6;->start()Landroid/os/CountDownTimer;
 
-    .line 314
+    .line 315
     return-void
 .end method
 
@@ -468,16 +468,16 @@
 
     const/4 v10, 0x1
 
-    .line 189
+    .line 190
     invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodManager;->getEnabledInputMethodList()Ljava/util/List;
 
     move-result-object v1
 
-    .line 192
+    .line 193
     .local v1, enabledImis:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodInfo;>;"
     const/4 v2, 0x0
 
-    .line 194
+    .line 195
     .local v2, filteredImisCount:I
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -497,23 +497,23 @@
 
     check-cast v5, Landroid/view/inputmethod/InputMethodInfo;
 
-    .line 196
+    .line 197
     .local v5, imi:Landroid/view/inputmethod/InputMethodInfo;
     if-le v2, v10, :cond_1
 
-    .line 222
+    .line 223
     .end local v5           #imi:Landroid/view/inputmethod/InputMethodInfo;
     :goto_1
     return v10
 
-    .line 197
+    .line 198
     .restart local v5       #imi:Landroid/view/inputmethod/InputMethodInfo;
     :cond_1
     invoke-virtual {p1, v5, v10}, Landroid/view/inputmethod/InputMethodManager;->getEnabledInputMethodSubtypeList(Landroid/view/inputmethod/InputMethodInfo;Z)Ljava/util/List;
 
     move-result-object v8
 
-    .line 200
+    .line 201
     .local v8, subtypes:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
 
@@ -521,17 +521,17 @@
 
     if-eqz v11, :cond_2
 
-    .line 201
+    .line 202
     add-int/lit8 v2, v2, 0x1
 
-    .line 202
+    .line 203
     goto :goto_0
 
-    .line 205
+    .line 206
     :cond_2
     const/4 v0, 0x0
 
-    .line 206
+    .line 207
     .local v0, auxCount:I
     invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -552,7 +552,7 @@
 
     check-cast v7, Landroid/view/inputmethod/InputMethodSubtype;
 
-    .line 207
+    .line 208
     .local v7, subtype:Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v7}, Landroid/view/inputmethod/InputMethodSubtype;->isAuxiliary()Z
 
@@ -560,12 +560,12 @@
 
     if-eqz v11, :cond_3
 
-    .line 208
+    .line 209
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
-    .line 211
+    .line 212
     .end local v7           #subtype:Landroid/view/inputmethod/InputMethodSubtype;
     :cond_4
     invoke-interface {v8}, Ljava/util/List;->size()I
@@ -574,7 +574,7 @@
 
     sub-int v6, v11, v0
 
-    .line 216
+    .line 217
     .local v6, nonAuxCount:I
     if-gtz v6, :cond_5
 
@@ -582,14 +582,14 @@
 
     if-le v0, v10, :cond_0
 
-    .line 217
+    .line 218
     :cond_5
     add-int/lit8 v2, v2, 0x1
 
-    .line 218
+    .line 219
     goto :goto_0
 
-    .line 222
+    .line 223
     .end local v0           #auxCount:I
     .end local v4           #i$:Ljava/util/Iterator;
     .end local v5           #imi:Landroid/view/inputmethod/InputMethodInfo;
@@ -625,7 +625,7 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 268
+    .line 269
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -636,7 +636,7 @@
 
     move-result-object v1
 
-    .line 269
+    .line 270
     .local v1, entry:Ljava/lang/String;
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
@@ -646,7 +646,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 271
+    .line 272
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -661,43 +661,43 @@
 
     move-result v0
 
-    .line 272
+    .line 273
     .local v0, bRecovery:Z
     if-eqz v0, :cond_1
 
-    .line 273
+    .line 274
     const-string v2, "RecoveryUnlockScreen"
 
     const-string v3, "Success to set LOCK_RECOVERY_ENABLED"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 278
+    .line 279
     :goto_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v2, v5}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->keyguardDone(Z)V
 
-    .line 279
+    .line 280
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v2}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->reportSuccessfulUnlockAttempt()V
 
-    .line 280
+    .line 281
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->setInstructionText(Ljava/lang/String;)V
 
-    .line 281
+    .line 282
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
     move-result-object v2
 
     invoke-virtual {v2, v1}, Landroid/security/KeyStore;->password(Ljava/lang/String;)Z
 
-    .line 288
+    .line 289
     .end local v0           #bRecovery:Z
     :cond_0
     :goto_1
@@ -707,21 +707,21 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 289
+    .line 290
     return-void
 
-    .line 275
+    .line 276
     .restart local v0       #bRecovery:Z
     :cond_1
     const-string v2, "RecoveryUnlockScreen"
 
     const-string v3, "Failed to set LOCK_RECOVERY_ENABLED"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 283
+    .line 284
     .end local v0           #bRecovery:Z
     :cond_2
     iget v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->recoveryAttempt:I
@@ -730,14 +730,14 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->recoveryAttempt:I
 
-    .line 284
+    .line 285
     iget v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->recoveryAttempt:I
 
     rem-int/lit8 v2, v2, 0x1
 
     if-nez v2, :cond_0
 
-    .line 285
+    .line 286
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v2, v5}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->reportDeviceWipe(I)V
@@ -751,12 +751,12 @@
     .locals 1
 
     .prologue
-    .line 264
+    .line 265
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->removeCallback(Ljava/lang/Object;)V
 
-    .line 265
+    .line 266
     return-void
 .end method
 
@@ -764,7 +764,7 @@
     .locals 1
 
     .prologue
-    .line 236
+    .line 237
     const/4 v0, 0x1
 
     return v0
@@ -774,10 +774,10 @@
     .locals 3
 
     .prologue
-    .line 324
+    .line 325
     invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
 
-    .line 325
+    .line 326
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -786,7 +786,7 @@
 
     move-result-object v0
 
-    .line 326
+    .line 327
     .local v0, config:Landroid/content/res/Configuration;
     iget v1, v0, Landroid/content/res/Configuration;->orientation:I
 
@@ -800,7 +800,7 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 328
+    .line 329
     :cond_0
     iget v1, v0, Landroid/content/res/Configuration;->orientation:I
 
@@ -814,14 +814,14 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 329
+    .line 330
     const-string v1, "RecoveryUnlockScreen"
 
     const-string v2, "Layout issue break out condition, but execute workaround code"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 334
+    .line 335
     :cond_1
     return-void
 .end method
@@ -831,10 +831,10 @@
     .parameter "newConfig"
 
     .prologue
-    .line 339
+    .line 340
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 340
+    .line 341
     iget v0, p1, Landroid/content/res/Configuration;->orientation:I
 
     iget v1, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCreationOrientation:I
@@ -847,13 +847,13 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 342
+    .line 343
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v0, p1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->recreateMe(Landroid/content/res/Configuration;)V
 
-    .line 344
+    .line 345
     :cond_1
     return-void
 .end method
@@ -865,7 +865,7 @@
     .parameter "event"
 
     .prologue
-    .line 353
+    .line 354
     if-eqz p2, :cond_0
 
     const/4 v0, 0x6
@@ -876,14 +876,14 @@
 
     if-ne p2, v0, :cond_1
 
-    .line 355
+    .line 356
     :cond_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->verifyPasswordAndUnlock()V
 
-    .line 356
+    .line 357
     const/4 v0, 0x1
 
-    .line 358
+    .line 359
     :goto_0
     return v0
 
@@ -899,12 +899,12 @@
     .parameter "event"
 
     .prologue
-    .line 318
+    .line 319
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 319
+    .line 320
     const/4 v0, 0x0
 
     return v0
@@ -915,7 +915,7 @@
     .parameter "isKeyboardOpen"
 
     .prologue
-    .line 348
+    .line 349
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mKeyboardView:Lcom/android/internal/widget/PasswordEntryKeyboardView;
 
     if-eqz p1, :cond_0
@@ -925,10 +925,10 @@
     :goto_0
     invoke-virtual {v1, v0}, Lcom/android/internal/widget/PasswordEntryKeyboardView;->setVisibility(I)V
 
-    .line 349
+    .line 350
     return-void
 
-    .line 348
+    .line 349
     :cond_0
     const/4 v0, 0x0
 
@@ -939,12 +939,12 @@
     .locals 1
 
     .prologue
-    .line 241
+    .line 242
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->onPause()V
 
-    .line 242
+    .line 243
     return-void
 .end method
 
@@ -954,7 +954,7 @@
     .parameter "previouslyFocusedRect"
 
     .prologue
-    .line 231
+    .line 232
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     invoke-virtual {v0, p1, p2}, Landroid/widget/EditText;->requestFocus(ILandroid/graphics/Rect;)Z
@@ -968,36 +968,36 @@
     .locals 4
 
     .prologue
-    .line 246
+    .line 247
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mResuming:Z
 
-    .line 248
+    .line 249
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mStatusViewManager:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     invoke-virtual {v2}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->onResume()V
 
-    .line 251
+    .line 252
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     const-string v3, ""
 
     invoke-virtual {v2, v3}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 252
+    .line 253
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mPasswordEntry:Landroid/widget/EditText;
 
     invoke-virtual {v2}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 255
+    .line 256
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-virtual {v2}, Lcom/android/internal/widget/LockPatternUtils;->getLockoutAttemptDeadline()J
 
     move-result-wide v0
 
-    .line 256
+    .line 257
     .local v0, deadline:J
     const-wide/16 v2, 0x0
 
@@ -1005,15 +1005,15 @@
 
     if-eqz v2, :cond_0
 
-    .line 257
+    .line 258
     invoke-direct {p0, v0, v1}, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->handleAttemptLockout(J)V
 
-    .line 259
+    .line 260
     :cond_0
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/sec/RecoveryUnlockScreen;->mResuming:Z
 
-    .line 260
+    .line 261
     return-void
 .end method

@@ -132,6 +132,12 @@
 .method private static native nativeGetCookie(Ljava/lang/String;Z)Ljava/lang/String;
 .end method
 
+.method private static native nativeGetCookieNumber()I
+.end method
+
+.method private static native nativeGetCookieSize()I
+.end method
+
 .method private static native nativeHasCookies(Z)Z
 .end method
 
@@ -396,6 +402,30 @@
     const/4 v2, 0x0
 
     goto :goto_0
+.end method
+
+.method public getCookieNumber()I
+    .locals 1
+
+    .prologue
+    .line 194
+    invoke-static {}, Landroid/webkit/CookieManagerClassic;->nativeGetCookieNumber()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public getCookieSize()I
+    .locals 1
+
+    .prologue
+    .line 190
+    invoke-static {}, Landroid/webkit/CookieManagerClassic;->nativeGetCookieSize()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public declared-synchronized hasCookies()Z

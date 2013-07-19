@@ -30,16 +30,16 @@
     .parameter "args"
 
     .prologue
-    .line 1001
+    .line 1031
     invoke-direct {p0}, Ljava/lang/Exception;-><init>()V
 
-    .line 1002
+    .line 1032
     iput-object p1, p0, Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;->mMethod:Ljava/lang/reflect/Method;
 
-    .line 1003
+    .line 1033
     iput-object p2, p0, Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;->mArgs:[Ljava/lang/String;
 
-    .line 1004
+    .line 1034
     return-void
 .end method
 
@@ -49,7 +49,7 @@
     .locals 7
 
     .prologue
-    .line 1008
+    .line 1038
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;->mMethod:Ljava/lang/reflect/Method;
 
@@ -70,14 +70,14 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 1020
+    .line 1050
     return-void
 
-    .line 1009
+    .line 1039
     :catch_0
     move-exception v1
 
-    .line 1010
+    .line 1040
     .local v1, ex:Ljava/lang/IllegalAccessException;
     new-instance v2, Ljava/lang/RuntimeException;
 
@@ -85,43 +85,43 @@
 
     throw v2
 
-    .line 1011
+    .line 1041
     .end local v1           #ex:Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v1
 
-    .line 1012
+    .line 1042
     .local v1, ex:Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v1}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
 
     move-result-object v0
 
-    .line 1013
+    .line 1043
     .local v0, cause:Ljava/lang/Throwable;
     instance-of v2, v0, Ljava/lang/RuntimeException;
 
     if-eqz v2, :cond_0
 
-    .line 1014
+    .line 1044
     check-cast v0, Ljava/lang/RuntimeException;
 
     .end local v0           #cause:Ljava/lang/Throwable;
     throw v0
 
-    .line 1015
+    .line 1045
     .restart local v0       #cause:Ljava/lang/Throwable;
     :cond_0
     instance-of v2, v0, Ljava/lang/Error;
 
     if-eqz v2, :cond_1
 
-    .line 1016
+    .line 1046
     check-cast v0, Ljava/lang/Error;
 
     .end local v0           #cause:Ljava/lang/Throwable;
     throw v0
 
-    .line 1018
+    .line 1048
     .restart local v0       #cause:Ljava/lang/Throwable;
     :cond_1
     new-instance v2, Ljava/lang/RuntimeException;
