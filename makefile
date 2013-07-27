@@ -12,7 +12,7 @@ local-out-zip-file := MIUI_note.zip
 local-previous-target-dir := ~/workspace/ota_base/note
 
 # All apps from original ZIP, but has smali files chanded
-local-modified-apps := Camera OriginalSettings FmRadio SnoteT0
+local-modified-apps := Camera OriginalSettings FmRadio
 
 local-modified-jars :=
 
