@@ -557,18 +557,14 @@
 
     move-result v2
 
-<<<<<<< HEAD
-    .line 555
-=======
->>>>>>> 1fe46df... new strategy to lock keyguard when there are many fail unlock attempts
     .local v2, failedAttemptsBeforeWipe:I
     const/16 v0, 0x8
->>>>>>> 1fe46df... new strategy to lock keyguard when there are many fail unlock attempts
+
     .local v0, failedAttemptWarning:I
     if-lez v2, :cond_2
 
     sub-int v4, v2, v1
->>>>>>> 1fe46df... new strategy to lock keyguard when there are many fail unlock attempts
+
     .local v4, remainingBeforeWipe:I
     :goto_1
     const/4 v9, 0x5

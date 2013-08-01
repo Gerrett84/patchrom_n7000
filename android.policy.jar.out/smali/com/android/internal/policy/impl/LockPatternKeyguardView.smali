@@ -7248,7 +7248,7 @@
     return-void
 
     .line 1079
->>>>>>> 1fe46df... new strategy to lock keyguard when there are many fail unlock attempts
+
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mUnlockScreenMode:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
