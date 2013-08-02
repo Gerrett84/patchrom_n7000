@@ -1116,7 +1116,7 @@
 
     .prologue
     .line 114
-    invoke-direct {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->showTimeoutDialog()V
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->showTimeoutDialog()V
 
     return-void
 .end method
@@ -4746,7 +4746,7 @@
     goto :goto_0
 .end method
 
-.method private showTimeoutDialog()V
+.method protected showTimeoutDialog()V
     .locals 8
     .annotation build Landroid/annotation/MiuiHook;
         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_ACCESS:Landroid/annotation/MiuiHook$MiuiHookType;
