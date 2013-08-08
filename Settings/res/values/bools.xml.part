@@ -5,4 +5,5 @@
     <bool name="mass_storage_enable">true</bool>
     <bool name="has_volume_wake">true</bool>
     <bool name="has_dock_settings">false</bool>
+    <bool name="disable_move_to_sd">false</bool>
 </resources>
