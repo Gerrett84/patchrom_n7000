@@ -1,0 +1,50 @@
+
+*** These modified files were found in JOE when it aborted on Thu Jun  6 14:24:24 2013
+*** JOE was aborted by UNIX signal 1
+
+*** Datei '.git/COMMIT_EDITMSG'
+pick code from android 4.2, fix media scanner slow issue
+
+MIUI-14439
+
+Change-Id: Ia1a2d381e2ab8f614c752db62ad92d4bc0ff5773
+Ref-Id: I67a008073070dfb48c3fb5d3a522dfd00a5c3a3c
+
+Conflicts:
+
+	framework.jar.out/smali/android/media/MediaScanner.smali
+#
+# It looks like you may be committing a cherry-pick.
+# If this is not correct, please remove the file
+#	.git/CHERRY_PICK_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    mochangming <mochangming@xiaomi.com>
+#
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Changes to be committed:
+#
+#	modified:   framework.jar.out/smali/android/media/MediaScanner$MyMediaScannerClient.smali
+#	modified:   framework.jar.out/smali/android/media/MediaScanner.smali
+#
+-q!
+:q!
+	ch 
+*** Datei '(Unbenannt)'
+.git/COMMIT_EDITMSG
+.git/COMMIT_EDITMSG
+.git/COMMIT_EDITMSG
+.git/COMMIT_EDITMSG
+.git/COMMIT_EDITMSG
+.git/COMMIT_EDITMSG
+.git/COMMIT_EDITMSG
+.git/COMMIT_EDITMSG
+.git/COMMIT_EDITMSG
+.git/COMMIT_EDITMSG
+.git/COMMIT_EDITMSG
