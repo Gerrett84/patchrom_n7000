@@ -1007,8 +1007,6 @@
 
     invoke-virtual {v1, v10}, Landroid/widget/FrameLayout;->setSystemUiVisibility(I)V
 
-    invoke-static {p0}, Lcom/android/internal/policy/impl/KeyguardViewManager$Injector;->updateDisplayDesktopFlag(Lcom/android/internal/policy/impl/KeyguardViewManager;)V
-
     .line 201
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;
 
