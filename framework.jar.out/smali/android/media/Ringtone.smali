@@ -702,7 +702,6 @@
     .parameter "defaultUri"
 
     .prologue
-
     invoke-virtual {p0, p1, p2}, Landroid/media/Ringtone;->setUriOrig(Landroid/net/Uri;Landroid/net/Uri;)Z
 
     return-void
@@ -786,7 +785,6 @@
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 221
     :cond_1
     :goto_1
     iget-object v3, p0, Landroid/media/Ringtone;->mContext:Landroid/content/Context;
@@ -805,7 +803,6 @@
 
     if-eqz v3, :cond_2
 
-    .line 222
     const-string v3, "Ringtone"
 
     const-string v4, "Successfully created local player"

@@ -765,17 +765,14 @@
 
     invoke-virtual {v5, v6}, Landroid/view/Window;->addFlags(I)V
 
-    .line 431
-    invoke-virtual {v4}, Landroid/app/ProgressDialog;->show()V
+    invoke-static {p0}, Lcom/android/server/pm/ShutdownThread$Injector;->createShutDownDialog(Landroid/content/Context;)V
 
     goto/16 :goto_2
 
-    .line 442
     .end local v4           #pd:Landroid/app/ProgressDialog;
     :catch_1
     move-exception v1
 
-    .line 443
     .restart local v1       #e:Ljava/lang/SecurityException;
     const-string v5, "ShutdownThread"
 
@@ -2091,13 +2088,13 @@
 
     move-result-object v2
 
-    .line 245
     .local v2, dialog:Landroid/app/AlertDialog;
+    invoke-static {v2}, Lcom/android/server/pm/ShutdownThread$Injector;->setDialogTitle(Landroid/app/Dialog;)V
+
     sget-boolean v8, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
 
     if-eqz v8, :cond_9
 
-    .line 246
     const v8, 0x104018c
 
     invoke-virtual {v1, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -2144,7 +2141,6 @@
 
     invoke-virtual {v8, v9}, Landroid/view/Window;->setType(I)V
 
-    .line 261
     :goto_5
     invoke-virtual {v2}, Landroid/app/AlertDialog;->show()V
 
@@ -2152,7 +2148,6 @@
 
     goto/16 :goto_0
 
-    .line 206
     .end local v0           #closer:Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;
     .end local v1           #context:Landroid/content/Context;
     .end local v2           #dialog:Landroid/app/AlertDialog;
