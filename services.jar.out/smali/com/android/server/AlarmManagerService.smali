@@ -3003,28 +3003,43 @@
 
     invoke-static {v8, v9}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 236
     :cond_3
+    iget-object v0, p0, Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
+
+    move v1, p1
+
+    move-wide v2, p2
+
+    move-wide v4, p4
+
+    invoke-static/range {v0 .. v5}, Lcom/android/server/ExtraAlarmManagerService;->alignAlarm(Landroid/content/Context;IJJ)[J
+
+    move-result-object v2
+
+    const/4 v0, 0x0
+
+    aget-wide p2, v2, v0
+
+    const/4 v0, 0x1
+
+    aget-wide p4, v2, v0
+
     iget-object v9, p0, Lcom/android/server/AlarmManagerService;->mLock:Ljava/lang/Object;
 
     monitor-enter v9
 
-    .line 237
     :try_start_0
     new-instance v4, Lcom/android/server/AlarmManagerService$Alarm;
 
     invoke-direct {v4}, Lcom/android/server/AlarmManagerService$Alarm;-><init>()V
 
-    .line 238
     .local v4, alarm:Lcom/android/server/AlarmManagerService$Alarm;
     iput p1, v4, Lcom/android/server/AlarmManagerService$Alarm;->type:I
 
-    .line 239
     move-wide/from16 v0, p2
 
     iput-wide v0, v4, Lcom/android/server/AlarmManagerService$Alarm;->when:J
 
-    .line 240
     move-wide/from16 v0, p4
 
     iput-wide v0, v4, Lcom/android/server/AlarmManagerService$Alarm;->repeatInterval:J
@@ -3034,32 +3049,26 @@
 
     iput-object v0, v4, Lcom/android/server/AlarmManagerService$Alarm;->operation:Landroid/app/PendingIntent;
 
-    .line 245
     sget-boolean v8, Lcom/android/server/AlarmManagerService;->APP_SYNC_ON:Z
 
     if-eqz v8, :cond_a
 
-    .line 246
     move-wide/from16 v0, p2
 
     iput-wide v0, v4, Lcom/android/server/AlarmManagerService$Alarm;->whenOriginal:J
 
-    .line 247
     iget-object v8, p0, Lcom/android/server/AlarmManagerService;->mSyncScheduler:Lcom/android/server/AlarmManagerService$SyncScheduler;
 
     if-eqz v8, :cond_5
 
-    .line 248
     sget-boolean v8, Lcom/android/server/AlarmManagerService;->APP_SYNC_LOG:Z
 
     if-eqz v8, :cond_4
 
-    .line 249
     new-instance v6, Landroid/text/format/Time;
 
     invoke-direct {v6}, Landroid/text/format/Time;-><init>()V
 
-    .line 250
     .local v6, time:Landroid/text/format/Time;
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
