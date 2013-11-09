@@ -666,33 +666,28 @@
 
     if-lt v2, v3, :cond_4
 
-    .line 160
     const v2, 0x60d003e
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v2}, Lcom/android/internal/app/ResolverActivity;->setTheme(I)V
 
-    .line 166
     :goto_2
     move-object/from16 v0, p0
 
     iget-object v10, v0, Lcom/android/internal/app/ResolverActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    .line 168
     .local v10, ap:Lcom/android/internal/app/AlertController$AlertParams;
     move-object/from16 v0, p3
 
     iput-object v0, v10, Lcom/android/internal/app/AlertController$AlertParams;->mTitle:Ljava/lang/CharSequence;
 
-    .line 169
     move-object/from16 v0, p3
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/internal/app/ResolverActivity;->mTitle:Ljava/lang/CharSequence;
 
-    .line 171
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/app/ResolverActivity;->mPackageMonitor:Lcom/android/internal/content/PackageMonitor;
