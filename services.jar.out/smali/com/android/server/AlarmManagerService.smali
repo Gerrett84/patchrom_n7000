@@ -3008,9 +3008,9 @@
 
     move v1, p1
 
-    move-wide v2, p2
+    move-wide/from16 v2, p2
 
-    move-wide v4, p4
+    move-wide/from16 v4, p4
 
     invoke-static/range {v0 .. v5}, Lcom/android/server/ExtraAlarmManagerService;->alignAlarm(Landroid/content/Context;IJJ)[J
 
