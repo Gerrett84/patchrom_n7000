@@ -1024,8 +1024,6 @@
     goto :goto_4
 .end method
 
-.end method
-
 .method private updateDrawableBounds(II)V
     .locals 13
     .parameter "w"
