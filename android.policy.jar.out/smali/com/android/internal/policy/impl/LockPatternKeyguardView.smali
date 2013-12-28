@@ -4059,40 +4059,6 @@
 
     .prologue
     .line 1808
-    const-string v3, "LockPatternKeyguardView"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "SamsungLockScreenProperties.wipeInternalExternalSd() ="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->wipeInternalExternalSd()Z
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1809
-    invoke-static {}, Lcom/android/internal/policy/impl/sec/SamsungLockScreenProperties;->wipeInternalExternalSd()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    .line 1810
     invoke-direct {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->getResetProgressDialog()Landroid/app/Dialog;
 
     move-result-object v3
