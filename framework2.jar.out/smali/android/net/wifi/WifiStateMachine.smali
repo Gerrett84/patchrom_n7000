@@ -5339,7 +5339,6 @@
 
     iput v0, p0, Landroid/net/wifi/WifiStateMachine;->mDriverStartToken:I
 
-<<<<<<< HEAD
     return v0
 .end method
 
