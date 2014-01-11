@@ -68,6 +68,20 @@
     goto :goto_0
 .end method
 
+.method public static checkPin(Ljava/lang/String;I)Lcom/android/internal/policy/impl/UnlockSimHelper$UnlockSimResult;
+    .locals 1
+    .parameter "pinCode"
+    .parameter "simId"
+
+    .prologue
+    .line 34
+    invoke-static {p0}, Lcom/android/internal/policy/impl/UnlockSimHelper;->checkPin(Ljava/lang/String;)Lcom/android/internal/policy/impl/UnlockSimHelper$UnlockSimResult;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static checkPuk(Ljava/lang/String;Ljava/lang/String;I)Lcom/android/internal/policy/impl/UnlockSimHelper$UnlockSimResult;
     .locals 3
     .parameter "pinCode"

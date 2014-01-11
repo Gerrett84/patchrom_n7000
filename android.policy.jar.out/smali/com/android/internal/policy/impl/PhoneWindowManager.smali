@@ -1684,20 +1684,6 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 1253
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mReportWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mReportWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    .line 1254
-    :cond_0
     return-void
 .end method
 
@@ -2626,9 +2612,7 @@
     .locals 7
 
     .prologue
-    const-wide/16 v5, 0x96
-
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
     .line 1231
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mOneTouchReportChordEnabled:Z
@@ -2667,27 +2651,29 @@
     .local v0, now:J
     iget-wide v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownKeyTime:J
 
-    add-long/2addr v2, v5
+    iget-wide v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeUpKeyTime:J
 
-    cmp-long v2, v0, v2
+    sub-long/2addr v2, v4
 
-    if-gtz v2, :cond_0
+    invoke-static {v2, v3}, Ljava/lang/Math;->abs(J)J
 
-    iget-wide v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeUpKeyTime:J
+    move-result-wide v2
 
-    add-long/2addr v2, v5
+    long-to-float v2, v2
 
-    cmp-long v2, v0, v2
+    const/high16 v3, 0x4348
 
-    if-gtz v2, :cond_0
+    cmpg-float v2, v2, v3
+
+    if-gez v2, :cond_0
+
+    .line 1239
+    iput-boolean v6, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownKeyConsumedByOneTouchReportChord:Z
 
     .line 1240
-    iput-boolean v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownKeyConsumedByOneTouchReportChord:Z
+    iput-boolean v6, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeUpKeyConsumedByOneTouchReportChord:Z
 
     .line 1241
-    iput-boolean v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeUpKeyConsumedByOneTouchReportChord:Z
-
-    .line 1242
     invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->cancelPendingPowerKeyAction()V
 
     .line 1243
@@ -2699,7 +2685,9 @@
     .line 1245
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mReportWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    const-wide/16 v3, 0x1388
+
+    invoke-virtual {v2, v3, v4}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     .line 1246
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHandler:Landroid/os/Handler;
@@ -21565,7 +21553,7 @@
 .end method
 
 .method public mustBeForceHidden(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;Landroid/view/WindowManager$LayoutParams;II)Z
-    .locals 4
+    .locals 7
     .parameter "win"
     .parameter "attrs"
     .parameter "attachAttrs"
@@ -21573,47 +21561,55 @@
     .parameter "attachedWindowMode"
 
     .prologue
-    const/4 v1, 0x0
+    const/16 v6, 0x835
 
-    .line 8682
-    iget-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHideWindow:Z
+    const/16 v5, 0x834
 
-    if-eqz v2, :cond_1
+    const/4 v1, 0x1
 
-    .line 8683
+    const/4 v2, 0x0
+
+    .line 8680
+    iget-boolean v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHideWindow:Z
+
+    if-eqz v3, :cond_4
+
+    .line 8681
     invoke-static {p4}, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;->option(I)I
 
-    move-result v2
+    move-result v3
 
-    sget v3, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;->WINDOW_MODE_OPTION_COMMON_PINUP:I
+    sget v4, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;->WINDOW_MODE_OPTION_COMMON_PINUP:I
 
-    and-int/2addr v2, v3
+    and-int/2addr v3, v4
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
     invoke-static {p5}, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;->option(I)I
 
-    move-result v2
+    move-result v3
 
-    sget v3, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;->WINDOW_MODE_OPTION_COMMON_PINUP:I
+    sget v4, Lcom/android/internal/policy/impl/MultiWindowReflector$Policy;->WINDOW_MODE_OPTION_COMMON_PINUP:I
 
-    and-int/2addr v2, v3
+    and-int/2addr v3, v4
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_3
 
-    .line 8687
+    .line 8685
     :cond_0
     const/high16 v0, 0x48
 
-    .line 8689
+    .line 8687
     .local v0, mask:I
-    iget v2, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
+    iget v3, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    and-int/2addr v2, v0
+    and-int/2addr v3, v0
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_2
 
-    .line 8700
+    move v1, v2
+
+    .line 8707
     .end local v0           #mask:I
     :cond_1
     :goto_0
@@ -21622,19 +21618,64 @@
     .line 8692
     .restart local v0       #mask:I
     :cond_2
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_1
 
     .line 8693
-    iget v2, p3, Landroid/view/WindowManager$LayoutParams;->flags:I
+    iget v3, p3, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    and-int/2addr v2, v0
+    and-int/2addr v3, v0
 
-    if-nez v2, :cond_1
+    if-eqz v3, :cond_1
+
+    move v1, v2
+
+    .line 8694
+    goto :goto_0
 
     .line 8697
+    .end local v0           #mask:I
     :cond_3
-    const/4 v1, 0x1
+    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/MiuiKeyguardViewMediator;
 
+    if-eqz v3, :cond_4
+
+    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/MiuiKeyguardViewMediator;
+
+    invoke-virtual {v3}, Lcom/android/internal/policy/impl/MiuiKeyguardViewMediator;->isShowing()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    iget-boolean v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHideLockScreen:Z
+
+    if-eqz v3, :cond_4
+
+    .line 8698
+    iget v3, p2, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    if-eq v3, v5, :cond_1
+
+    iget v3, p2, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    if-eq v3, v6, :cond_1
+
+    .line 8700
+    if-eqz p3, :cond_4
+
+    .line 8701
+    iget v3, p3, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    if-eq v3, v5, :cond_1
+
+    iget v3, p3, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    if-eq v3, v6, :cond_1
+
+    :cond_4
+    move v1, v2
+
+    .line 8707
     goto :goto_0
 .end method
 
@@ -26917,6 +26958,20 @@
     move-result-object v20
 
     const-string v21, "SGH-T989"
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v20
+
+    if-nez v20, :cond_11
+
+    const-string v20, "ro.product.model"
+
+    invoke-static/range {v20 .. v20}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v20
+
+    const-string v21, "SGH-I717"
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 

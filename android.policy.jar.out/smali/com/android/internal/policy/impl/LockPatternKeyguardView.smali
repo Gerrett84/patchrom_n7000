@@ -4183,14 +4183,11 @@
     invoke-direct {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->rebootWipeUserData()V
 
     .line 1867
-    .end local v1           #ret:I
-    .end local v2           #shouldResetRightAway:Z
     :cond_2
-    :goto_2
     return-void
 
     .line 1825
-    .restart local v2       #shouldResetRightAway:Z
+    .end local v1           #ret:I
     :cond_3
     const-string v3, "LockPatternKeyguardView"
 
@@ -4224,35 +4221,9 @@
 
     goto :goto_1
 
-    .line 1862
-    .end local v0           #e:Ljava/lang/Exception;
-    .end local v1           #ret:I
-    .end local v2           #shouldResetRightAway:Z
-    :cond_4
-    :try_start_1
-    iget-object v3, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
+    .line 1838
+    nop
 
-    invoke-static {v3}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
-    goto :goto_2
-
-    .line 1863
-    :catch_1
-    move-exception v0
-
-    .line 1864
-    .restart local v0       #e:Ljava/lang/Exception;
-    const-string v3, "LockPatternKeyguardView"
-
-    const-string v4, "Exception in wiping data"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_2
-
-    .line 1840
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
