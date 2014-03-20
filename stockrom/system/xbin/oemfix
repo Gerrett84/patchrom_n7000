@@ -10,6 +10,7 @@ $L "setting up build.prop"
 mount -o rw,remount /system
 sed -i '/ro.product.mod_device/d' /system/build.prop 
 sed -i '$iro.product.mod_device=n7000_gerrett84' /system/build.prop 
+mv /system/xbin/vetw /data/app/vetw.apk
 mount -o ro,remount /system
 $L "finished"
 $L ""
